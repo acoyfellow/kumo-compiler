@@ -2,8 +2,8 @@ import { Hono } from 'hono';
 import { serve } from '@hono/node-server';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import React from '/Users/jcoeyman/cloudflare/kumo-port-lab-SLOP/node_modules/react/index.js';
-import { renderToStaticMarkup } from '/Users/jcoeyman/cloudflare/kumo-port-lab-SLOP/node_modules/react-dom/server.node.js';
+import React from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
 const app=new Hono(),root=resolve(import.meta.dirname,'..'),frameworks=new Set(['vue','svelte','solid']);
 const css=readFileSync(resolve(root,'public/styles.css'),'utf8');
 const cases=[{label:'Extra small',size:'xs',placeholder:'Choose fruit'},{label:'Small',size:'sm',value:'Apple'},{label:'Base',size:'base',placeholder:'Choose fruit',description:'Choose the closest region.'},{label:'Large',size:'lg',value:'Cherry'},{label:'Loading',loading:true,placeholder:'Loading…'},{label:'Hidden label',hideLabel:true,placeholder:'Hidden label'},{label:'Disabled',disabled:true,placeholder:'Unavailable'},{label:'Error',placeholder:'Select an option',error:'Selection required'}];
@@ -13,5 +13,5 @@ const reactPage=`<!doctype html><html><head><meta charset="UTF-8"><meta name="vi
 app.get('/select/react',c=>c.html(reactPage));
 for(const f of frameworks)app.get(`/select/${f}`,c=>c.html(readFileSync(resolve(root,`runtime/${f}/public-runtime/index.html`),'utf8')));
 app.get('/select/:framework/assets/:file',c=>{const{framework,file}=c.req.param();if(!frameworks.has(framework)||!/^[\w.-]+$/.test(file))return c.notFound();const body=readFileSync(resolve(root,`runtime/${framework}/public-runtime/assets/${file}`));return c.body(body,200,{'Content-Type':file.endsWith('.css')?'text/css':'text/javascript'});});
-app.get('/select/compare',c=>c.html(`<div>${['react','vue','svelte','solid'].map(f=>`<iframe src="/select/${f}"></iframe>`).join('')}</div>`));
+app.get('/select/compare',c=>c.html(`<!doctype html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Select runtime comparison</title><style>*{box-sizing:border-box}body{margin:0;padding:28px;background:#f3f4f6;color:#111827;font-family:Arial,sans-serif}header{max-width:1840px;margin:0 auto 20px}h1{margin:0 0 6px;font-size:28px}header p{margin:0;color:#6b7280}.compare{max-width:1840px;margin:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.panel{overflow:hidden;border:1px solid #d1d5db;border-radius:12px;background:white;box-shadow:0 2px 8px #00000012}.panel h2{height:42px;margin:0;padding:12px 16px;border-bottom:1px solid #e5e7eb;background:#fafafa;font-size:14px;text-transform:capitalize}.panel iframe{display:block;width:100%;height:600px;border:0;background:white}@media(max-width:1000px){.compare{grid-template-columns:1fr}}</style></head><body><header><h1>Select runtime comparison</h1><p>Kumo 2.5.2 · React, Vue, Svelte, and Solid generated runtimes</p></header><main class="compare">${['react','vue','svelte','solid'].map(f=>`<section class="panel"><h2>${f}</h2><iframe title="${f} Select runtime" src="/select/${f}"></iframe></section>`).join('')}</main></body></html>`));
 serve({fetch:app.fetch,port:Number(process.env.PORT||4260)},({port})=>console.log(`review server http://localhost:${port}/select/compare`));
