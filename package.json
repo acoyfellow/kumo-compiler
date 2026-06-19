@@ -11,7 +11,9 @@
     "catalog:build": "node benchmarks/catalog.mjs --build",
     "deploy:prepare": "npm run build:runtimes && npm run catalog:build",
     "proof:select": "npm run build:runtimes && node proof/select-proof.mjs && npm pack --dry-run --ignore-scripts && npm run catalog:validate",
-    "test": "npm run proof:select"
+    "workflow:complete": "node scripts/workflow-complete.mjs",
+    "test": "npm run test:workflow && npm run proof:select",
+    "test:workflow": "node --test test/workflow-runner.test.mjs"
   },
   "keywords": [],
   "author": "",
