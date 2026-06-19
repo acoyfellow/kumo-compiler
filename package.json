@@ -5,14 +5,17 @@
   "main": "index.js",
   "scripts": {
     "compile": "node src/compiler.mjs",
+    "compile:button": "node src/button-compiler.mjs",
     "build:runtimes": "npm run compile && vite build runtime/react && vite build runtime/vue && vite build runtime/svelte && vite build runtime/solid",
+    "build:button": "npm run compile:button && vite build runtime/button/react && vite build runtime/button/vue && vite build runtime/button/svelte && vite build runtime/button/solid",
     "serve": "node review/server.mjs",
     "catalog:validate": "node benchmarks/catalog.mjs",
     "catalog:build": "node benchmarks/catalog.mjs --build",
     "deploy:prepare": "npm run build:runtimes && npm run catalog:build",
     "proof:select": "npm run build:runtimes && node proof/select-proof.mjs && npm pack --dry-run --ignore-scripts && npm run catalog:validate",
+    "proof:button": "npm run build:button && node proof/button-proof.mjs && npm pack --dry-run --ignore-scripts && npm run catalog:validate",
     "workflow:complete": "node scripts/workflow-complete.mjs",
-    "test": "npm run test:workflow && npm run proof:select",
+    "test": "npm run test:workflow && npm run proof:select && npm run proof:button",
     "test:workflow": "node --test test/workflow-runner.test.mjs"
   },
   "keywords": [],

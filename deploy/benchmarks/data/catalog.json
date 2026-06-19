@@ -37,6 +37,32 @@
         },
         "pixelHash": "324dd6f13f6c908f4e5e7d4c5d8bac6cce0de6d9883cc6d199fa3be8aa219669"
       }
+    },
+    {
+      "id": "button",
+      "name": "Button",
+      "status": "proved",
+      "routes": {
+        "dashboard": "/button/compare/",
+        "react": "/button/react/",
+        "vue": "/button/vue/",
+        "svelte": "/button/svelte/",
+        "solid": "/button/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/button-proof.mjs",
+        "spec": "specs/button.json"
+      },
+      "metrics": {
+        "states": 12,
+        "runtimeCount": 4
+      }
     }
   ]
 }

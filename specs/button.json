@@ -1,0 +1,11 @@
+{
+  "name": "Button",
+  "element": "button",
+  "variants": ["primary", "secondary", "outline", "danger", "ghost"],
+  "sizes": ["xs", "sm", "base", "lg"],
+  "props": ["label", "variant", "size", "disabled", "loading", "iconOnly", "type"],
+  "keyboard": ["Enter", "Space"],
+  "aria": ["aria-busy", "aria-disabled", "aria-label"],
+  "rendering": ["ssr", "hydrate"],
+  "states": ["default", "disabled", "loading", "icon-only"]
+}
