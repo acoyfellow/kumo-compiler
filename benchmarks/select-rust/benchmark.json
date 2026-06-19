@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "benchmark": "select-rust-vs-node",
+  "spec": "specs/select.json",
+  "frameworks": ["vue", "svelte", "solid"],
+  "iterationsDefault": 20,
+  "minimumIterations": 5,
+  "metrics": ["rustWallMs", "nodeWallMs", "outputBytes", "byteEquivalent"],
+  "timingScope": ["process startup", "spec parsing", "source generation", "directory creation", "file writes"],
+  "excluded": ["cargo release build", "framework builds", "bundling", "SSR", "hydration"],
+  "resultFile": "results.json",
+  "command": "node benchmarks/select-rust/benchmark.mjs"
+}
