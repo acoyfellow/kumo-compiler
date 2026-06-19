@@ -5,8 +5,8 @@ const components=catalog.components.map(component=>({
  name:component.name,
  status:component.status,
  page:`/components/${component.id}/`,
- benchmark:component.routes.dashboard.startsWith('/benchmarks/')?component.routes.dashboard:'/benchmarks/',
- compare:component.routes.dashboard.startsWith('/benchmarks/')?`/${component.id}/compare/`:component.routes.dashboard,
+ benchmark:`/benchmarks/components/${component.id}/`,
+ compare:`/${component.id}/compare/`,
  reason:component.status==='proved'?'All catalog proof artifacts are present':component.blockedReason
 }));
 ---

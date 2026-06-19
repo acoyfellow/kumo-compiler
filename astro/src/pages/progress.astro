@@ -1,0 +1,10 @@
+---
+import Layout from '../layouts/Layout.astro';
+import catalog from '../../../benchmarks/catalog.json';
+---
+<Layout title="Compiler progress · Kumo">
+  <h1>Compiler progress</h1>
+  <p>Every catalog component links to its local proof page.</p>
+  <div class="grid">{catalog.components.map(component => <article><a href={`/components/${component.id}/`}>{component.name}</a><strong class={component.status}>{component.status}</strong><p>{component.frameworks.length} generated runtimes</p></article>)}</div>
+  <style>.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:30px}article{background:#fff;border:1px solid #d1d5db;border-radius:12px;padding:16px}article>a{font-size:18px;font-weight:800;color:#2563eb}strong{float:right}.proved{color:#15803d}p{color:#64748b}</style>
+</Layout>

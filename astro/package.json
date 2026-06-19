@@ -1,1 +1,1 @@
-{"type":"module","scripts":{"dev":"astro dev","build":"astro build"},"dependencies":{"astro":"^5.13.2"},"devDependencies":{}}
+{"type":"module","scripts":{"dev":"astro dev","build":"astro build","validate:routes":"astro build && node ../scripts/validate-astro-routes.mjs"},"dependencies":{"astro":"^5.13.2"},"devDependencies":{}}
