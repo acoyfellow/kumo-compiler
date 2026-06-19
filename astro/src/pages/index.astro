@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+import catalog from '../../../benchmarks/catalog.json';
+const components=catalog.components.map(component=>({
+ name:component.name,
+ status:component.status,
+ page:`/components/${component.id}/`,
+ benchmark:component.routes.dashboard.startsWith('/benchmarks/')?component.routes.dashboard:'/benchmarks/',
+ compare:component.routes.dashboard.startsWith('/benchmarks/')?`/${component.id}/compare/`:component.routes.dashboard,
+ reason:component.status==='proved'?'All catalog proof artifacts are present':component.blockedReason
+}));
+---
+<Layout title="Kumo compiler directory"><h1>Kumo compiler directory</h1><p>Canonical directory generated from the benchmark catalog and its proof artifacts.</p><div class="grid">{components.map(component=><article><div class="top"><a href={component.page}>{component.name}</a><span class={component.status}>{component.status}</span></div><p>{component.reason}</p><div class="links"><a href={component.benchmark}>benchmark</a><a href={component.compare}>compare</a></div></article>)}</div><style>.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:30px}article{background:white;border:1px solid #d1d5db;border-radius:12px;padding:16px}.top{display:flex;justify-content:space-between;align-items:center}.top a{font-weight:800;font-size:18px;color:#111827;text-decoration:none}.proved{color:#15803d}.blocked{color:#b91c1c}.queued{color:#a16207}p{color:#64748b}.links{display:flex;gap:14px}.links a{font-weight:700;color:#2563eb}</style></Layout>

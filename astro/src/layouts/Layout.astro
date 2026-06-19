@@ -1,0 +1,4 @@
+---
+const { title='Kumo Compiler' } = Astro.props;
+---
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>{title}</title><style>body{margin:0;background:#f3f4f6;color:#111827;font:16px system-ui}.nav{display:flex;align-items:center;gap:16px;padding:20px 32px;border-bottom:1px solid #d1d5db;background:white}.logo{font-weight:900;font-size:24px;text-decoration:none;color:#111827}.back{font-size:14px;text-decoration:none;color:#64748b}.shell{max-width:1180px;margin:auto;padding:42px 32px}</style></head><body><nav class="nav"><a class="logo" href="/">Kumo</a><a class="back" href="/">← back</a></nav><main class="shell"><slot/></main></body></html>

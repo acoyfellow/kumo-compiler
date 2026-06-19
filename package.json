@@ -18,8 +18,15 @@
     "proof:button": "npm run build:button && node proof/button-proof.mjs && npm pack --dry-run --ignore-scripts && npm run catalog:validate",
     "proof:dialog": "npm run build:dialog && node proof/dialog-proof.mjs && npm pack --dry-run --ignore-scripts && npm run catalog:validate",
     "workflow:complete": "node scripts/workflow-complete.mjs",
-    "test": "npm run test:workflow && npm run proof:select && npm run proof:button && npm run proof:dialog",
-    "test:workflow": "node --test test/workflow-runner.test.mjs"
+    "test": "npm run test:workflow && npm run proof:select && npm run proof:button && npm run proof:dialog && npm run proof:popover",
+    "test:workflow": "node --test test/workflow-runner.test.mjs",
+    "compile:native-controls": "node src/native-control-compiler.mjs",
+    "build:native-controls": "npm run compile:native-controls && vite build runtime/checkbox/react && node scripts/native-react-index.mjs checkbox && vite build runtime/checkbox/vue && vite build runtime/checkbox/svelte && vite build runtime/checkbox/solid && vite build runtime/switch/react && node scripts/native-react-index.mjs switch && vite build runtime/switch/vue && vite build runtime/switch/svelte && vite build runtime/switch/solid",
+    "proof:native-controls": "npm run build:native-controls && node proof/native-control-proof.mjs && npm pack --dry-run --ignore-scripts && npm run catalog:validate",
+    "compile:popover": "node src/popover-compiler.mjs",
+    "build:popover": "npm run compile:popover && vite build runtime/popover/react && node -e \"const fs=require('fs');fs.copyFileSync('runtime/popover/react/index.html','runtime/popover/react/public-runtime/index.html');let p=fs.readFileSync('runtime/popover/react/public-runtime/index.html','utf8').replace('/src/main.jsx','/popover/react/assets/react-popover.js');fs.writeFileSync('runtime/popover/react/public-runtime/index.html',p)\" && vite build runtime/popover/vue && vite build runtime/popover/svelte && vite build runtime/popover/solid",
+    "proof:popover": "npm run build:popover && node proof/popover-proof.mjs && npm pack --dry-run --ignore-scripts && npm run catalog:validate",
+    "directory:validate": "npm --prefix astro run build && node scripts/validate-directory.mjs"
   },
   "keywords": [],
   "author": "",
