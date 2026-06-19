@@ -1,0 +1,29 @@
+{
+  "name": "kumo-compiler",
+  "version": "1.0.0",
+  "description": "Clean compiler restart.",
+  "main": "index.js",
+  "scripts": {
+    "compile": "node src/compiler.mjs",
+    "build:runtimes": "npm run compile && vite build runtime/vue && vite build runtime/svelte && vite build runtime/solid",
+    "serve": "node review/server.mjs",
+    "test": "npm run build:runtimes"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@hono/node-server": "^2.0.5",
+    "hono": "^4.12.26"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.1.2",
+    "@vitejs/plugin-vue": "^6.0.7",
+    "solid-js": "^1.9.13",
+    "svelte": "^5.56.3",
+    "vite": "^8.0.16",
+    "vite-plugin-solid": "^2.11.12",
+    "vue": "^3.5.38"
+  }
+}

@@ -1,0 +1,1 @@
+<script>import Select from './Select.svelte'; import '../../../public/styles.css';</script><main><h1>Select</h1><Select label="Fruit" placeholder="Choose fruit" description="Choose the closest region."/><Select label="Error" error="Selection required"/></main>
