@@ -63,6 +63,21 @@
         "states": 12,
         "runtimeCount": 4
       }
+    },
+    {
+      "id": "dialog",
+      "name": "Dialog",
+      "status": "proved",
+      "routes": {
+        "dashboard": "/dialog/compare/",
+        "react": "/dialog/react/",
+        "vue": "/dialog/vue/",
+        "svelte": "/dialog/svelte/",
+        "solid": "/dialog/solid/"
+      },
+      "frameworks": ["react", "vue", "svelte", "solid"],
+      "evidence": {"proof": "proof/dialog-proof.mjs", "spec": "specs/dialog.json"},
+      "metrics": {"states": 6, "runtimeCount": 4, "ssrHydration": true}
     }
   ]
 }

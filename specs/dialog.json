@@ -1,0 +1,10 @@
+{
+  "name": "Dialog",
+  "element": "dialog",
+  "sizes": ["sm", "md", "lg", "full"],
+  "props": ["title", "description", "size", "modal", "open", "closeButton", "closeOnEscape"],
+  "states": ["closed", "open", "modal", "non-modal", "no-close-button", "escape-disabled"],
+  "keyboard": ["Escape", "Tab", "Shift+Tab"],
+  "aria": ["aria-labelledby", "aria-describedby", "aria-modal"],
+  "rendering": ["ssr", "hydrate"]
+}
