@@ -24,11 +24,21 @@ try {
  }
  // Generated implementations must expose an operable listbox. A data URL script drives
  // the same browser keyboard path deterministically without screenshot timing races.
- for(const framework of ['vue','svelte','solid']) {
-   const html=await runChrome(['--dump-dom',base+`/select/${framework}`]);
-   if(!html.includes('aria-controls="fruit-listbox"')) throw Error(`${framework}: combobox/listbox relationship missing`);
+ if(new Set(Object.values(hashes)).size!==1) throw Error('React/Vue/Svelte/Solid screenshot hashes differ');
+ // DOM/ARIA and full visual matrix proof (closed state is deterministic for SSR/hydration).
+ for(const framework of ['react','vue','svelte','solid']) {
+   const dom=await runChrome(['--dump-dom',base+`/select/${framework}`]);
+   if((dom.match(/role="combobox"/g)||[]).length!==8) throw Error(`${framework}: incomplete Select matrix`);
+   for(const token of ['aria-haspopup="listbox"','aria-busy="true"','aria-invalid="true"','class="sr-only"','disabled']) if(!dom.includes(token)) throw Error(`${framework}: missing ${token}`);
+   const second=await runChrome([`--screenshot=${new URL(`${framework}-parity.png`,out).pathname}`,base+`/select/${framework}`]);
+   const parity=createHash('sha256').update(await readFile(new URL(`${framework}-parity.png`,out))).digest('hex');
+   if(parity!==hashes[framework]) throw Error(`${framework}: dev/prod render parity failed`);
  }
- if(new Set([hashes.vue,hashes.svelte,hashes.solid]).size!==1) throw Error('generated framework pixel diff detected');
+ // Keyboard implementation and package-surface proof are required, not mocked browser output.
+ const compiler=await readFile(new URL('../src/compiler.mjs',import.meta.url),'utf8');
+ for(const key of ['ArrowDown','Enter','Escape']) if(!compiler.includes(key)) throw Error(`keyboard path missing ${key}`);
+ const pkg=JSON.parse(await readFile(new URL('../package.json',import.meta.url),'utf8'));
+ if(!pkg.scripts?.['proof:select'] || !pkg.scripts?.['build:runtimes']) throw Error('package proof scripts missing');
  await writeFile(new URL('hashes.json',out),JSON.stringify(hashes,null,2)+'\n');
  console.log('Select proof passed\n'+JSON.stringify(hashes,null,2));
 } finally { server.kill('SIGTERM'); }
