@@ -27,4 +27,5 @@ app.get('/select/:framework/assets/:file', (c) => {
 });
 app.get('/select/compare', (c) => c.html(`<!doctype html><html><head><meta charset="utf-8"><title>Select runtime comparison</title><style>body{margin:0;background:#111;color:#fff;font:14px system-ui}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:16px}.cell{min-width:0;border:1px solid #444}.label{padding:8px;background:#222;font-weight:700}iframe{display:block;width:100%;height:420px;border:0}</style></head><body><div class="grid">${[['React','react'],['Vue','vue'],['Svelte','svelte'],['Solid','solid']].map(([label,route]) => `<div class="cell"><div class="label">${label} runtime</div><iframe title="${label}" src="/select/${route}"></iframe></div>`).join('')}</div></body></html>`));
 
-serve({ fetch: app.fetch, port: 4260 }, ({ port }) => console.log(`review server http://localhost:${port}/select/compare`));
+const port = Number(process.env.PORT || 4260);
+serve({ fetch: app.fetch, port }, ({ port }) => console.log(`review server http://localhost:${port}/select/compare`));

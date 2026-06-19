@@ -7,7 +7,8 @@
     "compile": "node src/compiler.mjs",
     "build:runtimes": "npm run compile && vite build runtime/vue && vite build runtime/svelte && vite build runtime/solid",
     "serve": "node review/server.mjs",
-    "test": "npm run build:runtimes"
+    "proof:select": "npm run build:runtimes && node proof/select-proof.mjs && npm pack --dry-run --ignore-scripts",
+    "test": "npm run proof:select"
   },
   "keywords": [],
   "author": "",
