@@ -16,7 +16,12 @@
         "svelte": "/benchmarks/embed/select/svelte/kitchen-sink/",
         "solid": "/benchmarks/embed/select/solid/kitchen-sink/"
       },
-      "frameworks": ["react", "vue", "svelte", "solid"],
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
       "evidence": {
         "node": "benchmarks/select-node/results.json",
         "rust": "benchmarks/select-rust/benchmark.json",
@@ -25,7 +30,11 @@
       "metrics": {
         "runtimeBuildMedianMs": 1204.6584169999996,
         "runtimeBuildP95Ms": 1563.689375,
-        "bundleBytes": { "vue": 63454, "svelte": 46472, "solid": 16286 },
+        "bundleBytes": {
+          "vue": 63454,
+          "svelte": 46472,
+          "solid": 16286
+        },
         "pixelHash": "324dd6f13f6c908f4e5e7d4c5d8bac6cce0de6d9883cc6d199fa3be8aa219669"
       }
     }

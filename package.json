@@ -7,7 +7,10 @@
     "compile": "node src/compiler.mjs",
     "build:runtimes": "npm run compile && vite build runtime/react && vite build runtime/vue && vite build runtime/svelte && vite build runtime/solid",
     "serve": "node review/server.mjs",
-    "proof:select": "npm run build:runtimes && node proof/select-proof.mjs && npm pack --dry-run --ignore-scripts",
+    "catalog:validate": "node benchmarks/catalog.mjs",
+    "catalog:build": "node benchmarks/catalog.mjs --build",
+    "deploy:prepare": "npm run build:runtimes && npm run catalog:build",
+    "proof:select": "npm run build:runtimes && node proof/select-proof.mjs && npm pack --dry-run --ignore-scripts && npm run catalog:validate",
     "test": "npm run proof:select"
   },
   "keywords": [],
