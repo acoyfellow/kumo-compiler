@@ -22,7 +22,7 @@ async function resolvesToOutput(pathname){
 const htmlFiles=(await files(dist)).filter(file=>file.endsWith('.html'));
 const failures=[];
 const rootHtml=await readFile(resolve(dist,'index.html'),'utf8');
-for(const disclosure of ['Which implementation should compile Kumo?','TypeScript reference compiler','Build Go, Rust, and Zig','Developer and agent experience'])
+for(const disclosure of ['Which implementation should compile Kumo?','TypeScript reference compiler','Compare compiler languages','Run the architectural bake-off','Mitosis','Shared core'])
  if(!rootHtml.includes(disclosure))failures.push(`root compiler roadmap missing: ${disclosure}`);
 const typeScriptHtml=await readFile(resolve(dist,'typescript/index.html'),'utf8');
 for(const disclosure of ['>41</strong>','>164</strong>','browser-verified surfaces','@cloudflare/kumo@2.5.2'])
@@ -40,7 +40,7 @@ for(const file of htmlFiles){
   if(!await resolvesToOutput(pathname))failures.push(`${file.slice(dist.length)} -> ${pathname}`);
  }
 }
-const required=['/','/typescript/','/go/','/rust/','/zig/',...catalog.components.map(({id})=>`/components/${id}/`)];
+const required=['/','/typescript/','/go/','/rust/','/zig/','/mitosis/','/shared-core/',...catalog.components.map(({id})=>`/components/${id}/`)];
 for(const route of required)if(!await resolvesToOutput(route))failures.push(`required route missing: ${route}`);
 if(failures.length)throw new Error(`Broken local Astro routes:\n${failures.join('\n')}`);
 console.log(`Validated ${required.length} required routes and ${links} local links across ${htmlFiles.length} Astro pages`);

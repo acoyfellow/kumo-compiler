@@ -28,6 +28,10 @@ Retain immutable deploy artifacts, manifest identity, receipts, production proof
 
 A receipt supports only its named claim and revision. Screenshots or successful builds alone do not establish parity. See [evidence authority](docs/explanation/evidence-authority.md), [deployment](docs/runbooks/deployment.md), and [evidence reproduction](docs/how-to/reproduce-evidence.md).
 
+## Roadmap
+
+The current implementation is the immutable comparison baseline. The active architectural bake-off—internal compilers, Builder.io Mitosis, and a shared behavior core—is specified in [Compiler bake-off](docs/roadmap/compiler-bake-off.md).
+
 ## Documentation
 
 - [Add a component](docs/how-to/add-component.md) · [first proof](docs/tutorials/first-proof.md)
