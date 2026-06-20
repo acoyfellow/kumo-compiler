@@ -10,7 +10,7 @@ const here=path.dirname(fileURLToPath(import.meta.url));
 const candidate=path.resolve(here,'../..');
 const root=path.resolve(candidate,'../..');
 const runId='ter_20260620195237367_ru53g4';
-const dependencyRoot=process.env.KUMO_DEPENDENCY_ROOT||'/Users/jcoeyman/cloudflare/kumo-compiler/node_modules';
+const dependencyRoot=process.env.KUMO_DEPENDENCY_ROOT||path.join(root,'node_modules');
 const chrome=process.env.CHROME_PATH||'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const revision=execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim();
 const frameworks=['react','vue','svelte','solid'];
@@ -22,7 +22,7 @@ const resolvePackage=name=>{for(const base of [path.join(candidate,'node_modules
 const canonical=x=>JSON.stringify(x,(_,v)=>typeof v==='string'?v.replace(/https?:\/\/127\.0\.0\.1:\d+/g,'http://127.0.0.1:<PORT>').replaceAll(root,'<ROOT>'):v);
 
 async function cdpBrowser(html){
- const tmp=fs.mkdtempSync('/tmp/kumo-select-cdp-'),profile=path.join(tmp,'profile');
+ const tmp=fs.mkdtempSync(path.join(process.env.TMPDIR||'/tmp','kumo-select-cdp-')),profile=path.join(tmp,'profile');
  const server=http.createServer((req,res)=>{res.setHeader('content-type','text/html');res.end(html)});await new Promise(r=>server.listen(0,'127.0.0.1',r));const port=server.address().port;
  const cp=spawn(chrome,['--headless=new','--no-first-run','--no-default-browser-check',`--user-data-dir=${profile}`,'--remote-debugging-port=0',`http://127.0.0.1:${port}`],{stdio:['ignore','ignore','pipe']});
  let stderr='';cp.stderr.on('data',d=>stderr+=d);const active=path.join(profile,'DevToolsActivePort');for(let i=0;i<100&&!fs.existsSync(active);i++)await new Promise(r=>setTimeout(r,50));
