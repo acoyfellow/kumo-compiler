@@ -35,6 +35,7 @@
     "build:navigation": "npm run compile:navigation && node scripts/build-from-manifest.mjs navigation",
     "proof:navigation": "npm run build:navigation && node proof/navigation-proof.mjs && npm run package:verify && npm run catalog:validate",
     "compile:kumo": "tsc -p tsconfig.kumo.json && node dist/kumo/compiler.js",
+    "build:kumo:vue": "npm run compile:kumo && node scripts/build-from-manifest.mjs kumo-vue",
     "verify:kumo:vue": "node scripts/verify-kumo-vue.mjs",
     "generate:kumo:react": "node scripts/generate-canonical-react-runtimes.mjs",
     "build:kumo:react": "npm run generate:kumo:react && node scripts/build-canonical-react-runtimes.mjs",
