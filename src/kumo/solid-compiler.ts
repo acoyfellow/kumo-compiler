@@ -1,6 +1,7 @@
 import {createHash} from 'node:crypto';
 import {mkdir,readFile,writeFile} from 'node:fs/promises';
 import {catalog} from './catalog.js';
+import {assertValidComponentIR} from './validate.js';
 import type {ComponentIR,Node,Provenance} from './schema.js';
 
 const hash=(value:string)=>createHash('sha256').update(value).digest('hex');
@@ -76,7 +77,7 @@ export default function Select(){const [open,setOpen]=createSignal(false),[activ
 }
 const emitter=await readFile('src/kumo/solid-compiler.ts','utf8'),source=await readFile('src/kumo/catalog.ts','utf8');
 const solidIds=['select','button','dialog','popover','badge','checkbox','switch','field','input','input-group','input-area','sensitive-input','clipboard-text','tabs','menu-bar','sidebar','breadcrumbs','table-of-contents','banner','surface','layer-card','grid','grid-item','loader','meter','empty','label','link','text','cloudflare-logo','code','table','radio','autocomplete','combobox','command-palette','date-picker','date-range-picker','dropdown-menu','toasty','pagination'];
-for(const ir of catalog.filter(x=>solidIds.includes(x.id))){const dir=`runtime/${ir.id}/solid`;await mkdir(`${dir}/src`,{recursive:true});const css=await readFile(ir.id==='button'?'public/button.css':ir.id==='dialog'?'public/dialog.css':ir.id==='popover'?'public/popover.css':ir.family==='native-control'?'public/native-control.css':ir.family==='form'?'public/form.css':ir.family==='navigation'?'public/navigation.css':ir.family==='selection-command-date'?'public/selection-command-date.css':'public/styles.css','utf8');const initial=html(ir.root!);const outputs:Record<string,string>={
+for(const ir of catalog.filter(x=>solidIds.includes(x.id))){assertValidComponentIR(ir);const dir=`runtime/${ir.id}/solid`;await mkdir(`${dir}/src`,{recursive:true});const css=await readFile(ir.id==='button'?'public/button.css':ir.id==='dialog'?'public/dialog.css':ir.id==='popover'?'public/popover.css':ir.family==='native-control'?'public/native-control.css':ir.family==='form'?'public/form.css':ir.family==='navigation'?'public/navigation.css':ir.family==='selection-command-date'?'public/selection-command-date.css':'public/styles.css','utf8');const initial=html(ir.root!);const outputs:Record<string,string>={
  'src/App.tsx':app(ir),
  'src/client.tsx':`import './style.css';\nimport {hydrate} from 'solid-js/web';\nimport App from './App';\nhydrate(()=> <App/>,document.getElementById('app')!);\n`,
  'src/server.tsx':`import {generateHydrationScript,renderToString} from 'solid-js/web';\nimport App from './App';\nexport const render=()=>({html:renderToString(()=> <App/>),hydration:generateHydrationScript()});\n`,
