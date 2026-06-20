@@ -1,0 +1,25 @@
+{
+  "candidate": "shared-core-native-select",
+  "component": "Select",
+  "runId": "ter_20260620195355674_8fznxm",
+  "revisions": {
+    "kumo": "0882d40a5f451516dcfa5bd9740e2857c686b654",
+    "candidate": "0882d40a5f451516dcfa5bd9740e2857c686b654"
+  },
+  "verdict": "blocked",
+  "failClosed": true,
+  "gateCounts": {
+    "passed": 10,
+    "failed": 0,
+    "blocked": 46,
+    "not-run": 0
+  },
+  "evidenceDigest": "sha256:78a2d15d58212fcafeae2946fdedda06f81ed8ab79dd41b03894fd8e7e03a6d3",
+  "determinism": {
+    "normalization": [
+      "ephemeral localhost ports",
+      "checkout root paths"
+    ],
+    "canonicalDigest": "sha256:78a2d15d58212fcafeae2946fdedda06f81ed8ab79dd41b03894fd8e7e03a6d3"
+  }
+}

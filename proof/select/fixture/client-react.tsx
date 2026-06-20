@@ -1,0 +1,1 @@
+import React from 'react';import{hydrateRoot}from'react-dom/client';import{App}from'./react.tsx';(globalThis as any).__events=[];hydrateRoot(document.getElementById('app')!,<App/>);(globalThis as any).__hydrated=true;
