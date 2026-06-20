@@ -1,0 +1,10 @@
+{
+  "family": "native-control",
+  "element": "input",
+  "members": {
+    "checkbox": {"role": "checkbox", "labels": ["Accept terms", "Email updates", "Disabled", "Required"], "states": ["unchecked", "checked", "disabled", "required"]},
+    "switch": {"role": "switch", "labels": ["Airplane mode", "Notifications", "Disabled", "Compact"], "states": ["off", "on", "disabled", "compact"]}
+  },
+  "policy": {"activation": ["Space", "click"], "focus": "native", "formValue": "on", "rendering": ["ssr", "hydrate"], "controlledState": "checked"},
+  "targets": ["react", "vue", "svelte", "solid"]
+}

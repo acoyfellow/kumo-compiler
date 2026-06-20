@@ -1,0 +1,1 @@
+import{defineConfig}from'vite';import solid from'vite-plugin-solid';export default defineConfig({base:'/form/solid/',plugins:[solid()],build:{outDir:'public-runtime',emptyOutDir:true,rollupOptions:{input:'src/main.js',output:{entryFileNames:'assets/solid-form.js',assetFileNames:'assets/[name][extname]'}}}})

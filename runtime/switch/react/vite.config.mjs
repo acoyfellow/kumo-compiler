@@ -1,0 +1,1 @@
+import{defineConfig}from'vite';export default defineConfig({base:'/switch/react/',build:{outDir:'public-runtime',emptyOutDir:true,rollupOptions:{input:'src/main.jsx',output:{entryFileNames:'assets/react-switch.js',assetFileNames:'assets/[name][extname]'}}}})

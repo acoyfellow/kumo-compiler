@@ -1,0 +1,1 @@
+import{readFile,writeFile}from'node:fs/promises';const kind=process.argv[2],p=`runtime/${kind}/react/index.html`;await writeFile(`runtime/${kind}/react/public-runtime/index.html`,(await readFile(p,'utf8')).replace('/src/main.jsx',`/${kind}/react/assets/react-${kind}.js`));
