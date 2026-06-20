@@ -38,6 +38,8 @@ test('catalog pages can frame same-origin runtimes but CSP rejects foreign ances
   assert.equal(runtime.status, 200);
   const csp = runtime.headers.get('content-security-policy');
   assert.match(csp, /(?:^|;)\s*frame-ancestors 'self'(?:;|$)/);
+  assert.match(csp, /(?:^|;)\s*style-src 'self' 'unsafe-inline'(?:;|$)/);
+  assert.match(csp, /(?:^|;)\s*script-src 'self' 'unsafe-inline' https:\/\/static\.cloudflareinsights\.com https:\/\/static-staging\.cloudflareinsights\.com(?:;|$)/);
   assert.doesNotMatch(csp, /frame-ancestors https?:\/\//);
   assert.equal(runtime.headers.get('x-frame-options'), 'SAMEORIGIN');
 });

@@ -1,0 +1,176 @@
+{
+  "schemaVersion": "kumo.receipt/v3",
+  "component": "banner",
+  "framework": "react",
+  "classification": "passed",
+  "canonicalInput": true,
+  "browserEvidence": {
+    "runId": "2026-06-20T16-39-35-306Z-66099",
+    "manifest": "generated/browser-evidence/runs/2026-06-20T16-39-35-306Z-66099.json",
+    "manifestSha256": "f928446ae851766ce62445800a361c6714175340494a74eb2aff7fe66ff504df",
+    "evidence": "generated/browser-evidence/react/banner/03b277e7506da614a816baa856050c1163aa2c357df283bdd1039fa2d95d07cf/evidence.json",
+    "evidenceDigest": "03b277e7506da614a816baa856050c1163aa2c357df283bdd1039fa2d95d07cf",
+    "browserIdentity": {
+      "framework": "react",
+      "component": "banner",
+      "url": "http://127.0.0.1:4260/banner/react/",
+      "browser": {
+        "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "product": "Chrome/149.0.7827.156",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+        "protocolVersion": "1.3"
+      }
+    }
+  },
+  "sourceEvidence": {
+    "manifest": "audit/kumo-react-2.5.2.provenance.json",
+    "package": {
+      "name": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/cloudflare/kumo.git",
+        "directory": "packages/kumo"
+      },
+      "packageJsonSha256": "c405c3bf83d49bb4bb61f38d7e10bcd37b2f62c04c2d99dee314aae1faa8cd7b"
+    },
+    "npmLock": {
+      "resolved": "https://registry.npmjs.org/@cloudflare/kumo/-/kumo-2.5.2.tgz",
+      "integrity": "sha512-HUNi40VG3ExJ7lV8HjqPQcGpCmm2CqG/SzjJ+K+NhCwZRYTBvagdoMDPX2XZ8AW/ZPEeuFoId0VYmzrX+luyXQ=="
+    },
+    "exportPath": "./components/banner",
+    "export": {
+      "types": "./dist/src/components/banner/index.d.ts",
+      "import": "./dist/components/banner.js"
+    },
+    "mapping": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/banner",
+      "symbol": "Banner"
+    },
+    "files": [
+      {
+        "path": "dist/chunks/banner-es5iwuk4pf25e29e.js",
+        "sha256": "585e461806809e258959dab0ef266503dbbf23e2f415332217ededbdfafb66e5",
+        "bytes": 3334
+      },
+      {
+        "path": "dist/chunks/banner-es5iwuk4pf25e29e.js.map",
+        "sha256": "c899edbbee9d5ac8d265fc2b20c243dca6dbdd45c02e4749534f7bc02d8bac81",
+        "bytes": 9547
+      },
+      {
+        "path": "dist/components/banner.js",
+        "sha256": "975c8e5dd5be3e8bf6f1722e2c8d962d3e257b93ed2a94d54e172b70a29f03c6",
+        "bytes": 168
+      },
+      {
+        "path": "dist/components/banner.js.map",
+        "sha256": "c954dd7c24580b355e17151d9e1477f014b60161868b68390ea879c1ed581790",
+        "bytes": 92
+      },
+      {
+        "path": "dist/src/components/banner/banner.d.ts",
+        "sha256": "2717bbfa59e514c2921a9a199c0a2a250cabe366a3616e25b61e9d2d68715ff3",
+        "bytes": 4455
+      },
+      {
+        "path": "dist/src/components/banner/banner.d.ts.map",
+        "sha256": "4100019744afbfc381e6dae8b5691b51ee2e39f0d7b850a92627c80b525a5c45",
+        "bytes": 1128
+      },
+      {
+        "path": "dist/src/components/banner/index.d.ts",
+        "sha256": "06f9e323a9516dea442a2832081f60e4e38d58e7603accba1d812d7789fe1e3b",
+        "bytes": 85
+      },
+      {
+        "path": "dist/src/components/banner/index.d.ts.map",
+        "sha256": "dae0a65927a6107f4e236c6f3835571f44b75e9f5f121778a19bfd7baa00d2d5",
+        "bytes": 180
+      }
+    ],
+    "generatedSources": [
+      {
+        "path": "runtime-canonical/banner/entry.jsx",
+        "sha256": "cc66f010efb12cd651333817d9a8e4cb98a68127260132527cd7c2ee01bbdfe0"
+      },
+      {
+        "path": "runtime-canonical/banner/fixture.jsx",
+        "sha256": "baa1bfb520eb50f89ddf96e6fb121a591751dc8388cb43de2c6196ba52112f57"
+      },
+      {
+        "path": "runtime-canonical/banner/server.jsx",
+        "sha256": "92cdc8fc79d49065203f65dbf65cd6d81c333a835de4296f0eb1766f61896b68"
+      },
+      {
+        "path": "runtime-canonical/banner/client.jsx",
+        "sha256": "25e6f33a1c3828eac69785c62e523ef9b53a9912f93cfa8d3093448e23956612"
+      }
+    ],
+    "bindingVerified": true,
+    "mismatches": []
+  },
+  "routes": {
+    "build": "runtime-canonical/banner",
+    "runtime": "/banner/react",
+    "directory": "/components/banner/"
+  },
+  "checks": {
+    "canonicalSourceProvenance": {
+      "status": "passed",
+      "reason": "exact npm package identity, export and relevant byte hashes match the attestation"
+    },
+    "packageEvidence": {
+      "status": "passed",
+      "reason": "package identity and relevant bytes match"
+    },
+    "productionBuild": {
+      "status": "passed",
+      "reason": "canonical server/client entry graph generated directly against public package export"
+    },
+    "runtimeRoute": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "ssrMarkup": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "hydration": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "assetsStyles": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "console": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "network": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "domAria": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "behaviorVectors": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "screenshotPixel": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    }
+  },
+  "limitations": [
+    "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+  ],
+  "determinism": {
+    "canonicalManifestHash": "e995c99274c467a310c6c65a6780e39e8e3db622fd6d94930be4359382f0bf63",
+    "mappingHash": "1d210d6f32647f4e4420029da9c553b4237940f7038ca912543073c94bb789cd"
+  }
+}

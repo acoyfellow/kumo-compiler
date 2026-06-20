@@ -1,0 +1,186 @@
+{
+  "schemaVersion": "kumo.receipt/v3",
+  "component": "autocomplete",
+  "framework": "react",
+  "classification": "passed",
+  "canonicalInput": true,
+  "browserEvidence": {
+    "runId": "2026-06-20T16-39-35-306Z-66099",
+    "manifest": "generated/browser-evidence/runs/2026-06-20T16-39-35-306Z-66099.json",
+    "manifestSha256": "f928446ae851766ce62445800a361c6714175340494a74eb2aff7fe66ff504df",
+    "evidence": "generated/browser-evidence/react/autocomplete/530baa319286d7a63e696ae6b2a69e6bebc763ed517fcccab9efa25bf55f9749/evidence.json",
+    "evidenceDigest": "530baa319286d7a63e696ae6b2a69e6bebc763ed517fcccab9efa25bf55f9749",
+    "browserIdentity": {
+      "framework": "react",
+      "component": "autocomplete",
+      "url": "http://127.0.0.1:4260/autocomplete/react/",
+      "browser": {
+        "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "product": "Chrome/149.0.7827.156",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+        "protocolVersion": "1.3"
+      }
+    }
+  },
+  "sourceEvidence": {
+    "manifest": "audit/kumo-react-2.5.2.provenance.json",
+    "package": {
+      "name": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/cloudflare/kumo.git",
+        "directory": "packages/kumo"
+      },
+      "packageJsonSha256": "c405c3bf83d49bb4bb61f38d7e10bcd37b2f62c04c2d99dee314aae1faa8cd7b"
+    },
+    "npmLock": {
+      "resolved": "https://registry.npmjs.org/@cloudflare/kumo/-/kumo-2.5.2.tgz",
+      "integrity": "sha512-HUNi40VG3ExJ7lV8HjqPQcGpCmm2CqG/SzjJ+K+NhCwZRYTBvagdoMDPX2XZ8AW/ZPEeuFoId0VYmzrX+luyXQ=="
+    },
+    "exportPath": "./components/autocomplete",
+    "export": {
+      "types": "./dist/src/components/autocomplete/index.d.ts",
+      "import": "./dist/components/autocomplete.js"
+    },
+    "mapping": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/autocomplete",
+      "symbol": "Autocomplete"
+    },
+    "files": [
+      {
+        "path": "dist/chunks/autocomplete-d52negr21cedr4rm.js",
+        "sha256": "70f55263645284648202c0ce2ed3ae8a4f49015a0c8eb903cbc1e49d05bdba46",
+        "bytes": 4381
+      },
+      {
+        "path": "dist/chunks/autocomplete-d52negr21cedr4rm.js.map",
+        "sha256": "5fdc85bb239cb59dd018572cce5c55d5e47545691594b9098cc16d586e2886a0",
+        "bytes": 13641
+      },
+      {
+        "path": "dist/components/autocomplete.js",
+        "sha256": "929fcaef232cc3c433ddbc7a735581f993a3ea151b5fb00edb92c2984ff7b205",
+        "bytes": 287
+      },
+      {
+        "path": "dist/components/autocomplete.js.map",
+        "sha256": "9d47920fc0a58d25d1b7f8f7a2f67e411ceae4c3f4f5992e60f47c7e2d6e8379",
+        "bytes": 98
+      },
+      {
+        "path": "dist/primitives/autocomplete.js",
+        "sha256": "e4dd359f46dad0ce3077a4ebf173033fd5397a8c8acd441627b6edd181796827",
+        "bytes": 158
+      },
+      {
+        "path": "dist/src/components/autocomplete/autocomplete.d.ts",
+        "sha256": "b9ccd213c06a4d6ec44fd57a57140654cc071ebd7fa75a45aef1e2263e6445d3",
+        "bytes": 6963
+      },
+      {
+        "path": "dist/src/components/autocomplete/autocomplete.d.ts.map",
+        "sha256": "91ea74fd83953017a71baab47cfac3747d1e0e9e4d0f2a74423b3642acc37dcc",
+        "bytes": 3027
+      },
+      {
+        "path": "dist/src/components/autocomplete/index.d.ts",
+        "sha256": "3d9adea79f082b9a890408c3571677d9970e74dff958839fc0af6239c6895701",
+        "bytes": 291
+      },
+      {
+        "path": "dist/src/components/autocomplete/index.d.ts.map",
+        "sha256": "1f8590fa1db9591c913bea65e6b53e0d0adca4bb81bbf9068d57128c6d7a2f51",
+        "bytes": 298
+      },
+      {
+        "path": "dist/src/primitives/autocomplete.d.ts",
+        "sha256": "cf236e0ccfc048e4f05757cde13eb1339fed95121f273c1f02b6def311aa6ede",
+        "bytes": 317
+      }
+    ],
+    "generatedSources": [
+      {
+        "path": "runtime-canonical/autocomplete/entry.jsx",
+        "sha256": "d4e7cf38657ef78b436c04d8fa96e9e89ac5dd46eb01e689b53899b40fd6298a"
+      },
+      {
+        "path": "runtime-canonical/autocomplete/fixture.jsx",
+        "sha256": "d651924ede0e0a5fcd03d3d9b7d5434deecc2bc8f8c779c9c7af51dbecf5ce9c"
+      },
+      {
+        "path": "runtime-canonical/autocomplete/server.jsx",
+        "sha256": "92cdc8fc79d49065203f65dbf65cd6d81c333a835de4296f0eb1766f61896b68"
+      },
+      {
+        "path": "runtime-canonical/autocomplete/client.jsx",
+        "sha256": "25e6f33a1c3828eac69785c62e523ef9b53a9912f93cfa8d3093448e23956612"
+      }
+    ],
+    "bindingVerified": true,
+    "mismatches": []
+  },
+  "routes": {
+    "build": "runtime-canonical/autocomplete",
+    "runtime": "/autocomplete/react",
+    "directory": "/components/autocomplete/"
+  },
+  "checks": {
+    "canonicalSourceProvenance": {
+      "status": "passed",
+      "reason": "exact npm package identity, export and relevant byte hashes match the attestation"
+    },
+    "packageEvidence": {
+      "status": "passed",
+      "reason": "package identity and relevant bytes match"
+    },
+    "productionBuild": {
+      "status": "passed",
+      "reason": "canonical server/client entry graph generated directly against public package export"
+    },
+    "runtimeRoute": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "ssrMarkup": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "hydration": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "assetsStyles": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "console": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "network": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "domAria": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "behaviorVectors": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "screenshotPixel": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    }
+  },
+  "limitations": [
+    "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+  ],
+  "determinism": {
+    "canonicalManifestHash": "1282a6d7bd9d6fdf8ab2ea64f6e27508ebb901264270bf0bb09901e0d1a301e9",
+    "mappingHash": "2dda6ac0ef9f59111cd41d00f5634637c846f173d2b7328f829805b4a30374fe"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "kumo.receipt/v1",
+  "component": "toasty",
+  "framework": "svelte",
+  "browserEvidence": {
+    "runId": "2026-06-20T16-27-26-973Z-49058-svelte",
+    "manifest": "generated/browser-evidence/runs/2026-06-20T16-27-26-973Z-49058-svelte.json",
+    "manifestSha256": "6659e9eab852ba1e6e4edfea6130d4a3bf872dbbaf12b49078d908e4e5717f86",
+    "evidence": "generated/browser-evidence/svelte/toasty/e25d8fb188186693beb77bcaaf3bf887fa4e6185ab7cddbb5c9b2b117aeaecbe/evidence.json",
+    "evidenceDigest": "e25d8fb188186693beb77bcaaf3bf887fa4e6185ab7cddbb5c9b2b117aeaecbe",
+    "browserIdentity": {
+      "framework": "svelte",
+      "component": "toasty",
+      "url": "http://127.0.0.1:49650/toasty/svelte/",
+      "browser": {
+        "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "product": "Chrome/149.0.7827.156",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+        "protocolVersion": "1.3"
+      }
+    }
+  },
+  "checks": {
+    "build": true,
+    "runtime": true,
+    "assets": true,
+    "styles": true,
+    "console": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssrHydration": true,
+    "package": true,
+    "screenshot": true,
+    "nativeSfc": true,
+    "provenance": true,
+    "staticRules": true
+  },
+  "irHash": "26367647e907f9c2cb208ba0da34d513bd298715fcc62dea24bb39e3a49a751f",
+  "emitterHash": "dfdf7b672e93b62169e5c6d8a6291817d3d7a823dc9982dfd331c323417b2459"
+}

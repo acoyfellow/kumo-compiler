@@ -3,7 +3,10 @@ import { deployManifest, runtimeRoute } from './runtime-routes.mjs';
 
 const app = new Hono();
 const securityHeaders = {
-  'Content-Security-Policy': "default-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'self'",
+  // Kumo and Astro emit both <style> blocks and component-level style attributes.
+  // Keep scripts same-origin except for the Cloudflare Web Analytics beacon;
+  // inline scripts remain allowed until the catalog tab handlers are externalized.
+  'Content-Security-Policy': "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://static-staging.cloudflareinsights.com; connect-src 'self' https://cloudflareinsights.com https://*.cloudflareinsights.com; img-src 'self' data:; font-src 'self' data:; object-src 'none'; base-uri 'none'; frame-ancestors 'self'",
   'Referrer-Policy': 'no-referrer',
   'X-Content-Type-Options': 'nosniff',
   'X-Frame-Options': 'SAMEORIGIN',

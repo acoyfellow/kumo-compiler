@@ -1,0 +1,206 @@
+{
+  "schemaVersion": "kumo.receipt/v3",
+  "component": "checkbox",
+  "framework": "react",
+  "classification": "passed",
+  "canonicalInput": true,
+  "browserEvidence": {
+    "runId": "2026-06-20T16-39-35-306Z-66099",
+    "manifest": "generated/browser-evidence/runs/2026-06-20T16-39-35-306Z-66099.json",
+    "manifestSha256": "f928446ae851766ce62445800a361c6714175340494a74eb2aff7fe66ff504df",
+    "evidence": "generated/browser-evidence/react/checkbox/3cd8655fad8819fc5de4717bd433109da25fbfd3d190ed2e82fd9ed3fa07f332/evidence.json",
+    "evidenceDigest": "3cd8655fad8819fc5de4717bd433109da25fbfd3d190ed2e82fd9ed3fa07f332",
+    "browserIdentity": {
+      "framework": "react",
+      "component": "checkbox",
+      "url": "http://127.0.0.1:4260/checkbox/react/",
+      "browser": {
+        "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "product": "Chrome/149.0.7827.156",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+        "protocolVersion": "1.3"
+      }
+    }
+  },
+  "sourceEvidence": {
+    "manifest": "audit/kumo-react-2.5.2.provenance.json",
+    "package": {
+      "name": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/cloudflare/kumo.git",
+        "directory": "packages/kumo"
+      },
+      "packageJsonSha256": "c405c3bf83d49bb4bb61f38d7e10bcd37b2f62c04c2d99dee314aae1faa8cd7b"
+    },
+    "npmLock": {
+      "resolved": "https://registry.npmjs.org/@cloudflare/kumo/-/kumo-2.5.2.tgz",
+      "integrity": "sha512-HUNi40VG3ExJ7lV8HjqPQcGpCmm2CqG/SzjJ+K+NhCwZRYTBvagdoMDPX2XZ8AW/ZPEeuFoId0VYmzrX+luyXQ=="
+    },
+    "exportPath": "./components/checkbox",
+    "export": {
+      "types": "./dist/src/components/checkbox/index.d.ts",
+      "import": "./dist/components/checkbox.js"
+    },
+    "mapping": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/checkbox",
+      "symbol": "Checkbox"
+    },
+    "files": [
+      {
+        "path": "dist/chunks/checkbox-bt4nfv1i2142kykg.js",
+        "sha256": "c376ebaed1faea8520a95c841ca79a0e58017a8a54d007a61037a95796af79d5",
+        "bytes": 7134
+      },
+      {
+        "path": "dist/chunks/checkbox-bt4nfv1i2142kykg.js.map",
+        "sha256": "950821ea0bc8dfc202c45b8f84b6138699dd4b104ec815507d22391b3a0c8acb",
+        "bytes": 20807
+      },
+      {
+        "path": "dist/components/checkbox.js",
+        "sha256": "990c3b30fcadac24cbcf9624332d3fa43ea65264a649e8e8a8a897c071227f33",
+        "bytes": 230
+      },
+      {
+        "path": "dist/components/checkbox.js.map",
+        "sha256": "09110b7f74ee68e719e7cb02968fa350bf4b4500dee3ea90e9b1ae220959d7b3",
+        "bytes": 94
+      },
+      {
+        "path": "dist/primitives/checkbox-group.js",
+        "sha256": "3cb0a709b0c040b833e903c3e29881834c09160240e418490eb3e13ec187a600",
+        "bytes": 161
+      },
+      {
+        "path": "dist/primitives/checkbox-group.js.map",
+        "sha256": "30da24de5cbabf97009f5427b2d057c7396ebc3da5ff8ca69103ab06910acd63",
+        "bytes": 100
+      },
+      {
+        "path": "dist/primitives/checkbox.js",
+        "sha256": "c27b7d5a0abcbe541ae05beaf4dfb3593b4460434d518f74dd37386141138626",
+        "bytes": 150
+      },
+      {
+        "path": "dist/src/components/checkbox/checkbox.d.ts",
+        "sha256": "ee869e79ac55123fea3119ed5afa8847038b2fbc380196a434bd7c95a3301a42",
+        "bytes": 7897
+      },
+      {
+        "path": "dist/src/components/checkbox/checkbox.d.ts.map",
+        "sha256": "86300f271d289d858af6ec253c001988c0ea5a28d97446744ae2fb578ef693b6",
+        "bytes": 2796
+      },
+      {
+        "path": "dist/src/components/checkbox/index.d.ts",
+        "sha256": "b5d863b87e52d04e85f5d704359fa724fa7bbe99847e3f866fcf8e258eb1be1d",
+        "bytes": 307
+      },
+      {
+        "path": "dist/src/components/checkbox/index.d.ts.map",
+        "sha256": "d275c2d5d06efb95185a70091aaafe67ed35ddebca71444eeef19bdadb755d80",
+        "bytes": 320
+      },
+      {
+        "path": "dist/src/primitives/checkbox-group.d.ts",
+        "sha256": "0a01d13e5ca069aa042ad677ac38d13a4ebc472e7bfe98891cc10069e30985a4",
+        "bytes": 326
+      },
+      {
+        "path": "dist/src/primitives/checkbox-group.d.ts.map",
+        "sha256": "ba0644e52e5aca5e4943cf888d04d2f7fecd821dc036034d45e842d5407d77ad",
+        "bytes": 179
+      },
+      {
+        "path": "dist/src/primitives/checkbox.d.ts",
+        "sha256": "d8137c667b16c44c330c3bc0964a459075b218d6d8f03066ff94ba20a17d5b28",
+        "bytes": 297
+      }
+    ],
+    "generatedSources": [
+      {
+        "path": "runtime-canonical/checkbox/entry.jsx",
+        "sha256": "041b54163466ed17a9832cbc78af9794e60e3a60b0898a440bc316be5477b47e"
+      },
+      {
+        "path": "runtime-canonical/checkbox/fixture.jsx",
+        "sha256": "541f9e27416ecab70a56384d8066cca3880ddbb990c9080dafd0966f6c0fe810"
+      },
+      {
+        "path": "runtime-canonical/checkbox/server.jsx",
+        "sha256": "92cdc8fc79d49065203f65dbf65cd6d81c333a835de4296f0eb1766f61896b68"
+      },
+      {
+        "path": "runtime-canonical/checkbox/client.jsx",
+        "sha256": "25e6f33a1c3828eac69785c62e523ef9b53a9912f93cfa8d3093448e23956612"
+      }
+    ],
+    "bindingVerified": true,
+    "mismatches": []
+  },
+  "routes": {
+    "build": "runtime-canonical/checkbox",
+    "runtime": "/checkbox/react",
+    "directory": "/components/checkbox/"
+  },
+  "checks": {
+    "canonicalSourceProvenance": {
+      "status": "passed",
+      "reason": "exact npm package identity, export and relevant byte hashes match the attestation"
+    },
+    "packageEvidence": {
+      "status": "passed",
+      "reason": "package identity and relevant bytes match"
+    },
+    "productionBuild": {
+      "status": "passed",
+      "reason": "canonical server/client entry graph generated directly against public package export"
+    },
+    "runtimeRoute": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "ssrMarkup": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "hydration": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "assetsStyles": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "console": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "network": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "domAria": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "behaviorVectors": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "screenshotPixel": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    }
+  },
+  "limitations": [
+    "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+  ],
+  "determinism": {
+    "canonicalManifestHash": "39d3dd7ef76344380c02c4040821ffcca0ad74d61aa5ffed22b1ad7e88cf3507",
+    "mappingHash": "8904edeadc658ab172fabf7074322d5286a02723836f9a4f726cbeb2363718c1"
+  }
+}

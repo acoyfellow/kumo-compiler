@@ -1,0 +1,186 @@
+{
+  "schemaVersion": "kumo.receipt/v3",
+  "component": "switch",
+  "framework": "react",
+  "classification": "passed",
+  "canonicalInput": true,
+  "browserEvidence": {
+    "runId": "2026-06-20T16-39-35-306Z-66099",
+    "manifest": "generated/browser-evidence/runs/2026-06-20T16-39-35-306Z-66099.json",
+    "manifestSha256": "f928446ae851766ce62445800a361c6714175340494a74eb2aff7fe66ff504df",
+    "evidence": "generated/browser-evidence/react/switch/4f9253fa59bbafb0e54d6f95c1e62f20ec7c3515c52256c77b9c2a9b423b14c4/evidence.json",
+    "evidenceDigest": "4f9253fa59bbafb0e54d6f95c1e62f20ec7c3515c52256c77b9c2a9b423b14c4",
+    "browserIdentity": {
+      "framework": "react",
+      "component": "switch",
+      "url": "http://127.0.0.1:4260/switch/react/",
+      "browser": {
+        "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "product": "Chrome/149.0.7827.156",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+        "protocolVersion": "1.3"
+      }
+    }
+  },
+  "sourceEvidence": {
+    "manifest": "audit/kumo-react-2.5.2.provenance.json",
+    "package": {
+      "name": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/cloudflare/kumo.git",
+        "directory": "packages/kumo"
+      },
+      "packageJsonSha256": "c405c3bf83d49bb4bb61f38d7e10bcd37b2f62c04c2d99dee314aae1faa8cd7b"
+    },
+    "npmLock": {
+      "resolved": "https://registry.npmjs.org/@cloudflare/kumo/-/kumo-2.5.2.tgz",
+      "integrity": "sha512-HUNi40VG3ExJ7lV8HjqPQcGpCmm2CqG/SzjJ+K+NhCwZRYTBvagdoMDPX2XZ8AW/ZPEeuFoId0VYmzrX+luyXQ=="
+    },
+    "exportPath": "./components/switch",
+    "export": {
+      "types": "./dist/src/components/switch/index.d.ts",
+      "import": "./dist/components/switch.js"
+    },
+    "mapping": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/switch",
+      "symbol": "Switch"
+    },
+    "files": [
+      {
+        "path": "dist/chunks/switch-dld1q6qdzhe1uip7.js",
+        "sha256": "500e097bc93341527f688f5ba792d991d7ea4b9d90477f44cec1c7ffa8bec4e8",
+        "bytes": 8947
+      },
+      {
+        "path": "dist/chunks/switch-dld1q6qdzhe1uip7.js.map",
+        "sha256": "b79d56139b28af5e4fb722fff4528e7c3a8415770254c7465adde58f1d771779",
+        "bytes": 23992
+      },
+      {
+        "path": "dist/components/switch.js",
+        "sha256": "736abdb6fe71c107d44483cb5355f6f4117f52b6936a20e446a2df4c2ed77852",
+        "bytes": 220
+      },
+      {
+        "path": "dist/components/switch.js.map",
+        "sha256": "7ff602ef96cbe8a6a34417c92bf0796f8964570b33ede496c746fca4208db1ac",
+        "bytes": 92
+      },
+      {
+        "path": "dist/primitives/switch.js",
+        "sha256": "0bdbd93c6b8d45bb9dc15b660e3ee9a848442f6504963c71f14a1d6ac72ecd38",
+        "bytes": 146
+      },
+      {
+        "path": "dist/src/components/switch/index.d.ts",
+        "sha256": "bf21c4b9a6d2c6ce48f2cce327eccad83fb5e66ea5e1e5fac06687703aab515e",
+        "bytes": 292
+      },
+      {
+        "path": "dist/src/components/switch/index.d.ts.map",
+        "sha256": "a49d6e4d07edbf24428b02e1c7042e69cba1c18107eeeb56df02ea729f8d6bc3",
+        "bytes": 329
+      },
+      {
+        "path": "dist/src/components/switch/switch.d.ts",
+        "sha256": "4ab66bc295e04f9ee004f18d28347c300ccef4b317b84e1b32d4792c4583d673",
+        "bytes": 7420
+      },
+      {
+        "path": "dist/src/components/switch/switch.d.ts.map",
+        "sha256": "b6641c9adcb03512750e78b4b750f2526c12d7ec84476048fc5ab67b6ace0929",
+        "bytes": 2479
+      },
+      {
+        "path": "dist/src/primitives/switch.d.ts",
+        "sha256": "174ffb699367c04fd9cb386f0f3d1431d68664af5b881cd10dbc0f6d687e7e37",
+        "bytes": 287
+      }
+    ],
+    "generatedSources": [
+      {
+        "path": "runtime-canonical/switch/entry.jsx",
+        "sha256": "4275fb3492b60cd741d0c9d7561161268cf71ed7e5d8824873c4e592fd209747"
+      },
+      {
+        "path": "runtime-canonical/switch/fixture.jsx",
+        "sha256": "ecbc31b49eddb36077be63997fc9e7d44e1e7d722dcfbe4e5a4046a06acadf5c"
+      },
+      {
+        "path": "runtime-canonical/switch/server.jsx",
+        "sha256": "92cdc8fc79d49065203f65dbf65cd6d81c333a835de4296f0eb1766f61896b68"
+      },
+      {
+        "path": "runtime-canonical/switch/client.jsx",
+        "sha256": "25e6f33a1c3828eac69785c62e523ef9b53a9912f93cfa8d3093448e23956612"
+      }
+    ],
+    "bindingVerified": true,
+    "mismatches": []
+  },
+  "routes": {
+    "build": "runtime-canonical/switch",
+    "runtime": "/switch/react",
+    "directory": "/components/switch/"
+  },
+  "checks": {
+    "canonicalSourceProvenance": {
+      "status": "passed",
+      "reason": "exact npm package identity, export and relevant byte hashes match the attestation"
+    },
+    "packageEvidence": {
+      "status": "passed",
+      "reason": "package identity and relevant bytes match"
+    },
+    "productionBuild": {
+      "status": "passed",
+      "reason": "canonical server/client entry graph generated directly against public package export"
+    },
+    "runtimeRoute": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "ssrMarkup": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "hydration": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "assetsStyles": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "console": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "network": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "domAria": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "behaviorVectors": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "screenshotPixel": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    }
+  },
+  "limitations": [
+    "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+  ],
+  "determinism": {
+    "canonicalManifestHash": "4607792fee086e8f97c828f5f9b97a5f107872a3ead82ee7c21730d68221da53",
+    "mappingHash": "da129f1994b6947e7a391d5f2726bbb1bb38dd388f5c9d5b75dc358f2689d5d1"
+  }
+}

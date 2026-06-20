@@ -1,0 +1,186 @@
+{
+  "schemaVersion": "kumo.receipt/v3",
+  "component": "popover",
+  "framework": "react",
+  "classification": "passed",
+  "canonicalInput": true,
+  "browserEvidence": {
+    "runId": "2026-06-20T16-39-35-306Z-66099",
+    "manifest": "generated/browser-evidence/runs/2026-06-20T16-39-35-306Z-66099.json",
+    "manifestSha256": "f928446ae851766ce62445800a361c6714175340494a74eb2aff7fe66ff504df",
+    "evidence": "generated/browser-evidence/react/popover/f694c42eb698a2fc3a86fddcadfaae55276528a61c7ed4af11015020651e9fb0/evidence.json",
+    "evidenceDigest": "f694c42eb698a2fc3a86fddcadfaae55276528a61c7ed4af11015020651e9fb0",
+    "browserIdentity": {
+      "framework": "react",
+      "component": "popover",
+      "url": "http://127.0.0.1:4260/popover/react/",
+      "browser": {
+        "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "product": "Chrome/149.0.7827.156",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+        "protocolVersion": "1.3"
+      }
+    }
+  },
+  "sourceEvidence": {
+    "manifest": "audit/kumo-react-2.5.2.provenance.json",
+    "package": {
+      "name": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/cloudflare/kumo.git",
+        "directory": "packages/kumo"
+      },
+      "packageJsonSha256": "c405c3bf83d49bb4bb61f38d7e10bcd37b2f62c04c2d99dee314aae1faa8cd7b"
+    },
+    "npmLock": {
+      "resolved": "https://registry.npmjs.org/@cloudflare/kumo/-/kumo-2.5.2.tgz",
+      "integrity": "sha512-HUNi40VG3ExJ7lV8HjqPQcGpCmm2CqG/SzjJ+K+NhCwZRYTBvagdoMDPX2XZ8AW/ZPEeuFoId0VYmzrX+luyXQ=="
+    },
+    "exportPath": "./components/popover",
+    "export": {
+      "types": "./dist/src/components/popover/index.d.ts",
+      "import": "./dist/components/popover.js"
+    },
+    "mapping": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/popover",
+      "symbol": "Popover"
+    },
+    "files": [
+      {
+        "path": "dist/chunks/popover-ozf1j7oi7pxiudyz.js",
+        "sha256": "7c2c0b3faa41fb30ab9576193748e80aa25e0f74289b9a3e70401d626d1a54b1",
+        "bytes": 5026
+      },
+      {
+        "path": "dist/chunks/popover-ozf1j7oi7pxiudyz.js.map",
+        "sha256": "dc90465260a46d5a50554326581fd01ea670857fb9aa27eb50528775c476779d",
+        "bytes": 16653
+      },
+      {
+        "path": "dist/components/popover.js",
+        "sha256": "e1b8aa83fd739bdd496a1e57d4f3565f9c8b282b37367817b2059a27551c565d",
+        "bytes": 403
+      },
+      {
+        "path": "dist/components/popover.js.map",
+        "sha256": "3a27e9c03798f94723f6ac028607e5c187f098b099cb97882daaae831191c21c",
+        "bytes": 93
+      },
+      {
+        "path": "dist/primitives/popover.js",
+        "sha256": "f437542d465e0b21f5aa660de0c599364ca5ecc0dd3f008e7f58321145cdb921",
+        "bytes": 148
+      },
+      {
+        "path": "dist/src/components/popover/index.d.ts",
+        "sha256": "efe9d02372f532b4a71b0a3e9e00e730bc3e5a3df99048cc55eae72aaacd9cb2",
+        "bytes": 420
+      },
+      {
+        "path": "dist/src/components/popover/index.d.ts.map",
+        "sha256": "c593c4573d9eaf423fe2963ef68534cc454823b28c02bf69c160a5e25788a8a2",
+        "bytes": 392
+      },
+      {
+        "path": "dist/src/components/popover/popover.d.ts",
+        "sha256": "db5c6b495046a87968e02a10dfbe9195830972611b93fe4f52f686a30bea200b",
+        "bytes": 7071
+      },
+      {
+        "path": "dist/src/components/popover/popover.d.ts.map",
+        "sha256": "e8a5bab7619d756deb2568e90c56dbf939e6230354c7849217091b56aafdc57a",
+        "bytes": 2556
+      },
+      {
+        "path": "dist/src/primitives/popover.d.ts",
+        "sha256": "93287d0f894c25b1323e94c8c2d0d27b81e0794bc7fa48c8277ebaf3e9db5774",
+        "bytes": 292
+      }
+    ],
+    "generatedSources": [
+      {
+        "path": "runtime-canonical/popover/entry.jsx",
+        "sha256": "ad27965c8de7487e75841a7194bb5b3e84bc8d6460bd6848ef15ddb544dc8f82"
+      },
+      {
+        "path": "runtime-canonical/popover/fixture.jsx",
+        "sha256": "bc3e5a3812e5f1403f860938e8e0b8634b15a11ecb765a919c2b7781c06ae1f6"
+      },
+      {
+        "path": "runtime-canonical/popover/server.jsx",
+        "sha256": "92cdc8fc79d49065203f65dbf65cd6d81c333a835de4296f0eb1766f61896b68"
+      },
+      {
+        "path": "runtime-canonical/popover/client.jsx",
+        "sha256": "7084d7c84e76933420f628c04c01c5a2aa25ea4946ca8d169e7cf4f0ebd82309"
+      }
+    ],
+    "bindingVerified": true,
+    "mismatches": []
+  },
+  "routes": {
+    "build": "runtime-canonical/popover",
+    "runtime": "/popover/react",
+    "directory": "/components/popover/"
+  },
+  "checks": {
+    "canonicalSourceProvenance": {
+      "status": "passed",
+      "reason": "exact npm package identity, export and relevant byte hashes match the attestation"
+    },
+    "packageEvidence": {
+      "status": "passed",
+      "reason": "package identity and relevant bytes match"
+    },
+    "productionBuild": {
+      "status": "passed",
+      "reason": "canonical server/client entry graph generated directly against public package export"
+    },
+    "runtimeRoute": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "ssrMarkup": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "hydration": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "assetsStyles": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "console": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "network": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "domAria": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "behaviorVectors": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "screenshotPixel": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    }
+  },
+  "limitations": [
+    "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+  ],
+  "determinism": {
+    "canonicalManifestHash": "7c9c7672b8dbd9cebd1e59289d4b6c619820667149d8bfea5b5b7b58f3bbdef5",
+    "mappingHash": "21ed31215dd4c5ff30c82a9644f4f2558a6b2e43f5d62a111098006cfff4eb7b"
+  }
+}

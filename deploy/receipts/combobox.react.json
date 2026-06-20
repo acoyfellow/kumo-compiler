@@ -1,0 +1,186 @@
+{
+  "schemaVersion": "kumo.receipt/v3",
+  "component": "combobox",
+  "framework": "react",
+  "classification": "passed",
+  "canonicalInput": true,
+  "browserEvidence": {
+    "runId": "2026-06-20T16-39-35-306Z-66099",
+    "manifest": "generated/browser-evidence/runs/2026-06-20T16-39-35-306Z-66099.json",
+    "manifestSha256": "f928446ae851766ce62445800a361c6714175340494a74eb2aff7fe66ff504df",
+    "evidence": "generated/browser-evidence/react/combobox/b702ad0c1a38aabe25b1a440409d04379105d8886a0cd14f246fd025b82dbaef/evidence.json",
+    "evidenceDigest": "b702ad0c1a38aabe25b1a440409d04379105d8886a0cd14f246fd025b82dbaef",
+    "browserIdentity": {
+      "framework": "react",
+      "component": "combobox",
+      "url": "http://127.0.0.1:4260/combobox/react/",
+      "browser": {
+        "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "product": "Chrome/149.0.7827.156",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+        "protocolVersion": "1.3"
+      }
+    }
+  },
+  "sourceEvidence": {
+    "manifest": "audit/kumo-react-2.5.2.provenance.json",
+    "package": {
+      "name": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/cloudflare/kumo.git",
+        "directory": "packages/kumo"
+      },
+      "packageJsonSha256": "c405c3bf83d49bb4bb61f38d7e10bcd37b2f62c04c2d99dee314aae1faa8cd7b"
+    },
+    "npmLock": {
+      "resolved": "https://registry.npmjs.org/@cloudflare/kumo/-/kumo-2.5.2.tgz",
+      "integrity": "sha512-HUNi40VG3ExJ7lV8HjqPQcGpCmm2CqG/SzjJ+K+NhCwZRYTBvagdoMDPX2XZ8AW/ZPEeuFoId0VYmzrX+luyXQ=="
+    },
+    "exportPath": "./components/combobox",
+    "export": {
+      "types": "./dist/src/components/combobox/index.d.ts",
+      "import": "./dist/components/combobox.js"
+    },
+    "mapping": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/combobox",
+      "symbol": "Combobox"
+    },
+    "files": [
+      {
+        "path": "dist/chunks/combobox-l6qcou2s3xmsbplp.js",
+        "sha256": "457759455ba98464759133022688cbcc008cedfb0e747338fbb1dfd15b0f8d98",
+        "bytes": 10451
+      },
+      {
+        "path": "dist/chunks/combobox-l6qcou2s3xmsbplp.js.map",
+        "sha256": "e7c7f1cbf6fed2fa247749f492b94ea6d995b9e4096d89b1968c41890d89a2ba",
+        "bytes": 27524
+      },
+      {
+        "path": "dist/components/combobox.js",
+        "sha256": "1c07f55d130261c000823ec12a29537ca875225e5d74c3f7e338ae616940d8d1",
+        "bytes": 144
+      },
+      {
+        "path": "dist/components/combobox.js.map",
+        "sha256": "f860f8a489f0f6250895b4204b7e654d1034d72bcc21254870a3af038a97841c",
+        "bytes": 94
+      },
+      {
+        "path": "dist/primitives/combobox.js",
+        "sha256": "ab04b8383a557d567b3da94b7bde59617f5e5696d87ca82f78681b17ffa1ef93",
+        "bytes": 150
+      },
+      {
+        "path": "dist/src/components/combobox/combobox.d.ts",
+        "sha256": "db59fa60e2c7777cdf274b298268453b15b85276c206a355afcaad61b5f96347",
+        "bytes": 9980
+      },
+      {
+        "path": "dist/src/components/combobox/combobox.d.ts.map",
+        "sha256": "2b9ee1fce4583cbf517ed9abb5168d67d4f8a556bf66dbfc473b0daacd1563bb",
+        "bytes": 4111
+      },
+      {
+        "path": "dist/src/components/combobox/index.d.ts",
+        "sha256": "8fb6aab2a21307ed1fba2969749025b8524dded58c90d79c75da56053532556b",
+        "bytes": 182
+      },
+      {
+        "path": "dist/src/components/combobox/index.d.ts.map",
+        "sha256": "cefdae6bd6abd08a1f42cd4a7310de4e5595003711a8269a1e67c8dffa6f4a20",
+        "bytes": 249
+      },
+      {
+        "path": "dist/src/primitives/combobox.d.ts",
+        "sha256": "89be637e7f19d72f3ecce026c8e9a1ecd0fbb7dfe581df0f22a1c6360039cdfc",
+        "bytes": 297
+      }
+    ],
+    "generatedSources": [
+      {
+        "path": "runtime-canonical/combobox/entry.jsx",
+        "sha256": "cff9ae75452b777c9b2bb5f48d90e3e4bfe34c219feb9e1a30282d2ba37c7654"
+      },
+      {
+        "path": "runtime-canonical/combobox/fixture.jsx",
+        "sha256": "0c5b08ffa3832c93aa39116b60606d6cd349f0ba2847c794d6873ffc4886ee39"
+      },
+      {
+        "path": "runtime-canonical/combobox/server.jsx",
+        "sha256": "92cdc8fc79d49065203f65dbf65cd6d81c333a835de4296f0eb1766f61896b68"
+      },
+      {
+        "path": "runtime-canonical/combobox/client.jsx",
+        "sha256": "25e6f33a1c3828eac69785c62e523ef9b53a9912f93cfa8d3093448e23956612"
+      }
+    ],
+    "bindingVerified": true,
+    "mismatches": []
+  },
+  "routes": {
+    "build": "runtime-canonical/combobox",
+    "runtime": "/combobox/react",
+    "directory": "/components/combobox/"
+  },
+  "checks": {
+    "canonicalSourceProvenance": {
+      "status": "passed",
+      "reason": "exact npm package identity, export and relevant byte hashes match the attestation"
+    },
+    "packageEvidence": {
+      "status": "passed",
+      "reason": "package identity and relevant bytes match"
+    },
+    "productionBuild": {
+      "status": "passed",
+      "reason": "canonical server/client entry graph generated directly against public package export"
+    },
+    "runtimeRoute": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "ssrMarkup": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "hydration": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "assetsStyles": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "console": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "network": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "domAria": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "behaviorVectors": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "screenshotPixel": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    }
+  },
+  "limitations": [
+    "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+  ],
+  "determinism": {
+    "canonicalManifestHash": "20b74bff86b37f18b7e5925a72e715cc3e7472939c73cf40c806b8cdd5274efa",
+    "mappingHash": "c7c7fe153952befd52959180fb1cf5e64f74a5a428d13d2b60923157e0e2cb59"
+  }
+}

@@ -1,0 +1,216 @@
+{
+  "schemaVersion": "kumo.receipt/v3",
+  "component": "table",
+  "framework": "react",
+  "classification": "passed",
+  "canonicalInput": true,
+  "browserEvidence": {
+    "runId": "2026-06-20T16-39-35-306Z-66099",
+    "manifest": "generated/browser-evidence/runs/2026-06-20T16-39-35-306Z-66099.json",
+    "manifestSha256": "f928446ae851766ce62445800a361c6714175340494a74eb2aff7fe66ff504df",
+    "evidence": "generated/browser-evidence/react/table/fcff382b177fe14b49116af85848c3390f6cdebf5a43201bb5f8e99b54580c1e/evidence.json",
+    "evidenceDigest": "fcff382b177fe14b49116af85848c3390f6cdebf5a43201bb5f8e99b54580c1e",
+    "browserIdentity": {
+      "framework": "react",
+      "component": "table",
+      "url": "http://127.0.0.1:4260/table/react/",
+      "browser": {
+        "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "product": "Chrome/149.0.7827.156",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+        "protocolVersion": "1.3"
+      }
+    }
+  },
+  "sourceEvidence": {
+    "manifest": "audit/kumo-react-2.5.2.provenance.json",
+    "package": {
+      "name": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/cloudflare/kumo.git",
+        "directory": "packages/kumo"
+      },
+      "packageJsonSha256": "c405c3bf83d49bb4bb61f38d7e10bcd37b2f62c04c2d99dee314aae1faa8cd7b"
+    },
+    "npmLock": {
+      "resolved": "https://registry.npmjs.org/@cloudflare/kumo/-/kumo-2.5.2.tgz",
+      "integrity": "sha512-HUNi40VG3ExJ7lV8HjqPQcGpCmm2CqG/SzjJ+K+NhCwZRYTBvagdoMDPX2XZ8AW/ZPEeuFoId0VYmzrX+luyXQ=="
+    },
+    "exportPath": "./components/table",
+    "export": {
+      "types": "./dist/src/components/table/index.d.ts",
+      "import": "./dist/components/table.js"
+    },
+    "mapping": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/table",
+      "symbol": "Table"
+    },
+    "files": [
+      {
+        "path": "dist/chunks/table-l64wm81r9t67mtzm.js",
+        "sha256": "531edb322dfc8d82e2b8105dc75ab97b079af653ce181e2364ff9ab0cd5de610",
+        "bytes": 6183
+      },
+      {
+        "path": "dist/chunks/table-l64wm81r9t67mtzm.js.map",
+        "sha256": "143096e96b93f24a19974399c83cd516953463621547510100e98d4086030274",
+        "bytes": 18434
+      },
+      {
+        "path": "dist/chunks/table-of-contents-jco9kvt48d34dwsw.js",
+        "sha256": "00fb79afd8bf8c6003d29b9831e49031bb208725195e1399d88cac9a79c28eba",
+        "bytes": 3483
+      },
+      {
+        "path": "dist/chunks/table-of-contents-jco9kvt48d34dwsw.js.map",
+        "sha256": "cd903ecfcb1864384f27f468226be2b11011666772f2dec5b6419166ca5c0a9c",
+        "bytes": 9967
+      },
+      {
+        "path": "dist/components/table-of-contents.js",
+        "sha256": "80d50618b4c7ace6c7c9be3da286e9134d7563b0f85b022b5ea4850bb53d7a12",
+        "bytes": 273
+      },
+      {
+        "path": "dist/components/table-of-contents.js.map",
+        "sha256": "397166b405814f34d1cb787e27c6efff5834ce9ea1bf7b3376e4040351b9be90",
+        "bytes": 103
+      },
+      {
+        "path": "dist/components/table.js",
+        "sha256": "ceefbccbc8cace47dabbb67db83fa69fd9b324aeb5aea7f5884a5cf82201ea53",
+        "bytes": 215
+      },
+      {
+        "path": "dist/components/table.js.map",
+        "sha256": "62ce78aedc5c6be8e67236934a83a8217e512775e715a18b73e1c752560c3c97",
+        "bytes": 91
+      },
+      {
+        "path": "dist/src/components/table-of-contents/index.d.ts",
+        "sha256": "928b64d2e6d6a12f0266eeff9e5c73c37d6c7a578a2c09c65d0eb66dcce05f78",
+        "bytes": 349
+      },
+      {
+        "path": "dist/src/components/table-of-contents/index.d.ts.map",
+        "sha256": "e683b1dd5485f529c1711f96c71d58eecb008f8b57cbc8a57698465937854834",
+        "bytes": 317
+      },
+      {
+        "path": "dist/src/components/table-of-contents/table-of-contents.d.ts",
+        "sha256": "73697adfbfa8f1ab857a437c1f4a9f9ec6675f8c516eb0eea6aea0cc78296720",
+        "bytes": 3522
+      },
+      {
+        "path": "dist/src/components/table-of-contents/table-of-contents.d.ts.map",
+        "sha256": "b2648b7517935b31e98a524407431dc4dc912414c0ee5a935e3f6b2c0e4f1cc9",
+        "bytes": 964
+      },
+      {
+        "path": "dist/src/components/table/index.d.ts",
+        "sha256": "88e285dab288f55def1ca6050f72725a620f5afcdf5d6b990c8fe7791f586d65",
+        "bytes": 167
+      },
+      {
+        "path": "dist/src/components/table/index.d.ts.map",
+        "sha256": "699d70b3c664b58aedf6d4f0d896037c0092cf9eb911f2619a9d9c398f8771e0",
+        "bytes": 229
+      },
+      {
+        "path": "dist/src/components/table/table.d.ts",
+        "sha256": "f9a1d6cd05dffc43469dfb4a17bc9cecd978b433db89b58c7387c121f962dccc",
+        "bytes": 6583
+      },
+      {
+        "path": "dist/src/components/table/table.d.ts.map",
+        "sha256": "3d689b7b01fb2f4c7b3d813918f92685c69ea595eca408c62666ef552ab16f1e",
+        "bytes": 1047
+      }
+    ],
+    "generatedSources": [
+      {
+        "path": "runtime-canonical/table/entry.jsx",
+        "sha256": "2f2d8212b9a3fb4c56292daeb4cc3bb7d7c7eab0f2081c264ff4885492fc2b1f"
+      },
+      {
+        "path": "runtime-canonical/table/fixture.jsx",
+        "sha256": "ffab065c245fa590d9e792c51f276128b8bd7c03bc8000ddb8b78b3fe154976c"
+      },
+      {
+        "path": "runtime-canonical/table/server.jsx",
+        "sha256": "92cdc8fc79d49065203f65dbf65cd6d81c333a835de4296f0eb1766f61896b68"
+      },
+      {
+        "path": "runtime-canonical/table/client.jsx",
+        "sha256": "25e6f33a1c3828eac69785c62e523ef9b53a9912f93cfa8d3093448e23956612"
+      }
+    ],
+    "bindingVerified": true,
+    "mismatches": []
+  },
+  "routes": {
+    "build": "runtime-canonical/table",
+    "runtime": "/table/react",
+    "directory": "/components/table/"
+  },
+  "checks": {
+    "canonicalSourceProvenance": {
+      "status": "passed",
+      "reason": "exact npm package identity, export and relevant byte hashes match the attestation"
+    },
+    "packageEvidence": {
+      "status": "passed",
+      "reason": "package identity and relevant bytes match"
+    },
+    "productionBuild": {
+      "status": "passed",
+      "reason": "canonical server/client entry graph generated directly against public package export"
+    },
+    "runtimeRoute": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "ssrMarkup": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "hydration": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "assetsStyles": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "console": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "network": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "domAria": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "behaviorVectors": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "screenshotPixel": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    }
+  },
+  "limitations": [
+    "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+  ],
+  "determinism": {
+    "canonicalManifestHash": "b87665672b9d8ee2cd1a5ecff7f5e84f61a24d5456e6c8e7d78a975cb6ca5aa6",
+    "mappingHash": "f96e03382b92128d90bf3134bc5bd974bd0331557329b135e662a10836a95990"
+  }
+}

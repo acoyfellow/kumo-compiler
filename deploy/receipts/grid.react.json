@@ -1,0 +1,176 @@
+{
+  "schemaVersion": "kumo.receipt/v3",
+  "component": "grid",
+  "framework": "react",
+  "classification": "passed",
+  "canonicalInput": true,
+  "browserEvidence": {
+    "runId": "2026-06-20T16-39-35-306Z-66099",
+    "manifest": "generated/browser-evidence/runs/2026-06-20T16-39-35-306Z-66099.json",
+    "manifestSha256": "f928446ae851766ce62445800a361c6714175340494a74eb2aff7fe66ff504df",
+    "evidence": "generated/browser-evidence/react/grid/40492c70b193441d58632cc2bb7655def48ce1cef65164c2f518e19e7b745529/evidence.json",
+    "evidenceDigest": "40492c70b193441d58632cc2bb7655def48ce1cef65164c2f518e19e7b745529",
+    "browserIdentity": {
+      "framework": "react",
+      "component": "grid",
+      "url": "http://127.0.0.1:4260/grid/react/",
+      "browser": {
+        "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "product": "Chrome/149.0.7827.156",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+        "protocolVersion": "1.3"
+      }
+    }
+  },
+  "sourceEvidence": {
+    "manifest": "audit/kumo-react-2.5.2.provenance.json",
+    "package": {
+      "name": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/cloudflare/kumo.git",
+        "directory": "packages/kumo"
+      },
+      "packageJsonSha256": "c405c3bf83d49bb4bb61f38d7e10bcd37b2f62c04c2d99dee314aae1faa8cd7b"
+    },
+    "npmLock": {
+      "resolved": "https://registry.npmjs.org/@cloudflare/kumo/-/kumo-2.5.2.tgz",
+      "integrity": "sha512-HUNi40VG3ExJ7lV8HjqPQcGpCmm2CqG/SzjJ+K+NhCwZRYTBvagdoMDPX2XZ8AW/ZPEeuFoId0VYmzrX+luyXQ=="
+    },
+    "exportPath": "./components/grid",
+    "export": {
+      "types": "./dist/src/components/grid/index.d.ts",
+      "import": "./dist/components/grid.js"
+    },
+    "mapping": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/grid",
+      "symbol": "Grid"
+    },
+    "files": [
+      {
+        "path": "dist/chunks/grid-do93dv1rjggqxx7p.js",
+        "sha256": "b9e6c204a13e32163f3b56a4a3d9705403c13ecfa130c49afe8642e04ec875be",
+        "bytes": 3372
+      },
+      {
+        "path": "dist/chunks/grid-do93dv1rjggqxx7p.js.map",
+        "sha256": "4ddd1079f6794298f981d5b0dbc274b5deaba3a3983ec0b08d632b3b0c930bfe",
+        "bytes": 8751
+      },
+      {
+        "path": "dist/components/grid.js",
+        "sha256": "913d9f722a5d25cc2ed5c1ac98e6654f74e09fb1a52d96d3bda193a246b77375",
+        "bytes": 297
+      },
+      {
+        "path": "dist/components/grid.js.map",
+        "sha256": "12700855b3abaa16ed08f071b3fc9325de733e0ea56b190738c47bbc000d3817",
+        "bytes": 90
+      },
+      {
+        "path": "dist/src/components/grid/grid.d.ts",
+        "sha256": "63f3a671bf4fb0ee3108fce5b797805cad30633874b9ebea1fb9bebab2d6f43b",
+        "bytes": 5330
+      },
+      {
+        "path": "dist/src/components/grid/grid.d.ts.map",
+        "sha256": "80cb649051bf4890ffa4e8cdeabe9a639b99b99e8a74d410a69841586b736712",
+        "bytes": 1240
+      },
+      {
+        "path": "dist/src/components/grid/index.d.ts",
+        "sha256": "9c187fac30185a0ae1798707cbf90d48f765c32293340b9e6ae4c7a90c169ad8",
+        "bytes": 233
+      },
+      {
+        "path": "dist/src/components/grid/index.d.ts.map",
+        "sha256": "486fe36160fcf2b32218a097f6f0041014675f2d1ddc7588d7cdb4f3b42b942a",
+        "bytes": 290
+      }
+    ],
+    "generatedSources": [
+      {
+        "path": "runtime-canonical/grid/entry.jsx",
+        "sha256": "63ae206fbb49b6735931fcc1e20efb406580cbb50c9075fe3139837cb7c803c8"
+      },
+      {
+        "path": "runtime-canonical/grid/fixture.jsx",
+        "sha256": "7d7401ef421cfd7c7b36a72dafa53da7951674296bf08d4e6d04b949a4fb4152"
+      },
+      {
+        "path": "runtime-canonical/grid/server.jsx",
+        "sha256": "92cdc8fc79d49065203f65dbf65cd6d81c333a835de4296f0eb1766f61896b68"
+      },
+      {
+        "path": "runtime-canonical/grid/client.jsx",
+        "sha256": "25e6f33a1c3828eac69785c62e523ef9b53a9912f93cfa8d3093448e23956612"
+      }
+    ],
+    "bindingVerified": true,
+    "mismatches": []
+  },
+  "routes": {
+    "build": "runtime-canonical/grid",
+    "runtime": "/grid/react",
+    "directory": "/components/grid/"
+  },
+  "checks": {
+    "canonicalSourceProvenance": {
+      "status": "passed",
+      "reason": "exact npm package identity, export and relevant byte hashes match the attestation"
+    },
+    "packageEvidence": {
+      "status": "passed",
+      "reason": "package identity and relevant bytes match"
+    },
+    "productionBuild": {
+      "status": "passed",
+      "reason": "canonical server/client entry graph generated directly against public package export"
+    },
+    "runtimeRoute": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "ssrMarkup": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "hydration": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "assetsStyles": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "console": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "network": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "domAria": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "behaviorVectors": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    },
+    "screenshotPixel": {
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+    }
+  },
+  "limitations": [
+    "Canonical package route passed the manifest-driven browser proof with immutable evidence."
+  ],
+  "determinism": {
+    "canonicalManifestHash": "f1d5e6caf8b71562de8bd5cd4d5786be4acf45de90345d8461d910cfe98b8195",
+    "mappingHash": "0037b67c51acd686318bd8fd724f3a3f07aae9600f0efaba7908834c0fe72f72"
+  }
+}
