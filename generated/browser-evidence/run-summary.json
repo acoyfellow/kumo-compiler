@@ -1,6 +1,6 @@
 {
   "schemaVersion": "kumo.browser-proof-run/v1",
-  "createdAt": "2026-06-20T14:03:18.920Z",
+  "createdAt": "2026-06-20T14:11:45.623Z",
   "results": [
     {
       "component": "select",
@@ -144,7 +144,7 @@
       "component": "loader",
       "framework": "react",
       "status": "passed",
-      "evidence": "generated/browser-evidence/react/loader/3d0ece723fdae9714a0774a91dc3acfde9bf1c1cad091fe3b76b0cecb298f7b4/evidence.json"
+      "evidence": "generated/browser-evidence/react/loader/3056d3c75604271816d57a1a6c649b9ac3ca5dcbb882fef3edb55e95da4d395b/evidence.json"
     },
     {
       "component": "meter",
@@ -167,14 +167,14 @@
     {
       "component": "link",
       "framework": "react",
-      "status": "failed",
-      "error": "Error: browser failures: Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\n    at Ai (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:31172)\n    at Tc (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:81847)\n    at Au (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:115862)\n    at Du (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:114923)\n    at Eu (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:114759)\n    at mu (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:111258)\n    at sd (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:123192)\n    at MessagePort.D (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:1:10233)\n    at validateEvidence (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:13:30)\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:64:266)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "evidence": "generated/browser-evidence/react/link/f12298b2a50eabf40c6180c8f35c013b79e4245f96293111f85c07d852395f3d/evidence.json"
     },
     {
       "component": "text",
       "framework": "react",
-      "status": "failed",
-      "error": "Error: browser failures: Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\n    at Bi (http://127.0.0.1:4260/text/react/assets/index-CQ0lMHKt.js:8:31197)\n    at Nc (http://127.0.0.1:4260/text/react/assets/index-CQ0lMHKt.js:8:81748)\n    at Mu (http://127.0.0.1:4260/text/react/assets/index-CQ0lMHKt.js:8:115604)\n    at ku (http://127.0.0.1:4260/text/react/assets/index-CQ0lMHKt.js:8:114688)\n    at Ou (http://127.0.0.1:4260/text/react/assets/index-CQ0lMHKt.js:8:114527)\n    at gu (http://127.0.0.1:4260/text/react/assets/index-CQ0lMHKt.js:8:111051)\n    at cd (http://127.0.0.1:4260/text/react/assets/index-CQ0lMHKt.js:8:122901)\n    at MessagePort.re (http://127.0.0.1:4260/text/react/assets/index-CQ0lMHKt.js:1:10274)\n    at validateEvidence (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:13:30)\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:64:266)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "evidence": "generated/browser-evidence/react/text/b42b580974bed5bf640546807c26a78298b575a8412636b45de1ea4277514f5a/evidence.json"
     },
     {
       "component": "cloudflare-logo",
@@ -191,8 +191,8 @@
     {
       "component": "table",
       "framework": "react",
-      "status": "failed",
-      "error": "Error: browser failures: Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\n    at Oi (http://127.0.0.1:4260/table/react/assets/index-DHRQq5Po.js:8:31173)\n    at Cc (http://127.0.0.1:4260/table/react/assets/index-DHRQq5Po.js:8:81882)\n    at ku (http://127.0.0.1:4260/table/react/assets/index-DHRQq5Po.js:8:115921)\n    at Eu (http://127.0.0.1:4260/table/react/assets/index-DHRQq5Po.js:8:114980)\n    at Tu (http://127.0.0.1:4260/table/react/assets/index-DHRQq5Po.js:8:114815)\n    at pu (http://127.0.0.1:4260/table/react/assets/index-DHRQq5Po.js:8:111305)\n    at od (http://127.0.0.1:4260/table/react/assets/index-DHRQq5Po.js:8:123263)\n    at MessagePort.D (http://127.0.0.1:4260/table/react/assets/index-DHRQq5Po.js:1:10231)\n    at validateEvidence (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:13:30)\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:64:266)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "evidence": "generated/browser-evidence/react/table/56457f7c56348c8bbd5132e70f7003c2f84aae6b7fa4555cc8348e4ffc978894/evidence.json"
     },
     {
       "component": "radio",

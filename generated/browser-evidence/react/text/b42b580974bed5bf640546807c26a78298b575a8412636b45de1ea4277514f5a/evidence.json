@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "text",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/text/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "7f281d529f0de37caaeab087f61cfe6c601abc97e456fe5bafee2b524a5f11b7",
+    "postHydration": "d0d71c5905dcebc0201dfa55cb3e3ae94984d168bb354541df57f2dfc9253c94",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "0e7df216eec54694a0383a95b2bc6573a8f06dd51703d05edac6ad54b05ada60",
+    "pixelSha256": "4e5e98639f847228e4e4e28e4701af5033fd21b328d16fd6c26b64bd203fca02",
+    "bytes": 8744
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/text/react/assets/index-jsjh99dv.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

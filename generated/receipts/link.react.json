@@ -2,9 +2,9 @@
   "schemaVersion": "kumo.receipt/v3",
   "component": "link",
   "framework": "react",
-  "classification": "failed",
+  "classification": "passed",
   "canonicalInput": true,
-  "browserEvidence": null,
+  "browserEvidence": "generated/browser-evidence/react/link/f12298b2a50eabf40c6180c8f35c013b79e4245f96293111f85c07d852395f3d/evidence.json",
   "sourceEvidence": {
     "manifest": "audit/kumo-react-2.5.2.provenance.json",
     "package": {
@@ -96,7 +96,7 @@
     "generatedSources": [
       {
         "path": "runtime-canonical/link/entry.jsx",
-        "sha256": "04a9b8a47211025b57f5d80d4697360e31db609582b5ec998bc8d599d7d67516"
+        "sha256": "9d6f7d32493f8cc7bfa1a369a15c6af03386d59c4bafa69eb6ca6b0d8f8ee296"
       },
       {
         "path": "runtime-canonical/link/fixture.jsx",
@@ -133,44 +133,44 @@
       "reason": "canonical server/client entry graph generated directly against public package export"
     },
     "runtimeRoute": {
-      "status": "failed",
-      "reason": "Error: browser failures: Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\n    at Ai (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:31172)\n    at Tc (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:81847)\n    at Au (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:115862)\n    at Du (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:114923)\n    at Eu (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:114759)\n    at mu (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:111258)\n    at sd (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:123192)\n    at MessagePort.D (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:1:10233)\n    at validateEvidence (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:13:30)\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:64:266)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "ssrMarkup": {
-      "status": "failed",
-      "reason": "Error: browser failures: Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\n    at Ai (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:31172)\n    at Tc (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:81847)\n    at Au (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:115862)\n    at Du (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:114923)\n    at Eu (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:114759)\n    at mu (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:111258)\n    at sd (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:123192)\n    at MessagePort.D (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:1:10233)\n    at validateEvidence (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:13:30)\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:64:266)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "hydration": {
-      "status": "failed",
-      "reason": "Error: browser failures: Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\n    at Ai (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:31172)\n    at Tc (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:81847)\n    at Au (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:115862)\n    at Du (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:114923)\n    at Eu (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:114759)\n    at mu (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:111258)\n    at sd (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:123192)\n    at MessagePort.D (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:1:10233)\n    at validateEvidence (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:13:30)\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:64:266)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "assetsStyles": {
-      "status": "failed",
-      "reason": "Error: browser failures: Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\n    at Ai (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:31172)\n    at Tc (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:81847)\n    at Au (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:115862)\n    at Du (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:114923)\n    at Eu (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:114759)\n    at mu (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:111258)\n    at sd (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:123192)\n    at MessagePort.D (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:1:10233)\n    at validateEvidence (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:13:30)\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:64:266)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "console": {
-      "status": "failed",
-      "reason": "Error: browser failures: Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\n    at Ai (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:31172)\n    at Tc (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:81847)\n    at Au (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:115862)\n    at Du (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:114923)\n    at Eu (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:114759)\n    at mu (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:111258)\n    at sd (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:123192)\n    at MessagePort.D (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:1:10233)\n    at validateEvidence (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:13:30)\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:64:266)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "network": {
-      "status": "failed",
-      "reason": "Error: browser failures: Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\n    at Ai (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:31172)\n    at Tc (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:81847)\n    at Au (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:115862)\n    at Du (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:114923)\n    at Eu (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:114759)\n    at mu (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:111258)\n    at sd (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:123192)\n    at MessagePort.D (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:1:10233)\n    at validateEvidence (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:13:30)\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:64:266)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "domAria": {
-      "status": "failed",
-      "reason": "Error: browser failures: Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\n    at Ai (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:31172)\n    at Tc (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:81847)\n    at Au (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:115862)\n    at Du (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:114923)\n    at Eu (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:114759)\n    at mu (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:111258)\n    at sd (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:123192)\n    at MessagePort.D (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:1:10233)\n    at validateEvidence (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:13:30)\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:64:266)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "behaviorVectors": {
-      "status": "failed",
-      "reason": "Error: browser failures: Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\n    at Ai (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:31172)\n    at Tc (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:81847)\n    at Au (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:115862)\n    at Du (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:114923)\n    at Eu (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:114759)\n    at mu (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:111258)\n    at sd (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:123192)\n    at MessagePort.D (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:1:10233)\n    at validateEvidence (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:13:30)\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:64:266)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "screenshotPixel": {
-      "status": "failed",
-      "reason": "Error: browser failures: Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\n    at Ai (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:31172)\n    at Tc (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:81847)\n    at Au (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:115862)\n    at Du (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:114923)\n    at Eu (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:114759)\n    at mu (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:111258)\n    at sd (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:123192)\n    at MessagePort.D (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:1:10233)\n    at validateEvidence (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:13:30)\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:64:266)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     }
   },
   "limitations": [
-    "Error: browser failures: Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\n    at Ai (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:31172)\n    at Tc (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:81847)\n    at Au (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:115862)\n    at Du (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:114923)\n    at Eu (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:114759)\n    at mu (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:111258)\n    at sd (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:123192)\n    at MessagePort.D (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:1:10233)\n    at validateEvidence (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:13:30)\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:64:266)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+    "Canonical package route passed the manifest-driven browser proof with immutable evidence."
   ],
   "determinism": {
     "canonicalManifestHash": "fe76ebba3b4c7aad5dc5401aaf281970a87308c4bfa8ec48ae7742f940a8489b",

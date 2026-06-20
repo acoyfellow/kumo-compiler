@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "table",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/table/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "e57ecfbdb1b73a8149caf67c843b39656a1dcbd8072e10a2e6ef8e4b5530dfa1",
+    "postHydration": "bfc3d3554332691a8d2515047c66ee65e7d35dc8fd8015917c170caf14e9167a",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "6cebb5e8a68606f40acfffbdcf0633111c5b8fce5912d0305d9dfdc586cb5e28",
+    "pixelSha256": "e24de19144fcfa1c459d166d02dba210cc2a164f21cf3f94781a2e9057f5ed3a",
+    "bytes": 11360
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/table/react/assets/index-Pa3qxdKk.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

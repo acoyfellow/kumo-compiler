@@ -2,8 +2,8 @@
   "schemaVersion": "kumo.react-audit-summary/v3",
   "catalogSchema": "kumo.ir/v1",
   "total": 41,
-  "passed": 38,
-  "failed": 3,
+  "passed": 41,
+  "failed": 0,
   "blocked": 0,
   "canonicalPackage": {
     "name": "@cloudflare/kumo",
@@ -12,7 +12,6 @@
     "packageBinding": true
   },
   "limitations": [
-    "Failed components retain browser diagnostics in generated/browser-evidence/run-summary.json; no check was waived.",
     "InputArea, GridItem, and Toasty are explicitly mapped through machine-verifiable parent public exports."
   ]
 }
