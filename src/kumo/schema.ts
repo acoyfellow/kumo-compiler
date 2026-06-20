@@ -15,5 +15,12 @@ export type Behavior =
  | {kind:'dialog'; sizes:string[]}
  | {kind:'popover'; sides:string[]; aligns:string[]};
 export interface InteractionPolicy {state:string[]; events:string[]; keyboard:string[]; aria:string[]; hydration:'ssr-identical'}
-export interface ComponentIR { schemaVersion:typeof IR_SCHEMA_VERSION; id:string; name:string; family:string; root:ElementNode|null; behavior?:Behavior; policy?:InteractionPolicy; source:{kind:'normalized-ir'; revision:string}; migration:{vue:'pending'|'candidate'|'verified'} }
+export interface PresentationModel {
+ semanticElement:string;
+ variant?:string;
+ layout?:{display:'block'|'flex'|'grid'|'inline'; columns?:number; gap?:string};
+ state?:{loading?:boolean; value?:number; min?:number; max?:number};
+ content:string[];
+}
+export interface ComponentIR { schemaVersion:typeof IR_SCHEMA_VERSION; id:string; name:string; family:string; root:ElementNode|null; behavior?:Behavior; policy?:InteractionPolicy; presentation?:PresentationModel; source:{kind:'normalized-ir'; revision:string}; migration:{vue:'pending'|'candidate'|'verified'} }
 export interface Provenance { schemaVersion:typeof IR_SCHEMA_VERSION; component:string; framework:'vue'|'svelte'|'solid'; sourceHash:string; irHash:string; emitterHash:string; outputs:Record<string,string> }

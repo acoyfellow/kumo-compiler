@@ -150,7 +150,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -244,7 +244,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -351,7 +351,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -457,7 +457,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -688,7 +688,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -919,7 +919,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -1014,7 +1014,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -1098,7 +1098,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -1200,7 +1200,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -1287,7 +1287,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -1400,7 +1400,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -1524,7 +1524,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -1668,7 +1668,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -1785,7 +1785,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -1893,7 +1893,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -2010,7 +2010,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -2118,7 +2118,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -2172,9 +2172,19 @@
           }
         ]
       },
+      "presentation": {
+        "semanticElement": "span",
+        "variant": "brand",
+        "layout": {
+          "display": "inline"
+        },
+        "content": [
+          "PRO"
+        ]
+      },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -2249,9 +2259,21 @@
           }
         ]
       },
+      "presentation": {
+        "semanticElement": "div",
+        "variant": "warning",
+        "layout": {
+          "display": "flex",
+          "gap": "10px"
+        },
+        "content": [
+          "NEW",
+          "Edge data is current."
+        ]
+      },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -2323,9 +2345,20 @@
           }
         ]
       },
+      "presentation": {
+        "semanticElement": "section",
+        "variant": "bounded",
+        "layout": {
+          "display": "block"
+        },
+        "content": [
+          "Account surface",
+          "Content on a bounded surface."
+        ]
+      },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -2397,9 +2430,20 @@
           }
         ]
       },
+      "presentation": {
+        "semanticElement": "article",
+        "variant": "elevated",
+        "layout": {
+          "display": "block"
+        },
+        "content": [
+          "Production zone",
+          "Layered account details."
+        ]
+      },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -2488,9 +2532,23 @@
           }
         ]
       },
+      "presentation": {
+        "semanticElement": "div",
+        "variant": "three-column",
+        "layout": {
+          "display": "grid",
+          "columns": 3,
+          "gap": "12px"
+        },
+        "content": [
+          "Analytics",
+          "Workers",
+          "DNS"
+        ]
+      },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -2562,9 +2620,20 @@
           }
         ]
       },
+      "presentation": {
+        "semanticElement": "div",
+        "variant": "default",
+        "layout": {
+          "display": "block"
+        },
+        "content": [
+          "Requests",
+          "12,480 today"
+        ]
+      },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -2615,9 +2684,22 @@
           }
         ]
       },
+      "presentation": {
+        "semanticElement": "span",
+        "variant": "spinner",
+        "layout": {
+          "display": "block"
+        },
+        "state": {
+          "loading": true
+        },
+        "content": [
+          "Loading"
+        ]
+      },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -2694,9 +2776,25 @@
           }
         ]
       },
+      "presentation": {
+        "semanticElement": "meter",
+        "variant": "usage",
+        "layout": {
+          "display": "block"
+        },
+        "state": {
+          "value": 68,
+          "min": 0,
+          "max": 100
+        },
+        "content": [
+          "Usage",
+          "68%"
+        ]
+      },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -2770,7 +2868,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -2826,7 +2924,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -2882,7 +2980,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -2938,7 +3036,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -2996,7 +3094,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -3050,7 +3148,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -3216,7 +3314,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -3337,7 +3435,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -3488,7 +3586,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -3612,7 +3710,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -3753,7 +3851,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -3830,7 +3928,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -3937,7 +4035,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -4074,7 +4172,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -4164,7 +4262,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"
@@ -4295,7 +4393,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "4"
+        "revision": "5"
       },
       "migration": {
         "vue": "candidate"

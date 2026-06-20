@@ -5,7 +5,7 @@ import type {ComponentIR,Node,Provenance} from './schema.js';
 
 const hash=(value:string)=>createHash('sha256').update(value).digest('hex');
 const text=(value:string)=>value.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
-const jsxAttr=(key:string,value:string|number|boolean)=>value===true?key:value===false?`${key}={false}`:`${key}=${JSON.stringify(value)}`;
+const jsxAttr=(key:string,value:string|number|boolean)=>value===true?key:value===false?`${key}={false}`:typeof value==='number'?`${key}={${value}}`:`${key}=${JSON.stringify(value)}`;
 const jsx=(node:Node):string=>node.kind==='text'?text(node.value):`<${node.tag}${Object.entries(node.attrs??{}).map(([k,v])=>` ${jsxAttr(k==='class'?'class':k,v)}`).join('')}>${(node.children??[]).map(jsx).join('')}</${node.tag}>`;
 const htmlAttr=(key:string,value:string|number|boolean)=>value===true?` ${key}`:value===false?'':` ${key}="${text(String(value)).replaceAll('"','&quot;')}"`;
 const html=(node:Node):string=>node.kind==='text'?text(node.value):`<${node.tag}${Object.entries(node.attrs??{}).map(([k,v])=>htmlAttr(k,v)).join('')}>${(node.children??[]).map(html).join('')}</${node.tag}>`;
@@ -36,7 +36,7 @@ export default function ${name}(){const [status,setStatus]=createSignal('');asyn
 export default function ${name}(){const [value,setValue]=createSignal(${JSON.stringify(ir.id==='input'?'':ir.id==='input-area'?'Compiler proof':ir.id==='input-group'?'example.com':'Kumo')}),[touched,setTouched]=createSignal(false);const invalid=()=>touched()&&!value().trim();return <main class="form-shell"><h1>${name}</h1><section class="form-grid"><article class="form-card" data-member="${ir.id}">${ir.id==='field'?'<div class="field"><label for="field-value">Project name</label><input class="control" id="field-value" required value={value()} aria-describedby="field-description field-error" aria-invalid={invalid()} onInput={e=>setValue(e.currentTarget.value)} onBlur={()=>setTouched(true)}/><small id="field-description">Visible to your team.</small><small id="field-error" role="alert">{invalid()?\'Project name is required.\':\'\'}</small></div>':ir.id==='input'?'<label class="field" for="email"><span>Email address</span><input class="control" id="email" type="email" required placeholder="you@example.com" value={value()} aria-describedby="email-error" aria-invalid={invalid()} onInput={e=>setValue(e.currentTarget.value)} onBlur={()=>setTouched(true)}/><small id="email-error" role="alert">{invalid()?\'Email is required.\':\'\'}</small></label>':ir.id==='input-group'?'<label class="field" for="domain"><span>Domain</span><span class="group"><span aria-hidden="true">https://</span><input id="domain" required value={value()} aria-label="Domain name" onInput={e=>setValue(e.currentTarget.value)}/></span></label>':'<label class="field" for="notes"><span>Notes</span><textarea class="control" id="notes" required value={value()} onInput={e=>setValue(e.currentTarget.value)}/></label>'}</article></section></main>}
 `;
  }
- if(ir.id==='badge')return `export default function Badge(){return (${jsx(ir.root!)});}\n`;
+ if(ir.family==='data-presentational')return `/** Generated from the shared ${ir.schemaVersion} presentation model. */\nexport default function ${ir.name}(){return (${jsx(ir.root!)});}\n`;
  if(ir.behavior?.kind==='native-check'){
   const inputs:Record<string,string|number|boolean>[]=[];
   const labels:string[]=[];
@@ -51,7 +51,7 @@ export default function Select(){const [open,setOpen]=createSignal(false),[activ
 `;
 }
 const emitter=await readFile('src/kumo/solid-compiler.ts','utf8'),source=await readFile('src/kumo/catalog.ts','utf8');
-const solidIds=['select','badge','checkbox','switch','field','input','input-group','input-area','sensitive-input','clipboard-text','tabs','menu-bar','sidebar','breadcrumbs','table-of-contents'];
+const solidIds=['select','badge','checkbox','switch','field','input','input-group','input-area','sensitive-input','clipboard-text','tabs','menu-bar','sidebar','breadcrumbs','table-of-contents','banner','surface','layer-card','grid','grid-item','loader','meter'];
 for(const ir of catalog.filter(x=>solidIds.includes(x.id))){const dir=`runtime/${ir.id}/solid`;await mkdir(`${dir}/src`,{recursive:true});const css=await readFile(ir.family==='native-control'?'public/native-control.css':ir.family==='form'?'public/form.css':ir.family==='navigation'?'public/navigation.css':'public/styles.css','utf8');const initial=html(ir.root!);const outputs:Record<string,string>={
  'src/App.tsx':app(ir),
  'src/client.tsx':`import './style.css';\nimport {hydrate} from 'solid-js/web';\nimport App from './App';\nhydrate(()=> <App/>,document.getElementById('app')!);\n`,

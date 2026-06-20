@@ -1,4 +1,4 @@
-import {IR_SCHEMA_VERSION, type Behavior, type ComponentIR, type ElementNode, type InteractionPolicy, type Node} from './schema.js';
+import {IR_SCHEMA_VERSION, type Behavior, type ComponentIR, type ElementNode, type InteractionPolicy, type Node, type PresentationModel} from './schema.js';
 const t=(value:string):Node=>({kind:'text',value});
 const e=(tag:string,attrs:Record<string,string|number|boolean>={},children:Node[]=[]):ElementNode=>({kind:'element',tag,attrs,children});
 const migrated:Record<string,{name:string;body:ElementNode}>={
@@ -16,6 +16,16 @@ const migrated:Record<string,{name:string;body:ElementNode}>={
  'cloudflare-logo':{name:'CloudflareLogo',body:e('div',{class:'logo',role:'img','aria-label':'Cloudflare'},[t('☁ Cloudflare')])},
  code:{name:'Code',body:e('code',{},[t("cache.status === 'HIT'")])},
  table:{name:'Table',body:e('table',{},[e('caption',{},[t('Request summary')]),e('thead',{},[e('tr',{},[e('th',{scope:'col'},[t('Colo')]),e('th',{scope:'col'},[t('Requests')])])]),e('tbody',{},[['SJC','12,480'],['AMS','9,201']].map(r=>e('tr',{},r.map(x=>e('td',{},[t(x)])))))])}
+};
+const presentations:Record<string,PresentationModel>={
+ badge:{semanticElement:'span',variant:'brand',layout:{display:'inline'},content:['PRO']},
+ banner:{semanticElement:'div',variant:'warning',layout:{display:'flex',gap:'10px'},content:['NEW','Edge data is current.']},
+ surface:{semanticElement:'section',variant:'bounded',layout:{display:'block'},content:['Account surface','Content on a bounded surface.']},
+ 'layer-card':{semanticElement:'article',variant:'elevated',layout:{display:'block'},content:['Production zone','Layered account details.']},
+ grid:{semanticElement:'div',variant:'three-column',layout:{display:'grid',columns:3,gap:'12px'},content:['Analytics','Workers','DNS']},
+ 'grid-item':{semanticElement:'div',variant:'default',layout:{display:'block'},content:['Requests','12,480 today']},
+ loader:{semanticElement:'span',variant:'spinner',layout:{display:'block'},state:{loading:true},content:['Loading']},
+ meter:{semanticElement:'meter',variant:'usage',layout:{display:'block'},state:{value:68,min:0,max:100},content:['Usage','68%']}
 };
 const forms:Record<string,{name:string;body:ElementNode;behavior?:Behavior}>={
  field:{name:'Field',body:e('div',{class:'field'},[e('label',{for:'field-value'},[t('Project name')]),e('input',{class:'control',id:'field-value',value:'Kumo'}),e('small',{},[t('Visible to your team.')])])},
@@ -56,4 +66,4 @@ const rich:Record<string,{name:string;body:ElementNode;behavior:Behavior;policy:
 };
 const ids=['select','button','dialog','popover','checkbox','switch','field','input','input-group','input-area','sensitive-input','clipboard-text','tabs','menu-bar','sidebar','breadcrumbs','table-of-contents','badge','banner','surface','layer-card','grid','grid-item','loader','meter','empty','label','link','text','cloudflare-logo','code','table','radio','autocomplete','combobox','command-palette','date-picker','date-range-picker','dropdown-menu','toasty','pagination'];
 const title=(id:string)=>id.split('-').map(x=>x.charAt(0).toUpperCase()+x.slice(1)).join('');
-export const catalog:ComponentIR[]=ids.map(id=>{const richItem=rich[id],x=migrated[id],form=forms[id],control=native[id],nav=navigation[id],choice=selection[id],item=richItem??x??form??control??nav??choice;const family=richItem?'rich':x?'data-presentational':form?'form':control?'native-control':nav?'navigation':choice?'selection-command-date':'legacy';const shell=choice?'family':control?'native-shell':nav?'nav-shell':x?'data-shell':'form-shell';const content=x?e('div',{class:'demo',id:'details'},[item!.body]):form?e('section',{class:'form-grid'},[e('article',{class:'form-card','data-member':id},[item!.body])]):item?.body;const behavior=richItem?.behavior??form?.behavior??control?.behavior??nav?.behavior??choice?.behavior;const policy=richItem?.policy??control?.policy??nav?.policy??choice?.policy;return {schemaVersion:IR_SCHEMA_VERSION,id,name:item?.name??title(id),family,root:item?e('main',{class:shell},[e('h1',{},[t(item.name)]),content!]):null,...(behavior?{behavior}:{}),...(policy?{policy}:{}),source:{kind:'normalized-ir',revision:'4'},migration:{vue:item?'candidate':'pending'}}});
+export const catalog:ComponentIR[]=ids.map(id=>{const richItem=rich[id],x=migrated[id],form=forms[id],control=native[id],nav=navigation[id],choice=selection[id],item=richItem??x??form??control??nav??choice;const family=richItem?'rich':x?'data-presentational':form?'form':control?'native-control':nav?'navigation':choice?'selection-command-date':'legacy';const shell=choice?'family':control?'native-shell':nav?'nav-shell':x?'data-shell':'form-shell';const content=x?e('div',{class:'demo',id:'details'},[item!.body]):form?e('section',{class:'form-grid'},[e('article',{class:'form-card','data-member':id},[item!.body])]):item?.body;const behavior=richItem?.behavior??form?.behavior??control?.behavior??nav?.behavior??choice?.behavior;const policy=richItem?.policy??control?.policy??nav?.policy??choice?.policy;return {schemaVersion:IR_SCHEMA_VERSION,id,name:item?.name??title(id),family,root:item?e('main',{class:shell},[e('h1',{},[t(item.name)]),content!]):null,...(behavior?{behavior}:{}),...(policy?{policy}:{}),...(presentations[id]?{presentation:presentations[id]}:{}),source:{kind:'normalized-ir',revision:'5'},migration:{vue:item?'candidate':'pending'}}});
