@@ -51,7 +51,7 @@ export default function Select(){const [open,setOpen]=createSignal(false),[activ
 `;
 }
 const emitter=await readFile('src/kumo/solid-compiler.ts','utf8'),source=await readFile('src/kumo/catalog.ts','utf8');
-const solidIds=['select','badge','checkbox','switch','field','input','input-group','input-area','sensitive-input','clipboard-text','tabs','menu-bar','sidebar','breadcrumbs','table-of-contents','banner','surface','layer-card','grid','grid-item','loader','meter'];
+const solidIds=['select','badge','checkbox','switch','field','input','input-group','input-area','sensitive-input','clipboard-text','tabs','menu-bar','sidebar','breadcrumbs','table-of-contents','banner','surface','layer-card','grid','grid-item','loader','meter','empty','label','link','text','cloudflare-logo','code','table'];
 for(const ir of catalog.filter(x=>solidIds.includes(x.id))){const dir=`runtime/${ir.id}/solid`;await mkdir(`${dir}/src`,{recursive:true});const css=await readFile(ir.family==='native-control'?'public/native-control.css':ir.family==='form'?'public/form.css':ir.family==='navigation'?'public/navigation.css':'public/styles.css','utf8');const initial=html(ir.root!);const outputs:Record<string,string>={
  'src/App.tsx':app(ir),
  'src/client.tsx':`import './style.css';\nimport {hydrate} from 'solid-js/web';\nimport App from './App';\nhydrate(()=> <App/>,document.getElementById('app')!);\n`,

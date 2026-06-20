@@ -1,7 +1,7 @@
 import {spawn} from 'node:child_process';
 import {readFile,rm,writeFile} from 'node:fs/promises';
 import {once} from 'node:events';
-const ids=['select','badge','checkbox','switch','field','input','input-group','input-area','sensitive-input','clipboard-text','tabs','menu-bar','sidebar','breadcrumbs','table-of-contents','banner','surface','layer-card','grid','grid-item','loader','meter'];
+const ids=['select','badge','checkbox','switch','field','input','input-group','input-area','sensitive-input','clipboard-text','tabs','menu-bar','sidebar','breadcrumbs','table-of-contents','banner','surface','layer-card','grid','grid-item','loader','meter','empty','label','link','text','cloudflare-logo','code','table'];
 for(const id of ids){
  const dir=`runtime/${id}/solid`,ssr=`${dir}/ssr-runtime`;await rm(ssr,{recursive:true,force:true});
  const run=async args=>{const child=spawn('npx',['vite','build',dir,...args],{stdio:'inherit'});const [code]=await once(child,'exit');if(code)throw Error(`vite ${id} failed`)};
