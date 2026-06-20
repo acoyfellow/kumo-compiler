@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "kumo.select.receipt/v1",
+  "contractVersion": "1.0.0",
+  "candidate": "shared-core",
+  "candidateRevision": "31c376f8967c257c78b89ce98e495a19bba073b5",
+  "kumo": {
+    "package": "@cloudflare/kumo",
+    "revision": "2.5.2"
+  },
+  "run": {
+    "command": "node --test test/select-contract.test.mjs",
+    "status": "passed"
+  },
+  "allowedStatuses": [
+    "passed",
+    "failed",
+    "not-run",
+    "blocked"
+  ]
+}
