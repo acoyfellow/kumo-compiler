@@ -1,0 +1,13 @@
+---
+const { framework, size = 22 } = Astro.props;
+const label = { react: 'React', vue: 'Vue', svelte: 'Svelte', solid: 'Solid' }[framework] ?? framework;
+---
+<span class={`framework-icon framework-icon--${framework}`} role="img" aria-label={label} title={label} style={`--icon-size:${size}px`}>
+  {framework === 'react' && <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="2.5" fill="currentColor"/><g fill="none" stroke="currentColor" stroke-width="1.7"><ellipse cx="16" cy="16" rx="14" ry="5.4"/><ellipse cx="16" cy="16" rx="14" ry="5.4" transform="rotate(60 16 16)"/><ellipse cx="16" cy="16" rx="14" ry="5.4" transform="rotate(120 16 16)"/></g></svg>}
+  {framework === 'vue' && <svg viewBox="0 0 32 28" aria-hidden="true"><path fill="#41b883" d="M0 0h7l9 15.5L25 0h7L16 28z"/><path fill="#35495e" d="M7 0h5l4 7 4-7h5l-9 15.5z"/></svg>}
+  {framework === 'svelte' && <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="none" stroke="#ff3e00" stroke-width="4" stroke-linecap="round" d="M23.7 6.2c-3.4-2.1-6.6-1.6-9.5.2L8.7 9.9c-2.8 1.8-3.1 5.3-.9 7.3 1.6 1.5 4 1.7 5.9.5l5.6-3.5c1-.6 2.2-.5 2.8.3.7.9.4 2.2-.6 2.9l-5.6 3.5c-1.3.8-2.7.9-4 .2M8.3 25.8c3.4 2.1 6.6 1.6 9.5-.2l5.5-3.5c2.8-1.8 3.1-5.3.9-7.3-1.6-1.5-4-1.7-5.9-.5l-5.6 3.5c-1 .6-2.2.5-2.8-.3-.7-.9-.4-2.2.6-2.9l5.6-3.5c1.3-.8 2.7-.9 4-.2"/></svg>}
+  {framework === 'solid' && <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="#76b3e1" d="M6 5.5 20 2l7 5.5-14 3.7z"/><path fill="#2c4f7c" d="m6 5.5 7 5.7 14-3.7-6.3 6.4L7.2 17z"/><path fill="#4b7cac" d="m7.2 17 13.5-3.1 5.3 5.4-13.5 3.2z"/><path fill="#315477" d="m7.2 17 5.3 5.5L26 19.3l-6.5 7L8 29.8l-3-5.5z"/></svg>}
+</span>
+<style>
+.framework-icon{display:inline-grid;width:var(--icon-size);height:var(--icon-size);place-items:center;flex:none}.framework-icon svg{display:block;width:100%;height:100%;overflow:visible}.framework-icon--react{color:#149eca}
+</style>
