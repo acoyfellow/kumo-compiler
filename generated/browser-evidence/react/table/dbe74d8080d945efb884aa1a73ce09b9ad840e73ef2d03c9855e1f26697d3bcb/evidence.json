@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "table",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/table/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "ccbe42b6dd65e1720784bc197e05bc66ceb646eb8187ab3837a3979666d61ed8",
+    "postHydration": "c7216b3d7bc4418bd68ad95192d138750b4e3f2b4a2f06a7697aae0df996fc0b",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "e978f0035a771486ef1f61c0ef0ed6a655a488ce881f8d858414bc64befca1ce",
+    "pixelSha256": "9959c15f7e8ad0302b038770c1352a1035edffbee135c43a06dff27c81df19a5",
+    "bytes": 13799
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/table/react/assets/index-DHRQq5Po.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": [
+    "Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\n    at Oi (http://127.0.0.1:4260/table/react/assets/index-DHRQq5Po.js:8:31173)\n    at Cc (http://127.0.0.1:4260/table/react/assets/index-DHRQq5Po.js:8:81882)\n    at ku (http://127.0.0.1:4260/table/react/assets/index-DHRQq5Po.js:8:115921)\n    at Eu (http://127.0.0.1:4260/table/react/assets/index-DHRQq5Po.js:8:114980)\n    at Tu (http://127.0.0.1:4260/table/react/assets/index-DHRQq5Po.js:8:114815)\n    at pu (http://127.0.0.1:4260/table/react/assets/index-DHRQq5Po.js:8:111305)\n    at od (http://127.0.0.1:4260/table/react/assets/index-DHRQq5Po.js:8:123263)\n    at MessagePort.D (http://127.0.0.1:4260/table/react/assets/index-DHRQq5Po.js:1:10231)"
+  ]
+}

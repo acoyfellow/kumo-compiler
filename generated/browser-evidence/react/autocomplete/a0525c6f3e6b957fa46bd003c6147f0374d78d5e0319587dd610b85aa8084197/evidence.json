@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "autocomplete",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/autocomplete/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "1e88613d8a35fc6b7bf05cc061033fdad16b82bbc0059928ad926a2c124f8050",
+    "postHydration": "2dd3b2903ccfae4e0d19c77a7fe9140d0a1f38a381e1b70444bc84072e8c6e0c",
+    "aria": [
+      {
+        "tag": "input",
+        "role": "combobox",
+        "label": null,
+        "expanded": "false",
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "ul",
+        "role": "listbox",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "li",
+        "role": "option",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "li",
+        "role": "option",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "li",
+        "role": "option",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "INPUT",
+      "checked": false
+    }
+  },
+  "screenshot": {
+    "sha256": "1d6091115a20dae91abafcd7aff0ace2d71213f59ee27a1c289adaebd2afead2",
+    "pixelSha256": "30f58a2c59a2e12f62874b229c979331377d498c591575eec5797123a62f36ab",
+    "bytes": 13070
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/autocomplete/react/assets/index-Cj1j5avr.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

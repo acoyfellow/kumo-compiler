@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "select",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/select/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": false,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": false,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "3a5f1f8c54d5ccca91b346762056eb74ae483a2b7ff96c11406649543b953fb7",
+    "postHydration": "c52bfaa20d2df970e31935733d14800e05abd5459a4d2ae70961641333dcbdb3",
+    "aria": [
+      {
+        "tag": "button",
+        "role": "combobox",
+        "label": "Region",
+        "expanded": "false",
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "select",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "77056c988e5386557846f40205c7f0dad428ecf34d990d25d2c1bc8fd4dbf242",
+    "pixelSha256": "2e9205a743244db1376f9e17e89f4b900c10ea79b059b5b7b212bd613f1e70b3",
+    "bytes": 5179
+  },
+  "assets": [],
+  "failures": [
+    "net::ERR_ABORTED",
+    "500 http://127.0.0.1:4260/select/react/assets/index-DxX13HN-.js",
+    "runtime DOM, linked asset, or style missing"
+  ]
+}

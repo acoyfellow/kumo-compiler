@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "radio",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/radio/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "a435f211c7bf27e1cfe28be2482606f7099285188e702904ddb3cb1447796cc4",
+    "postHydration": "446c9bcd4bf2e77cbcd604afc711f15fc4f526504d94e624cf4af6e69d408308",
+    "aria": [
+      {
+        "tag": "div",
+        "role": "radiogroup",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "INPUT",
+      "checked": true
+    }
+  },
+  "screenshot": {
+    "sha256": "4b987113a0d554bc45f02d41deafc2ee1d089e56eafa8cbd4766f1601476342f",
+    "pixelSha256": "c4d0d40de4ba7d6bbfdfc4f06fe671e436ef05f44c56e06a3327725fe6574096",
+    "bytes": 8317
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/radio/react/assets/index-DUCLJ8QY.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "clipboard-text",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/clipboard-text/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "a3576abbd1c9e6a327a3f9555b5e008811bcb375e7c5f0b4cd13ffcb25c6135f",
+    "postHydration": "0f330447ccde17183c76ab6fc7dd2d34120b3493011388584e8f772bd3b0f94f",
+    "aria": [
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Copy to clipboard",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "clipboard-copy",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "a9b96cf7172fed553feb2e10c8aa62a4dd8173054e1a1401f429f07b16dd6e90",
+    "pixelSha256": "2f42af7ae074fe5635aedc44af8aacd0451b010c3ae01a7c33f95dc6532b650e",
+    "bytes": 7755
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/clipboard-text/react/assets/index-62JqLSqQ.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

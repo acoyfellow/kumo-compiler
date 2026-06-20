@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "layer-card",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/layer-card/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "bcd318e25fdbec504d8ed5a8d8cc009c41cd35c18bbd52d628c65ff880c860e4",
+    "postHydration": "5bc502b7c9d43843a6ab1a51f11faa4ff6f8be9bf36dc81db1846a1f9585eb46",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "ac1f9153fffc7b7c1d3c5aa7430e9352ff5493196195e2f418dedc496bf65ef3",
+    "pixelSha256": "438fa79e27f84416248ea36803e01e3ba3fca692e4b7d42343ae2ca526e5df5f",
+    "bytes": 12894
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/layer-card/react/assets/index-C_hAJayL.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

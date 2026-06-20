@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "sidebar",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/sidebar/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "ccaecc0a4be14d4c8d5ce2bc1279369b561d57356ba8214d2b6bac0869b355d8",
+    "postHydration": "ae4b0c86c3715aba38e157bba804d3d7dcc68e48c024d62daf86be2d7a049db6",
+    "aria": [
+      {
+        "tag": "div",
+        "role": "presentation",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "div",
+        "role": "presentation",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "div",
+        "role": "presentation",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "current-link",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "0e9638e01a277663b74a47e3777192a0d0533d217181c8507c8135b432d31507",
+    "pixelSha256": "4a26384da3698befe6cdaf0051d58ac3c82c1ec8fc439f8d67bdf8d411df426e",
+    "bytes": 7060
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/sidebar/react/assets/index-DBQZ4eEb.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

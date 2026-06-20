@@ -2,9 +2,9 @@
   "schemaVersion": "kumo.receipt/v3",
   "component": "cloudflare-logo",
   "framework": "react",
-  "classification": "failed",
+  "classification": "passed",
   "canonicalInput": true,
-  "browserEvidence": null,
+  "browserEvidence": "generated/browser-evidence/react/cloudflare-logo/39f72558ac0f3cfa96db4ec29c3ff5770c54999e21db7c52b552a1b7b17d10e6/evidence.json",
   "sourceEvidence": {
     "manifest": "audit/kumo-react-2.5.2.provenance.json",
     "package": {
@@ -76,7 +76,7 @@
     "generatedSources": [
       {
         "path": "runtime-canonical/cloudflare-logo/entry.jsx",
-        "sha256": "f515fdb4002b76f8b2510b1d710b9b60d513fe77cafc59b58a08c397daea0e20"
+        "sha256": "f415f9fab25ef5f834510ae4b961bfdc22ad7f602a01f828b191c8e32194af0b"
       },
       {
         "path": "runtime-canonical/cloudflare-logo/fixture.jsx",
@@ -113,44 +113,44 @@
       "reason": "canonical server/client entry graph generated directly against public package export"
     },
     "runtimeRoute": {
-      "status": "failed",
-      "reason": "Error: cloudflare-logo/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "ssrMarkup": {
-      "status": "failed",
-      "reason": "Error: cloudflare-logo/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "hydration": {
-      "status": "failed",
-      "reason": "Error: cloudflare-logo/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "assetsStyles": {
-      "status": "failed",
-      "reason": "Error: cloudflare-logo/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "console": {
-      "status": "failed",
-      "reason": "Error: cloudflare-logo/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "network": {
-      "status": "failed",
-      "reason": "Error: cloudflare-logo/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "domAria": {
-      "status": "failed",
-      "reason": "Error: cloudflare-logo/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "behaviorVectors": {
-      "status": "failed",
-      "reason": "Error: cloudflare-logo/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "screenshotPixel": {
-      "status": "failed",
-      "reason": "Error: cloudflare-logo/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     }
   },
   "limitations": [
-    "Error: cloudflare-logo/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+    "Canonical package route passed the manifest-driven browser proof with immutable evidence."
   ],
   "determinism": {
     "canonicalManifestHash": "298c590e0d9cc4971d6d479e8e3f8ec007a827501046e7846b4511f55537e366",

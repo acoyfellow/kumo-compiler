@@ -2,9 +2,9 @@
   "schemaVersion": "kumo.receipt/v3",
   "component": "date-picker",
   "framework": "react",
-  "classification": "failed",
+  "classification": "passed",
   "canonicalInput": true,
-  "browserEvidence": null,
+  "browserEvidence": "generated/browser-evidence/react/date-picker/52ba215a9da527d621ef61228eb5112969ba84fc1f0f71ca3d155d5e2e9f3a17/evidence.json",
   "sourceEvidence": {
     "manifest": "audit/kumo-react-2.5.2.provenance.json",
     "package": {
@@ -76,7 +76,7 @@
     "generatedSources": [
       {
         "path": "runtime-canonical/date-picker/entry.jsx",
-        "sha256": "add4bce4c71283dcee6a364ca0fb319badd0870a554a0655c908aa546d22848e"
+        "sha256": "672f671dc732bc0b64ababef087e207f67df4efc8bf57a2ad5aaeb610bb1717d"
       },
       {
         "path": "runtime-canonical/date-picker/fixture.jsx",
@@ -113,44 +113,44 @@
       "reason": "canonical server/client entry graph generated directly against public package export"
     },
     "runtimeRoute": {
-      "status": "failed",
-      "reason": "Error: date-picker/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "ssrMarkup": {
-      "status": "failed",
-      "reason": "Error: date-picker/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "hydration": {
-      "status": "failed",
-      "reason": "Error: date-picker/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "assetsStyles": {
-      "status": "failed",
-      "reason": "Error: date-picker/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "console": {
-      "status": "failed",
-      "reason": "Error: date-picker/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "network": {
-      "status": "failed",
-      "reason": "Error: date-picker/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "domAria": {
-      "status": "failed",
-      "reason": "Error: date-picker/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "behaviorVectors": {
-      "status": "failed",
-      "reason": "Error: date-picker/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "screenshotPixel": {
-      "status": "failed",
-      "reason": "Error: date-picker/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     }
   },
   "limitations": [
-    "Error: date-picker/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
+    "Canonical package route passed the manifest-driven browser proof with immutable evidence."
   ],
   "determinism": {
     "canonicalManifestHash": "29e0c164599af384f402461c3be58746c1406a693ba1493892d624851807e9d8",

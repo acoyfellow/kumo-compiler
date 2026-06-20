@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "sensitive-input",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/sensitive-input/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "efbf852c2e6df17afbc80901774585733a521d593585131b1cbc13a2aa5f2602",
+    "postHydration": "1d296b08ea929f5bf05272be5b0586e77a51958d416a1095a9a92975bb7c9a98",
+    "aria": [
+      {
+        "tag": "div",
+        "role": "button",
+        "label": "API token, masked.",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Reveal value",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Copy to clipboard",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "sensitive-toggle",
+      "target": true,
+      "active": "DIV",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "6497a0785a54ac5c809db381069df63ba043601424239595c6a10531b828a9a0",
+    "pixelSha256": "362c21ba0e4a1502021e72fcd962ada9934d523dafd3121c5edd1a3e687bfe76",
+    "bytes": 12269
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/sensitive-input/react/assets/index-BeDckby4.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

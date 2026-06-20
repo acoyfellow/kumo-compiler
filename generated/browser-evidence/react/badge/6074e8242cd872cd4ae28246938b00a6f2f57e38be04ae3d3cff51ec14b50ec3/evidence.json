@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "badge",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/badge/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "e022979bde0c8c416dcece8c561170201ee5ee67ca5f77496105abbd15205686",
+    "postHydration": "c301077fecd0443d3491f48e50ed62ecd473ec9077c766577f2494217fe4479e",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "ccdcd97f31d8604a8dd6dde651afd0302809e245cf2891603eaaf3240fbd3388",
+    "pixelSha256": "79f4b3c217f4dbd8361f0cddc48a5d7d980d4553ece727e3f5889d17008df4c1",
+    "bytes": 6636
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/badge/react/assets/index-BmrFo8qN.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

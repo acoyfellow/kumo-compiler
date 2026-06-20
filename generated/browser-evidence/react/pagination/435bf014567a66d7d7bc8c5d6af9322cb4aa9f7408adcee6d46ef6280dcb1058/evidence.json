@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "pagination",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/pagination/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "ee4d19c1f390c4ad87e96fdc87c79c49e50f74539b3ccf9d92f4727d3be881e7",
+    "postHydration": "e6fcf9c308a524b7481399d10b85fd886ffa05b0161c1eae1975d86b3baf5245",
+    "aria": [
+      {
+        "tag": "nav",
+        "role": null,
+        "label": "Pagination",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Previous page",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Next page",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "6ca0de2b258cab8aecd174059d709621a8352c46bf4b6064192ccdb1827fe0dd",
+    "pixelSha256": "05c831384ee5f5cc3b7df8d1af0f591726ee5dfea9d50aa98b8db59c398cf277",
+    "bytes": 7856
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/pagination/react/assets/index-DBS471Ik.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

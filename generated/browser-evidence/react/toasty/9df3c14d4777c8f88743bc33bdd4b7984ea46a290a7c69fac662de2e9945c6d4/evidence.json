@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "toasty",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/toasty/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "e938ca1e0aa951756a8ef9b1cde42d30c1ea1ff7ea8e90195a2c23a8b700531e",
+    "postHydration": "e267ba4c8e39b33e12aa832c6d3e6f97c470597b24b79581c9d49f85736eab83",
+    "aria": [
+      {
+        "tag": "output",
+        "role": "status",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "div",
+        "role": "region",
+        "label": "Notifications",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "0b987befc8e4c264191f3f1e4520c147c6d472d4866786a5341df02d1dcce546",
+    "pixelSha256": "692153fdf98549ce52f30661bcd3ee31c8d9152e2fbd7cd84e9d88d1de048fae",
+    "bytes": 9724
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/toasty/react/assets/index-CKkFAJLN.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

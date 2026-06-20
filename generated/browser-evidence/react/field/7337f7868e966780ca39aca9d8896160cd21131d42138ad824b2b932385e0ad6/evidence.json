@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "field",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/field/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "cfd7cd94a9a7697ff71da3f1bd021edb1b028d5dce4ffb3e33bc1be4a86a1e5e",
+    "postHydration": "ea99076c3a136f4b9240baba68a56cb39b699587a246576ddced38be28b8ff4b",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": true,
+      "active": "INPUT",
+      "checked": false
+    }
+  },
+  "screenshot": {
+    "sha256": "e2ba33a4b3a6ae613345283b288b3204d6447e27e988421197b9816bca771957",
+    "pixelSha256": "dc84c2c5f1c99775848ae7c00cf9b378b3006ace14da2c3f7812961e8d1ff390",
+    "bytes": 9151
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/field/react/assets/index-CsgtQYm2.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "clipboard-text",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/clipboard-text/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": false,
+    "dom": false,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": false,
+    "screenshot": true,
+    "pixels": true,
+    "assets": false,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "a3576abbd1c9e6a327a3f9555b5e008811bcb375e7c5f0b4cd13ffcb25c6135f",
+    "postHydration": "acb1e4709574065f6e27759f33c9ea0fde9b2d33979a5d3c333503d8692cfe6a",
+    "aria": [],
+    "behaviorVector": {
+      "policy": "clipboard-copy",
+      "target": true,
+      "active": "A",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "b9d765b42709380fc3f509629d79f31a8a3cbf9fff016e699cf47d6544d70922",
+    "pixelSha256": "bf134e14518980fe721b799fb15072d88b4ea04a09b9138bb9e5d4a0af73ff65",
+    "bytes": 42323
+  },
+  "assets": [],
+  "failures": [
+    "net::ERR_CONNECTION_REFUSED",
+    "net::ERR_CONNECTION_REFUSED",
+    "net::ERR_ABORTED",
+    "runtime DOM, linked asset, or style missing"
+  ]
+}

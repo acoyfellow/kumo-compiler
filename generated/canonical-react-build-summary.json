@@ -11,8 +11,7 @@
     },
     {
       "component": "dialog",
-      "status": "failed",
-      "error": "TypeError: Cannot destructure property 'store' of 'qt(...)' as it is undefined.\n    at DialogPortal (file:///Users/jcoeyman/cloudflare/kumo-compiler/runtime-canonical/dialog/server-runtime/server.js?v=1781963635488:13226:52)\n    at Object.react_stack_bottom_frame (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:9808:18)\n    at renderWithHooks (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5062:19)\n    at renderElement (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6017:39)\n    at retryNode (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6417:31)\n    at renderNodeDestructive (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6367:11)\n    at finishFunctionComponent (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5106:13)\n    at renderElement (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5552:11)\n    at retryNode (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6417:31)\n    at renderNodeDestructive (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6367:11)"
+      "status": "passed"
     },
     {
       "component": "popover",
@@ -32,8 +31,7 @@
     },
     {
       "component": "input",
-      "status": "failed",
-      "error": "Error: input is a self-closing tag and must neither have `children` nor use `dangerouslySetInnerHTML`.\n    at pushStartInstance (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:1881:27)\n    at renderElement (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5574:27)\n    at retryNode (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6417:31)\n    at renderNodeDestructive (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6367:11)\n    at renderNode (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6905:18)\n    at finishFunctionComponent (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5102:11)\n    at renderElement (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6025:15)\n    at retryNode (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6417:31)\n    at renderNodeDestructive (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6367:11)\n    at finishFunctionComponent (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5106:13)"
+      "status": "passed"
     },
     {
       "component": "input-group",
@@ -45,8 +43,7 @@
     },
     {
       "component": "sensitive-input",
-      "status": "failed",
-      "error": "Error: input is a self-closing tag and must neither have `children` nor use `dangerouslySetInnerHTML`.\n    at pushStartInstance (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:1881:27)\n    at renderElement (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5574:27)\n    at retryNode (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6417:31)\n    at renderNodeDestructive (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6367:11)\n    at renderNode (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6905:18)\n    at finishFunctionComponent (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5102:11)\n    at renderElement (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6025:15)\n    at retryNode (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6417:31)\n    at renderNodeDestructive (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6367:11)\n    at finishFunctionComponent (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5106:13)"
+      "status": "passed"
     },
     {
       "component": "clipboard-text",
@@ -58,13 +55,11 @@
     },
     {
       "component": "menu-bar",
-      "status": "failed",
-      "error": "TypeError: Cannot read properties of undefined (reading 'map')\n    at D (file:///Users/jcoeyman/cloudflare/kumo-compiler/runtime-canonical/menu-bar/server-runtime/server.js?v=1781963643041:23360:15)\n    at Object.react_stack_bottom_frame (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:9808:18)\n    at renderWithHooks (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5062:19)\n    at renderElement (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5497:23)\n    at retryNode (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6417:31)\n    at renderNodeDestructive (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6367:11)\n    at finishFunctionComponent (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5106:13)\n    at renderElement (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5552:11)\n    at retryNode (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6417:31)\n    at performWork (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:7435:17)"
+      "status": "passed"
     },
     {
       "component": "sidebar",
-      "status": "failed",
-      "error": "Error: useSidebar must be used within a Sidebar.Provider\n    at V (file:///Users/jcoeyman/cloudflare/kumo-compiler/runtime-canonical/sidebar/server-runtime/server.js?v=1781963643785:23378:16)\n    at Sidebar (file:///Users/jcoeyman/cloudflare/kumo-compiler/runtime-canonical/sidebar/server-runtime/server.js?v=1781963643785:23467:209)\n    at Object.react_stack_bottom_frame (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:9808:18)\n    at renderWithHooks (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5062:19)\n    at renderElement (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6017:39)\n    at retryNode (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6417:31)\n    at renderNodeDestructive (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6367:11)\n    at finishFunctionComponent (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5106:13)\n    at renderElement (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5552:11)\n    at retryNode (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6417:31)"
+      "status": "passed"
     },
     {
       "component": "breadcrumbs",
@@ -148,8 +143,7 @@
     },
     {
       "component": "command-palette",
-      "status": "failed",
-      "error": "Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: object.\n    at renderElement (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6119:15)\n    at retryNode (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6417:31)\n    at renderNodeDestructive (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6367:11)\n    at finishFunctionComponent (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5106:13)\n    at renderElement (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5552:11)\n    at retryNode (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6417:31)\n    at performWork (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:7435:17)\n    at startWork (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:8270:7)\n    at renderToStringImpl (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:8380:7)\n    at process.env.NODE_ENV.exports.renderToString (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:9869:14)"
+      "status": "passed"
     },
     {
       "component": "date-picker",

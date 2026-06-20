@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "input",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/input/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "e68da27e65bebc3438ad9c7febcfe4081529d2255fe845baaa9c3d900de5478c",
+    "postHydration": "fe087bcfa1c700a177ab0602b51cdc41f74d658494ea9fff85d3365b6383e146",
+    "aria": [
+      {
+        "tag": "input",
+        "role": null,
+        "label": "Audit input",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": null,
+      "target": true,
+      "active": "INPUT",
+      "checked": false
+    }
+  },
+  "screenshot": {
+    "sha256": "632c4ab5f87ed7faf877390cb2bfad761040c8361bf8267c59596155271853dd",
+    "pixelSha256": "6513ca10e9f1ef6d586079fcdb3e30bc1e796f2a44daacd1f807ed94db468373",
+    "bytes": 3920
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/input/react/assets/index-BVDBu_x_.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

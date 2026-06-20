@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "combobox",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/combobox/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "3f1c07e190fc0269a75d98fe4d2fb7fd588b46b9724cb871493d18ab141aaa4d",
+    "postHydration": "97a8a34f34f0115f47cdcd81045ffe76a27e7bfb90e2913c71b5a114f235325b",
+    "aria": [
+      {
+        "tag": "button",
+        "role": "combobox",
+        "label": null,
+        "expanded": "false",
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "ul",
+        "role": "listbox",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "li",
+        "role": "option",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "li",
+        "role": "option",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "62cc02476f767fe0f6f44d01b1a19d7d52fccc619acda5594c3c0c3d3f1af1fd",
+    "pixelSha256": "e5c1d3674960881523928b99f5029c945a188edf4609dfcdd0326ab72974f16d",
+    "bytes": 12209
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/combobox/react/assets/index-BFjPclWa.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

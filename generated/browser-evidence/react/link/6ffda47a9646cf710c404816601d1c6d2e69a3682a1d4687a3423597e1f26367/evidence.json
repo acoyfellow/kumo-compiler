@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "link",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/link/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "cabc7deb1424d0adcf204d4bc246a0d97560bb085d0340fb06930f6421af5dab",
+    "postHydration": "0a4a079740228cc84a79c6f405456e590ef045c9bb87604d5b5514af2939e8e1",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": true,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "ce03339bf7be3e2dbdb89309ab038ed65f4514de7653d7bb2cbcc91c627a40f4",
+    "pixelSha256": "7b146e23205b532101db0fe9024793c781cf74c0ba029eef77ad1682254cc71a",
+    "bytes": 6689
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": [
+    "Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\n    at Ai (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:31172)\n    at Tc (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:81847)\n    at Au (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:115862)\n    at Du (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:114923)\n    at Eu (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:114759)\n    at mu (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:111258)\n    at sd (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:8:123192)\n    at MessagePort.D (http://127.0.0.1:4260/link/react/assets/index-D8FCsSvB.js:1:10233)"
+  ]
+}

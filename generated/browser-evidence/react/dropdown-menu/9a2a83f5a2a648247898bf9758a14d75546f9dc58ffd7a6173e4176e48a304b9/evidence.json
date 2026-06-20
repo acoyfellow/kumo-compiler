@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "dropdown-menu",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/dropdown-menu/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "c111982d95a1ca1feb52c7329b1e8d0e7f819e4b4c3d164f4e63756cea54e458",
+    "postHydration": "33c668490214e44d3257dd25a90472b05284f580179c42920e06833013cea09e",
+    "aria": [
+      {
+        "tag": "button",
+        "role": null,
+        "label": null,
+        "expanded": "false",
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "div",
+        "role": "menu",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": "menuitem",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": "menuitem",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": "menuitem",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "552bebcfb4346a7b2578d2d57d6b70cb5e7599dc23065579f09288222a79adab",
+    "pixelSha256": "36597798200486818903cc9cf09684e43f62f81e18fbf5d8344baff548a15697",
+    "bytes": 11117
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/dropdown-menu/react/assets/index-DxdPlFC3.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

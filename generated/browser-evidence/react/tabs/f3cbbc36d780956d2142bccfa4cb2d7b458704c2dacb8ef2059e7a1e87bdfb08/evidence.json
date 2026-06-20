@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "tabs",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/tabs/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "2e08043cf2881225bc8f7d34c451f1f26248e49b224eb4238b5349cf412d0ceb",
+    "postHydration": "6e30b84c42c6ed2fb74dbd7ec6b602836e53ad8ba0c4d342c032f18fead6b3ab",
+    "aria": [
+      {
+        "tag": "div",
+        "role": "tablist",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": "tab",
+        "label": null,
+        "expanded": null,
+        "selected": "true",
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": "tab",
+        "label": null,
+        "expanded": null,
+        "selected": "false",
+        "checked": null
+      },
+      {
+        "tag": "div",
+        "role": "presentation",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "roving",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "e614a642076d3be53f5dfc7dd1b23a546fd133ca1c912092360da1d46ccb84e6",
+    "pixelSha256": "f894408474d13483342db9d5bcb21eb58a94126b2659b55de270e0135e0881eb",
+    "bytes": 4373
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/tabs/react/assets/index-BYbLM7Yz.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

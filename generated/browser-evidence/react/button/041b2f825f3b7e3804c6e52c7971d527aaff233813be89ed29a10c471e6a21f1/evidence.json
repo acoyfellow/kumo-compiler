@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "button",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/button/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "ba375bf5f2eaec3519013b4294f190b62600cefd10c2b0435245667131adaae8",
+    "postHydration": "126dba340df8dbe078a86bc55f2e21d03fdcb51b299f6d49bd6e3657299b4e93",
+    "aria": [
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Add item",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "button",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "e1ad43b3683792fd0495786cb942f1ed7f6b52f2446b2a2ac1f708fb1e5f3ca4",
+    "pixelSha256": "ad992504a58ba6df608948200aa3ca0e5c374f2b0be2013cbadf068cfe91f1e4",
+    "bytes": 19888
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/button/react/assets/react-button.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

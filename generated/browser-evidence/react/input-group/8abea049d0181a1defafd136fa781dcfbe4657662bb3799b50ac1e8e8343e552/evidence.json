@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "input-group",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/input-group/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "c7c6fd11ae1e0188c166cf5460a756a16790719b6fb787d200e44a03305c3f42",
+    "postHydration": "0d139bef6bef7acb55503d6d7e7eec63fdb5c14f8210d5c912684fdca9fa31e5",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": true,
+      "active": "INPUT",
+      "checked": false
+    }
+  },
+  "screenshot": {
+    "sha256": "fa35f63e79608b2078c8a6dafd0661fef9e540aef2b4a2963ea11cf7ef1c6579",
+    "pixelSha256": "77345cc1bc5f2447c4793f4fa68571d3fb1d2797759f7cb4b53bb0c906294c15",
+    "bytes": 9918
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/input-group/react/assets/index-D1rh5NEc.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

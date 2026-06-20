@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "surface",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/surface/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "3b6175621accb53c2b3d0b650b5d6ceec0fde459e6ca247aaf3f897ebef23e17",
+    "postHydration": "f49526528bf3942105db97b078b80d807e97b40ebb7bf264ac2d515996ce4f8b",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "25d1584b0df5db7099d7e00fc574b4d18140164b348c86a5d09c34295d85c26f",
+    "pixelSha256": "ff4f35c41894f9c3971b31425ec0b71e7d0dc85da47e02a91ad11176ba66272b",
+    "bytes": 13014
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/surface/react/assets/index-1yS9IRBr.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}
