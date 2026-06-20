@@ -1,0 +1,2 @@
+# Consumer verification plan
+For Vue, Svelte and Solid, run against `npm pack` tarballs (never workspace source): install, typecheck, production build, SSR render, hydration, HMR edit, nested npm workspace resolution, and tree-shaking/side-effect inspection. Skeleton fixtures intentionally mark all execution `planned`/`not-run`; framework behavior and architecture remain deferred winner decisions.

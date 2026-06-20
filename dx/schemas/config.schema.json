@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["schemaVersion","framework","root"],"properties":{"schemaVersion":{"const":1},"framework":{"enum":["vue","svelte","solid"]},"root":{"$ref":"common.schema.json#/$defs/relativePath"},"ownership":{"$ref":"common.schema.json#/$defs/ownership"}},"additionalProperties":false}
