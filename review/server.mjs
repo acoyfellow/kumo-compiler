@@ -10,6 +10,9 @@ const app=new Hono(),root=resolve(arg('root')||process.env.KUMO_ROOT||resolve(im
 const runtimeDirectory=(component,framework)=>framework==='react'?resolve(canonicalRuntimeRoot,component,'public-runtime'):resolve(runtimeRoot,component,framework,'public-runtime');
 const runtimeHtml=(component,framework)=>readFileSync(resolve(runtimeDirectory(component,framework),'index.html'),'utf8').replace('<head>','<head><base href="/'+component+'/'+framework+'/">');
 const runtimeAsset=(component,framework,file)=>readFileSync(resolve(runtimeDirectory(component,framework),'assets',file));
+const referenceDirectory=(component,framework)=>resolve(root,'runtime-reference',component,framework,'public-runtime');
+const referenceHtml=(component,framework)=>readFileSync(resolve(referenceDirectory(component,framework),'index.html'),'utf8').replace('<head>','<head><base href="/'+component+'/'+framework+'/">');
+const referenceAsset=(component,framework,file)=>readFileSync(resolve(referenceDirectory(component,framework),'assets',file));
 app.use('*',async(c,next)=>{
  const url=new URL(c.req.url),route=class2RuntimeRoute(url.pathname);
  if(route?.needsSlash)return c.redirect(`${url.pathname}/${url.search}`,308);
@@ -23,8 +26,8 @@ const cases=[{label:'Extra small',size:'xs',placeholder:'Choose fruit'},{label:'
 function Select(p){const id=p.label.toLowerCase().replace(/[^a-z0-9]+/g,'-')+'-listbox';return React.createElement('div',{className:'kumo-field'},React.createElement('label',{htmlFor:id+'-trigger',className:p.hideLabel?'sr-only':undefined},p.label),React.createElement('button',{type:'button',role:'combobox',id:id+'-trigger','aria-controls':id,'aria-expanded':'false','aria-haspopup':'listbox','aria-busy':p.loading||undefined,'aria-invalid':p.error?true:undefined,disabled:p.disabled||p.loading,className:`kumo-trigger ${p.size||'base'}`},React.createElement('span',null,p.value||p.placeholder),React.createElement('svg',{'aria-hidden':'true',width:16,height:16,viewBox:'0 0 16 16'},React.createElement('path',{fill:'currentColor',d:'m4 6 4 4 4-4z'}))),p.error?React.createElement('p',{className:'error'},p.error):p.description?React.createElement('p',{className:'description'},p.description):null)}
 const canonical=renderToStaticMarkup(React.createElement('main',{className:'shell'},React.createElement('h1',{className:'title'},'Select'),React.createElement('section',{className:'matrix'},cases.map((p,i)=>React.createElement(Select,{...p,key:i})) )));
 const reactPage=`<!doctype html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Select React</title><style>${css}</style></head><body><div id="app">${canonical}</div><script type="module" src="/select/react/assets/react-select.js"></script></body></html>`;
-for(const f of frameworks)app.get(`/select/${f}`,c=>c.html(runtimeHtml('select',f)));
-app.get('/select/:framework/assets/:file',c=>{const{framework,file}=c.req.param();if(!frameworks.has(framework)||!/^[\w.-]+$/.test(file))return c.notFound();const body=runtimeAsset('select',framework,file);return c.body(body,200,{'Content-Type':file.endsWith('.css')?'text/css':'text/javascript'});});
+for(const f of frameworks)app.get(`/select/${f}`,c=>c.html(referenceHtml('select',f)));
+app.get('/select/:framework/assets/:file',c=>{const{framework,file}=c.req.param();if(!frameworks.has(framework)||!/^[\w.-]+$/.test(file))return c.notFound();const body=referenceAsset('select',framework,file);return c.body(body,200,{'Content-Type':file.endsWith('.css')?'text/css':'text/javascript'});});
 app.get('/benchmarks/',c=>c.html(readFileSync(resolve(root,'deploy/benchmarks/index.html'),'utf8')));
 app.get('/benchmarks/data/catalog.json',c=>c.json(JSON.parse(readFileSync(resolve(root,'deploy/benchmarks/data/catalog.json'),'utf8'))));
 app.get('/benchmarks/components/select/',c=>c.html(readFileSync(resolve(root,'deploy/benchmarks/components/select/index.html'),'utf8')));
@@ -38,7 +41,7 @@ for(const kind of ['button','dialog','popover']){
  app.get(`/${kind}/:framework/assets/:file`,c=>{const{framework,file}=c.req.param();if(!frameworks.has(framework)||!/^[-\w.]+$/.test(file))return c.notFound();const body=runtimeAsset(kind,framework,file);return c.body(body,200,{'Content-Type':file.endsWith('.css')?'text/css':'text/javascript'});});
  app.get(`/${kind}/compare`,c=>c.html(readFileSync(resolve(root,`deploy/${kind}/compare/index.html`),'utf8')));
  app.get(`/${kind}/compare/`,c=>c.redirect(`/${kind}/compare`));
- for(const f of frameworks)app.get(`/${kind}/${f}/`,c=>c.redirect(`/${kind}/${f}`));
+ for(const f of frameworks)app.get(`/${kind}/${f}/`,c=>c.html(runtimeHtml(kind,f)));
  app.get(`/runtime/${kind}/compare`,c=>c.redirect(`/${kind}/compare`));
 }
 
@@ -54,7 +57,7 @@ for(const kind of ['checkbox','switch']){
  app.get(`/${kind}/:framework/assets/:file`,c=>{const{framework,file}=c.req.param();if(!frameworks.has(framework)||!/^[-\w.]+$/.test(file))return c.notFound();const body=runtimeAsset(kind,framework,file);return c.body(body,200,{'Content-Type':file.endsWith('.css')?'text/css':'text/javascript'});});
  app.get(`/runtime/${kind}/compare`,c=>c.redirect(`/${kind}/compare`));
  app.get(`/${kind}/compare/`,c=>c.redirect(`/${kind}/compare`));
- for(const f of frameworks)app.get(`/${kind}/${f}/`,c=>c.redirect(`/${kind}/${f}`));
+ for(const f of frameworks)app.get(`/${kind}/${f}/`,c=>c.html(runtimeHtml(kind,f)));
  app.get(`/${kind}/compare`,c=>c.html(`<!doctype html><html><head><meta charset="utf-8"><title>${kind} comparison</title><style>body{margin:0;background:#f3f4f6;font-family:system-ui}header,main{max-width:900px;margin:20px auto}.tabs{display:flex;gap:8px}.tabs button{padding:8px 14px}.tabs button[aria-selected=true]{background:#111827;color:white}.panel{margin-top:12px;background:white;border:1px solid #d1d5db;border-radius:12px;overflow:hidden}iframe{width:100%;height:520px;border:0}</style></head><body>${nav}<header><h1>${kind[0].toUpperCase()+kind.slice(1)} runtime comparison</h1><p>One native-control family policy · four generated runtimes</p></header><main><div class="tabs" role="tablist">${[...frameworks].map((f,i)=>`<button role="tab" aria-selected="${!i}" data-f="${f}">${f}</button>`).join('')}</div><div class="panel"><iframe title="${kind} runtime" src="/${kind}/react"></iframe></div></main><script>for(const b of document.querySelectorAll('[data-f]'))b.onclick=()=>{document.querySelectorAll('[data-f]').forEach(x=>x.setAttribute('aria-selected',x===b));document.querySelector('iframe').src='/${kind}/'+b.dataset.f}</script></body></html>`));
 }
 // Catalog-wide directory fallback for families without a bespoke comparison shell.
