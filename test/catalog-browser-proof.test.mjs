@@ -1,5 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {spawnSync} from 'node:child_process';
+import {mkdtempSync,rmSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
 import {manifest,frameworks} from '../proof/catalog-browser-manifest.mjs';
 import {hasSuccessfulNetworkEvidence,validateEvidence} from '../proof/catalog-browser-proof.mjs';
 
@@ -16,3 +20,11 @@ test('network proof requires captured successful responses',()=>{
 test('synthetic evidence is rejected',()=>assert.throws(()=>validateEvidence({...complete,synthetic:true}),/synthetic/));
 test('browser failures are rejected',()=>assert.throws(()=>validateEvidence({...complete,failures:['404 asset']}),/404 asset/));
 test('snapshot and decoded pixel evidence is mandatory',()=>assert.throws(()=>validateEvidence({...complete,screenshot:{sha256:'x'}}),/artifacts/));
+test('proof CLI exits nonzero when a browser target fails',()=>{
+ const out=mkdtempSync(join(tmpdir(),'kumo-proof-test-'));
+ try {
+  const child=spawnSync(process.execPath,['proof/catalog-browser-proof.mjs','--frameworks=vue','--components=select',`--out=${out}`],{cwd:new URL('..',import.meta.url),env:{...process.env,CHROME:'/definitely/missing/chrome'},encoding:'utf8'});
+  assert.notEqual(child.status,0);
+  assert.match(child.stderr,/catalog browser proof failed/);
+ } finally { rmSync(out,{recursive:true,force:true}); }
+});
