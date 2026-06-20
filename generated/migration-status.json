@@ -1,416 +1,417 @@
 {
-  "schemaVersion": "kumo.migration-status/v1",
+  "schemaVersion": "kumo.migration-status/v2",
+  "catalogSchema": "kumo.ir/v1",
   "derivedOnlyFromReceipts": true,
   "components": {
     "select": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/select.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/select.vue.json",
+      "vueReceipt": "generated/receipts/select.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/select.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/select.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/select.react.json"
+      "solidReceipt": "generated/receipts/select.solid.json"
     },
     "button": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/button.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/button.vue.json",
+      "vueReceipt": "generated/receipts/button.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/button.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/button.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/button.react.json"
+      "solidReceipt": "generated/receipts/button.solid.json"
     },
     "dialog": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/dialog.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/dialog.vue.json",
+      "vueReceipt": "generated/receipts/dialog.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/dialog.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/dialog.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/dialog.react.json"
+      "solidReceipt": "generated/receipts/dialog.solid.json"
     },
     "popover": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/popover.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/popover.vue.json",
+      "vueReceipt": "generated/receipts/popover.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/popover.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/popover.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/popover.react.json"
+      "solidReceipt": "generated/receipts/popover.solid.json"
     },
     "checkbox": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/checkbox.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/checkbox.vue.json",
+      "vueReceipt": "generated/receipts/checkbox.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/checkbox.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/checkbox.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/checkbox.react.json"
+      "solidReceipt": "generated/receipts/checkbox.solid.json"
     },
     "switch": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/switch.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/switch.vue.json",
+      "vueReceipt": "generated/receipts/switch.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/switch.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/switch.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/switch.react.json"
+      "solidReceipt": "generated/receipts/switch.solid.json"
     },
     "field": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/field.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/field.vue.json",
+      "vueReceipt": "generated/receipts/field.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/field.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/field.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/field.react.json"
+      "solidReceipt": "generated/receipts/field.solid.json"
     },
     "input": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/input.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/input.vue.json",
+      "vueReceipt": "generated/receipts/input.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/input.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/input.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/input.react.json"
+      "solidReceipt": "generated/receipts/input.solid.json"
     },
     "input-group": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/input-group.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/input-group.vue.json",
+      "vueReceipt": "generated/receipts/input-group.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/input-group.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/input-group.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/input-group.react.json"
+      "solidReceipt": "generated/receipts/input-group.solid.json"
     },
     "input-area": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/input-area.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/input-area.vue.json",
+      "vueReceipt": "generated/receipts/input-area.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/input-area.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/input-area.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/input-area.react.json"
+      "solidReceipt": "generated/receipts/input-area.solid.json"
     },
     "sensitive-input": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/sensitive-input.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/sensitive-input.vue.json",
+      "vueReceipt": "generated/receipts/sensitive-input.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/sensitive-input.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/sensitive-input.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/sensitive-input.react.json"
+      "solidReceipt": "generated/receipts/sensitive-input.solid.json"
     },
     "clipboard-text": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/clipboard-text.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/clipboard-text.vue.json",
+      "vueReceipt": "generated/receipts/clipboard-text.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/clipboard-text.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/clipboard-text.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/clipboard-text.react.json"
+      "solidReceipt": "generated/receipts/clipboard-text.solid.json"
     },
     "tabs": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/tabs.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/tabs.vue.json",
+      "vueReceipt": "generated/receipts/tabs.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/tabs.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/tabs.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/tabs.react.json"
+      "solidReceipt": "generated/receipts/tabs.solid.json"
     },
     "menu-bar": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/menu-bar.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/menu-bar.vue.json",
+      "vueReceipt": "generated/receipts/menu-bar.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/menu-bar.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/menu-bar.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/menu-bar.react.json"
+      "solidReceipt": "generated/receipts/menu-bar.solid.json"
     },
     "sidebar": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/sidebar.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/sidebar.vue.json",
+      "vueReceipt": "generated/receipts/sidebar.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/sidebar.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/sidebar.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/sidebar.react.json"
+      "solidReceipt": "generated/receipts/sidebar.solid.json"
     },
     "breadcrumbs": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/breadcrumbs.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/breadcrumbs.vue.json",
+      "vueReceipt": "generated/receipts/breadcrumbs.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/breadcrumbs.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/breadcrumbs.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/breadcrumbs.react.json"
+      "solidReceipt": "generated/receipts/breadcrumbs.solid.json"
     },
     "table-of-contents": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/table-of-contents.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/table-of-contents.vue.json",
+      "vueReceipt": "generated/receipts/table-of-contents.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/table-of-contents.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/table-of-contents.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/table-of-contents.react.json"
+      "solidReceipt": "generated/receipts/table-of-contents.solid.json"
     },
     "badge": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/badge.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/badge.vue.json",
+      "vueReceipt": "generated/receipts/badge.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/badge.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/badge.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/badge.react.json"
+      "solidReceipt": "generated/receipts/badge.solid.json"
     },
     "banner": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/banner.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/banner.vue.json",
+      "vueReceipt": "generated/receipts/banner.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/banner.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/banner.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/banner.react.json"
+      "solidReceipt": "generated/receipts/banner.solid.json"
     },
     "surface": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/surface.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/surface.vue.json",
+      "vueReceipt": "generated/receipts/surface.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/surface.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/surface.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/surface.react.json"
+      "solidReceipt": "generated/receipts/surface.solid.json"
     },
     "layer-card": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/layer-card.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/layer-card.vue.json",
+      "vueReceipt": "generated/receipts/layer-card.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/layer-card.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/layer-card.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/layer-card.react.json"
+      "solidReceipt": "generated/receipts/layer-card.solid.json"
     },
     "grid": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/grid.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/grid.vue.json",
+      "vueReceipt": "generated/receipts/grid.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/grid.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/grid.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/grid.react.json"
+      "solidReceipt": "generated/receipts/grid.solid.json"
     },
     "grid-item": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/grid-item.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/grid-item.vue.json",
+      "vueReceipt": "generated/receipts/grid-item.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/grid-item.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/grid-item.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/grid-item.react.json"
+      "solidReceipt": "generated/receipts/grid-item.solid.json"
     },
     "loader": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/loader.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/loader.vue.json",
+      "vueReceipt": "generated/receipts/loader.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/loader.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/loader.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/loader.react.json"
+      "solidReceipt": "generated/receipts/loader.solid.json"
     },
     "meter": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/meter.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/meter.vue.json",
+      "vueReceipt": "generated/receipts/meter.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/meter.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/meter.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/meter.react.json"
+      "solidReceipt": "generated/receipts/meter.solid.json"
     },
     "empty": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/empty.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/empty.vue.json",
+      "vueReceipt": "generated/receipts/empty.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/empty.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/empty.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/empty.react.json"
+      "solidReceipt": "generated/receipts/empty.solid.json"
     },
     "label": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/label.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/label.vue.json",
+      "vueReceipt": "generated/receipts/label.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/label.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/label.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/label.react.json"
+      "solidReceipt": "generated/receipts/label.solid.json"
     },
     "link": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/link.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/link.vue.json",
+      "vueReceipt": "generated/receipts/link.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/link.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/link.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/link.react.json"
+      "solidReceipt": "generated/receipts/link.solid.json"
     },
     "text": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/text.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/text.vue.json",
+      "vueReceipt": "generated/receipts/text.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/text.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/text.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/text.react.json"
+      "solidReceipt": "generated/receipts/text.solid.json"
     },
     "cloudflare-logo": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/cloudflare-logo.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/cloudflare-logo.vue.json",
+      "vueReceipt": "generated/receipts/cloudflare-logo.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/cloudflare-logo.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/cloudflare-logo.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/cloudflare-logo.react.json"
+      "solidReceipt": "generated/receipts/cloudflare-logo.solid.json"
     },
     "code": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/code.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/code.vue.json",
+      "vueReceipt": "generated/receipts/code.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/code.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/code.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/code.react.json"
+      "solidReceipt": "generated/receipts/code.solid.json"
     },
     "table": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/table.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/table.vue.json",
+      "vueReceipt": "generated/receipts/table.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/table.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/table.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/table.react.json"
+      "solidReceipt": "generated/receipts/table.solid.json"
     },
     "radio": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/radio.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/radio.vue.json",
+      "vueReceipt": "generated/receipts/radio.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/radio.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/radio.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/radio.react.json"
+      "solidReceipt": "generated/receipts/radio.solid.json"
     },
     "autocomplete": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/autocomplete.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/autocomplete.vue.json",
+      "vueReceipt": "generated/receipts/autocomplete.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/autocomplete.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/autocomplete.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/autocomplete.react.json"
+      "solidReceipt": "generated/receipts/autocomplete.solid.json"
     },
     "combobox": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/combobox.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/combobox.vue.json",
+      "vueReceipt": "generated/receipts/combobox.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/combobox.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/combobox.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/combobox.react.json"
+      "solidReceipt": "generated/receipts/combobox.solid.json"
     },
     "command-palette": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/command-palette.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/command-palette.vue.json",
+      "vueReceipt": "generated/receipts/command-palette.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/command-palette.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/command-palette.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/command-palette.react.json"
+      "solidReceipt": "generated/receipts/command-palette.solid.json"
     },
     "date-picker": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/date-picker.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/date-picker.vue.json",
+      "vueReceipt": "generated/receipts/date-picker.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/date-picker.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/date-picker.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/date-picker.react.json"
+      "solidReceipt": "generated/receipts/date-picker.solid.json"
     },
     "date-range-picker": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/date-range-picker.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/date-range-picker.vue.json",
+      "vueReceipt": "generated/receipts/date-range-picker.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/date-range-picker.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/date-range-picker.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/date-range-picker.react.json"
+      "solidReceipt": "generated/receipts/date-range-picker.solid.json"
     },
     "dropdown-menu": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/dropdown-menu.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/dropdown-menu.vue.json",
+      "vueReceipt": "generated/receipts/dropdown-menu.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/dropdown-menu.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/dropdown-menu.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/dropdown-menu.react.json"
+      "solidReceipt": "generated/receipts/dropdown-menu.solid.json"
     },
     "toasty": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/toasty.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/toasty.vue.json",
+      "vueReceipt": "generated/receipts/toasty.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/toasty.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/toasty.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/toasty.react.json"
+      "solidReceipt": "generated/receipts/toasty.solid.json"
     },
     "pagination": {
+      "react": "passed",
+      "reactReceipt": "generated/receipts/pagination.react.json",
       "vue": "verified",
-      "receipt": "generated/receipts/pagination.vue.json",
+      "vueReceipt": "generated/receipts/pagination.vue.json",
       "svelte": "verified",
       "svelteReceipt": "generated/receipts/pagination.svelte.json",
       "solid": "verified",
-      "solidReceipt": "generated/receipts/pagination.solid.json",
-      "react": "passed",
-      "reactReceipt": "generated/receipts/pagination.react.json"
+      "solidReceipt": "generated/receipts/pagination.solid.json"
     }
   },
   "auditSummary": {

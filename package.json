@@ -54,7 +54,8 @@
     "proof:data-presentational": "npm run build:data-presentational && node proof/data-presentational-proof.mjs && npm pack --dry-run --ignore-scripts && npm run catalog:validate",
     "compile:selection-command-date": "npm run compile:kumo",
     "build:selection-command-date": "npm run compile:selection-command-date && for c in radio autocomplete combobox command-palette date-picker date-range-picker dropdown-menu toasty pagination; do vite build runtime/$c/vue || exit 1; done",
-    "proof:selection-command-date": "npm run build:selection-command-date && npm run verify:kumo:vue && npm pack --dry-run --ignore-scripts && npm run catalog:validate"
+    "proof:selection-command-date": "npm run build:selection-command-date && npm run verify:kumo:vue && npm pack --dry-run --ignore-scripts && npm run catalog:validate",
+    "build:migration-status": "node scripts/build-migration-status.mjs"
   },
   "keywords": [],
   "author": "",

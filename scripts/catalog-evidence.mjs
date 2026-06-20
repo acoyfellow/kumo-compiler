@@ -6,9 +6,10 @@ export const frameworks=['react','vue','svelte','solid'];
 const migrationPath=resolve(process.cwd(),process.cwd().endsWith('/astro')?'../generated/migration-status.json':'generated/migration-status.json');
 const migration=JSON.parse(await readFile(migrationPath,'utf8'));
 if(migration.derivedOnlyFromReceipts!==true)throw new Error('Migration status is not receipt-derived');
-export const frameworkStatus=Object.fromEntries(frameworks.map(framework=>[framework,Object.fromEntries(Object.entries(migration.components).map(([id,value])=>[id,{status:value[framework]??'unclassified',receipt:value[framework==='vue'?'receipt':`${framework}Receipt`]??null}]))]));
+export const frameworkStatus=Object.fromEntries(frameworks.map(framework=>[framework,Object.fromEntries(Object.entries(migration.components).map(([id,value])=>[id,{status:value[framework]??'unclassified',receipt:value[`${framework}Receipt`]??null}]))]));
 export const statusCounts=Object.fromEntries(frameworks.map(framework=>[framework,Object.values(frameworkStatus[framework]).reduce((counts,{status})=>({...counts,[status]:(counts[status]??0)+1}),{})]));
-export const nativeVueIds=Object.entries(frameworkStatus.vue).filter(([,value])=>value.status==='verified'&&value.receipt).map(([id])=>id);
+export const verifiedIds=Object.fromEntries(frameworks.map(framework=>[framework,Object.entries(frameworkStatus[framework]).filter(([,value])=>['verified','passed'].includes(value.status)&&value.receipt).map(([id])=>id)]));
+export const nativeVueIds=verifiedIds.vue;
 
 export function catalogEvidence(catalog){
   const components=catalog.components;
@@ -21,6 +22,8 @@ export function catalogEvidence(catalog){
   }]));
   if(components.length!==41||nativeVue.length!==components.length||legacyVue.length!==0)
     throw new Error(`Catalog receipt disclosure changed: ${components.length} total, ${nativeVue.length} verified Vue, ${legacyVue.length} legacy Vue`);
+  for(const framework of frameworks)if(verifiedIds[framework].length!==components.length)
+    throw new Error(`${framework} verified receipt count changed: ${verifiedIds[framework].length}/${components.length}`);
   if(measured.length!==components.length)throw new Error(`Catalog has ${components.length-measured.length} unmeasured components`);
   for(const component of components)for(const framework of frameworks)
     if(!Number.isFinite(component.metrics.buildMs[framework])||!Number.isFinite(component.metrics.bundleBytes[framework]))
