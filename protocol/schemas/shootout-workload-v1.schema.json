@@ -1,0 +1,6 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema", "$id":"kumo:shootout-workload/v1", "type":"object",
+  "required":["schemaVersion","fixture","input","expectedOutput","comparable","nonComparable"],
+  "properties":{"schemaVersion":{"const":"shootout-workload/v1"},"fixture":{"enum":["button","select"]},"input":{"type":"object"},"expectedOutput":{"type":"object"},"comparable":{"type":"array","items":{"type":"string"},"minItems":1,"uniqueItems":true},"nonComparable":{"type":"array","items":{"type":"string"},"uniqueItems":true}},
+  "additionalProperties":false
+}

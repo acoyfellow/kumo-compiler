@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kumo:shootout/v1",
+  "title": "Deterministic Kumo shootout result",
+  "type": "object",
+  "required": ["schemaVersion", "axis", "candidateId", "framework", "component", "candidateRevision", "frameworkRevision", "componentRevision", "runId", "evidenceDigest", "environmentManifestDigest", "baseline", "gates"],
+  "properties": {
+    "schemaVersion": {"const": "shootout/v1"},
+    "axis": {"enum": ["language", "architecture"]},
+    "language": {"enum": ["typescript", "go", "rust", "zig"]},
+    "architecture": {"enum": ["internal-compiler", "mitosis", "shared-core-native"]},
+    "candidateId": {"type": "string", "minLength": 1},
+    "framework": {"enum": ["react", "vue", "svelte", "solid"]},
+    "component": {"enum": ["button", "select"]},
+    "candidateRevision": {"type": "string", "minLength": 1},
+    "frameworkRevision": {"type": "string", "minLength": 1},
+    "componentRevision": {"type": "string", "minLength": 1},
+    "runId": {"type": "string", "minLength": 1},
+    "evidenceDigest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "environmentManifestDigest": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "baseline": {"type": "object", "required": ["digest"], "properties": {"digest": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}, "additionalProperties": false},
+    "gates": {"type": "object", "additionalProperties": {"enum": ["passed", "failed", "not-run", "blocked"]}}
+  },
+  "allOf": [
+    {"if": {"properties": {"axis": {"const": "language"}}}, "then": {"required": ["language"], "not": {"required": ["architecture"]}}},
+    {"if": {"properties": {"axis": {"const": "architecture"}}}, "then": {"required": ["architecture"], "not": {"required": ["language"]}}}
+  ],
+  "not": {"anyOf": [{"required": ["score"]}, {"required": ["combinedScore"]}]},
+  "additionalProperties": false
+}
