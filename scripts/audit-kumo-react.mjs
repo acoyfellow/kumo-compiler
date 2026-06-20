@@ -8,7 +8,7 @@ const root=resolve(import.meta.dirname,'..');const hash=b=>createHash('sha256').
 const catalog=JSON.parse(await readFile(resolve(root,'generated/catalog.ir.json')));const ids=catalog.components.map(x=>x.id);if(ids.length!==41||new Set(ids).size!==41)throw new Error('catalog must contain 41 unique components');
 const provenance=JSON.parse(await readFile(resolve(root,'audit/kumo-react-2.5.2.provenance.json')));
 const mappings=JSON.parse(await readFile(resolve(root,'generated/canonical-react-catalog.json')));
-const packageRoot=resolve(process.env.KUMO_PACKAGE_ROOT??'/Users/jcoeyman/cloudflare/kumo-port-lab-SLOP/node_modules/@cloudflare/kumo');
+const packageRoot=resolve(process.env.KUMO_PACKAGE_ROOT??resolve(root,'node_modules/@cloudflare/kumo'));
 const packageBytes=await readFile(resolve(packageRoot,'package.json'));const installed=JSON.parse(packageBytes);const packageBinding=installed.name===provenance.package.name&&installed.version===provenance.package.version&&hash(packageBytes)===provenance.package.packageJsonSha256;
 const validatedEvidence=await validateAuthority({root});const browserResults=validatedEvidence.selected.react.results;
 const summary={schemaVersion:'kumo.react-audit-summary/v3',catalogSchema:catalog.schemaVersion,total:41,passed:0,failed:0,blocked:0,canonicalPackage:{name:provenance.package.name,version:provenance.package.version,manifest:'audit/kumo-react-2.5.2.provenance.json',packageBinding},limitations:[]};

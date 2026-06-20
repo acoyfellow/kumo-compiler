@@ -2,7 +2,7 @@ import {createHash} from 'node:crypto';
 import {readFile,readdir,stat,writeFile,mkdir} from 'node:fs/promises';
 import {resolve,relative} from 'node:path';
 const root=resolve(import.meta.dirname,'..');
-const packageRoot=resolve(process.env.KUMO_PACKAGE_ROOT??'/Users/jcoeyman/cloudflare/kumo-port-lab-SLOP/node_modules/@cloudflare/kumo');
+const packageRoot=resolve(process.env.KUMO_PACKAGE_ROOT??resolve(root,'node_modules/@cloudflare/kumo'));
 const lockPath=resolve(packageRoot,'../../../package-lock.json');
 const pkgBytes=await readFile(resolve(packageRoot,'package.json'));const pkg=JSON.parse(pkgBytes);
 if(pkg.name!=='@cloudflare/kumo'||pkg.version!=='2.5.2')throw new Error(`expected @cloudflare/kumo 2.5.2, found ${pkg.name} ${pkg.version}`);
