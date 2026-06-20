@@ -1,0 +1,113 @@
+{
+  "schemaVersion": "kumo.compiler.benchmark/v1",
+  "createdAt": "2026-06-20T18:21:23.979Z",
+  "methodology": {
+    "warmups": 2,
+    "measured": 10,
+    "isolation": "fresh Node process and fresh output root per sample; warmups discarded; first measured sample labeled cold; wall includes startup"
+  },
+  "compiler": {
+    "name": "kumo-go-planner",
+    "toolchain": "go1.26.1; protocol planner artifacts only, not framework source parity",
+    "version": "1.0.0"
+  },
+  "environment": {
+    "platform": "darwin",
+    "arch": "arm64",
+    "release": "25.4.0",
+    "node": "v24.17.0",
+    "cpu": "Apple M4 Pro"
+  },
+  "samples": [
+    {
+      "kind": "cold",
+      "wallMs": 56.172292,
+      "startupMs": null,
+      "cpuUserMs": 0,
+      "cpuSystemMs": 0,
+      "peakRssBytes": null
+    },
+    {
+      "kind": "warm",
+      "wallMs": 52.517875,
+      "startupMs": null,
+      "cpuUserMs": 0,
+      "cpuSystemMs": 0,
+      "peakRssBytes": null
+    },
+    {
+      "kind": "warm",
+      "wallMs": 52.897333,
+      "startupMs": null,
+      "cpuUserMs": 0,
+      "cpuSystemMs": 0,
+      "peakRssBytes": null
+    },
+    {
+      "kind": "warm",
+      "wallMs": 52.835166,
+      "startupMs": null,
+      "cpuUserMs": 0,
+      "cpuSystemMs": 0,
+      "peakRssBytes": null
+    },
+    {
+      "kind": "warm",
+      "wallMs": 56.396917,
+      "startupMs": null,
+      "cpuUserMs": 0,
+      "cpuSystemMs": 0,
+      "peakRssBytes": null
+    },
+    {
+      "kind": "warm",
+      "wallMs": 57.269208,
+      "startupMs": null,
+      "cpuUserMs": 0,
+      "cpuSystemMs": 0,
+      "peakRssBytes": null
+    },
+    {
+      "kind": "warm",
+      "wallMs": 53.631709,
+      "startupMs": null,
+      "cpuUserMs": 0,
+      "cpuSystemMs": 0,
+      "peakRssBytes": null
+    },
+    {
+      "kind": "warm",
+      "wallMs": 51.352417,
+      "startupMs": null,
+      "cpuUserMs": 0,
+      "cpuSystemMs": 0,
+      "peakRssBytes": null
+    },
+    {
+      "kind": "warm",
+      "wallMs": 52.8305,
+      "startupMs": null,
+      "cpuUserMs": 0,
+      "cpuSystemMs": 0,
+      "peakRssBytes": null
+    },
+    {
+      "kind": "warm",
+      "wallMs": 56.815958,
+      "startupMs": null,
+      "cpuUserMs": 0,
+      "cpuSystemMs": 0,
+      "peakRssBytes": null
+    }
+  ],
+  "summary": {
+    "medianWallMs": 52.897333,
+    "p95WallMs": 57.269208,
+    "varianceWallMs": 4.162437553275849
+  },
+  "output": {
+    "bytes": 322487,
+    "files": 164,
+    "hash": "dfa004d1445b7b5e1368fd1a1cca68bfa53bb55a628f753dc78cdd02e47fb7fe"
+  }
+}
