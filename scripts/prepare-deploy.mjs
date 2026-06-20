@@ -2,6 +2,7 @@ import { cp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { validateDeployManifest } from './validate-deploy-manifest.mjs';
+import { deployPayloadDigest } from './deploy-source.mjs';
 import manifest from '../deploy-manifest.json' with { type: 'json' };
 
 const root = resolve(import.meta.dirname, '..');
@@ -34,4 +35,8 @@ for (const component of runtimeRoute.components) {
 await cp(resolve(root, 'benchmarks/site'), resolve(destination, 'benchmarks'), { recursive: true });
 await mkdir(resolve(destination, 'benchmarks/data'), { recursive: true });
 await writeFile(resolve(destination, 'benchmarks/data/catalog.json'), await readFile(resolve(root, 'benchmarks/catalog.json')));
-console.log(`Prepared deploy/ with ${runtimeRoute.components.length * runtimeRoute.frameworks.length} runtimes, Astro catalog, receipts, comparisons, and benchmarks`);
+const payload = await deployPayloadDigest(destination);
+if (payload.algorithm !== manifest.source?.algorithm || payload.sha256 !== manifest.source?.deployPayloadSha256) {
+  throw new Error(`prepared deploy payload is stale (expected ${manifest.source?.deployPayloadSha256 || 'no digest'}, got ${payload.sha256}); update deploy-manifest.json only after reviewing the generated payload`);
+}
+console.log(`Prepared deploy/ with ${runtimeRoute.components.length * runtimeRoute.frameworks.length} runtimes, Astro catalog, receipts, comparisons, and benchmarks (${payload.algorithm} ${payload.sha256}, ${payload.files} files)`);

@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "kumo.shootout-fan-in/v1",
+  "generatedFrom": {
+    "axisA": {
+      "path": "benchmarks/shootout/languages/latest.json",
+      "sha256": "sha256:d0825618b062eee6fb87a872eba1b086f12c3a5f6f5bfc41e0b219181c2688c9"
+    },
+    "axisB": {
+      "path": "proof/shootout/architectures/matrix.json",
+      "sha256": "sha256:160c02565f61c249bd114b09cf107b54ade9643e566a2ec2ed0bacac1569d96b"
+    },
+    "consumers": {
+      "path": "proof/dx/consumer-receipts.json",
+      "sha256": "sha256:2b077141aa18124cfb210ac07563c8878f5a8b908c488f370efcb5a8ec67422f"
+    }
+  },
+  "baselineAuthority": {
+    "coverage": "164/164",
+    "path": "proof/shootout/baseline/baseline.json",
+    "note": "immutable control authority; not a shootout score"
+  },
+  "axisA": {
+    "recordCount": 8,
+    "verdict": "no-winner",
+    "winnerSupported": false,
+    "scope": "planner correctness/performance/distribution only",
+    "correctness": "passed",
+    "performance": "wall samples recorded; CPU and peak RSS blocked",
+    "productGates": "all blocked"
+  },
+  "axisB": {
+    "cellCount": 32,
+    "gateCounts": {
+      "passed": 87,
+      "failed": 5,
+      "blocked": 212,
+      "not-run": 80
+    },
+    "weightsApplied": false,
+    "winner": null,
+    "verdict": "no-winner-critical-cells-incomplete",
+    "evidenceModes": [
+      "mapped",
+      "executed",
+      "prepared"
+    ],
+    "caveat": "mapped/prepared evidence is not executed parity"
+  },
+  "consumers": {
+    "counts": {
+      "passed": 10,
+      "failed": 0,
+      "blocked": 21,
+      "not-run": 6
+    },
+    "source": "separate consumer pilot receipts"
+  },
+  "reports": {
+    "axisA": "/engine-language/",
+    "axisB": "/output-architecture/"
+  }
+}

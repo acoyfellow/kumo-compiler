@@ -1,0 +1,292 @@
+{
+  "schemaVersion": 3,
+  "generatedBy": "node test/dx-consumers/pilot.mjs",
+  "publishReady": false,
+  "run": {
+    "revision": "f1a07a962997b9d662cbf58ae5b7be13e6c9d8b7",
+    "lockSha256": "5857aad36bcc5a2830c71f9364b74be877e8cccf822abdd0a6b7783bff2f299c",
+    "cwdIndependent": true,
+    "network": "disabled for measured installs",
+    "dependencySource": "isolated cache copied before measurement and bound to repository lock hash"
+  },
+  "versions": {
+    "node": "v24.17.0",
+    "npm": "11.13.0"
+  },
+  "receipts": [
+    {
+      "framework": "vue",
+      "case": "packed-tarball",
+      "status": "passed",
+      "command": "npm pack --json --pack-destination proof/dx",
+      "package": "@cloudflare/kumo-vue",
+      "version": "0.0.0-consumer-dx-pilot",
+      "tarball": "proof/dx/cloudflare-kumo-vue-0.0.0-consumer-dx-pilot.tgz",
+      "sha256": "0791e5332068d619819b327a68ea90e31be712d7bc7aa89a971f614a237cbebd",
+      "packageBytes": 775,
+      "unpackedBytes": 1865,
+      "select": "blocked: current pilot package architecture has no Select source; Button, Field, and Tabs are exercised instead"
+    },
+    {
+      "framework": "vue",
+      "case": "fresh-isolated-install",
+      "status": "passed",
+      "command": "npm install --ignore-scripts --offline",
+      "dependencySource": "isolated lock-bound local content-addressed store"
+    },
+    {
+      "framework": "vue",
+      "case": "exports-and-root-subpaths",
+      "status": "passed",
+      "command": "node exports.mjs"
+    },
+    {
+      "framework": "vue",
+      "case": "framework-typecheck",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fixture does not yet contain framework component source or a Vite/SSR/browser harness; preserving this unsupported pilot boundary."
+    },
+    {
+      "framework": "vue",
+      "case": "vite-production-build",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fixture does not yet contain framework component source or a Vite/SSR/browser harness; preserving this unsupported pilot boundary."
+    },
+    {
+      "framework": "vue",
+      "case": "actual-ssr",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fixture does not yet contain framework component source or a Vite/SSR/browser harness; preserving this unsupported pilot boundary."
+    },
+    {
+      "framework": "vue",
+      "case": "hydration-system-chrome-node-preservation",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fixture does not yet contain framework component source or a Vite/SSR/browser harness; preserving this unsupported pilot boundary."
+    },
+    {
+      "framework": "vue",
+      "case": "console-network",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fixture does not yet contain framework component source or a Vite/SSR/browser harness; preserving this unsupported pilot boundary."
+    },
+    {
+      "framework": "vue",
+      "case": "css-deduplication",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fixture does not yet contain framework component source or a Vite/SSR/browser harness; preserving this unsupported pilot boundary."
+    },
+    {
+      "framework": "vue",
+      "case": "tree-shaking-metafile",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fixture does not yet contain framework component source or a Vite/SSR/browser harness; preserving this unsupported pilot boundary."
+    },
+    {
+      "framework": "vue",
+      "case": "hmr-dev-smoke",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires a long-lived interactive dev server; excluded from the deterministic measured run."
+    },
+    {
+      "framework": "vue",
+      "case": "manual-screen-reader",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires a human and assistive-technology session."
+    },
+    {
+      "framework": "svelte",
+      "case": "packed-tarball",
+      "status": "passed",
+      "command": "npm pack --json --pack-destination proof/dx",
+      "package": "@cloudflare/kumo-svelte",
+      "version": "0.0.0-consumer-dx-pilot",
+      "tarball": "proof/dx/cloudflare-kumo-svelte-0.0.0-consumer-dx-pilot.tgz",
+      "sha256": "2c21ca7759288644f24dd8dede1497b1af8e75278333160503e8f7a9c1c416e6",
+      "packageBytes": 777,
+      "unpackedBytes": 1874,
+      "select": "blocked: current pilot package architecture has no Select source; Button, Field, and Tabs are exercised instead"
+    },
+    {
+      "framework": "svelte",
+      "case": "fresh-isolated-install",
+      "status": "passed",
+      "command": "npm install --ignore-scripts --offline",
+      "dependencySource": "isolated lock-bound local content-addressed store"
+    },
+    {
+      "framework": "svelte",
+      "case": "exports-and-root-subpaths",
+      "status": "passed",
+      "command": "node exports.mjs"
+    },
+    {
+      "framework": "svelte",
+      "case": "framework-typecheck",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fixture does not yet contain framework component source or a Vite/SSR/browser harness; preserving this unsupported pilot boundary."
+    },
+    {
+      "framework": "svelte",
+      "case": "vite-production-build",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fixture does not yet contain framework component source or a Vite/SSR/browser harness; preserving this unsupported pilot boundary."
+    },
+    {
+      "framework": "svelte",
+      "case": "actual-ssr",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fixture does not yet contain framework component source or a Vite/SSR/browser harness; preserving this unsupported pilot boundary."
+    },
+    {
+      "framework": "svelte",
+      "case": "hydration-system-chrome-node-preservation",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fixture does not yet contain framework component source or a Vite/SSR/browser harness; preserving this unsupported pilot boundary."
+    },
+    {
+      "framework": "svelte",
+      "case": "console-network",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fixture does not yet contain framework component source or a Vite/SSR/browser harness; preserving this unsupported pilot boundary."
+    },
+    {
+      "framework": "svelte",
+      "case": "css-deduplication",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fixture does not yet contain framework component source or a Vite/SSR/browser harness; preserving this unsupported pilot boundary."
+    },
+    {
+      "framework": "svelte",
+      "case": "tree-shaking-metafile",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fixture does not yet contain framework component source or a Vite/SSR/browser harness; preserving this unsupported pilot boundary."
+    },
+    {
+      "framework": "svelte",
+      "case": "hmr-dev-smoke",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires a long-lived interactive dev server; excluded from the deterministic measured run."
+    },
+    {
+      "framework": "svelte",
+      "case": "manual-screen-reader",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires a human and assistive-technology session."
+    },
+    {
+      "framework": "solid",
+      "case": "packed-tarball",
+      "status": "passed",
+      "command": "npm pack --json --pack-destination proof/dx",
+      "package": "@cloudflare/kumo-solid",
+      "version": "0.0.0-consumer-dx-pilot",
+      "tarball": "proof/dx/cloudflare-kumo-solid-0.0.0-consumer-dx-pilot.tgz",
+      "sha256": "648cc6bb077598cccfc6b5040b1d84b989626640113056268c2339d8c47336a7",
+      "packageBytes": 776,
+      "unpackedBytes": 1871,
+      "select": "blocked: current pilot package architecture has no Select source; Button, Field, and Tabs are exercised instead"
+    },
+    {
+      "framework": "solid",
+      "case": "fresh-isolated-install",
+      "status": "passed",
+      "command": "npm install --ignore-scripts --offline",
+      "dependencySource": "isolated lock-bound local content-addressed store"
+    },
+    {
+      "framework": "solid",
+      "case": "exports-and-root-subpaths",
+      "status": "passed",
+      "command": "node exports.mjs"
+    },
+    {
+      "framework": "solid",
+      "case": "framework-typecheck",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fixture does not yet contain framework component source or a Vite/SSR/browser harness; preserving this unsupported pilot boundary."
+    },
+    {
+      "framework": "solid",
+      "case": "vite-production-build",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fixture does not yet contain framework component source or a Vite/SSR/browser harness; preserving this unsupported pilot boundary."
+    },
+    {
+      "framework": "solid",
+      "case": "actual-ssr",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fixture does not yet contain framework component source or a Vite/SSR/browser harness; preserving this unsupported pilot boundary."
+    },
+    {
+      "framework": "solid",
+      "case": "hydration-system-chrome-node-preservation",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fixture does not yet contain framework component source or a Vite/SSR/browser harness; preserving this unsupported pilot boundary."
+    },
+    {
+      "framework": "solid",
+      "case": "console-network",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fixture does not yet contain framework component source or a Vite/SSR/browser harness; preserving this unsupported pilot boundary."
+    },
+    {
+      "framework": "solid",
+      "case": "css-deduplication",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fixture does not yet contain framework component source or a Vite/SSR/browser harness; preserving this unsupported pilot boundary."
+    },
+    {
+      "framework": "solid",
+      "case": "tree-shaking-metafile",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fixture does not yet contain framework component source or a Vite/SSR/browser harness; preserving this unsupported pilot boundary."
+    },
+    {
+      "framework": "solid",
+      "case": "hmr-dev-smoke",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires a long-lived interactive dev server; excluded from the deterministic measured run."
+    },
+    {
+      "framework": "solid",
+      "case": "manual-screen-reader",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires a human and assistive-technology session."
+    },
+    {
+      "framework": "npm-workspace",
+      "case": "install-import-build",
+      "status": "passed",
+      "command": "npm install --ignore-scripts --offline && node -e \"import(...)\"",
+      "build": "not applicable: package is prebuilt ESM and workspace has no application build source"
+    }
+  ]
+}

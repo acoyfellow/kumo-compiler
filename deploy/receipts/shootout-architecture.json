@@ -1,0 +1,2137 @@
+{
+  "schemaVersion": "kumo.architecture-matrix/v1",
+  "axis": "B-output-architecture",
+  "revision": "14910e7",
+  "sourceRevision": "14910e7",
+  "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+  "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+  "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+  "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+  "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+  "contract": "shootout/v1",
+  "environment": {
+    "schemaVersion": "shootout-environment/v1",
+    "node": "22.x",
+    "packageManager": "npm@11.13.0",
+    "platformPolicy": "recorded-by-runner-no-machine-paths",
+    "timezone": "UTC",
+    "locale": "en-US",
+    "browser": "Google Chrome (recorded by source evidence)"
+  },
+  "dimensions": {
+    "candidates": [
+      "internal-ts",
+      "mitosis",
+      "shared-core-native",
+      "minimal-hybrid"
+    ],
+    "components": [
+      "Button",
+      "Select"
+    ],
+    "frameworks": [
+      "react",
+      "solid",
+      "svelte",
+      "vue"
+    ]
+  },
+  "cellCount": 32,
+  "candidateCellCounts": {
+    "internal-ts": 8,
+    "mitosis": 8,
+    "shared-core-native": 8,
+    "minimal-hybrid": 8
+  },
+  "gateCounts": {
+    "passed": 87,
+    "failed": 5,
+    "blocked": 212,
+    "not-run": 80
+  },
+  "receipts": [
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "internal-ts",
+      "component": "Button",
+      "framework": "react",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "generated/receipts/button.react.json",
+        "exists": true,
+        "digest": "sha256:1590776aa5bc5db6aa8da243c69a44283a648747f63996856af4576813455279"
+      },
+      "evidenceDigest": "sha256:c2349336dec4a6cfed68b5f09ca74f9152e19909f72fc653c428878e95194bb4",
+      "gates": {
+        "api": "blocked",
+        "dom-aria": "blocked",
+        "behavior": "blocked",
+        "client": "blocked",
+        "ssr": "blocked",
+        "hydration": "blocked",
+        "node-preservation": "blocked",
+        "package": "blocked",
+        "types": "blocked",
+        "exports": "blocked",
+        "styles": "blocked",
+        "consumer": "blocked"
+      },
+      "status": "blocked",
+      "reason": "source evidence cannot be rebound to the frozen shootout gates",
+      "evidenceMode": "mapped",
+      "ledger": {
+        "adaptations": [],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": false,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "internal-ts",
+      "component": "Button",
+      "framework": "solid",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "generated/receipts/button.solid.json",
+        "exists": true,
+        "digest": "sha256:27fbc773cbb6ba9699c0c0d4a6fdf192d95d7755ca7b630b0956ec477c417548"
+      },
+      "evidenceDigest": "sha256:6a270c998cfc4b6b75267cb6a9bee3107f480d8fba7de0abc605f66d6adc066d",
+      "gates": {
+        "api": "blocked",
+        "dom-aria": "blocked",
+        "behavior": "blocked",
+        "client": "blocked",
+        "ssr": "blocked",
+        "hydration": "blocked",
+        "node-preservation": "blocked",
+        "package": "blocked",
+        "types": "blocked",
+        "exports": "blocked",
+        "styles": "blocked",
+        "consumer": "blocked"
+      },
+      "status": "blocked",
+      "reason": "source evidence cannot be rebound to the frozen shootout gates",
+      "evidenceMode": "mapped",
+      "ledger": {
+        "adaptations": [],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": false,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "internal-ts",
+      "component": "Button",
+      "framework": "svelte",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "generated/receipts/button.svelte.json",
+        "exists": true,
+        "digest": "sha256:2d42305d7ad43babbb446e800deb38c6ea24a30c1b0a262c6d292b0e983088e9"
+      },
+      "evidenceDigest": "sha256:535fc923b8dfd66f6fe46081be94a580b86831320cf1d14681753d8e18e98360",
+      "gates": {
+        "api": "blocked",
+        "dom-aria": "blocked",
+        "behavior": "blocked",
+        "client": "blocked",
+        "ssr": "blocked",
+        "hydration": "blocked",
+        "node-preservation": "blocked",
+        "package": "blocked",
+        "types": "blocked",
+        "exports": "blocked",
+        "styles": "blocked",
+        "consumer": "blocked"
+      },
+      "status": "blocked",
+      "reason": "source evidence cannot be rebound to the frozen shootout gates",
+      "evidenceMode": "mapped",
+      "ledger": {
+        "adaptations": [],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": false,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "internal-ts",
+      "component": "Button",
+      "framework": "vue",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "generated/receipts/button.vue.json",
+        "exists": true,
+        "digest": "sha256:cef56b01b1a9fbad3a9f629b416274f67e0b000b0c1a09f3824b055e77538e6f"
+      },
+      "evidenceDigest": "sha256:6f2791c744e7d3e5562717ff4accfc218a157990fb05d8bc1e63d88b8f408479",
+      "gates": {
+        "api": "blocked",
+        "dom-aria": "blocked",
+        "behavior": "blocked",
+        "client": "blocked",
+        "ssr": "blocked",
+        "hydration": "blocked",
+        "node-preservation": "blocked",
+        "package": "blocked",
+        "types": "blocked",
+        "exports": "blocked",
+        "styles": "blocked",
+        "consumer": "blocked"
+      },
+      "status": "blocked",
+      "reason": "source evidence cannot be rebound to the frozen shootout gates",
+      "evidenceMode": "mapped",
+      "ledger": {
+        "adaptations": [],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": false,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "internal-ts",
+      "component": "Select",
+      "framework": "react",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "deploy/receipts/select.react.json",
+        "exists": true,
+        "digest": "sha256:22540570a145ef5791084af25873ec5bc6a07ceff7d55c47b4da8d60f9b27a75"
+      },
+      "evidenceDigest": "sha256:b0a20b82c4409fa5abd4c03577d72f0bed5cdb1a62b13826d4589d722b8fbc7d",
+      "gates": {
+        "api": "blocked",
+        "dom-aria": "blocked",
+        "behavior": "blocked",
+        "client": "blocked",
+        "ssr": "blocked",
+        "hydration": "blocked",
+        "node-preservation": "blocked",
+        "package": "blocked",
+        "types": "blocked",
+        "exports": "blocked",
+        "styles": "blocked",
+        "consumer": "blocked"
+      },
+      "status": "blocked",
+      "reason": "source evidence cannot be rebound to the frozen shootout gates",
+      "evidenceMode": "mapped",
+      "ledger": {
+        "adaptations": [],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": false,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "internal-ts",
+      "component": "Select",
+      "framework": "solid",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "deploy/receipts/select.solid.json",
+        "exists": true,
+        "digest": "sha256:3e38831ded043a32e869126d989a9835bdc7527512ad13b75e0d85308dbd9bf7"
+      },
+      "evidenceDigest": "sha256:0fca0f05478262e94e3d6058f55bbbe2894a695bb9aadb3809c78ec4c23dc002",
+      "gates": {
+        "api": "blocked",
+        "dom-aria": "blocked",
+        "behavior": "blocked",
+        "client": "blocked",
+        "ssr": "blocked",
+        "hydration": "blocked",
+        "node-preservation": "blocked",
+        "package": "blocked",
+        "types": "blocked",
+        "exports": "blocked",
+        "styles": "blocked",
+        "consumer": "blocked"
+      },
+      "status": "blocked",
+      "reason": "source evidence cannot be rebound to the frozen shootout gates",
+      "evidenceMode": "mapped",
+      "ledger": {
+        "adaptations": [],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": false,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "internal-ts",
+      "component": "Select",
+      "framework": "svelte",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "deploy/receipts/select.svelte.json",
+        "exists": true,
+        "digest": "sha256:1eecf07f750d19a95ec3dd7abf44bb93bacfd76ad5a4f2ab7617cfc6cde1ebb9"
+      },
+      "evidenceDigest": "sha256:41d86b7836b1b559bbc4b152a64ef3c0378a280fd38bac1d623c45b5a017ff1f",
+      "gates": {
+        "api": "blocked",
+        "dom-aria": "blocked",
+        "behavior": "blocked",
+        "client": "blocked",
+        "ssr": "blocked",
+        "hydration": "blocked",
+        "node-preservation": "blocked",
+        "package": "blocked",
+        "types": "blocked",
+        "exports": "blocked",
+        "styles": "blocked",
+        "consumer": "blocked"
+      },
+      "status": "blocked",
+      "reason": "source evidence cannot be rebound to the frozen shootout gates",
+      "evidenceMode": "mapped",
+      "ledger": {
+        "adaptations": [],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": false,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "internal-ts",
+      "component": "Select",
+      "framework": "vue",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "deploy/receipts/select.vue.json",
+        "exists": true,
+        "digest": "sha256:97bffdef8cbc2989cadb3573137ea0c91f009834af273229eb2ce0ffb03751f7"
+      },
+      "evidenceDigest": "sha256:38d332294fde71f521fb6231a8ec660de4d0e0284e5bfae33f1e21b6932c5697",
+      "gates": {
+        "api": "blocked",
+        "dom-aria": "blocked",
+        "behavior": "blocked",
+        "client": "blocked",
+        "ssr": "blocked",
+        "hydration": "blocked",
+        "node-preservation": "blocked",
+        "package": "blocked",
+        "types": "blocked",
+        "exports": "blocked",
+        "styles": "blocked",
+        "consumer": "blocked"
+      },
+      "status": "blocked",
+      "reason": "source evidence cannot be rebound to the frozen shootout gates",
+      "evidenceMode": "mapped",
+      "ledger": {
+        "adaptations": [],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": false,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "mitosis",
+      "component": "Button",
+      "framework": "react",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "proof/bakeoff/mitosis/receipts/button.react.json",
+        "exists": true,
+        "digest": "sha256:5de0bdceca618413649728da1a0f82956fee7af612f4e613d03ef87a42b31500"
+      },
+      "evidenceDigest": "sha256:579ca8eaeda143d5ec69a079959a839db6c52294298a1961e3a002538f504dc1",
+      "gates": {
+        "api": "passed",
+        "dom-aria": "passed",
+        "behavior": "passed",
+        "client": "passed",
+        "ssr": "blocked",
+        "hydration": "blocked",
+        "node-preservation": "blocked",
+        "package": "not-run",
+        "types": "not-run",
+        "exports": "not-run",
+        "styles": "not-run",
+        "consumer": "not-run"
+      },
+      "status": "blocked",
+      "reason": "real browser evidence exists, but critical SSR/package/consumer gates are blocked or not-run",
+      "evidenceMode": "mapped",
+      "ledger": {
+        "adaptations": [
+          {
+            "kind": "generator",
+            "reason": "Mitosis 0.13.2 TranspilerArgs adapter: generate({ component, path })",
+            "files": [
+              "candidates/mitosis/scripts/generate.mjs"
+            ],
+            "lines": "all",
+            "maintenance": "low",
+            "upstreamSensitivity": "generator API"
+          }
+        ],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": false,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "mitosis",
+      "component": "Button",
+      "framework": "solid",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "proof/bakeoff/mitosis/receipts/button.solid.json",
+        "exists": true,
+        "digest": "sha256:7fc73a0e0171e81cefe3766338ff9bf32ecad2669f52a140625382e51baea9ea"
+      },
+      "evidenceDigest": "sha256:ce334aa737315f54e1e774945e57bfd82b1887945a3dedcec814bb42a6f32ef5",
+      "gates": {
+        "api": "passed",
+        "dom-aria": "passed",
+        "behavior": "passed",
+        "client": "passed",
+        "ssr": "blocked",
+        "hydration": "blocked",
+        "node-preservation": "blocked",
+        "package": "not-run",
+        "types": "not-run",
+        "exports": "not-run",
+        "styles": "not-run",
+        "consumer": "not-run"
+      },
+      "status": "blocked",
+      "reason": "real browser evidence exists, but critical SSR/package/consumer gates are blocked or not-run",
+      "evidenceMode": "mapped",
+      "ledger": {
+        "adaptations": [
+          {
+            "kind": "generator",
+            "reason": "Mitosis 0.13.2 TranspilerArgs adapter: generate({ component, path })",
+            "files": [
+              "candidates/mitosis/scripts/generate.mjs"
+            ],
+            "lines": "all",
+            "maintenance": "low",
+            "upstreamSensitivity": "generator API"
+          }
+        ],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": false,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "mitosis",
+      "component": "Button",
+      "framework": "svelte",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "proof/bakeoff/mitosis/receipts/button.svelte.json",
+        "exists": true,
+        "digest": "sha256:ed7f9508fd9f950ea2b3482997782e91933a9facf0968458794f5b4824656db0"
+      },
+      "evidenceDigest": "sha256:79e52963140263dda65c704e5830a3eeac9132d7fcaa71cb1205ec52bab66b78",
+      "gates": {
+        "api": "passed",
+        "dom-aria": "passed",
+        "behavior": "passed",
+        "client": "passed",
+        "ssr": "blocked",
+        "hydration": "blocked",
+        "node-preservation": "blocked",
+        "package": "not-run",
+        "types": "not-run",
+        "exports": "not-run",
+        "styles": "not-run",
+        "consumer": "not-run"
+      },
+      "status": "blocked",
+      "reason": "real browser evidence exists, but critical SSR/package/consumer gates are blocked or not-run",
+      "evidenceMode": "mapped",
+      "ledger": {
+        "adaptations": [
+          {
+            "kind": "generator",
+            "reason": "Mitosis 0.13.2 TranspilerArgs adapter: generate({ component, path })",
+            "files": [
+              "candidates/mitosis/scripts/generate.mjs"
+            ],
+            "lines": "all",
+            "maintenance": "low",
+            "upstreamSensitivity": "generator API"
+          }
+        ],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": false,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "mitosis",
+      "component": "Button",
+      "framework": "vue",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "proof/bakeoff/mitosis/receipts/button.vue.json",
+        "exists": true,
+        "digest": "sha256:51c2684d13ca00a038b6df79d857434357d8daf59e10c9c8e34066f85fc56649"
+      },
+      "evidenceDigest": "sha256:04954f31e07bd5d6f424b1266b1045d80257b4445b83ff1ec2575a210820a60e",
+      "gates": {
+        "api": "passed",
+        "dom-aria": "passed",
+        "behavior": "passed",
+        "client": "passed",
+        "ssr": "blocked",
+        "hydration": "blocked",
+        "node-preservation": "blocked",
+        "package": "not-run",
+        "types": "not-run",
+        "exports": "not-run",
+        "styles": "not-run",
+        "consumer": "not-run"
+      },
+      "status": "blocked",
+      "reason": "real browser evidence exists, but critical SSR/package/consumer gates are blocked or not-run",
+      "evidenceMode": "mapped",
+      "ledger": {
+        "adaptations": [
+          {
+            "kind": "generator",
+            "reason": "Mitosis 0.13.2 TranspilerArgs adapter: generate({ component, path })",
+            "files": [
+              "candidates/mitosis/scripts/generate.mjs"
+            ],
+            "lines": "all",
+            "maintenance": "low",
+            "upstreamSensitivity": "generator API"
+          }
+        ],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": false,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "mitosis",
+      "component": "Select",
+      "framework": "react",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "proof/bakeoff/mitosis/receipts/select.react.json",
+        "exists": true,
+        "digest": "sha256:3e9e1583fd89a2ccf531ef217c657a513152ba694bef6a7c2dfb882fd387a091"
+      },
+      "evidenceDigest": "sha256:2b9b143b684e4fb738f8917cb3cedd165b68737a03363f3892ebd4cc39c18b8d",
+      "gates": {
+        "api": "not-run",
+        "dom-aria": "not-run",
+        "behavior": "not-run",
+        "client": "not-run",
+        "ssr": "not-run",
+        "hydration": "not-run",
+        "node-preservation": "not-run",
+        "package": "not-run",
+        "types": "not-run",
+        "exports": "not-run",
+        "styles": "not-run",
+        "consumer": "not-run"
+      },
+      "status": "blocked",
+      "reason": "generated source exists but hard execution gates were not run",
+      "evidenceMode": "mapped",
+      "ledger": {
+        "adaptations": [
+          {
+            "kind": "generator",
+            "reason": "Mitosis 0.13.2 TranspilerArgs adapter: generate({ component, path })",
+            "files": [
+              "candidates/mitosis/scripts/generate.mjs"
+            ],
+            "lines": "all",
+            "maintenance": "low",
+            "upstreamSensitivity": "generator API"
+          }
+        ],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": false,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "mitosis",
+      "component": "Select",
+      "framework": "solid",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "proof/bakeoff/mitosis/receipts/select.solid.json",
+        "exists": true,
+        "digest": "sha256:066114da8b4fcb215f8176aa8fd787f99d678d69c6805e7d9891a0bb1fd93e04"
+      },
+      "evidenceDigest": "sha256:30ef4dc7e8415c4fa14a1d9f6928fbda95408ec32af6efcb0a57d90087b57346",
+      "gates": {
+        "api": "not-run",
+        "dom-aria": "not-run",
+        "behavior": "not-run",
+        "client": "not-run",
+        "ssr": "not-run",
+        "hydration": "not-run",
+        "node-preservation": "not-run",
+        "package": "not-run",
+        "types": "not-run",
+        "exports": "not-run",
+        "styles": "not-run",
+        "consumer": "not-run"
+      },
+      "status": "blocked",
+      "reason": "generated source exists but hard execution gates were not run",
+      "evidenceMode": "mapped",
+      "ledger": {
+        "adaptations": [
+          {
+            "kind": "generator",
+            "reason": "Mitosis 0.13.2 TranspilerArgs adapter: generate({ component, path })",
+            "files": [
+              "candidates/mitosis/scripts/generate.mjs"
+            ],
+            "lines": "all",
+            "maintenance": "low",
+            "upstreamSensitivity": "generator API"
+          }
+        ],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": false,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "mitosis",
+      "component": "Select",
+      "framework": "svelte",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "proof/bakeoff/mitosis/receipts/select.svelte.json",
+        "exists": true,
+        "digest": "sha256:14b4dc8019d7bbd1d658013bd94d6720238100b20d3cf5552f19c89028dbe427"
+      },
+      "evidenceDigest": "sha256:1ae1756a44bac6b839e35ae2000c465f6abd5b19e759e73f37099d8636141fc4",
+      "gates": {
+        "api": "not-run",
+        "dom-aria": "not-run",
+        "behavior": "not-run",
+        "client": "not-run",
+        "ssr": "not-run",
+        "hydration": "not-run",
+        "node-preservation": "not-run",
+        "package": "not-run",
+        "types": "not-run",
+        "exports": "not-run",
+        "styles": "not-run",
+        "consumer": "not-run"
+      },
+      "status": "blocked",
+      "reason": "generated source exists but hard execution gates were not run",
+      "evidenceMode": "mapped",
+      "ledger": {
+        "adaptations": [
+          {
+            "kind": "generator",
+            "reason": "Mitosis 0.13.2 TranspilerArgs adapter: generate({ component, path })",
+            "files": [
+              "candidates/mitosis/scripts/generate.mjs"
+            ],
+            "lines": "all",
+            "maintenance": "low",
+            "upstreamSensitivity": "generator API"
+          }
+        ],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": false,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "mitosis",
+      "component": "Select",
+      "framework": "vue",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "proof/bakeoff/mitosis/receipts/select.vue.json",
+        "exists": true,
+        "digest": "sha256:731ac6b84db308c6be04491528481cf857569ba8dd9c3f1bfd3650ba2826a16f"
+      },
+      "evidenceDigest": "sha256:7a225ed9fca2b7cd92284e70db66b591d316519a9315dcc9c74a0db391a3547f",
+      "gates": {
+        "api": "not-run",
+        "dom-aria": "not-run",
+        "behavior": "not-run",
+        "client": "not-run",
+        "ssr": "not-run",
+        "hydration": "not-run",
+        "node-preservation": "not-run",
+        "package": "not-run",
+        "types": "not-run",
+        "exports": "not-run",
+        "styles": "not-run",
+        "consumer": "not-run"
+      },
+      "status": "blocked",
+      "reason": "generated source exists but hard execution gates were not run",
+      "evidenceMode": "mapped",
+      "ledger": {
+        "adaptations": [
+          {
+            "kind": "generator",
+            "reason": "Mitosis 0.13.2 TranspilerArgs adapter: generate({ component, path })",
+            "files": [
+              "candidates/mitosis/scripts/generate.mjs"
+            ],
+            "lines": "all",
+            "maintenance": "low",
+            "upstreamSensitivity": "generator API"
+          }
+        ],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": false,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "shared-core-native",
+      "component": "Button",
+      "framework": "react",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "proof/bakeoff/shared-core/receipts/button.react.json",
+        "exists": true,
+        "digest": "sha256:4035ac146700f40565b3d44fb9567ff7f3728a1b23c450980c32c77c5bd37535"
+      },
+      "evidenceDigest": "sha256:6372df96e2321fa1b5f3ff08a572b971572c4529c8a8212ce0dda15368db5cf9",
+      "gates": {
+        "api": "passed",
+        "dom-aria": "passed",
+        "behavior": "passed",
+        "client": "passed",
+        "ssr": "passed",
+        "hydration": "passed",
+        "node-preservation": "passed",
+        "package": "passed",
+        "types": "passed",
+        "exports": "passed",
+        "styles": "not-run",
+        "consumer": "not-run"
+      },
+      "status": "blocked",
+      "reason": "normalized Button evidence passes most gates; frozen styles and consumer gates are not-run",
+      "evidenceMode": "executed",
+      "ledger": {
+        "adaptations": [],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": false,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "shared-core-native",
+      "component": "Button",
+      "framework": "solid",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "proof/bakeoff/shared-core/receipts/button.solid.json",
+        "exists": true,
+        "digest": "sha256:3f3be41c080f75bffa10d699349d10e999de668bdd15073df5e3dba4e66dd6b6"
+      },
+      "evidenceDigest": "sha256:24132c5d7d5385e7be7ceed4b239aa3c805562a2581ddb20a1fd8b673cf74ec2",
+      "gates": {
+        "api": "passed",
+        "dom-aria": "passed",
+        "behavior": "failed",
+        "client": "failed",
+        "ssr": "passed",
+        "hydration": "passed",
+        "node-preservation": "passed",
+        "package": "passed",
+        "types": "passed",
+        "exports": "passed",
+        "styles": "not-run",
+        "consumer": "not-run"
+      },
+      "status": "failed",
+      "reason": "normalized Button evidence passes most gates; frozen styles and consumer gates are not-run",
+      "evidenceMode": "executed",
+      "ledger": {
+        "adaptations": [],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": false,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "shared-core-native",
+      "component": "Button",
+      "framework": "svelte",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "proof/bakeoff/shared-core/receipts/button.svelte.json",
+        "exists": true,
+        "digest": "sha256:35c4ee563a6c6a317c496a5cf206d5fb29e63dfdee97c065face50dd8e027504"
+      },
+      "evidenceDigest": "sha256:1178ffa944851732e3507b279341ee1262bee8cc8f96b465419b734fd21d6ee6",
+      "gates": {
+        "api": "passed",
+        "dom-aria": "passed",
+        "behavior": "passed",
+        "client": "passed",
+        "ssr": "passed",
+        "hydration": "passed",
+        "node-preservation": "passed",
+        "package": "passed",
+        "types": "passed",
+        "exports": "passed",
+        "styles": "not-run",
+        "consumer": "not-run"
+      },
+      "status": "blocked",
+      "reason": "normalized Button evidence passes most gates; frozen styles and consumer gates are not-run",
+      "evidenceMode": "executed",
+      "ledger": {
+        "adaptations": [],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": false,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "shared-core-native",
+      "component": "Button",
+      "framework": "vue",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "proof/bakeoff/shared-core/receipts/button.vue.json",
+        "exists": true,
+        "digest": "sha256:c0c9aca9db3b026798d3307f628432aa98da35eeba39c417a4eb9acc30035e2a"
+      },
+      "evidenceDigest": "sha256:76031e8530ea980ceace5e35066ede2cecc4e3e3fb65d8d5d8f83b3838ff0e11",
+      "gates": {
+        "api": "passed",
+        "dom-aria": "passed",
+        "behavior": "passed",
+        "client": "passed",
+        "ssr": "passed",
+        "hydration": "passed",
+        "node-preservation": "passed",
+        "package": "passed",
+        "types": "passed",
+        "exports": "passed",
+        "styles": "not-run",
+        "consumer": "not-run"
+      },
+      "status": "blocked",
+      "reason": "normalized Button evidence passes most gates; frozen styles and consumer gates are not-run",
+      "evidenceMode": "executed",
+      "ledger": {
+        "adaptations": [],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": false,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "shared-core-native",
+      "component": "Select",
+      "framework": "react",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "proof/select/receipts.json",
+        "exists": true,
+        "digest": "sha256:de39a19616e47d499f81a0d34bad23d1fc0ed7d12d442661b65f3ebe8f7fd681"
+      },
+      "evidenceDigest": "sha256:9745bce1151c7fe51e72612d60a0e2085eb3536aa50d808e9475c61e5fa38a05",
+      "gates": {
+        "api": "passed",
+        "dom-aria": "blocked",
+        "behavior": "blocked",
+        "client": "passed",
+        "ssr": "passed",
+        "hydration": "blocked",
+        "node-preservation": "blocked",
+        "package": "passed",
+        "types": "passed",
+        "exports": "passed",
+        "styles": "passed",
+        "consumer": "not-run"
+      },
+      "status": "blocked",
+      "reason": "current native Select execution is failed/blocked and has no consumer proof",
+      "evidenceMode": "executed",
+      "ledger": {
+        "adaptations": [],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": true,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "shared-core-native",
+      "component": "Select",
+      "framework": "solid",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "proof/select/receipts.json",
+        "exists": true,
+        "digest": "sha256:de39a19616e47d499f81a0d34bad23d1fc0ed7d12d442661b65f3ebe8f7fd681"
+      },
+      "evidenceDigest": "sha256:8a6d22cd89fffe3fb4788947371f35e5fe6105128c97c15b6b924e7c6d96eeee",
+      "gates": {
+        "api": "passed",
+        "dom-aria": "passed",
+        "behavior": "failed",
+        "client": "passed",
+        "ssr": "passed",
+        "hydration": "failed",
+        "node-preservation": "passed",
+        "package": "passed",
+        "types": "passed",
+        "exports": "passed",
+        "styles": "passed",
+        "consumer": "not-run"
+      },
+      "status": "failed",
+      "reason": "current native Select execution is failed/blocked and has no consumer proof",
+      "evidenceMode": "executed",
+      "ledger": {
+        "adaptations": [],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": true,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "shared-core-native",
+      "component": "Select",
+      "framework": "svelte",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "proof/select/receipts.json",
+        "exists": true,
+        "digest": "sha256:de39a19616e47d499f81a0d34bad23d1fc0ed7d12d442661b65f3ebe8f7fd681"
+      },
+      "evidenceDigest": "sha256:6017adadac43045cc9e0ce1cf39bae9559c695e67e34d282bea7fd84cab748d0",
+      "gates": {
+        "api": "passed",
+        "dom-aria": "passed",
+        "behavior": "failed",
+        "client": "passed",
+        "ssr": "passed",
+        "hydration": "passed",
+        "node-preservation": "passed",
+        "package": "passed",
+        "types": "passed",
+        "exports": "passed",
+        "styles": "passed",
+        "consumer": "not-run"
+      },
+      "status": "failed",
+      "reason": "current native Select execution is failed/blocked and has no consumer proof",
+      "evidenceMode": "executed",
+      "ledger": {
+        "adaptations": [],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": true,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "shared-core-native",
+      "component": "Select",
+      "framework": "vue",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "proof/select/receipts.json",
+        "exists": true,
+        "digest": "sha256:de39a19616e47d499f81a0d34bad23d1fc0ed7d12d442661b65f3ebe8f7fd681"
+      },
+      "evidenceDigest": "sha256:7f18e459b847dc356c71688f8d10c662201ab4842f232371a7dc7ec9d087287d",
+      "gates": {
+        "api": "passed",
+        "dom-aria": "blocked",
+        "behavior": "blocked",
+        "client": "passed",
+        "ssr": "passed",
+        "hydration": "blocked",
+        "node-preservation": "blocked",
+        "package": "passed",
+        "types": "passed",
+        "exports": "passed",
+        "styles": "passed",
+        "consumer": "not-run"
+      },
+      "status": "blocked",
+      "reason": "current native Select execution is failed/blocked and has no consumer proof",
+      "evidenceMode": "executed",
+      "ledger": {
+        "adaptations": [],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": true,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "minimal-hybrid",
+      "component": "Button",
+      "framework": "react",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "candidates/hybrid/src/generated/button.ts",
+        "exists": true,
+        "digest": "sha256:2b88f60983f2cab74f6fadc93ee090358a5147d49cdb50b7c91852c514e015b6"
+      },
+      "evidenceDigest": "sha256:8585214dd2e69a3387c89da3562463c32e0c5aeac6f2d02639b85d79a3c81b03",
+      "gates": {
+        "api": "blocked",
+        "dom-aria": "blocked",
+        "behavior": "blocked",
+        "client": "blocked",
+        "ssr": "blocked",
+        "hydration": "blocked",
+        "node-preservation": "blocked",
+        "package": "blocked",
+        "types": "blocked",
+        "exports": "blocked",
+        "styles": "blocked",
+        "consumer": "blocked"
+      },
+      "status": "blocked",
+      "reason": "generated Button is referenced but has no shootout execution receipt",
+      "evidenceMode": "prepared",
+      "ledger": {
+        "adaptations": [],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": false,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "minimal-hybrid",
+      "component": "Button",
+      "framework": "solid",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "candidates/hybrid/src/generated/button.ts",
+        "exists": true,
+        "digest": "sha256:2b88f60983f2cab74f6fadc93ee090358a5147d49cdb50b7c91852c514e015b6"
+      },
+      "evidenceDigest": "sha256:ed154c0360208d6c70ea774aa889ad3daba63b728220baf73e8dfa71019eb8b4",
+      "gates": {
+        "api": "blocked",
+        "dom-aria": "blocked",
+        "behavior": "blocked",
+        "client": "blocked",
+        "ssr": "blocked",
+        "hydration": "blocked",
+        "node-preservation": "blocked",
+        "package": "blocked",
+        "types": "blocked",
+        "exports": "blocked",
+        "styles": "blocked",
+        "consumer": "blocked"
+      },
+      "status": "blocked",
+      "reason": "generated Button is referenced but has no shootout execution receipt",
+      "evidenceMode": "prepared",
+      "ledger": {
+        "adaptations": [],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": false,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "minimal-hybrid",
+      "component": "Button",
+      "framework": "svelte",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "candidates/hybrid/src/generated/button.ts",
+        "exists": true,
+        "digest": "sha256:2b88f60983f2cab74f6fadc93ee090358a5147d49cdb50b7c91852c514e015b6"
+      },
+      "evidenceDigest": "sha256:db6547abdb784ed5e72b2227f5bbaa85cb02810f30c3b0e0ecd8a19d6852504a",
+      "gates": {
+        "api": "blocked",
+        "dom-aria": "blocked",
+        "behavior": "blocked",
+        "client": "blocked",
+        "ssr": "blocked",
+        "hydration": "blocked",
+        "node-preservation": "blocked",
+        "package": "blocked",
+        "types": "blocked",
+        "exports": "blocked",
+        "styles": "blocked",
+        "consumer": "blocked"
+      },
+      "status": "blocked",
+      "reason": "generated Button is referenced but has no shootout execution receipt",
+      "evidenceMode": "prepared",
+      "ledger": {
+        "adaptations": [],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": false,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "minimal-hybrid",
+      "component": "Button",
+      "framework": "vue",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "candidates/hybrid/src/generated/button.ts",
+        "exists": true,
+        "digest": "sha256:2b88f60983f2cab74f6fadc93ee090358a5147d49cdb50b7c91852c514e015b6"
+      },
+      "evidenceDigest": "sha256:78a9d311b8ea97c4caa4c9e79f816d1c5d96bed2cc942119c30a53dbe00ba122",
+      "gates": {
+        "api": "blocked",
+        "dom-aria": "blocked",
+        "behavior": "blocked",
+        "client": "blocked",
+        "ssr": "blocked",
+        "hydration": "blocked",
+        "node-preservation": "blocked",
+        "package": "blocked",
+        "types": "blocked",
+        "exports": "blocked",
+        "styles": "blocked",
+        "consumer": "blocked"
+      },
+      "status": "blocked",
+      "reason": "generated Button is referenced but has no shootout execution receipt",
+      "evidenceMode": "prepared",
+      "ledger": {
+        "adaptations": [],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": false,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "minimal-hybrid",
+      "component": "Select",
+      "framework": "react",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "candidates/hybrid/src/native/select.ts",
+        "exists": true,
+        "digest": "sha256:75a471670417e7dc955c496f189b63e881c3d2da8c49d05cba3477e3f887ad1f"
+      },
+      "evidenceDigest": "sha256:f90c0897f7ec8e6d85b8b8edb8c7a72e01d3a60d87847bcc2047cab2f62214b6",
+      "gates": {
+        "api": "blocked",
+        "dom-aria": "blocked",
+        "behavior": "blocked",
+        "client": "blocked",
+        "ssr": "blocked",
+        "hydration": "blocked",
+        "node-preservation": "blocked",
+        "package": "blocked",
+        "types": "blocked",
+        "exports": "blocked",
+        "styles": "blocked",
+        "consumer": "blocked"
+      },
+      "status": "blocked",
+      "reason": "native Select is referenced without duplication, but no hybrid execution was run",
+      "evidenceMode": "prepared",
+      "ledger": {
+        "adaptations": [],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": true,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "minimal-hybrid",
+      "component": "Select",
+      "framework": "solid",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "candidates/hybrid/src/native/select.ts",
+        "exists": true,
+        "digest": "sha256:75a471670417e7dc955c496f189b63e881c3d2da8c49d05cba3477e3f887ad1f"
+      },
+      "evidenceDigest": "sha256:962f68f0c7ebf73aa83d9c8425cdff1cdae183ec56975495427f46666d706940",
+      "gates": {
+        "api": "blocked",
+        "dom-aria": "blocked",
+        "behavior": "blocked",
+        "client": "blocked",
+        "ssr": "blocked",
+        "hydration": "blocked",
+        "node-preservation": "blocked",
+        "package": "blocked",
+        "types": "blocked",
+        "exports": "blocked",
+        "styles": "blocked",
+        "consumer": "blocked"
+      },
+      "status": "blocked",
+      "reason": "native Select is referenced without duplication, but no hybrid execution was run",
+      "evidenceMode": "prepared",
+      "ledger": {
+        "adaptations": [],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": true,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "minimal-hybrid",
+      "component": "Select",
+      "framework": "svelte",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "candidates/hybrid/src/native/select.ts",
+        "exists": true,
+        "digest": "sha256:75a471670417e7dc955c496f189b63e881c3d2da8c49d05cba3477e3f887ad1f"
+      },
+      "evidenceDigest": "sha256:3cf92b7ad50e049e7e08f7de153284b7768bd1ef3736f005f3c5ed29025ad3c5",
+      "gates": {
+        "api": "blocked",
+        "dom-aria": "blocked",
+        "behavior": "blocked",
+        "client": "blocked",
+        "ssr": "blocked",
+        "hydration": "blocked",
+        "node-preservation": "blocked",
+        "package": "blocked",
+        "types": "blocked",
+        "exports": "blocked",
+        "styles": "blocked",
+        "consumer": "blocked"
+      },
+      "status": "blocked",
+      "reason": "native Select is referenced without duplication, but no hybrid execution was run",
+      "evidenceMode": "prepared",
+      "ledger": {
+        "adaptations": [],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": true,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    },
+    {
+      "schemaVersion": "kumo.architecture-cell/v1",
+      "axis": "B-output-architecture",
+      "candidate": "minimal-hybrid",
+      "component": "Select",
+      "framework": "vue",
+      "contract": "shootout/v1",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
+      "environment": {
+        "schemaVersion": "shootout-environment/v1",
+        "node": "22.x",
+        "packageManager": "npm@11.13.0",
+        "platformPolicy": "recorded-by-runner-no-machine-paths",
+        "timezone": "UTC",
+        "locale": "en-US",
+        "browser": "Google Chrome (recorded by source evidence)"
+      },
+      "runId": "axis-b-1ba7c3dfba494fac",
+      "source": {
+        "path": "candidates/hybrid/src/native/select.ts",
+        "exists": true,
+        "digest": "sha256:75a471670417e7dc955c496f189b63e881c3d2da8c49d05cba3477e3f887ad1f"
+      },
+      "evidenceDigest": "sha256:8374e8ef503f8e68be47ab728c501eae5e8732e2ee8f0590e98f045ae2b1f8a0",
+      "gates": {
+        "api": "blocked",
+        "dom-aria": "blocked",
+        "behavior": "blocked",
+        "client": "blocked",
+        "ssr": "blocked",
+        "hydration": "blocked",
+        "node-preservation": "blocked",
+        "package": "blocked",
+        "types": "blocked",
+        "exports": "blocked",
+        "styles": "blocked",
+        "consumer": "blocked"
+      },
+      "status": "blocked",
+      "reason": "native Select is referenced without duplication, but no hybrid execution was run",
+      "evidenceMode": "prepared",
+      "ledger": {
+        "adaptations": [],
+        "plugins": [],
+        "wrappers": [],
+        "patches": [],
+        "native": true,
+        "manual": [],
+        "harness": [
+          "frozen shootout/v1 normalized mapping"
+        ]
+      },
+      "measurements": null,
+      "eligible": false
+    }
+  ],
+  "disqualifications": [
+    "copied-html",
+    "innerHTML",
+    "null-root",
+    "post-mount-reconstruction",
+    "optimistic-status"
+  ],
+  "weightsApplied": false,
+  "winner": null,
+  "verdict": "no-winner-critical-cells-incomplete",
+  "failClosed": true
+}
