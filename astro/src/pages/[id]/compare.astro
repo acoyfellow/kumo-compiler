@@ -1,9 +1,0 @@
----
-import Layout from '../../layouts/Layout.astro';
-import catalog from '../../../../benchmarks/catalog.json';
-export function getStaticPaths() {
-  return catalog.components.filter(component=>component.id!=='select').map(component=>({params:{id:component.id},props:{component}}));
-}
-const {component}=Astro.props;
----
-<Layout title={`${component.name} comparison · Kumo`}><h1>{component.name} runtime proof</h1><p>React canonical, Vue, Svelte, and Solid generated runtime comparison.</p><iframe src={`/runtime/${component.id}/compare`} title={`${component.name} compare`} style="width:100%;height:1200px;border:1px solid #d1d5db;border-radius:12px;background:white"></iframe></Layout>
