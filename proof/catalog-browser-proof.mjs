@@ -38,8 +38,9 @@ export function isRetryableBrowserInfrastructureError(error){
 export async function withBrowserInfrastructureRetries(operation,{maxRetries=2,delayMs=50}={}){
  let attempt=0;for(;;){try{return await operation(attempt)}catch(error){if(attempt>=maxRetries||!isRetryableBrowserInfrastructureError(error))throw error;attempt++;await sleep(delayMs)}}
 }
-async function chromium(url,chrome){
- const profile=await mkdtemp(resolve(tmpdir(),'kumo-browser-')),portFile=resolve(profile,'DevToolsActivePort');
+async function chromium(url,chrome,profileRoot){
+ await mkdir(profileRoot||tmpdir(),{recursive:true});
+ const profile=await mkdtemp(resolve(profileRoot||tmpdir(),'kumo-browser-')),portFile=resolve(profile,'DevToolsActivePort');
  const args=['--headless=new','--disable-gpu','--hide-scrollbars','--window-size=900,700','--remote-debugging-port=0',`--user-data-dir=${profile}`,'about:blank'];
  // Chrome's sandbox is supported on macOS/Linux when not running as root.
  if(process.platform==='linux'&&process.getuid?.()===0)args.unshift('--no-sandbox');
@@ -71,15 +72,16 @@ function pngPixelHash(png){
 }
 async function immutableWrite(path,body){await mkdir(resolve(path,'..'),{recursive:true});try{const old=await readFile(path);if(!old.equals(body))throw Error(`immutable evidence collision: ${path}`)}catch(e){if(e.code!=='ENOENT')throw e;await writeFile(path,body,{flag:'wx'})}}
 const defaultChrome=()=>['/Applications/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing','/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'].find(existsSync)||'google-chrome';
-export async function run({frameworks=allFrameworks,ids=manifest.components.map(x=>x.id),base=process.env.PROOF_BASE||'http://127.0.0.1:4260',chrome=process.env.CHROME||defaultChrome(),out='generated/browser-evidence'}={}){
+export async function run({frameworks=allFrameworks,ids=manifest.components.map(x=>x.id),base=process.env.PROOF_BASE||'http://127.0.0.1:4260',chrome=process.env.CHROME||defaultChrome(),root=process.cwd(),out='generated/browser-evidence',summary:summaryPath,profileRoot}={}){
+ root=resolve(root);out=resolve(root,out);summaryPath=summaryPath&&resolve(root,summaryPath);profileRoot=profileRoot&&resolve(root,profileRoot);
  for(const framework of frameworks)if(!allFrameworks.includes(framework))throw Error(`unknown framework ${framework}`);
  const results=[];
  for(const component of manifest.components.filter(x=>ids.includes(x.id)))for(const framework of frameworks){
   try{
-  const canonical=framework==='react',dir=resolve(canonical?`runtime-canonical/${component.id}`:`runtime/${component.id}/${framework}`),built=resolve(dir,'public-runtime/index.html'),pre=await readFile(built,'utf8'),provenance=canonical?JSON.parse(await readFile('audit/kumo-react-2.5.2.provenance.json','utf8')):JSON.parse(await readFile(resolve(dir,'provenance.json'),'utf8')),pkg=JSON.parse(await readFile('package.json','utf8'));await stat(resolve(dir,'vite.config.mjs'));
+  const canonical=framework==='react',dir=resolve(root,canonical?`runtime-canonical/${component.id}`:`runtime/${component.id}/${framework}`),built=resolve(dir,'public-runtime/index.html'),pre=await readFile(built,'utf8'),provenance=canonical?JSON.parse(await readFile(resolve(root,'audit/kumo-react-2.5.2.provenance.json'),'utf8')):JSON.parse(await readFile(resolve(dir,'provenance.json'),'utf8')),pkg=JSON.parse(await readFile(resolve(root,'package.json'),'utf8'));await stat(resolve(dir,'vite.config.mjs'));
   const provenanceOk=canonical?provenance.package?.name==='@cloudflare/kumo':provenance.framework===framework;
   if(!pre.includes('<main')||!provenanceOk||!pkg.devDependencies?.vite)throw Error(`${component.id}/${framework}: invalid built package/provenance/SSR`);
-  const url=base+component.route.replace('{framework}',framework),r=await withBrowserInfrastructureRetries(()=>chromium(url,chrome)),failures=[...r.consoleMessages,...r.pageErrors,...r.failedRequests,...r.responses.filter(x=>x.status>=400).map(x=>`${x.status} ${x.url}`)];
+  const url=base+component.route.replace('{framework}',framework),r=await withBrowserInfrastructureRetries(()=>chromium(url,chrome,profileRoot)),failures=[...r.consoleMessages,...r.pageErrors,...r.failedRequests,...r.responses.filter(x=>x.status>=400).map(x=>`${x.status} ${x.url}`)];
   const assets=r.responses.filter(x=>/javascript|css/.test(x.mime)),hasStyle=r.post.styles.length>0||pre.includes('<style');
   if(!r.post.html.includes('<main')||!assets.some(x=>/javascript/.test(x.mime))||!hasStyle)failures.push('runtime DOM, linked asset, or style missing');
   const evidence={schemaVersion:'kumo.browser-evidence/v2',synthetic:false,component:component.id,framework,url,browser:r.browser,checks:{runtime:true,console:!r.consoleMessages.length,network:hasSuccessfulNetworkEvidence(r),dom:r.post.html.includes('<main'),aria:Array.isArray(r.post.aria),behavior:!component.behavior||r.post.behavior.target,ssr:pre.includes('<main'),hydration:r.post.html.includes('<main'),screenshot:r.png.length>1000,pixels:true,assets:assets.length>0,styles:hasStyle,package:!!pkg.devDependencies.vite,provenance:provenanceOk},snapshots:{preHydration:hash(pre),postHydration:hash(r.post.html),aria:r.post.aria,behaviorVector:{policy:component.behavior?.kind||null,...r.post.behavior}},screenshot:{sha256:hash(r.png),pixelSha256:pngPixelHash(r.png),bytes:r.png.length},assets,failures};
@@ -87,8 +89,8 @@ export async function run({frameworks=allFrameworks,ids=manifest.components.map(
   }catch(error){results.push({component:component.id,framework,status:'failed',error:String(error?.stack||error)});console.error(`${component.id}/${framework}: ${error.message}`)}
  }
  const runId=`${new Date().toISOString().replace(/[:.]/g,'-')}-${process.pid}`,summary={schemaVersion:'kumo.browser-proof-run/v2',runId,createdAt:new Date().toISOString(),frameworks,components:ids,browserExecutable:chrome,results};
- const runPath=resolve(out,'runs',`${runId}.json`);await mkdir(dirname(runPath),{recursive:true});await writeFile(runPath,JSON.stringify(summary,null,2)+'\n',{flag:'wx'});
- const latest=resolve(out,'run-summary.json'),temporary=`${latest}.${runId}.tmp`;await writeFile(temporary,JSON.stringify(summary,null,2)+'\n');await rename(temporary,latest);
+ const runPath=summaryPath||resolve(out,'runs',`${runId}.json`);await mkdir(dirname(runPath),{recursive:true});await writeFile(runPath,JSON.stringify(summary,null,2)+'\n',{flag:'wx'});
+ if(!summaryPath){const latest=resolve(out,'run-summary.json'),temporary=`${latest}.${runId}.tmp`;await writeFile(temporary,JSON.stringify(summary,null,2)+'\n');await rename(temporary,latest);}
  return results;
 }
-if(import.meta.url===`file://${process.argv[1]}`){const arg=n=>process.argv.find(x=>x.startsWith(`--${n}=`))?.slice(n.length+3);const results=await run({frameworks:arg('frameworks')?.split(',')||allFrameworks,ids:arg('components')?.split(',')||undefined,out:arg('out')||'generated/browser-evidence'});const failed=results.filter(x=>x.status!=='passed');if(failed.length){console.error(`catalog browser proof failed: ${failed.length}/${results.length} targets`);process.exitCode=1}else console.log(`catalog browser proof passed: ${results.length} targets`)}
+if(import.meta.url===`file://${process.argv[1]}`){const arg=n=>process.argv.find(x=>x.startsWith(`--${n}=`))?.slice(n.length+3);const results=await run({frameworks:arg('frameworks')?.split(',')||allFrameworks,ids:(arg('components')||arg('component'))?.split(',')||undefined,root:arg('root')||process.cwd(),out:arg('output')||arg('out')||'generated/browser-evidence',summary:arg('summary'),profileRoot:arg('profile')});const failed=results.filter(x=>x.status!=='passed');if(failed.length){console.error(`catalog browser proof failed: ${failed.length}/${results.length} targets`);process.exitCode=1}else console.log(`catalog browser proof passed: ${results.length} targets`)}

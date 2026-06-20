@@ -1,11 +1,12 @@
 import { Hono } from 'hono';
 import { serve } from '@hono/node-server';
-import { existsSync, readFileSync, statSync } from 'node:fs';
+import { existsSync, readFileSync, renameSync, statSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { class2RuntimeRoute } from '../runtime-routes.mjs';
-const app=new Hono(),root=resolve(import.meta.dirname,'..'),frameworks=new Set(['react','vue','svelte','solid']);
+const arg=n=>process.argv.find(x=>x.startsWith(`--${n}=`))?.slice(n.length+3);
+const app=new Hono(),root=resolve(arg('root')||process.env.KUMO_ROOT||resolve(import.meta.dirname,'..')),frameworks=new Set(['react','vue','svelte','solid']);
 app.use('*',async(c,next)=>{
  const url=new URL(c.req.url),route=class2RuntimeRoute(url.pathname);
  if(route?.needsSlash)return c.redirect(`${url.pathname}/${url.search}`,308);
@@ -97,4 +98,4 @@ app.get('*',c=>{
  return c.notFound();
 });
 
-serve({fetch:app.fetch,port:Number(process.env.PORT||4260)},({port})=>console.log(`review server http://localhost:${port}/select/compare`));
+serve({fetch:app.fetch,port:Number(arg('port')??process.env.PORT??4260)},({port})=>{const portFile=arg('port-file')||process.env.PORT_FILE;if(portFile){const tmp=`${portFile}.${process.pid}.tmp`;writeFileSync(tmp,String(port)+'\n');renameSync(tmp,portFile)}console.log(`review server http://localhost:${port}/select/compare`)});
