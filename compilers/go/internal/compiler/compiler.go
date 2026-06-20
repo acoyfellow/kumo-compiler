@@ -158,9 +158,6 @@ func Compile(raw []byte) Receipt {
 		ids[x.ID] = true
 		raws[x.ID] = x.Root
 	}
-	if len(c.Components) != 41 {
-		return fail(r, "invalid-catalog", "expected exactly 41 components", "$.catalog.components")
-	}
 	for id := range ids {
 		for f := range seenF {
 			r.Plan = append(r.Plan, Plan{id, f})

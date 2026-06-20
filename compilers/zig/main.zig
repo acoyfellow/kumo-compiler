@@ -114,8 +114,8 @@ pub fn main(init: std.process.Init) !void {
         std.process.exit(1);
     };
     const catalog = cp.value;
-    if (!std.mem.eql(u8, catalog.schemaVersion, "kumo.ir/v1") or catalog.components.len != 41) {
-        try emit(io, try errReceipt(a, roots, "invalid-catalog", "expected kumo.ir/v1 catalog with 41 components", "$.catalog"));
+    if (!std.mem.eql(u8, catalog.schemaVersion, "kumo.ir/v1")) {
+        try emit(io, try errReceipt(a, roots, "invalid-catalog", "expected kumo.ir/v1 catalog", "$.catalog"));
         std.process.exit(1);
     }
     for (catalog.components, 0..) |c, i| {
