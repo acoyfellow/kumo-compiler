@@ -86,15 +86,15 @@
   "candidateRevision": "d1bcccf",
   "targetCounts": {
     "passed": 0,
-    "partial": 16,
+    "partial": 28,
     "failed": 0,
-    "blocked": 12
+    "blocked": 0
   },
   "gateCounts": {
-    "passed": 152,
-    "failed": 0,
+    "passed": 148,
+    "blocked": 36,
     "not-run": 260,
-    "blocked": 36
+    "failed": 4
   },
   "fieldTabs": {
     "targets": 8,
@@ -102,8 +102,9 @@
     "systemChrome": "8/8 passed",
     "fieldCallback": "4/4 passed",
     "tabsClick": "4/4 passed",
-    "tabsArrowNavigation": "0/4 unsupported by generated output",
+    "tabsArrowNavigation": "0/4 failed",
     "ssrBuild": "12/12 passed",
-    "ssrRenderHydrationNodePreservation": "0/12 blocked"
+    "ssrRenderHydrationNodePreservation": "0/12 blocked",
+    "assets": "8/8 passed"
   }
 }

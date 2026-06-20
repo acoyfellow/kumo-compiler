@@ -9,7 +9,7 @@
       "kumoRevision": "d1bcccf",
       "candidateRevision": "d1bcccf",
       "runId": "ter_20260620185824227_x67sdt",
-      "status": "blocked",
+      "status": "partial",
       "evidence": {
         "build": "passed",
         "runtime": "passed",
@@ -48,7 +48,7 @@
       "kumoRevision": "d1bcccf",
       "candidateRevision": "d1bcccf",
       "runId": "ter_20260620185824227_x67sdt",
-      "status": "blocked",
+      "status": "partial",
       "evidence": {
         "build": "passed",
         "runtime": "passed",
@@ -87,7 +87,7 @@
       "kumoRevision": "d1bcccf",
       "candidateRevision": "d1bcccf",
       "runId": "ter_20260620185824227_x67sdt",
-      "status": "blocked",
+      "status": "partial",
       "evidence": {
         "build": "passed",
         "runtime": "passed",
@@ -126,7 +126,7 @@
       "kumoRevision": "d1bcccf",
       "candidateRevision": "d1bcccf",
       "runId": "ter_20260620185824227_x67sdt",
-      "status": "blocked",
+      "status": "partial",
       "evidence": {
         "build": "passed",
         "runtime": "passed",
@@ -165,7 +165,7 @@
       "kumoRevision": "d1bcccf",
       "candidateRevision": "d1bcccf",
       "runId": "ter_20260620185824227_x67sdt",
-      "status": "blocked",
+      "status": "partial",
       "evidence": {
         "build": "passed",
         "runtime": "passed",
@@ -214,7 +214,7 @@
       "kumoRevision": "d1bcccf",
       "candidateRevision": "d1bcccf",
       "runId": "ter_20260620185824227_x67sdt",
-      "status": "blocked",
+      "status": "partial",
       "evidence": {
         "build": "passed",
         "runtime": "passed",
@@ -263,7 +263,7 @@
       "kumoRevision": "d1bcccf",
       "candidateRevision": "d1bcccf",
       "runId": "ter_20260620185824227_x67sdt",
-      "status": "blocked",
+      "status": "partial",
       "evidence": {
         "build": "passed",
         "runtime": "passed",
@@ -312,7 +312,7 @@
       "kumoRevision": "d1bcccf",
       "candidateRevision": "d1bcccf",
       "runId": "ter_20260620185824227_x67sdt",
-      "status": "blocked",
+      "status": "partial",
       "evidence": {
         "build": "passed",
         "runtime": "passed",
@@ -361,14 +361,14 @@
       "kumoRevision": "d1bcccf",
       "candidateRevision": "d1bcccf",
       "runId": "ter_20260620185824227_x67sdt",
-      "status": "blocked",
+      "status": "partial",
       "evidence": {
         "build": "passed",
         "runtime": "passed",
         "console": "passed",
         "network": "passed",
         "domAria": "passed",
-        "behavior": "passed",
+        "behavior": "failed",
         "ssr": "blocked",
         "hydrationWarnings": "blocked",
         "nodePreservation": "blocked",
@@ -410,14 +410,14 @@
       "kumoRevision": "d1bcccf",
       "candidateRevision": "d1bcccf",
       "runId": "ter_20260620185824227_x67sdt",
-      "status": "blocked",
+      "status": "partial",
       "evidence": {
         "build": "passed",
         "runtime": "passed",
         "console": "passed",
         "network": "passed",
         "domAria": "passed",
-        "behavior": "passed",
+        "behavior": "failed",
         "ssr": "blocked",
         "hydrationWarnings": "blocked",
         "nodePreservation": "blocked",
@@ -459,14 +459,14 @@
       "kumoRevision": "d1bcccf",
       "candidateRevision": "d1bcccf",
       "runId": "ter_20260620185824227_x67sdt",
-      "status": "blocked",
+      "status": "partial",
       "evidence": {
         "build": "passed",
         "runtime": "passed",
         "console": "passed",
         "network": "passed",
         "domAria": "passed",
-        "behavior": "passed",
+        "behavior": "failed",
         "ssr": "blocked",
         "hydrationWarnings": "blocked",
         "nodePreservation": "blocked",
@@ -508,14 +508,14 @@
       "kumoRevision": "d1bcccf",
       "candidateRevision": "d1bcccf",
       "runId": "ter_20260620185824227_x67sdt",
-      "status": "blocked",
+      "status": "partial",
       "evidence": {
         "build": "passed",
         "runtime": "passed",
         "console": "passed",
         "network": "passed",
         "domAria": "passed",
-        "behavior": "passed",
+        "behavior": "failed",
         "ssr": "blocked",
         "hydrationWarnings": "blocked",
         "nodePreservation": "blocked",
@@ -1176,16 +1176,16 @@
     }
   ],
   "counts": {
-    "passed": 152,
-    "failed": 0,
+    "passed": 148,
+    "failed": 4,
     "not-run": 260,
     "blocked": 36
   },
   "adaptationFrequency": 36,
   "targetCounts": {
     "passed": 0,
-    "partial": 16,
+    "partial": 28,
     "failed": 0,
-    "blocked": 12
+    "blocked": 0
   }
 }
