@@ -21,11 +21,17 @@ async function connect(wsUrl){
  const send=(method,params={})=>new Promise((ok,no)=>{const id=++seq;pending.set(id,m=>m.error?no(Error(m.error.message)):ok(m.result));ws.send(JSON.stringify({id,method,params}))});
  return {send,on:f=>listeners.push(f),close:()=>ws.close()};
 }
+export function hasSuccessfulNetworkEvidence({responses=[],failedRequests=[]}){
+ return failedRequests.length===0&&responses.length>0&&responses.every(x=>x.status>=200&&x.status<400);
+}
 async function chromium(url,chrome){
  const port=46000+Math.floor(Math.random()*1000),proc=spawn(chrome,['--headless=new','--no-sandbox','--disable-gpu','--hide-scrollbars','--window-size=900,700',`--remote-debugging-port=${port}`,'about:blank'],{stdio:'ignore'});
  try{
   let endpoint;for(let i=0;i<60;i++){try{endpoint=await (await fetch(`http://127.0.0.1:${port}/json/version`)).json();break}catch{await sleep(50)}}if(!endpoint)throw Error('Chromium debugging endpoint unavailable');
-  const target=await (await fetch(`http://127.0.0.1:${port}/json/new?${encodeURIComponent(url)}`,{method:'PUT'})).json(),cdp=await connect(target.webSocketDebuggerUrl);
+  // Attach to a blank target before navigation. Creating the target at `url`
+  // races Network.enable, and a subsequent same-URL Page.navigate can be a no-op,
+  // leaving a healthy page with zero captured requests.
+  const target=await (await fetch(`http://127.0.0.1:${port}/json/new?about%3Ablank`,{method:'PUT'})).json(),cdp=await connect(target.webSocketDebuggerUrl);
   const consoleMessages=[],pageErrors=[],failedRequests=[],responses=[];
   cdp.on(m=>{if(m.method==='Runtime.consoleAPICalled'&&['error','warning'].includes(m.params.type))consoleMessages.push(m.params.type);if(m.method==='Runtime.exceptionThrown')pageErrors.push(m.params.exceptionDetails.exception?.description||m.params.exceptionDetails.text);if(m.method==='Network.loadingFailed')failedRequests.push(m.params.errorText);if(m.method==='Network.responseReceived')responses.push({url:m.params.response.url,status:m.params.response.status,mime:m.params.response.mimeType})});
   await Promise.all(['Page.enable','Runtime.enable','Network.enable'].map(x=>cdp.send(x)));await cdp.send('Page.navigate',{url});await sleep(900);
@@ -51,7 +57,7 @@ export async function run({frameworks=allFrameworks,ids=manifest.components.map(
   const url=base+component.route.replace('{framework}',framework),r=await chromium(url,chrome),failures=[...r.consoleMessages,...r.pageErrors,...r.failedRequests,...r.responses.filter(x=>x.status>=400).map(x=>`${x.status} ${x.url}`)];
   const assets=r.responses.filter(x=>/javascript|css/.test(x.mime)),hasStyle=r.post.styles.length>0||pre.includes('<style');
   if(!r.post.html.includes('<main')||!assets.some(x=>/javascript/.test(x.mime))||!hasStyle)failures.push('runtime DOM, linked asset, or style missing');
-  const evidence={schemaVersion:'kumo.browser-evidence/v1',synthetic:false,component:component.id,framework,url,checks:{runtime:true,console:!r.consoleMessages.length,network:!r.failedRequests.length,dom:r.post.html.includes('<main'),aria:Array.isArray(r.post.aria),behavior:!component.behavior||r.post.behavior.target,ssr:pre.includes('<main'),hydration:r.post.html.includes('<main'),screenshot:r.png.length>1000,pixels:true,assets:assets.length>0,styles:hasStyle,package:!!pkg.devDependencies.vite,provenance:provenance.framework===framework},snapshots:{preHydration:hash(pre),postHydration:hash(r.post.html),aria:r.post.aria,behaviorVector:{policy:component.behavior?.kind||null,...r.post.behavior}},screenshot:{sha256:hash(r.png),pixelSha256:pngPixelHash(r.png),bytes:r.png.length},assets,failures};
+  const evidence={schemaVersion:'kumo.browser-evidence/v1',synthetic:false,component:component.id,framework,url,checks:{runtime:true,console:!r.consoleMessages.length,network:hasSuccessfulNetworkEvidence(r),dom:r.post.html.includes('<main'),aria:Array.isArray(r.post.aria),behavior:!component.behavior||r.post.behavior.target,ssr:pre.includes('<main'),hydration:r.post.html.includes('<main'),screenshot:r.png.length>1000,pixels:true,assets:assets.length>0,styles:hasStyle,package:!!pkg.devDependencies.vite,provenance:provenance.framework===framework},snapshots:{preHydration:hash(pre),postHydration:hash(r.post.html),aria:r.post.aria,behaviorVector:{policy:component.behavior?.kind||null,...r.post.behavior}},screenshot:{sha256:hash(r.png),pixelSha256:pngPixelHash(r.png),bytes:r.png.length},assets,failures};
   validateEvidence(evidence);const digest=hash(JSON.stringify(evidence));await immutableWrite(resolve(out,framework,component.id,digest,'evidence.json'),Buffer.from(JSON.stringify(evidence,null,2)+'\n'));await immutableWrite(resolve(out,framework,component.id,digest,'screenshot.png'),r.png);
  }
 }
