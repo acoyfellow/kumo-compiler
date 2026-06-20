@@ -2,6 +2,18 @@
   "schemaVersion": "kumo.receipt/v1",
   "component": "label",
   "framework": "vue",
+  "browserEvidence": {
+    "runId": "2026-06-20T15-31-41-664Z-39343",
+    "manifest": "generated/browser-evidence/runs/2026-06-20T15-31-41-664Z-39343.json",
+    "manifestSha256": "72e292804743fc753b22effa98a394456e031912a8178786e31e5182a7774e1a",
+    "evidence": "generated/browser-evidence/vue/label/d2f4a9a3164f08370e064142cde12e4e567b8e2b0197ef7ec23735ecf26a08a7/evidence.json",
+    "evidenceDigest": "d2f4a9a3164f08370e064142cde12e4e567b8e2b0197ef7ec23735ecf26a08a7",
+    "browserIdentity": {
+      "framework": "vue",
+      "component": "label",
+      "url": "http://127.0.0.1:4260/label/vue/"
+    }
+  },
   "checks": {
     "build": true,
     "runtime": true,
@@ -19,5 +31,5 @@
     "staticRules": true
   },
   "irHash": "f427691d27d92f1a621251e68c08c447bd76a8f72401b9c33150a42b14dd1556",
-  "emitterHash": "3767ef75dcd4eb42ba56bb7336873ecff70f9f157a7d5b19f147f36bfbad9b02"
+  "emitterHash": "96eafd56a45fe139430adb772da35f54fb9d312e5046f79b28ee75777cfb293b"
 }

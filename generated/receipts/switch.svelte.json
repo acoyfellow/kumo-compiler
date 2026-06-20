@@ -2,6 +2,18 @@
   "schemaVersion": "kumo.receipt/v1",
   "component": "switch",
   "framework": "svelte",
+  "browserEvidence": {
+    "runId": "2026-06-20T15-33-47-441Z-43487",
+    "manifest": "generated/browser-evidence/runs/2026-06-20T15-33-47-441Z-43487.json",
+    "manifestSha256": "2780d4a6593ce58dc8685c8de261c651526e7a452a7228a8f75330a96d8943cb",
+    "evidence": "generated/browser-evidence/svelte/switch/b07f2f655394c1ee3ed741175b44720ea08ae98d7cf224c22986405ed8762e34/evidence.json",
+    "evidenceDigest": "b07f2f655394c1ee3ed741175b44720ea08ae98d7cf224c22986405ed8762e34",
+    "browserIdentity": {
+      "framework": "svelte",
+      "component": "switch",
+      "url": "http://127.0.0.1:4260/switch/svelte/"
+    }
+  },
   "checks": {
     "build": true,
     "runtime": true,
@@ -18,6 +30,6 @@
     "provenance": true,
     "staticRules": true
   },
-  "irHash": "5eb004da82c20bde5757b2ba31ffbbfb6da4b762a5a5bd2aada11aa26568015b",
-  "emitterHash": "0d8ed1bc4347965c196938a13d1991f4fc27e930949b52a977683410d21f43e8"
+  "irHash": "801b7c18b25a82f3381334379c83a99a53f18c9f8d2336a307ea7ff526ff06b1",
+  "emitterHash": "c3b974affbd1fc3702f706661301b5924478d3605e25a730f60ffaae9e14c721"
 }

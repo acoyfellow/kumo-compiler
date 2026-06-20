@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "loader",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/loader/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "1449a218f38afb6c826e206db8066bcdf4aca20e22096141e07e69c76debd1c4",
+    "postHydration": "e701fd7133879e92b840ba5dafc7f452eb48e0daa904c1a23839f0f077fe5f5f",
+    "aria": [
+      {
+        "tag": "svg",
+        "role": "status",
+        "label": "Loading audit fixture",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "df5cf49ac6f2e02a4c6adad5799c86246ee62069eb6b3630bbd5235cfa1944a3",
+    "pixelSha256": "0dc724f2b32256dbf37935008df105023d88a5bcbad640f3661aa87c16d713db",
+    "bytes": 3749
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/loader/react/assets/index-ChfU0_gN.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

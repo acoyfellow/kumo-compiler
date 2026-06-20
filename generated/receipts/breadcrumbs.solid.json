@@ -2,6 +2,18 @@
   "schemaVersion": "kumo.receipt/v1",
   "component": "breadcrumbs",
   "framework": "solid",
+  "browserEvidence": {
+    "runId": "2026-06-20T15-35-51-935Z-48532",
+    "manifest": "generated/browser-evidence/runs/2026-06-20T15-35-51-935Z-48532.json",
+    "manifestSha256": "f80201d1449a5496ec62282eff69409ac7c7d3cb4f1e9b98ef848ccab3c5518b",
+    "evidence": "generated/browser-evidence/solid/breadcrumbs/e8b5292291d0a26be4fe47dcdc31036d5597cbf93f65ceaf7832fb38d932d9f0/evidence.json",
+    "evidenceDigest": "e8b5292291d0a26be4fe47dcdc31036d5597cbf93f65ceaf7832fb38d932d9f0",
+    "browserIdentity": {
+      "framework": "solid",
+      "component": "breadcrumbs",
+      "url": "http://127.0.0.1:4260/breadcrumbs/solid/"
+    }
+  },
   "checks": {
     "productionBuild": true,
     "network": true,
@@ -13,17 +25,7 @@
     "assetsStylesPackage": true,
     "provenance": true
   },
-  "browser": {
-    "before": "Home",
-    "after": "Home",
-    "current": [
-      "Navigation"
-    ],
-    "selected": [],
-    "panel": "",
-    "hydration": true
-  },
-  "screenshotHash": "dd315bc98139d15f0923fa4e47e52599616f3922b9c3876f23d23d0031d15004",
+  "screenshotHash": "f60cc924745d5d8429d0c138b211b8de679650ca42f293b3ee22f239105644c5",
   "irHash": "8893a5e430f39b864909ab19125c8f3de601023693040c47fd06c5a98b30c4dd",
   "emitterHash": "1966a3833c0e4555f65c8f32961829b034f97f411e177bfc565013393889c6ac"
 }

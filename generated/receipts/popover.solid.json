@@ -2,6 +2,18 @@
   "schemaVersion": "kumo.receipt/v1",
   "component": "popover",
   "framework": "solid",
+  "browserEvidence": {
+    "runId": "2026-06-20T15-35-51-935Z-48532",
+    "manifest": "generated/browser-evidence/runs/2026-06-20T15-35-51-935Z-48532.json",
+    "manifestSha256": "f80201d1449a5496ec62282eff69409ac7c7d3cb4f1e9b98ef848ccab3c5518b",
+    "evidence": "generated/browser-evidence/solid/popover/c3678da6695aa742cf6532a6f33ea94e9abeaa620d2f1ac9efc344468e2cc169/evidence.json",
+    "evidenceDigest": "c3678da6695aa742cf6532a6f33ea94e9abeaa620d2f1ac9efc344468e2cc169",
+    "browserIdentity": {
+      "framework": "solid",
+      "component": "popover",
+      "url": "http://127.0.0.1:4260/popover/solid/"
+    }
+  },
   "checks": {
     "productionBuild": true,
     "network": true,
@@ -13,16 +25,7 @@
     "assetsStylesPackage": true,
     "provenance": true
   },
-  "browser": {
-    "hydration": true,
-    "realBrowser": true,
-    "keyboard": true,
-    "aria": true,
-    "nativeActivation": false,
-    "outsideDismiss": true,
-    "focusReturn": true
-  },
-  "screenshotHash": "a8daad8204224629d861df70b871d2695ff249e2a6dc7edfdf996855b2301d65",
+  "screenshotHash": "53f8ea033ee903282f0392286bff23c326e45a535423e40c63edb8ecac996361",
   "irHash": "445be997d4a067730ab620e7e3d779f80230a9954e531f4369a7f506a28a0078",
   "emitterHash": "1966a3833c0e4555f65c8f32961829b034f97f411e177bfc565013393889c6ac"
 }

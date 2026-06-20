@@ -2,6 +2,18 @@
   "schemaVersion": "kumo.receipt/v1",
   "component": "switch",
   "framework": "solid",
+  "browserEvidence": {
+    "runId": "2026-06-20T15-35-51-935Z-48532",
+    "manifest": "generated/browser-evidence/runs/2026-06-20T15-35-51-935Z-48532.json",
+    "manifestSha256": "f80201d1449a5496ec62282eff69409ac7c7d3cb4f1e9b98ef848ccab3c5518b",
+    "evidence": "generated/browser-evidence/solid/switch/5a21a2409f7c8d8c3894298e9935b1b79485f3415aca45fca92e0668ac1530ce/evidence.json",
+    "evidenceDigest": "5a21a2409f7c8d8c3894298e9935b1b79485f3415aca45fca92e0668ac1530ce",
+    "browserIdentity": {
+      "framework": "solid",
+      "component": "switch",
+      "url": "http://127.0.0.1:4260/switch/solid/"
+    }
+  },
   "checks": {
     "productionBuild": true,
     "network": true,
@@ -13,17 +25,7 @@
     "assetsStylesPackage": true,
     "provenance": true
   },
-  "browser": {
-    "before": false,
-    "after": true,
-    "focused": true,
-    "value": "on",
-    "role": "switch",
-    "aria": "true",
-    "required": false,
-    "hydration": true
-  },
-  "screenshotHash": "b4d1f02fa580ca63c1fa993de41af4bd4a3b4ab7087d96d8b9401b774ac86eea",
+  "screenshotHash": "66879e89b8a46aba35ca962d5da23393eb9077e316bd11c595523972b088ab78",
   "irHash": "801b7c18b25a82f3381334379c83a99a53f18c9f8d2336a307ea7ff526ff06b1",
   "emitterHash": "1966a3833c0e4555f65c8f32961829b034f97f411e177bfc565013393889c6ac"
 }

@@ -4,7 +4,18 @@
   "framework": "react",
   "classification": "passed",
   "canonicalInput": true,
-  "browserEvidence": "generated/browser-evidence/react/sensitive-input/a78fad706e75ea6a0417f1861bb0df0da782ec1ec8b39a8fa086ced2213797a9/evidence.json",
+  "browserEvidence": {
+    "runId": "2026-06-20T15-44-05-619Z-69156",
+    "manifest": "generated/browser-evidence/runs/2026-06-20T15-44-05-619Z-69156.json",
+    "manifestSha256": "92c905a09ac07cd1787d693b54766229f231de7091693505a6c98d2ef603bd55",
+    "evidence": "generated/browser-evidence/react/sensitive-input/a78fad706e75ea6a0417f1861bb0df0da782ec1ec8b39a8fa086ced2213797a9/evidence.json",
+    "evidenceDigest": "a78fad706e75ea6a0417f1861bb0df0da782ec1ec8b39a8fa086ced2213797a9",
+    "browserIdentity": {
+      "framework": "react",
+      "component": "sensitive-input",
+      "url": "http://127.0.0.1:4260/sensitive-input/react/"
+    }
+  },
   "sourceEvidence": {
     "manifest": "audit/kumo-react-2.5.2.provenance.json",
     "package": {

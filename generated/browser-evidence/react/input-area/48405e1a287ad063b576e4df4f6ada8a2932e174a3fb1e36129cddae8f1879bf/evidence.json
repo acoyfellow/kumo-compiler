@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "input-area",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/input-area/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "0d78c013a6310115c2d8f2929286594a4cd5aa2447467342de609282b3021f08",
+    "postHydration": "b59e93a50eea01037386c2b721e70ff10537dcab2f32d0620ba4b195be193c3e",
+    "aria": [
+      {
+        "tag": "textarea",
+        "role": null,
+        "label": "Audit input area",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "b11035252a7137258b68e37d5a8a1ce21b968a84bf6ae0437e01be2be0e7fd27",
+    "pixelSha256": "78ba9d97db5364a1b1ceec2c94535bee55009627e297496488b582fa4916b4f5",
+    "bytes": 4542
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/input-area/react/assets/index-CRLtw05l.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

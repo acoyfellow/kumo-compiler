@@ -2,6 +2,18 @@
   "schemaVersion": "kumo.receipt/v1",
   "component": "button",
   "framework": "solid",
+  "browserEvidence": {
+    "runId": "2026-06-20T15-35-51-935Z-48532",
+    "manifest": "generated/browser-evidence/runs/2026-06-20T15-35-51-935Z-48532.json",
+    "manifestSha256": "f80201d1449a5496ec62282eff69409ac7c7d3cb4f1e9b98ef848ccab3c5518b",
+    "evidence": "generated/browser-evidence/solid/button/4ea16f69c7c22b12aefa620836bad84fd11c190177b7959bbb782b0f83f465da/evidence.json",
+    "evidenceDigest": "4ea16f69c7c22b12aefa620836bad84fd11c190177b7959bbb782b0f83f465da",
+    "browserIdentity": {
+      "framework": "solid",
+      "component": "button",
+      "url": "http://127.0.0.1:4260/button/solid/"
+    }
+  },
   "checks": {
     "productionBuild": true,
     "network": true,
@@ -13,16 +25,7 @@
     "assetsStylesPackage": true,
     "provenance": true
   },
-  "browser": {
-    "hydration": true,
-    "realBrowser": true,
-    "keyboard": false,
-    "aria": true,
-    "nativeActivation": true,
-    "outsideDismiss": false,
-    "focusReturn": false
-  },
-  "screenshotHash": "857bfdbecb00f1006eb2f74dc72a1052497c992952d9c05754c4f680f74b133b",
+  "screenshotHash": "b14e478834ca87dad12497ca3e9def458a962f75c5d6f56eae0b0fea9a2da133",
   "irHash": "df7211ce4d3f5889e6b885db184e0e1c067caa01d809e696152cd151e022bd1c",
   "emitterHash": "1966a3833c0e4555f65c8f32961829b034f97f411e177bfc565013393889c6ac"
 }

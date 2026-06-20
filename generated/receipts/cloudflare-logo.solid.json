@@ -2,6 +2,18 @@
   "schemaVersion": "kumo.receipt/v1",
   "component": "cloudflare-logo",
   "framework": "solid",
+  "browserEvidence": {
+    "runId": "2026-06-20T15-35-51-935Z-48532",
+    "manifest": "generated/browser-evidence/runs/2026-06-20T15-35-51-935Z-48532.json",
+    "manifestSha256": "f80201d1449a5496ec62282eff69409ac7c7d3cb4f1e9b98ef848ccab3c5518b",
+    "evidence": "generated/browser-evidence/solid/cloudflare-logo/d593ee7bd0cb6963d540c68fe20454fde3d01a3d62e477d41ee641faccf5fd6d/evidence.json",
+    "evidenceDigest": "d593ee7bd0cb6963d540c68fe20454fde3d01a3d62e477d41ee641faccf5fd6d",
+    "browserIdentity": {
+      "framework": "solid",
+      "component": "cloudflare-logo",
+      "url": "http://127.0.0.1:4260/cloudflare-logo/solid/"
+    }
+  },
   "checks": {
     "productionBuild": true,
     "network": true,
@@ -13,7 +25,7 @@
     "assetsStylesPackage": true,
     "provenance": true
   },
-  "screenshotHash": "5d0d8d7a64aaf2b70503c67de64d6f676231399f7f698f1a8a794e160d827864",
+  "screenshotHash": "b74f05fc87e459857a55580b107192814b362ec86fac336c1394e821cb96a9fb",
   "irHash": "b3869fe86769c5f499b283c5985c4365db164837b1bea39278f2c0dea0116d97",
   "emitterHash": "1966a3833c0e4555f65c8f32961829b034f97f411e177bfc565013393889c6ac"
 }

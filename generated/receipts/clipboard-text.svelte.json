@@ -2,6 +2,18 @@
   "schemaVersion": "kumo.receipt/v1",
   "component": "clipboard-text",
   "framework": "svelte",
+  "browserEvidence": {
+    "runId": "2026-06-20T15-33-47-441Z-43487",
+    "manifest": "generated/browser-evidence/runs/2026-06-20T15-33-47-441Z-43487.json",
+    "manifestSha256": "2780d4a6593ce58dc8685c8de261c651526e7a452a7228a8f75330a96d8943cb",
+    "evidence": "generated/browser-evidence/svelte/clipboard-text/770b77a4da40b98a28149d9be228ad1cb7f488583fb4fb0d1238cd94d0894615/evidence.json",
+    "evidenceDigest": "770b77a4da40b98a28149d9be228ad1cb7f488583fb4fb0d1238cd94d0894615",
+    "browserIdentity": {
+      "framework": "svelte",
+      "component": "clipboard-text",
+      "url": "http://127.0.0.1:4260/clipboard-text/svelte/"
+    }
+  },
   "checks": {
     "build": true,
     "runtime": true,
@@ -18,6 +30,6 @@
     "provenance": true,
     "staticRules": true
   },
-  "irHash": "2b9320f340bc801a8b0046c74524a01d77f311f733dad5de666c8889dbe1bc40",
-  "emitterHash": "0d8ed1bc4347965c196938a13d1991f4fc27e930949b52a977683410d21f43e8"
+  "irHash": "56db4334a5b0d2bb2954cc055ed85dab2ee70271e02fb34386568ff3956911f3",
+  "emitterHash": "c3b974affbd1fc3702f706661301b5924478d3605e25a730f60ffaae9e14c721"
 }

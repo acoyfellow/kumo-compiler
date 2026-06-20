@@ -2,6 +2,7 @@ import { existsSync } from 'node:fs';
 import { mkdir, readFile, rename, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { validateAuthority, browserBinding } from './browser-evidence-authority.mjs';
 
 const defaultRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const frameworks = ['react', 'vue', 'svelte', 'solid'];
@@ -27,10 +28,12 @@ async function loadJson(path) {
   catch (error) { fail(path, `invalid JSON (${error.message})`); }
 }
 
-async function validateReceipt(receipt, component, framework, root, path, catalogIds) {
+async function validateReceipt(receipt, component, framework, root, path, catalogIds, evidence) {
   if (!receipt || typeof receipt !== 'object' || Array.isArray(receipt)) fail(path, 'receipt must be an object');
   if (!catalogIds.has(receipt.component)) fail(path, 'component is not in catalog');
   if (receipt.component !== component || receipt.framework !== framework) fail(path, 'receipt identity does not match filename/catalog slot');
+  if(evidence){const binding=browserBinding(evidence,framework,component);
+  if (JSON.stringify(receipt.browserEvidence)!==JSON.stringify(binding)) fail(path,'receipt is not bound to selected browser manifest');}
   if (framework === 'react') {
     if (receipt.schemaVersion !== 'kumo.receipt/v3') fail(path, 'unsupported receipt schema');
     exactChecks(receipt, reactChecks, path, true);
@@ -51,6 +54,7 @@ export async function buildMigrationStatus({ root = defaultRoot, outputPath = re
   if (ir.schemaVersion !== 'kumo.ir/v1' || !Array.isArray(ir.components) || !ir.components.length) throw new Error('catalog IR is malformed or empty');
   const catalogIds = new Set(ir.components.map(component => component.id));
   if (catalogIds.size !== ir.components.length || [...catalogIds].some(id => typeof id !== 'string' || !id)) throw new Error('catalog component identities are invalid');
+  const evidence = root === defaultRoot ? await validateAuthority({root}) : null;
   const components = {};
   for (const component of ir.components) {
     const status = {};
@@ -59,7 +63,7 @@ export async function buildMigrationStatus({ root = defaultRoot, outputPath = re
       const receiptPath = resolve(root, relativeReceipt);
       if (!existsSync(receiptPath)) { status[framework] = 'missing'; status[`${framework}Receipt`] = null; continue; }
       const receipt = await loadJson(receiptPath);
-      await validateReceipt(receipt, component.id, framework, root, receiptPath, catalogIds);
+      await validateReceipt(receipt, component.id, framework, root, receiptPath, catalogIds, evidence);
       const checks = Object.values(receipt.checks);
       const passed = framework === 'react' ? receipt.classification === 'passed' : checks.every(value => value === true);
       status[framework] = passed ? (framework === 'react' ? 'passed' : 'verified') : (receipt.classification ?? 'failed');

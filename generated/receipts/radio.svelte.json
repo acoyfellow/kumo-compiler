@@ -2,6 +2,18 @@
   "schemaVersion": "kumo.receipt/v1",
   "component": "radio",
   "framework": "svelte",
+  "browserEvidence": {
+    "runId": "2026-06-20T15-33-47-441Z-43487",
+    "manifest": "generated/browser-evidence/runs/2026-06-20T15-33-47-441Z-43487.json",
+    "manifestSha256": "2780d4a6593ce58dc8685c8de261c651526e7a452a7228a8f75330a96d8943cb",
+    "evidence": "generated/browser-evidence/svelte/radio/d0a0df3b4ba397669efbb673564192e16c58b06f6874130c0c8383f0aac5ab71/evidence.json",
+    "evidenceDigest": "d0a0df3b4ba397669efbb673564192e16c58b06f6874130c0c8383f0aac5ab71",
+    "browserIdentity": {
+      "framework": "svelte",
+      "component": "radio",
+      "url": "http://127.0.0.1:4260/radio/svelte/"
+    }
+  },
   "checks": {
     "build": true,
     "runtime": true,
@@ -18,6 +30,6 @@
     "provenance": true,
     "staticRules": true
   },
-  "irHash": "70b751a21d6bb275394c87c6ec5e0536ac17c6933d4858b04710bd8decfc7c09",
-  "emitterHash": "0d8ed1bc4347965c196938a13d1991f4fc27e930949b52a977683410d21f43e8"
+  "irHash": "dffa2c63fac56948620b44f2ad2b867b3ff7acec0bfc0bdb2fa3d9b890bd0ac0",
+  "emitterHash": "c3b974affbd1fc3702f706661301b5924478d3605e25a730f60ffaae9e14c721"
 }

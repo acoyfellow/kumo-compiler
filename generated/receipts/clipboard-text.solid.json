@@ -2,6 +2,18 @@
   "schemaVersion": "kumo.receipt/v1",
   "component": "clipboard-text",
   "framework": "solid",
+  "browserEvidence": {
+    "runId": "2026-06-20T15-35-51-935Z-48532",
+    "manifest": "generated/browser-evidence/runs/2026-06-20T15-35-51-935Z-48532.json",
+    "manifestSha256": "f80201d1449a5496ec62282eff69409ac7c7d3cb4f1e9b98ef848ccab3c5518b",
+    "evidence": "generated/browser-evidence/solid/clipboard-text/2e75a7ee91bb608175a65fc6156dc046c5090ab1240725bf2d177c7680d537ac/evidence.json",
+    "evidenceDigest": "2e75a7ee91bb608175a65fc6156dc046c5090ab1240725bf2d177c7680d537ac",
+    "browserIdentity": {
+      "framework": "solid",
+      "component": "clipboard-text",
+      "url": "http://127.0.0.1:4260/clipboard-text/solid/"
+    }
+  },
   "checks": {
     "productionBuild": true,
     "network": true,
@@ -13,17 +25,7 @@
     "assetsStylesPackage": true,
     "provenance": true
   },
-  "browser": {
-    "before": "npm i kumo",
-    "after": "browser proof",
-    "focused": true,
-    "type": "text",
-    "pressed": null,
-    "status": "",
-    "required": false,
-    "hydration": true
-  },
-  "screenshotHash": "ccdfda3780f1d1315003819161b87779bd81a45a9ab905264eafda1eef7518bc",
+  "screenshotHash": "1125771a4b6bfc3b15ff978a526c574b5ad5d27bf65d5a204b77e23c2ba8be82",
   "irHash": "56db4334a5b0d2bb2954cc055ed85dab2ee70271e02fb34386568ff3956911f3",
   "emitterHash": "1966a3833c0e4555f65c8f32961829b034f97f411e177bfc565013393889c6ac"
 }

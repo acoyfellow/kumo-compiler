@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "switch",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/switch/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "a3d06e679185218cfbc763af4cbc02c9d6de2806471542f5c10b375d2bfa6bff",
+    "postHydration": "df98ff36af3c9a0bfc195de55aa424e292391a4a3cb692d95fc5128b9e99c939",
+    "aria": [
+      {
+        "tag": "input",
+        "role": "switch",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "input",
+        "role": "switch",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "input",
+        "role": "switch",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "input",
+        "role": "switch",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "native-check",
+      "target": true,
+      "active": "INPUT",
+      "checked": true
+    }
+  },
+  "screenshot": {
+    "sha256": "fbc31a937c1864271e6e27f78f72c2af0091e17da44b24c6bb7e512567faa8b4",
+    "pixelSha256": "068409e1fc2b2532725f462349623a41b1ef772601a11732161b5b08ce864d64",
+    "bytes": 18038
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/switch/react/assets/index.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/switch/react/assets/react-switch.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}
