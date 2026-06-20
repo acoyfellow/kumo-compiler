@@ -44,12 +44,13 @@ export function Description(props:JSX.HTMLAttributes<HTMLDivElement>):JSX.Elemen
 export function Value(props:JSX.HTMLAttributes<HTMLSpanElement>):JSX.Element {const context=useSelect();const text=createMemo(()=>context.state().options.find(option=>option.value===context.state().value)?.label);return <span {...props} id={context.state().ids.value}>{props.children??text()}</span>}
 export function Trigger(props:JSX.ButtonHTMLAttributes<HTMLButtonElement>):JSX.Element {
   const context=useSelect(); const aria=createMemo(()=>selectAria(context.state()).trigger);
-  const keydown:JSX.EventHandler<HTMLButtonElement,KeyboardEvent>=event=>{props.onKeyDown?.(event);if(event.defaultPrevented||!keyboardKeys.has(event.key as SelectKey))return;if(event.key!=='Tab')event.preventDefault();context.send({type:'key',key:event.key as SelectKey,now:Date.now()})};
-  return <button {...props} {...aria()} type={props.type??'button'} disabled={context.state().disabled} ref={element=>context.trigger(element)} onKeyDown={keydown}/>;
+  const keydown:JSX.EventHandler<HTMLButtonElement,KeyboardEvent>=event=>{if(typeof props.onKeyDown==='function')props.onKeyDown(event);if(event.defaultPrevented)return;if(keyboardKeys.has(event.key as SelectKey)){if(event.key!=='Tab')event.preventDefault();context.send({type:'key',key:event.key as SelectKey,now:Date.now()})}else if(event.key.length===1&&!event.ctrlKey&&!event.metaKey&&!event.altKey)context.send({type:'typeahead',text:event.key,now:Date.now()})};
+  const click:JSX.EventHandler<HTMLButtonElement,MouseEvent>=event=>{if(typeof props.onClick==='function')props.onClick(event);if(!event.defaultPrevented)context.send({type:'key',key:context.state().open?'Escape':'Enter',now:Date.now()})};
+  return <button {...props} {...aria()} type={props.type??'button'} disabled={context.state().disabled} ref={element=>context.trigger(element)} onKeyDown={keydown} onClick={click}/>;
 }
 export function Listbox(props:JSX.HTMLAttributes<HTMLUListElement>):JSX.Element {
   const context=useSelect();const aria=createMemo(()=>selectAria(context.state()).listbox);
-  const keydown:JSX.EventHandler<HTMLUListElement,KeyboardEvent>=event=>{props.onKeyDown?.(event);if(event.defaultPrevented)return;if(keyboardKeys.has(event.key as SelectKey)){if(event.key!=='Tab')event.preventDefault();context.send({type:'key',key:event.key as SelectKey,now:Date.now()})}else if(event.key.length===1&&!event.ctrlKey&&!event.metaKey&&!event.altKey)context.send({type:'typeahead',text:event.key,now:Date.now()})};
+  const keydown:JSX.EventHandler<HTMLUListElement,KeyboardEvent>=event=>{if(typeof props.onKeyDown==='function')props.onKeyDown(event);if(event.defaultPrevented)return;if(keyboardKeys.has(event.key as SelectKey)){if(event.key!=='Tab')event.preventDefault();context.send({type:'key',key:event.key as SelectKey,now:Date.now()})}else if(event.key.length===1&&!event.ctrlKey&&!event.metaKey&&!event.altKey)context.send({type:'typeahead',text:event.key,now:Date.now()})};
   return <ul {...props} {...aria()} hidden={!context.state().open} tabIndex={props.tabIndex??-1} ref={element=>context.listbox(element)} onKeyDown={keydown}/>;
 }
 export interface OptionProps extends Omit<JSX.LiHTMLAttributes<HTMLLIElement>,'id'> {id:string;value:string;label?:string;disabled?:boolean;order?:number}
@@ -59,7 +60,7 @@ export function Option(props:OptionProps):JSX.Element {
   onMount(()=>context.register(input(),element));onCleanup(()=>context.unregister(local.id));
   createEffect(()=>{local.value;local.label;local.disabled;local.order;if(element)context.register(input(),element)});
   const option=createMemo(()=>context.state().options.find(item=>item.id===local.id));const aria=createMemo(()=>option()?selectAria(context.state()).option(option()!):undefined);
-  const click:JSX.EventHandler<HTMLLIElement,MouseEvent>=event=>{local.onClick?.(event);if(!event.defaultPrevented)context.send({type:'select',id:local.id})};
+  const click:JSX.EventHandler<HTMLLIElement,MouseEvent>=event=>{if(typeof local.onClick==='function')local.onClick(event);if(!event.defaultPrevented)context.send({type:'select',id:local.id})};
   return <li {...rest} {...aria()} ref={element} onClick={click}>{local.children??local.label}</li>;
 }
 

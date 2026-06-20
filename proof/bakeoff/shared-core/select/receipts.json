@@ -1,0 +1,165 @@
+{
+  "candidate": "shared-core-native-select",
+  "component": "Select",
+  "runId": "ter_20260620195116424_2ebads",
+  "revisions": {
+    "kumo": "e4d535f7d1a92f7ee070a9d632e6efb09cbf2cbe",
+    "candidate": "e4d535f7d1a92f7ee070a9d632e6efb09cbf2cbe"
+  },
+  "dependencyRoot": "/private/tmp/kumo-select-vue/node_modules",
+  "chrome": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+  "targets": {
+    "react": {
+      "candidate": "shared-core-native-select",
+      "framework": "react",
+      "component": "Select",
+      "runId": "ter_20260620195116424_2ebads",
+      "revisions": {
+        "kumo": "e4d535f7d1a92f7ee070a9d632e6efb09cbf2cbe",
+        "candidate": "e4d535f7d1a92f7ee070a9d632e6efb09cbf2cbe"
+      },
+      "status": "blocked",
+      "gates": {
+        "package-types-exports-styles": "blocked",
+        "client-build": "blocked",
+        "pointer-open-select": "blocked",
+        "keyboard-arrow-home-end-page-enter-space-escape-tab": "blocked",
+        "typeahead": "blocked",
+        "disabled-options": "blocked",
+        "controlled-uncontrolled-value-open": "blocked",
+        "callback-event-ordering": "blocked",
+        "dom-aria": "blocked",
+        "ssr": "blocked",
+        "hydration": "blocked",
+        "console-network": "blocked",
+        "server-node-preservation": "blocked",
+        "focus-scroll": "blocked"
+      },
+      "adapter": {
+        "files": [
+          "src/views/select/react/index.tsx"
+        ],
+        "loc": 39
+      },
+      "evidenceDigest": "sha256:72878d2d70fe86a3524cdc949c25121ff12f5398c56ddf52961bd17f9280ca4d",
+      "diagnostics": [
+        "blocked: dependency root is missing react-dom/server, esbuild"
+      ]
+    },
+    "vue": {
+      "candidate": "shared-core-native-select",
+      "framework": "vue",
+      "component": "Select",
+      "runId": "ter_20260620195116424_2ebads",
+      "revisions": {
+        "kumo": "e4d535f7d1a92f7ee070a9d632e6efb09cbf2cbe",
+        "candidate": "e4d535f7d1a92f7ee070a9d632e6efb09cbf2cbe"
+      },
+      "status": "blocked",
+      "gates": {
+        "package-types-exports-styles": "blocked",
+        "client-build": "blocked",
+        "pointer-open-select": "blocked",
+        "keyboard-arrow-home-end-page-enter-space-escape-tab": "blocked",
+        "typeahead": "blocked",
+        "disabled-options": "blocked",
+        "controlled-uncontrolled-value-open": "blocked",
+        "callback-event-ordering": "blocked",
+        "dom-aria": "blocked",
+        "ssr": "blocked",
+        "hydration": "blocked",
+        "console-network": "blocked",
+        "server-node-preservation": "blocked",
+        "focus-scroll": "blocked"
+      },
+      "adapter": {
+        "files": [
+          "src/views/select/vue/index.ts"
+        ],
+        "loc": 75
+      },
+      "evidenceDigest": "sha256:4663c5ef96bf554c498fbbcfd81bc1d5708595782ff4b50ae2e0d0d5cc21f50b",
+      "diagnostics": [
+        "blocked: dependency root is missing esbuild"
+      ]
+    },
+    "svelte": {
+      "candidate": "shared-core-native-select",
+      "framework": "svelte",
+      "component": "Select",
+      "runId": "ter_20260620195116424_2ebads",
+      "revisions": {
+        "kumo": "e4d535f7d1a92f7ee070a9d632e6efb09cbf2cbe",
+        "candidate": "e4d535f7d1a92f7ee070a9d632e6efb09cbf2cbe"
+      },
+      "status": "blocked",
+      "gates": {
+        "package-types-exports-styles": "passed",
+        "client-build": "passed",
+        "pointer-open-select": "blocked",
+        "keyboard-arrow-home-end-page-enter-space-escape-tab": "blocked",
+        "typeahead": "blocked",
+        "disabled-options": "blocked",
+        "controlled-uncontrolled-value-open": "blocked",
+        "callback-event-ordering": "blocked",
+        "dom-aria": "blocked",
+        "ssr": "passed",
+        "hydration": "blocked",
+        "console-network": "blocked",
+        "server-node-preservation": "blocked",
+        "focus-scroll": "blocked"
+      },
+      "adapter": {
+        "files": [
+          "src/views/select/svelte/index.ts",
+          "src/views/select/svelte/context.ts",
+          "src/views/select/svelte/SelectRoot.svelte",
+          "src/views/select/svelte/SelectOption.svelte"
+        ],
+        "loc": 160
+      },
+      "evidenceDigest": "sha256:d5ab632d4c28f1c2c85ea5ba607312f9968d3ed7db75fadb53f74e5459c4c160",
+      "diagnostics": [
+        "Browser interaction and hydration harness was unavailable in this isolated checkout; dependent gates remain blocked rather than inferred from source/build checks."
+      ]
+    },
+    "solid": {
+      "candidate": "shared-core-native-select",
+      "framework": "solid",
+      "component": "Select",
+      "runId": "ter_20260620195116424_2ebads",
+      "revisions": {
+        "kumo": "e4d535f7d1a92f7ee070a9d632e6efb09cbf2cbe",
+        "candidate": "e4d535f7d1a92f7ee070a9d632e6efb09cbf2cbe"
+      },
+      "status": "blocked",
+      "gates": {
+        "package-types-exports-styles": "blocked",
+        "client-build": "blocked",
+        "pointer-open-select": "blocked",
+        "keyboard-arrow-home-end-page-enter-space-escape-tab": "blocked",
+        "typeahead": "blocked",
+        "disabled-options": "blocked",
+        "controlled-uncontrolled-value-open": "blocked",
+        "callback-event-ordering": "blocked",
+        "dom-aria": "blocked",
+        "ssr": "blocked",
+        "hydration": "blocked",
+        "console-network": "blocked",
+        "server-node-preservation": "blocked",
+        "focus-scroll": "blocked"
+      },
+      "adapter": {
+        "files": [
+          "src/views/select/solid/index.tsx"
+        ],
+        "loc": 64
+      },
+      "evidenceDigest": "sha256:0b408a5bafbf882704b7e02c80e2914a8e5b3d8b76ca636507fa9726049ea651",
+      "diagnostics": [
+        "blocked: dependency root is missing esbuild"
+      ]
+    }
+  },
+  "evidenceDigest": "sha256:d42421a3e9179b045a8f4172cfbcc0c6b48ceb38ca107da71b153220f50ac8a1"
+}
