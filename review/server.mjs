@@ -62,7 +62,9 @@ app.get('/components/:component/',c=>{const file=resolve(root,'astro/dist/compon
 const builtRuntime=c=>{
  const {component,framework}=c.req.param();if(!frameworks.has(framework)||!/^[-\w]+$/.test(component))return c.notFound();
  const suffix=new URL(c.req.url).pathname.split(`/${component}/${framework}/`)[1]||'index.html';if(suffix.includes('..'))return c.notFound();
- const file=resolve(root,'runtime',component,framework,'public-runtime',suffix);if(!file.startsWith(resolve(root,'runtime')+'/')||!existsSync(file)||!statSync(file).isFile())return c.notFound();
+ const runtimeRoot=framework==='react'?resolve(root,'runtime-canonical'):resolve(root,'runtime');
+ const file=framework==='react'?resolve(runtimeRoot,component,'public-runtime',suffix):resolve(runtimeRoot,component,framework,'public-runtime',suffix);
+ if(!file.startsWith(runtimeRoot+'/')||!existsSync(file)||!statSync(file).isFile())return c.notFound();
  const ext=file.split('.').pop(),contentType={html:'text/html; charset=utf-8',css:'text/css; charset=utf-8',js:'text/javascript; charset=utf-8',svg:'image/svg+xml'}[ext]||'application/octet-stream';return c.body(readFileSync(file),200,{'Content-Type':contentType});
 };
 app.get('/:component/:framework/',builtRuntime);

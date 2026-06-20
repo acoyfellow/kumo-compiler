@@ -1,0 +1,175 @@
+{
+  "schemaVersion": "kumo.canonical-build/v1",
+  "results": [
+    {
+      "component": "select",
+      "status": "passed"
+    },
+    {
+      "component": "button",
+      "status": "passed"
+    },
+    {
+      "component": "dialog",
+      "status": "failed",
+      "error": "TypeError: Cannot destructure property 'store' of 'qt(...)' as it is undefined.\n    at DialogPortal (file:///Users/jcoeyman/cloudflare/kumo-compiler/runtime-canonical/dialog/server-runtime/server.js?v=1781963635488:13226:52)\n    at Object.react_stack_bottom_frame (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:9808:18)\n    at renderWithHooks (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5062:19)\n    at renderElement (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6017:39)\n    at retryNode (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6417:31)\n    at renderNodeDestructive (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6367:11)\n    at finishFunctionComponent (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5106:13)\n    at renderElement (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5552:11)\n    at retryNode (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6417:31)\n    at renderNodeDestructive (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6367:11)"
+    },
+    {
+      "component": "popover",
+      "status": "passed"
+    },
+    {
+      "component": "checkbox",
+      "status": "passed"
+    },
+    {
+      "component": "switch",
+      "status": "passed"
+    },
+    {
+      "component": "field",
+      "status": "passed"
+    },
+    {
+      "component": "input",
+      "status": "failed",
+      "error": "Error: input is a self-closing tag and must neither have `children` nor use `dangerouslySetInnerHTML`.\n    at pushStartInstance (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:1881:27)\n    at renderElement (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5574:27)\n    at retryNode (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6417:31)\n    at renderNodeDestructive (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6367:11)\n    at renderNode (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6905:18)\n    at finishFunctionComponent (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5102:11)\n    at renderElement (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6025:15)\n    at retryNode (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6417:31)\n    at renderNodeDestructive (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6367:11)\n    at finishFunctionComponent (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5106:13)"
+    },
+    {
+      "component": "input-group",
+      "status": "passed"
+    },
+    {
+      "component": "input-area",
+      "status": "passed"
+    },
+    {
+      "component": "sensitive-input",
+      "status": "failed",
+      "error": "Error: input is a self-closing tag and must neither have `children` nor use `dangerouslySetInnerHTML`.\n    at pushStartInstance (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:1881:27)\n    at renderElement (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5574:27)\n    at retryNode (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6417:31)\n    at renderNodeDestructive (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6367:11)\n    at renderNode (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6905:18)\n    at finishFunctionComponent (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5102:11)\n    at renderElement (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6025:15)\n    at retryNode (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6417:31)\n    at renderNodeDestructive (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6367:11)\n    at finishFunctionComponent (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5106:13)"
+    },
+    {
+      "component": "clipboard-text",
+      "status": "passed"
+    },
+    {
+      "component": "tabs",
+      "status": "passed"
+    },
+    {
+      "component": "menu-bar",
+      "status": "failed",
+      "error": "TypeError: Cannot read properties of undefined (reading 'map')\n    at D (file:///Users/jcoeyman/cloudflare/kumo-compiler/runtime-canonical/menu-bar/server-runtime/server.js?v=1781963643041:23360:15)\n    at Object.react_stack_bottom_frame (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:9808:18)\n    at renderWithHooks (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5062:19)\n    at renderElement (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5497:23)\n    at retryNode (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6417:31)\n    at renderNodeDestructive (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6367:11)\n    at finishFunctionComponent (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5106:13)\n    at renderElement (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5552:11)\n    at retryNode (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6417:31)\n    at performWork (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:7435:17)"
+    },
+    {
+      "component": "sidebar",
+      "status": "failed",
+      "error": "Error: useSidebar must be used within a Sidebar.Provider\n    at V (file:///Users/jcoeyman/cloudflare/kumo-compiler/runtime-canonical/sidebar/server-runtime/server.js?v=1781963643785:23378:16)\n    at Sidebar (file:///Users/jcoeyman/cloudflare/kumo-compiler/runtime-canonical/sidebar/server-runtime/server.js?v=1781963643785:23467:209)\n    at Object.react_stack_bottom_frame (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:9808:18)\n    at renderWithHooks (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5062:19)\n    at renderElement (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6017:39)\n    at retryNode (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6417:31)\n    at renderNodeDestructive (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6367:11)\n    at finishFunctionComponent (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5106:13)\n    at renderElement (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5552:11)\n    at retryNode (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6417:31)"
+    },
+    {
+      "component": "breadcrumbs",
+      "status": "passed"
+    },
+    {
+      "component": "table-of-contents",
+      "status": "passed"
+    },
+    {
+      "component": "badge",
+      "status": "passed"
+    },
+    {
+      "component": "banner",
+      "status": "passed"
+    },
+    {
+      "component": "surface",
+      "status": "passed"
+    },
+    {
+      "component": "layer-card",
+      "status": "passed"
+    },
+    {
+      "component": "grid",
+      "status": "passed"
+    },
+    {
+      "component": "grid-item",
+      "status": "passed"
+    },
+    {
+      "component": "loader",
+      "status": "passed"
+    },
+    {
+      "component": "meter",
+      "status": "passed"
+    },
+    {
+      "component": "empty",
+      "status": "passed"
+    },
+    {
+      "component": "label",
+      "status": "passed"
+    },
+    {
+      "component": "link",
+      "status": "passed"
+    },
+    {
+      "component": "text",
+      "status": "passed"
+    },
+    {
+      "component": "cloudflare-logo",
+      "status": "passed"
+    },
+    {
+      "component": "code",
+      "status": "passed"
+    },
+    {
+      "component": "table",
+      "status": "passed"
+    },
+    {
+      "component": "radio",
+      "status": "passed"
+    },
+    {
+      "component": "autocomplete",
+      "status": "passed"
+    },
+    {
+      "component": "combobox",
+      "status": "passed"
+    },
+    {
+      "component": "command-palette",
+      "status": "failed",
+      "error": "Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: object.\n    at renderElement (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6119:15)\n    at retryNode (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6417:31)\n    at renderNodeDestructive (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6367:11)\n    at finishFunctionComponent (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5106:13)\n    at renderElement (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:5552:11)\n    at retryNode (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:6417:31)\n    at performWork (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:7435:17)\n    at startWork (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:8270:7)\n    at renderToStringImpl (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:8380:7)\n    at process.env.NODE_ENV.exports.renderToString (/Users/jcoeyman/cloudflare/kumo-compiler/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js:9869:14)"
+    },
+    {
+      "component": "date-picker",
+      "status": "passed"
+    },
+    {
+      "component": "date-range-picker",
+      "status": "passed"
+    },
+    {
+      "component": "dropdown-menu",
+      "status": "passed"
+    },
+    {
+      "component": "toasty",
+      "status": "passed"
+    },
+    {
+      "component": "pagination",
+      "status": "passed"
+    }
+  ]
+}

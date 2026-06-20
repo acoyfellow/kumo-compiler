@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "dropdown-menu",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/dropdown-menu/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "7391ec5b736abd02ce33ac93d11cb488a48de432cc183fe99c98090c4f49c88a",
+    "postHydration": "bdf01a6c8d77cf709ca93357d5e39285c7fd494d75eeac22fee30f9fab5c99f1",
+    "aria": [
+      {
+        "tag": "button",
+        "role": null,
+        "label": null,
+        "expanded": "false",
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "div",
+        "role": "menu",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": "menuitem",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": "menuitem",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": "menuitem",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "552bebcfb4346a7b2578d2d57d6b70cb5e7599dc23065579f09288222a79adab",
+    "pixelSha256": "36597798200486818903cc9cf09684e43f62f81e18fbf5d8344baff548a15697",
+    "bytes": 11117
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/dropdown-menu/react/assets/index-Cwaa_2mc.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

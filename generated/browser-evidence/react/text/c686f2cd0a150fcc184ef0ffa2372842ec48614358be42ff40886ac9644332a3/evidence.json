@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "text",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/text/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "af3ca86566213f400ed6e8bbc742b02ab331f6f367c52c634c5ad3a813d33501",
+    "postHydration": "6327d3f0462837a03d1ccf1ecd741b621554fc7074119aca06f23c089a9db646",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "4090c63499bff59e0ed04ca3f6a0877ab57f628689c82b094f8bf57e85dfd6c1",
+    "pixelSha256": "cfae44c4b4ec9b774910128092571070b756144b502e8acc1ee62572459389d1",
+    "bytes": 10323
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/text/react/assets/index-CMup13zR.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": [
+    "Error: Minified React error #418; visit https://react.dev/errors/418?args[]=HTML&args[]= for the full message or use the non-minified dev environment for full errors and additional helpful warnings.\n    at Bi (http://127.0.0.1:4260/text/react/assets/index-CMup13zR.js:8:31197)\n    at Nc (http://127.0.0.1:4260/text/react/assets/index-CMup13zR.js:8:81748)\n    at Mu (http://127.0.0.1:4260/text/react/assets/index-CMup13zR.js:8:115604)\n    at ku (http://127.0.0.1:4260/text/react/assets/index-CMup13zR.js:8:114688)\n    at Ou (http://127.0.0.1:4260/text/react/assets/index-CMup13zR.js:8:114527)\n    at gu (http://127.0.0.1:4260/text/react/assets/index-CMup13zR.js:8:111051)\n    at cd (http://127.0.0.1:4260/text/react/assets/index-CMup13zR.js:8:122901)\n    at MessagePort.re (http://127.0.0.1:4260/text/react/assets/index-CMup13zR.js:1:10274)"
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "popover",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/popover/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "424ed0ea15bf2ed2d5e9c5e7a2f3c29f064ca8df7a1906eda2e5df2c438cdcd8",
+    "postHydration": "282b3a69ef8d863fe2da08970dc80d5cfa4aa3bceda6a9937348cf07d3ed02d9",
+    "aria": [
+      {
+        "tag": "button",
+        "role": null,
+        "label": null,
+        "expanded": "true",
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "div",
+        "role": "dialog",
+        "label": "Top start",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": null,
+        "expanded": "true",
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "div",
+        "role": "dialog",
+        "label": "Top center",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": null,
+        "expanded": "true",
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "div",
+        "role": "dialog",
+        "label": "Right end",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": null,
+        "expanded": "true",
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "div",
+        "role": "dialog",
+        "label": "Bottom start",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": null,
+        "expanded": "true",
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "div",
+        "role": "dialog",
+        "label": "Bottom offset",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": null,
+        "expanded": "true",
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "div",
+        "role": "dialog",
+        "label": "Left center",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": null,
+        "expanded": "false",
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": null,
+        "expanded": "true",
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "div",
+        "role": "dialog",
+        "label": "Persistent",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "popover",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "3f8ce88bd2b5c00c3361885ea20cf629437fdb0afa542bbfd33a6e967ec2de00",
+    "pixelSha256": "0298dfa866d15ed7af790f7b557460fbc182ed4a4bc963f4435fdf86ca58b8c7",
+    "bytes": 34749
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/popover/react/assets/index.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/popover/react/assets/react-popover.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

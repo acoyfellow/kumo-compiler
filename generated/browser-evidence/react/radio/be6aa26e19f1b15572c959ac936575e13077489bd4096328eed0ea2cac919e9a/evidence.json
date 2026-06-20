@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "radio",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/radio/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "6f2c9263f9791cebf0a3b58e3fb893e6f37d0b47b6403274b41f94ddf196eea2",
+    "postHydration": "3c0ad409e4a6d068f6eb700cb5dd66b9aefcb690cde737b65fb8b41f6f9ac5f4",
+    "aria": [
+      {
+        "tag": "div",
+        "role": "radiogroup",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "INPUT",
+      "checked": true
+    }
+  },
+  "screenshot": {
+    "sha256": "4b987113a0d554bc45f02d41deafc2ee1d089e56eafa8cbd4766f1601476342f",
+    "pixelSha256": "c4d0d40de4ba7d6bbfdfc4f06fe671e436ef05f44c56e06a3327725fe6574096",
+    "bytes": 8317
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/radio/react/assets/index-BfocgUux.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

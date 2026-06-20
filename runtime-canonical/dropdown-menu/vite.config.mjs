@@ -1,2 +1,2 @@
 import {defineConfig} from 'vite';
-export default defineConfig({root:import.meta.dirname,base:'/dropdown-menu/react/',build:{outDir:'public-runtime',emptyOutDir:true}});
+export default defineConfig({root:import.meta.dirname,base:'/dropdown-menu/react/',resolve:{dedupe:['react','react-dom']},ssr:{noExternal:['@cloudflare/kumo']},build:{outDir:'public-runtime',emptyOutDir:true}});

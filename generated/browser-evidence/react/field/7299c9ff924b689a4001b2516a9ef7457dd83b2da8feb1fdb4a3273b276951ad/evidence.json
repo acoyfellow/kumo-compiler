@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "field",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/field/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "70c33aad392833788e0248f5cb509cdcf4ca76e8139c18517b857ca03fa52641",
+    "postHydration": "907d81eeced1c3fc8d26cfd87fe95103014173133633a3fecfe59bbc3e55addc",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": true,
+      "active": "INPUT",
+      "checked": false
+    }
+  },
+  "screenshot": {
+    "sha256": "e2ba33a4b3a6ae613345283b288b3204d6447e27e988421197b9816bca771957",
+    "pixelSha256": "dc84c2c5f1c99775848ae7c00cf9b378b3006ace14da2c3f7812961e8d1ff390",
+    "bytes": 9151
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/field/react/assets/index-B45n8Od9.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "grid",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/grid/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "abe941a47954db8a9323efbe286339d77b9d36c09f6c1177b22cdc92c7e509cf",
+    "postHydration": "ce5da05d8a280d86a3513f88d3459af486738caa884a4566d5f24a869b8c7fa7",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "3e21224c87d814de4f4fa99273fe1d79b2bd7fe314449b47f63c481ab512dec8",
+    "pixelSha256": "fde188addcef2908d85b0b05d847e5ab266c5969241adaaf0a3d7fb87486745d",
+    "bytes": 8750
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/grid/react/assets/index-EpHG2Hmw.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

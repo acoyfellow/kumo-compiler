@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "label",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/label/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "21dda1d3a5e4f6ba71345ef582beb2d2d101d954e77aa68e4bf6ecb79f26a5ef",
+    "postHydration": "21827e21c98719079ca79e3b62fd9d6dfa2e078d318e4938e786ee1929159060",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "de2160d9b340200c4b73780bfe158c1a963fa4d86cb0251413d18159d7c91591",
+    "pixelSha256": "0762c943ec6a715bae8bb40221330d062982a8edb4307aa86a6beb98bf176ec6",
+    "bytes": 6626
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/label/react/assets/index-DVLuWQxv.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

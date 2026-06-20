@@ -2,8 +2,9 @@
   "schemaVersion": "kumo.receipt/v3",
   "component": "radio",
   "framework": "react",
-  "classification": "failed",
+  "classification": "passed",
   "canonicalInput": true,
+  "browserEvidence": "generated/browser-evidence/react/radio/be6aa26e19f1b15572c959ac936575e13077489bd4096328eed0ea2cac919e9a/evidence.json",
   "sourceEvidence": {
     "manifest": "audit/kumo-react-2.5.2.provenance.json",
     "package": {
@@ -142,44 +143,44 @@
       "reason": "canonical server/client entry graph generated directly against public package export"
     },
     "runtimeRoute": {
-      "status": "failed",
-      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "ssrMarkup": {
-      "status": "failed",
-      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "hydration": {
-      "status": "failed",
-      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "assetsStyles": {
-      "status": "failed",
-      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "console": {
-      "status": "failed",
-      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "network": {
-      "status": "failed",
-      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "domAria": {
-      "status": "failed",
-      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "behaviorVectors": {
-      "status": "failed",
-      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     },
     "screenshotPixel": {
-      "status": "failed",
-      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+      "status": "passed",
+      "reason": "Canonical package route passed the manifest-driven browser proof with immutable evidence."
     }
   },
   "limitations": [
-    "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+    "Canonical package route passed the manifest-driven browser proof with immutable evidence."
   ],
   "determinism": {
     "canonicalManifestHash": "07c3759afac873fcc1ceca03f00c3745da930f8e14c9a67581298bfc3c398912",

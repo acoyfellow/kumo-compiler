@@ -2,8 +2,8 @@
   "schemaVersion": "kumo.react-audit-summary/v3",
   "catalogSchema": "kumo.ir/v1",
   "total": 41,
-  "passed": 0,
-  "failed": 41,
+  "passed": 19,
+  "failed": 22,
   "blocked": 0,
   "canonicalPackage": {
     "name": "@cloudflare/kumo",
@@ -12,7 +12,7 @@
     "packageBinding": true
   },
   "limitations": [
-    "All 41 public named exports are byte-bound, mapped, and production-built, but remain failed until the equal browser evidence suite produces SSR/pre-hydration/post-hydration, behavior, accessibility, screenshot/pixel, network, console, asset, and style evidence.",
-    "InputArea, GridItem, and Toasty are explicitly mapped through the machine-verifiable parent public exports ./components/input, ./components/grid, and ./components/toast."
+    "Failed components retain browser diagnostics in generated/browser-evidence/run-summary.json; no check was waived.",
+    "InputArea, GridItem, and Toasty are explicitly mapped through machine-verifiable parent public exports."
   ]
 }

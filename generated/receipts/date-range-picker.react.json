@@ -4,6 +4,7 @@
   "framework": "react",
   "classification": "failed",
   "canonicalInput": true,
+  "browserEvidence": null,
   "sourceEvidence": {
     "manifest": "audit/kumo-react-2.5.2.provenance.json",
     "package": {
@@ -113,43 +114,43 @@
     },
     "runtimeRoute": {
       "status": "failed",
-      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+      "reason": "Error: date-range-picker/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
     },
     "ssrMarkup": {
       "status": "failed",
-      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+      "reason": "Error: date-range-picker/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
     },
     "hydration": {
       "status": "failed",
-      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+      "reason": "Error: date-range-picker/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
     },
     "assetsStyles": {
       "status": "failed",
-      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+      "reason": "Error: date-range-picker/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
     },
     "console": {
       "status": "failed",
-      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+      "reason": "Error: date-range-picker/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
     },
     "network": {
       "status": "failed",
-      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+      "reason": "Error: date-range-picker/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
     },
     "domAria": {
       "status": "failed",
-      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+      "reason": "Error: date-range-picker/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
     },
     "behaviorVectors": {
       "status": "failed",
-      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+      "reason": "Error: date-range-picker/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
     },
     "screenshotPixel": {
       "status": "failed",
-      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+      "reason": "Error: date-range-picker/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
     }
   },
   "limitations": [
-    "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+    "Error: date-range-picker/react: invalid built package/provenance/SSR\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:59:78)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:70:125"
   ],
   "determinism": {
     "canonicalManifestHash": "ee39bc51f8a2ae4341075a52dc75c43a46fc65f0b3294387c812b9f1f2b5c41d",

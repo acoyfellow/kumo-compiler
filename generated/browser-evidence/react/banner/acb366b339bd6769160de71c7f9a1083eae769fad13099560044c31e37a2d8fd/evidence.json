@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "banner",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/banner/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "5d9983e5db999d060f5953f2e11454ceecdb87618f8a90aa9950796a9990dc41",
+    "postHydration": "09b92af53c0263739102284a9d9b1bed78211814fad4b002da4931eff39697f4",
+    "aria": [
+      {
+        "tag": "div",
+        "role": "status",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "c9bce21291d614e6af999255d888605e94329eb6cee47c945e2b336e494141cc",
+    "pixelSha256": "d6add0512a4c0e27f4e7e96a83ea259dee11e652930411829baf8a2b0f3820dd",
+    "bytes": 8565
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/banner/react/assets/index-wxeUls4q.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

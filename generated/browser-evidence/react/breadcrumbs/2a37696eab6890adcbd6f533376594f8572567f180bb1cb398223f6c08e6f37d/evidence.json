@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "breadcrumbs",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/breadcrumbs/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "6ace9bceb7df4e4eb3f1b3a0f8a79676a2da6c4f05da0982a5878d790d20e3e4",
+    "postHydration": "296909a655ce5c62647623db87c75650314cbe0ec98093a43d5ade8c09cc1034",
+    "aria": [
+      {
+        "tag": "nav",
+        "role": null,
+        "label": "breadcrumb",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "nav",
+        "role": null,
+        "label": "Breadcrumb",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "nav",
+        "role": null,
+        "label": "Breadcrumb",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": null,
+      "target": true,
+      "active": "A",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "1fe1bef4855be919c75566cda161602d7dbb18b1f0c1873ae638d5b821c55767",
+    "pixelSha256": "e972769655d132de2f65abd7e94a785d6c5ae6fbbe1a10abbd6b52be2ee90b85",
+    "bytes": 19623
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/breadcrumbs/react/assets/index-Cu-R39Sn.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

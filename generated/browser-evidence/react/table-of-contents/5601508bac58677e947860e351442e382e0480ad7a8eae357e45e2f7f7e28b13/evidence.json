@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "table-of-contents",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/table-of-contents/react/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "bf3e7404c86c32af442add184fd42473c18dc1a9c79f50f64f6c3391598b76ac",
+    "postHydration": "4b5288dd6076c5714a960c899dff43f1131288b9f48f2a279e963fdd3ee4a55b",
+    "aria": [
+      {
+        "tag": "nav",
+        "role": null,
+        "label": "Table of contents",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "nav",
+        "role": null,
+        "label": "On this page",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "current-link",
+      "target": true,
+      "active": "A",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "0ba4066a8d35511614ecd3d34c2c62e59054761f4a3ce558a9e696550ad6294e",
+    "pixelSha256": "387f284a248593f50818915444118005f2f001aaa0bdeb5e1c986432e4deef2d",
+    "bytes": 12975
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/table-of-contents/react/assets/index-M0GTTR5i.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}
