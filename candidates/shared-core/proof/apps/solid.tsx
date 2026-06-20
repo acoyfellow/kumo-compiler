@@ -1,0 +1,10 @@
+import {createComponent} from 'solid-js';
+import {hydrate as solidHydrate,renderToString} from 'solid-js/web';
+import {Button,Field,Tabs} from '../../src/views/solid/components.tsx';
+import {fixture} from '../fixtures.mjs';
+const component=globalThis.__COMPONENT__;
+const C={button:Button,field:Field,tabs:Tabs}[component];
+const props=component==='button'?{id:'save',label:'Save',onPress:()=>document.body.dataset.pressed=String(+(document.body.dataset.pressed||0)+1)}:component==='field'?{...fixture.field,onInput:v=>document.body.dataset.value=v}:{...fixture.tabs,onChange:i=>document.body.dataset.tab=String(i)};
+const view=()=>createComponent(C,props);
+export const ssr=()=>renderToString(view);
+export const hydrate=()=>solidHydrate(view,document.querySelector('#app'));

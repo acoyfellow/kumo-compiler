@@ -1,0 +1,10 @@
+import {createSSRApp} from 'vue';
+import {renderToString} from '@vue/server-renderer';
+import {Button,Field,Tabs} from '../../src/views/vue/index.ts';
+import {fixture} from '../fixtures.mjs';
+const component=globalThis.__COMPONENT__;
+const C={button:Button,field:Field,tabs:Tabs}[component];
+const props=component==='button'?{id:'save',label:'Save',onPress:()=>document.body.dataset.pressed=String(+(document.body.dataset.pressed||0)+1)}:component==='field'?{...fixture.field,onInput:v=>document.body.dataset.value=v}:{...fixture.tabs,onChange:i=>document.body.dataset.tab=String(i)};
+const app=()=>createSSRApp(C,{...props});
+export const ssr=()=>renderToString(app());
+export const hydrate=()=>app().mount('#app');

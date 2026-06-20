@@ -8,19 +8,21 @@
     "chrome": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
   },
   "gates": {
-    "build": "blocked",
-    "browser": "blocked",
-    "ssr": "blocked",
-    "hydration": "blocked",
-    "nodePreservation": "blocked",
-    "network": "blocked",
-    "console": "blocked",
-    "domAria": "blocked",
-    "behavior": "blocked",
-    "stylesAssetsTypes": "blocked"
+    "build": "passed",
+    "browser": "passed",
+    "ssr": "passed",
+    "hydration": "passed",
+    "nodePreservation": "passed",
+    "network": "passed",
+    "console": "passed",
+    "domAria": "passed",
+    "behavior": "failed",
+    "stylesAssetsTypes": "passed"
   },
-  "diagnostics": [
-    "Error: Build failed with 3 errors:\nproof/app.tsx:10:24: ERROR: No loader is configured for \".svelte\" files: src/views/svelte/Button.svelte\nproof/app.tsx:10:24: ERROR: No loader is configured for \".svelte\" files: src/views/svelte/Field.svelte\nproof/app.tsx:10:24: ERROR: No loader is configured for \".svelte\" files: src/views/svelte/Tabs.svelte\n    at failureErrorWithLog (/private/tmp/kumo-shared-expand/candidates/shared-core/node_modules/esbuild/lib/main.js:1748:15)\n    at /private/tmp/kumo-shared-expand/candidates/shared-core/node_modules/esbuild/lib/main.js:1207:25\n    at /private/tmp/kumo-shared-expand/candidates/shared-core/node_modules/esbuild/lib/main.js:1159:52\n    at buildResponseToResult (/private/tmp/kumo-shared-expand/candidates/shared-core/node_modules/esbuild/lib/main.js:1205:7)\n    at /private/tmp/kumo-shared-expand/candidates/shared-core/node_modules/esbuild/lib/main.js:1232:16\n    at responseCallbacks.<computed> (/private/tmp/kumo-shared-expand/candidates/shared-core/node_modules/esbuild/lib/main.js:884:9)\n    at handleIncomingPacket (/private/tmp/kumo-shared-expand/candidates/shared-core/node_modules/esbuild/lib/main.js:939:12)\n    at Socket.readFromStdout (/private/tmp/kumo-shared-expand/candidates/shared-core/node_modules/esbuild/lib/main.js:862:7)\n    at Socket.emit (node:events:509:28)\n    at addChunk (node:internal/streams/readable:563:12)"
-  ],
-  "status": "blocked"
+  "diagnostics": [],
+  "ssrHtml": "<div data-hk=\"0000\" class=\"kumo-tabs \" ><div data-hk=\"000100\" role=\"tablist\" ><button data-hk=\"00010100\" id=\"account-profile\" role=\"tab\" aria-selected=\"true\" tabIndex=\"0\" aria-controls=\"account-profile-panel\" click=\"() => select(i)\" keydown=\"(e) => {\n\t\tconst next = tabs(state, {\n\t\t\ttype: \"key\",\n\t\t\tkey: e.key\n\t\t}, p.items);\n\t\tset(next);\n\t\tif (next.active !== state.active) p.onChange?.(next.active);\n\t}\" >Profile</button><button data-hk=\"00010200\" id=\"account-billing\" role=\"tab\" aria-selected=\"false\" tabIndex=\"-1\" aria-controls=\"account-billing-panel\" click=\"() => select(i)\" keydown=\"(e) => {\n\t\tconst next = tabs(state, {\n\t\t\ttype: \"key\",\n\t\t\tkey: e.key\n\t\t}, p.items);\n\t\tset(next);\n\t\tif (next.active !== state.active) p.onChange?.(next.active);\n\t}\" >Billing</button></div><div data-hk=\"000200\" id=\"account-profile-panel\" role=\"tabpanel\" aria-labelledby=\"account-profile\" >Profile panel</div><div data-hk=\"000300\" id=\"account-billing-panel\" role=\"tabpanel\" aria-labelledby=\"account-billing\" hidden >Billing panel</div></div>",
+  "dom": "<div data-hk=\"0000\" class=\"kumo-tabs \" data-sentinel=\"preserved\"><div data-hk=\"000100\" role=\"tablist\"><button data-hk=\"00010100\" id=\"account-profile\" role=\"tab\" aria-selected=\"true\" tabindex=\"0\" aria-controls=\"account-profile-panel\" click=\"() =&gt; select(i)\" keydown=\"(e) =&gt; {\n\t\tconst next = tabs(state, {\n\t\t\ttype: \" key\",=\"\" key:=\"\" e.key=\"\" },=\"\" p.items);=\"\" set(next);=\"\" if=\"\" (next.active=\"\" !=\"=\" state.active)=\"\" p.onchange?.(next.active);=\"\" }\"=\"\">Profile</button><button data-hk=\"00010200\" id=\"account-billing\" role=\"tab\" aria-selected=\"false\" tabindex=\"-1\" aria-controls=\"account-billing-panel\" click=\"() =&gt; select(i)\" keydown=\"(e) =&gt; {\n\t\tconst next = tabs(state, {\n\t\t\ttype: \" key\",=\"\" key:=\"\" e.key=\"\" },=\"\" p.items);=\"\" set(next);=\"\" if=\"\" (next.active=\"\" !=\"=\" state.active)=\"\" p.onchange?.(next.active);=\"\" }\"=\"\">Billing</button></div><div data-hk=\"000200\" id=\"account-profile-panel\" role=\"tabpanel\" aria-labelledby=\"account-profile\">Profile panel</div><div data-hk=\"000300\" id=\"account-billing-panel\" role=\"tabpanel\" aria-labelledby=\"account-billing\" hidden=\"\">Billing panel</div></div>",
+  "console": [],
+  "networkFailures": [],
+  "status": "failed"
 }

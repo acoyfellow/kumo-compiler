@@ -1,1 +1,14 @@
-import test from'node:test';import assert from'node:assert/strict';import fs from'node:fs';import path from'node:path';import{fileURLToPath}from'node:url';const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../../..'),dir=path.join(root,'proof/bakeoff/shared-core/receipts'),pilot=new Set(['button','field','tabs']),vocab=new Set(['passed','failed','blocked','not-run']),receipts=fs.readdirSync(dir).filter(x=>x.endsWith('.json')).map(x=>JSON.parse(fs.readFileSync(path.join(dir,x))));test('receipt statuses use protocol vocabulary',()=>{for(const r of receipts)for(const s of Object.values(r.gates))assert.ok(vocab.has(s))});test('pilot has immutable real-execution evidence',()=>{for(const r of receipts.filter(x=>pilot.has(x.component))){const p=r.evidence.find(x=>x.endsWith('execution.json'));assert.ok(p);const e=JSON.parse(fs.readFileSync(path.join(root,p)));assert.equal(e.execution.kind,'system-chrome-cdp');assert.ok(['passed','failed','blocked'].includes(e.status));assert.ok(!Object.values(e.gates).includes('not-run'))}});test('revision and run are generated identities',()=>{for(const r of receipts){assert.match(r.revision,/^[0-9a-f]{40}$/);assert.match(r.run,/^proof-\d{4}-\d\d-\d\dT/)}});
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../../..');
+const dir=path.join(root,'proof/bakeoff/shared-core/receipts');
+const pilot=new Set(['button','field','tabs']);
+const vocab=new Set(['passed','failed','blocked','not-run']);
+const receipts=fs.readdirSync(dir).filter(x=>x.endsWith('.json')).map(x=>JSON.parse(fs.readFileSync(path.join(dir,x))));
+test('receipt statuses use protocol vocabulary',()=>{for(const r of receipts)for(const s of Object.values(r.gates))assert.ok(vocab.has(s))});
+test('pilot has immutable real-execution evidence',()=>{for(const r of receipts.filter(x=>pilot.has(x.component))){const p=r.evidence.find(x=>x.endsWith('execution.json'));assert.ok(p);const e=JSON.parse(fs.readFileSync(path.join(root,p)));assert.equal(e.execution.kind,'system-chrome-cdp');assert.ok(['passed','failed','blocked'].includes(e.status));assert.ok(!Object.values(e.gates).includes('not-run'))}});
+test('framework evidence is isolated and identity-bearing',()=>{for(const r of receipts.filter(x=>pilot.has(x.component))){const p=r.evidence.find(x=>x.endsWith('execution.json'));const e=JSON.parse(fs.readFileSync(path.join(root,p)));assert.equal(e.framework,r.framework);assert.equal(e.component,r.component);assert.ok(e.ssrHtml);assert.ok(!e.diagnostics.some(x=>/No loader.*svelte/.test(x)));assert.equal(e.gates.build,'passed')}});
+test('revision and run are generated identities',()=>{for(const r of receipts){assert.match(r.revision,/^[0-9a-f]{40}$/);assert.match(r.run,/^proof-\d{4}-\d\d-\d\dT/)}});

@@ -1,0 +1,11 @@
+import React from 'react';
+import {hydrateRoot} from 'react-dom/client';
+import {renderToString} from 'react-dom/server';
+import {Button,Field,Tabs} from '../../src/views/react/index.ts';
+import {fixture} from '../fixtures.mjs';
+const component=globalThis.__COMPONENT__;
+const C={button:Button,field:Field,tabs:Tabs}[component];
+const props=component==='button'?{id:'save',label:'Save',onPress:()=>document.body.dataset.pressed=String(+(document.body.dataset.pressed||0)+1)}:component==='field'?{...fixture.field,onInput:v=>document.body.dataset.value=v}:{...fixture.tabs,onChange:i=>document.body.dataset.tab=String(i)};
+const element=()=>React.createElement(C,props);
+export const ssr=()=>renderToString(element());
+export const hydrate=()=>hydrateRoot(document.querySelector('#app'),element());

@@ -1,0 +1,11 @@
+import {hydrate as svelteHydrate} from 'svelte';
+import {render} from 'svelte/server';
+import Button from '../../src/views/svelte/Button.svelte';
+import Field from '../../src/views/svelte/Field.svelte';
+import Tabs from '../../src/views/svelte/Tabs.svelte';
+import {fixture} from '../fixtures.mjs';
+const component=globalThis.__COMPONENT__;
+const C={button:Button,field:Field,tabs:Tabs}[component];
+const props=component==='button'?{id:'save',label:'Save',onPress:()=>document.body.dataset.pressed=String(+(document.body.dataset.pressed||0)+1)}:component==='field'?{...fixture.field,onInput:v=>document.body.dataset.value=v}:{...fixture.tabs,onChange:i=>document.body.dataset.tab=String(i)};
+export const ssr=()=>render(C,{props}).body;
+export const hydrate=()=>svelteHydrate(C,{target:document.querySelector('#app'),props});
