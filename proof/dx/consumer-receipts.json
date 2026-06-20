@@ -1,214 +1,237 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
+  "generatedBy": "node test/dx-consumers/pilot.mjs",
   "publishReady": false,
+  "versions": {
+    "node": "v24.17.0",
+    "npm": "11.13.0"
+  },
   "receipts": [
     {
       "framework": "vue",
+      "case": "packed-tarball",
+      "status": "passed",
+      "command": "npm pack --json --pack-destination proof/dx",
       "package": "@cloudflare/kumo-vue",
       "version": "0.0.0-consumer-dx-pilot",
-      "frameworkVersion": "*",
-      "status": "passed",
-      "case": "packed-tarball",
-      "command": "npm pack --json --pack-destination proof/dx",
       "tarball": "proof/dx/cloudflare-kumo-vue-0.0.0-consumer-dx-pilot.tgz",
       "sha256": "06031809c2c537c1ebf93661e9c669a48224a18cdc607293a9beb2d41439917b"
     },
     {
+      "framework": "vue",
+      "case": "fresh-isolated-install",
+      "status": "blocked",
+      "command": "npm install --ignore-scripts --offline",
+      "reason": "Required framework/toolchain packages are absent from the local npm cache; network is intentionally disabled."
+    },
+    {
+      "framework": "vue",
+      "case": "framework-typecheck",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fresh offline install was blocked, so dependent executable check could not run."
+    },
+    {
+      "framework": "vue",
+      "case": "vite-production-build",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fresh offline install was blocked, so dependent executable check could not run."
+    },
+    {
+      "framework": "vue",
+      "case": "server-import-ssr",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fresh offline install was blocked, so dependent executable check could not run."
+    },
+    {
+      "framework": "vue",
+      "case": "hydration-chrome-console-node-preservation",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fresh offline install was blocked, so dependent executable check could not run."
+    },
+    {
+      "framework": "vue",
+      "case": "css-deduplication",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fresh offline install was blocked, so dependent executable check could not run."
+    },
+    {
+      "framework": "vue",
+      "case": "tree-shaking-metafile",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fresh offline install was blocked, so dependent executable check could not run."
+    },
+    {
+      "framework": "vue",
+      "case": "hmr-dev-smoke",
+      "status": "not-run",
+      "command": null,
+      "reason": "HMR requires a long-lived interactive dev-server session; explicitly outside this deterministic CI journey."
+    },
+    {
+      "framework": "vue",
+      "case": "manual-screen-reader",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires manual assistive-technology evaluation."
+    },
+    {
       "framework": "svelte",
+      "case": "packed-tarball",
+      "status": "passed",
+      "command": "npm pack --json --pack-destination proof/dx",
       "package": "@cloudflare/kumo-svelte",
       "version": "0.0.0-consumer-dx-pilot",
-      "frameworkVersion": "*",
-      "status": "passed",
-      "case": "packed-tarball",
-      "command": "npm pack --json --pack-destination proof/dx",
       "tarball": "proof/dx/cloudflare-kumo-svelte-0.0.0-consumer-dx-pilot.tgz",
       "sha256": "4a537b3cc71bb16fad1a0253871392be9037f62efc3b2f79a5f00d46a2283283"
     },
     {
+      "framework": "svelte",
+      "case": "fresh-isolated-install",
+      "status": "blocked",
+      "command": "npm install --ignore-scripts --offline",
+      "reason": "Required framework/toolchain packages are absent from the local npm cache; network is intentionally disabled."
+    },
+    {
+      "framework": "svelte",
+      "case": "framework-typecheck",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fresh offline install was blocked, so dependent executable check could not run."
+    },
+    {
+      "framework": "svelte",
+      "case": "vite-production-build",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fresh offline install was blocked, so dependent executable check could not run."
+    },
+    {
+      "framework": "svelte",
+      "case": "server-import-ssr",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fresh offline install was blocked, so dependent executable check could not run."
+    },
+    {
+      "framework": "svelte",
+      "case": "hydration-chrome-console-node-preservation",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fresh offline install was blocked, so dependent executable check could not run."
+    },
+    {
+      "framework": "svelte",
+      "case": "css-deduplication",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fresh offline install was blocked, so dependent executable check could not run."
+    },
+    {
+      "framework": "svelte",
+      "case": "tree-shaking-metafile",
+      "status": "blocked",
+      "command": null,
+      "reason": "Fresh offline install was blocked, so dependent executable check could not run."
+    },
+    {
+      "framework": "svelte",
+      "case": "hmr-dev-smoke",
+      "status": "not-run",
+      "command": null,
+      "reason": "HMR requires a long-lived interactive dev-server session; explicitly outside this deterministic CI journey."
+    },
+    {
+      "framework": "svelte",
+      "case": "manual-screen-reader",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires manual assistive-technology evaluation."
+    },
+    {
       "framework": "solid",
+      "case": "packed-tarball",
+      "status": "passed",
+      "command": "npm pack --json --pack-destination proof/dx",
       "package": "@cloudflare/kumo-solid",
       "version": "0.0.0-consumer-dx-pilot",
-      "frameworkVersion": "*",
-      "status": "passed",
-      "case": "packed-tarball",
-      "command": "npm pack --json --pack-destination proof/dx",
       "tarball": "proof/dx/cloudflare-kumo-solid-0.0.0-consumer-dx-pilot.tgz",
       "sha256": "4c016b4a74677156970465bc7c6d62b4c29f35a5df47303b94c667341fe2699f"
     },
     {
-      "framework": "vue",
-      "case": "exports-and-root-subpaths",
-      "status": "not-run",
-      "command": null,
-      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+      "framework": "solid",
+      "case": "fresh-isolated-install",
+      "status": "blocked",
+      "command": "npm install --ignore-scripts --offline",
+      "reason": "Required framework/toolchain packages are absent from the local npm cache; network is intentionally disabled."
     },
     {
-      "framework": "vue",
-      "case": "types",
-      "status": "not-run",
+      "framework": "solid",
+      "case": "framework-typecheck",
+      "status": "blocked",
       "command": null,
-      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+      "reason": "Fresh offline install was blocked, so dependent executable check could not run."
     },
     {
-      "framework": "vue",
+      "framework": "solid",
       "case": "vite-production-build",
-      "status": "not-run",
+      "status": "blocked",
       "command": null,
-      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+      "reason": "Fresh offline install was blocked, so dependent executable check could not run."
     },
     {
-      "framework": "vue",
+      "framework": "solid",
       "case": "server-import-ssr",
-      "status": "not-run",
+      "status": "blocked",
       "command": null,
-      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+      "reason": "Fresh offline install was blocked, so dependent executable check could not run."
     },
     {
-      "framework": "vue",
-      "case": "hydration-warnings-node-preservation",
-      "status": "not-run",
+      "framework": "solid",
+      "case": "hydration-chrome-console-node-preservation",
+      "status": "blocked",
       "command": null,
-      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+      "reason": "Fresh offline install was blocked, so dependent executable check could not run."
     },
     {
-      "framework": "vue",
-      "case": "hmr-dev-smoke",
-      "status": "not-run",
+      "framework": "solid",
+      "case": "css-deduplication",
+      "status": "blocked",
       "command": null,
-      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+      "reason": "Fresh offline install was blocked, so dependent executable check could not run."
     },
     {
-      "framework": "vue",
-      "case": "css-once",
-      "status": "not-run",
-      "command": null,
-      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
-    },
-    {
-      "framework": "vue",
+      "framework": "solid",
       "case": "tree-shaking-metafile",
-      "status": "not-run",
+      "status": "blocked",
       "command": null,
-      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
-    },
-    {
-      "framework": "svelte",
-      "case": "exports-and-root-subpaths",
-      "status": "not-run",
-      "command": null,
-      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
-    },
-    {
-      "framework": "svelte",
-      "case": "types",
-      "status": "not-run",
-      "command": null,
-      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
-    },
-    {
-      "framework": "svelte",
-      "case": "vite-production-build",
-      "status": "not-run",
-      "command": null,
-      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
-    },
-    {
-      "framework": "svelte",
-      "case": "server-import-ssr",
-      "status": "not-run",
-      "command": null,
-      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
-    },
-    {
-      "framework": "svelte",
-      "case": "hydration-warnings-node-preservation",
-      "status": "not-run",
-      "command": null,
-      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
-    },
-    {
-      "framework": "svelte",
-      "case": "hmr-dev-smoke",
-      "status": "not-run",
-      "command": null,
-      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
-    },
-    {
-      "framework": "svelte",
-      "case": "css-once",
-      "status": "not-run",
-      "command": null,
-      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
-    },
-    {
-      "framework": "svelte",
-      "case": "tree-shaking-metafile",
-      "status": "not-run",
-      "command": null,
-      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
-    },
-    {
-      "framework": "solid",
-      "case": "exports-and-root-subpaths",
-      "status": "not-run",
-      "command": null,
-      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
-    },
-    {
-      "framework": "solid",
-      "case": "types",
-      "status": "not-run",
-      "command": null,
-      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
-    },
-    {
-      "framework": "solid",
-      "case": "vite-production-build",
-      "status": "not-run",
-      "command": null,
-      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
-    },
-    {
-      "framework": "solid",
-      "case": "server-import-ssr",
-      "status": "not-run",
-      "command": null,
-      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
-    },
-    {
-      "framework": "solid",
-      "case": "hydration-warnings-node-preservation",
-      "status": "not-run",
-      "command": null,
-      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+      "reason": "Fresh offline install was blocked, so dependent executable check could not run."
     },
     {
       "framework": "solid",
       "case": "hmr-dev-smoke",
       "status": "not-run",
       "command": null,
-      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+      "reason": "HMR requires a long-lived interactive dev-server session; explicitly outside this deterministic CI journey."
     },
     {
       "framework": "solid",
-      "case": "css-once",
+      "case": "manual-screen-reader",
       "status": "not-run",
       "command": null,
-      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
-    },
-    {
-      "framework": "solid",
-      "case": "tree-shaking-metafile",
-      "status": "not-run",
-      "command": null,
-      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+      "reason": "Requires manual assistive-technology evaluation."
     },
     {
       "framework": "npm-workspace",
-      "case": "workspace-fixture",
-      "status": "not-run",
-      "command": null,
-      "reason": "Fixture scaffolded; install not executed."
+      "case": "install-import-build",
+      "status": "blocked",
+      "command": "npm install --ignore-scripts --offline && node -e \"import(...)\"",
+      "reason": "Workspace dependency graph cannot be completed from the local offline cache."
     }
   ]
 }
