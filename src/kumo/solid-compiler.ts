@@ -12,13 +12,21 @@ const html=(node:Node):string=>node.kind==='text'?text(node.value):`<${node.tag}
 
 function app(ir:ComponentIR):string {
  if(ir.id==='badge')return `export default function Badge(){return (${jsx(ir.root!)});}\n`;
+ if(ir.behavior?.kind==='native-check'){
+  const inputs:Record<string,string|number|boolean>[]=[];
+  const labels:string[]=[];
+  const walk=(node:Node):void=>{if(node.kind==='element'){if(node.tag==='input')inputs.push(node.attrs??{});if(node.tag==='label'){const last=node.children?.at(-1);if(last?.kind==='element'&&last.children?.[0]?.kind==='text')labels.push(last.children[0].value)}node.children?.forEach(walk)}};walk(ir.root!);
+  const controls=inputs.map((attrs,i)=>({id:String(attrs.id),label:labels[i],checked:Boolean(attrs.checked),disabled:Boolean(attrs.disabled),required:Boolean(attrs.required),compact:String(attrs.id)==='compact'}));
+  const role=ir.id==='switch';
+  return `import {For,createSignal} from 'solid-js';\nconst controls=${JSON.stringify(controls)} as const;\nfunction ${ir.name}Control(p:{control:typeof controls[number]}){const [checked,setChecked]=createSignal(p.control.checked);return <label class={\`native-control ${ir.id}\${p.control.compact?' compact':''}\`}><input id={p.control.id} name={p.control.id} value="on" type="checkbox"${role?' role="switch" aria-checked={checked()}':''} checked={checked()} disabled={p.control.disabled} required={p.control.required} onChange={event=>setChecked(event.currentTarget.checked)}/><span class="indicator" aria-hidden="true"/><span>{p.control.label}</span></label>}\nexport default function ${ir.name}(){return <main class="native-shell"><h1>${ir.name}</h1><form class="native-matrix"><For each={controls}>{control=><${ir.name}Control control={control}/>}</For></form></main>}\n`;
+ }
  return `import {For,Show,createSignal} from 'solid-js';
 const options=['Apple','Banana','Cherry'];
 export default function Select(){const [open,setOpen]=createSignal(false),[active,setActive]=createSignal(0),[value,setValue]=createSignal('');const choose=(i:number)=>{setActive(i);setValue(options[i]!);setOpen(false)};const key=(event:KeyboardEvent)=>{let i=active();if(event.key==='Escape'){setOpen(false);return}if(event.key==='Home')i=0;else if(event.key==='End')i=options.length-1;else if(event.key==='ArrowDown')i=Math.min(options.length-1,i+1);else if(event.key==='ArrowUp')i=Math.max(0,i-1);else if((event.key==='Enter'||event.key===' ')&&open()){event.preventDefault();choose(i);return}else return;event.preventDefault();setActive(i);setOpen(true)};return <main class="form-shell"><h1>Select</h1><section class="matrix"><button role="combobox" aria-haspopup="listbox" aria-controls="select-options" aria-expanded={open()} aria-activedescendant={open()?\`select-option-\${active()}\`:undefined} onClick={()=>setOpen(x=>!x)} onKeyDown={key}>{value()||'Choose fruit'}</button><Show when={open()}><ul id="select-options" role="listbox"><For each={options}>{(option,i)=><li id={\`select-option-\${i()}\`} role="option" aria-selected={value()===option} classList={{active:active()===i()}} onPointerDown={event=>{event.preventDefault();choose(i())}}>{option}</li>}</For></ul></Show></section></main>}
 `;
 }
 const emitter=await readFile('src/kumo/solid-compiler.ts','utf8'),source=await readFile('src/kumo/catalog.ts','utf8');
-for(const ir of catalog.filter(x=>x.id==='select'||x.id==='badge')){const dir=`runtime/${ir.id}/solid`;await mkdir(`${dir}/src`,{recursive:true});const css=await readFile(ir.id==='badge'?'public/styles.css':'public/styles.css','utf8');const initial=html(ir.root!);const outputs:Record<string,string>={
+for(const ir of catalog.filter(x=>['select','badge','checkbox','switch'].includes(x.id))){const dir=`runtime/${ir.id}/solid`;await mkdir(`${dir}/src`,{recursive:true});const css=await readFile(ir.family==='native-control'?'public/native-control.css':'public/styles.css','utf8');const initial=html(ir.root!);const outputs:Record<string,string>={
  'src/App.tsx':app(ir),
  'src/client.tsx':`import './style.css';\nimport {hydrate} from 'solid-js/web';\nimport App from './App';\nhydrate(()=> <App/>,document.getElementById('app')!);\n`,
  'src/server.tsx':`import {generateHydrationScript,renderToString} from 'solid-js/web';\nimport App from './App';\nexport const render=()=>({html:renderToString(()=> <App/>),hydration:generateHydrationScript()});\n`,
@@ -27,4 +35,4 @@ for(const ir of catalog.filter(x=>x.id==='select'||x.id==='badge')){const dir=`r
  'vite.config.mjs':`import solid from 'vite-plugin-solid';\nimport {defineConfig} from 'vite';\nexport default defineConfig({base:'./',plugins:[solid({ssr:true})],build:{outDir:'public-runtime',emptyOutDir:true,rollupOptions:{output:{entryFileNames:'assets/solid-${ir.id}.js'}}}});\n`,
  'index.html':`<!doctype html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><title>${ir.name} · solid</title><!--HYDRATION--></head><body><!--APP--><div id="app">${initial}</div><!--/APP--><script type="module" src="/src/client.tsx"></script></body></html>\n`
  };for(const [file,body] of Object.entries(outputs))await writeFile(`${dir}/${file}`,body);const provenance:Provenance={schemaVersion:ir.schemaVersion,component:ir.id,framework:'solid',sourceHash:hash(source),irHash:hash(JSON.stringify(ir)),emitterHash:hash(emitter),outputs:Object.fromEntries(Object.entries(outputs).map(([k,v])=>[k,hash(v)]))};await writeFile(`${dir}/provenance.json`,JSON.stringify(provenance,null,2)+'\n');}
-console.log('emitted 2 native Solid components from kumo.ir/v1');
+console.log('emitted 4 native Solid components from kumo.ir/v1');

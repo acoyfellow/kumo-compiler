@@ -1,7 +1,7 @@
 import {spawn} from 'node:child_process';
 import {readFile,rm,writeFile} from 'node:fs/promises';
 import {once} from 'node:events';
-for(const id of ['select','badge']){
+for(const id of ['select','badge','checkbox','switch']){
  const dir=`runtime/${id}/solid`,ssr=`${dir}/ssr-runtime`;await rm(ssr,{recursive:true,force:true});
  const run=async args=>{const child=spawn('npx',['vite','build',dir,...args],{stdio:'inherit'});const [code]=await once(child,'exit');if(code)throw Error(`vite ${id} failed`)};
  await run([]);await run(['--ssr','src/server.tsx','--outDir','ssr-runtime','--emptyOutDir']);
@@ -11,4 +11,4 @@ for(const id of ['select','badge']){
  await writeFile(`${dir}/public-runtime/index.html`,page);
  await rm(ssr,{recursive:true,force:true});
 }
-console.log('built Solid client hydration and real SSR for select, badge');
+console.log('built Solid client hydration and real SSR for select, badge, checkbox, switch');

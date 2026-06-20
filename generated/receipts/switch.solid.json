@@ -1,6 +1,6 @@
 {
   "schemaVersion": "kumo.receipt/v1",
-  "component": "select",
+  "component": "switch",
   "framework": "solid",
   "checks": {
     "productionBuild": true,
@@ -13,7 +13,17 @@
     "assetsStylesPackage": true,
     "provenance": true
   },
-  "screenshotHash": "689064acd68427989272685f9b7dca1a4f6e1da368ae5164129206fca88f405d",
-  "irHash": "fc9f4def14d3a73f639b2323e67a4962ffdfd548ece6729e4da3822ee9adba08",
+  "browser": {
+    "before": false,
+    "after": true,
+    "focused": true,
+    "value": "on",
+    "role": "switch",
+    "aria": "false",
+    "required": false,
+    "hydration": true
+  },
+  "screenshotHash": "b4d1f02fa580ca63c1fa993de41af4bd4a3b4ab7087d96d8b9401b774ac86eea",
+  "irHash": "5eb004da82c20bde5757b2ba31ffbbfb6da4b762a5a5bd2aada11aa26568015b",
   "emitterHash": "160892533dce926bfd99c804a330fea7bb82dc899ea6580c092b9b670eb26aaf"
 }
