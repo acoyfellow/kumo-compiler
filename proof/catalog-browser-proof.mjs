@@ -33,7 +33,7 @@ export function hasSuccessfulNetworkEvidence({responses=[],failedRequests=[]}){
  return failedRequests.length===0&&responses.length>0&&responses.every(x=>x.status>=200&&x.status<400);
 }
 export function isRetryableBrowserInfrastructureError(error){
- return /Chromium exited before startup|debugging endpoint unavailable|CDP (?:WebSocket|connection|Page\.|Runtime\.|Network\.).*(?:closed|failed|timed out)|fetch failed|ECONNREFUSED/i.test(String(error?.message||error));
+ return /Chromium (?:failed to start|exited before startup)|debugging endpoint unavailable|CDP (?:WebSocket|connection|Page\.|Runtime\.|Network\.).*(?:closed|failed|timed out)|fetch failed|ECONNREFUSED/i.test(String(error?.message||error));
 }
 export async function withBrowserInfrastructureRetries(operation,{maxRetries=2,delayMs=50}={}){
  let attempt=0;for(;;){try{return await operation(attempt)}catch(error){if(attempt>=maxRetries||!isRetryableBrowserInfrastructureError(error))throw error;attempt++;await sleep(delayMs)}}
@@ -44,8 +44,11 @@ async function chromium(url,chrome,profileRoot){
  const args=['--headless=new','--disable-gpu','--hide-scrollbars','--window-size=900,700','--remote-debugging-port=0',`--user-data-dir=${profile}`,'about:blank'];
  // Chrome's sandbox is supported on macOS/Linux when not running as root.
  if(process.platform==='linux'&&process.getuid?.()===0)args.unshift('--no-sandbox');
- const proc=spawn(chrome,args,{stdio:'ignore'});let cdp;
+ const proc=spawn(chrome,args,{stdio:'ignore'});let cdp,spawnError;
+ const spawned=new Promise(resolve=>{proc.once('spawn',resolve);proc.once('error',error=>{spawnError=error;resolve()})});
  try{
+  await spawned;
+  if(spawnError)throw Error(`Chromium failed to start (${spawnError.code||'spawn error'}): ${chrome}`,{cause:spawnError});
   const deadline=Date.now()+TIMEOUT;let port;
   while(Date.now()<deadline){if(proc.exitCode!==null)throw Error(`Chromium exited before startup (${proc.exitCode})`);try{port=Number((await readFile(portFile,'utf8')).split('\n')[0]);if(port)break}catch{}await sleep(50)}
   if(!port)throw Error('Chromium debugging endpoint unavailable');
@@ -61,7 +64,7 @@ async function chromium(url,chrome,profileRoot){
   const post=(await cdp.send('Runtime.evaluate',{expression,returnByValue:true})).result.value;await sleep(100);
   const shot=await cdp.send('Page.captureScreenshot',{format:'png'});
   return {png:Buffer.from(shot.data,'base64'),post,consoleMessages,pageErrors,failedRequests,responses,browser:{executable:chrome,product:version.Browser,userAgent:version['User-Agent'],protocolVersion:version['Protocol-Version']}};
- }finally{cdp?.close();if(proc.exitCode===null){proc.kill('SIGTERM');await Promise.race([new Promise(r=>proc.once('exit',r)),sleep(1000)]);if(proc.exitCode===null)proc.kill('SIGKILL')}await rm(profile,{recursive:true,force:true})}
+ }finally{cdp?.close();if(!spawnError&&proc.exitCode===null){proc.kill('SIGTERM');await Promise.race([new Promise(r=>proc.once('exit',r)),sleep(1000)]);if(proc.exitCode===null)proc.kill('SIGKILL')}await rm(profile,{recursive:true,force:true})}
 }
 function pngPixelHash(png){
  if(png.readUInt32BE(0)!==0x89504e47)throw Error('invalid PNG screenshot');let p=8,width,height,type,idat=[];

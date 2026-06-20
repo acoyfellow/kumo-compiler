@@ -31,7 +31,9 @@ test('proof CLI exits nonzero when a browser target fails',()=>{
  const out=mkdtempSync(join(tmpdir(),'kumo-proof-test-'));
  try {
   const child=spawnSync(process.execPath,['proof/catalog-browser-proof.mjs','--frameworks=vue','--components=select',`--out=${out}`],{cwd:new URL('..',import.meta.url),env:{...process.env,CHROME:'/definitely/missing/chrome'},encoding:'utf8'});
-  assert.notEqual(child.status,0);
-  assert.match(child.stderr,/catalog browser proof failed/);
+  assert.equal(child.status,1);
+  assert.equal(child.error,undefined);
+  assert.match(child.stderr,/Chromium failed to start \(ENOENT\): \/definitely\/missing\/chrome/);
+  assert.match(child.stderr,/catalog browser proof failed: 1\/1 targets/);
  } finally { rmSync(out,{recursive:true,force:true}); }
 });
