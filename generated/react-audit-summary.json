@@ -3,8 +3,8 @@
   "catalogSchema": "kumo.ir/v1",
   "total": 41,
   "passed": 0,
-  "failed": 38,
-  "blocked": 3,
+  "failed": 41,
+  "blocked": 0,
   "canonicalPackage": {
     "name": "@cloudflare/kumo",
     "version": "2.5.2",
@@ -12,7 +12,7 @@
     "packageBinding": true
   },
   "limitations": [
-    "38 public exports are canonically mapped and generated, but fail until the equal browser evidence suite is run against these entries.",
-    "input-area, grid-item, and toasty are blocked because no same-name public package subpath exists; nested exports were deliberately not guessed."
+    "All 41 public named exports are byte-bound, mapped, and production-built, but remain failed until the equal browser evidence suite produces SSR/pre-hydration/post-hydration, behavior, accessibility, screenshot/pixel, network, console, asset, and style evidence.",
+    "InputArea, GridItem, and Toasty are explicitly mapped through the machine-verifiable parent public exports ./components/input, ./components/grid, and ./components/toast."
   ]
 }

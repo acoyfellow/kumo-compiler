@@ -2,7 +2,7 @@
   "schemaVersion": "kumo.receipt/v3",
   "component": "input-area",
   "framework": "react",
-  "classification": "blocked",
+  "classification": "failed",
   "canonicalInput": true,
   "sourceEvidence": {
     "manifest": "audit/kumo-react-2.5.2.provenance.json",
@@ -20,15 +20,197 @@
       "resolved": "https://registry.npmjs.org/@cloudflare/kumo/-/kumo-2.5.2.tgz",
       "integrity": "sha512-HUNi40VG3ExJ7lV8HjqPQcGpCmm2CqG/SzjJ+K+NhCwZRYTBvagdoMDPX2XZ8AW/ZPEeuFoId0VYmzrX+luyXQ=="
     },
-    "exportPath": "./components/textarea",
-    "export": null,
-    "mapping": {
-      "status": "unsupported",
-      "reason": "No independent ./components/input-area export exists (InputArea is only a named export of ./components/input). Mapping policy is required."
+    "exportPath": "./components/input",
+    "export": {
+      "types": "./dist/src/components/input/index.d.ts",
+      "import": "./dist/components/input.js"
     },
-    "files": [],
-    "generatedSources": [],
-    "bindingVerified": false,
+    "mapping": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/input",
+      "symbol": "InputArea"
+    },
+    "files": [
+      {
+        "path": "dist/chunks/input-area-o2avpahffav0gydf.js",
+        "sha256": "be54b5e3d5e85af5571a2fa84b65f3568c8bc223a3c3af73e96953ae8695ea5f",
+        "bytes": 2013
+      },
+      {
+        "path": "dist/chunks/input-area-o2avpahffav0gydf.js.map",
+        "sha256": "0ea607be6f5151efa9f60be9d26ade397e326b05522a9c97eb4b01945d164f0a",
+        "bytes": 5988
+      },
+      {
+        "path": "dist/chunks/input-group-os810pmsqcftt6mq.js",
+        "sha256": "535bc23dd3a42b39deb0934697595462491cced68d739de03b0d03fb7459ba62",
+        "bytes": 17574
+      },
+      {
+        "path": "dist/chunks/input-group-os810pmsqcftt6mq.js.map",
+        "sha256": "7fde11d8a2b641d78bc85bb327a5ae9509fe5cd4c09da5162b52f5e3df41234c",
+        "bytes": 47869
+      },
+      {
+        "path": "dist/chunks/input-iahz0dpc9xdar2ju.js",
+        "sha256": "70c78a461938f62b59fade3b7409b9e5b33b47b9e8b3e2a4da7f23778ef136ea",
+        "bytes": 3763
+      },
+      {
+        "path": "dist/chunks/input-iahz0dpc9xdar2ju.js.map",
+        "sha256": "047733f7c03ebcaabdaa7bc789fb3ad2df51da0534e2379d543ca43e36403ae8",
+        "bytes": 11345
+      },
+      {
+        "path": "dist/components/input-group.js",
+        "sha256": "e03a17a6bf163faf14daa625bd035e07e33c56d46f68d4d7d37b74c87dd416bb",
+        "bytes": 239
+      },
+      {
+        "path": "dist/components/input-group.js.map",
+        "sha256": "891269531654bd19fa33cf4ffa62019f65f64cd82e755cf94989bbbcb45bcd16",
+        "bytes": 97
+      },
+      {
+        "path": "dist/components/input.js",
+        "sha256": "2968e7e66d89e324c57257a3ef26ff358dd52324d86b8742eabc21e99fb5d9b6",
+        "bytes": 454
+      },
+      {
+        "path": "dist/components/input.js.map",
+        "sha256": "704d216d9ebf11e6c3fb9f73dba6491e1f6ce8de65b065c08e09f05cbf977c25",
+        "bytes": 93
+      },
+      {
+        "path": "dist/primitives/input.js",
+        "sha256": "5d51a302a1f87961e8c172778d2b28b10bcef5089b51f8981270f4dd9cf7ff09",
+        "bytes": 144
+      },
+      {
+        "path": "dist/src/components/input-group/context.d.ts",
+        "sha256": "92ba05ee56e6e49760916905075da5d0f47072babfa66a555da129130f15de1a",
+        "bytes": 4210
+      },
+      {
+        "path": "dist/src/components/input-group/context.d.ts.map",
+        "sha256": "e5b38eeec15b01cbda4798e8ae18cdada4c90bc7bc0ff236dc2709a928733f92",
+        "bytes": 1610
+      },
+      {
+        "path": "dist/src/components/input-group/index.d.ts",
+        "sha256": "e395819f5798d69b85aabdca26f2cd426090d50f5d4a8a50dbe75efcf7f3ae77",
+        "bytes": 278
+      },
+      {
+        "path": "dist/src/components/input-group/index.d.ts.map",
+        "sha256": "478428eb08c679f9b105a63a7dcd4c256e5752f449ca11c987ba16dc826e456b",
+        "bytes": 291
+      },
+      {
+        "path": "dist/src/components/input-group/input-group-addon.d.ts",
+        "sha256": "bdf0e88166f53b49df8344e350f111fe67eb4eeb52a4978e589b14b7ae6fae73",
+        "bytes": 661
+      },
+      {
+        "path": "dist/src/components/input-group/input-group-addon.d.ts.map",
+        "sha256": "332ef50ad107ad94b6434ba044fe5441d66af1f821357df207e160e0c5954d78",
+        "bytes": 420
+      },
+      {
+        "path": "dist/src/components/input-group/input-group-button.d.ts",
+        "sha256": "cae823f6c58c366cb6b534a3cec07f1ab17482366b7d93a2278997380c2b3cef",
+        "bytes": 1408
+      },
+      {
+        "path": "dist/src/components/input-group/input-group-button.d.ts.map",
+        "sha256": "20893ffe6145787337d6dd144ac0a83f65abee1da6b2b9b513b6a24ae5683aa0",
+        "bytes": 509
+      },
+      {
+        "path": "dist/src/components/input-group/input-group-input.d.ts",
+        "sha256": "30adf64d50c3301c3caf4a9620ace15fb1f1d7b81c52f787dd3e29437d47b9d3",
+        "bytes": 605
+      },
+      {
+        "path": "dist/src/components/input-group/input-group-input.d.ts.map",
+        "sha256": "c82d20c1f192dd462ba346a37f4c8d64c44949f7423c170513b18a006f09a4a5",
+        "bytes": 381
+      },
+      {
+        "path": "dist/src/components/input-group/input-group-suffix.d.ts",
+        "sha256": "6a6e017372112e4ce775eef3151e4fbf124d69a2a2558a387c0e9892aa0dd698",
+        "bytes": 552
+      },
+      {
+        "path": "dist/src/components/input-group/input-group-suffix.d.ts.map",
+        "sha256": "c4757838f86337fdd671accaeac0ff98035ba7190653a7904946326d27b1c18c",
+        "bytes": 369
+      },
+      {
+        "path": "dist/src/components/input-group/input-group.d.ts",
+        "sha256": "d25ff169938c346341f63aee909ef56759192052390437501dd2ad960a311f3c",
+        "bytes": 2566
+      },
+      {
+        "path": "dist/src/components/input-group/input-group.d.ts.map",
+        "sha256": "df49cd58d0210f8117f4014dc5261cdddc3b68cb490b4253cbc9db3f15db6085",
+        "bytes": 645
+      },
+      {
+        "path": "dist/src/components/input/index.d.ts",
+        "sha256": "16477da12cc37d30cead4a5fbf2dd449f19cbb2cdae0d0de25a33eb333c8ec63",
+        "bytes": 867
+      },
+      {
+        "path": "dist/src/components/input/index.d.ts.map",
+        "sha256": "86fac324ab86d61dbfcfac93b4f4f3fc700978bd8c567b154a077abb3817c64b",
+        "bytes": 466
+      },
+      {
+        "path": "dist/src/components/input/input-area.d.ts",
+        "sha256": "8d67628d9584dd981a2644fdab01d95028b0218cf40479907cd3e53189023b0c",
+        "bytes": 2922
+      },
+      {
+        "path": "dist/src/components/input/input-area.d.ts.map",
+        "sha256": "340009c90c38f90223ee29ac50b999c4bb4c70cdec9d7aeb9bdd05c0c249bcde",
+        "bytes": 1508
+      },
+      {
+        "path": "dist/src/components/input/input.d.ts",
+        "sha256": "abfd8a7d6b60b41f590567c8cdab519cf8e4191dcfc3851feb5cdd1a0724ccb2",
+        "bytes": 6348
+      },
+      {
+        "path": "dist/src/components/input/input.d.ts.map",
+        "sha256": "0715e5b2c4056ff078c34fab8a49e7307931d80367ac5035aba246efa487f7fd",
+        "bytes": 1596
+      },
+      {
+        "path": "dist/src/primitives/input.d.ts",
+        "sha256": "f881a0cb13f4e074ff7e66aa3b0206019d52fe61d3f4ca0822c6f9b7b836796c",
+        "bytes": 282
+      }
+    ],
+    "generatedSources": [
+      {
+        "path": "runtime-canonical/input-area/entry.jsx",
+        "sha256": "3dd5d20e20e92a03a71ef60b6d8ed20e4b4205a5e6820348487a8fb7d87d5748"
+      },
+      {
+        "path": "runtime-canonical/input-area/fixture.jsx",
+        "sha256": "6a64aa619517d69f5e830a6f1dafd20b963d88874bf46e9e5890fde16888b8d9"
+      },
+      {
+        "path": "runtime-canonical/input-area/server.jsx",
+        "sha256": "92cdc8fc79d49065203f65dbf65cd6d81c333a835de4296f0eb1766f61896b68"
+      },
+      {
+        "path": "runtime-canonical/input-area/client.jsx",
+        "sha256": "25e6f33a1c3828eac69785c62e523ef9b53a9912f93cfa8d3093448e23956612"
+      }
+    ],
+    "bindingVerified": true,
     "mismatches": []
   },
   "routes": {
@@ -38,8 +220,8 @@
   },
   "checks": {
     "canonicalSourceProvenance": {
-      "status": "blocked",
-      "reason": "No independent ./components/input-area export exists (InputArea is only a named export of ./components/input). Mapping policy is required."
+      "status": "passed",
+      "reason": "exact npm package identity, export and relevant byte hashes match the attestation"
     },
     "packageEvidence": {
       "status": "passed",
@@ -50,47 +232,47 @@
       "reason": "canonical server/client entry graph generated directly against public package export"
     },
     "runtimeRoute": {
-      "status": "blocked",
-      "reason": "No independent ./components/input-area export exists (InputArea is only a named export of ./components/input). Mapping policy is required."
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
     },
     "ssrMarkup": {
-      "status": "blocked",
-      "reason": "No independent ./components/input-area export exists (InputArea is only a named export of ./components/input). Mapping policy is required."
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
     },
     "hydration": {
-      "status": "blocked",
-      "reason": "No independent ./components/input-area export exists (InputArea is only a named export of ./components/input). Mapping policy is required."
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
     },
     "assetsStyles": {
-      "status": "blocked",
-      "reason": "No independent ./components/input-area export exists (InputArea is only a named export of ./components/input). Mapping policy is required."
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
     },
     "console": {
-      "status": "blocked",
-      "reason": "No independent ./components/input-area export exists (InputArea is only a named export of ./components/input). Mapping policy is required."
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
     },
     "network": {
-      "status": "blocked",
-      "reason": "No independent ./components/input-area export exists (InputArea is only a named export of ./components/input). Mapping policy is required."
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
     },
     "domAria": {
-      "status": "blocked",
-      "reason": "No independent ./components/input-area export exists (InputArea is only a named export of ./components/input). Mapping policy is required."
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
     },
     "behaviorVectors": {
-      "status": "blocked",
-      "reason": "No independent ./components/input-area export exists (InputArea is only a named export of ./components/input). Mapping policy is required."
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
     },
     "screenshotPixel": {
-      "status": "blocked",
-      "reason": "No independent ./components/input-area export exists (InputArea is only a named export of ./components/input). Mapping policy is required."
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
     }
   },
   "limitations": [
-    "No independent ./components/input-area export exists (InputArea is only a named export of ./components/input). Mapping policy is required."
+    "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
   ],
   "determinism": {
-    "canonicalManifestHash": "da9f8116fcf53335bcebe1f13c75d9a03dce465fb47661eaab91a3f0fa1aa2d3",
-    "mappingHash": "929cc549fd84eb0d771ae4e92cd490b826b0654d4a72bfec1dde984e8d7475e4"
+    "canonicalManifestHash": "9b24dcd1812a1fadc57c5872d94037bd07faa20392662064911fc11fbc3ccba3",
+    "mappingHash": "35415344bb77d6a799cbd8cc4f878399370603f75781327d98ff7df732421a0d"
   }
 }

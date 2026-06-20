@@ -2,7 +2,7 @@
   "schemaVersion": "kumo.receipt/v3",
   "component": "toasty",
   "framework": "react",
-  "classification": "blocked",
+  "classification": "failed",
   "canonicalInput": true,
   "sourceEvidence": {
     "manifest": "audit/kumo-react-2.5.2.provenance.json",
@@ -20,15 +20,87 @@
       "resolved": "https://registry.npmjs.org/@cloudflare/kumo/-/kumo-2.5.2.tgz",
       "integrity": "sha512-HUNi40VG3ExJ7lV8HjqPQcGpCmm2CqG/SzjJ+K+NhCwZRYTBvagdoMDPX2XZ8AW/ZPEeuFoId0VYmzrX+luyXQ=="
     },
-    "exportPath": "./components/toasty",
-    "export": null,
-    "mapping": {
-      "status": "unsupported",
-      "reason": "No independent ./components/toasty export exists (Toasty is only a named export of ./components/toast). Mapping policy is required."
+    "exportPath": "./components/toast",
+    "export": {
+      "types": "./dist/src/components/toast/index.d.ts",
+      "import": "./dist/components/toast.js"
     },
-    "files": [],
-    "generatedSources": [],
-    "bindingVerified": false,
+    "mapping": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/toast",
+      "symbol": "Toasty"
+    },
+    "files": [
+      {
+        "path": "dist/chunks/toast-gewrapiiy5x9ak0o.js",
+        "sha256": "1c6e0448f7e461ae9069bad7199ffdd0defe594abeae468d7199b3d2a0d88d64",
+        "bytes": 24155
+      },
+      {
+        "path": "dist/chunks/toast-gewrapiiy5x9ak0o.js.map",
+        "sha256": "70c01094c18701698f6e3662f94e6305024b1b6a1515f18344681860eb4f2a98",
+        "bytes": 45709
+      },
+      {
+        "path": "dist/components/toast.js",
+        "sha256": "a903254a1e2943c1e27e2476de198fad20452aea8849d504f543dc77045289da",
+        "bytes": 326
+      },
+      {
+        "path": "dist/components/toast.js.map",
+        "sha256": "5600b8a23ad72f2c5a5dd9714d4578ad1693a97856db9440e0fae9d2cf66e927",
+        "bytes": 92
+      },
+      {
+        "path": "dist/primitives/toast.js",
+        "sha256": "81b0812f9b5d187428592c0c80747f41002712ba9c748175f1c0bba506f17c70",
+        "bytes": 144
+      },
+      {
+        "path": "dist/src/components/toast/index.d.ts",
+        "sha256": "db0aec09820cb948e375b1ae2a9ff211895cade75aca811e79073d641ed288e7",
+        "bytes": 278
+      },
+      {
+        "path": "dist/src/components/toast/index.d.ts.map",
+        "sha256": "dc81a5e21ea4aa7cf3f4399c153c2f61f89d50659e2f9d7f25040c23ab0e16b8",
+        "bytes": 332
+      },
+      {
+        "path": "dist/src/components/toast/toast.d.ts",
+        "sha256": "e2e945318043893ed0913377c06e3ce8c035edb611e2faf64953f84b999bad01",
+        "bytes": 8690
+      },
+      {
+        "path": "dist/src/components/toast/toast.d.ts.map",
+        "sha256": "7d605096315a57d7e169f7523ff3e28cdd9f95c5af897737ebdf7f289b37f8df",
+        "bytes": 1953
+      },
+      {
+        "path": "dist/src/primitives/toast.d.ts",
+        "sha256": "11d31c70425cccb2bf0feac6a3db36cd56e0da106809d6b1bea23c8d7c33e0dc",
+        "bytes": 282
+      }
+    ],
+    "generatedSources": [
+      {
+        "path": "runtime-canonical/toasty/entry.jsx",
+        "sha256": "26b1e263d530f602ed4fe6b86a075a36e5322dc6933c81b926ac531d1b7c7c19"
+      },
+      {
+        "path": "runtime-canonical/toasty/fixture.jsx",
+        "sha256": "ccd58f8294fe2e2535832cd3eeabb5dd86512b80cf21402140c4025544383f05"
+      },
+      {
+        "path": "runtime-canonical/toasty/server.jsx",
+        "sha256": "92cdc8fc79d49065203f65dbf65cd6d81c333a835de4296f0eb1766f61896b68"
+      },
+      {
+        "path": "runtime-canonical/toasty/client.jsx",
+        "sha256": "25e6f33a1c3828eac69785c62e523ef9b53a9912f93cfa8d3093448e23956612"
+      }
+    ],
+    "bindingVerified": true,
     "mismatches": []
   },
   "routes": {
@@ -38,8 +110,8 @@
   },
   "checks": {
     "canonicalSourceProvenance": {
-      "status": "blocked",
-      "reason": "No independent ./components/toasty export exists (Toasty is only a named export of ./components/toast). Mapping policy is required."
+      "status": "passed",
+      "reason": "exact npm package identity, export and relevant byte hashes match the attestation"
     },
     "packageEvidence": {
       "status": "passed",
@@ -50,47 +122,47 @@
       "reason": "canonical server/client entry graph generated directly against public package export"
     },
     "runtimeRoute": {
-      "status": "blocked",
-      "reason": "No independent ./components/toasty export exists (Toasty is only a named export of ./components/toast). Mapping policy is required."
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
     },
     "ssrMarkup": {
-      "status": "blocked",
-      "reason": "No independent ./components/toasty export exists (Toasty is only a named export of ./components/toast). Mapping policy is required."
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
     },
     "hydration": {
-      "status": "blocked",
-      "reason": "No independent ./components/toasty export exists (Toasty is only a named export of ./components/toast). Mapping policy is required."
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
     },
     "assetsStyles": {
-      "status": "blocked",
-      "reason": "No independent ./components/toasty export exists (Toasty is only a named export of ./components/toast). Mapping policy is required."
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
     },
     "console": {
-      "status": "blocked",
-      "reason": "No independent ./components/toasty export exists (Toasty is only a named export of ./components/toast). Mapping policy is required."
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
     },
     "network": {
-      "status": "blocked",
-      "reason": "No independent ./components/toasty export exists (Toasty is only a named export of ./components/toast). Mapping policy is required."
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
     },
     "domAria": {
-      "status": "blocked",
-      "reason": "No independent ./components/toasty export exists (Toasty is only a named export of ./components/toast). Mapping policy is required."
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
     },
     "behaviorVectors": {
-      "status": "blocked",
-      "reason": "No independent ./components/toasty export exists (Toasty is only a named export of ./components/toast). Mapping policy is required."
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
     },
     "screenshotPixel": {
-      "status": "blocked",
-      "reason": "No independent ./components/toasty export exists (Toasty is only a named export of ./components/toast). Mapping policy is required."
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
     }
   },
   "limitations": [
-    "No independent ./components/toasty export exists (Toasty is only a named export of ./components/toast). Mapping policy is required."
+    "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
   ],
   "determinism": {
-    "canonicalManifestHash": "97cfa8cab2175d03262ddb40cf990dee325937879ae3177a9fd4e895c1a3bf25",
-    "mappingHash": "9ed5354974ebae94adfaa5d74c35b126eee772ce23808bc4386ec758fc121efb"
+    "canonicalManifestHash": "c270ecceb6306cd56dfac4c64390051d46a9d783c49f353cf39d46bbd8fb0519",
+    "mappingHash": "e91cf47eb9df3e27ea7173c6c88d02e98e33cd054d9dd237a850b9fba5b49249"
   }
 }

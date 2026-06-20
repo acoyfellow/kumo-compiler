@@ -48,8 +48,9 @@
       "symbol": "InputGroup"
     },
     "input-area": {
-      "status": "unsupported",
-      "reason": "No independent ./components/input-area export exists (InputArea is only a named export of ./components/input). Mapping policy is required."
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/input",
+      "symbol": "InputArea"
     },
     "sensitive-input": {
       "status": "mapped",
@@ -112,8 +113,9 @@
       "symbol": "Grid"
     },
     "grid-item": {
-      "status": "unsupported",
-      "reason": "No independent ./components/grid-item export exists (GridItem is only a named export of ./components/grid). Mapping policy is required."
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/grid",
+      "symbol": "GridItem"
     },
     "loader": {
       "status": "mapped",
@@ -196,8 +198,9 @@
       "symbol": "DropdownMenu"
     },
     "toasty": {
-      "status": "unsupported",
-      "reason": "No independent ./components/toasty export exists (Toasty is only a named export of ./components/toast). Mapping policy is required."
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/toast",
+      "symbol": "Toasty"
     },
     "pagination": {
       "status": "mapped",
