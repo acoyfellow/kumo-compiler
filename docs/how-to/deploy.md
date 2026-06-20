@@ -1,6 +1,6 @@
 # Deploy
 
-Production is the custom domain `https://kumo-compiler.coey.dev`, pinned to Worker `kumo-compiler-proof` in personal account `Coeyman@gmail.com's Account` (`bfcb6ac5b3ceaf42a09607f6f7925823`) and zone `coey.dev` (`1563da24f904f018b89fdcb2147c558b`). External requests are protected by Cloudflare Access.
+Production is the custom domain `https://kumo-compiler.coey.dev`, pinned to Worker `kumo-compiler-proof` in personal account `Coeyman@gmail.com's Account` (`bfcb6ac5b3ceaf42a09607f6f7925823`) and zone `coey.dev` (`1563da24f904f018b89fdcb2147c558b`). The catalog is intentionally public and requires no Cloudflare Access policy or authentication.
 
 ```sh
 npm ci
@@ -8,11 +8,11 @@ npm run release:install        # Astro dependencies from astro/package-lock.json
 npm run release:check
 npm run deploy:dry-run
 npm run deploy                 # authorized operator only
-CF_ACCESS_CLIENT_ID=… CF_ACCESS_CLIENT_SECRET=… npm run proof:production
+npm run proof:production
 ```
 
 The deployment manifest pins an immutable SHA-256 tree digest of the complete `deploy/` payload, not a self-referential commit. Paths, separators, and bytes are hashed deterministically. The deploy script separately records the current clean `HEAD` as runtime `GIT_COMMIT`; it refuses modified tracked files, a stale or tampered payload, protected config/manifest/worker files in the asset bundle, or drift in Worker name, account, zone, or custom domain. Dry-run enforces the same preflight and prints the exact target, current source revision, manifest SHA-256, and payload digest before invoking Wrangler.
 
 `release:check` repeats the deterministic Astro `npm ci`, so it is safe from a clean checkout and propagates install or network failures. `deploy:prepare` builds Astro, replaces `deploy/` from `astro/dist`, validates the deploy manifest inventory, and verifies the generated tree digest. When an intentional source change alters output, review the generated `deploy/`, calculate its digest with `deployPayloadDigest`, update `source.deployPayloadSha256`, rerun preparation, and commit both manifest and payload. It does not run proofs or deploy. Preserve the source revision, manifest identity, immutable artifact, receipts, production proof, and predecessor Worker version.
 
-The service token is external secret material. The outstanding operational gate is obtaining an authorized token and completing a live rollback rehearsal. Follow the [deployment runbook](../runbooks/deployment.md).
+No Access service token is required for public production proof. Complete and record a live rollback rehearsal using the retained predecessor Worker version. Follow the [deployment runbook](../runbooks/deployment.md).
