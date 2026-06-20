@@ -75,9 +75,711 @@
         "svelte": "/dialog/svelte/",
         "solid": "/dialog/solid/"
       },
-      "frameworks": ["react", "vue", "svelte", "solid"],
-      "evidence": {"proof": "proof/dialog-proof.mjs", "spec": "specs/dialog.json"},
-      "metrics": {"states": 6, "runtimeCount": 4, "ssrHydration": true}
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/dialog-proof.mjs",
+        "spec": "specs/dialog.json"
+      },
+      "metrics": {
+        "states": 6,
+        "runtimeCount": 4,
+        "ssrHydration": true
+      }
+    },
+    {
+      "id": "popover",
+      "name": "Popover",
+      "status": "proved",
+      "routes": {
+        "dashboard": "/popover/compare/",
+        "react": "/popover/react/",
+        "vue": "/popover/vue/",
+        "svelte": "/popover/svelte/",
+        "solid": "/popover/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/popover-proof.mjs",
+        "spec": "specs/popover.json"
+      },
+      "metrics": {
+        "states": 8,
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "positioning": true
+      }
+    },
+    {
+      "id": "checkbox",
+      "name": "Checkbox",
+      "status": "proved",
+      "family": "native-control",
+      "routes": {
+        "dashboard": "/checkbox/compare/",
+        "react": "/checkbox/react/",
+        "vue": "/checkbox/vue/",
+        "svelte": "/checkbox/svelte/",
+        "solid": "/checkbox/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/native-control-proof.mjs",
+        "spec": "specs/native-control.json"
+      },
+      "metrics": {
+        "states": 4,
+        "runtimeCount": 4
+      }
+    },
+    {
+      "id": "switch",
+      "name": "Switch",
+      "status": "proved",
+      "family": "native-control",
+      "routes": {
+        "dashboard": "/switch/compare/",
+        "react": "/switch/react/",
+        "vue": "/switch/vue/",
+        "svelte": "/switch/svelte/",
+        "solid": "/switch/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/native-control-proof.mjs",
+        "spec": "specs/native-control.json"
+      },
+      "metrics": {
+        "states": 4,
+        "runtimeCount": 4
+      }
+    },
+    {
+      "id": "form",
+      "name": "Form family",
+      "status": "proved",
+      "family": "form",
+      "members": [
+        "field",
+        "input",
+        "input-group",
+        "input-area",
+        "sensitive-input",
+        "clipboard-text"
+      ],
+      "routes": {
+        "dashboard": "/form/compare/",
+        "react": "/form/react/",
+        "vue": "/form/vue/",
+        "svelte": "/form/svelte/",
+        "solid": "/form/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/form-proof.mjs",
+        "spec": "specs/form.json"
+      },
+      "metrics": {
+        "members": 6,
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "keyboard": true,
+        "clipboard": true
+      }
+    },
+    {
+      "id": "tabs",
+      "name": "Tabs",
+      "status": "proved",
+      "family": "navigation",
+      "routes": {
+        "dashboard": "/components/tabs/",
+        "react": "/navigation/react/",
+        "vue": "/navigation/vue/",
+        "svelte": "/navigation/svelte/",
+        "solid": "/navigation/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/navigation-proof.mjs",
+        "spec": "specs/navigation.json",
+        "benchmark": "benchmarks/navigation/results.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "keyboardNavigation": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "menu-bar",
+      "name": "MenuBar",
+      "status": "proved",
+      "family": "navigation",
+      "routes": {
+        "dashboard": "/components/menu-bar/",
+        "react": "/navigation/react/",
+        "vue": "/navigation/vue/",
+        "svelte": "/navigation/svelte/",
+        "solid": "/navigation/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/navigation-proof.mjs",
+        "spec": "specs/navigation.json",
+        "benchmark": "benchmarks/navigation/results.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "keyboardNavigation": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "sidebar",
+      "name": "Sidebar",
+      "status": "proved",
+      "family": "navigation",
+      "routes": {
+        "dashboard": "/components/sidebar/",
+        "react": "/navigation/react/",
+        "vue": "/navigation/vue/",
+        "svelte": "/navigation/svelte/",
+        "solid": "/navigation/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/navigation-proof.mjs",
+        "spec": "specs/navigation.json",
+        "benchmark": "benchmarks/navigation/results.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "keyboardNavigation": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "breadcrumbs",
+      "name": "Breadcrumbs",
+      "status": "proved",
+      "family": "navigation",
+      "routes": {
+        "dashboard": "/components/breadcrumbs/",
+        "react": "/navigation/react/",
+        "vue": "/navigation/vue/",
+        "svelte": "/navigation/svelte/",
+        "solid": "/navigation/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/navigation-proof.mjs",
+        "spec": "specs/navigation.json",
+        "benchmark": "benchmarks/navigation/results.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "keyboardNavigation": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "table-of-contents",
+      "name": "TableOfContents",
+      "status": "proved",
+      "family": "navigation",
+      "routes": {
+        "dashboard": "/components/table-of-contents/",
+        "react": "/navigation/react/",
+        "vue": "/navigation/vue/",
+        "svelte": "/navigation/svelte/",
+        "solid": "/navigation/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/navigation-proof.mjs",
+        "spec": "specs/navigation.json",
+        "benchmark": "benchmarks/navigation/results.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "keyboardNavigation": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "badge",
+      "name": "Badge",
+      "status": "proved",
+      "family": "data-presentational",
+      "routes": {
+        "dashboard": "/components/badge/",
+        "react": "/data-presentational/react/",
+        "vue": "/data-presentational/vue/",
+        "svelte": "/data-presentational/svelte/",
+        "solid": "/data-presentational/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/data-presentational-proof.mjs",
+        "benchmark": "benchmarks/data-presentational/results.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "banner",
+      "name": "Banner",
+      "status": "proved",
+      "family": "data-presentational",
+      "routes": {
+        "dashboard": "/components/banner/",
+        "react": "/data-presentational/react/",
+        "vue": "/data-presentational/vue/",
+        "svelte": "/data-presentational/svelte/",
+        "solid": "/data-presentational/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/data-presentational-proof.mjs",
+        "benchmark": "benchmarks/data-presentational/results.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "surface",
+      "name": "Surface",
+      "status": "proved",
+      "family": "data-presentational",
+      "routes": {
+        "dashboard": "/components/surface/",
+        "react": "/data-presentational/react/",
+        "vue": "/data-presentational/vue/",
+        "svelte": "/data-presentational/svelte/",
+        "solid": "/data-presentational/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/data-presentational-proof.mjs",
+        "benchmark": "benchmarks/data-presentational/results.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "layer-card",
+      "name": "LayerCard",
+      "status": "proved",
+      "family": "data-presentational",
+      "routes": {
+        "dashboard": "/components/layer-card/",
+        "react": "/data-presentational/react/",
+        "vue": "/data-presentational/vue/",
+        "svelte": "/data-presentational/svelte/",
+        "solid": "/data-presentational/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/data-presentational-proof.mjs",
+        "benchmark": "benchmarks/data-presentational/results.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "grid",
+      "name": "Grid",
+      "status": "proved",
+      "family": "data-presentational",
+      "routes": {
+        "dashboard": "/components/grid/",
+        "react": "/data-presentational/react/",
+        "vue": "/data-presentational/vue/",
+        "svelte": "/data-presentational/svelte/",
+        "solid": "/data-presentational/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/data-presentational-proof.mjs",
+        "benchmark": "benchmarks/data-presentational/results.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "grid-item",
+      "name": "GridItem",
+      "status": "proved",
+      "family": "data-presentational",
+      "routes": {
+        "dashboard": "/components/grid-item/",
+        "react": "/data-presentational/react/",
+        "vue": "/data-presentational/vue/",
+        "svelte": "/data-presentational/svelte/",
+        "solid": "/data-presentational/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/data-presentational-proof.mjs",
+        "benchmark": "benchmarks/data-presentational/results.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "loader",
+      "name": "Loader",
+      "status": "proved",
+      "family": "data-presentational",
+      "routes": {
+        "dashboard": "/components/loader/",
+        "react": "/data-presentational/react/",
+        "vue": "/data-presentational/vue/",
+        "svelte": "/data-presentational/svelte/",
+        "solid": "/data-presentational/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/data-presentational-proof.mjs",
+        "benchmark": "benchmarks/data-presentational/results.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "meter",
+      "name": "Meter",
+      "status": "proved",
+      "family": "data-presentational",
+      "routes": {
+        "dashboard": "/components/meter/",
+        "react": "/data-presentational/react/",
+        "vue": "/data-presentational/vue/",
+        "svelte": "/data-presentational/svelte/",
+        "solid": "/data-presentational/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/data-presentational-proof.mjs",
+        "benchmark": "benchmarks/data-presentational/results.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "empty",
+      "name": "Empty",
+      "status": "proved",
+      "family": "data-presentational",
+      "routes": {
+        "dashboard": "/components/empty/",
+        "react": "/data-presentational/react/",
+        "vue": "/data-presentational/vue/",
+        "svelte": "/data-presentational/svelte/",
+        "solid": "/data-presentational/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/data-presentational-proof.mjs",
+        "benchmark": "benchmarks/data-presentational/results.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "label",
+      "name": "Label",
+      "status": "proved",
+      "family": "data-presentational",
+      "routes": {
+        "dashboard": "/components/label/",
+        "react": "/data-presentational/react/",
+        "vue": "/data-presentational/vue/",
+        "svelte": "/data-presentational/svelte/",
+        "solid": "/data-presentational/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/data-presentational-proof.mjs",
+        "benchmark": "benchmarks/data-presentational/results.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "link",
+      "name": "Link",
+      "status": "proved",
+      "family": "data-presentational",
+      "routes": {
+        "dashboard": "/components/link/",
+        "react": "/data-presentational/react/",
+        "vue": "/data-presentational/vue/",
+        "svelte": "/data-presentational/svelte/",
+        "solid": "/data-presentational/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/data-presentational-proof.mjs",
+        "benchmark": "benchmarks/data-presentational/results.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "text",
+      "name": "Text",
+      "status": "proved",
+      "family": "data-presentational",
+      "routes": {
+        "dashboard": "/components/text/",
+        "react": "/data-presentational/react/",
+        "vue": "/data-presentational/vue/",
+        "svelte": "/data-presentational/svelte/",
+        "solid": "/data-presentational/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/data-presentational-proof.mjs",
+        "benchmark": "benchmarks/data-presentational/results.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "cloudflare-logo",
+      "name": "CloudflareLogo",
+      "status": "proved",
+      "family": "data-presentational",
+      "routes": {
+        "dashboard": "/components/cloudflare-logo/",
+        "react": "/data-presentational/react/",
+        "vue": "/data-presentational/vue/",
+        "svelte": "/data-presentational/svelte/",
+        "solid": "/data-presentational/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/data-presentational-proof.mjs",
+        "benchmark": "benchmarks/data-presentational/results.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "code",
+      "name": "Code",
+      "status": "proved",
+      "family": "data-presentational",
+      "routes": {
+        "dashboard": "/components/code/",
+        "react": "/data-presentational/react/",
+        "vue": "/data-presentational/vue/",
+        "svelte": "/data-presentational/svelte/",
+        "solid": "/data-presentational/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/data-presentational-proof.mjs",
+        "benchmark": "benchmarks/data-presentational/results.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "table",
+      "name": "Table",
+      "status": "proved",
+      "family": "data-presentational",
+      "routes": {
+        "dashboard": "/components/table/",
+        "react": "/data-presentational/react/",
+        "vue": "/data-presentational/vue/",
+        "svelte": "/data-presentational/svelte/",
+        "solid": "/data-presentational/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/data-presentational-proof.mjs",
+        "benchmark": "benchmarks/data-presentational/results.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
+      }
     }
   ]
 }

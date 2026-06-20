@@ -1,6 +1,6 @@
 import { Hono } from 'hono';
 import { serve } from '@hono/node-server';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync, statSync } from 'node:fs';
 import { resolve } from 'node:path';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -32,6 +32,10 @@ for(const kind of ['button','dialog','popover']){
  app.get(`/runtime/${kind}/compare`,c=>c.redirect(`/${kind}/compare`));
 }
 
+for(const f of frameworks)app.get(`/form/${f}`,c=>c.html(readFileSync(resolve(root,`runtime/form/${f}/public-runtime/index.html`),'utf8')));
+app.get('/form/:framework/assets/:file',c=>{const{framework,file}=c.req.param();if(!frameworks.has(framework)||!/^[-\w.]+$/.test(file))return c.notFound();const body=readFileSync(resolve(root,`runtime/form/${framework}/public-runtime/assets/${file}`));return c.body(body,200,{'Content-Type':file.endsWith('.css')?'text/css':'text/javascript'});});
+app.get('/form/compare',c=>c.html(`<!doctype html><title>Form family comparison</title><style>body{font-family:system-ui;background:#eef2f7;margin:20px}main{max-width:820px;margin:auto}button{padding:8px 14px;margin-right:6px}iframe{width:100%;height:760px;border:1px solid #ccd3dc;background:white;margin-top:12px}</style><main><h1>Form family runtime comparison</h1><div>${[...frameworks].map((f,i)=>`<button data-f="${f}">${f}</button>`).join('')}</div><iframe title="Form runtime" src="/form/react"></iframe></main><script>for(const b of document.querySelectorAll('[data-f]'))b.onclick=()=>document.querySelector('iframe').src='/form/'+b.dataset.f</script>`));
+
 for(const kind of ['checkbox','switch']){
  for(const f of frameworks)app.get(`/${kind}/${f}`,c=>c.html(readFileSync(resolve(root,`runtime/${kind}/${f}/public-runtime/index.html`),'utf8')));
  app.get(`/${kind}/:framework/assets/:file`,c=>{const{framework,file}=c.req.param();if(!frameworks.has(framework)||!/^[-\w.]+$/.test(file))return c.notFound();const body=readFileSync(resolve(root,`runtime/${kind}/${framework}/public-runtime/assets/${file}`));return c.body(body,200,{'Content-Type':file.endsWith('.css')?'text/css':'text/javascript'});});
@@ -40,4 +44,29 @@ for(const kind of ['checkbox','switch']){
  for(const f of frameworks)app.get(`/${kind}/${f}/`,c=>c.redirect(`/${kind}/${f}`));
  app.get(`/${kind}/compare`,c=>c.html(`<!doctype html><html><head><meta charset="utf-8"><title>${kind} comparison</title><style>body{margin:0;background:#f3f4f6;font-family:system-ui}header,main{max-width:900px;margin:20px auto}.tabs{display:flex;gap:8px}.tabs button{padding:8px 14px}.tabs button[aria-selected=true]{background:#111827;color:white}.panel{margin-top:12px;background:white;border:1px solid #d1d5db;border-radius:12px;overflow:hidden}iframe{width:100%;height:520px;border:0}</style></head><body>${nav}<header><h1>${kind[0].toUpperCase()+kind.slice(1)} runtime comparison</h1><p>One native-control family policy · four generated runtimes</p></header><main><div class="tabs" role="tablist">${[...frameworks].map((f,i)=>`<button role="tab" aria-selected="${!i}" data-f="${f}">${f}</button>`).join('')}</div><div class="panel"><iframe title="${kind} runtime" src="/${kind}/react"></iframe></div></main><script>for(const b of document.querySelectorAll('[data-f]'))b.onclick=()=>{document.querySelectorAll('[data-f]').forEach(x=>x.setAttribute('aria-selected',x===b));document.querySelector('iframe').src='/${kind}/'+b.dataset.f}</script></body></html>`));
 }
+// Serve generated deploy and Astro directory artifacts that do not need bespoke
+// review behavior. Keeping this fallback data-driven prevents catalog additions
+// from silently producing dead links.
+app.get('*',c=>{
+ const requestPath=decodeURIComponent(new URL(c.req.url).pathname);
+ if(requestPath.includes('..'))return c.notFound();
+ const routePath=requestPath.startsWith('/runtime/')?requestPath.slice('/runtime'.length):requestPath;
+ const relative=routePath.replace(/^\/+|\/+$/g,'');
+ const candidates=[];
+ for(const base of [resolve(root,'deploy'),resolve(root,'astro/dist')]){
+  const target=resolve(base,relative);
+  if(target===base||target.startsWith(base+'/')){
+   candidates.push(target);
+   candidates.push(resolve(target,'index.html'));
+  }
+ }
+ for(const file of candidates){
+  if(!existsSync(file)||!statSync(file).isFile())continue;
+  const ext=file.split('.').pop();
+  const contentType={html:'text/html; charset=utf-8',css:'text/css; charset=utf-8',js:'text/javascript; charset=utf-8',json:'application/json; charset=utf-8',svg:'image/svg+xml'}[ext]||'application/octet-stream';
+  return c.body(readFileSync(file),200,{'Content-Type':contentType});
+ }
+ return c.notFound();
+});
+
 serve({fetch:app.fetch,port:Number(process.env.PORT||4260)},({port})=>console.log(`review server http://localhost:${port}/select/compare`));

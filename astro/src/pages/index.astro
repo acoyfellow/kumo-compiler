@@ -1,13 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import catalog from '../../../benchmarks/catalog.json';
-const components=catalog.components.map(component=>({
- name:component.name,
- status:component.status,
- page:`/components/${component.id}/`,
- benchmark:`/benchmarks/components/${component.id}/`,
- compare:`/${component.id}/compare/`,
- reason:component.status==='proved'?'All catalog proof artifacts are present':component.blockedReason
-}));
+
+const components=catalog.components.map(component=>{
+  const compare=component.routes.dashboard.startsWith('/benchmarks/')?`/${component.id}/compare/`:component.routes.dashboard;
+  const benchmark=component.routes.dashboard.startsWith('/benchmarks/')?component.routes.dashboard:'/benchmarks/';
+  return {...component,compare,benchmark};
+});
 ---
-<Layout title="Kumo compiler directory"><h1>Kumo compiler directory</h1><p>Canonical directory generated from the benchmark catalog and its proof artifacts.</p><div class="grid">{components.map(component=><article><div class="top"><a href={component.page}>{component.name}</a><span class={component.status}>{component.status}</span></div><p>{component.reason}</p><div class="links"><a href={component.benchmark}>benchmark</a><a href={component.compare}>compare</a></div></article>)}</div><style>.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:30px}article{background:white;border:1px solid #d1d5db;border-radius:12px;padding:16px}.top{display:flex;justify-content:space-between;align-items:center}.top a{font-weight:800;font-size:18px;color:#111827;text-decoration:none}.proved{color:#15803d}.blocked{color:#b91c1c}.queued{color:#a16207}p{color:#64748b}.links{display:flex;gap:14px}.links a{font-weight:700;color:#2563eb}</style></Layout>
+<Layout title="Kumo compiler"><h1>Kumo compiler directory</h1><p>Every proved Kumo component, proof status, and benchmark.</p><div class="grid">{components.map(component=><article><div class="top"><a href={`/components/${component.id}/`}>{component.name}</a><span class="proved">{component.status}</span></div><p class="note">Generated runtime parity across {component.frameworks.length} frameworks.</p><p class="links"><a href={component.compare}>Compare</a><a href={component.benchmark}>Benchmark</a></p><div class="metrics"><span>runtimes <b>{component.frameworks.length}</b></span><span>family <b>{component.family ?? component.id}</b></span></div></article>)}</div><style>.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:30px}article{background:white;border:1px solid #d1d5db;border-radius:12px;padding:16px}.top{display:flex;justify-content:space-between;align-items:center;gap:8px}.top a{font-weight:800;font-size:18px;color:#111827;text-decoration:none}.proved{color:#15803d}.note{color:#64748b}.links{display:flex;gap:12px}.links a{color:#2563eb}.metrics{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}.metrics span{background:#f3f4f6;padding:8px;border-radius:8px;color:#64748b}.metrics b{color:#111827}</style></Layout>

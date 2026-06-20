@@ -6,4 +6,4 @@ export function getStaticPaths() {
 }
 const {component}=Astro.props;
 ---
-<Layout title={`${component.name} comparison · Kumo`}><h1>{component.name} runtime proof</h1><p>React canonical, Vue, Svelte, and Solid generated runtime comparison.</p><iframe src={`http://127.0.0.1:4301/runtime/${component.id}/compare`} title={`${component.name} compare`} style="width:100%;height:1200px;border:1px solid #d1d5db;border-radius:12px;background:white"></iframe></Layout>
+<Layout title={`${component.name} comparison · Kumo`}><h1>{component.name} runtime proof</h1><p>React canonical, Vue, Svelte, and Solid generated runtime comparison.</p><iframe src={`/runtime/${component.id}/compare`} title={`${component.name} compare`} style="width:100%;height:1200px;border:1px solid #d1d5db;border-radius:12px;background:white"></iframe></Layout>
