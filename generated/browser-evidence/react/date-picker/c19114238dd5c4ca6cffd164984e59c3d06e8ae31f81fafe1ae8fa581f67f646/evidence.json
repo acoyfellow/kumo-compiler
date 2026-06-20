@@ -1,0 +1,710 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v2",
+  "synthetic": false,
+  "component": "date-picker",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/date-picker/react/",
+  "browser": {
+    "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "product": "Chrome/149.0.7827.156",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+    "protocolVersion": "1.3"
+  },
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "3e91d7b20ae601e6767f4b74ffcc86e276d37f37e03bdc9e618eb41ab6d16e3b",
+    "postHydration": "3bb914d09fd35be5f675d990cdfd385f5ddfd3d96a91a241389104d479aa914b",
+    "aria": [
+      {
+        "tag": "nav",
+        "role": null,
+        "label": "Navigation bar",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Go to the Previous Month",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Go to the Next Month",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "span",
+        "role": "status",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "table",
+        "role": "grid",
+        "label": "January 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "th",
+        "role": null,
+        "label": "Sunday",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "th",
+        "role": null,
+        "label": "Monday",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "th",
+        "role": null,
+        "label": "Tuesday",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "th",
+        "role": null,
+        "label": "Wednesday",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "th",
+        "role": null,
+        "label": "Thursday",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "th",
+        "role": null,
+        "label": "Friday",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "th",
+        "role": null,
+        "label": "Saturday",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Sunday, December 31st, 2023",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Monday, January 1st, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Tuesday, January 2nd, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Wednesday, January 3rd, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Thursday, January 4th, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Friday, January 5th, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Saturday, January 6th, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Sunday, January 7th, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Monday, January 8th, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Tuesday, January 9th, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Wednesday, January 10th, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Thursday, January 11th, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Friday, January 12th, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Saturday, January 13th, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Sunday, January 14th, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Monday, January 15th, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Tuesday, January 16th, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Wednesday, January 17th, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Thursday, January 18th, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Friday, January 19th, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Saturday, January 20th, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Sunday, January 21st, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Monday, January 22nd, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Tuesday, January 23rd, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Wednesday, January 24th, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Thursday, January 25th, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Friday, January 26th, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Saturday, January 27th, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Sunday, January 28th, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Monday, January 29th, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Tuesday, January 30th, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Wednesday, January 31st, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Thursday, February 1st, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Friday, February 2nd, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "td",
+        "role": "gridcell",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Saturday, February 3rd, 2024",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "f7c3ad7a2ff41866e85ecfc23b05a22510c6097ea5ec1af4e9d407d774681057",
+    "pixelSha256": "27c4cc16f3b24bf983159500cb696f5ebcaab61a361593581eb3cbf44a06072f",
+    "bytes": 20849
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/date-picker/react/assets/index-Bd9qWRbl.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

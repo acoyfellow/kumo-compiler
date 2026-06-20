@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v2",
+  "synthetic": false,
+  "component": "surface",
+  "framework": "solid",
+  "url": "http://127.0.0.1:64494/surface/solid/",
+  "browser": {
+    "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "product": "Chrome/149.0.7827.156",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+    "protocolVersion": "1.3"
+  },
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "f3f6dca90ba28263f6c8de91e3f981f2c4abff3ef2b18dccf74acafb4b2ebd60",
+    "postHydration": "53ee7a32aab557641eba8f5083a22b45af1a808289f2356198570b90ca8219b1",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "65de8b83d09c623861b6d5424bae6dd0cc80620bbb21ac884e0e7536c6d493bd",
+    "pixelSha256": "45b3839f6b4ca7f60fe183feba1919aae7fdc5d7363f836cd98414cd2b4d2f96",
+    "bytes": 13410
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:64494/surface/solid/assets/index-XUZVPns1.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:64494/surface/solid/assets/solid-surface.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

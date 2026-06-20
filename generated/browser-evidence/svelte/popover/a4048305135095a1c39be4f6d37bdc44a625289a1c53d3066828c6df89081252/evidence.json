@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v2",
+  "synthetic": false,
+  "component": "popover",
+  "framework": "svelte",
+  "url": "http://127.0.0.1:63481/popover/svelte/",
+  "browser": {
+    "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "product": "Chrome/149.0.7827.156",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+    "protocolVersion": "1.3"
+  },
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "e3be8820d965b86684e005df8d679b1c66bc35595ae455555007858842ce05aa",
+    "postHydration": "49209b1b9a9b7f6afd19904a7bf1d82dc3f1deb5bab46d6b239d073c5299ef7d",
+    "aria": [
+      {
+        "tag": "button",
+        "role": null,
+        "label": null,
+        "expanded": "true",
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "div",
+        "role": "dialog",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "popover",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "70b6f9152c1a1c07f39c1995f255ca3ffb0a78559c5a0f6ca30fbdec790e0593",
+    "pixelSha256": "aab7565f025f877db9f2ac4cb6811467781f955463956ef834e01ff301d47cb3",
+    "bytes": 7274
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:63481/popover/svelte/assets/index-CddHWC0V.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:63481/popover/svelte/assets/svelte-popover.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

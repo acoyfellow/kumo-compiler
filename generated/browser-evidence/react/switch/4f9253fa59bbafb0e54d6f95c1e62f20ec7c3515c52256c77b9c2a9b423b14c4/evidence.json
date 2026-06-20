@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v2",
+  "synthetic": false,
+  "component": "switch",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/switch/react/",
+  "browser": {
+    "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "product": "Chrome/149.0.7827.156",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+    "protocolVersion": "1.3"
+  },
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "a3d06e679185218cfbc763af4cbc02c9d6de2806471542f5c10b375d2bfa6bff",
+    "postHydration": "d0a3ace710f9ac6c4d14c0a99a71d807a6aeaadffa0e39ca484e843858a5cee7",
+    "aria": [
+      {
+        "tag": "button",
+        "role": "switch",
+        "label": "Audit switch",
+        "expanded": null,
+        "selected": null,
+        "checked": "false"
+      }
+    ],
+    "behaviorVector": {
+      "policy": "native-check",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "b9645e34169963e9ca652ce32ca7dfce3e4d8a4ab517afce2effd22d1dfa7f0e",
+    "pixelSha256": "b8978ea8cdb845deaffafcd0456c7bf97ef2c5f2973a3327d8008f9b858d314f",
+    "bytes": 3107
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/switch/react/assets/index-CzM3CJ97.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

@@ -5,15 +5,21 @@
   "classification": "passed",
   "canonicalInput": true,
   "browserEvidence": {
-    "runId": "2026-06-20T15-44-05-619Z-69156",
-    "manifest": "generated/browser-evidence/runs/2026-06-20T15-44-05-619Z-69156.json",
-    "manifestSha256": "92c905a09ac07cd1787d693b54766229f231de7091693505a6c98d2ef603bd55",
-    "evidence": "generated/browser-evidence/react/menu-bar/bb3e152d3a9fee7efda1878a118ce71bbf69b0e56045cdadc36606d47b7a4d26/evidence.json",
-    "evidenceDigest": "bb3e152d3a9fee7efda1878a118ce71bbf69b0e56045cdadc36606d47b7a4d26",
+    "runId": "2026-06-20T16-39-35-306Z-66099",
+    "manifest": "generated/browser-evidence/runs/2026-06-20T16-39-35-306Z-66099.json",
+    "manifestSha256": "f928446ae851766ce62445800a361c6714175340494a74eb2aff7fe66ff504df",
+    "evidence": "generated/browser-evidence/react/menu-bar/0eae9e93e32caef49618bf8674bff47650d15129e1e5f936511ffcada87662fb/evidence.json",
+    "evidenceDigest": "0eae9e93e32caef49618bf8674bff47650d15129e1e5f936511ffcada87662fb",
     "browserIdentity": {
       "framework": "react",
       "component": "menu-bar",
-      "url": "http://127.0.0.1:4260/menu-bar/react/"
+      "url": "http://127.0.0.1:4260/menu-bar/react/",
+      "browser": {
+        "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "product": "Chrome/149.0.7827.156",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+        "protocolVersion": "1.3"
+      }
     }
   },
   "sourceEvidence": {
@@ -111,7 +117,7 @@
       },
       {
         "path": "runtime-canonical/menu-bar/fixture.jsx",
-        "sha256": "c7511d4e558f487cc07e0c24508aa9b0bee52cdcf54fbb00640a0cd182f3d0c6"
+        "sha256": "0d42dee2e29a801726d4e1ae323d99146df1819d80cb904cf8907db445c9776d"
       },
       {
         "path": "runtime-canonical/menu-bar/server.jsx",

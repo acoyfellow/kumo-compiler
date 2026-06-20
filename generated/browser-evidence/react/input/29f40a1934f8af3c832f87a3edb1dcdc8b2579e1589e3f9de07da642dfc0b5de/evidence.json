@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v2",
+  "synthetic": false,
+  "component": "input",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/input/react/",
+  "browser": {
+    "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "product": "Chrome/149.0.7827.156",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+    "protocolVersion": "1.3"
+  },
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "c8eae8a248b4b7cb55b4eaa766efd1b73e5c349f6d3f168a20641704ea8a5366",
+    "postHydration": "e008ee89045bbc1829b5c706b45e9c0323cd1ec6bbca3e4d93e34acd3b43c9da",
+    "aria": [
+      {
+        "tag": "input",
+        "role": null,
+        "label": "Audit input",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": null,
+      "target": true,
+      "active": "INPUT",
+      "checked": false
+    }
+  },
+  "screenshot": {
+    "sha256": "fad9eccf4d931be7046ac8de772f4ce962a96555db46949d45dd9b90661521ce",
+    "pixelSha256": "cc5740c62dc4f9b213255a9c466dd766f8310dc98c9bdbab8d2941e896957929",
+    "bytes": 3914
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/input/react/assets/index-DxNxOLbY.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/input/react/assets/index-Cq_NoE0W.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

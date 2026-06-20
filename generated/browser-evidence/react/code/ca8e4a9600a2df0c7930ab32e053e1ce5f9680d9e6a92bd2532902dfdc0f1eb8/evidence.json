@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v2",
+  "synthetic": false,
+  "component": "code",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/code/react/",
+  "browser": {
+    "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "product": "Chrome/149.0.7827.156",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+    "protocolVersion": "1.3"
+  },
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "9ef5a9be21a3612a6f5da6a7943b6783cbf9c74f480b0902837fa0b0b063245e",
+    "postHydration": "7b1bd6c9d54423e33706d97ea3afd7b603adbb7c9d056fe380861f487bb761eb",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "5f4749d0c51cfaeb2f9228dbaf7f57dc4debe2651f523b0516c49b0e39c2ba94",
+    "pixelSha256": "bdcad0fe96dd52e71b7b5020ab307073c9972e5150ab5c86c92333ad8bde663f",
+    "bytes": 4892
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/code/react/assets/index-DUg5AQAm.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

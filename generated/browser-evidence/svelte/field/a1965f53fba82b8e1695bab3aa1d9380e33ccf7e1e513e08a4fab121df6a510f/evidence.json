@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v2",
+  "synthetic": false,
+  "component": "field",
+  "framework": "svelte",
+  "url": "http://127.0.0.1:63481/field/svelte/",
+  "browser": {
+    "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "product": "Chrome/149.0.7827.156",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+    "protocolVersion": "1.3"
+  },
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "d84a727511ab72e4ff255936ac1b53fdca8376ae5d436b93d3422a223090cd55",
+    "postHydration": "05bc4f152642ada83327a726cb00ad5a824e113ff19e0ad53ad06ae5ea0c4587",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": true,
+      "active": "INPUT",
+      "checked": false
+    }
+  },
+  "screenshot": {
+    "sha256": "c111b1526f7832478b57112b0c2a7006c41563adf5b12e494e4d3b838cbb9ba5",
+    "pixelSha256": "ef7c303de0971055af7b4c24cc58d704ad4269e63a04d7d49046b0531fdca844",
+    "bytes": 9744
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:63481/field/svelte/assets/index-DxNxOLbY.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:63481/field/svelte/assets/svelte-field.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

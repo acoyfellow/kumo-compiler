@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v2",
+  "synthetic": false,
+  "component": "input-group",
+  "framework": "vue",
+  "url": "http://127.0.0.1:63917/input-group/vue/",
+  "browser": {
+    "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "product": "Chrome/149.0.7827.156",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+    "protocolVersion": "1.3"
+  },
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "b40840516503b7b978b980e7e740c6c69773c045530ec3bd3c5394c4f9a21831",
+    "postHydration": "af70499c3d0a5e8e575ae04a2a6c40a1197241404801013cecfb2e068bbc5233",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": true,
+      "active": "INPUT",
+      "checked": false
+    }
+  },
+  "screenshot": {
+    "sha256": "dd379374e1855ab8b667374ef942ec78506f89faeb248256f076852e9fc31fbe",
+    "pixelSha256": "4dd034de5cb0353b5fa80387e3ad495bbff37a169f90813b86019bdc6f3a481d",
+    "bytes": 10473
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:63917/input-group/vue/assets/index-DxNxOLbY.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:63917/input-group/vue/assets/vue-input-group.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

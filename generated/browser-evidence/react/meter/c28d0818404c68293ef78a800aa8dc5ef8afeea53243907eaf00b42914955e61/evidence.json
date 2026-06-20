@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v2",
+  "synthetic": false,
+  "component": "meter",
+  "framework": "react",
+  "url": "http://127.0.0.1:4260/meter/react/",
+  "browser": {
+    "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "product": "Chrome/149.0.7827.156",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+    "protocolVersion": "1.3"
+  },
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "23391c390bdda1b2065840e6535239c891554b7cd9096cb3be9ba00de754d922",
+    "postHydration": "4562a19dd6051388ca8d833db02408b3d1c890ff54ef17d4639a18049a0e6fa3",
+    "aria": [
+      {
+        "tag": "div",
+        "role": "meter",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "span",
+        "role": "presentation",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "span",
+        "role": "presentation",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "5aaadf2745cd52633478bf790d87cbd9a58309a802cc50dcbd1aa5c263f06cee",
+    "pixelSha256": "d6761829a243be22a458b6bad61cc6d8762a22eb5ca0f203d30a07cafd6a8a09",
+    "bytes": 5213
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/meter/react/assets/index-DCFINDHB.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

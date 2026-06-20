@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v2",
+  "synthetic": false,
+  "component": "grid",
+  "framework": "vue",
+  "url": "http://127.0.0.1:64924/grid/vue/",
+  "browser": {
+    "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "product": "Chrome/149.0.7827.156",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+    "protocolVersion": "1.3"
+  },
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "85e448e005e33ee68d406fafde2e05895e570376fbc79e4930ea95e6d0419a29",
+    "postHydration": "388920952f25cb303af88939db413890dc976e1883a0a7df8aada06b296b5e7a",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "b389bf09549ef22edd09379c583a1569030b5fc5e16cdc5a9e117bb233997914",
+    "pixelSha256": "277824e09d95b5c640e9f51e6128e55d42d7d734ee786d97c694eb67e371a4cf",
+    "bytes": 11006
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:64924/grid/vue/assets/index-XUZVPns1.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:64924/grid/vue/assets/vue-grid.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

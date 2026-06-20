@@ -1,0 +1,99 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v2",
+  "synthetic": false,
+  "component": "command-palette",
+  "framework": "vue",
+  "url": "http://127.0.0.1:49470/command-palette/vue/",
+  "browser": {
+    "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "product": "Chrome/149.0.7827.156",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+    "protocolVersion": "1.3"
+  },
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "858bc68c28f40ead2e5916cd7cf1cb6bd836635e0ac43b87e486e21907af6f15",
+    "postHydration": "f2659270ef9d39f6bdc524ae79199aff937e25b008eb0c2b705458fe3ce2978e",
+    "aria": [
+      {
+        "tag": "div",
+        "role": "dialog",
+        "label": "Command palette",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "input",
+        "role": null,
+        "label": "Filter commands",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "ul",
+        "role": "listbox",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "li",
+        "role": "option",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "li",
+        "role": "option",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "c06df04ed1ccb11451b784c8c52b8957c21fcabdbe0fbf6f4604e98d0ff15706",
+    "pixelSha256": "df6458cf124f36c2c41f51c65c65f616f58d3af1a9d21759452287100c2c1bb0",
+    "bytes": 20641
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:49470/command-palette/vue/assets/index-DHsnio_D.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:49470/command-palette/vue/assets/vue-command-palette.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

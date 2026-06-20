@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v2",
+  "synthetic": false,
+  "component": "sidebar",
+  "framework": "vue",
+  "url": "http://127.0.0.1:64428/sidebar/vue/",
+  "browser": {
+    "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "product": "Chrome/149.0.7827.156",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+    "protocolVersion": "1.3"
+  },
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "a00a0c8fe98f3d5f1e1e38091a7b89cd2cbf750265ce3905ab9b593cbe4ecd4b",
+    "postHydration": "9b3c837feda7ab199ae77bd93373367a0c430fe3740497b5aa849a01e9311b53",
+    "aria": [
+      {
+        "tag": "nav",
+        "role": null,
+        "label": "Workspace",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "current-link",
+      "target": true,
+      "active": "A",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "bd6e9b05e506344061f0ac4369be0bd4b5a7226c205e5ed6dd70c3aef0e16cf9",
+    "pixelSha256": "9ee24366170fcfd99d64b9ae480f537e776776915d3b4e2c28cb6f2fd41e2e8b",
+    "bytes": 10556
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:64428/sidebar/vue/assets/index-BFC_pzOc.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:64428/sidebar/vue/assets/vue-sidebar.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

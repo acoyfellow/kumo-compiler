@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v2",
+  "synthetic": false,
+  "component": "cloudflare-logo",
+  "framework": "vue",
+  "url": "http://127.0.0.1:65398/cloudflare-logo/vue/",
+  "browser": {
+    "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "product": "Chrome/149.0.7827.156",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+    "protocolVersion": "1.3"
+  },
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "a48ebd8392b4b249bafe7e62d4a20aaa1090c1f85d4a545fc3f08f38e277b3bc",
+    "postHydration": "b5638a20f634b717a47767da92a80e02af915b59b36d7d5a6e73bf129ecb6557",
+    "aria": [
+      {
+        "tag": "div",
+        "role": "img",
+        "label": "Cloudflare",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "b74f05fc87e459857a55580b107192814b362ec86fac336c1394e821cb96a9fb",
+    "pixelSha256": "484521a1e0ed722e2ff1a15abe59d78fd5000ad325cdec33ef2855a39b2313c4",
+    "bytes": 9846
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:65398/cloudflare-logo/vue/assets/index-XUZVPns1.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:65398/cloudflare-logo/vue/assets/vue-cloudflare-logo.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

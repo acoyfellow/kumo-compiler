@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v2",
+  "synthetic": false,
+  "component": "breadcrumbs",
+  "framework": "vue",
+  "url": "http://127.0.0.1:64428/breadcrumbs/vue/",
+  "browser": {
+    "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "product": "Chrome/149.0.7827.156",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+    "protocolVersion": "1.3"
+  },
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "c9978f4c216868754b729f7f4b921a6e875e90fb4373dd9b94233ada639b8ef9",
+    "postHydration": "3ea2f4e8d707173102ca2b5de1d14ea5da104fe83a4149172d3c9e66c75bb8c1",
+    "aria": [
+      {
+        "tag": "nav",
+        "role": null,
+        "label": "Breadcrumb",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": null,
+      "target": true,
+      "active": "A",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "f60cc924745d5d8429d0c138b211b8de679650ca42f293b3ee22f239105644c5",
+    "pixelSha256": "6f2fc6258ee3823ff756d2a6a84cac5bfed9ccd65cbf3f4803daca957084639d",
+    "bytes": 10234
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:64428/breadcrumbs/vue/assets/index-BFC_pzOc.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:64428/breadcrumbs/vue/assets/vue-breadcrumbs.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v2",
+  "synthetic": false,
+  "component": "date-picker",
+  "framework": "solid",
+  "url": "http://127.0.0.1:49631/date-picker/solid/",
+  "browser": {
+    "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "product": "Chrome/149.0.7827.156",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+    "protocolVersion": "1.3"
+  },
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "1772b32428d68e12d2a6316934078df4b18a61d50834f6766090eab02809daed",
+    "postHydration": "49a085b842f6e2aace6b3e67eed29e24cbfb54e059c6fa95e5b2b5eeeda6cf68",
+    "aria": [
+      {
+        "tag": "p",
+        "role": "status",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "INPUT",
+      "checked": false
+    }
+  },
+  "screenshot": {
+    "sha256": "ed4dfc2930561fb5dadde70164e820ecfed849c59224b528519836cf1fac900b",
+    "pixelSha256": "46fee0427af3d84d9d815ceb0f937ed6a53e7b3770877d6a67092a63d9d2702a",
+    "bytes": 10759
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:49631/date-picker/solid/assets/index-DHsnio_D.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:49631/date-picker/solid/assets/solid-date-picker.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

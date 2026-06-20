@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v2",
+  "synthetic": false,
+  "component": "banner",
+  "framework": "solid",
+  "url": "http://127.0.0.1:64494/banner/solid/",
+  "browser": {
+    "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "product": "Chrome/149.0.7827.156",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+    "protocolVersion": "1.3"
+  },
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "a9659944f30e1d75a4c365dfcd35bf0bd24dc0119444f472792b337eedad2b66",
+    "postHydration": "d98c3a725f6546077ffa41493303a38947da170c0d3da666accfd417e4d5b39c",
+    "aria": [
+      {
+        "tag": "div",
+        "role": "status",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "9ae9a86c7e73e3af6fce07103237fab0bbd8b84f325ee5c477394818fcb2cfc4",
+    "pixelSha256": "e838c7e9b88f3f6f7d12b6353dbc7c80e02251f8b28f66528d64ee88abc30ac4",
+    "bytes": 8887
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:64494/banner/solid/assets/solid-banner.js",
+      "status": 200,
+      "mime": "text/javascript"
+    },
+    {
+      "url": "http://127.0.0.1:64494/banner/solid/assets/index-XUZVPns1.css",
+      "status": 200,
+      "mime": "text/css"
+    }
+  ],
+  "failures": []
+}

@@ -5,15 +5,21 @@
   "classification": "passed",
   "canonicalInput": true,
   "browserEvidence": {
-    "runId": "2026-06-20T15-44-05-619Z-69156",
-    "manifest": "generated/browser-evidence/runs/2026-06-20T15-44-05-619Z-69156.json",
-    "manifestSha256": "92c905a09ac07cd1787d693b54766229f231de7091693505a6c98d2ef603bd55",
-    "evidence": "generated/browser-evidence/react/input-area/48405e1a287ad063b576e4df4f6ada8a2932e174a3fb1e36129cddae8f1879bf/evidence.json",
-    "evidenceDigest": "48405e1a287ad063b576e4df4f6ada8a2932e174a3fb1e36129cddae8f1879bf",
+    "runId": "2026-06-20T16-39-35-306Z-66099",
+    "manifest": "generated/browser-evidence/runs/2026-06-20T16-39-35-306Z-66099.json",
+    "manifestSha256": "f928446ae851766ce62445800a361c6714175340494a74eb2aff7fe66ff504df",
+    "evidence": "generated/browser-evidence/react/input-area/c520bfcda11ac636a0103454fa00ef3fedc04730341dd6df8b3604053e95d281/evidence.json",
+    "evidenceDigest": "c520bfcda11ac636a0103454fa00ef3fedc04730341dd6df8b3604053e95d281",
     "browserIdentity": {
       "framework": "react",
       "component": "input-area",
-      "url": "http://127.0.0.1:4260/input-area/react/"
+      "url": "http://127.0.0.1:4260/input-area/react/",
+      "browser": {
+        "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "product": "Chrome/149.0.7827.156",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+        "protocolVersion": "1.3"
+      }
     }
   },
   "sourceEvidence": {
@@ -211,7 +217,7 @@
       },
       {
         "path": "runtime-canonical/input-area/fixture.jsx",
-        "sha256": "6a64aa619517d69f5e830a6f1dafd20b963d88874bf46e9e5890fde16888b8d9"
+        "sha256": "5181acdf6bb1993d7abb91a79a2ed923c921512b257cd9f6af371214ca7edaae"
       },
       {
         "path": "runtime-canonical/input-area/server.jsx",
@@ -219,7 +225,7 @@
       },
       {
         "path": "runtime-canonical/input-area/client.jsx",
-        "sha256": "25e6f33a1c3828eac69785c62e523ef9b53a9912f93cfa8d3093448e23956612"
+        "sha256": "7084d7c84e76933420f628c04c01c5a2aa25ea4946ca8d169e7cf4f0ebd82309"
       }
     ],
     "bindingVerified": true,

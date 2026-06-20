@@ -9,9 +9,9 @@ export async function validateCanonicalPublicRuntime(output,{component,root=defa
  const htmlPath=resolve(output,'index.html');let html;
  try{html=await readFile(htmlPath,'utf8')}catch{throw Error(`${component}: preflight missing index.html`)}
  if(!html.includes('<main'))throw Error(`${component}: preflight SSR <main> missing`);
- const links=[...html.matchAll(/(?:src|href)="([^"#?]+)"/g)].map(x=>x[1]).filter(x=>!/^https?:|^data:/.test(x));
+ const links=[...html.matchAll(/<script\b[^>]*\bsrc="([^"#?]+)"/g),...html.matchAll(/<link\b[^>]*\bhref="([^"#?]+)"/g)].map(x=>x[1]).filter(x=>!/^https?:|^data:/.test(x));
  if(!links.length)throw Error(`${component}: preflight linked assets missing`);
- for(const link of links){const p=resolve(output,link.replace(/^\//,''));if(!existsSync(p))throw Error(`${component}: preflight linked asset missing: ${link}`)}
+ for(const link of links){const p=link.startsWith('/')?resolve(output,'assets',link.split('/').pop()):resolve(output,link);if(!existsSync(p))throw Error(`${component}: preflight linked asset missing: ${link}`)}
  const provenance=JSON.parse(await readFile(resolve(root,'audit/kumo-react-2.5.2.provenance.json'),'utf8'));
  if(provenance.package?.name!=='@cloudflare/kumo')throw Error(`${component}: preflight canonical package provenance invalid`);
  return true;

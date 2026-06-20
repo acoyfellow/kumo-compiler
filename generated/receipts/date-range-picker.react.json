@@ -5,15 +5,21 @@
   "classification": "passed",
   "canonicalInput": true,
   "browserEvidence": {
-    "runId": "2026-06-20T15-44-05-619Z-69156",
-    "manifest": "generated/browser-evidence/runs/2026-06-20T15-44-05-619Z-69156.json",
-    "manifestSha256": "92c905a09ac07cd1787d693b54766229f231de7091693505a6c98d2ef603bd55",
-    "evidence": "generated/browser-evidence/react/date-range-picker/f1c52de773540cfb9a44eeacb344b462ab3f86e200dfa4ffaa9b8feed673ccbf/evidence.json",
-    "evidenceDigest": "f1c52de773540cfb9a44eeacb344b462ab3f86e200dfa4ffaa9b8feed673ccbf",
+    "runId": "2026-06-20T16-39-35-306Z-66099",
+    "manifest": "generated/browser-evidence/runs/2026-06-20T16-39-35-306Z-66099.json",
+    "manifestSha256": "f928446ae851766ce62445800a361c6714175340494a74eb2aff7fe66ff504df",
+    "evidence": "generated/browser-evidence/react/date-range-picker/c4e283b05afaeadf0c9aff187eb14b92e3a8b1f4dd6e5b6f7009fbef0a33f085/evidence.json",
+    "evidenceDigest": "c4e283b05afaeadf0c9aff187eb14b92e3a8b1f4dd6e5b6f7009fbef0a33f085",
     "browserIdentity": {
       "framework": "react",
       "component": "date-range-picker",
-      "url": "http://127.0.0.1:4260/date-range-picker/react/"
+      "url": "http://127.0.0.1:4260/date-range-picker/react/",
+      "browser": {
+        "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "product": "Chrome/149.0.7827.156",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+        "protocolVersion": "1.3"
+      }
     }
   },
   "sourceEvidence": {
@@ -91,7 +97,7 @@
       },
       {
         "path": "runtime-canonical/date-range-picker/fixture.jsx",
-        "sha256": "f0ae7bc239af9c0d021bf3a70d43b6a872241fcb1643b18aa0eb9313b0fb2675"
+        "sha256": "66dc402439df85f9dfa91c58730e936ec4f4db293870ce09a8b9fce7fb2d46bb"
       },
       {
         "path": "runtime-canonical/date-range-picker/server.jsx",

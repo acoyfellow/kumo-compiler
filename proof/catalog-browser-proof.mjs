@@ -3,7 +3,7 @@ import {createHash} from 'node:crypto';
 import {existsSync} from 'node:fs';
 import {mkdir,mkdtemp,readFile,rename,rm,stat,writeFile} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
-import {dirname,resolve} from 'node:path';
+import {dirname,isAbsolute,relative,resolve} from 'node:path';
 import {inflateSync} from 'node:zlib';
 import {manifest,frameworks as allFrameworks} from './catalog-browser-manifest.mjs';
 
@@ -85,7 +85,7 @@ export async function run({frameworks=allFrameworks,ids=manifest.components.map(
   const assets=r.responses.filter(x=>/javascript|css/.test(x.mime)),hasStyle=r.post.styles.length>0||pre.includes('<style');
   if(!r.post.html.includes('<main')||!assets.some(x=>/javascript/.test(x.mime))||!hasStyle)failures.push('runtime DOM, linked asset, or style missing');
   const evidence={schemaVersion:'kumo.browser-evidence/v2',synthetic:false,component:component.id,framework,url,browser:r.browser,checks:{runtime:true,console:!r.consoleMessages.length,network:hasSuccessfulNetworkEvidence(r),dom:r.post.html.includes('<main'),aria:Array.isArray(r.post.aria),behavior:!component.behavior||r.post.behavior.target,ssr:pre.includes('<main'),hydration:r.post.html.includes('<main'),screenshot:r.png.length>1000,pixels:true,assets:assets.length>0,styles:hasStyle,package:!!pkg.devDependencies.vite,provenance:provenanceOk},snapshots:{preHydration:hash(pre),postHydration:hash(r.post.html),aria:r.post.aria,behaviorVector:{policy:component.behavior?.kind||null,...r.post.behavior}},screenshot:{sha256:hash(r.png),pixelSha256:pngPixelHash(r.png),bytes:r.png.length},assets,failures};
-  const digest=hash(JSON.stringify(evidence));await immutableWrite(resolve(out,framework,component.id,digest,'evidence.json'),Buffer.from(JSON.stringify(evidence,null,2)+'\n'));await immutableWrite(resolve(out,framework,component.id,digest,'screenshot.png'),r.png);validateEvidence(evidence);results.push({component:component.id,framework,status:'passed',evidence:`${out}/${framework}/${component.id}/${digest}/evidence.json`});
+  const digest=hash(JSON.stringify(evidence)),evidencePath=resolve(out,framework,component.id,digest,'evidence.json');await immutableWrite(evidencePath,Buffer.from(JSON.stringify(evidence,null,2)+'\n'));await immutableWrite(resolve(out,framework,component.id,digest,'screenshot.png'),r.png);validateEvidence(evidence);const local=relative(root,evidencePath),evidenceRef=!local.startsWith('..')&&!isAbsolute(local)?local:evidencePath;results.push({component:component.id,framework,status:'passed',evidence:evidenceRef});
   }catch(error){results.push({component:component.id,framework,status:'failed',error:String(error?.stack||error)});console.error(`${component.id}/${framework}: ${error.message}`)}
  }
  const runId=`${new Date().toISOString().replace(/[:.]/g,'-')}-${process.pid}`,summary={schemaVersion:'kumo.browser-proof-run/v2',runId,createdAt:new Date().toISOString(),frameworks,components:ids,browserExecutable:chrome,results};

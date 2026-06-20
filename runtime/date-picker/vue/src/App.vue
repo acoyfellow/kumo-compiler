@@ -4,5 +4,5 @@ const options=[];const value=ref("2026-06-19");const query=ref('');const open=re
 const matches=(label:string)=>label.toLowerCase().includes(query.value.toLowerCase());function choose(label:string){value.value=label;query.value=label;open.value=false}function key(event:KeyboardEvent){if(event.key==='Escape')open.value=false;else if(event.key==='ArrowDown'||event.key==='ArrowUp'){event.preventDefault();open.value=true}}
 </script>
 <template>
-<main class="family"><h1>DatePicker</h1><label for="date">Deploy date<input id="date" type="date" value="2026-06-19" v-model="value"></input></label></main>
+<main class="family"><h1>DatePicker</h1><label for="date">Deploy date<input id="date" type="date" v-model="value"></input></label></main>
 </template>

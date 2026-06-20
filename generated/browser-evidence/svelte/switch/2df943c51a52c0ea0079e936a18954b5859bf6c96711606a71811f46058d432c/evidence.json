@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v2",
+  "synthetic": false,
+  "component": "switch",
+  "framework": "svelte",
+  "url": "http://127.0.0.1:63481/switch/svelte/",
+  "browser": {
+    "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "product": "Chrome/149.0.7827.156",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+    "protocolVersion": "1.3"
+  },
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "ddcc1cdaacd195cb9788de66a9a5ae5ab6964369017164e4328f0374c8e1dba8",
+    "postHydration": "1be0d1ac791cff30ae86a75231a4f5aa7fb618ee8e9f132b8cc254c6e9dcddfc",
+    "aria": [
+      {
+        "tag": "input",
+        "role": "switch",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "input",
+        "role": "switch",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "input",
+        "role": "switch",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "input",
+        "role": "switch",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "native-check",
+      "target": true,
+      "active": "INPUT",
+      "checked": true
+    }
+  },
+  "screenshot": {
+    "sha256": "8c82fc6080b8b118230b5d8e7800dd38a0b92288ced2d37b87b23bfac8f79635",
+    "pixelSha256": "4bf0cc2d18472f09ea35c1a570d2ddd516bc18885609223b9cf009814d52871e",
+    "bytes": 18035
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:63481/switch/svelte/assets/index-BP2V1Ibz.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:63481/switch/svelte/assets/svelte-switch.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

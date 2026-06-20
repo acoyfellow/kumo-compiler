@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v2",
+  "synthetic": false,
+  "component": "select",
+  "framework": "solid",
+  "url": "http://127.0.0.1:63456/select/solid/",
+  "browser": {
+    "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "product": "Chrome/149.0.7827.156",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+    "protocolVersion": "1.3"
+  },
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "e3be68fac8c6d8d8e55ef451321dc02eb0f8f4b158be404a29bc0ef6d9138f0e",
+    "postHydration": "ca839f9cfd30f3b0c3e9bc9e0b8260a5abd88221efd0e798923cad2af5b6eb13",
+    "aria": [
+      {
+        "tag": "button",
+        "role": "combobox",
+        "label": null,
+        "expanded": "false",
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "select",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "42398dc093fcc88304c3d352b259c2061d43804154b72dd0379314bbd3dc65ef",
+    "pixelSha256": "24450084da3f0811eb5d34c28614ee8e2d1b5bd4f6481ac611e9626a2405d8b0",
+    "bytes": 11130
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:63456/select/solid/assets/index-XUZVPns1.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:63456/select/solid/assets/solid-select.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

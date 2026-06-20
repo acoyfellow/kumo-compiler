@@ -1,0 +1,99 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v2",
+  "synthetic": false,
+  "component": "tabs",
+  "framework": "solid",
+  "url": "http://127.0.0.1:63958/tabs/solid/",
+  "browser": {
+    "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "product": "Chrome/149.0.7827.156",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+    "protocolVersion": "1.3"
+  },
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "33a0f816b753bb4beec91166a47b395b678b9ff47f9bbb771f45a716e9a421ae",
+    "postHydration": "c311a3c208eb9784f168ca2d43b4a65f577739fb5e18174415e6edfe01cd3d79",
+    "aria": [
+      {
+        "tag": "div",
+        "role": "tablist",
+        "label": "Account",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": "tab",
+        "label": null,
+        "expanded": null,
+        "selected": "true",
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": "tab",
+        "label": null,
+        "expanded": null,
+        "selected": "false",
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": "tab",
+        "label": null,
+        "expanded": null,
+        "selected": "false",
+        "checked": null
+      },
+      {
+        "tag": "div",
+        "role": "tabpanel",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "roving",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "2b21ac150232996c79d3d5185d3a30f561552357df9200533fe4b489eec31ef1",
+    "pixelSha256": "5eb3d84245dc086027a015b7ef0083c84b12392dc39dacd10196fe45e8c96564",
+    "bytes": 10696
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:63958/tabs/solid/assets/index-BFC_pzOc.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:63958/tabs/solid/assets/solid-tabs.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

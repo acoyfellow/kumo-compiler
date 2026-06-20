@@ -5,15 +5,21 @@
   "classification": "passed",
   "canonicalInput": true,
   "browserEvidence": {
-    "runId": "2026-06-20T15-44-05-619Z-69156",
-    "manifest": "generated/browser-evidence/runs/2026-06-20T15-44-05-619Z-69156.json",
-    "manifestSha256": "92c905a09ac07cd1787d693b54766229f231de7091693505a6c98d2ef603bd55",
-    "evidence": "generated/browser-evidence/react/checkbox/1514bc5571114192fd2cf6c433f136ca38b80bf4d0d3d43c32548e96b0489a55/evidence.json",
-    "evidenceDigest": "1514bc5571114192fd2cf6c433f136ca38b80bf4d0d3d43c32548e96b0489a55",
+    "runId": "2026-06-20T16-39-35-306Z-66099",
+    "manifest": "generated/browser-evidence/runs/2026-06-20T16-39-35-306Z-66099.json",
+    "manifestSha256": "f928446ae851766ce62445800a361c6714175340494a74eb2aff7fe66ff504df",
+    "evidence": "generated/browser-evidence/react/checkbox/3cd8655fad8819fc5de4717bd433109da25fbfd3d190ed2e82fd9ed3fa07f332/evidence.json",
+    "evidenceDigest": "3cd8655fad8819fc5de4717bd433109da25fbfd3d190ed2e82fd9ed3fa07f332",
     "browserIdentity": {
       "framework": "react",
       "component": "checkbox",
-      "url": "http://127.0.0.1:4260/checkbox/react/"
+      "url": "http://127.0.0.1:4260/checkbox/react/",
+      "browser": {
+        "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "product": "Chrome/149.0.7827.156",
+        "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+        "protocolVersion": "1.3"
+      }
     }
   },
   "sourceEvidence": {
@@ -121,7 +127,7 @@
       },
       {
         "path": "runtime-canonical/checkbox/fixture.jsx",
-        "sha256": "40f1dc873cb8233653a5b6a8fba77b39619e471e50bbfab2479b99cfc4fc3466"
+        "sha256": "541f9e27416ecab70a56384d8066cca3880ddbb990c9080dafd0966f6c0fe810"
       },
       {
         "path": "runtime-canonical/checkbox/server.jsx",

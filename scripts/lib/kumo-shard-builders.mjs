@@ -1,7 +1,7 @@
 import {readdir,readFile,rm,writeFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 
-async function assetFiles(html,out){for(const match of html.matchAll(/(?:src|href)=["']([^"'#?]+)["']/g)){const value=match[1];if(/^(?:https?:|data:|#)/.test(value))continue;const clean=value.split('?')[0],path=clean.startsWith('/')?resolve(out,'assets',clean.split('/').pop()):resolve(out,clean);try{await readFile(path)}catch{throw Error(`linked asset missing: ${value}`)}}}
+async function assetFiles(html,out){for(const pattern of [/<script\b[^>]*\bsrc=["']([^"'#?]+)["']/g,/<link\b[^>]*\bhref=["']([^"'#?]+)["']/g])for(const match of html.matchAll(pattern)){const value=match[1];if(/^(?:https?:|data:|#)/.test(value))continue;const clean=value.split('?')[0],path=clean.startsWith('/')?resolve(out,'assets',clean.split('/').pop()):resolve(out,clean);try{await readFile(path)}catch{throw Error(`linked asset missing: ${value}`)}}}
 export async function preflightStagedOutput({root,dir,out,framework,component}){
  const html=await readFile(resolve(out,'index.html'),'utf8');
  if(!/<main(?:\s[^>]*)?>[\s\S]*?\S[\s\S]*?<\/main>/.test(html))throw Error(`${framework}/${component}: SSR <main> missing or empty`);

@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v2",
+  "synthetic": false,
+  "component": "date-picker",
+  "framework": "vue",
+  "url": "http://127.0.0.1:49470/date-picker/vue/",
+  "browser": {
+    "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "product": "Chrome/149.0.7827.156",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+    "protocolVersion": "1.3"
+  },
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "19dd6fd7e802c7e14a32e2c3203662cad9ed3f9bdf8fb4c548bc479da7752c09",
+    "postHydration": "b1f401d56b977c01b1ebe48a4c4190fa9af1710816e04f894cf4f38193f5ceee",
+    "aria": [],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "INPUT",
+      "checked": false
+    }
+  },
+  "screenshot": {
+    "sha256": "91dc6286cd498474ba54ed788edfa1953adca936cdff914484e5e0c3cee8c858",
+    "pixelSha256": "afd81df9cc89e93c6907e72f1a426addbf2a6304b23582eaf0063a3fdb4f8724",
+    "bytes": 10385
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:49470/date-picker/vue/assets/index-DHsnio_D.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:49470/date-picker/vue/assets/vue-date-picker.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}
