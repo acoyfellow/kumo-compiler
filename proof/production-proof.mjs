@@ -1,12 +1,13 @@
 import { writeFile } from 'node:fs/promises';
 import { deployManifest } from '../runtime-routes.mjs';
 import { deploymentIdentity } from '../scripts/deploy.mjs';
-import { probeProduction } from '../verify-production.mjs';
-import { verifyObservability } from '../verify-observability.mjs';
+import { probeProduction } from '../scripts/verify-production.mjs';
+import { verifyObservability } from '../scripts/verify-observability.mjs';
 
 const probe = await probeProduction();
 const identity = await deploymentIdentity();
 const observation = verifyObservability(probe);
+if (probe.health.manifestHash !== identity.manifestHash) throw new Error(`deployed manifest hash mismatch: expected ${identity.manifestHash}, received ${probe.health.manifestHash || 'missing'}`);
 const headers = process.env.CF_ACCESS_CLIENT_ID ? { 'CF-Access-Client-Id': process.env.CF_ACCESS_CLIENT_ID, 'CF-Access-Client-Secret': process.env.CF_ACCESS_CLIENT_SECRET } : {};
 const routes = [];
 for (const route of deployManifest.routes) {

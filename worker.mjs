@@ -3,10 +3,10 @@ import { deployManifest, runtimeRoute } from './runtime-routes.mjs';
 
 const app = new Hono();
 const securityHeaders = {
-  'Content-Security-Policy': "default-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'",
+  'Content-Security-Policy': "default-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'self'",
   'Referrer-Policy': 'no-referrer',
   'X-Content-Type-Options': 'nosniff',
-  'X-Frame-Options': 'DENY',
+  'X-Frame-Options': 'SAMEORIGIN',
   'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
   'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
 };
@@ -17,16 +17,23 @@ app.use('*', async (c, next) => {
   c.header('Cache-Control', c.req.path.startsWith('/_') ? 'no-store' : 'public, max-age=300');
 });
 
-function identity(c) {
+async function manifestHash() {
+  const bytes = new TextEncoder().encode(JSON.stringify(deployManifest));
+  const digest = await crypto.subtle.digest('SHA-256', bytes);
+  return [...new Uint8Array(digest)].map((byte) => byte.toString(16).padStart(2, '0')).join('');
+}
+
+async function identity(c) {
   return {
     service: deployManifest.service,
     version: c.env.WORKER_VERSION || deployManifest.version,
     gitCommit: c.env.GIT_COMMIT || 'unknown',
     manifestSchemaVersion: deployManifest.schemaVersion,
+    manifestHash: await manifestHash(),
   };
 }
-app.get('/_health', (c) => c.json({ ok: true, ...identity(c) }));
-app.get('/_version', (c) => c.json(identity(c)));
+app.get('/_health', async (c) => c.json({ ok: true, ...await identity(c) }));
+app.get('/_version', async (c) => c.json(await identity(c)));
 app.get('*', (c) => {
   const url = new URL(c.req.url);
   const route = runtimeRoute(url.pathname);

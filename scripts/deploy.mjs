@@ -2,13 +2,16 @@ import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
+import { validateDeployManifest } from './validate-deploy-manifest.mjs';
 
 export async function deploymentIdentity() {
   const manifestBytes = await readFile(new URL('../deploy-manifest.json', import.meta.url));
   const manifest = JSON.parse(manifestBytes);
   if (manifest.schemaVersion !== 1 || !manifest.service || !manifest.version || !manifest.routes?.length) throw new Error('invalid deploy-manifest.json');
+  await validateDeployManifest(manifest);
   const gitCommit = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
-  return { service: manifest.service, version: manifest.version, gitCommit, manifestHash: createHash('sha256').update(manifestBytes).digest('hex') };
+  const manifestHash = createHash('sha256').update(JSON.stringify(manifest)).digest('hex');
+  return { service: manifest.service, version: manifest.version, gitCommit, manifestHash };
 }
 
 export async function deploy({ dryRun = true } = {}) {
