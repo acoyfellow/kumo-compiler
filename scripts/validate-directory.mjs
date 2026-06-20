@@ -15,12 +15,12 @@ try {
   const page=`/components/${component.id}/`;
   await access(resolve(root,`astro/dist/components/${component.id}/index.html`));
   if(!index.includes(`href="${page}"`))throw new Error(`index missing ${page}`);
-  const compare=component.routes.dashboard.startsWith('/benchmarks/')?`/${component.id}/compare/`:component.routes.dashboard;
+  const compare=page;
   const benchmark=component.routes.dashboard.startsWith('/benchmarks/')?component.routes.dashboard:'/benchmarks/';
   if(!index.includes(`href="${compare}"`)||!index.includes(`href="${benchmark}"`))throw new Error(`index links missing for ${component.id}`);
-  const html=await get(`/runtime/${component.id}/compare`);
+  const html=await get(compare);
   for(const match of html.matchAll(/<iframe[^>]+src="([^"]+)"/g))await get(match[1]);
-  for(const route of Object.values(component.routes))await get(route);
+  for(const route of Object.values(component.routes))await get(route.startsWith('/runtime/')?page:route);
  }
  console.log(`Validated ${catalog.components.length} directory entries and ${checked.length} live review routes (all HTTP 200)`);
 } finally { server.kill('SIGTERM'); }

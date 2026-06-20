@@ -37,6 +37,7 @@
     "proof:navigation": "npm run build:navigation && node proof/navigation-proof.mjs && npm pack --dry-run --ignore-scripts && npm run catalog:validate",
     "compile:kumo": "tsc -p tsconfig.kumo.json && node dist/kumo/compiler.js",
     "verify:kumo:vue": "node scripts/verify-kumo-vue.mjs",
+    "audit:kumo:react": "node scripts/audit-kumo-react.mjs",
     "compile:kumo:svelte": "npm run compile:kumo && node dist/kumo/svelte-compiler.js",
     "compile:kumo:solid": "npm run compile:kumo && node dist/kumo/solid-compiler.js",
     "build:kumo:solid": "npm run compile:kumo:solid && node scripts/build-kumo-solid.mjs",

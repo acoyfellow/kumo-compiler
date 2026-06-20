@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "kumo.receipt/v1",
+  "component": "command-palette",
+  "framework": "react",
+  "classification": "blocked",
+  "canonicalInput": true,
+  "sourceEvidence": {
+    "files": [
+      {
+        "path": "runtime/command-palette/react/index.html",
+        "sha256": "a290cd87abd962d238701ab62931ecc6b525f29d60979f4142a7284c003b26c6",
+        "bytes": 655
+      },
+      {
+        "path": "runtime/command-palette/react/public-runtime/assets/index-DHsnio_D.css",
+        "sha256": "23713fbc478b92c0796f6e67a382427bcd496be3c03dc984125cc80735595e62",
+        "bytes": 1272
+      },
+      {
+        "path": "runtime/command-palette/react/public-runtime/assets/react-command-palette.js",
+        "sha256": "5107b41e34895a825e07c71cdb4b6dd9ad5d55e7ba09d95db66436d4743feae1",
+        "bytes": 192873
+      },
+      {
+        "path": "runtime/command-palette/react/public-runtime/index.html",
+        "sha256": "b37f17b71ca3687029868cbf400c30dfed9d51a696605d47dc2d5f2478e3ab65",
+        "bytes": 764
+      },
+      {
+        "path": "runtime/command-palette/react/src/main.js",
+        "sha256": "683da1c1e7ad5d5c69fcc8d87082bd59e62a03b2172353919ae2df9819e11f76",
+        "bytes": 2494
+      },
+      {
+        "path": "runtime/command-palette/react/vite.config.mjs",
+        "sha256": "c5a81fd656e781b641c2ecc8a8550acfd8f8781bbe27c58589175cce467857e8",
+        "bytes": 206
+      }
+    ],
+    "provenanceFiles": [],
+    "bindingVerified": false
+  },
+  "routes": {
+    "build": "runtime/command-palette/react",
+    "runtime": "/command-palette/react",
+    "directory": "/components/command-palette/"
+  },
+  "checks": {
+    "canonicalSourceProvenance": {
+      "status": "blocked",
+      "reason": "No exact canonical Kumo React source/package revision provenance; downstream gates cannot truthfully be attributed to canonical React."
+    },
+    "productionBuild": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "runtimeRoute": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "ssrMarkup": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "hydration": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "assetsStyles": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "console": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "network": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "domAria": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "behaviorVectors": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "screenshotPixel": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "packageEvidence": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    }
+  },
+  "limitations": [
+    "No exact canonical Kumo React source/package revision provenance; downstream gates cannot truthfully be attributed to canonical React."
+  ],
+  "determinism": {
+    "sourceManifestHash": "76562648bc1b717eed523cd37995ab2e4598d35ff90253b8ba359cb1acc0f845"
+  }
+}

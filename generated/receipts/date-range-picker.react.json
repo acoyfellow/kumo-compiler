@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "kumo.receipt/v1",
+  "component": "date-range-picker",
+  "framework": "react",
+  "classification": "blocked",
+  "canonicalInput": true,
+  "sourceEvidence": {
+    "files": [
+      {
+        "path": "runtime/date-range-picker/react/index.html",
+        "sha256": "e6d7cef80d68a0c943919bcad892c282c3656400f94722055e4f9f9c29b2c0e7",
+        "bytes": 434
+      },
+      {
+        "path": "runtime/date-range-picker/react/public-runtime/assets/index-DHsnio_D.css",
+        "sha256": "23713fbc478b92c0796f6e67a382427bcd496be3c03dc984125cc80735595e62",
+        "bytes": 1272
+      },
+      {
+        "path": "runtime/date-range-picker/react/public-runtime/assets/react-date-range-picker.js",
+        "sha256": "b28126fb989e2b4a7e20cbc907523ada0a74f4d247e200c12a9bfe4c1f7abc24",
+        "bytes": 192651
+      },
+      {
+        "path": "runtime/date-range-picker/react/public-runtime/index.html",
+        "sha256": "0b3dcfd22baf50ca42bff4f7e2258ff2910ed789d3d06261f7da8b62157fddbe",
+        "bytes": 545
+      },
+      {
+        "path": "runtime/date-range-picker/react/src/main.js",
+        "sha256": "7e5b2b3fce5b0ba91260d71659316f441555d8835ae23bc977851f4a7b0f0092",
+        "bytes": 2256
+      },
+      {
+        "path": "runtime/date-range-picker/react/vite.config.mjs",
+        "sha256": "972572e4c88f32bf2f0d4ca487cd39a91fa485759a20a238261865ef2d964f8e",
+        "bytes": 208
+      }
+    ],
+    "provenanceFiles": [],
+    "bindingVerified": false
+  },
+  "routes": {
+    "build": "runtime/date-range-picker/react",
+    "runtime": "/date-range-picker/react",
+    "directory": "/components/date-range-picker/"
+  },
+  "checks": {
+    "canonicalSourceProvenance": {
+      "status": "blocked",
+      "reason": "No exact canonical Kumo React source/package revision provenance; downstream gates cannot truthfully be attributed to canonical React."
+    },
+    "productionBuild": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "runtimeRoute": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "ssrMarkup": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "hydration": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "assetsStyles": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "console": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "network": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "domAria": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "behaviorVectors": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "screenshotPixel": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "packageEvidence": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    }
+  },
+  "limitations": [
+    "No exact canonical Kumo React source/package revision provenance; downstream gates cannot truthfully be attributed to canonical React."
+  ],
+  "determinism": {
+    "sourceManifestHash": "9e50588c22155687acac91061ad8edc15b06b1c1937dc1ec258c9c0d456b35de"
+  }
+}

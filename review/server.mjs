@@ -51,6 +51,13 @@ for(const kind of ['checkbox','switch']){
  for(const f of frameworks)app.get(`/${kind}/${f}/`,c=>c.redirect(`/${kind}/${f}`));
  app.get(`/${kind}/compare`,c=>c.html(`<!doctype html><html><head><meta charset="utf-8"><title>${kind} comparison</title><style>body{margin:0;background:#f3f4f6;font-family:system-ui}header,main{max-width:900px;margin:20px auto}.tabs{display:flex;gap:8px}.tabs button{padding:8px 14px}.tabs button[aria-selected=true]{background:#111827;color:white}.panel{margin-top:12px;background:white;border:1px solid #d1d5db;border-radius:12px;overflow:hidden}iframe{width:100%;height:520px;border:0}</style></head><body>${nav}<header><h1>${kind[0].toUpperCase()+kind.slice(1)} runtime comparison</h1><p>One native-control family policy · four generated runtimes</p></header><main><div class="tabs" role="tablist">${[...frameworks].map((f,i)=>`<button role="tab" aria-selected="${!i}" data-f="${f}">${f}</button>`).join('')}</div><div class="panel"><iframe title="${kind} runtime" src="/${kind}/react"></iframe></div></main><script>for(const b of document.querySelectorAll('[data-f]'))b.onclick=()=>{document.querySelectorAll('[data-f]').forEach(x=>x.setAttribute('aria-selected',x===b));document.querySelector('iframe').src='/${kind}/'+b.dataset.f}</script></body></html>`));
 }
+// Catalog-wide directory fallback for families without a bespoke comparison shell.
+// The Astro component page owns the four working runtime tabs.
+app.get('/runtime/:component/compare',c=>c.redirect(`/components/${c.req.param('component')}/`,302));
+app.get('/runtime/:component/compare/',c=>c.redirect(`/components/${c.req.param('component')}/`,302));
+app.get('/:component/compare',c=>c.redirect(`/components/${c.req.param('component')}/`,302));
+app.get('/:component/compare/',c=>c.redirect(`/components/${c.req.param('component')}/`,302));
+app.get('/components/:component/',c=>{const file=resolve(root,'astro/dist/components',c.req.param('component'),'index.html');return existsSync(file)?c.html(readFileSync(file,'utf8')):c.notFound()});
 // Catalog-wide proof route: always serves the actual Vite build, never a fixture.
 const builtRuntime=c=>{
  const {component,framework}=c.req.param();if(!frameworks.has(framework)||!/^[-\w]+$/.test(component))return c.notFound();

@@ -1,0 +1,119 @@
+{
+  "schemaVersion": "kumo.receipt/v1",
+  "component": "button",
+  "framework": "react",
+  "classification": "blocked",
+  "canonicalInput": true,
+  "sourceEvidence": {
+    "files": [
+      {
+        "path": "runtime/button/react/index.html",
+        "sha256": "a1dc84c5629cadf3a51ee544c87966790bd3e548b462ba8b531771d694eda8f8",
+        "bytes": 71
+      },
+      {
+        "path": "runtime/button/react/public-runtime/assets/main.css",
+        "sha256": "0a82eca34241ddc41d15deb81e72b5478fdf58fd095c8de7dfd21b34edfa2804",
+        "bytes": 988
+      },
+      {
+        "path": "runtime/button/react/public-runtime/assets/react-button.js",
+        "sha256": "6ceebbdf7f28021ff2eb9637be887de9335cf5b9d440a7ed73f85eb97ae6d070",
+        "bytes": 191061
+      },
+      {
+        "path": "runtime/button/react/src/main.js",
+        "sha256": "a8ecb8d7394d1c1a6c5d387d8c8695ed7cc81f1b8cd9d394da6bbc9c243e0f4a",
+        "bytes": 1439
+      },
+      {
+        "path": "runtime/button/react/vite.config.mjs",
+        "sha256": "4790152c329189efa831237573db531d6b07b5e84c57dd6d33f1af6ce0d8eead",
+        "bytes": 276
+      },
+      {
+        "path": "runtime/react/public-runtime/assets/main.css",
+        "sha256": "c4a2dc52835118faf138fedb808646c843baaefe426f0eee05d3339c3cbd4183",
+        "bytes": 1389
+      },
+      {
+        "path": "runtime/react/public-runtime/assets/react-select.js",
+        "sha256": "33bee43eb7b27232d94f4b84a6eaf5cd99fd323c2f291f283877337a60bd00d3",
+        "bytes": 191962
+      },
+      {
+        "path": "runtime/react/src/main.js",
+        "sha256": "4a3a09580c632f085fbc2b586f208bcd22473b4f279fd8fce878fce1e05e4847",
+        "bytes": 2498
+      },
+      {
+        "path": "runtime/react/vite.config.mjs",
+        "sha256": "cf4ad3ca82295184201ad58bb57a4e2f96a4f6fe5d14b8fe3b991b15bb7e3036",
+        "bytes": 276
+      }
+    ],
+    "provenanceFiles": [],
+    "bindingVerified": false
+  },
+  "routes": {
+    "build": "runtime/button/react",
+    "runtime": "/button/react",
+    "directory": "/components/button/"
+  },
+  "checks": {
+    "canonicalSourceProvenance": {
+      "status": "blocked",
+      "reason": "No exact canonical Kumo React source/package revision provenance; downstream gates cannot truthfully be attributed to canonical React."
+    },
+    "productionBuild": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "runtimeRoute": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "ssrMarkup": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "hydration": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "assetsStyles": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "console": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "network": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "domAria": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "behaviorVectors": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "screenshotPixel": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    },
+    "packageEvidence": {
+      "status": "blocked",
+      "reason": "Not credited because canonical source provenance is blocked."
+    }
+  },
+  "limitations": [
+    "No exact canonical Kumo React source/package revision provenance; downstream gates cannot truthfully be attributed to canonical React."
+  ],
+  "determinism": {
+    "sourceManifestHash": "a7704a9bbbd1705ad6ddc1f9489e9570b4f82fefd8c1c38d7bc2d93667aaacff"
+  }
+}
