@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
-const root=process.cwd();
+import {fileURLToPath} from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../../..');
 const load=p=>JSON.parse(fs.readFileSync(path.join(root,p),'utf8'));
 const inventory=load('proof/shootout/architectures/inventory.json');
 const gates=load('proof/shootout/architectures/gates.json');

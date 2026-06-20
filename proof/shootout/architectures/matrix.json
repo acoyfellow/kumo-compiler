@@ -1,7 +1,13 @@
 {
   "schemaVersion": "kumo.architecture-matrix/v1",
   "axis": "B-output-architecture",
-  "revision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+  "revision": "14910e7",
+  "sourceRevision": "14910e7",
+  "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+  "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+  "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+  "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+  "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
   "contract": "shootout/v1",
   "environment": {
     "schemaVersion": "shootout-environment/v1",
@@ -31,6 +37,18 @@
     ]
   },
   "cellCount": 32,
+  "candidateCellCounts": {
+    "internal-ts": 8,
+    "mitosis": 8,
+    "shared-core-native": 8,
+    "minimal-hybrid": 8
+  },
+  "gateCounts": {
+    "passed": 87,
+    "failed": 5,
+    "blocked": 212,
+    "not-run": 80
+  },
   "receipts": [
     {
       "schemaVersion": "kumo.architecture-cell/v1",
@@ -39,8 +57,14 @@
       "component": "Button",
       "framework": "react",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -50,13 +74,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "generated/receipts/button.react.json",
         "exists": true,
         "digest": "sha256:1590776aa5bc5db6aa8da243c69a44283a648747f63996856af4576813455279"
       },
-      "evidenceDigest": "sha256:ff5581086bbf8b51585b64497ee5c4065093f10dbfbeb6bd69fb1767d4954bce",
+      "evidenceDigest": "sha256:c2349336dec4a6cfed68b5f09ca74f9152e19909f72fc653c428878e95194bb4",
       "gates": {
         "api": "blocked",
         "dom-aria": "blocked",
@@ -72,7 +96,8 @@
         "consumer": "blocked"
       },
       "status": "blocked",
-      "reason": "immutable control receipt does not expose the frozen gate contract and cannot be optimistically rebound",
+      "reason": "source evidence cannot be rebound to the frozen shootout gates",
+      "evidenceMode": "mapped",
       "ledger": {
         "adaptations": [],
         "plugins": [],
@@ -94,8 +119,14 @@
       "component": "Button",
       "framework": "solid",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -105,13 +136,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "generated/receipts/button.solid.json",
         "exists": true,
         "digest": "sha256:27fbc773cbb6ba9699c0c0d4a6fdf192d95d7755ca7b630b0956ec477c417548"
       },
-      "evidenceDigest": "sha256:5a1b770966ccee3959891d1fab8d82a7b4bd2b3cad18d1b9225066b47012dd14",
+      "evidenceDigest": "sha256:6a270c998cfc4b6b75267cb6a9bee3107f480d8fba7de0abc605f66d6adc066d",
       "gates": {
         "api": "blocked",
         "dom-aria": "blocked",
@@ -127,7 +158,8 @@
         "consumer": "blocked"
       },
       "status": "blocked",
-      "reason": "immutable control receipt does not expose the frozen gate contract and cannot be optimistically rebound",
+      "reason": "source evidence cannot be rebound to the frozen shootout gates",
+      "evidenceMode": "mapped",
       "ledger": {
         "adaptations": [],
         "plugins": [],
@@ -149,8 +181,14 @@
       "component": "Button",
       "framework": "svelte",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -160,13 +198,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "generated/receipts/button.svelte.json",
         "exists": true,
         "digest": "sha256:2d42305d7ad43babbb446e800deb38c6ea24a30c1b0a262c6d292b0e983088e9"
       },
-      "evidenceDigest": "sha256:8dea6be6c53865b1948932c0bef234dc84dc9e4b9d5110c52a237174a59a8d1c",
+      "evidenceDigest": "sha256:535fc923b8dfd66f6fe46081be94a580b86831320cf1d14681753d8e18e98360",
       "gates": {
         "api": "blocked",
         "dom-aria": "blocked",
@@ -182,7 +220,8 @@
         "consumer": "blocked"
       },
       "status": "blocked",
-      "reason": "immutable control receipt does not expose the frozen gate contract and cannot be optimistically rebound",
+      "reason": "source evidence cannot be rebound to the frozen shootout gates",
+      "evidenceMode": "mapped",
       "ledger": {
         "adaptations": [],
         "plugins": [],
@@ -204,8 +243,14 @@
       "component": "Button",
       "framework": "vue",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -215,13 +260,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "generated/receipts/button.vue.json",
         "exists": true,
         "digest": "sha256:cef56b01b1a9fbad3a9f629b416274f67e0b000b0c1a09f3824b055e77538e6f"
       },
-      "evidenceDigest": "sha256:67c99a23c41cc0fc5e1fccf6c197f05c933402db184fcb6c8e194ee6cc0b1cdd",
+      "evidenceDigest": "sha256:6f2791c744e7d3e5562717ff4accfc218a157990fb05d8bc1e63d88b8f408479",
       "gates": {
         "api": "blocked",
         "dom-aria": "blocked",
@@ -237,7 +282,8 @@
         "consumer": "blocked"
       },
       "status": "blocked",
-      "reason": "immutable control receipt does not expose the frozen gate contract and cannot be optimistically rebound",
+      "reason": "source evidence cannot be rebound to the frozen shootout gates",
+      "evidenceMode": "mapped",
       "ledger": {
         "adaptations": [],
         "plugins": [],
@@ -259,8 +305,14 @@
       "component": "Select",
       "framework": "react",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -270,13 +322,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "deploy/receipts/select.react.json",
         "exists": true,
         "digest": "sha256:22540570a145ef5791084af25873ec5bc6a07ceff7d55c47b4da8d60f9b27a75"
       },
-      "evidenceDigest": "sha256:371dc55e443190af926e2ea4dfe6ecb441bc34c5f4fdac02a750d34f9b5e6e89",
+      "evidenceDigest": "sha256:b0a20b82c4409fa5abd4c03577d72f0bed5cdb1a62b13826d4589d722b8fbc7d",
       "gates": {
         "api": "blocked",
         "dom-aria": "blocked",
@@ -292,7 +344,8 @@
         "consumer": "blocked"
       },
       "status": "blocked",
-      "reason": "immutable control receipt does not expose the frozen gate contract and cannot be optimistically rebound",
+      "reason": "source evidence cannot be rebound to the frozen shootout gates",
+      "evidenceMode": "mapped",
       "ledger": {
         "adaptations": [],
         "plugins": [],
@@ -314,8 +367,14 @@
       "component": "Select",
       "framework": "solid",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -325,13 +384,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "deploy/receipts/select.solid.json",
         "exists": true,
         "digest": "sha256:3e38831ded043a32e869126d989a9835bdc7527512ad13b75e0d85308dbd9bf7"
       },
-      "evidenceDigest": "sha256:1ffd20ff2124ae6d689b11d5b9f6095b7fcbe5941dd1807285addef088617ac7",
+      "evidenceDigest": "sha256:0fca0f05478262e94e3d6058f55bbbe2894a695bb9aadb3809c78ec4c23dc002",
       "gates": {
         "api": "blocked",
         "dom-aria": "blocked",
@@ -347,7 +406,8 @@
         "consumer": "blocked"
       },
       "status": "blocked",
-      "reason": "immutable control receipt does not expose the frozen gate contract and cannot be optimistically rebound",
+      "reason": "source evidence cannot be rebound to the frozen shootout gates",
+      "evidenceMode": "mapped",
       "ledger": {
         "adaptations": [],
         "plugins": [],
@@ -369,8 +429,14 @@
       "component": "Select",
       "framework": "svelte",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -380,13 +446,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "deploy/receipts/select.svelte.json",
         "exists": true,
         "digest": "sha256:1eecf07f750d19a95ec3dd7abf44bb93bacfd76ad5a4f2ab7617cfc6cde1ebb9"
       },
-      "evidenceDigest": "sha256:c6617f5bf9e4c3075adc1cde207d59974f5053efbb6e69297d32d8255d12c2a0",
+      "evidenceDigest": "sha256:41d86b7836b1b559bbc4b152a64ef3c0378a280fd38bac1d623c45b5a017ff1f",
       "gates": {
         "api": "blocked",
         "dom-aria": "blocked",
@@ -402,7 +468,8 @@
         "consumer": "blocked"
       },
       "status": "blocked",
-      "reason": "immutable control receipt does not expose the frozen gate contract and cannot be optimistically rebound",
+      "reason": "source evidence cannot be rebound to the frozen shootout gates",
+      "evidenceMode": "mapped",
       "ledger": {
         "adaptations": [],
         "plugins": [],
@@ -424,8 +491,14 @@
       "component": "Select",
       "framework": "vue",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -435,13 +508,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "deploy/receipts/select.vue.json",
         "exists": true,
         "digest": "sha256:97bffdef8cbc2989cadb3573137ea0c91f009834af273229eb2ce0ffb03751f7"
       },
-      "evidenceDigest": "sha256:9caeaf97e9b38d7798c74f39ee9b03288c151645756df68eeddba84b0d7a9d51",
+      "evidenceDigest": "sha256:38d332294fde71f521fb6231a8ec660de4d0e0284e5bfae33f1e21b6932c5697",
       "gates": {
         "api": "blocked",
         "dom-aria": "blocked",
@@ -457,7 +530,8 @@
         "consumer": "blocked"
       },
       "status": "blocked",
-      "reason": "immutable control receipt does not expose the frozen gate contract and cannot be optimistically rebound",
+      "reason": "source evidence cannot be rebound to the frozen shootout gates",
+      "evidenceMode": "mapped",
       "ledger": {
         "adaptations": [],
         "plugins": [],
@@ -479,8 +553,14 @@
       "component": "Button",
       "framework": "react",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -490,13 +570,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "proof/bakeoff/mitosis/receipts/button.react.json",
         "exists": true,
         "digest": "sha256:5de0bdceca618413649728da1a0f82956fee7af612f4e613d03ef87a42b31500"
       },
-      "evidenceDigest": "sha256:8c95ab7ef16633860a5f4d9a922287a90f200dab68ad8f35d4b474a9b696d41e",
+      "evidenceDigest": "sha256:579ca8eaeda143d5ec69a079959a839db6c52294298a1961e3a002538f504dc1",
       "gates": {
         "api": "passed",
         "dom-aria": "passed",
@@ -513,6 +593,7 @@
       },
       "status": "blocked",
       "reason": "real browser evidence exists, but critical SSR/package/consumer gates are blocked or not-run",
+      "evidenceMode": "mapped",
       "ledger": {
         "adaptations": [
           {
@@ -545,8 +626,14 @@
       "component": "Button",
       "framework": "solid",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -556,13 +643,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "proof/bakeoff/mitosis/receipts/button.solid.json",
         "exists": true,
         "digest": "sha256:7fc73a0e0171e81cefe3766338ff9bf32ecad2669f52a140625382e51baea9ea"
       },
-      "evidenceDigest": "sha256:22a67a04e8b825c54e9d4301c55a9be69d3744b201d812a83afd5bed2fe60206",
+      "evidenceDigest": "sha256:ce334aa737315f54e1e774945e57bfd82b1887945a3dedcec814bb42a6f32ef5",
       "gates": {
         "api": "passed",
         "dom-aria": "passed",
@@ -579,6 +666,7 @@
       },
       "status": "blocked",
       "reason": "real browser evidence exists, but critical SSR/package/consumer gates are blocked or not-run",
+      "evidenceMode": "mapped",
       "ledger": {
         "adaptations": [
           {
@@ -611,8 +699,14 @@
       "component": "Button",
       "framework": "svelte",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -622,13 +716,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "proof/bakeoff/mitosis/receipts/button.svelte.json",
         "exists": true,
         "digest": "sha256:ed7f9508fd9f950ea2b3482997782e91933a9facf0968458794f5b4824656db0"
       },
-      "evidenceDigest": "sha256:beca4065eab0d99d742da11c97dcba8cee61c834338e7085e7944f2a4fe569fd",
+      "evidenceDigest": "sha256:79e52963140263dda65c704e5830a3eeac9132d7fcaa71cb1205ec52bab66b78",
       "gates": {
         "api": "passed",
         "dom-aria": "passed",
@@ -645,6 +739,7 @@
       },
       "status": "blocked",
       "reason": "real browser evidence exists, but critical SSR/package/consumer gates are blocked or not-run",
+      "evidenceMode": "mapped",
       "ledger": {
         "adaptations": [
           {
@@ -677,8 +772,14 @@
       "component": "Button",
       "framework": "vue",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -688,13 +789,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "proof/bakeoff/mitosis/receipts/button.vue.json",
         "exists": true,
         "digest": "sha256:51c2684d13ca00a038b6df79d857434357d8daf59e10c9c8e34066f85fc56649"
       },
-      "evidenceDigest": "sha256:462f9b003e68d6b7c9b55718ca932b7f6e44caa76d45c8958d14a5700cd459eb",
+      "evidenceDigest": "sha256:04954f31e07bd5d6f424b1266b1045d80257b4445b83ff1ec2575a210820a60e",
       "gates": {
         "api": "passed",
         "dom-aria": "passed",
@@ -711,6 +812,7 @@
       },
       "status": "blocked",
       "reason": "real browser evidence exists, but critical SSR/package/consumer gates are blocked or not-run",
+      "evidenceMode": "mapped",
       "ledger": {
         "adaptations": [
           {
@@ -743,8 +845,14 @@
       "component": "Select",
       "framework": "react",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -754,13 +862,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "proof/bakeoff/mitosis/receipts/select.react.json",
         "exists": true,
         "digest": "sha256:3e9e1583fd89a2ccf531ef217c657a513152ba694bef6a7c2dfb882fd387a091"
       },
-      "evidenceDigest": "sha256:ec3a6ec42ee18cdb0d62cb0805d963d849697c2398b3367172c184e284ca8b20",
+      "evidenceDigest": "sha256:2b9b143b684e4fb738f8917cb3cedd165b68737a03363f3892ebd4cc39c18b8d",
       "gates": {
         "api": "not-run",
         "dom-aria": "not-run",
@@ -777,6 +885,7 @@
       },
       "status": "blocked",
       "reason": "generated source exists but hard execution gates were not run",
+      "evidenceMode": "mapped",
       "ledger": {
         "adaptations": [
           {
@@ -809,8 +918,14 @@
       "component": "Select",
       "framework": "solid",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -820,13 +935,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "proof/bakeoff/mitosis/receipts/select.solid.json",
         "exists": true,
         "digest": "sha256:066114da8b4fcb215f8176aa8fd787f99d678d69c6805e7d9891a0bb1fd93e04"
       },
-      "evidenceDigest": "sha256:05497964d51635c70df3f2a431c50b1c1fbb59ac16f4a23585b9699195c5943f",
+      "evidenceDigest": "sha256:30ef4dc7e8415c4fa14a1d9f6928fbda95408ec32af6efcb0a57d90087b57346",
       "gates": {
         "api": "not-run",
         "dom-aria": "not-run",
@@ -843,6 +958,7 @@
       },
       "status": "blocked",
       "reason": "generated source exists but hard execution gates were not run",
+      "evidenceMode": "mapped",
       "ledger": {
         "adaptations": [
           {
@@ -875,8 +991,14 @@
       "component": "Select",
       "framework": "svelte",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -886,13 +1008,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "proof/bakeoff/mitosis/receipts/select.svelte.json",
         "exists": true,
         "digest": "sha256:14b4dc8019d7bbd1d658013bd94d6720238100b20d3cf5552f19c89028dbe427"
       },
-      "evidenceDigest": "sha256:efd7d4b5e993a5852b72e9f76e798cb07dd093abf151c222dfac1c960e448fd3",
+      "evidenceDigest": "sha256:1ae1756a44bac6b839e35ae2000c465f6abd5b19e759e73f37099d8636141fc4",
       "gates": {
         "api": "not-run",
         "dom-aria": "not-run",
@@ -909,6 +1031,7 @@
       },
       "status": "blocked",
       "reason": "generated source exists but hard execution gates were not run",
+      "evidenceMode": "mapped",
       "ledger": {
         "adaptations": [
           {
@@ -941,8 +1064,14 @@
       "component": "Select",
       "framework": "vue",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -952,13 +1081,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "proof/bakeoff/mitosis/receipts/select.vue.json",
         "exists": true,
         "digest": "sha256:731ac6b84db308c6be04491528481cf857569ba8dd9c3f1bfd3650ba2826a16f"
       },
-      "evidenceDigest": "sha256:678f3ba038917acbdcffd74650bd49ab06deb27f6dbdc9f632f88cd5c8e844cb",
+      "evidenceDigest": "sha256:7a225ed9fca2b7cd92284e70db66b591d316519a9315dcc9c74a0db391a3547f",
       "gates": {
         "api": "not-run",
         "dom-aria": "not-run",
@@ -975,6 +1104,7 @@
       },
       "status": "blocked",
       "reason": "generated source exists but hard execution gates were not run",
+      "evidenceMode": "mapped",
       "ledger": {
         "adaptations": [
           {
@@ -1007,8 +1137,14 @@
       "component": "Button",
       "framework": "react",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -1018,13 +1154,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "proof/bakeoff/shared-core/receipts/button.react.json",
         "exists": true,
         "digest": "sha256:4035ac146700f40565b3d44fb9567ff7f3728a1b23c450980c32c77c5bd37535"
       },
-      "evidenceDigest": "sha256:7ca14fac5c6502f48b86099a4eeadd5196b6717752b768f0c2f6ae832651ec07",
+      "evidenceDigest": "sha256:6372df96e2321fa1b5f3ff08a572b971572c4529c8a8212ce0dda15368db5cf9",
       "gates": {
         "api": "passed",
         "dom-aria": "passed",
@@ -1041,6 +1177,7 @@
       },
       "status": "blocked",
       "reason": "normalized Button evidence passes most gates; frozen styles and consumer gates are not-run",
+      "evidenceMode": "executed",
       "ledger": {
         "adaptations": [],
         "plugins": [],
@@ -1062,8 +1199,14 @@
       "component": "Button",
       "framework": "solid",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -1073,13 +1216,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "proof/bakeoff/shared-core/receipts/button.solid.json",
         "exists": true,
         "digest": "sha256:3f3be41c080f75bffa10d699349d10e999de668bdd15073df5e3dba4e66dd6b6"
       },
-      "evidenceDigest": "sha256:3156102d352954c416abb66e1fc1d120220fe2c19782a205416ed1e02d5e03e6",
+      "evidenceDigest": "sha256:24132c5d7d5385e7be7ceed4b239aa3c805562a2581ddb20a1fd8b673cf74ec2",
       "gates": {
         "api": "passed",
         "dom-aria": "passed",
@@ -1096,6 +1239,7 @@
       },
       "status": "failed",
       "reason": "normalized Button evidence passes most gates; frozen styles and consumer gates are not-run",
+      "evidenceMode": "executed",
       "ledger": {
         "adaptations": [],
         "plugins": [],
@@ -1117,8 +1261,14 @@
       "component": "Button",
       "framework": "svelte",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -1128,13 +1278,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "proof/bakeoff/shared-core/receipts/button.svelte.json",
         "exists": true,
         "digest": "sha256:35c4ee563a6c6a317c496a5cf206d5fb29e63dfdee97c065face50dd8e027504"
       },
-      "evidenceDigest": "sha256:f20e3b16b307ec9e58613bc8f53d9cde738f50614ba1d494d67aec5a6f0f4759",
+      "evidenceDigest": "sha256:1178ffa944851732e3507b279341ee1262bee8cc8f96b465419b734fd21d6ee6",
       "gates": {
         "api": "passed",
         "dom-aria": "passed",
@@ -1151,6 +1301,7 @@
       },
       "status": "blocked",
       "reason": "normalized Button evidence passes most gates; frozen styles and consumer gates are not-run",
+      "evidenceMode": "executed",
       "ledger": {
         "adaptations": [],
         "plugins": [],
@@ -1172,8 +1323,14 @@
       "component": "Button",
       "framework": "vue",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -1183,13 +1340,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "proof/bakeoff/shared-core/receipts/button.vue.json",
         "exists": true,
         "digest": "sha256:c0c9aca9db3b026798d3307f628432aa98da35eeba39c417a4eb9acc30035e2a"
       },
-      "evidenceDigest": "sha256:4663ee4987f8a1a6d88479aec410515ede5c7cbb19958c953a0e111f4bdcb609",
+      "evidenceDigest": "sha256:76031e8530ea980ceace5e35066ede2cecc4e3e3fb65d8d5d8f83b3838ff0e11",
       "gates": {
         "api": "passed",
         "dom-aria": "passed",
@@ -1206,6 +1363,7 @@
       },
       "status": "blocked",
       "reason": "normalized Button evidence passes most gates; frozen styles and consumer gates are not-run",
+      "evidenceMode": "executed",
       "ledger": {
         "adaptations": [],
         "plugins": [],
@@ -1227,8 +1385,14 @@
       "component": "Select",
       "framework": "react",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -1238,13 +1402,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "proof/select/receipts.json",
         "exists": true,
         "digest": "sha256:de39a19616e47d499f81a0d34bad23d1fc0ed7d12d442661b65f3ebe8f7fd681"
       },
-      "evidenceDigest": "sha256:0838246bedbd72204f0045a84681359b30ea3d9106c5f06e8f690dafed1e9c34",
+      "evidenceDigest": "sha256:9745bce1151c7fe51e72612d60a0e2085eb3536aa50d808e9475c61e5fa38a05",
       "gates": {
         "api": "passed",
         "dom-aria": "blocked",
@@ -1261,6 +1425,7 @@
       },
       "status": "blocked",
       "reason": "current native Select execution is failed/blocked and has no consumer proof",
+      "evidenceMode": "executed",
       "ledger": {
         "adaptations": [],
         "plugins": [],
@@ -1282,8 +1447,14 @@
       "component": "Select",
       "framework": "solid",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -1293,13 +1464,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "proof/select/receipts.json",
         "exists": true,
         "digest": "sha256:de39a19616e47d499f81a0d34bad23d1fc0ed7d12d442661b65f3ebe8f7fd681"
       },
-      "evidenceDigest": "sha256:1dde15c948ecece5b30fcce079196d044bda3b0a4d2fcd44326ec27bef619b8d",
+      "evidenceDigest": "sha256:8a6d22cd89fffe3fb4788947371f35e5fe6105128c97c15b6b924e7c6d96eeee",
       "gates": {
         "api": "passed",
         "dom-aria": "passed",
@@ -1316,6 +1487,7 @@
       },
       "status": "failed",
       "reason": "current native Select execution is failed/blocked and has no consumer proof",
+      "evidenceMode": "executed",
       "ledger": {
         "adaptations": [],
         "plugins": [],
@@ -1337,8 +1509,14 @@
       "component": "Select",
       "framework": "svelte",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -1348,13 +1526,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "proof/select/receipts.json",
         "exists": true,
         "digest": "sha256:de39a19616e47d499f81a0d34bad23d1fc0ed7d12d442661b65f3ebe8f7fd681"
       },
-      "evidenceDigest": "sha256:5537ef40b0b546fddd70257f56f1a4d5942db862bd57f19f9bb6f83af841452c",
+      "evidenceDigest": "sha256:6017adadac43045cc9e0ce1cf39bae9559c695e67e34d282bea7fd84cab748d0",
       "gates": {
         "api": "passed",
         "dom-aria": "passed",
@@ -1371,6 +1549,7 @@
       },
       "status": "failed",
       "reason": "current native Select execution is failed/blocked and has no consumer proof",
+      "evidenceMode": "executed",
       "ledger": {
         "adaptations": [],
         "plugins": [],
@@ -1392,8 +1571,14 @@
       "component": "Select",
       "framework": "vue",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -1403,13 +1588,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "proof/select/receipts.json",
         "exists": true,
         "digest": "sha256:de39a19616e47d499f81a0d34bad23d1fc0ed7d12d442661b65f3ebe8f7fd681"
       },
-      "evidenceDigest": "sha256:70e40fd94ea31bb6055bbd255eb5abcbfcb307ec1942516e4a06b1ea88a1096b",
+      "evidenceDigest": "sha256:7f18e459b847dc356c71688f8d10c662201ab4842f232371a7dc7ec9d087287d",
       "gates": {
         "api": "passed",
         "dom-aria": "blocked",
@@ -1426,6 +1611,7 @@
       },
       "status": "blocked",
       "reason": "current native Select execution is failed/blocked and has no consumer proof",
+      "evidenceMode": "executed",
       "ledger": {
         "adaptations": [],
         "plugins": [],
@@ -1447,8 +1633,14 @@
       "component": "Button",
       "framework": "react",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -1458,13 +1650,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "candidates/hybrid/src/generated/button.ts",
         "exists": true,
         "digest": "sha256:2b88f60983f2cab74f6fadc93ee090358a5147d49cdb50b7c91852c514e015b6"
       },
-      "evidenceDigest": "sha256:ecaad6954564e2dc5b9c3d7182baf3f36bdd169443211b730e964733e871b9f1",
+      "evidenceDigest": "sha256:8585214dd2e69a3387c89da3562463c32e0c5aeac6f2d02639b85d79a3c81b03",
       "gates": {
         "api": "blocked",
         "dom-aria": "blocked",
@@ -1481,6 +1673,7 @@
       },
       "status": "blocked",
       "reason": "generated Button is referenced but has no shootout execution receipt",
+      "evidenceMode": "prepared",
       "ledger": {
         "adaptations": [],
         "plugins": [],
@@ -1502,8 +1695,14 @@
       "component": "Button",
       "framework": "solid",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -1513,13 +1712,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "candidates/hybrid/src/generated/button.ts",
         "exists": true,
         "digest": "sha256:2b88f60983f2cab74f6fadc93ee090358a5147d49cdb50b7c91852c514e015b6"
       },
-      "evidenceDigest": "sha256:d4a135fd0b1de95b2a21cf83357e731a48c8dcf52224b79ee14a48e768882353",
+      "evidenceDigest": "sha256:ed154c0360208d6c70ea774aa889ad3daba63b728220baf73e8dfa71019eb8b4",
       "gates": {
         "api": "blocked",
         "dom-aria": "blocked",
@@ -1536,6 +1735,7 @@
       },
       "status": "blocked",
       "reason": "generated Button is referenced but has no shootout execution receipt",
+      "evidenceMode": "prepared",
       "ledger": {
         "adaptations": [],
         "plugins": [],
@@ -1557,8 +1757,14 @@
       "component": "Button",
       "framework": "svelte",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -1568,13 +1774,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "candidates/hybrid/src/generated/button.ts",
         "exists": true,
         "digest": "sha256:2b88f60983f2cab74f6fadc93ee090358a5147d49cdb50b7c91852c514e015b6"
       },
-      "evidenceDigest": "sha256:d2acb08f9da2168d67f009236ff6b0ed9e1ac427b0955f497d1b10c48240fb8c",
+      "evidenceDigest": "sha256:db6547abdb784ed5e72b2227f5bbaa85cb02810f30c3b0e0ecd8a19d6852504a",
       "gates": {
         "api": "blocked",
         "dom-aria": "blocked",
@@ -1591,6 +1797,7 @@
       },
       "status": "blocked",
       "reason": "generated Button is referenced but has no shootout execution receipt",
+      "evidenceMode": "prepared",
       "ledger": {
         "adaptations": [],
         "plugins": [],
@@ -1612,8 +1819,14 @@
       "component": "Button",
       "framework": "vue",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -1623,13 +1836,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "candidates/hybrid/src/generated/button.ts",
         "exists": true,
         "digest": "sha256:2b88f60983f2cab74f6fadc93ee090358a5147d49cdb50b7c91852c514e015b6"
       },
-      "evidenceDigest": "sha256:94a0e713cdcb2c14488fab7c1f232e0d3d511881a54f177cd8ec32864b55c416",
+      "evidenceDigest": "sha256:78a9d311b8ea97c4caa4c9e79f816d1c5d96bed2cc942119c30a53dbe00ba122",
       "gates": {
         "api": "blocked",
         "dom-aria": "blocked",
@@ -1646,6 +1859,7 @@
       },
       "status": "blocked",
       "reason": "generated Button is referenced but has no shootout execution receipt",
+      "evidenceMode": "prepared",
       "ledger": {
         "adaptations": [],
         "plugins": [],
@@ -1667,8 +1881,14 @@
       "component": "Select",
       "framework": "react",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -1678,13 +1898,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "candidates/hybrid/src/native/select.ts",
         "exists": true,
         "digest": "sha256:75a471670417e7dc955c496f189b63e881c3d2da8c49d05cba3477e3f887ad1f"
       },
-      "evidenceDigest": "sha256:ab338b1ec9dae3c4df0a40843844b90d441a3ca02bd73b886ba0c2af17467f63",
+      "evidenceDigest": "sha256:f90c0897f7ec8e6d85b8b8edb8c7a72e01d3a60d87847bcc2047cab2f62214b6",
       "gates": {
         "api": "blocked",
         "dom-aria": "blocked",
@@ -1701,6 +1921,7 @@
       },
       "status": "blocked",
       "reason": "native Select is referenced without duplication, but no hybrid execution was run",
+      "evidenceMode": "prepared",
       "ledger": {
         "adaptations": [],
         "plugins": [],
@@ -1722,8 +1943,14 @@
       "component": "Select",
       "framework": "solid",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -1733,13 +1960,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "candidates/hybrid/src/native/select.ts",
         "exists": true,
         "digest": "sha256:75a471670417e7dc955c496f189b63e881c3d2da8c49d05cba3477e3f887ad1f"
       },
-      "evidenceDigest": "sha256:d7821db015c5f113806103689a3de6307ff5c008d6820479375432411229a1be",
+      "evidenceDigest": "sha256:962f68f0c7ebf73aa83d9c8425cdff1cdae183ec56975495427f46666d706940",
       "gates": {
         "api": "blocked",
         "dom-aria": "blocked",
@@ -1756,6 +1983,7 @@
       },
       "status": "blocked",
       "reason": "native Select is referenced without duplication, but no hybrid execution was run",
+      "evidenceMode": "prepared",
       "ledger": {
         "adaptations": [],
         "plugins": [],
@@ -1777,8 +2005,14 @@
       "component": "Select",
       "framework": "svelte",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -1788,13 +2022,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "candidates/hybrid/src/native/select.ts",
         "exists": true,
         "digest": "sha256:75a471670417e7dc955c496f189b63e881c3d2da8c49d05cba3477e3f887ad1f"
       },
-      "evidenceDigest": "sha256:71fa015242ff289a79fd4d186c4e8ad48669521c18610cf574743ea8250a3ead",
+      "evidenceDigest": "sha256:3cf92b7ad50e049e7e08f7de153284b7768bd1ef3736f005f3c5ed29025ad3c5",
       "gates": {
         "api": "blocked",
         "dom-aria": "blocked",
@@ -1811,6 +2045,7 @@
       },
       "status": "blocked",
       "reason": "native Select is referenced without duplication, but no hybrid execution was run",
+      "evidenceMode": "prepared",
       "ledger": {
         "adaptations": [],
         "plugins": [],
@@ -1832,8 +2067,14 @@
       "component": "Select",
       "framework": "vue",
       "contract": "shootout/v1",
-      "candidateRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
-      "controlRevision": "60b01bd225ba33831a7d90e1bca280cbe4d8538a",
+      "candidateRevision": "14910e7",
+      "controlRevision": "14910e7",
+      "sourceRevision": "14910e7",
+      "sourceTree": "sha256:e1c7226e5f1218d8ce367cf78757b3eacbea10e17aac01446caf4e04e38a5815",
+      "workloadHash": "sha256:223d8e6a85301222191960e0ea5e5bc7a3158d22624a880c1ddc0f4b8e4dbd7d",
+      "baselineHash": "sha256:92ac317f60b7140c74bd23b10dd40133bb2458c8282f44e132ed1e4b6bdf373b",
+      "environmentHash": "sha256:2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "browserHash": "sha256:d354550a1d1627a8a626474de4fccdc5ac452ef8dafbf4aadad844afb0d5af5b",
       "environment": {
         "schemaVersion": "shootout-environment/v1",
         "node": "22.x",
@@ -1843,13 +2084,13 @@
         "locale": "en-US",
         "browser": "Google Chrome (recorded by source evidence)"
       },
-      "runId": "axis-b-60b01bd225ba",
+      "runId": "axis-b-1ba7c3dfba494fac",
       "source": {
         "path": "candidates/hybrid/src/native/select.ts",
         "exists": true,
         "digest": "sha256:75a471670417e7dc955c496f189b63e881c3d2da8c49d05cba3477e3f887ad1f"
       },
-      "evidenceDigest": "sha256:087d3db439d5cbb09072f98b0ebe9a65279ed578a544dc20cae57158a0e386b6",
+      "evidenceDigest": "sha256:8374e8ef503f8e68be47ab728c501eae5e8732e2ee8f0590e98f045ae2b1f8a0",
       "gates": {
         "api": "blocked",
         "dom-aria": "blocked",
@@ -1866,6 +2107,7 @@
       },
       "status": "blocked",
       "reason": "native Select is referenced without duplication, but no hybrid execution was run",
+      "evidenceMode": "prepared",
       "ledger": {
         "adaptations": [],
         "plugins": [],
