@@ -9,7 +9,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "pending"
@@ -23,7 +23,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "pending"
@@ -37,7 +37,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "pending"
@@ -51,7 +51,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "pending"
@@ -61,28 +61,462 @@
       "schemaVersion": "kumo.ir/v1",
       "id": "checkbox",
       "name": "Checkbox",
-      "family": "legacy",
-      "root": null,
+      "family": "native-control",
+      "root": {
+        "kind": "element",
+        "tag": "main",
+        "attrs": {
+          "class": "native-shell"
+        },
+        "children": [
+          {
+            "kind": "element",
+            "tag": "h1",
+            "attrs": {},
+            "children": [
+              {
+                "kind": "text",
+                "value": "Checkbox"
+              }
+            ]
+          },
+          {
+            "kind": "element",
+            "tag": "section",
+            "attrs": {
+              "class": "native-matrix"
+            },
+            "children": [
+              {
+                "kind": "element",
+                "tag": "label",
+                "attrs": {
+                  "class": "native-control checkbox"
+                },
+                "children": [
+                  {
+                    "kind": "element",
+                    "tag": "input",
+                    "attrs": {
+                      "id": "accept",
+                      "type": "checkbox",
+                      "checked": false,
+                      "disabled": false,
+                      "required": false
+                    },
+                    "children": []
+                  },
+                  {
+                    "kind": "element",
+                    "tag": "span",
+                    "attrs": {
+                      "class": "indicator",
+                      "aria-hidden": "true"
+                    },
+                    "children": []
+                  },
+                  {
+                    "kind": "element",
+                    "tag": "span",
+                    "attrs": {},
+                    "children": [
+                      {
+                        "kind": "text",
+                        "value": "Accept terms"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "element",
+                "tag": "label",
+                "attrs": {
+                  "class": "native-control checkbox"
+                },
+                "children": [
+                  {
+                    "kind": "element",
+                    "tag": "input",
+                    "attrs": {
+                      "id": "updates",
+                      "type": "checkbox",
+                      "checked": true,
+                      "disabled": false,
+                      "required": false
+                    },
+                    "children": []
+                  },
+                  {
+                    "kind": "element",
+                    "tag": "span",
+                    "attrs": {
+                      "class": "indicator",
+                      "aria-hidden": "true"
+                    },
+                    "children": []
+                  },
+                  {
+                    "kind": "element",
+                    "tag": "span",
+                    "attrs": {},
+                    "children": [
+                      {
+                        "kind": "text",
+                        "value": "Email updates"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "element",
+                "tag": "label",
+                "attrs": {
+                  "class": "native-control checkbox"
+                },
+                "children": [
+                  {
+                    "kind": "element",
+                    "tag": "input",
+                    "attrs": {
+                      "id": "disabled",
+                      "type": "checkbox",
+                      "checked": false,
+                      "disabled": true,
+                      "required": false
+                    },
+                    "children": []
+                  },
+                  {
+                    "kind": "element",
+                    "tag": "span",
+                    "attrs": {
+                      "class": "indicator",
+                      "aria-hidden": "true"
+                    },
+                    "children": []
+                  },
+                  {
+                    "kind": "element",
+                    "tag": "span",
+                    "attrs": {},
+                    "children": [
+                      {
+                        "kind": "text",
+                        "value": "Disabled"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "element",
+                "tag": "label",
+                "attrs": {
+                  "class": "native-control checkbox"
+                },
+                "children": [
+                  {
+                    "kind": "element",
+                    "tag": "input",
+                    "attrs": {
+                      "id": "required",
+                      "type": "checkbox",
+                      "checked": false,
+                      "disabled": false,
+                      "required": true
+                    },
+                    "children": []
+                  },
+                  {
+                    "kind": "element",
+                    "tag": "span",
+                    "attrs": {
+                      "class": "indicator",
+                      "aria-hidden": "true"
+                    },
+                    "children": []
+                  },
+                  {
+                    "kind": "element",
+                    "tag": "span",
+                    "attrs": {},
+                    "children": [
+                      {
+                        "kind": "text",
+                        "value": "Required"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "behavior": {
+        "kind": "native-check",
+        "inputIds": [
+          "accept",
+          "updates",
+          "disabled",
+          "required"
+        ]
+      },
+      "policy": {
+        "state": [
+          "checked"
+        ],
+        "events": [
+          "change"
+        ],
+        "keyboard": [
+          "Space"
+        ],
+        "aria": [
+          "native checkbox",
+          "label"
+        ],
+        "hydration": "ssr-identical"
+      },
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
-        "vue": "pending"
+        "vue": "candidate"
       }
     },
     {
       "schemaVersion": "kumo.ir/v1",
       "id": "switch",
       "name": "Switch",
-      "family": "legacy",
-      "root": null,
+      "family": "native-control",
+      "root": {
+        "kind": "element",
+        "tag": "main",
+        "attrs": {
+          "class": "native-shell"
+        },
+        "children": [
+          {
+            "kind": "element",
+            "tag": "h1",
+            "attrs": {},
+            "children": [
+              {
+                "kind": "text",
+                "value": "Switch"
+              }
+            ]
+          },
+          {
+            "kind": "element",
+            "tag": "section",
+            "attrs": {
+              "class": "native-matrix"
+            },
+            "children": [
+              {
+                "kind": "element",
+                "tag": "label",
+                "attrs": {
+                  "class": "native-control switch"
+                },
+                "children": [
+                  {
+                    "kind": "element",
+                    "tag": "input",
+                    "attrs": {
+                      "id": "airplane",
+                      "type": "checkbox",
+                      "role": "switch",
+                      "checked": false,
+                      "disabled": false
+                    },
+                    "children": []
+                  },
+                  {
+                    "kind": "element",
+                    "tag": "span",
+                    "attrs": {
+                      "class": "indicator",
+                      "aria-hidden": "true"
+                    },
+                    "children": []
+                  },
+                  {
+                    "kind": "element",
+                    "tag": "span",
+                    "attrs": {},
+                    "children": [
+                      {
+                        "kind": "text",
+                        "value": "Airplane mode"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "element",
+                "tag": "label",
+                "attrs": {
+                  "class": "native-control switch"
+                },
+                "children": [
+                  {
+                    "kind": "element",
+                    "tag": "input",
+                    "attrs": {
+                      "id": "notifications",
+                      "type": "checkbox",
+                      "role": "switch",
+                      "checked": true,
+                      "disabled": false
+                    },
+                    "children": []
+                  },
+                  {
+                    "kind": "element",
+                    "tag": "span",
+                    "attrs": {
+                      "class": "indicator",
+                      "aria-hidden": "true"
+                    },
+                    "children": []
+                  },
+                  {
+                    "kind": "element",
+                    "tag": "span",
+                    "attrs": {},
+                    "children": [
+                      {
+                        "kind": "text",
+                        "value": "Notifications"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "element",
+                "tag": "label",
+                "attrs": {
+                  "class": "native-control switch"
+                },
+                "children": [
+                  {
+                    "kind": "element",
+                    "tag": "input",
+                    "attrs": {
+                      "id": "switch-disabled",
+                      "type": "checkbox",
+                      "role": "switch",
+                      "checked": false,
+                      "disabled": true
+                    },
+                    "children": []
+                  },
+                  {
+                    "kind": "element",
+                    "tag": "span",
+                    "attrs": {
+                      "class": "indicator",
+                      "aria-hidden": "true"
+                    },
+                    "children": []
+                  },
+                  {
+                    "kind": "element",
+                    "tag": "span",
+                    "attrs": {},
+                    "children": [
+                      {
+                        "kind": "text",
+                        "value": "Disabled"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "element",
+                "tag": "label",
+                "attrs": {
+                  "class": "native-control switch compact"
+                },
+                "children": [
+                  {
+                    "kind": "element",
+                    "tag": "input",
+                    "attrs": {
+                      "id": "compact",
+                      "type": "checkbox",
+                      "role": "switch",
+                      "checked": false,
+                      "disabled": false
+                    },
+                    "children": []
+                  },
+                  {
+                    "kind": "element",
+                    "tag": "span",
+                    "attrs": {
+                      "class": "indicator",
+                      "aria-hidden": "true"
+                    },
+                    "children": []
+                  },
+                  {
+                    "kind": "element",
+                    "tag": "span",
+                    "attrs": {},
+                    "children": [
+                      {
+                        "kind": "text",
+                        "value": "Compact"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "behavior": {
+        "kind": "native-check",
+        "inputIds": [
+          "airplane",
+          "notifications",
+          "switch-disabled",
+          "compact"
+        ]
+      },
+      "policy": {
+        "state": [
+          "checked"
+        ],
+        "events": [
+          "change"
+        ],
+        "keyboard": [
+          "Space"
+        ],
+        "aria": [
+          "switch",
+          "aria-checked"
+        ],
+        "hydration": "ssr-identical"
+      },
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
-        "vue": "pending"
+        "vue": "candidate"
       }
     },
     {
@@ -174,7 +608,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "candidate"
@@ -258,7 +692,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "candidate"
@@ -360,7 +794,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "candidate"
@@ -447,7 +881,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "candidate"
@@ -560,7 +994,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "candidate"
@@ -684,7 +1118,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "candidate"
@@ -694,70 +1128,594 @@
       "schemaVersion": "kumo.ir/v1",
       "id": "tabs",
       "name": "Tabs",
-      "family": "legacy",
-      "root": null,
+      "family": "navigation",
+      "root": {
+        "kind": "element",
+        "tag": "main",
+        "attrs": {
+          "class": "nav-shell"
+        },
+        "children": [
+          {
+            "kind": "element",
+            "tag": "h1",
+            "attrs": {},
+            "children": [
+              {
+                "kind": "text",
+                "value": "Tabs"
+              }
+            ]
+          },
+          {
+            "kind": "element",
+            "tag": "section",
+            "attrs": {},
+            "children": [
+              {
+                "kind": "element",
+                "tag": "div",
+                "attrs": {
+                  "class": "tabs",
+                  "role": "tablist",
+                  "aria-label": "Account"
+                },
+                "children": [
+                  {
+                    "kind": "element",
+                    "tag": "button",
+                    "attrs": {
+                      "role": "tab",
+                      "aria-selected": true,
+                      "tabindex": 0
+                    },
+                    "children": [
+                      {
+                        "kind": "text",
+                        "value": "Overview"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "element",
+                    "tag": "button",
+                    "attrs": {
+                      "role": "tab",
+                      "aria-selected": false,
+                      "tabindex": -1
+                    },
+                    "children": [
+                      {
+                        "kind": "text",
+                        "value": "Activity"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "element",
+                    "tag": "button",
+                    "attrs": {
+                      "role": "tab",
+                      "aria-selected": false,
+                      "tabindex": -1
+                    },
+                    "children": [
+                      {
+                        "kind": "text",
+                        "value": "Settings"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "element",
+                "tag": "div",
+                "attrs": {
+                  "class": "panel",
+                  "role": "tabpanel"
+                },
+                "children": [
+                  {
+                    "kind": "text",
+                    "value": "Overview content"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "behavior": {
+        "kind": "roving",
+        "groupRole": "tablist",
+        "itemRole": "tab",
+        "labels": [
+          "Overview",
+          "Activity",
+          "Settings"
+        ],
+        "selection": "activation"
+      },
+      "policy": {
+        "state": [
+          "active tab"
+        ],
+        "events": [
+          "click"
+        ],
+        "keyboard": [
+          "ArrowLeft",
+          "ArrowRight",
+          "Home",
+          "End",
+          "Enter",
+          "Space"
+        ],
+        "aria": [
+          "tablist",
+          "tab",
+          "tabpanel",
+          "aria-selected"
+        ],
+        "hydration": "ssr-identical"
+      },
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
-        "vue": "pending"
+        "vue": "candidate"
       }
     },
     {
       "schemaVersion": "kumo.ir/v1",
       "id": "menu-bar",
       "name": "MenuBar",
-      "family": "legacy",
-      "root": null,
+      "family": "navigation",
+      "root": {
+        "kind": "element",
+        "tag": "main",
+        "attrs": {
+          "class": "nav-shell"
+        },
+        "children": [
+          {
+            "kind": "element",
+            "tag": "h1",
+            "attrs": {},
+            "children": [
+              {
+                "kind": "text",
+                "value": "MenuBar"
+              }
+            ]
+          },
+          {
+            "kind": "element",
+            "tag": "div",
+            "attrs": {
+              "class": "menubar",
+              "role": "menubar",
+              "aria-label": "Application"
+            },
+            "children": [
+              {
+                "kind": "element",
+                "tag": "button",
+                "attrs": {
+                  "role": "menuitem",
+                  "tabindex": 0
+                },
+                "children": [
+                  {
+                    "kind": "text",
+                    "value": "File"
+                  }
+                ]
+              },
+              {
+                "kind": "element",
+                "tag": "button",
+                "attrs": {
+                  "role": "menuitem",
+                  "tabindex": -1
+                },
+                "children": [
+                  {
+                    "kind": "text",
+                    "value": "Edit"
+                  }
+                ]
+              },
+              {
+                "kind": "element",
+                "tag": "button",
+                "attrs": {
+                  "role": "menuitem",
+                  "tabindex": -1
+                },
+                "children": [
+                  {
+                    "kind": "text",
+                    "value": "View"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "behavior": {
+        "kind": "roving",
+        "groupRole": "menubar",
+        "itemRole": "menuitem",
+        "labels": [
+          "File",
+          "Edit",
+          "View"
+        ],
+        "selection": "focus"
+      },
+      "policy": {
+        "state": [
+          "focused item"
+        ],
+        "events": [
+          "focus",
+          "click"
+        ],
+        "keyboard": [
+          "ArrowLeft",
+          "ArrowRight",
+          "Home",
+          "End"
+        ],
+        "aria": [
+          "menubar",
+          "menuitem"
+        ],
+        "hydration": "ssr-identical"
+      },
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
-        "vue": "pending"
+        "vue": "candidate"
       }
     },
     {
       "schemaVersion": "kumo.ir/v1",
       "id": "sidebar",
       "name": "Sidebar",
-      "family": "legacy",
-      "root": null,
+      "family": "navigation",
+      "root": {
+        "kind": "element",
+        "tag": "main",
+        "attrs": {
+          "class": "nav-shell"
+        },
+        "children": [
+          {
+            "kind": "element",
+            "tag": "h1",
+            "attrs": {},
+            "children": [
+              {
+                "kind": "text",
+                "value": "Sidebar"
+              }
+            ]
+          },
+          {
+            "kind": "element",
+            "tag": "nav",
+            "attrs": {
+              "class": "sidebar",
+              "aria-label": "Workspace"
+            },
+            "children": [
+              {
+                "kind": "element",
+                "tag": "a",
+                "attrs": {
+                  "href": "#overview",
+                  "aria-current": "page"
+                },
+                "children": [
+                  {
+                    "kind": "text",
+                    "value": "Overview"
+                  }
+                ]
+              },
+              {
+                "kind": "element",
+                "tag": "a",
+                "attrs": {
+                  "href": "#members"
+                },
+                "children": [
+                  {
+                    "kind": "text",
+                    "value": "Members"
+                  }
+                ]
+              },
+              {
+                "kind": "element",
+                "tag": "a",
+                "attrs": {
+                  "href": "#settings"
+                },
+                "children": [
+                  {
+                    "kind": "text",
+                    "value": "Settings"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "behavior": {
+        "kind": "current-link",
+        "current": "page",
+        "labels": [
+          "Overview",
+          "Members",
+          "Settings"
+        ]
+      },
+      "policy": {
+        "state": [
+          "current page"
+        ],
+        "events": [
+          "click"
+        ],
+        "keyboard": [
+          "Enter"
+        ],
+        "aria": [
+          "nav",
+          "aria-current=page"
+        ],
+        "hydration": "ssr-identical"
+      },
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
-        "vue": "pending"
+        "vue": "candidate"
       }
     },
     {
       "schemaVersion": "kumo.ir/v1",
       "id": "breadcrumbs",
       "name": "Breadcrumbs",
-      "family": "legacy",
-      "root": null,
+      "family": "navigation",
+      "root": {
+        "kind": "element",
+        "tag": "main",
+        "attrs": {
+          "class": "nav-shell"
+        },
+        "children": [
+          {
+            "kind": "element",
+            "tag": "h1",
+            "attrs": {},
+            "children": [
+              {
+                "kind": "text",
+                "value": "Breadcrumbs"
+              }
+            ]
+          },
+          {
+            "kind": "element",
+            "tag": "nav",
+            "attrs": {
+              "aria-label": "Breadcrumb"
+            },
+            "children": [
+              {
+                "kind": "element",
+                "tag": "ol",
+                "attrs": {
+                  "class": "crumbs"
+                },
+                "children": [
+                  {
+                    "kind": "element",
+                    "tag": "li",
+                    "attrs": {},
+                    "children": [
+                      {
+                        "kind": "element",
+                        "tag": "a",
+                        "attrs": {
+                          "href": "#home"
+                        },
+                        "children": [
+                          {
+                            "kind": "text",
+                            "value": "Home"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "element",
+                    "tag": "li",
+                    "attrs": {},
+                    "children": [
+                      {
+                        "kind": "element",
+                        "tag": "a",
+                        "attrs": {
+                          "href": "#docs"
+                        },
+                        "children": [
+                          {
+                            "kind": "text",
+                            "value": "Docs"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "element",
+                    "tag": "li",
+                    "attrs": {
+                      "aria-current": "page"
+                    },
+                    "children": [
+                      {
+                        "kind": "text",
+                        "value": "Navigation"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "policy": {
+        "state": [],
+        "events": [],
+        "keyboard": [
+          "native link"
+        ],
+        "aria": [
+          "nav",
+          "ordered list",
+          "aria-current=page"
+        ],
+        "hydration": "ssr-identical"
+      },
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
-        "vue": "pending"
+        "vue": "candidate"
       }
     },
     {
       "schemaVersion": "kumo.ir/v1",
       "id": "table-of-contents",
       "name": "TableOfContents",
-      "family": "legacy",
-      "root": null,
+      "family": "navigation",
+      "root": {
+        "kind": "element",
+        "tag": "main",
+        "attrs": {
+          "class": "nav-shell"
+        },
+        "children": [
+          {
+            "kind": "element",
+            "tag": "h1",
+            "attrs": {},
+            "children": [
+              {
+                "kind": "text",
+                "value": "TableOfContents"
+              }
+            ]
+          },
+          {
+            "kind": "element",
+            "tag": "nav",
+            "attrs": {
+              "class": "toc",
+              "aria-label": "On this page"
+            },
+            "children": [
+              {
+                "kind": "element",
+                "tag": "a",
+                "attrs": {
+                  "href": "#overview",
+                  "aria-current": "location"
+                },
+                "children": [
+                  {
+                    "kind": "text",
+                    "value": "Overview"
+                  }
+                ]
+              },
+              {
+                "kind": "element",
+                "tag": "a",
+                "attrs": {
+                  "href": "#keyboard"
+                },
+                "children": [
+                  {
+                    "kind": "text",
+                    "value": "Keyboard"
+                  }
+                ]
+              },
+              {
+                "kind": "element",
+                "tag": "a",
+                "attrs": {
+                  "href": "#accessibility"
+                },
+                "children": [
+                  {
+                    "kind": "text",
+                    "value": "Accessibility"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "behavior": {
+        "kind": "current-link",
+        "current": "location",
+        "labels": [
+          "Overview",
+          "Keyboard",
+          "Accessibility"
+        ]
+      },
+      "policy": {
+        "state": [
+          "current location"
+        ],
+        "events": [
+          "click"
+        ],
+        "keyboard": [
+          "Enter"
+        ],
+        "aria": [
+          "nav",
+          "aria-current=location"
+        ],
+        "hydration": "ssr-identical"
+      },
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
-        "vue": "pending"
+        "vue": "candidate"
       }
     },
     {
@@ -810,7 +1768,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "candidate"
@@ -887,7 +1845,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "candidate"
@@ -961,7 +1919,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "candidate"
@@ -1035,7 +1993,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "candidate"
@@ -1126,7 +2084,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "candidate"
@@ -1200,7 +2158,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "candidate"
@@ -1253,7 +2211,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "candidate"
@@ -1332,7 +2290,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "candidate"
@@ -1406,7 +2364,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "candidate"
@@ -1462,7 +2420,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "candidate"
@@ -1518,7 +2476,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "candidate"
@@ -1574,7 +2532,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "candidate"
@@ -1632,7 +2590,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "candidate"
@@ -1686,7 +2644,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "candidate"
@@ -1852,7 +2810,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "candidate"
@@ -1866,7 +2824,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "pending"
@@ -1880,7 +2838,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "pending"
@@ -1894,7 +2852,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "pending"
@@ -1908,7 +2866,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "pending"
@@ -1922,7 +2880,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "pending"
@@ -1936,7 +2894,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "pending"
@@ -1950,7 +2908,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "pending"
@@ -1964,7 +2922,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "pending"
@@ -1978,7 +2936,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "2"
+        "revision": "3"
       },
       "migration": {
         "vue": "pending"

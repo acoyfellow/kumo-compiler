@@ -2,6 +2,14 @@
   "schemaVersion": "kumo.migration-status/v1",
   "derivedOnlyFromReceipts": true,
   "components": {
+    "checkbox": {
+      "vue": "verified",
+      "receipt": "generated/receipts/checkbox.vue.json"
+    },
+    "switch": {
+      "vue": "verified",
+      "receipt": "generated/receipts/switch.vue.json"
+    },
     "field": {
       "vue": "verified",
       "receipt": "generated/receipts/field.vue.json"
@@ -25,6 +33,26 @@
     "clipboard-text": {
       "vue": "verified",
       "receipt": "generated/receipts/clipboard-text.vue.json"
+    },
+    "tabs": {
+      "vue": "verified",
+      "receipt": "generated/receipts/tabs.vue.json"
+    },
+    "menu-bar": {
+      "vue": "verified",
+      "receipt": "generated/receipts/menu-bar.vue.json"
+    },
+    "sidebar": {
+      "vue": "verified",
+      "receipt": "generated/receipts/sidebar.vue.json"
+    },
+    "breadcrumbs": {
+      "vue": "verified",
+      "receipt": "generated/receipts/breadcrumbs.vue.json"
+    },
+    "table-of-contents": {
+      "vue": "verified",
+      "receipt": "generated/receipts/table-of-contents.vue.json"
     },
     "badge": {
       "vue": "verified",
