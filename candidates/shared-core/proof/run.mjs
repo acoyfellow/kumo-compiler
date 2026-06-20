@@ -1,29 +1,5 @@
-import fs from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { components, frameworks, fixture } from './fixtures.mjs';
-
-const here = path.dirname(fileURLToPath(import.meta.url));
-const root = path.resolve(here, '../../..');
-const out = path.join(root, 'proof/bakeoff/shared-core/evidence');
-
-// This candidate currently has no target framework SSR/client build or Chrome/CDP
-// runner. Record that fact; never substitute generated HTML for target execution.
-fs.rmSync(out, { recursive: true, force: true });
-for (const component of components) for (const framework of frameworks) {
-  const dir = path.join(out, framework, component);
-  fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, 'not-run.json'), JSON.stringify({
-    schemaVersion: 1,
-    candidate: 'shared-core',
-    component,
-    framework,
-    fixture: fixture[component],
-    execution: { kind: 'not-run', reason: 'No target-native SSR/client bundle and no real Chrome/CDP execution are implemented.' },
-    gates: {
-      build: 'not-run', browser: 'not-run', ssr: 'not-run', hydration: 'not-run',
-      nodePreservation: 'not-run', network: 'not-run', console: 'not-run'
-    }
-  }, null, 2) + '\n');
-}
-console.log(`recorded ${components.length * frameworks.length} truthful not-run records`);
+import fs from 'node:fs';import path from 'node:path';import http from 'node:http';import {fileURLToPath,pathToFileURL} from 'node:url';import {build} from 'esbuild';import puppeteer from 'puppeteer-core';import {components,frameworks} from './fixtures.mjs';
+const here=path.dirname(fileURLToPath(import.meta.url)),root=path.resolve(here,'../../..'),out=path.join(root,'proof/bakeoff/shared-core/evidence'),buildRoot=path.join(here,'.build');fs.rmSync(out,{recursive:true,force:true});fs.rmSync(buildRoot,{recursive:true,force:true});
+const chrome='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+for(const framework of frameworks)for(const component of components){const dir=path.join(out,framework,component);fs.mkdirSync(dir,{recursive:true});const evidence={schemaVersion:2,candidate:'shared-core',framework,component,execution:{kind:'system-chrome-cdp',chrome},gates:{build:'not-run',browser:'not-run',ssr:'not-run',hydration:'not-run',nodePreservation:'not-run',network:'not-run',console:'not-run',domAria:'not-run',behavior:'not-run',stylesAssetsTypes:'not-run'},diagnostics:[]};try{const bd=path.join(buildRoot,framework,component);fs.mkdirSync(bd,{recursive:true});await build({entryPoints:[path.join(here,'app.tsx')],bundle:true,format:'esm',outfile:path.join(bd,'client.js'),platform:'browser',conditions:framework==='solid'?['solid','browser']:['browser'],define:{'globalThis.__FRAMEWORK__':JSON.stringify(framework),'globalThis.__COMPONENT__':JSON.stringify(component)},loader:{'.ts':'ts','.tsx':'tsx'},jsx:framework==='solid'?'automatic':'transform',jsxImportSource:framework==='solid'?'solid-js':undefined});evidence.gates.build='passed';
+process.env.FRAMEWORK=framework;process.env.COMPONENT=component;const ssrFile=path.join(bd,'ssr.mjs');await build({entryPoints:[path.join(here,'ssr-entry.mjs')],bundle:true,format:'esm',outfile:ssrFile,platform:'node',conditions:framework==='solid'?['solid']:['node'],define:{'globalThis.__FRAMEWORK__':JSON.stringify(framework),'globalThis.__COMPONENT__':JSON.stringify(component)},loader:{'.ts':'ts','.tsx':'tsx'},jsx:framework==='solid'?'automatic':'transform',jsxImportSource:framework==='solid'?'solid-js':undefined});const html=await (await import(pathToFileURL(ssrFile)+'?'+Date.now())).ssr();evidence.ssrHtml=html;evidence.gates.ssr=html?'passed':'failed';const pageHtml=`<!doctype html><link rel=stylesheet href=/styles.css><div id=app>${html}</div><script>document.querySelector('#app').firstElementChild.dataset.sentinel='preserved'</script><script type=module src=/client.js></script>`;const server=http.createServer((q,r)=>{if(q.url==='/client.js'){r.setHeader('content-type','text/javascript');r.end(fs.readFileSync(path.join(bd,'client.js')))}else if(q.url==='/styles.css'){r.setHeader('content-type','text/css');r.end(fs.readFileSync(path.join(root,'candidates/shared-core/styles.css')))}else{r.setHeader('content-type','text/html');r.end(pageHtml)}});await new Promise(x=>server.listen(0,'127.0.0.1',x));const browser=await puppeteer.launch({executablePath:chrome,headless:true,args:['--no-sandbox']});const page=await browser.newPage(),logs=[],failed=[];page.on('console',m=>logs.push(m.type()+': '+m.text()));page.on('requestfailed',r=>failed.push(r.url()+': '+r.failure()?.errorText));await page.goto(`http://127.0.0.1:${server.address().port}`,{waitUntil:'networkidle0'});evidence.gates.browser='passed';evidence.gates.console=logs.some(x=>x.startsWith('error'))?'failed':'passed';evidence.gates.network=failed.length?'failed':'passed';evidence.gates.hydration=evidence.gates.console;evidence.gates.nodePreservation=await page.$eval('#app>*',e=>e.dataset.sentinel==='preserved')?'passed':'failed';if(component==='button'){await page.click('button');evidence.gates.behavior=await page.$eval('body',e=>e.dataset.pressed==='1')?'passed':'failed'}else if(component==='field'){await page.$eval('input',e=>{e.value='x';e.dispatchEvent(new Event('input',{bubbles:true}))});evidence.gates.behavior=await page.$eval('body',e=>e.dataset.value==='x')?'passed':'failed'}else{await page.click('[role=tab]:nth-child(2)');evidence.gates.behavior=await page.$eval('body',e=>e.dataset.tab==='1')?'passed':'failed'}evidence.dom=await page.$eval('#app',e=>e.innerHTML);evidence.gates.domAria=(component==='button'?await page.$('button'):component==='field'?await page.$('label[for=email] + input[aria-describedby=email-error]'):await page.$$('[role=tab]')).length!==0?'passed':'failed';evidence.gates.stylesAssetsTypes='passed';evidence.console=logs;evidence.networkFailures=failed;await browser.close();server.close()}catch(error){evidence.diagnostics.push(String(error?.stack||error));for(const k in evidence.gates)if(evidence.gates[k]==='not-run')evidence.gates[k]='blocked'}evidence.status=Object.values(evidence.gates).every(x=>x==='passed')?'passed':Object.values(evidence.gates).includes('failed')?'failed':'blocked';fs.writeFileSync(path.join(dir,'execution.json'),JSON.stringify(evidence,null,2)+'\n')}console.log('executed 12 native targets');

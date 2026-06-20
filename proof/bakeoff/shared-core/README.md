@@ -1,24 +1,14 @@
-# Shared-core pilot evidence
+# Shared-core native execution pilot
 
-Button, Field/Input, and Tabs cover 12 framework/component targets (React, Vue, Svelte, Solid), but **none currently has a target-native SSR/client build or real Chrome/CDP execution**. Their browser, DOM/ARIA, behavior, SSR, hydration, node-preservation, network, and console evidence is therefore `not-run`; no pilot target is passed.
+Button, Field/Input, and Tabs provide 12 target-native React, Vue, Svelte, and Solid fixtures backed by the shared reducers/ARIA contracts. `proof/run.mjs` attempts real framework SSR/client bundles, hydration in system Chrome through CDP, identity sentinels, console/network collection, DOM/ARIA, behavior, and styles/assets/types gates. It never reconstructs DOM as a fallback.
 
-Select, Dialog, Popover, and Date Picker also remain partial. Unit/type/static-source results may remain passed only where separately exercised; they are not browser evidence.
+The checked-in run is **blocked for all 12 targets at bundling**: esbuild discovers the Svelte dynamic-import candidates while building each framework entry and no Svelte compiler loader is wired into this first runner revision. The immutable `execution.json` records preserve that diagnostic; all downstream gates are consequently `blocked`, not falsely passed or not-run.
 
-Reproduce independently from any working directory:
-
-```sh
-cd /path/to/repository/candidates/shared-core
-npm ci
-npm run build
-npm run proof
-```
-
-Or from the repository root:
+Build output is real but ephemeral under ignored `candidates/shared-core/proof/.build/`. The LOC ledger records shared/native boundaries and escape hatches.
 
 ```sh
 npm --prefix candidates/shared-core ci
-npm --prefix candidates/shared-core run build
 npm --prefix candidates/shared-core run proof
 ```
 
-`proof/run.mjs` emits explicit module-relative `not-run.json` records. `proof/receipts.mjs` derives revision from `git rev-parse HEAD` and creates an ISO-timestamped run identity. `loc-boundary-ledger.json` records shared/native LOC and boundaries.
+All test and proof paths are module-relative and work independently of the invoking working directory.
