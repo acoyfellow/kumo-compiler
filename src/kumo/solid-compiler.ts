@@ -11,6 +11,18 @@ const htmlAttr=(key:string,value:string|number|boolean)=>value===true?` ${key}`:
 const html=(node:Node):string=>node.kind==='text'?text(node.value):`<${node.tag}${Object.entries(node.attrs??{}).map(([k,v])=>htmlAttr(k,v)).join('')}>${(node.children??[]).map(html).join('')}</${node.tag}>`;
 
 function app(ir:ComponentIR):string {
+ if(ir.family==='form'){
+  const name=ir.name;
+  if(ir.id==='sensitive-input')return `import {createSignal} from 'solid-js';
+export default function ${name}(){const [value,setValue]=createSignal('secret-123'),[revealed,setRevealed]=createSignal(false);return <main class="form-shell"><h1>${name}</h1><section class="form-grid"><article class="form-card" data-member="${ir.id}"><div class="field"><label for="secret">API token</label><span class="row"><input class="control" id="secret" type={revealed()?'text':'password'} value={value()} aria-describedby="secret-description" onInput={e=>setValue(e.currentTarget.value)}/><button class="action reveal" type="button" aria-pressed={revealed()} onClick={()=>setRevealed(x=>!x)}>{revealed()?'Hide':'Show'}</button></span><small id="secret-description">Keep this token private.</small></div></article></section></main>}
+`;
+  if(ir.id==='clipboard-text')return `import {createSignal} from 'solid-js';
+export default function ${name}(){const [status,setStatus]=createSignal('');async function copy(){const value='npm i kumo';try{await navigator.clipboard.writeText(value)}catch{const input=document.querySelector<HTMLInputElement>('#copy-value')!;input.select();document.execCommand('copy')}setStatus('Copied npm i kumo')}return <main class="form-shell"><h1>${name}</h1><section class="form-grid"><article class="form-card" data-member="${ir.id}"><div class="field"><label for="copy-value">Install command</label><span class="row"><input class="control" id="copy-value" readOnly value="npm i kumo"/><button class="action copy" type="button" onClick={copy} onKeyDown={e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();copy()}}}>Copy</button></span><p class="status" role="status" aria-live="polite">{status()}</p></div></article></section></main>}
+`;
+  return `import {createSignal} from 'solid-js';
+export default function ${name}(){const [value,setValue]=createSignal(${JSON.stringify(ir.id==='input'?'':ir.id==='input-area'?'Compiler proof':ir.id==='input-group'?'example.com':'Kumo')}),[touched,setTouched]=createSignal(false);const invalid=()=>touched()&&!value().trim();return <main class="form-shell"><h1>${name}</h1><section class="form-grid"><article class="form-card" data-member="${ir.id}">${ir.id==='field'?'<div class="field"><label for="field-value">Project name</label><input class="control" id="field-value" required value={value()} aria-describedby="field-description field-error" aria-invalid={invalid()} onInput={e=>setValue(e.currentTarget.value)} onBlur={()=>setTouched(true)}/><small id="field-description">Visible to your team.</small><small id="field-error" role="alert">{invalid()?\'Project name is required.\':\'\'}</small></div>':ir.id==='input'?'<label class="field" for="email"><span>Email address</span><input class="control" id="email" type="email" required placeholder="you@example.com" value={value()} aria-describedby="email-error" aria-invalid={invalid()} onInput={e=>setValue(e.currentTarget.value)} onBlur={()=>setTouched(true)}/><small id="email-error" role="alert">{invalid()?\'Email is required.\':\'\'}</small></label>':ir.id==='input-group'?'<label class="field" for="domain"><span>Domain</span><span class="group"><span aria-hidden="true">https://</span><input id="domain" required value={value()} aria-label="Domain name" onInput={e=>setValue(e.currentTarget.value)}/></span></label>':'<label class="field" for="notes"><span>Notes</span><textarea class="control" id="notes" required value={value()} onInput={e=>setValue(e.currentTarget.value)}/></label>'}</article></section></main>}
+`;
+ }
  if(ir.id==='badge')return `export default function Badge(){return (${jsx(ir.root!)});}\n`;
  if(ir.behavior?.kind==='native-check'){
   const inputs:Record<string,string|number|boolean>[]=[];
@@ -26,7 +38,8 @@ export default function Select(){const [open,setOpen]=createSignal(false),[activ
 `;
 }
 const emitter=await readFile('src/kumo/solid-compiler.ts','utf8'),source=await readFile('src/kumo/catalog.ts','utf8');
-for(const ir of catalog.filter(x=>['select','badge','checkbox','switch'].includes(x.id))){const dir=`runtime/${ir.id}/solid`;await mkdir(`${dir}/src`,{recursive:true});const css=await readFile(ir.family==='native-control'?'public/native-control.css':'public/styles.css','utf8');const initial=html(ir.root!);const outputs:Record<string,string>={
+const solidIds=['select','badge','checkbox','switch','field','input','input-group','input-area','sensitive-input','clipboard-text'];
+for(const ir of catalog.filter(x=>solidIds.includes(x.id))){const dir=`runtime/${ir.id}/solid`;await mkdir(`${dir}/src`,{recursive:true});const css=await readFile(ir.family==='native-control'?'public/native-control.css':ir.family==='form'?'public/form.css':'public/styles.css','utf8');const initial=html(ir.root!);const outputs:Record<string,string>={
  'src/App.tsx':app(ir),
  'src/client.tsx':`import './style.css';\nimport {hydrate} from 'solid-js/web';\nimport App from './App';\nhydrate(()=> <App/>,document.getElementById('app')!);\n`,
  'src/server.tsx':`import {generateHydrationScript,renderToString} from 'solid-js/web';\nimport App from './App';\nexport const render=()=>({html:renderToString(()=> <App/>),hydration:generateHydrationScript()});\n`,
@@ -35,4 +48,4 @@ for(const ir of catalog.filter(x=>['select','badge','checkbox','switch'].include
  'vite.config.mjs':`import solid from 'vite-plugin-solid';\nimport {defineConfig} from 'vite';\nexport default defineConfig({base:'./',plugins:[solid({ssr:true})],build:{outDir:'public-runtime',emptyOutDir:true,rollupOptions:{output:{entryFileNames:'assets/solid-${ir.id}.js'}}}});\n`,
  'index.html':`<!doctype html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><title>${ir.name} · solid</title><!--HYDRATION--></head><body><!--APP--><div id="app">${initial}</div><!--/APP--><script type="module" src="/src/client.tsx"></script></body></html>\n`
  };for(const [file,body] of Object.entries(outputs))await writeFile(`${dir}/${file}`,body);const provenance:Provenance={schemaVersion:ir.schemaVersion,component:ir.id,framework:'solid',sourceHash:hash(source),irHash:hash(JSON.stringify(ir)),emitterHash:hash(emitter),outputs:Object.fromEntries(Object.entries(outputs).map(([k,v])=>[k,hash(v)]))};await writeFile(`${dir}/provenance.json`,JSON.stringify(provenance,null,2)+'\n');}
-console.log('emitted 4 native Solid components from kumo.ir/v1');
+console.log(`emitted ${solidIds.length} Solid components from kumo.ir/v1`);
