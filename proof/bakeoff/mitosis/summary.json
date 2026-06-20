@@ -1,0 +1,56 @@
+{
+  "candidate": "mitosis",
+  "runId": "ter_20260620183240192_fgqyjc",
+  "kumoRevision": "d09dbb9559fc86274087ac6ae78799f5d511aed7",
+  "candidateRevision": "d09dbb9559fc86274087ac6ae78799f5d511aed7",
+  "counts": {
+    "passed": 28,
+    "failed": 0,
+    "not-run": 336,
+    "blocked": 56
+  },
+  "limitations": [
+    "Mitosis 0.13.2 generators throw SyntaxError: undefined is not valid JSON for every parsed smoke model; all 28 target generations are blocked and error artifacts are retained.",
+    "Browser evidence and real framework SSR/client builds not run: root dependency/toolchain modification forbidden and candidate package intentionally contains only Mitosis.",
+    "Dialog portal, focus trap, compound/context APIs and package output are unsupported by the shared generated model; not represented as passing."
+  ],
+  "supported": {},
+  "blocked": {
+    "react": [
+      "Button",
+      "Field",
+      "Tabs",
+      "Select",
+      "Dialog",
+      "Popover",
+      "DatePicker"
+    ],
+    "vue": [
+      "Button",
+      "Field",
+      "Tabs",
+      "Select",
+      "Dialog",
+      "Popover",
+      "DatePicker"
+    ],
+    "svelte": [
+      "Button",
+      "Field",
+      "Tabs",
+      "Select",
+      "Dialog",
+      "Popover",
+      "DatePicker"
+    ],
+    "solid": [
+      "Button",
+      "Field",
+      "Tabs",
+      "Select",
+      "Dialog",
+      "Popover",
+      "DatePicker"
+    ]
+  }
+}
