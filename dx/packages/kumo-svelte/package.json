@@ -1,1 +1,26 @@
-{"name":"@cloudflare/kumo-svelte","version":"0.0.0-contract","private":true,"type":"module","sideEffects":["*.css","./dist/*.css"],"exports":{".":{"types":"./dist/index.d.ts","import":"./dist/index.js"},"./styles.css":"./dist/styles.css","./tokens.css":"./dist/tokens.css","./manifest":"./kumo.manifest.json"},"peerDependencies":{"svelte":"*"},"files":["dist","kumo.manifest.json"]}
+{
+  "name": "@cloudflare/kumo-svelte",
+  "version": "0.0.0-contract",
+  "private": true,
+  "type": "module",
+  "sideEffects": [
+    "*.css",
+    "./dist/*.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./package/index.d.ts",
+      "import": "./package/index.js"
+    },
+    "./styles.css": "./package/styles.css",
+    "./tokens.css": "./package/tokens.css",
+    "./manifest": "./kumo.manifest.json"
+  },
+  "peerDependencies": {
+    "svelte": "*"
+  },
+  "files": [
+    "dist",
+    "kumo.manifest.json"
+  ]
+}
