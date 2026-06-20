@@ -1,0 +1,1 @@
+<main class="nav-shell"><h1>Sidebar</h1><nav class="sidebar" aria-label="Workspace"><a aria-current="page" href="#overview">Overview</a><a href="#members">Members</a><a href="#settings">Settings</a></nav><output aria-live="polite">Ready</output></main>

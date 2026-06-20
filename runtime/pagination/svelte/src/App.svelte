@@ -1,0 +1,1 @@
+<main class="family"><h1>Pagination</h1><section><nav class="pagination" aria-label="Pagination"><button aria-label="Previous page">‹</button><button aria-current="page">1</button><button>2</button><button>3</button><button aria-label="Next page">›</button></nav></section></main>

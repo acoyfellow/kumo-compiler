@@ -1,0 +1,1 @@
+import'./style.css';import{createSSRApp,h}from'vue';createSSRApp({render:()=>h('div',{innerHTML:"<main class=\"data-shell\"><h1>GridItem</h1><div class=\"demo\" id=\"details\"><div class=\"grid-item\"><strong>Requests</strong><p>12,480 today</p></div></div></main>"})}).mount('#app');

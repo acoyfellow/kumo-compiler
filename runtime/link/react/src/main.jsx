@@ -1,0 +1,1 @@
+import'./style.css';import React from'react';import{hydrateRoot}from'react-dom/client';function App(){return <div dangerouslySetInnerHTML={{__html:"<main class=\"data-shell\"><h1>Link</h1><div class=\"demo\" id=\"details\"><a href=\"#details\">Read details →</a></div></main>"}}/>};hydrateRoot(document.getElementById('app'),<App/>);

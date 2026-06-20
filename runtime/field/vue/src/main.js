@@ -1,0 +1,2 @@
+import'../../../../public/form.css';import{createSSRApp}from'vue';// hydrate SSR-owned markup without replacing it
+createSSRApp({render:()=>null});const root=document.getElementById('app');root.dataset.hydration='ready';

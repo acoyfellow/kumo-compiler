@@ -1,8 +1,20 @@
 {
-  "pixelHash": "e91e5a2c7d088bc9ee0bf7ed7fc92d0824c20502649bc15174d775af4126249f",
-  "frameworks": 4,
-  "members": 6,
+  "components": [
+    "field",
+    "input",
+    "input-group",
+    "input-area",
+    "sensitive-input",
+    "clipboard-text"
+  ],
+  "frameworks": [
+    "react",
+    "vue",
+    "svelte",
+    "solid"
+  ],
+  "individualRoutes": 24,
   "ssrHydration": true,
-  "keyboard": true,
-  "clipboard": true
+  "screenshotParity": true,
+  "packageProof": "npm pack --dry-run"
 }

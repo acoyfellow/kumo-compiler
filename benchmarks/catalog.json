@@ -174,24 +174,16 @@
       }
     },
     {
-      "id": "form",
-      "name": "Form family",
+      "id": "field",
+      "name": "Field",
       "status": "proved",
       "family": "form",
-      "members": [
-        "field",
-        "input",
-        "input-group",
-        "input-area",
-        "sensitive-input",
-        "clipboard-text"
-      ],
       "routes": {
-        "dashboard": "/form/compare/",
-        "react": "/form/react/",
-        "vue": "/form/vue/",
-        "svelte": "/form/svelte/",
-        "solid": "/form/solid/"
+        "dashboard": "/field/compare/",
+        "react": "/field/react/",
+        "vue": "/field/vue/",
+        "svelte": "/field/svelte/",
+        "solid": "/field/solid/"
       },
       "frameworks": [
         "react",
@@ -201,14 +193,158 @@
       ],
       "evidence": {
         "proof": "proof/form-proof.mjs",
-        "spec": "specs/form.json"
+        "spec": "specs/form.json",
+        "benchmark": "benchmarks/field/results.json"
       },
       "metrics": {
-        "members": 6,
         "runtimeCount": 4,
         "ssrHydration": true,
-        "keyboard": true,
-        "clipboard": true
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "input",
+      "name": "Input",
+      "status": "proved",
+      "family": "form",
+      "routes": {
+        "dashboard": "/input/compare/",
+        "react": "/input/react/",
+        "vue": "/input/vue/",
+        "svelte": "/input/svelte/",
+        "solid": "/input/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/form-proof.mjs",
+        "spec": "specs/form.json",
+        "benchmark": "benchmarks/input/results.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "input-group",
+      "name": "InputGroup",
+      "status": "proved",
+      "family": "form",
+      "routes": {
+        "dashboard": "/input-group/compare/",
+        "react": "/input-group/react/",
+        "vue": "/input-group/vue/",
+        "svelte": "/input-group/svelte/",
+        "solid": "/input-group/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/form-proof.mjs",
+        "spec": "specs/form.json",
+        "benchmark": "benchmarks/input-group/results.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "input-area",
+      "name": "InputArea",
+      "status": "proved",
+      "family": "form",
+      "routes": {
+        "dashboard": "/input-area/compare/",
+        "react": "/input-area/react/",
+        "vue": "/input-area/vue/",
+        "svelte": "/input-area/svelte/",
+        "solid": "/input-area/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/form-proof.mjs",
+        "spec": "specs/form.json",
+        "benchmark": "benchmarks/input-area/results.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "sensitive-input",
+      "name": "SensitiveInput",
+      "status": "proved",
+      "family": "form",
+      "routes": {
+        "dashboard": "/sensitive-input/compare/",
+        "react": "/sensitive-input/react/",
+        "vue": "/sensitive-input/vue/",
+        "svelte": "/sensitive-input/svelte/",
+        "solid": "/sensitive-input/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/form-proof.mjs",
+        "spec": "specs/form.json",
+        "benchmark": "benchmarks/sensitive-input/results.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "clipboard-text",
+      "name": "ClipboardText",
+      "status": "proved",
+      "family": "form",
+      "routes": {
+        "dashboard": "/clipboard-text/compare/",
+        "react": "/clipboard-text/react/",
+        "vue": "/clipboard-text/vue/",
+        "svelte": "/clipboard-text/svelte/",
+        "solid": "/clipboard-text/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/form-proof.mjs",
+        "spec": "specs/form.json",
+        "benchmark": "benchmarks/clipboard-text/results.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
       }
     },
     {
@@ -217,11 +353,11 @@
       "status": "proved",
       "family": "navigation",
       "routes": {
-        "dashboard": "/components/tabs/",
-        "react": "/navigation/react/",
-        "vue": "/navigation/vue/",
-        "svelte": "/navigation/svelte/",
-        "solid": "/navigation/solid/"
+        "dashboard": "/tabs/compare/",
+        "react": "/tabs/react/",
+        "vue": "/tabs/vue/",
+        "svelte": "/tabs/svelte/",
+        "solid": "/tabs/solid/"
       },
       "frameworks": [
         "react",
@@ -232,7 +368,7 @@
       "evidence": {
         "proof": "proof/navigation-proof.mjs",
         "spec": "specs/navigation.json",
-        "benchmark": "benchmarks/navigation/results.json"
+        "benchmark": "benchmarks/tabs/results.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -247,11 +383,11 @@
       "status": "proved",
       "family": "navigation",
       "routes": {
-        "dashboard": "/components/menu-bar/",
-        "react": "/navigation/react/",
-        "vue": "/navigation/vue/",
-        "svelte": "/navigation/svelte/",
-        "solid": "/navigation/solid/"
+        "dashboard": "/menu-bar/compare/",
+        "react": "/menu-bar/react/",
+        "vue": "/menu-bar/vue/",
+        "svelte": "/menu-bar/svelte/",
+        "solid": "/menu-bar/solid/"
       },
       "frameworks": [
         "react",
@@ -262,7 +398,7 @@
       "evidence": {
         "proof": "proof/navigation-proof.mjs",
         "spec": "specs/navigation.json",
-        "benchmark": "benchmarks/navigation/results.json"
+        "benchmark": "benchmarks/menu-bar/results.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -277,11 +413,11 @@
       "status": "proved",
       "family": "navigation",
       "routes": {
-        "dashboard": "/components/sidebar/",
-        "react": "/navigation/react/",
-        "vue": "/navigation/vue/",
-        "svelte": "/navigation/svelte/",
-        "solid": "/navigation/solid/"
+        "dashboard": "/sidebar/compare/",
+        "react": "/sidebar/react/",
+        "vue": "/sidebar/vue/",
+        "svelte": "/sidebar/svelte/",
+        "solid": "/sidebar/solid/"
       },
       "frameworks": [
         "react",
@@ -292,7 +428,7 @@
       "evidence": {
         "proof": "proof/navigation-proof.mjs",
         "spec": "specs/navigation.json",
-        "benchmark": "benchmarks/navigation/results.json"
+        "benchmark": "benchmarks/sidebar/results.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -307,11 +443,11 @@
       "status": "proved",
       "family": "navigation",
       "routes": {
-        "dashboard": "/components/breadcrumbs/",
-        "react": "/navigation/react/",
-        "vue": "/navigation/vue/",
-        "svelte": "/navigation/svelte/",
-        "solid": "/navigation/solid/"
+        "dashboard": "/breadcrumbs/compare/",
+        "react": "/breadcrumbs/react/",
+        "vue": "/breadcrumbs/vue/",
+        "svelte": "/breadcrumbs/svelte/",
+        "solid": "/breadcrumbs/solid/"
       },
       "frameworks": [
         "react",
@@ -322,7 +458,7 @@
       "evidence": {
         "proof": "proof/navigation-proof.mjs",
         "spec": "specs/navigation.json",
-        "benchmark": "benchmarks/navigation/results.json"
+        "benchmark": "benchmarks/breadcrumbs/results.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -337,11 +473,11 @@
       "status": "proved",
       "family": "navigation",
       "routes": {
-        "dashboard": "/components/table-of-contents/",
-        "react": "/navigation/react/",
-        "vue": "/navigation/vue/",
-        "svelte": "/navigation/svelte/",
-        "solid": "/navigation/solid/"
+        "dashboard": "/table-of-contents/compare/",
+        "react": "/table-of-contents/react/",
+        "vue": "/table-of-contents/vue/",
+        "svelte": "/table-of-contents/svelte/",
+        "solid": "/table-of-contents/solid/"
       },
       "frameworks": [
         "react",
@@ -352,7 +488,7 @@
       "evidence": {
         "proof": "proof/navigation-proof.mjs",
         "spec": "specs/navigation.json",
-        "benchmark": "benchmarks/navigation/results.json"
+        "benchmark": "benchmarks/table-of-contents/results.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -368,10 +504,10 @@
       "family": "data-presentational",
       "routes": {
         "dashboard": "/components/badge/",
-        "react": "/data-presentational/react/",
-        "vue": "/data-presentational/vue/",
-        "svelte": "/data-presentational/svelte/",
-        "solid": "/data-presentational/solid/"
+        "react": "/badge/react/",
+        "vue": "/badge/vue/",
+        "svelte": "/badge/svelte/",
+        "solid": "/badge/solid/"
       },
       "frameworks": [
         "react",
@@ -381,7 +517,7 @@
       ],
       "evidence": {
         "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/data-presentational/results.json"
+        "benchmark": "benchmarks/badge/results.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -396,10 +532,10 @@
       "family": "data-presentational",
       "routes": {
         "dashboard": "/components/banner/",
-        "react": "/data-presentational/react/",
-        "vue": "/data-presentational/vue/",
-        "svelte": "/data-presentational/svelte/",
-        "solid": "/data-presentational/solid/"
+        "react": "/banner/react/",
+        "vue": "/banner/vue/",
+        "svelte": "/banner/svelte/",
+        "solid": "/banner/solid/"
       },
       "frameworks": [
         "react",
@@ -409,7 +545,7 @@
       ],
       "evidence": {
         "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/data-presentational/results.json"
+        "benchmark": "benchmarks/banner/results.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -424,10 +560,10 @@
       "family": "data-presentational",
       "routes": {
         "dashboard": "/components/surface/",
-        "react": "/data-presentational/react/",
-        "vue": "/data-presentational/vue/",
-        "svelte": "/data-presentational/svelte/",
-        "solid": "/data-presentational/solid/"
+        "react": "/surface/react/",
+        "vue": "/surface/vue/",
+        "svelte": "/surface/svelte/",
+        "solid": "/surface/solid/"
       },
       "frameworks": [
         "react",
@@ -437,7 +573,7 @@
       ],
       "evidence": {
         "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/data-presentational/results.json"
+        "benchmark": "benchmarks/surface/results.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -452,10 +588,10 @@
       "family": "data-presentational",
       "routes": {
         "dashboard": "/components/layer-card/",
-        "react": "/data-presentational/react/",
-        "vue": "/data-presentational/vue/",
-        "svelte": "/data-presentational/svelte/",
-        "solid": "/data-presentational/solid/"
+        "react": "/layer-card/react/",
+        "vue": "/layer-card/vue/",
+        "svelte": "/layer-card/svelte/",
+        "solid": "/layer-card/solid/"
       },
       "frameworks": [
         "react",
@@ -465,7 +601,7 @@
       ],
       "evidence": {
         "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/data-presentational/results.json"
+        "benchmark": "benchmarks/layer-card/results.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -480,10 +616,10 @@
       "family": "data-presentational",
       "routes": {
         "dashboard": "/components/grid/",
-        "react": "/data-presentational/react/",
-        "vue": "/data-presentational/vue/",
-        "svelte": "/data-presentational/svelte/",
-        "solid": "/data-presentational/solid/"
+        "react": "/grid/react/",
+        "vue": "/grid/vue/",
+        "svelte": "/grid/svelte/",
+        "solid": "/grid/solid/"
       },
       "frameworks": [
         "react",
@@ -493,7 +629,7 @@
       ],
       "evidence": {
         "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/data-presentational/results.json"
+        "benchmark": "benchmarks/grid/results.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -508,10 +644,10 @@
       "family": "data-presentational",
       "routes": {
         "dashboard": "/components/grid-item/",
-        "react": "/data-presentational/react/",
-        "vue": "/data-presentational/vue/",
-        "svelte": "/data-presentational/svelte/",
-        "solid": "/data-presentational/solid/"
+        "react": "/grid-item/react/",
+        "vue": "/grid-item/vue/",
+        "svelte": "/grid-item/svelte/",
+        "solid": "/grid-item/solid/"
       },
       "frameworks": [
         "react",
@@ -521,7 +657,7 @@
       ],
       "evidence": {
         "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/data-presentational/results.json"
+        "benchmark": "benchmarks/grid-item/results.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -536,10 +672,10 @@
       "family": "data-presentational",
       "routes": {
         "dashboard": "/components/loader/",
-        "react": "/data-presentational/react/",
-        "vue": "/data-presentational/vue/",
-        "svelte": "/data-presentational/svelte/",
-        "solid": "/data-presentational/solid/"
+        "react": "/loader/react/",
+        "vue": "/loader/vue/",
+        "svelte": "/loader/svelte/",
+        "solid": "/loader/solid/"
       },
       "frameworks": [
         "react",
@@ -549,7 +685,7 @@
       ],
       "evidence": {
         "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/data-presentational/results.json"
+        "benchmark": "benchmarks/loader/results.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -564,10 +700,10 @@
       "family": "data-presentational",
       "routes": {
         "dashboard": "/components/meter/",
-        "react": "/data-presentational/react/",
-        "vue": "/data-presentational/vue/",
-        "svelte": "/data-presentational/svelte/",
-        "solid": "/data-presentational/solid/"
+        "react": "/meter/react/",
+        "vue": "/meter/vue/",
+        "svelte": "/meter/svelte/",
+        "solid": "/meter/solid/"
       },
       "frameworks": [
         "react",
@@ -577,7 +713,7 @@
       ],
       "evidence": {
         "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/data-presentational/results.json"
+        "benchmark": "benchmarks/meter/results.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -592,10 +728,10 @@
       "family": "data-presentational",
       "routes": {
         "dashboard": "/components/empty/",
-        "react": "/data-presentational/react/",
-        "vue": "/data-presentational/vue/",
-        "svelte": "/data-presentational/svelte/",
-        "solid": "/data-presentational/solid/"
+        "react": "/empty/react/",
+        "vue": "/empty/vue/",
+        "svelte": "/empty/svelte/",
+        "solid": "/empty/solid/"
       },
       "frameworks": [
         "react",
@@ -605,7 +741,7 @@
       ],
       "evidence": {
         "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/data-presentational/results.json"
+        "benchmark": "benchmarks/empty/results.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -620,10 +756,10 @@
       "family": "data-presentational",
       "routes": {
         "dashboard": "/components/label/",
-        "react": "/data-presentational/react/",
-        "vue": "/data-presentational/vue/",
-        "svelte": "/data-presentational/svelte/",
-        "solid": "/data-presentational/solid/"
+        "react": "/label/react/",
+        "vue": "/label/vue/",
+        "svelte": "/label/svelte/",
+        "solid": "/label/solid/"
       },
       "frameworks": [
         "react",
@@ -633,7 +769,7 @@
       ],
       "evidence": {
         "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/data-presentational/results.json"
+        "benchmark": "benchmarks/label/results.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -648,10 +784,10 @@
       "family": "data-presentational",
       "routes": {
         "dashboard": "/components/link/",
-        "react": "/data-presentational/react/",
-        "vue": "/data-presentational/vue/",
-        "svelte": "/data-presentational/svelte/",
-        "solid": "/data-presentational/solid/"
+        "react": "/link/react/",
+        "vue": "/link/vue/",
+        "svelte": "/link/svelte/",
+        "solid": "/link/solid/"
       },
       "frameworks": [
         "react",
@@ -661,7 +797,7 @@
       ],
       "evidence": {
         "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/data-presentational/results.json"
+        "benchmark": "benchmarks/link/results.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -676,10 +812,10 @@
       "family": "data-presentational",
       "routes": {
         "dashboard": "/components/text/",
-        "react": "/data-presentational/react/",
-        "vue": "/data-presentational/vue/",
-        "svelte": "/data-presentational/svelte/",
-        "solid": "/data-presentational/solid/"
+        "react": "/text/react/",
+        "vue": "/text/vue/",
+        "svelte": "/text/svelte/",
+        "solid": "/text/solid/"
       },
       "frameworks": [
         "react",
@@ -689,7 +825,7 @@
       ],
       "evidence": {
         "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/data-presentational/results.json"
+        "benchmark": "benchmarks/text/results.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -704,10 +840,10 @@
       "family": "data-presentational",
       "routes": {
         "dashboard": "/components/cloudflare-logo/",
-        "react": "/data-presentational/react/",
-        "vue": "/data-presentational/vue/",
-        "svelte": "/data-presentational/svelte/",
-        "solid": "/data-presentational/solid/"
+        "react": "/cloudflare-logo/react/",
+        "vue": "/cloudflare-logo/vue/",
+        "svelte": "/cloudflare-logo/svelte/",
+        "solid": "/cloudflare-logo/solid/"
       },
       "frameworks": [
         "react",
@@ -717,7 +853,7 @@
       ],
       "evidence": {
         "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/data-presentational/results.json"
+        "benchmark": "benchmarks/cloudflare-logo/results.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -732,10 +868,10 @@
       "family": "data-presentational",
       "routes": {
         "dashboard": "/components/code/",
-        "react": "/data-presentational/react/",
-        "vue": "/data-presentational/vue/",
-        "svelte": "/data-presentational/svelte/",
-        "solid": "/data-presentational/solid/"
+        "react": "/code/react/",
+        "vue": "/code/vue/",
+        "svelte": "/code/svelte/",
+        "solid": "/code/solid/"
       },
       "frameworks": [
         "react",
@@ -745,7 +881,7 @@
       ],
       "evidence": {
         "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/data-presentational/results.json"
+        "benchmark": "benchmarks/code/results.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -760,10 +896,10 @@
       "family": "data-presentational",
       "routes": {
         "dashboard": "/components/table/",
-        "react": "/data-presentational/react/",
-        "vue": "/data-presentational/vue/",
-        "svelte": "/data-presentational/svelte/",
-        "solid": "/data-presentational/solid/"
+        "react": "/table/react/",
+        "vue": "/table/vue/",
+        "svelte": "/table/svelte/",
+        "solid": "/table/solid/"
       },
       "frameworks": [
         "react",
@@ -773,7 +909,250 @@
       ],
       "evidence": {
         "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/data-presentational/results.json"
+        "benchmark": "benchmarks/table/results.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "radio",
+      "name": "Radio",
+      "status": "proved",
+      "routes": {
+        "dashboard": "/radio/compare/",
+        "react": "/radio/react/",
+        "vue": "/radio/vue/",
+        "svelte": "/radio/svelte/",
+        "solid": "/radio/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/selection-command-date-proof.mjs",
+        "spec": "specs/selection-command-date.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "autocomplete",
+      "name": "Autocomplete",
+      "status": "proved",
+      "routes": {
+        "dashboard": "/autocomplete/compare/",
+        "react": "/autocomplete/react/",
+        "vue": "/autocomplete/vue/",
+        "svelte": "/autocomplete/svelte/",
+        "solid": "/autocomplete/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/selection-command-date-proof.mjs",
+        "spec": "specs/selection-command-date.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "combobox",
+      "name": "Combobox",
+      "status": "proved",
+      "routes": {
+        "dashboard": "/combobox/compare/",
+        "react": "/combobox/react/",
+        "vue": "/combobox/vue/",
+        "svelte": "/combobox/svelte/",
+        "solid": "/combobox/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/selection-command-date-proof.mjs",
+        "spec": "specs/selection-command-date.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "command-palette",
+      "name": "CommandPalette",
+      "status": "proved",
+      "routes": {
+        "dashboard": "/command-palette/compare/",
+        "react": "/command-palette/react/",
+        "vue": "/command-palette/vue/",
+        "svelte": "/command-palette/svelte/",
+        "solid": "/command-palette/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/selection-command-date-proof.mjs",
+        "spec": "specs/selection-command-date.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "date-picker",
+      "name": "DatePicker",
+      "status": "proved",
+      "routes": {
+        "dashboard": "/date-picker/compare/",
+        "react": "/date-picker/react/",
+        "vue": "/date-picker/vue/",
+        "svelte": "/date-picker/svelte/",
+        "solid": "/date-picker/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/selection-command-date-proof.mjs",
+        "spec": "specs/selection-command-date.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "date-range-picker",
+      "name": "DateRangePicker",
+      "status": "proved",
+      "routes": {
+        "dashboard": "/date-range-picker/compare/",
+        "react": "/date-range-picker/react/",
+        "vue": "/date-range-picker/vue/",
+        "svelte": "/date-range-picker/svelte/",
+        "solid": "/date-range-picker/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/selection-command-date-proof.mjs",
+        "spec": "specs/selection-command-date.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "dropdown-menu",
+      "name": "DropdownMenu",
+      "status": "proved",
+      "routes": {
+        "dashboard": "/dropdown-menu/compare/",
+        "react": "/dropdown-menu/react/",
+        "vue": "/dropdown-menu/vue/",
+        "svelte": "/dropdown-menu/svelte/",
+        "solid": "/dropdown-menu/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/selection-command-date-proof.mjs",
+        "spec": "specs/selection-command-date.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "toasty",
+      "name": "Toasty",
+      "status": "proved",
+      "routes": {
+        "dashboard": "/toasty/compare/",
+        "react": "/toasty/react/",
+        "vue": "/toasty/vue/",
+        "svelte": "/toasty/svelte/",
+        "solid": "/toasty/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/selection-command-date-proof.mjs",
+        "spec": "specs/selection-command-date.json"
+      },
+      "metrics": {
+        "runtimeCount": 4,
+        "ssrHydration": true,
+        "screenshotParity": true
+      }
+    },
+    {
+      "id": "pagination",
+      "name": "Pagination",
+      "status": "proved",
+      "routes": {
+        "dashboard": "/pagination/compare/",
+        "react": "/pagination/react/",
+        "vue": "/pagination/vue/",
+        "svelte": "/pagination/svelte/",
+        "solid": "/pagination/solid/"
+      },
+      "frameworks": [
+        "react",
+        "vue",
+        "svelte",
+        "solid"
+      ],
+      "evidence": {
+        "proof": "proof/selection-command-date-proof.mjs",
+        "spec": "specs/selection-command-date.json"
       },
       "metrics": {
         "runtimeCount": 4,

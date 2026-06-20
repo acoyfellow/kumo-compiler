@@ -1,0 +1,2 @@
+import'../../../../public/form.css';import{createSSRApp}from'vue';// hydrate SSR-owned markup without replacing it
+createSSRApp({render:()=>null});const root=document.getElementById('app');root.dataset.hydration='ready';const reveal=root.querySelector('.reveal'),secret=root.querySelector('#secret');reveal.onclick=()=>{const shown=secret.type==='text';secret.type=shown?'password':'text';reveal.textContent=shown?'Show':'Hide';reveal.setAttribute('aria-pressed',String(!shown));root.dataset.hydrated='true'};
