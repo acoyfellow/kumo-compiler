@@ -1,0 +1,33 @@
+#!/usr/bin/env node
+import path from 'node:path';
+import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { execFileSync } from 'node:child_process';
+import { contained, sha, stable, writeImmutable } from './upstream/lib.mjs';
+
+export const ROOT=path.resolve(new URL('..',import.meta.url).pathname);
+const PACKAGE='@cloudflare/kumo';
+const APPLY={version:'2.5.1',resolved:'https://registry.npmjs.org/@cloudflare/kumo/-/kumo-2.5.1.tgz',integrity:'sha512-GFJtUsaD35nLvhlq/B/1IHUsu1XFvxMjElRBdQMKYaGideGdQIJxnBKhYRx2W5DS8XhXmzc9yLtSsln0snwR9Q=='};
+const RESTORE={version:'2.5.2',resolved:'https://registry.npmjs.org/@cloudflare/kumo/-/kumo-2.5.2.tgz',integrity:'sha512-HUNi40VG3ExJ7lV8HjqPQcGpCmm2CqG/SzjJ+K+NhCwZRYTBvagdoMDPX2XZ8AW/ZPEeuFoId0VYmzrX+luyXQ=='};
+const DEFAULT_OUT='proof/upstream/drills/rollback-2.5.2';
+
+export function parseRollbackArgs(argv){const o={out:DEFAULT_OUT,install:true};for(let i=0;i<argv.length;i++){const k=argv[i];if(k==='--no-install'){o.install=false;continue}if(!['--out','--expected-prior-sha256'].includes(k))throw Error(`unknown argument: ${k}`);if(!argv[i+1]||argv[i+1].startsWith('--'))throw Error(`missing value: ${k}`);o[k==='--out'?'out':'expectedPriorSha256']=argv[++i]}return o}
+export function assertWorkspacePath(root,target){const resolved=path.resolve(target);if(!contained(root,resolved))throw Error('unsafe workspace path');return resolved}
+function setPin(packageBytes,lockBytes,pin){const pkg=JSON.parse(packageBytes),lock=JSON.parse(lockBytes);if(pkg.devDependencies?.[PACKAGE]===undefined||lock.packages?.['']?.devDependencies?.[PACKAGE]===undefined||!lock.packages?.[`node_modules/${PACKAGE}`])throw Error('package lock shape mismatch');pkg.devDependencies[PACKAGE]=pin.version;lock.packages[''].devDependencies[PACKAGE]=pin.version;Object.assign(lock.packages[`node_modules/${PACKAGE}`],pin);return [Buffer.from(JSON.stringify(pkg,null,2)+'\n'),Buffer.from(JSON.stringify(lock,null,2)+'\n')]}
+function manifest(receipt){return receipt.generation.cells.map(c=>({framework:c.framework,status:c.status,outputManifest:c.outputManifest}))}
+function check(workspace,out){try{execFileSync(process.execPath,[path.join(ROOT,'scripts/upstream-check.mjs'),'--from','2.5.1','--to','2.5.2','--out',out],{cwd:workspace,stdio:'pipe',env:{...process.env,KUMO_UPSTREAM_OPERATOR_WORKSPACE:workspace}});return JSON.parse(execFileSync(process.execPath,['-e',`process.stdout.write(require('fs').readFileSync(${JSON.stringify(path.join(out,'receipt.json'))}))`],{encoding:'utf8'}))}catch(e){if(e.status!==2)throw e;return JSON.parse(execFileSync(process.execPath,['-e',`process.stdout.write(require('fs').readFileSync(${JSON.stringify(path.join(out,'receipt.json'))}))`],{encoding:'utf8'}))}}
+export async function runRollback(opts=parseRollbackArgs([])){
+ const mainPkg=await readFile(path.join(ROOT,'package.json')),mainLock=await readFile(path.join(ROOT,'package-lock.json')),before={packageJson:sha(mainPkg),packageLock:sha(mainLock)};
+ if(opts.expectedPriorSha256&&opts.expectedPriorSha256!==sha(Buffer.concat([mainPkg,mainLock])))throw Error('wrong prior hash');
+ const workspace=await mkdtemp(path.join(tmpdir(),'kumo-upstream-rollback-'));
+ try {const pkgPath=assertWorkspacePath(workspace,path.join(workspace,'package.json')),lockPath=assertWorkspacePath(workspace,path.join(workspace,'package-lock.json'));await writeFile(pkgPath,mainPkg);await writeFile(lockPath,mainLock);
+  const commands=['copy package.json package-lock.json to isolated workspace','apply exact @cloudflare/kumo 2.5.1 package and lock pin'];const appliedBytes=setPin(mainPkg,mainLock,APPLY);await writeFile(pkgPath,appliedBytes[0]);await writeFile(lockPath,appliedBytes[1]);let ci='skipped';if(opts.install){commands.push('npm ci --ignore-scripts');execFileSync('npm',['ci','--ignore-scripts'],{cwd:workspace,stdio:'pipe'});ci='passed'}
+  const checkA=path.join(workspace,'check-a'),checkB=path.join(workspace,'check-b');commands.push('node scripts/upstream-check.mjs --from 2.5.1 --to 2.5.2');const a=check(workspace,checkA);
+  await writeFile(pkgPath,mainPkg);await writeFile(lockPath,mainLock);const restoredPkg=await readFile(pkgPath),restoredLock=await readFile(lockPath);if(!restoredPkg.equals(mainPkg)||!restoredLock.equals(mainLock))throw Error('rollback was not byte-identical');
+  const appliedAgain=setPin(restoredPkg,restoredLock,APPLY);await writeFile(pkgPath,appliedAgain[0]);await writeFile(lockPath,appliedAgain[1]);const b=check(workspace,checkB);if(stable(manifest(a))!==stable(manifest(b)))throw Error('repeat output manifests differ');await writeFile(pkgPath,mainPkg);await writeFile(lockPath,mainLock);
+  if(!(await readFile(path.join(ROOT,'package.json'))).equals(mainPkg)||!(await readFile(path.join(ROOT,'package-lock.json'))).equals(mainLock))throw Error('main checkout changed');
+  const sourceTree=sha(execFileSync('git',['ls-tree','-r','HEAD','--','package.json','package-lock.json','src/kumo','generated/canonical-react-catalog.json'],{cwd:ROOT}));
+  const core={schemaVersion:'kumo.upstream.rollback/v1',status:'passed',package:PACKAGE,source:{revision:execFileSync('git',['rev-parse','HEAD'],{cwd:ROOT,encoding:'utf8'}).trim(),sourceTree},workspace:{kind:'isolated-temporary',cwd:'$TMPDIR/kumo-upstream-rollback-*'},pins:{applied:APPLY,restored:RESTORE},hashes:{before,applied:{packageJson:sha(appliedBytes[0]),packageLock:sha(appliedBytes[1])},restored:{packageJson:sha(restoredPkg),packageLock:sha(restoredLock)}},validation:{npmCi:ci,firstCheck:a.status,secondCheck:b.status,restoredByteIdentical:true,repeatManifestIdentical:true,mainCheckoutWrites:false,selectedAuthorityMutated:a.authority.selectedAuthorityMutated||b.authority.selectedAuthorityMutated},commands};
+  const receipt={...core,receiptSha256:sha(stable(core))},out=path.resolve(ROOT,opts.out);if(!contained(ROOT,out))throw Error('--out must be inside repository');await mkdir(out,{recursive:true});await writeImmutable(path.join(out,'receipt.json'),JSON.stringify(receipt,null,2)+'\n');return receipt;
+ }finally{await rm(workspace,{recursive:true,force:true})}}
+if(import.meta.url===new URL(`file://${process.argv[1]}`).href)try{console.log(JSON.stringify(await runRollback(parseRollbackArgs(process.argv.slice(2)))))}catch(e){console.error(e.message);process.exitCode=1}

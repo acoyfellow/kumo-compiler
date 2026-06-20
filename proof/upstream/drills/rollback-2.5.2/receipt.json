@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "kumo.upstream.rollback/v1",
+  "status": "passed",
+  "package": "@cloudflare/kumo",
+  "source": {
+    "revision": "6b4ce959dfb5e5e3e880ec6fea3ff46292c5ba62",
+    "sourceTree": "50ec27f93268269a195ca5339667cfed888c67e2744a9c8a72163690aa47baf0"
+  },
+  "workspace": {
+    "kind": "isolated-temporary",
+    "cwd": "$TMPDIR/kumo-upstream-rollback-*"
+  },
+  "pins": {
+    "applied": {
+      "version": "2.5.1",
+      "resolved": "https://registry.npmjs.org/@cloudflare/kumo/-/kumo-2.5.1.tgz",
+      "integrity": "sha512-GFJtUsaD35nLvhlq/B/1IHUsu1XFvxMjElRBdQMKYaGideGdQIJxnBKhYRx2W5DS8XhXmzc9yLtSsln0snwR9Q=="
+    },
+    "restored": {
+      "version": "2.5.2",
+      "resolved": "https://registry.npmjs.org/@cloudflare/kumo/-/kumo-2.5.2.tgz",
+      "integrity": "sha512-HUNi40VG3ExJ7lV8HjqPQcGpCmm2CqG/SzjJ+K+NhCwZRYTBvagdoMDPX2XZ8AW/ZPEeuFoId0VYmzrX+luyXQ=="
+    }
+  },
+  "hashes": {
+    "before": {
+      "packageJson": "b684c8bd7976a28a9b227e9ba9a4490c6905628d95562450e7e5c6f2bb1cd759",
+      "packageLock": "c436d1957c2885403eaa2a4c41e2f824faf6b5a0229a437d0ecbe558724763ae"
+    },
+    "applied": {
+      "packageJson": "df4850f61f08fdecd3dd5df918089f3b50e30fdec2675fe005f8b889f8f9d71c",
+      "packageLock": "2aec7677ccb9fcd67e58df032e9b74e20620f861f2699de2741224efef9716e0"
+    },
+    "restored": {
+      "packageJson": "b684c8bd7976a28a9b227e9ba9a4490c6905628d95562450e7e5c6f2bb1cd759",
+      "packageLock": "c436d1957c2885403eaa2a4c41e2f824faf6b5a0229a437d0ecbe558724763ae"
+    }
+  },
+  "validation": {
+    "npmCi": "skipped",
+    "firstCheck": "passed",
+    "secondCheck": "passed",
+    "restoredByteIdentical": true,
+    "repeatManifestIdentical": true,
+    "mainCheckoutWrites": false,
+    "selectedAuthorityMutated": false
+  },
+  "commands": [
+    "copy package.json package-lock.json to isolated workspace",
+    "apply exact @cloudflare/kumo 2.5.1 package and lock pin",
+    "node scripts/upstream-check.mjs --from 2.5.1 --to 2.5.2"
+  ],
+  "receiptSha256": "3e90172af032c59b893e8e148eabb7fac5921a9a161c5f35a649fb5c12516f79"
+}

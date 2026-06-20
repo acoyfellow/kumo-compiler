@@ -10,7 +10,8 @@ const PROVENANCE_PATHS=['workflow.json','src/kumo','scripts/compiler-protocol'];
 export function parseArgs(argv){const o={scenario:'real',calibrationComponent:'button'};for(let i=0;i<argv.length;i++){const k=argv[i];if(!['--from','--to','--scenario','--out','--calibration-component'].includes(k))throw new Error(`unknown argument: ${k}`);if(!argv[i+1]||argv[i+1].startsWith('--'))throw new Error(`missing value: ${k}`);o[k.slice(2).replace(/-([a-z])/g,(_,x)=>x.toUpperCase())]=argv[++i];}if(!o.from||!o.to)throw new Error('--from and --to are required');if(!['real','synthetic-export-break'].includes(o.scenario))throw new Error(`unknown scenario: ${o.scenario}`);return o;}
 export async function run(opts){
  const workspace=await mkdtemp(path.join(tmpdir(),'kumo-upstream-check-')); const requested=opts.out?path.resolve(process.cwd(),opts.out):path.join(workspace,'result');
- if(!contained(ROOT,requested)&&!contained(workspace,requested))throw new Error('--out must be inside the repository or isolated workspace');
+ const operatorWorkspace=process.env.KUMO_UPSTREAM_OPERATOR_WORKSPACE&&path.resolve(process.env.KUMO_UPSTREAM_OPERATOR_WORKSPACE);
+ if(!contained(ROOT,requested)&&!contained(workspace,requested)&&!(operatorWorkspace&&contained(operatorWorkspace,requested)))throw new Error('--out must be inside the repository or isolated workspace');
  const cleanBefore=gitStatus();
  try{const oldFetched=await fetchVersion(opts.from),newFetched=await fetchVersion(opts.to);const oldDir=path.join(workspace,'old'),newDir=path.join(workspace,'new');await extractTarball(oldFetched.body,oldDir);await extractTarball(newFetched.body,newDir);const oldInv=await inventory(oldDir),newInv=await inventory(newDir);
   if(oldInv.package.name!==PACKAGE||oldInv.package.version!==opts.from||newInv.package.name!==PACKAGE||newInv.package.version!==opts.to)throw new Error('extracted package identity mismatch');
