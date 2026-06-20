@@ -1,0 +1,1 @@
+import {createSignal} from 'solid-js';export default function DatePicker(){const [start,setStart]=createSignal('2026-06-20'),[end,setEnd]=createSignal('2026-06-20');return <main class="selection-shell"><h1>DatePicker</h1><label>Date<input type="date" value={start()} onInput={e=>setStart(e.currentTarget.value)}/></label><p role="status" aria-live="polite">{start()}</p></main>}
