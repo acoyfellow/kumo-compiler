@@ -1,0 +1,13 @@
+image: node:22
+
+stages: [test]
+
+validate:
+  stage: test
+  script:
+    - npm ci
+    - npm test
+    - npm run build:migration-status
+    - git diff --exit-code -- generated/migration-status.json
+    - npm run catalog:validate
+    - npm run release:check
