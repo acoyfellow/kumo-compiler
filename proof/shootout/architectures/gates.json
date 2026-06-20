@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "kumo.architecture-gates/v1",
+  "mandatory": ["api","dom-aria","behavior","client","ssr","hydration","node-preservation","package","types","exports","styles","consumer"],
+  "measurements": ["source-bytes","package-bytes","loc-generated","loc-shared","loc-native","loc-adapter","loc-harness","escape-hatches","interventions","upstream-rehearsal-cost"],
+  "hardDisqualifiers": ["copied-html","innerHTML","null-root","post-mount-reconstruction","optimistic-status"],
+  "receiptBinding": ["architecture","candidateRevision","controlRevision","component","framework","environment","runId","evidenceDigest"],
+  "currentEvidenceMapping": {
+    "internal-ts": "Button control evidence exists; Select selected receipts exist, but rebind to shootout/v1 required.",
+    "mitosis": "Button client passes; SSR/hydration/node and package/consumer gates incomplete. Select parity not run.",
+    "shared-core-native": "Button pilot evidence exists. Select has 12 passed, 4 failed, 40 blocked; fail closed.",
+    "minimal-hybrid": "Inventory and ownership projection only; all execution gates not-run."
+  },
+  "executionBlocker": "Wait for merged shootout/v1 and repaired Select harness before environment-dependent execution.",
+  "winner": null
+}

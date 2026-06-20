@@ -1,0 +1,14 @@
+import fs from 'node:fs';
+import path from 'node:path';
+const root=process.cwd();
+const load=p=>JSON.parse(fs.readFileSync(path.join(root,p),'utf8'));
+const inventory=load('proof/shootout/architectures/inventory.json');
+const gates=load('proof/shootout/architectures/gates.json');
+if(inventory.axis!=='B-output-architecture') throw new Error('Axis B required');
+if(inventory.languageControl!=='TypeScript/reference constant') throw new Error('language control drift');
+if(inventory.winner!==null||gates.winner!==null) throw new Error('winner forbidden while gates incomplete');
+if(inventory.candidates.length!==4) throw new Error('four projections required');
+if(gates.mandatory.length!==12) throw new Error('mandatory gate map incomplete');
+const ownership=load('candidates/hybrid/ownership.json');
+for(const forbidden of ['copied HTML','innerHTML','null roots','post-mount reconstruction','optimistic status']) if(!ownership.forbidden.includes(forbidden)) throw new Error(`missing disqualifier ${forbidden}`);
+console.log(JSON.stringify({status:'prepared',axis:inventory.axis,candidates:inventory.candidates.map(x=>x.id),execution:'deferred',winner:null}));

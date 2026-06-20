@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "kumo.architecture-shootout/v1",
+  "axis": "B-output-architecture",
+  "languageControl": "TypeScript/reference constant",
+  "revision": "f1a07a962997b9d662cbf58ae5b7be13e6c9d8b7",
+  "components": {"calibration": "Button", "discrimination": "Select"},
+  "candidates": [
+    {"id":"internal-ts","projection":"emitter/control","evidence":"generated/receipts","status":"existing-control"},
+    {"id":"mitosis","projection":"generated","evidence":"proof/bakeoff/mitosis","status":"incomplete"},
+    {"id":"shared-core-native","projection":"shared contract/state plus native views","evidence":"proof/select","status":"failed"},
+    {"id":"minimal-hybrid","projection":"generated Button plus shared Select contract/state and native views","evidence":"candidates/hybrid","status":"prepared-not-run"}
+  ],
+  "winner": null,
+  "reason": "Mandatory comparable gates are incomplete; unequal gates are not compared."
+}
