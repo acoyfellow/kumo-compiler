@@ -2,7 +2,6 @@
   "name": "kumo-compiler",
   "version": "1.0.0",
   "description": "Clean compiler restart.",
-  "main": "index.js",
   "scripts": {
     "compile": "node src/compiler.mjs",
     "compile:button": "node src/button-compiler.mjs",
@@ -18,7 +17,7 @@
     "proof:button": "npm run build:button && node proof/button-proof.mjs && npm pack --dry-run --ignore-scripts && npm run catalog:validate",
     "proof:dialog": "npm run build:dialog && node proof/dialog-proof.mjs && npm pack --dry-run --ignore-scripts && npm run catalog:validate",
     "workflow:complete": "node scripts/workflow-complete.mjs",
-    "test": "npm run test:workflow && npm run proof:select && npm run proof:button && npm run proof:dialog && npm run proof:popover",
+    "test": "node --test test/*.test.mjs",
     "test:workflow": "node --test test/workflow-runner.test.mjs",
     "test:catalog-browser-proof": "node --test test/catalog-browser-proof.test.mjs",
     "proof:catalog-browser": "node proof/catalog-browser-proof.mjs",
@@ -55,7 +54,8 @@
     "compile:selection-command-date": "npm run compile:kumo",
     "build:selection-command-date": "npm run compile:selection-command-date && for c in radio autocomplete combobox command-palette date-picker date-range-picker dropdown-menu toasty pagination; do vite build runtime/$c/vue || exit 1; done",
     "proof:selection-command-date": "npm run build:selection-command-date && npm run verify:kumo:vue && npm pack --dry-run --ignore-scripts && npm run catalog:validate",
-    "build:migration-status": "node scripts/build-migration-status.mjs"
+    "build:migration-status": "node scripts/build-migration-status.mjs",
+    "release:check": "npm test && npm run build:migration-status && npm --prefix astro run build && node scripts/validate-astro-routes.mjs"
   },
   "keywords": [],
   "author": "",
@@ -77,5 +77,6 @@
     "vite": "^8.0.16",
     "vite-plugin-solid": "^2.11.12",
     "vue": "^3.5.38"
-  }
+  },
+  "private": true
 }
