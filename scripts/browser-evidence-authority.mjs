@@ -13,11 +13,12 @@ export async function validateAuthority({root=defaultRoot,authorityPath=resolve(
  const catalog=await json(resolve(root,'generated/catalog.ir.json'));if(catalog.schemaVersion!=='kumo.ir/v1'||catalog.components.length!==41)fail('bad catalog');
  const ids=catalog.components.map(x=>x.id),wanted=new Set(ids);if(wanted.size!==41)fail('duplicate catalog identity');
  if(Object.keys(authority.selected||{}).sort().join()!==frameworks.slice().sort().join())fail('exactly four selections required');
- const selected={};
+ const selected={};let matrixRunId;
  for(const framework of frameworks){const slot=authority.selected[framework];if(!slot||typeof slot.runId!=='string'||typeof slot.manifest!=='string')fail(`${framework}: invalid selection`);
   const expected=`generated/browser-evidence/runs/${slot.runId}.json`;if(slot.manifest!==expected)fail(`${framework}: manifest/run mismatch`);
   const path=resolve(root,slot.manifest),runs=realpathSync(resolve(root,'generated/browser-evidence/runs'));if(relative(runs,realpathSync(path)).startsWith(`..${sep}`))fail(`${framework}: escaped runs directory`);
   const bytes=await readFile(path),run=JSON.parse(bytes);if(slot.sha256!==sha(bytes))fail(`${framework}: manifest digest mismatch`);if(!['kumo.browser-proof-run/v1','kumo.browser-proof-run/v2'].includes(run.schemaVersion)||run.runId!==slot.runId||run.frameworks?.length!==1||run.frameworks[0]!==framework)fail(`${framework}: run identity/mixed run`);
+  if(run.matrixRunId){matrixRunId??=run.matrixRunId;if(run.matrixRunId!==matrixRunId||run.runId!==`${run.matrixRunId}-${framework}`)fail(`${framework}: mixed matrix run`)}
   if(run.schemaVersion==='kumo.browser-proof-run/v2'&&!run.browserExecutable)fail(`${framework}: missing browser executable provenance`);
   if(run.results?.length!==41||run.components?.length!==41||new Set(run.components).size!==41||run.components.some(x=>!wanted.has(x)))fail(`${framework}: incomplete component list`);
   const seen=new Set(),results=new Map();for(const result of run.results){if(result.framework!==framework||!wanted.has(result.component)||seen.has(result.component)||result.status!=='passed')fail(`${framework}: incomplete, duplicate, swapped, or failed result`);seen.add(result.component);

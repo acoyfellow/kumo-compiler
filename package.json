@@ -18,6 +18,8 @@
     "proof:dialog": "npm run build:dialog && node proof/dialog-proof.mjs && npm run package:verify && npm run catalog:validate",
     "workflow:complete": "node scripts/workflow-complete.mjs",
     "test": "node --test test/*.test.mjs",
+    "matrix:kumo": "node scripts/run-kumo-matrix.mjs",
+    "matrix:kumo:shard": "node scripts/run-kumo-shard.mjs",
     "test:workflow": "node --test test/workflow-runner.test.mjs",
     "test:catalog-browser-proof": "node --test test/catalog-browser-proof.test.mjs",
     "proof:catalog-browser": "node proof/catalog-browser-proof.mjs",
