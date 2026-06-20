@@ -1,0 +1,39 @@
+{
+  "candidate": "shared-core",
+  "component": "date-picker",
+  "framework": "svelte",
+  "revision": "e7323b6aec1d37710e36657e1cf2f66fd2e82abf",
+  "run": "local-node-unit-2026-06-20",
+  "status": "partial",
+  "gates": {
+    "publicApi": "not-run",
+    "domAria": "passed",
+    "behavior": "passed",
+    "ssr": "not-run",
+    "hydrationWarnings": "not-run",
+    "nodePreservation": "not-run",
+    "nativeErgonomics": "not-run",
+    "types": "passed",
+    "packageTreeShaking": "not-run",
+    "maintainability": "passed",
+    "upstreamCostProxy": "not-run",
+    "escapeHatches": "passed"
+  },
+  "evidence": [
+    "candidates/shared-core/test/core.test.mjs",
+    "candidates/shared-core/src/index.ts"
+  ],
+  "nativeCode": {
+    "path": "candidates/shared-core/src/views/svelte/index.ts",
+    "lines": 22
+  },
+  "escapeHatches": [
+    "action:portal",
+    "bind:this.focus"
+  ],
+  "limitations": [
+    "No browser execution",
+    "No real framework SSR/client bundle",
+    "Portal/focus implementation intentionally target-native"
+  ]
+}

@@ -1,0 +1,19 @@
+/** Framework-neutral, immutable behavior primitives. DOM ownership stays in views. */
+export type Direction = 'ltr'|'rtl';
+export type Key = 'ArrowLeft'|'ArrowRight'|'ArrowUp'|'ArrowDown'|'Home'|'End'|'Enter'|' '|'Escape';
+export interface Item { id:string; disabled?:boolean }
+export const nextEnabled=(items:readonly Item[],at:number,delta:number):number=>{ if(!items.length)return -1; for(let n=1;n<=items.length;n++){const i=(at+delta*n+items.length)%items.length;if(!items[i]!.disabled)return i} return at };
+export interface DisclosureState { open:boolean }
+export type DisclosureEvent={type:'open'|'close'|'toggle'|'escape'|'outside'};
+export const disclosure=(s:DisclosureState,e:DisclosureEvent):DisclosureState=>({open:e.type==='toggle'?!s.open:e.type==='open'?true:false});
+export interface TabsState { active:number; focus:number; activation:'automatic'|'manual' }
+export type TabsEvent={type:'key';key:Key;direction?:Direction}|{type:'select';index:number};
+export function tabs(s:TabsState,e:TabsEvent,items:readonly Item[]):TabsState { if(e.type==='select')return items[e.index]?.disabled?s:{...s,active:e.index,focus:e.index}; let d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(e.direction==='rtl')d=-d;const focus=e.key==='Home'?nextEnabled(items,-1,1):e.key==='End'?nextEnabled(items,0,-1):d?nextEnabled(items,s.focus,d):s.focus;return {...s,focus,active:s.activation==='automatic'||e.key==='Enter'||e.key===' '?focus:s.active} }
+export interface SelectState { open:boolean; highlighted:number; selected:number|null; query:string }
+export type SelectEvent={type:'key';key:Key}|{type:'type';text:string}|{type:'choose';index:number};
+export function select(s:SelectState,e:SelectEvent,items:readonly (Item&{label:string})[]):SelectState {if(e.type==='choose')return items[e.index]?.disabled?s:{...s,selected:e.index,highlighted:e.index,open:false};if(e.type==='type'){const q=(s.query+e.text).toLocaleLowerCase();const i=items.findIndex(x=>!x.disabled&&x.label.toLocaleLowerCase().startsWith(q));return {...s,query:q,highlighted:i<0?s.highlighted:i}}if(e.key==='Escape')return {...s,open:false};if(e.key==='Enter'&&s.open&&s.highlighted>=0)return select(s,{type:'choose',index:s.highlighted},items);const d=e.key==='ArrowDown'?1:e.key==='ArrowUp'?-1:0;return d?{...s,open:true,highlighted:nextEnabled(items,s.highlighted,d)}:s}
+export interface CalendarState { focused:string; selected:string|null }
+const iso=(d:Date)=>d.toISOString().slice(0,10); const date=(x:string)=>new Date(`${x}T12:00:00Z`);
+export function calendar(s:CalendarState,e:{type:'key';key:Key}|{type:'select'}):CalendarState {if(e.type==='select')return {...s,selected:s.focused};const delta=e.key==='ArrowLeft'?-1:e.key==='ArrowRight'?1:e.key==='ArrowUp'?-7:e.key==='ArrowDown'?7:0;if(!delta)return s;const d=date(s.focused);d.setUTCDate(d.getUTCDate()+delta);return {...s,focused:iso(d)}}
+export const ids=(base:string)=>({trigger:`${base}-trigger`,content:`${base}-content`,label:`${base}-label`,description:`${base}-description`});
+export const aria={button:(disabled=false)=>({type:'button' as const,disabled,'aria-disabled':disabled||undefined}),field:(id:string,invalid=false)=>({id,'aria-invalid':invalid||undefined,'aria-describedby':invalid?`${id}-error`:undefined}),tab:(id:string,selected:boolean)=>({id,role:'tab','aria-selected':selected,tabIndex:selected?0:-1,'aria-controls':`${id}-panel`}),tabpanel:(id:string)=>({id:`${id}-panel`,role:'tabpanel','aria-labelledby':id}),select:(base:string,s:SelectState)=>({role:'combobox','aria-expanded':s.open,'aria-controls':`${base}-listbox`,'aria-activedescendant':s.highlighted>=0?`${base}-option-${s.highlighted}`:undefined}),dialog:(base:string)=>({role:'dialog','aria-modal':true,'aria-labelledby':`${base}-title`}),popover:(base:string,open:boolean)=>({'aria-expanded':open,'aria-controls':`${base}-content`}),day:(day:string,selected:boolean)=>({role:'gridcell','aria-selected':selected,'data-date':day})};
