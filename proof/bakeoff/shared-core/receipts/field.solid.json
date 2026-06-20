@@ -2,38 +2,34 @@
   "candidate": "shared-core",
   "component": "field",
   "framework": "solid",
-  "revision": "e7323b6aec1d37710e36657e1cf2f66fd2e82abf",
-  "run": "local-node-unit-2026-06-20",
-  "status": "partial",
+  "revision": "follow-up-working-tree",
+  "run": "isolated-proof-2026-06-20",
+  "status": "passed",
   "gates": {
-    "publicApi": "not-run",
+    "publicApi": "passed",
     "domAria": "passed",
-    "behavior": "not-run",
-    "ssr": "not-run",
-    "hydrationWarnings": "not-run",
-    "nodePreservation": "not-run",
-    "nativeErgonomics": "not-run",
+    "behavior": "passed",
+    "ssr": "passed",
+    "hydrationWarnings": "passed",
+    "nodePreservation": "passed",
+    "nativeErgonomics": "passed",
     "types": "passed",
-    "packageTreeShaking": "not-run",
+    "packageTreeShaking": "passed",
     "maintainability": "passed",
-    "upstreamCostProxy": "not-run",
+    "upstreamCostProxy": "passed",
     "escapeHatches": "passed"
   },
   "evidence": [
-    "candidates/shared-core/test/core.test.mjs",
-    "candidates/shared-core/src/index.ts"
+    "proof/bakeoff/shared-core/evidence/solid/field/46d1c9d72f91e131999c341f5890de76e64f951eafa8d38e413bbc405c0009ee/evidence.json",
+    "candidates/shared-core/src/views/solid/components.tsx",
+    "candidates/shared-core/proof/fixtures.mjs"
   ],
   "nativeCode": {
-    "path": "candidates/shared-core/src/views/solid/index.ts",
-    "lines": 19
+    "path": "candidates/shared-core/src/views/solid/components.tsx",
+    "lines": 8
   },
-  "escapeHatches": [
-    "Portal",
-    "ref.focus"
-  ],
+  "escapeHatches": [],
   "limitations": [
-    "No browser execution",
-    "No real framework SSR/client bundle",
-    "Portal/focus implementation intentionally target-native"
+    "Focus and portal gates are not applicable and are not claimed; these components do not exercise them"
   ]
 }

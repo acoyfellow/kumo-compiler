@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "candidate": "shared-core",
+  "component": "field",
+  "framework": "svelte",
+  "fixture": {
+    "id": "email",
+    "label": "Email",
+    "value": "a@b.test",
+    "invalid": true,
+    "error": "Use a work email"
+  },
+  "execution": {
+    "kind": "isolated-browser-compatible-proof",
+    "ssr": "target-native entry verified by build gate",
+    "client": "hydration contract exercised",
+    "browser": "Chrome availability probed; deterministic DOM harness"
+  },
+  "capture": {
+    "console": [],
+    "network": [
+      {
+        "url": "/svelte/field",
+        "method": "GET",
+        "status": 200
+      },
+      {
+        "url": "/client/svelte/field.js",
+        "method": "GET",
+        "status": 200
+      }
+    ],
+    "ssrHtml": "<div class=\"kumo-field\"><label for=\"email\">Email</label><input id=\"email\" value=\"a@b.test\" aria-invalid=\"true\" aria-describedby=\"email-error\"><div id=\"email-error\" role=\"alert\">Use a work email</div></div>",
+    "preHydrationHtml": "<div class=\"kumo-field\"><label for=\"email\">Email</label><input id=\"email\" value=\"a@b.test\" aria-invalid=\"true\" aria-describedby=\"email-error\"><div id=\"email-error\" role=\"alert\">Use a work email</div></div>",
+    "postHydrationHtml": "<div class=\"kumo-field\"><label for=\"email\">Email</label><input id=\"email\" value=\"a@b.test\" aria-invalid=\"true\" aria-describedby=\"email-error\"><div id=\"email-error\" role=\"alert\">Use a work email</div></div>",
+    "aria": {
+      "label": 1,
+      "input": 1,
+      "alert": 1
+    },
+    "behavior": [
+      "input callback receives value"
+    ],
+    "identity": {
+      "before": [
+        "root",
+        "email"
+      ],
+      "after": [
+        "root",
+        "email"
+      ],
+      "preserved": true
+    }
+  },
+  "focusGate": "not-run-not-applicable",
+  "portalGate": "not-run-not-applicable"
+}

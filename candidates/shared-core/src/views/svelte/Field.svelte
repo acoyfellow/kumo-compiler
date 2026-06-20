@@ -1,0 +1,2 @@
+<script lang="ts">import type {FieldProps} from '../native.js';let p:FieldProps=$props();</script>
+<div class="kumo-field"><label for={p.id}>{p.label}</label><input id={p.id} value={p.value??''} aria-invalid={p.invalid||undefined} aria-describedby={p.invalid?`${p.id}-error`:undefined} oninput={(e)=>p.onInput?.(e.currentTarget.value)}/>{#if p.invalid}<div id={`${p.id}-error`} role="alert">{p.error??'Invalid value'}</div>{/if}</div>

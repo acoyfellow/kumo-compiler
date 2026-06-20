@@ -1,0 +1,70 @@
+{
+  "entries": [
+    {
+      "file": "src/index.ts",
+      "kind": "shared",
+      "loc": 19,
+      "boundary": "immutable behavior/ARIA contract"
+    },
+    {
+      "file": "src/views/native.ts",
+      "kind": "shared",
+      "loc": 14,
+      "boundary": "immutable behavior/ARIA contract"
+    },
+    {
+      "file": "src/views/react/index.ts",
+      "kind": "native",
+      "loc": 8,
+      "boundary": "framework render/reactivity/events"
+    },
+    {
+      "file": "src/views/vue/index.ts",
+      "kind": "native",
+      "loc": 7,
+      "boundary": "framework render/reactivity/events"
+    },
+    {
+      "file": "src/views/svelte/Button.svelte",
+      "kind": "native",
+      "loc": 2,
+      "boundary": "framework render/reactivity/events"
+    },
+    {
+      "file": "src/views/svelte/Field.svelte",
+      "kind": "native",
+      "loc": 2,
+      "boundary": "framework render/reactivity/events"
+    },
+    {
+      "file": "src/views/svelte/Tabs.svelte",
+      "kind": "native",
+      "loc": 2,
+      "boundary": "framework render/reactivity/events"
+    },
+    {
+      "file": "src/views/solid/components.tsx",
+      "kind": "native",
+      "loc": 8,
+      "boundary": "framework render/reactivity/events"
+    }
+  ],
+  "totals": {
+    "shared": 33,
+    "native": 29
+  },
+  "escapeHatches": {
+    "button": [],
+    "field": [],
+    "tabs": []
+  },
+  "nativeBoundary": [
+    "framework element creation/templates",
+    "framework reactive state",
+    "native event binding"
+  ],
+  "excludedBoundary": [
+    "focus management",
+    "portals (not exercised by pilot components)"
+  ]
+}

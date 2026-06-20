@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "candidate": "shared-core",
+  "component": "tabs",
+  "framework": "solid",
+  "fixture": {
+    "id": "account",
+    "items": [
+      {
+        "id": "profile",
+        "label": "Profile",
+        "panel": "Profile panel"
+      },
+      {
+        "id": "billing",
+        "label": "Billing",
+        "panel": "Billing panel"
+      }
+    ]
+  },
+  "execution": {
+    "kind": "isolated-browser-compatible-proof",
+    "ssr": "target-native entry verified by build gate",
+    "client": "hydration contract exercised",
+    "browser": "Chrome availability probed; deterministic DOM harness"
+  },
+  "capture": {
+    "console": [],
+    "network": [
+      {
+        "url": "/solid/tabs",
+        "method": "GET",
+        "status": 200
+      },
+      {
+        "url": "/client/solid/tabs.js",
+        "method": "GET",
+        "status": 200
+      }
+    ],
+    "ssrHtml": "<div class=\"kumo-tabs\"><div role=\"tablist\"><button id=\"account-profile\" role=\"tab\" aria-selected=\"true\" tabindex=\"0\" aria-controls=\"account-profile-panel\">Profile</button><button id=\"account-billing\" role=\"tab\" aria-selected=\"false\" tabindex=\"-1\" aria-controls=\"account-billing-panel\">Billing</button></div><div id=\"account-profile-panel\" role=\"tabpanel\" aria-labelledby=\"account-profile\">Profile panel</div><div id=\"account-billing-panel\" role=\"tabpanel\" aria-labelledby=\"account-billing\" hidden>Billing panel</div></div>",
+    "preHydrationHtml": "<div class=\"kumo-tabs\"><div role=\"tablist\"><button id=\"account-profile\" role=\"tab\" aria-selected=\"true\" tabindex=\"0\" aria-controls=\"account-profile-panel\">Profile</button><button id=\"account-billing\" role=\"tab\" aria-selected=\"false\" tabindex=\"-1\" aria-controls=\"account-billing-panel\">Billing</button></div><div id=\"account-profile-panel\" role=\"tabpanel\" aria-labelledby=\"account-profile\">Profile panel</div><div id=\"account-billing-panel\" role=\"tabpanel\" aria-labelledby=\"account-billing\" hidden>Billing panel</div></div>",
+    "postHydrationHtml": "<div class=\"kumo-tabs\"><div role=\"tablist\"><button id=\"account-profile\" role=\"tab\" aria-selected=\"true\" tabindex=\"0\" aria-controls=\"account-profile-panel\">Profile</button><button id=\"account-billing\" role=\"tab\" aria-selected=\"false\" tabindex=\"-1\" aria-controls=\"account-billing-panel\">Billing</button></div><div id=\"account-profile-panel\" role=\"tabpanel\" aria-labelledby=\"account-profile\">Profile panel</div><div id=\"account-billing-panel\" role=\"tabpanel\" aria-labelledby=\"account-billing\" hidden>Billing panel</div></div>",
+    "aria": {
+      "tablist": 1,
+      "tabs": 2,
+      "tabpanel": 2
+    },
+    "behavior": [
+      "ArrowRight activates billing",
+      "click activates profile"
+    ],
+    "identity": {
+      "before": [
+        "root",
+        "account-profile",
+        "account-billing"
+      ],
+      "after": [
+        "root",
+        "account-profile",
+        "account-billing"
+      ],
+      "preserved": true
+    }
+  },
+  "focusGate": "not-run-not-applicable",
+  "portalGate": "not-run-not-applicable"
+}

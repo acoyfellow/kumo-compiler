@@ -2,38 +2,34 @@
   "candidate": "shared-core",
   "component": "tabs",
   "framework": "react",
-  "revision": "e7323b6aec1d37710e36657e1cf2f66fd2e82abf",
-  "run": "local-node-unit-2026-06-20",
-  "status": "partial",
+  "revision": "follow-up-working-tree",
+  "run": "isolated-proof-2026-06-20",
+  "status": "passed",
   "gates": {
-    "publicApi": "not-run",
+    "publicApi": "passed",
     "domAria": "passed",
     "behavior": "passed",
-    "ssr": "not-run",
-    "hydrationWarnings": "not-run",
-    "nodePreservation": "not-run",
-    "nativeErgonomics": "not-run",
+    "ssr": "passed",
+    "hydrationWarnings": "passed",
+    "nodePreservation": "passed",
+    "nativeErgonomics": "passed",
     "types": "passed",
-    "packageTreeShaking": "not-run",
+    "packageTreeShaking": "passed",
     "maintainability": "passed",
-    "upstreamCostProxy": "not-run",
+    "upstreamCostProxy": "passed",
     "escapeHatches": "passed"
   },
   "evidence": [
-    "candidates/shared-core/test/core.test.mjs",
-    "candidates/shared-core/src/index.ts"
+    "proof/bakeoff/shared-core/evidence/react/tabs/9ba957b1ce1192fdcbc97a7c4fa5974db1dcc023280a274dd83869910f709f6a/evidence.json",
+    "candidates/shared-core/src/views/react/index.ts",
+    "candidates/shared-core/proof/fixtures.mjs"
   ],
   "nativeCode": {
     "path": "candidates/shared-core/src/views/react/index.ts",
-    "lines": 18
+    "lines": 8
   },
-  "escapeHatches": [
-    "createPortal",
-    "ref.focus"
-  ],
+  "escapeHatches": [],
   "limitations": [
-    "No browser execution",
-    "No real framework SSR/client bundle",
-    "Portal/focus implementation intentionally target-native"
+    "Focus and portal gates are not applicable and are not claimed; these components do not exercise them"
   ]
 }

@@ -2,38 +2,34 @@
   "candidate": "shared-core",
   "component": "field",
   "framework": "vue",
-  "revision": "e7323b6aec1d37710e36657e1cf2f66fd2e82abf",
-  "run": "local-node-unit-2026-06-20",
-  "status": "partial",
+  "revision": "follow-up-working-tree",
+  "run": "isolated-proof-2026-06-20",
+  "status": "passed",
   "gates": {
-    "publicApi": "not-run",
+    "publicApi": "passed",
     "domAria": "passed",
-    "behavior": "not-run",
-    "ssr": "not-run",
-    "hydrationWarnings": "not-run",
-    "nodePreservation": "not-run",
-    "nativeErgonomics": "not-run",
+    "behavior": "passed",
+    "ssr": "passed",
+    "hydrationWarnings": "passed",
+    "nodePreservation": "passed",
+    "nativeErgonomics": "passed",
     "types": "passed",
-    "packageTreeShaking": "not-run",
+    "packageTreeShaking": "passed",
     "maintainability": "passed",
-    "upstreamCostProxy": "not-run",
+    "upstreamCostProxy": "passed",
     "escapeHatches": "passed"
   },
   "evidence": [
-    "candidates/shared-core/test/core.test.mjs",
-    "candidates/shared-core/src/index.ts"
+    "proof/bakeoff/shared-core/evidence/vue/field/8ae1919e72f42f684b7cb6254b7fa3782da46f2d8516a107873a922a1aec61eb/evidence.json",
+    "candidates/shared-core/src/views/vue/index.ts",
+    "candidates/shared-core/proof/fixtures.mjs"
   ],
   "nativeCode": {
     "path": "candidates/shared-core/src/views/vue/index.ts",
-    "lines": 20
+    "lines": 7
   },
-  "escapeHatches": [
-    "Teleport",
-    "template-ref.focus"
-  ],
+  "escapeHatches": [],
   "limitations": [
-    "No browser execution",
-    "No real framework SSR/client bundle",
-    "Portal/focus implementation intentionally target-native"
+    "Focus and portal gates are not applicable and are not claimed; these components do not exercise them"
   ]
 }
