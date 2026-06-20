@@ -38,9 +38,9 @@
     "compile:data-presentational": "npm run compile:kumo",
     "build:data-presentational": "npm run compile:data-presentational && for c in badge banner surface layer-card grid grid-item loader meter empty label link text cloudflare-logo code table; do for f in react vue svelte solid; do vite build runtime/$c/$f || exit 1; done; done",
     "proof:data-presentational": "npm run build:data-presentational && node proof/data-presentational-proof.mjs && npm pack --dry-run --ignore-scripts && npm run catalog:validate",
-    "compile:selection-command-date": "node src/selection-command-date-compiler.mjs",
-    "build:selection-command-date": "npm run compile:selection-command-date && for c in radio autocomplete combobox command-palette date-picker date-range-picker dropdown-menu toasty pagination; do for f in react vue svelte solid; do vite build runtime/$c/$f || exit 1; done; done",
-    "proof:selection-command-date": "npm run build:selection-command-date && node proof/selection-command-date-proof.mjs && npm pack --dry-run --ignore-scripts && npm run catalog:validate"
+    "compile:selection-command-date": "npm run compile:kumo",
+    "build:selection-command-date": "npm run compile:selection-command-date && for c in radio autocomplete combobox command-palette date-picker date-range-picker dropdown-menu toasty pagination; do vite build runtime/$c/vue || exit 1; done",
+    "proof:selection-command-date": "npm run build:selection-command-date && npm run verify:kumo:vue && npm pack --dry-run --ignore-scripts && npm run catalog:validate"
   },
   "keywords": [],
   "author": "",
