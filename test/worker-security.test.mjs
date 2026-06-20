@@ -18,11 +18,16 @@ test('health and version expose deployment identity with security headers', asyn
   }
 });
 
-test('manifest routes redirect canonically and forward mapped assets', async () => {
-  assert.equal((await app.request('https://example.test/select/react', {}, env)).status, 308);
-  const response = await app.request('https://example.test/select/react/', {}, env);
+test('manifest and Astro routes forward mapped assets', async () => {
+  const paths = [];
+  const routeEnv = { ...env, ASSETS: { fetch: async (request) => { paths.push(new URL(request.url).pathname); return new Response('asset'); } } };
+  assert.equal((await app.request('https://example.test/select/react', {}, routeEnv)).status, 308);
+  const response = await app.request('https://example.test/select/react/', {}, routeEnv);
   assert.equal(response.status, 200);
   assert.equal(response.headers.get('content-security-policy')?.includes("default-src 'self'"), true);
+  await app.request('https://example.test/', {}, routeEnv);
+  await app.request('https://example.test/components/select/', {}, routeEnv);
+  assert.deepEqual(paths, ['/select/react/index.html', '/index.html', '/components/select/index.html']);
 });
 
 test('catalog pages can frame same-origin runtimes but CSP rejects foreign ancestors', async () => {

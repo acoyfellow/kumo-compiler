@@ -42,6 +42,8 @@ app.get('*', (c) => {
   const route = runtimeRoute(url.pathname);
   if (route?.needsSlash) return c.redirect(`${url.pathname}/${url.search}`, 308);
   if (route) url.pathname = route.asset;
+  else if (url.pathname === '/') url.pathname = '/index.html';
+  else if (url.pathname.endsWith('/')) url.pathname += 'index.html';
   return c.env.ASSETS.fetch(new Request(url, c.req.raw));
 });
 
