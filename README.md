@@ -12,6 +12,7 @@ Requires Node 22 and npm. The package is private and versioned `0.0.1`.
 
 ```sh
 npm ci
+npm run release:install  # deterministic Astro install from astro/package-lock.json
 npm test
 npm run matrix:kumo       # 24 shards; exact 164 component/framework targets
 npm run release:check
@@ -22,7 +23,7 @@ The matrix atomically promotes only a complete 164-target run into [`generated/b
 
 ## Production and operations
 
-The production Worker is **https://kumo-compiler.coey.dev** and is Cloudflare Access protected for external requests. `npm run deploy:prepare` only builds Astro, replaces `deploy/` with `astro/dist`, and validates manifest route inventories; it has no proof side effects. Authorized operators use `npm run deploy`, then `npm run proof:production`. Use `npm run rollback:dry-run` or `npm run rollback` with `CLOUDFLARE_WORKER_VERSION_ID`, followed by production probes.
+The production Worker is **https://kumo-compiler.coey.dev** and is Cloudflare Access protected for external requests. `release:check` first runs `release:install`, a fail-fast `npm ci` scoped to Astro's separate lockfile; normal unit tests do not install dependencies. `npm run deploy:prepare` only builds Astro, replaces `deploy/` with `astro/dist`, and validates manifest route inventories; it has no proof side effects. Authorized operators use `npm run deploy`, then `npm run proof:production`. Use `npm run rollback:dry-run` or `npm run rollback` with `CLOUDFLARE_WORKER_VERSION_ID`, followed by production probes.
 
 Retain immutable deploy artifacts, manifest identity, receipts, production proof, source revision, and the predecessor Worker version for rollback. The remaining external blocker is an authorized Access service token (`CF_ACCESS_CLIENT_ID`/`CF_ACCESS_CLIENT_SECRET`) and a live rollback rehearsal; neither belongs in this repository.
 

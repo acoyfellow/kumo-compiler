@@ -2,7 +2,7 @@
 
 ## Preconditions
 
-- Node 22; approved source revision; `npm run release:check` passes.
+- Node 22 and npm 11; approved source revision; root `npm ci` and `npm run release:check` pass. The check deterministically installs Astro from `astro/package-lock.json`.
 - Complete v2 browser authority: 24 matrix shards and exactly 164 targets.
 - Immutable artifact, manifest identity, receipts, and predecessor Worker version have retention locations.
 - Authorized production operator and Cloudflare Access service token are available.
