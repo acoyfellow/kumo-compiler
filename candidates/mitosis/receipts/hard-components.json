@@ -1,0 +1,484 @@
+{
+  "schemaVersion": 2,
+  "candidate": "mitosis",
+  "runId": "ter_20260620192638995_ptsm10",
+  "revisions": {
+    "kumo": "9ae5e719ed33ae49f2765585c5982ad419cd503b",
+    "candidate": "9ae5e719ed33ae49f2765585c5982ad419cd503b"
+  },
+  "generatedFilesEdited": false,
+  "statusVocabulary": [
+    "passed",
+    "failed",
+    "not-run",
+    "blocked"
+  ],
+  "targets": {
+    "Select.react": {
+      "component": "Select",
+      "framework": "react",
+      "runId": "ter_20260620192638995_ptsm10",
+      "revisions": {
+        "kumo": "9ae5e719ed33ae49f2765585c5982ad419cd503b",
+        "candidate": "9ae5e719ed33ae49f2765585c5982ad419cd503b"
+      },
+      "generatedSource": "candidates/mitosis/generated/react/Select.tsx",
+      "execution": {
+        "kind": "system-chrome-cdp",
+        "chrome": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+      },
+      "gates": {
+        "build": "passed",
+        "client": "passed",
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodePreservation": "passed",
+        "console": "passed",
+        "network": "passed",
+        "domAria": "failed",
+        "behavior": "passed",
+        "focus": "passed",
+        "styles": "blocked",
+        "package": "blocked",
+        "types": "failed"
+      },
+      "diagnostics": [
+        "Generated Select is a native select, not the required listbox/ARIA composite; no explicit uncontrolled default contract is exposed."
+      ],
+      "adaptation": {
+        "files": [
+          "candidates/mitosis/.hard/Select.react/client.jsx",
+          "candidates/mitosis/.hard/Select.react/server.jsx"
+        ],
+        "loc": 2,
+        "nativeWrapperLoc": 0,
+        "generatedLoc": 18
+      },
+      "ssrHtml": "<label>Plan<select><option value=\"Alpha\">Alpha</option><option value=\"Beta\" selected=\"\">Beta</option><option value=\"Gamma\">Gamma</option></select></label>",
+      "dom": {
+        "role": null,
+        "ariaExpanded": null,
+        "value": "Beta",
+        "optionCount": 3
+      },
+      "behavior": {
+        "controlledInitial": true,
+        "changeCallback": true,
+        "keyboardValue": "Beta"
+      },
+      "console": [],
+      "networkFailures": [],
+      "status": "failed"
+    },
+    "Dialog.react": {
+      "component": "Dialog",
+      "framework": "react",
+      "runId": "ter_20260620192638995_ptsm10",
+      "revisions": {
+        "kumo": "9ae5e719ed33ae49f2765585c5982ad419cd503b",
+        "candidate": "9ae5e719ed33ae49f2765585c5982ad419cd503b"
+      },
+      "generatedSource": "candidates/mitosis/generated/react/Dialog.tsx",
+      "execution": {
+        "kind": "system-chrome-cdp",
+        "chrome": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+      },
+      "gates": {
+        "build": "passed",
+        "client": "passed",
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodePreservation": "passed",
+        "console": "passed",
+        "network": "passed",
+        "domAria": "passed",
+        "behavior": "failed",
+        "focus": "passed",
+        "styles": "blocked",
+        "package": "blocked",
+        "types": "failed"
+      },
+      "diagnostics": [
+        "Generated Dialog is inline, not portalled/native; it lacks Escape/outside handling, initial-focus and focus-restoration management."
+      ],
+      "adaptation": {
+        "files": [
+          "candidates/mitosis/.hard/Dialog.react/client.jsx",
+          "candidates/mitosis/.hard/Dialog.react/server.jsx"
+        ],
+        "loc": 2,
+        "nativeWrapperLoc": 0,
+        "generatedLoc": 16
+      },
+      "ssrHtml": "<div role=\"dialog\" aria-modal=\"true\" aria-label=\"Settings\">Dialog body<button>Close</button></div>",
+      "dom": {
+        "count": 1,
+        "ariaModal": "true",
+        "ariaLabel": "Settings",
+        "parent": "app"
+      },
+      "behavior": {
+        "initialOpen": true,
+        "escapeClose": false,
+        "outsideClose": false,
+        "buttonClose": true,
+        "portalPlacement": false
+      },
+      "console": [],
+      "networkFailures": [],
+      "status": "failed"
+    },
+    "Select.vue": {
+      "component": "Select",
+      "framework": "vue",
+      "runId": "ter_20260620192638995_ptsm10",
+      "revisions": {
+        "kumo": "9ae5e719ed33ae49f2765585c5982ad419cd503b",
+        "candidate": "9ae5e719ed33ae49f2765585c5982ad419cd503b"
+      },
+      "generatedSource": "candidates/mitosis/generated/vue/Select.vue",
+      "execution": {
+        "kind": "system-chrome-cdp",
+        "chrome": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+      },
+      "gates": {
+        "build": "passed",
+        "client": "passed",
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodePreservation": "passed",
+        "console": "passed",
+        "network": "passed",
+        "domAria": "failed",
+        "behavior": "failed",
+        "focus": "passed",
+        "styles": "blocked",
+        "package": "blocked",
+        "types": "failed"
+      },
+      "diagnostics": [
+        "Generated Select is a native select, not the required listbox/ARIA composite; no explicit uncontrolled default contract is exposed."
+      ],
+      "adaptation": {
+        "files": [
+          "candidates/mitosis/.hard/Select.vue/client.js",
+          "candidates/mitosis/.hard/Select.vue/server.js"
+        ],
+        "loc": 2,
+        "nativeWrapperLoc": 0,
+        "generatedLoc": 20
+      },
+      "ssrHtml": "<label>Plan<select value=\"Beta\"><!--[--><option value=\"Alpha\">Alpha</option><option value=\"Beta\">Beta</option><option value=\"Gamma\">Gamma</option><!--]--></select></label>",
+      "dom": {
+        "role": null,
+        "ariaExpanded": null,
+        "value": "Alpha",
+        "optionCount": 3
+      },
+      "behavior": {
+        "controlledInitial": false,
+        "changeCallback": true,
+        "keyboardValue": "Gamma"
+      },
+      "console": [],
+      "networkFailures": [],
+      "status": "failed"
+    },
+    "Dialog.vue": {
+      "component": "Dialog",
+      "framework": "vue",
+      "runId": "ter_20260620192638995_ptsm10",
+      "revisions": {
+        "kumo": "9ae5e719ed33ae49f2765585c5982ad419cd503b",
+        "candidate": "9ae5e719ed33ae49f2765585c5982ad419cd503b"
+      },
+      "generatedSource": "candidates/mitosis/generated/vue/Dialog.vue",
+      "execution": {
+        "kind": "system-chrome-cdp",
+        "chrome": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+      },
+      "gates": {
+        "build": "passed",
+        "client": "passed",
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodePreservation": "passed",
+        "console": "passed",
+        "network": "passed",
+        "domAria": "passed",
+        "behavior": "failed",
+        "focus": "passed",
+        "styles": "blocked",
+        "package": "blocked",
+        "types": "failed"
+      },
+      "diagnostics": [
+        "Generated Dialog is inline, not portalled/native; it lacks Escape/outside handling, initial-focus and focus-restoration management."
+      ],
+      "adaptation": {
+        "files": [
+          "candidates/mitosis/.hard/Dialog.vue/client.js",
+          "candidates/mitosis/.hard/Dialog.vue/server.js"
+        ],
+        "loc": 2,
+        "nativeWrapperLoc": 0,
+        "generatedLoc": 12
+      },
+      "ssrHtml": "<div role=\"dialog\" aria-modal=\"true\" aria-label=\"Settings\"><!--[-->Dialog body<!--]--><button>Close</button></div>",
+      "dom": {
+        "count": 1,
+        "ariaModal": "true",
+        "ariaLabel": "Settings",
+        "parent": "app"
+      },
+      "behavior": {
+        "initialOpen": true,
+        "escapeClose": false,
+        "outsideClose": false,
+        "buttonClose": true,
+        "portalPlacement": false
+      },
+      "console": [],
+      "networkFailures": [],
+      "status": "failed"
+    },
+    "Select.svelte": {
+      "component": "Select",
+      "framework": "svelte",
+      "runId": "ter_20260620192638995_ptsm10",
+      "revisions": {
+        "kumo": "9ae5e719ed33ae49f2765585c5982ad419cd503b",
+        "candidate": "9ae5e719ed33ae49f2765585c5982ad419cd503b"
+      },
+      "generatedSource": "candidates/mitosis/generated/svelte/Select.svelte",
+      "execution": {
+        "kind": "system-chrome-cdp",
+        "chrome": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+      },
+      "gates": {
+        "build": "passed",
+        "client": "passed",
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodePreservation": "passed",
+        "console": "passed",
+        "network": "passed",
+        "domAria": "failed",
+        "behavior": "passed",
+        "focus": "passed",
+        "styles": "blocked",
+        "package": "blocked",
+        "types": "failed"
+      },
+      "diagnostics": [
+        "Generated Select is a native select, not the required listbox/ARIA composite; no explicit uncontrolled default contract is exposed."
+      ],
+      "adaptation": {
+        "files": [
+          "candidates/mitosis/.hard/Select.svelte/client.js",
+          "candidates/mitosis/.hard/Select.svelte/server.js"
+        ],
+        "loc": 2,
+        "nativeWrapperLoc": 0,
+        "generatedLoc": 18
+      },
+      "ssrHtml": "<!--[--><label>Plan<select><!--[--><option value=\"Alpha\">Alpha</option><option value=\"Beta\" selected=\"\">Beta</option><option value=\"Gamma\">Gamma</option><!--]--></select></label><!--]-->",
+      "dom": {
+        "role": null,
+        "ariaExpanded": null,
+        "value": "Beta",
+        "optionCount": 3
+      },
+      "behavior": {
+        "controlledInitial": true,
+        "changeCallback": true,
+        "keyboardValue": "Gamma"
+      },
+      "console": [],
+      "networkFailures": [],
+      "status": "failed"
+    },
+    "Dialog.svelte": {
+      "component": "Dialog",
+      "framework": "svelte",
+      "runId": "ter_20260620192638995_ptsm10",
+      "revisions": {
+        "kumo": "9ae5e719ed33ae49f2765585c5982ad419cd503b",
+        "candidate": "9ae5e719ed33ae49f2765585c5982ad419cd503b"
+      },
+      "generatedSource": "candidates/mitosis/generated/svelte/Dialog.svelte",
+      "execution": {
+        "kind": "system-chrome-cdp",
+        "chrome": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+      },
+      "gates": {
+        "build": "passed",
+        "client": "passed",
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodePreservation": "passed",
+        "console": "passed",
+        "network": "passed",
+        "domAria": "passed",
+        "behavior": "failed",
+        "focus": "passed",
+        "styles": "blocked",
+        "package": "blocked",
+        "types": "failed"
+      },
+      "diagnostics": [
+        "Generated Dialog is inline, not portalled/native; it lacks Escape/outside handling, initial-focus and focus-restoration management."
+      ],
+      "adaptation": {
+        "files": [
+          "candidates/mitosis/.hard/Dialog.svelte/client.js",
+          "candidates/mitosis/.hard/Dialog.svelte/server.js"
+        ],
+        "loc": 2,
+        "nativeWrapperLoc": 0,
+        "generatedLoc": 12
+      },
+      "ssrHtml": "<!--[--><div role=\"dialog\" aria-modal=\"true\" aria-label=\"Settings\"><!--[--><!--]--><button>Close</button></div><!--]-->",
+      "dom": {
+        "count": 1,
+        "ariaModal": "true",
+        "ariaLabel": "Settings",
+        "parent": "app"
+      },
+      "behavior": {
+        "initialOpen": true,
+        "escapeClose": false,
+        "outsideClose": false,
+        "buttonClose": true,
+        "portalPlacement": false
+      },
+      "console": [],
+      "networkFailures": [],
+      "status": "failed"
+    },
+    "Select.solid": {
+      "component": "Select",
+      "framework": "solid",
+      "runId": "ter_20260620192638995_ptsm10",
+      "revisions": {
+        "kumo": "9ae5e719ed33ae49f2765585c5982ad419cd503b",
+        "candidate": "9ae5e719ed33ae49f2765585c5982ad419cd503b"
+      },
+      "generatedSource": "candidates/mitosis/generated/solid/Select.tsx",
+      "execution": {
+        "kind": "system-chrome-cdp",
+        "chrome": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+      },
+      "gates": {
+        "build": "passed",
+        "client": "passed",
+        "ssr": "passed",
+        "hydration": "failed",
+        "nodePreservation": "passed",
+        "console": "failed",
+        "network": "passed",
+        "domAria": "failed",
+        "behavior": "failed",
+        "focus": "passed",
+        "styles": "blocked",
+        "package": "blocked",
+        "types": "failed"
+      },
+      "diagnostics": [
+        "Generated Select is a native select, not the required listbox/ARIA composite; no explicit uncontrolled default contract is exposed."
+      ],
+      "adaptation": {
+        "files": [
+          "candidates/mitosis/.hard/Select.solid/client.jsx",
+          "candidates/mitosis/.hard/Select.solid/server.jsx"
+        ],
+        "loc": 2,
+        "nativeWrapperLoc": 0,
+        "generatedLoc": 22
+      },
+      "ssrHtml": "<label data-hk=\"00\"><!--$-->Plan<!--/--><select value=\"Beta\"><option data-hk=\"010\" value=\"Alpha\">Alpha</option><option data-hk=\"011\" value=\"Beta\">Beta</option><option data-hk=\"012\" value=\"Gamma\">Gamma</option></select></label>",
+      "dom": {
+        "role": null,
+        "ariaExpanded": null,
+        "value": "Alpha",
+        "optionCount": 3
+      },
+      "behavior": {
+        "controlledInitial": false,
+        "changeCallback": false,
+        "keyboardValue": "Gamma"
+      },
+      "console": [
+        {
+          "type": "pageerror",
+          "text": "Cannot read properties of undefined (reading 'done')"
+        }
+      ],
+      "networkFailures": [],
+      "status": "failed"
+    },
+    "Dialog.solid": {
+      "component": "Dialog",
+      "framework": "solid",
+      "runId": "ter_20260620192638995_ptsm10",
+      "revisions": {
+        "kumo": "9ae5e719ed33ae49f2765585c5982ad419cd503b",
+        "candidate": "9ae5e719ed33ae49f2765585c5982ad419cd503b"
+      },
+      "generatedSource": "candidates/mitosis/generated/solid/Dialog.tsx",
+      "execution": {
+        "kind": "system-chrome-cdp",
+        "chrome": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+      },
+      "gates": {
+        "build": "passed",
+        "client": "passed",
+        "ssr": "passed",
+        "hydration": "failed",
+        "nodePreservation": "passed",
+        "console": "failed",
+        "network": "passed",
+        "domAria": "passed",
+        "behavior": "failed",
+        "focus": "passed",
+        "styles": "blocked",
+        "package": "blocked",
+        "types": "failed"
+      },
+      "diagnostics": [
+        "Generated Dialog is inline, not portalled/native; it lacks Escape/outside handling, initial-focus and focus-restoration management."
+      ],
+      "adaptation": {
+        "files": [
+          "candidates/mitosis/.hard/Dialog.solid/client.jsx",
+          "candidates/mitosis/.hard/Dialog.solid/server.jsx"
+        ],
+        "loc": 2,
+        "nativeWrapperLoc": 0,
+        "generatedLoc": 16
+      },
+      "ssrHtml": "<div data-hk=\"00\" role=\"dialog\" aria-modal=\"true\" aria-label=\"Settings\"><!--$-->Dialog body<!--/--><button>Close</button></div>",
+      "dom": {
+        "count": 1,
+        "ariaModal": "true",
+        "ariaLabel": "Settings",
+        "parent": "app"
+      },
+      "behavior": {
+        "initialOpen": true,
+        "escapeClose": false,
+        "outsideClose": false,
+        "buttonClose": false,
+        "portalPlacement": false
+      },
+      "console": [
+        {
+          "type": "pageerror",
+          "text": "Cannot read properties of undefined (reading 'done')"
+        }
+      ],
+      "networkFailures": [],
+      "status": "failed"
+    }
+  }
+}

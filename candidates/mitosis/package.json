@@ -7,7 +7,8 @@
     "verify:build": "node scripts/verify-builds.mjs",
     "verify:browser": "node scripts/browser-button.mjs && node scripts/evidence.mjs",
     "verify:ssr": "node scripts/ssr.mjs",
-    "verify": "npm run generate && npm run verify:build && npm run verify:browser && npm run verify:ssr"
+    "verify:hard": "node scripts/hard-evidence.mjs",
+    "verify": "npm run generate && npm run verify:build && npm run verify:browser && npm run verify:ssr && npm run verify:hard"
   },
   "dependencies": {
     "@builder.io/mitosis": "0.13.2"

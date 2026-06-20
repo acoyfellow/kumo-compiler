@@ -23,4 +23,10 @@ Mitosis' JSX parser accepts one default component per parse. The candidate there
 
 All seven models currently generate for all four targets. `verify-builds.mjs` performs real Vite library compilation of generated Button source for each framework. `browser-button.mjs` performs real framework client bundles, loads them in Chromium, asserts one native button, clicks it, confirms the callback, and records console errors. Receipts are in `receipts/`.
 
-Button has generated/build/browser evidence on all targets. Field and Tabs have generated source on all targets but no browser receipt yet. Dialog portals/focus management, compound/context APIs, SSR/hydration, package output, and full Kumo parity remain unverified and must not be counted as passing.
+Button has generated/build/browser evidence on all targets. Field and Tabs have generated source on all targets but no browser receipt yet.
+
+## Hard-component evidence
+
+`npm run verify:hard` compiles and executes Select and Dialog for all four frameworks using the existing generated files, framework-native server renderers and hydrators, and system Chrome/CDP. It injects a pre-hydration sentinel and checks node preservation. The immutable `receipts/hard-components.json` records run/revision bindings, per-gate `passed`/`failed`/`not-run`/`blocked` outcomes, diagnostics, generated LOC, adapter LOC, and native-wrapper LOC. Generated targets are never edited.
+
+Failures are intentional evidence rather than optimistic claims: Select emits a native `<select>` rather than the required listbox composite and has no explicit uncontrolled API; Dialog remains inline and lacks Escape/outside closing and focus management. Solid hydration warnings, where emitted, are retained. Styles/package/type gates remain failed or blocked because this candidate does not provide those artifacts.
