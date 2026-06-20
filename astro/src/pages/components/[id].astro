@@ -7,19 +7,19 @@ const { component } = Astro.props;
 const frameworks = ['react','vue','svelte','solid'];
 const names = { react: 'React', vue: 'Vue', svelte: 'Svelte', solid: 'Solid' };
 ---
-<Layout title={component.name + ' · Kumo'}>
-  <header class="page-head"><p>Runtime comparison</p><h1>{component.name}</h1><span>Compare observable output across four framework surfaces.</span></header>
-  <div class="tabs" role="tablist" aria-label="Framework runtime">{frameworks.map((framework,index) => <button class="tab" role="tab" aria-selected={index === 0 ? 'true' : 'false'} data-framework={framework} title={names[framework]}><FrameworkIcon framework={framework} size={23}/><span>{names[framework]}</span></button>)}</div>
-  <iframe class="frame" id="runtime-frame" src={'/' + component.id + '/react'} title={component.name + ' React runtime'}></iframe>
+<Layout title={`${component.name} · Kumo compiler`}>
+  <header class="page-head"><p>Runtime comparison</p><h1>{component.name}</h1><span>One compiler fixture rendered by React, Vue, Svelte, and Solid.</span></header>
+  <div class="tabs" role="tablist" aria-label="Framework runtime">{frameworks.map((framework,index) => <button class="tab" role="tab" aria-selected={index === 0 ? 'true' : 'false'} data-framework={framework}><FrameworkIcon framework={framework} size={20}/><span>{names[framework]}</span></button>)}</div>
+  <iframe class="frame" id="runtime-frame" src={`/${component.id}/react/`} title={`${component.name} React runtime`}></iframe>
   <script define:vars={{ componentId: component.id, names }}>
     for (const button of document.querySelectorAll('[data-framework]')) button.addEventListener('click', () => {
       document.querySelectorAll('[data-framework]').forEach(item => item.setAttribute('aria-selected', String(item === button)));
       const frame = document.querySelector('#runtime-frame');
-      frame.src = '/' + componentId + '/' + button.dataset.framework + '/';
-      frame.title = componentId + ' ' + names[button.dataset.framework] + ' runtime';
+      frame.src = `/${componentId}/${button.dataset.framework}/`;
+      frame.title = `${componentId} ${names[button.dataset.framework]} runtime`;
     });
   </script>
 </Layout>
 <style>
-.page-head{display:grid;gap:5px;margin-bottom:24px}.page-head p{margin:0;color:#64748b;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.page-head h1{margin:0;font-size:clamp(34px,5vw,52px);letter-spacing:-.045em}.page-head span{color:#64748b}.tabs{display:flex;gap:8px;margin-bottom:12px}.tab{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;border:1px solid #d1d5db;background:white;border-radius:999px;padding:8px 14px;color:#334155;font-weight:800;cursor:pointer}.tab:hover{border-color:#94a3b8}.tab[aria-selected="true"]{border-color:#111827;background:#111827;color:white;box-shadow:0 5px 14px rgb(15 23 42 / 18%)}.frame{display:block;width:100%;height:min(1200px,calc(100vh - 225px));min-height:560px;border:1px solid #d1d5db;border-radius:14px;background:white;box-shadow:0 10px 30px rgb(15 23 42 / 6%)}@media(max-width:520px){.tabs{display:grid;grid-template-columns:repeat(4,1fr)}.tab{padding:8px}.tab span{display:none}.frame{height:calc(100vh - 205px);min-height:500px;border-radius:10px}}
+.page-head{margin-bottom:22px}.page-head p{margin:0 0 7px;color:#64748b;font-size:11px;font-weight:750;letter-spacing:.08em;text-transform:uppercase}.page-head h1{margin:0;font-size:clamp(32px,5vw,46px);letter-spacing:-.04em}.page-head span{display:block;margin-top:7px;color:#64748b;font-size:14px}.tabs{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px}.tab{display:flex;align-items:center;gap:7px;min-height:40px;border:1px solid #d1d5db;background:#fff;border-radius:8px;padding:7px 12px;color:#334155;font:inherit;font-size:13px;font-weight:750;cursor:pointer}.tab:hover{border-color:#94a3b8}.tab[aria-selected="true"]{border-color:#111827;background:#111827;color:#fff}.frame{display:block;width:100%;height:min(1200px,calc(100vh - 210px));min-height:560px;border:1px solid #d1d5db;border-radius:10px;background:#fff}@media(max-width:520px){.tabs{display:grid;grid-template-columns:repeat(4,1fr)}.tab{justify-content:center;padding:7px}.tab span{display:none}.frame{height:calc(100vh - 190px);min-height:500px}}
 </style>

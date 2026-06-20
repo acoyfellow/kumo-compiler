@@ -32,13 +32,13 @@
     "manifest:validate": "node scripts/verify-package.mjs",
     "package:verify": "node scripts/verify-package.mjs",
     "artifact:check": "node scripts/check-artifact-boundary.mjs",
-    "docs:links": "npm --prefix astro run validate:routes",
+    "docs:links": "node scripts/validate-astro-routes.mjs",
     "deploy:prepare": "node scripts/prepare-deploy.mjs",
     "deploy:dry-run": "npm run deploy:prepare && node scripts/deploy.mjs",
     "deploy": "npm run deploy:prepare && node scripts/deploy.mjs --execute",
     "rollback:dry-run": "node scripts/rollback.mjs",
     "rollback": "node scripts/rollback.mjs --execute",
-    "release:check": "npm test && npm run artifact:check && npm run package:verify && npm run evidence:validate && npm run build:migration-status && npm run catalog:validate && npm run docs:links"
+    "release:check": "npm test && npm run artifact:check && npm run package:verify && npm run evidence:validate && npm run build:migration-status && npm run deploy:prepare && npm run catalog:validate && npm run docs:links"
   },
   "keywords": [],
   "author": "",
