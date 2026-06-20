@@ -1,0 +1,5 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","$id":"kumo.upstream.receipt/v1","type":"object",
+  "required":["schemaVersion","runId","scenario","baseline","candidate","diff","conformance","browser","containment","receiptSha256"],
+  "properties":{"schemaVersion":{"const":"kumo.upstream.receipt/v1"},"runId":{"type":"string"},"scenario":{"type":"string"},"receiptSha256":{"type":"string","pattern":"^[a-f0-9]{64}$"}}
+}

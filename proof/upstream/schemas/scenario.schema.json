@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","$id":"kumo.upstream.scenario/v1","type":"object","required":["id","expected"],"properties":{"id":{"type":"string"},"expected":{"type":"object","required":["semver","compatible","planDelta"]}}}

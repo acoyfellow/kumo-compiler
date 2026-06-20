@@ -1,0 +1,4 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","$id":"kumo.upstream.diff/v1","type":"object",
+  "required":["schemaVersion","scenario","changes","classification"],"properties":{"schemaVersion":{"const":"kumo.upstream.diff/v1"},"scenario":{"type":"string"},"changes":{"type":"array","items":{"type":"object","required":["kind","path","impact"]}},"classification":{"type":"object","required":["semver","compatible","reasons"]}}
+}

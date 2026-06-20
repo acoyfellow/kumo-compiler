@@ -7,6 +7,8 @@
     "matrix:kumo": "node scripts/run-kumo-matrix.mjs",
     "protocol:fixture": "node scripts/compiler-protocol/fixture.mjs",
     "protocol:conformance": "node scripts/compiler-protocol/conformance.mjs",
+    "upstream:rehearse": "node rehearsals/upstream/rehearse.mjs all",
+    "upstream:rehearse:validate": "node rehearsals/upstream/validate.mjs",
     "protocol:benchmark": "node scripts/compiler-protocol/benchmark.mjs",
     "protocol:benchmark:validate": "node scripts/compiler-protocol/validate-benchmark.mjs",
     "matrix:kumo:shard": "node scripts/run-kumo-shard.mjs",

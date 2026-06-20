@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "kumo.upstream.receipt/v1",
+  "runId": "25b640576405238895c3fa0d",
+  "scenario": "button-export-rename",
+  "baseline": {
+    "snapshotHash": "094a967d3474c6648af9dc34fc3ee2015e0f1031ab89c5673d9b91cccdc92328",
+    "exportsHash": "0be4b81bd1e9bef4686492d3f65ed24863e709305d623c21af16fe03946dcf6d",
+    "symbolsHash": "3b260713d1d0913ebfe4b4fe534ec7a1ca896fd3a73962ffbc73f4fe193fe7cb",
+    "filesHash": "751a75b0a52ad0a1ccc7f9049260ea8a1e40c5864343ec449e76a6c2bf667079",
+    "tokensHash": "fb9265cf2663e97e78874251b35f5457cc8087fb42673d5b46a35f6ef4cd2b92"
+  },
+  "candidate": {
+    "snapshotHash": "da15f7bee7415c89412b773733124618f83ac3ea763368686b6528b9d54aa142",
+    "exportsHash": "00829905d7b55cf89cf6bf69c4b064952a1de9df339197057c717d682542c76f",
+    "symbolsHash": "3b260713d1d0913ebfe4b4fe534ec7a1ca896fd3a73962ffbc73f4fe193fe7cb",
+    "filesHash": "751a75b0a52ad0a1ccc7f9049260ea8a1e40c5864343ec449e76a6c2bf667079",
+    "tokensHash": "fb9265cf2663e97e78874251b35f5457cc8087fb42673d5b46a35f6ef4cd2b92"
+  },
+  "diff": {
+    "schemaVersion": "kumo.upstream.diff/v1",
+    "scenario": "button-export-rename",
+    "changes": [
+      {
+        "kind": "add",
+        "path": "exports.ActionButton",
+        "impact": "compatible"
+      },
+      {
+        "kind": "remove",
+        "path": "exports.Button",
+        "impact": "breaking"
+      }
+    ],
+    "classification": {
+      "semver": "major",
+      "compatible": false,
+      "reasons": [
+        "export-removed"
+      ]
+    }
+  },
+  "conformance": {
+    "adapter": "shared-typescript-protocol",
+    "baseline": {
+      "status": "ok",
+      "plans": 164,
+      "planHash": "0b8a264e1f85e7cca3bd6f8c5f25d7acb1e42cded7d8bdef7d1bab245c74a87a",
+      "outputsHash": "adc38580eca71a71c06f5c51532805db01e139470e175df75f5aaf17b91e970c"
+    },
+    "candidate": {
+      "status": "ok",
+      "plans": 164,
+      "planHash": "0b8a264e1f85e7cca3bd6f8c5f25d7acb1e42cded7d8bdef7d1bab245c74a87a",
+      "outputsHash": "adc38580eca71a71c06f5c51532805db01e139470e175df75f5aaf17b91e970c"
+    },
+    "planDelta": 0
+  },
+  "assertions": {
+    "expectedPlanDelta": 0,
+    "existingComponentsUnchanged": true,
+    "unaffectedHash": "fe297b47649a1bc87c3ee7eda8dffdaefd748da9f8f605b33c914079d8f0ac31",
+    "omittedButtonBehaviorUnchanged": null,
+    "authoritativeDiffs": []
+  },
+  "browser": {
+    "status": "not-run",
+    "claimed": false
+  },
+  "containment": {
+    "tempRoot": "kumo-upstream-2RGZuz",
+    "noSymlinks": true,
+    "baselineWrites": false,
+    "candidateSynthetic": true
+  },
+  "receiptSha256": "45715c860004287cd3c69b4806371af7d648955600b7ba80d82bbb59dbb78663"
+}

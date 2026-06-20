@@ -1,0 +1,6 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"kumo.upstream.envelope/v1",
+  "type":"object","required":["schemaVersion","package","exports","symbols","files","tokens","ir"],
+  "properties":{"schemaVersion":{"const":"kumo.upstream.envelope/v1"},"package":{"type":"object","required":["name","version"]},"exports":{"type":"array","items":{"type":"string"}},"symbols":{"type":"array","items":{"type":"string"}},"files":{"type":"array","items":{"type":"object","required":["path","sha256"]}},"tokens":{"type":"array","items":{"type":"object","required":["name","value","sha256"]}},"ir":{"type":"object"}},"additionalProperties":false
+}
