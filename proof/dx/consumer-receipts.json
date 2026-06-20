@@ -1,0 +1,214 @@
+{
+  "schemaVersion": 1,
+  "publishReady": false,
+  "receipts": [
+    {
+      "framework": "vue",
+      "package": "@cloudflare/kumo-vue",
+      "version": "0.0.0-consumer-dx-pilot",
+      "frameworkVersion": "*",
+      "status": "passed",
+      "case": "packed-tarball",
+      "command": "npm pack --json --pack-destination proof/dx",
+      "tarball": "proof/dx/cloudflare-kumo-vue-0.0.0-consumer-dx-pilot.tgz",
+      "sha256": "06031809c2c537c1ebf93661e9c669a48224a18cdc607293a9beb2d41439917b"
+    },
+    {
+      "framework": "svelte",
+      "package": "@cloudflare/kumo-svelte",
+      "version": "0.0.0-consumer-dx-pilot",
+      "frameworkVersion": "*",
+      "status": "passed",
+      "case": "packed-tarball",
+      "command": "npm pack --json --pack-destination proof/dx",
+      "tarball": "proof/dx/cloudflare-kumo-svelte-0.0.0-consumer-dx-pilot.tgz",
+      "sha256": "4a537b3cc71bb16fad1a0253871392be9037f62efc3b2f79a5f00d46a2283283"
+    },
+    {
+      "framework": "solid",
+      "package": "@cloudflare/kumo-solid",
+      "version": "0.0.0-consumer-dx-pilot",
+      "frameworkVersion": "*",
+      "status": "passed",
+      "case": "packed-tarball",
+      "command": "npm pack --json --pack-destination proof/dx",
+      "tarball": "proof/dx/cloudflare-kumo-solid-0.0.0-consumer-dx-pilot.tgz",
+      "sha256": "4c016b4a74677156970465bc7c6d62b4c29f35a5df47303b94c667341fe2699f"
+    },
+    {
+      "framework": "vue",
+      "case": "exports-and-root-subpaths",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+    },
+    {
+      "framework": "vue",
+      "case": "types",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+    },
+    {
+      "framework": "vue",
+      "case": "vite-production-build",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+    },
+    {
+      "framework": "vue",
+      "case": "server-import-ssr",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+    },
+    {
+      "framework": "vue",
+      "case": "hydration-warnings-node-preservation",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+    },
+    {
+      "framework": "vue",
+      "case": "hmr-dev-smoke",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+    },
+    {
+      "framework": "vue",
+      "case": "css-once",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+    },
+    {
+      "framework": "vue",
+      "case": "tree-shaking-metafile",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+    },
+    {
+      "framework": "svelte",
+      "case": "exports-and-root-subpaths",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+    },
+    {
+      "framework": "svelte",
+      "case": "types",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+    },
+    {
+      "framework": "svelte",
+      "case": "vite-production-build",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+    },
+    {
+      "framework": "svelte",
+      "case": "server-import-ssr",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+    },
+    {
+      "framework": "svelte",
+      "case": "hydration-warnings-node-preservation",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+    },
+    {
+      "framework": "svelte",
+      "case": "hmr-dev-smoke",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+    },
+    {
+      "framework": "svelte",
+      "case": "css-once",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+    },
+    {
+      "framework": "svelte",
+      "case": "tree-shaking-metafile",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+    },
+    {
+      "framework": "solid",
+      "case": "exports-and-root-subpaths",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+    },
+    {
+      "framework": "solid",
+      "case": "types",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+    },
+    {
+      "framework": "solid",
+      "case": "vite-production-build",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+    },
+    {
+      "framework": "solid",
+      "case": "server-import-ssr",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+    },
+    {
+      "framework": "solid",
+      "case": "hydration-warnings-node-preservation",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+    },
+    {
+      "framework": "solid",
+      "case": "hmr-dev-smoke",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+    },
+    {
+      "framework": "solid",
+      "case": "css-once",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+    },
+    {
+      "framework": "solid",
+      "case": "tree-shaking-metafile",
+      "status": "not-run",
+      "command": null,
+      "reason": "Requires installing framework toolchain in isolated fixture; pilot records this truthfully."
+    },
+    {
+      "framework": "npm-workspace",
+      "case": "workspace-fixture",
+      "status": "not-run",
+      "command": null,
+      "reason": "Fixture scaffolded; install not executed."
+    }
+  ]
+}

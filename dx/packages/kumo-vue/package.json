@@ -1,6 +1,6 @@
 {
   "name": "@cloudflare/kumo-vue",
-  "version": "0.0.0-contract",
+  "version": "0.0.0-consumer-dx-pilot",
   "private": true,
   "type": "module",
   "sideEffects": [
@@ -9,11 +9,23 @@
   ],
   "exports": {
     ".": {
-      "types": "./package/index.d.ts",
-      "import": "./package/index.js"
+      "types": "./dist/index.ts",
+      "import": "./dist/index.ts"
     },
-    "./styles.css": "./package/styles.css",
-    "./tokens.css": "./package/tokens.css",
+    "./button": {
+      "types": "./dist/index.ts",
+      "import": "./dist/index.ts"
+    },
+    "./field": {
+      "types": "./dist/index.ts",
+      "import": "./dist/index.ts"
+    },
+    "./tabs": {
+      "types": "./dist/index.ts",
+      "import": "./dist/index.ts"
+    },
+    "./styles.css": "./dist/styles.css",
+    "./tokens.css": "./dist/tokens.css",
     "./manifest": "./kumo.manifest.json"
   },
   "peerDependencies": {
