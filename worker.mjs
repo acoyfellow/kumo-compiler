@@ -37,6 +37,7 @@ async function identity(c) {
 }
 app.get('/_health', async (c) => c.json({ ok: true, ...await identity(c) }));
 app.get('/_version', async (c) => c.json(await identity(c)));
+app.get('/favicon.ico', (c) => c.body(null, 204));
 app.get('*', (c) => {
   const url = new URL(c.req.url);
   const route = runtimeRoute(url.pathname);
