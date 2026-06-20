@@ -1,104 +1,158 @@
 {
-  "schemaVersion": "kumo.receipt/v1",
+  "schemaVersion": "kumo.receipt/v3",
   "component": "date-range-picker",
   "framework": "react",
-  "classification": "blocked",
+  "classification": "failed",
   "canonicalInput": true,
   "sourceEvidence": {
+    "manifest": "audit/kumo-react-2.5.2.provenance.json",
+    "package": {
+      "name": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/cloudflare/kumo.git",
+        "directory": "packages/kumo"
+      },
+      "packageJsonSha256": "c405c3bf83d49bb4bb61f38d7e10bcd37b2f62c04c2d99dee314aae1faa8cd7b"
+    },
+    "npmLock": {
+      "resolved": "https://registry.npmjs.org/@cloudflare/kumo/-/kumo-2.5.2.tgz",
+      "integrity": "sha512-HUNi40VG3ExJ7lV8HjqPQcGpCmm2CqG/SzjJ+K+NhCwZRYTBvagdoMDPX2XZ8AW/ZPEeuFoId0VYmzrX+luyXQ=="
+    },
+    "exportPath": "./components/date-range-picker",
+    "export": {
+      "types": "./dist/src/components/date-range-picker/index.d.ts",
+      "import": "./dist/components/date-range-picker.js"
+    },
+    "mapping": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/date-range-picker",
+      "symbol": "DateRangePicker"
+    },
     "files": [
       {
-        "path": "runtime/date-range-picker/react/index.html",
-        "sha256": "e6d7cef80d68a0c943919bcad892c282c3656400f94722055e4f9f9c29b2c0e7",
-        "bytes": 434
+        "path": "dist/chunks/date-range-picker-o8uyril1kogvhoei.js",
+        "sha256": "84e4d60df906563111f5805c64db469b4f5b2e896d4d9137e4b2269b3f93b005",
+        "bytes": 11991
       },
       {
-        "path": "runtime/date-range-picker/react/public-runtime/assets/index-DHsnio_D.css",
-        "sha256": "23713fbc478b92c0796f6e67a382427bcd496be3c03dc984125cc80735595e62",
-        "bytes": 1272
+        "path": "dist/chunks/date-range-picker-o8uyril1kogvhoei.js.map",
+        "sha256": "0df7796570eeebdd8c5aea202e999dfd20d02264911d82f2418c077b02df8bf8",
+        "bytes": 34768
       },
       {
-        "path": "runtime/date-range-picker/react/public-runtime/assets/react-date-range-picker.js",
-        "sha256": "b28126fb989e2b4a7e20cbc907523ada0a74f4d247e200c12a9bfe4c1f7abc24",
-        "bytes": 192651
+        "path": "dist/components/date-range-picker.js",
+        "sha256": "7e7668e28b93553f8d09364940e60c085e6d503d5255c4f8ec29b155a7b0a662",
+        "bytes": 169
       },
       {
-        "path": "runtime/date-range-picker/react/public-runtime/index.html",
-        "sha256": "0b3dcfd22baf50ca42bff4f7e2258ff2910ed789d3d06261f7da8b62157fddbe",
-        "bytes": 545
+        "path": "dist/components/date-range-picker.js.map",
+        "sha256": "717ca5708e97d3bd7fed89f899ab2e05974417718d1c148e81ba4ed99b11548a",
+        "bytes": 103
       },
       {
-        "path": "runtime/date-range-picker/react/src/main.js",
-        "sha256": "7e5b2b3fce5b0ba91260d71659316f441555d8835ae23bc977851f4a7b0f0092",
-        "bytes": 2256
+        "path": "dist/src/components/date-range-picker/date-range-picker.d.ts",
+        "sha256": "e3999a12af683848762cf21cc663b71025e517f73d0d47df38d94a53c9df9ce5",
+        "bytes": 4402
       },
       {
-        "path": "runtime/date-range-picker/react/vite.config.mjs",
-        "sha256": "972572e4c88f32bf2f0d4ca487cd39a91fa485759a20a238261865ef2d964f8e",
-        "bytes": 208
+        "path": "dist/src/components/date-range-picker/date-range-picker.d.ts.map",
+        "sha256": "590c19e466c9fe6fe3fc0a8ea670accd6baa401d63e04cfb3a34fd721c361ef6",
+        "bytes": 1088
+      },
+      {
+        "path": "dist/src/components/date-range-picker/index.d.ts",
+        "sha256": "ecadf4888736c886ec7aaa4e665a9d1d681e3b1efa1b65a946fdb48b18ac08dd",
+        "bytes": 176
+      },
+      {
+        "path": "dist/src/components/date-range-picker/index.d.ts.map",
+        "sha256": "67996b3e419ae42d63de14f4ebc7170a3a84604df47e2912f3b30bcaa97a771a",
+        "bytes": 204
       }
     ],
-    "provenanceFiles": [],
-    "bindingVerified": false
+    "generatedSources": [
+      {
+        "path": "runtime-canonical/date-range-picker/entry.jsx",
+        "sha256": "1caa6cbe121a2b49601f826b5f8f52dbb9cba7f99c575338276d26a407d8fe2a"
+      },
+      {
+        "path": "runtime-canonical/date-range-picker/fixture.jsx",
+        "sha256": "93c45f743bf112064fa2bab3176f3d61fdb65ba39593e412228e512a858b7fe1"
+      },
+      {
+        "path": "runtime-canonical/date-range-picker/server.jsx",
+        "sha256": "92cdc8fc79d49065203f65dbf65cd6d81c333a835de4296f0eb1766f61896b68"
+      },
+      {
+        "path": "runtime-canonical/date-range-picker/client.jsx",
+        "sha256": "25e6f33a1c3828eac69785c62e523ef9b53a9912f93cfa8d3093448e23956612"
+      }
+    ],
+    "bindingVerified": true,
+    "mismatches": []
   },
   "routes": {
-    "build": "runtime/date-range-picker/react",
+    "build": "runtime-canonical/date-range-picker",
     "runtime": "/date-range-picker/react",
     "directory": "/components/date-range-picker/"
   },
   "checks": {
     "canonicalSourceProvenance": {
-      "status": "blocked",
-      "reason": "No exact canonical Kumo React source/package revision provenance; downstream gates cannot truthfully be attributed to canonical React."
-    },
-    "productionBuild": {
-      "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
-    },
-    "runtimeRoute": {
-      "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
-    },
-    "ssrMarkup": {
-      "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
-    },
-    "hydration": {
-      "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
-    },
-    "assetsStyles": {
-      "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
-    },
-    "console": {
-      "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
-    },
-    "network": {
-      "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
-    },
-    "domAria": {
-      "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
-    },
-    "behaviorVectors": {
-      "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
-    },
-    "screenshotPixel": {
-      "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
+      "status": "passed",
+      "reason": "exact npm package identity, export and relevant byte hashes match the attestation"
     },
     "packageEvidence": {
-      "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
+      "status": "passed",
+      "reason": "package identity and relevant bytes match"
+    },
+    "productionBuild": {
+      "status": "passed",
+      "reason": "canonical server/client entry graph generated directly against public package export"
+    },
+    "runtimeRoute": {
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+    },
+    "ssrMarkup": {
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+    },
+    "hydration": {
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+    },
+    "assetsStyles": {
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+    },
+    "console": {
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+    },
+    "network": {
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+    },
+    "domAria": {
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+    },
+    "behaviorVectors": {
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+    },
+    "screenshotPixel": {
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
     }
   },
   "limitations": [
-    "No exact canonical Kumo React source/package revision provenance; downstream gates cannot truthfully be attributed to canonical React."
+    "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
   ],
   "determinism": {
-    "sourceManifestHash": "9e50588c22155687acac91061ad8edc15b06b1c1937dc1ec258c9c0d456b35de"
+    "canonicalManifestHash": "ee39bc51f8a2ae4341075a52dc75c43a46fc65f0b3294387c812b9f1f2b5c41d",
+    "mappingHash": "e73168561e1829ca94d4a35fb17aa61ef52c8aa243e7ddd48579e81bdea71871"
   }
 }

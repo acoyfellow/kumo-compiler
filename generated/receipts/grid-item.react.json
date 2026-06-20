@@ -1,109 +1,96 @@
 {
-  "schemaVersion": "kumo.receipt/v1",
+  "schemaVersion": "kumo.receipt/v3",
   "component": "grid-item",
   "framework": "react",
   "classification": "blocked",
   "canonicalInput": true,
   "sourceEvidence": {
-    "files": [
-      {
-        "path": "runtime/grid-item/react/index.html",
-        "sha256": "0a005ca74cbcb6cd290f159bed97a52cfbfe74813ff3c7ce0ea4c8e46dc775bf",
-        "bytes": 400
+    "manifest": "audit/kumo-react-2.5.2.provenance.json",
+    "package": {
+      "name": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/cloudflare/kumo.git",
+        "directory": "packages/kumo"
       },
-      {
-        "path": "runtime/grid-item/react/public-runtime/assets/index-mu3fn2Nd.css",
-        "sha256": "6b16f3360f808e037c7f829706e792d124003c2bbd7e3a7510dac4276aadb86f",
-        "bytes": 1465
-      },
-      {
-        "path": "runtime/grid-item/react/public-runtime/assets/react-grid-item.js",
-        "sha256": "d71503d49112cd9329fc94ca454b001df8fb231227d0857991808c11e1bcd0fd",
-        "bytes": 190815
-      },
-      {
-        "path": "runtime/grid-item/react/public-runtime/index.html",
-        "sha256": "cbb560e7ee3484ea170ca1d1dd925a23e854edab0cebff335d9d84d520278e96",
-        "bytes": 502
-      },
-      {
-        "path": "runtime/grid-item/react/src/main.jsx",
-        "sha256": "1d37552ab60ebb04eb31427e57d766402370184a1a7d56d48dccf3fe3efd097e",
-        "bytes": 373
-      },
-      {
-        "path": "runtime/grid-item/react/src/style.css",
-        "sha256": "930a2303c21c7c08f2be3a4eefea3d7659aa62bdaf070e3a63017ebf3198bfde",
-        "bytes": 1464
-      },
-      {
-        "path": "runtime/grid-item/react/vite.config.mjs",
-        "sha256": "3363f64c2f47a0eb48cfa5543cbe1e1961c6cea034fd91d2bb3fb729650ab4b4",
-        "bytes": 200
-      }
-    ],
-    "provenanceFiles": [],
-    "bindingVerified": false
+      "packageJsonSha256": "c405c3bf83d49bb4bb61f38d7e10bcd37b2f62c04c2d99dee314aae1faa8cd7b"
+    },
+    "npmLock": {
+      "resolved": "https://registry.npmjs.org/@cloudflare/kumo/-/kumo-2.5.2.tgz",
+      "integrity": "sha512-HUNi40VG3ExJ7lV8HjqPQcGpCmm2CqG/SzjJ+K+NhCwZRYTBvagdoMDPX2XZ8AW/ZPEeuFoId0VYmzrX+luyXQ=="
+    },
+    "exportPath": "./components/grid-item",
+    "export": null,
+    "mapping": {
+      "status": "unsupported",
+      "reason": "No independent ./components/grid-item export exists (GridItem is only a named export of ./components/grid). Mapping policy is required."
+    },
+    "files": [],
+    "generatedSources": [],
+    "bindingVerified": false,
+    "mismatches": []
   },
   "routes": {
-    "build": "runtime/grid-item/react",
+    "build": "runtime-canonical/grid-item",
     "runtime": "/grid-item/react",
     "directory": "/components/grid-item/"
   },
   "checks": {
     "canonicalSourceProvenance": {
       "status": "blocked",
-      "reason": "No exact canonical Kumo React source/package revision provenance; downstream gates cannot truthfully be attributed to canonical React."
+      "reason": "No independent ./components/grid-item export exists (GridItem is only a named export of ./components/grid). Mapping policy is required."
+    },
+    "packageEvidence": {
+      "status": "passed",
+      "reason": "package identity and relevant bytes match"
     },
     "productionBuild": {
-      "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
+      "status": "passed",
+      "reason": "canonical server/client entry graph generated directly against public package export"
     },
     "runtimeRoute": {
       "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
+      "reason": "No independent ./components/grid-item export exists (GridItem is only a named export of ./components/grid). Mapping policy is required."
     },
     "ssrMarkup": {
       "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
+      "reason": "No independent ./components/grid-item export exists (GridItem is only a named export of ./components/grid). Mapping policy is required."
     },
     "hydration": {
       "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
+      "reason": "No independent ./components/grid-item export exists (GridItem is only a named export of ./components/grid). Mapping policy is required."
     },
     "assetsStyles": {
       "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
+      "reason": "No independent ./components/grid-item export exists (GridItem is only a named export of ./components/grid). Mapping policy is required."
     },
     "console": {
       "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
+      "reason": "No independent ./components/grid-item export exists (GridItem is only a named export of ./components/grid). Mapping policy is required."
     },
     "network": {
       "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
+      "reason": "No independent ./components/grid-item export exists (GridItem is only a named export of ./components/grid). Mapping policy is required."
     },
     "domAria": {
       "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
+      "reason": "No independent ./components/grid-item export exists (GridItem is only a named export of ./components/grid). Mapping policy is required."
     },
     "behaviorVectors": {
       "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
+      "reason": "No independent ./components/grid-item export exists (GridItem is only a named export of ./components/grid). Mapping policy is required."
     },
     "screenshotPixel": {
       "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
-    },
-    "packageEvidence": {
-      "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
+      "reason": "No independent ./components/grid-item export exists (GridItem is only a named export of ./components/grid). Mapping policy is required."
     }
   },
   "limitations": [
-    "No exact canonical Kumo React source/package revision provenance; downstream gates cannot truthfully be attributed to canonical React."
+    "No independent ./components/grid-item export exists (GridItem is only a named export of ./components/grid). Mapping policy is required."
   ],
   "determinism": {
-    "sourceManifestHash": "ad80ad956195ac6985a3eee336e78fc9a8b1fea643e712de7d405e628e13472a"
+    "canonicalManifestHash": "78b0adb39a349ae0ddf4a66e6a53b3930a9a3f5d549a0f25ca3e020d8191c086",
+    "mappingHash": "969a092245badbe35f361007bd80aca5a0157bbbd62e2a052ae956002fe8cc71"
   }
 }

@@ -1,104 +1,96 @@
 {
-  "schemaVersion": "kumo.receipt/v1",
+  "schemaVersion": "kumo.receipt/v3",
   "component": "toasty",
   "framework": "react",
   "classification": "blocked",
   "canonicalInput": true,
   "sourceEvidence": {
-    "files": [
-      {
-        "path": "runtime/toasty/react/index.html",
-        "sha256": "65e6ef4d8f9cc7e42d0731c22b4ebef675bb99580f0f86fb0c3fc3636bffb930",
-        "bytes": 427
+    "manifest": "audit/kumo-react-2.5.2.provenance.json",
+    "package": {
+      "name": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/cloudflare/kumo.git",
+        "directory": "packages/kumo"
       },
-      {
-        "path": "runtime/toasty/react/public-runtime/assets/index-DHsnio_D.css",
-        "sha256": "23713fbc478b92c0796f6e67a382427bcd496be3c03dc984125cc80735595e62",
-        "bytes": 1272
-      },
-      {
-        "path": "runtime/toasty/react/public-runtime/assets/react-toasty.js",
-        "sha256": "49a2339841b897bb12f67ba8f826f1de530b3772d08d21f2354ec28d3f3f0dec",
-        "bytes": 192653
-      },
-      {
-        "path": "runtime/toasty/react/public-runtime/index.html",
-        "sha256": "cfb1f42a0607a56653ea5f5cc9e848f08c9e64b5f7f0e6ef550da15045dee9ce",
-        "bytes": 527
-      },
-      {
-        "path": "runtime/toasty/react/src/main.js",
-        "sha256": "1c98ad05b232e8d4108567b3127f4e1ef884653542f20e9e8c88d8ce8667f2ce",
-        "bytes": 2258
-      },
-      {
-        "path": "runtime/toasty/react/vite.config.mjs",
-        "sha256": "ec62599bf41d5edf4ef96ea811ceb33bdbc6c11dffc8707eaf03d775d2724f93",
-        "bytes": 197
-      }
-    ],
-    "provenanceFiles": [],
-    "bindingVerified": false
+      "packageJsonSha256": "c405c3bf83d49bb4bb61f38d7e10bcd37b2f62c04c2d99dee314aae1faa8cd7b"
+    },
+    "npmLock": {
+      "resolved": "https://registry.npmjs.org/@cloudflare/kumo/-/kumo-2.5.2.tgz",
+      "integrity": "sha512-HUNi40VG3ExJ7lV8HjqPQcGpCmm2CqG/SzjJ+K+NhCwZRYTBvagdoMDPX2XZ8AW/ZPEeuFoId0VYmzrX+luyXQ=="
+    },
+    "exportPath": "./components/toasty",
+    "export": null,
+    "mapping": {
+      "status": "unsupported",
+      "reason": "No independent ./components/toasty export exists (Toasty is only a named export of ./components/toast). Mapping policy is required."
+    },
+    "files": [],
+    "generatedSources": [],
+    "bindingVerified": false,
+    "mismatches": []
   },
   "routes": {
-    "build": "runtime/toasty/react",
+    "build": "runtime-canonical/toasty",
     "runtime": "/toasty/react",
     "directory": "/components/toasty/"
   },
   "checks": {
     "canonicalSourceProvenance": {
       "status": "blocked",
-      "reason": "No exact canonical Kumo React source/package revision provenance; downstream gates cannot truthfully be attributed to canonical React."
+      "reason": "No independent ./components/toasty export exists (Toasty is only a named export of ./components/toast). Mapping policy is required."
+    },
+    "packageEvidence": {
+      "status": "passed",
+      "reason": "package identity and relevant bytes match"
     },
     "productionBuild": {
-      "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
+      "status": "passed",
+      "reason": "canonical server/client entry graph generated directly against public package export"
     },
     "runtimeRoute": {
       "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
+      "reason": "No independent ./components/toasty export exists (Toasty is only a named export of ./components/toast). Mapping policy is required."
     },
     "ssrMarkup": {
       "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
+      "reason": "No independent ./components/toasty export exists (Toasty is only a named export of ./components/toast). Mapping policy is required."
     },
     "hydration": {
       "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
+      "reason": "No independent ./components/toasty export exists (Toasty is only a named export of ./components/toast). Mapping policy is required."
     },
     "assetsStyles": {
       "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
+      "reason": "No independent ./components/toasty export exists (Toasty is only a named export of ./components/toast). Mapping policy is required."
     },
     "console": {
       "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
+      "reason": "No independent ./components/toasty export exists (Toasty is only a named export of ./components/toast). Mapping policy is required."
     },
     "network": {
       "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
+      "reason": "No independent ./components/toasty export exists (Toasty is only a named export of ./components/toast). Mapping policy is required."
     },
     "domAria": {
       "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
+      "reason": "No independent ./components/toasty export exists (Toasty is only a named export of ./components/toast). Mapping policy is required."
     },
     "behaviorVectors": {
       "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
+      "reason": "No independent ./components/toasty export exists (Toasty is only a named export of ./components/toast). Mapping policy is required."
     },
     "screenshotPixel": {
       "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
-    },
-    "packageEvidence": {
-      "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
+      "reason": "No independent ./components/toasty export exists (Toasty is only a named export of ./components/toast). Mapping policy is required."
     }
   },
   "limitations": [
-    "No exact canonical Kumo React source/package revision provenance; downstream gates cannot truthfully be attributed to canonical React."
+    "No independent ./components/toasty export exists (Toasty is only a named export of ./components/toast). Mapping policy is required."
   ],
   "determinism": {
-    "sourceManifestHash": "8afe67002aa30abf00609be8baa3ab5a08eacb9d29fbdcfc2257b353e6d5c891"
+    "canonicalManifestHash": "97cfa8cab2175d03262ddb40cf990dee325937879ae3177a9fd4e895c1a3bf25",
+    "mappingHash": "9ed5354974ebae94adfaa5d74c35b126eee772ce23808bc4386ec758fc121efb"
   }
 }

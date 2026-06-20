@@ -1,0 +1,2 @@
+import React from 'react';
+export const fixture=<React.Fragment><main className="form-shell"><h1>"Input"</h1><section className="form-grid"><article className="form-card" data-member="input"><label className="field" for="email"><span>"Email address"</span><input className="control" id="email" type="email" placeholder="you@example.com"></input></label></article></section></main></React.Fragment>;

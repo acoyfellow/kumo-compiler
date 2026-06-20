@@ -1,0 +1,2 @@
+import React from 'react';
+export const fixture=<React.Fragment><main className="form-shell"><h1>"InputGroup"</h1><section className="form-grid"><article className="form-card" data-member="input-group"><label className="field" for="domain"><span>"Domain"</span><span className="group"><span>"https://"</span><input id="domain" value="example.com"></input></span></label></article></section></main></React.Fragment>;

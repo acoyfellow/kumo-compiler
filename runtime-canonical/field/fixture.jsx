@@ -1,0 +1,2 @@
+import React from 'react';
+export const fixture=<React.Fragment><main className="form-shell"><h1>"Field"</h1><section className="form-grid"><article className="form-card" data-member="field"><div className="field"><label for="field-value">"Project name"</label><input className="control" id="field-value" value="Kumo"></input><small>"Visible to your team."</small></div></article></section></main></React.Fragment>;

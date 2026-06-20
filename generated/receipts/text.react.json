@@ -1,109 +1,168 @@
 {
-  "schemaVersion": "kumo.receipt/v1",
+  "schemaVersion": "kumo.receipt/v3",
   "component": "text",
   "framework": "react",
-  "classification": "blocked",
+  "classification": "failed",
   "canonicalInput": true,
   "sourceEvidence": {
+    "manifest": "audit/kumo-react-2.5.2.provenance.json",
+    "package": {
+      "name": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/cloudflare/kumo.git",
+        "directory": "packages/kumo"
+      },
+      "packageJsonSha256": "c405c3bf83d49bb4bb61f38d7e10bcd37b2f62c04c2d99dee314aae1faa8cd7b"
+    },
+    "npmLock": {
+      "resolved": "https://registry.npmjs.org/@cloudflare/kumo/-/kumo-2.5.2.tgz",
+      "integrity": "sha512-HUNi40VG3ExJ7lV8HjqPQcGpCmm2CqG/SzjJ+K+NhCwZRYTBvagdoMDPX2XZ8AW/ZPEeuFoId0VYmzrX+luyXQ=="
+    },
+    "exportPath": "./components/text",
+    "export": {
+      "types": "./dist/src/components/text/index.d.ts",
+      "import": "./dist/components/text.js"
+    },
+    "mapping": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/text",
+      "symbol": "Text"
+    },
     "files": [
       {
-        "path": "runtime/text/react/index.html",
-        "sha256": "002986f1bf24f2439996fae40aecb926962cc5d6b9439a1db7953818185ac470",
-        "bytes": 400
+        "path": "dist/chunks/text-be7ehenoyldhyjma.js",
+        "sha256": "923b39ab4746a208e86728f931d272e24d71ace849e226d7e3543678569984c9",
+        "bytes": 2600
       },
       {
-        "path": "runtime/text/react/public-runtime/assets/index-mu3fn2Nd.css",
-        "sha256": "6b16f3360f808e037c7f829706e792d124003c2bbd7e3a7510dac4276aadb86f",
-        "bytes": 1465
+        "path": "dist/chunks/text-be7ehenoyldhyjma.js.map",
+        "sha256": "79eb4df5253d488fd2c73dd075fa0d5b8cbb5f8c7dada6b8edb80cc213108cef",
+        "bytes": 13008
       },
       {
-        "path": "runtime/text/react/public-runtime/assets/react-text.js",
-        "sha256": "472bb26893eaacbd09a2e0ac530b55bd187ed3c1e1bd966cda9d3198974137b6",
-        "bytes": 190819
+        "path": "dist/components/text.js",
+        "sha256": "d7d7c27e10f9b13bd3f0f0329de318c8f9a19d75633b43f29d1595a61948de06",
+        "bytes": 132
       },
       {
-        "path": "runtime/text/react/public-runtime/index.html",
-        "sha256": "ec80e18a9418a8947d4bb7d23a54ad1c23c9a16e9f9e0aab6658d8f26a06ca0f",
-        "bytes": 497
+        "path": "dist/components/text.js.map",
+        "sha256": "46d4d127fc24a0c634c49d14180e7cf1a1ac001c179e7184b8a6a98a52e40b62",
+        "bytes": 90
       },
       {
-        "path": "runtime/text/react/src/main.jsx",
-        "sha256": "1170c22a4bbce4a42de5b8cd370732b6d1e8eb4c671aae3543629a3983f2c641",
-        "bytes": 377
+        "path": "dist/src/components/text/index.d.ts",
+        "sha256": "8862118df177b6037c915afca59187d9857baef1a95ea45aab1d9f65e9c0c6cf",
+        "bytes": 66
       },
       {
-        "path": "runtime/text/react/src/style.css",
-        "sha256": "930a2303c21c7c08f2be3a4eefea3d7659aa62bdaf070e3a63017ebf3198bfde",
-        "bytes": 1464
+        "path": "dist/src/components/text/index.d.ts.map",
+        "sha256": "a7ce24b96eeed93301f5214862140ecaae2b64fbc443b8a1e96702488bc6952f",
+        "bytes": 168
       },
       {
-        "path": "runtime/text/react/vite.config.mjs",
-        "sha256": "d2bd3c6bc3a6b89fca020cdc1e61b5d333dbb57906cea2d982dd05306c80991d",
-        "bytes": 195
+        "path": "dist/src/components/text/text.d.ts",
+        "sha256": "11379b4746caaa99a61e3cad42410a2967b01eaed6117e790d750687fd1e42a1",
+        "bytes": 8068
+      },
+      {
+        "path": "dist/src/components/text/text.d.ts.map",
+        "sha256": "3e40b1826c90b01af2b6f4ef91ae5dcab4a3202bfa2736d9c8b83d3473cb20f7",
+        "bytes": 2541
+      },
+      {
+        "path": "dist/src/components/text/text.type-spec.d.ts",
+        "sha256": "9cdd807596cddb1c05827c1d44f15a684b93bec359af48f11382d88d84367c36",
+        "bytes": 2247
+      },
+      {
+        "path": "dist/src/components/text/text.type-spec.d.ts.map",
+        "sha256": "77e9337f57e6b34cf7fc48b4123863284f5750e86a0b0b60efba72067b437763",
+        "bytes": 229
       }
     ],
-    "provenanceFiles": [],
-    "bindingVerified": false
+    "generatedSources": [
+      {
+        "path": "runtime-canonical/text/entry.jsx",
+        "sha256": "943e7a05e88851ace899fd86a360624c7010bedc82a84ea0ba7a59deabf20729"
+      },
+      {
+        "path": "runtime-canonical/text/fixture.jsx",
+        "sha256": "2f3af1904af3eaa6fa2abdb1b8e729ff3f08e9e13d3628d54e75be3bd52a2350"
+      },
+      {
+        "path": "runtime-canonical/text/server.jsx",
+        "sha256": "92cdc8fc79d49065203f65dbf65cd6d81c333a835de4296f0eb1766f61896b68"
+      },
+      {
+        "path": "runtime-canonical/text/client.jsx",
+        "sha256": "25e6f33a1c3828eac69785c62e523ef9b53a9912f93cfa8d3093448e23956612"
+      }
+    ],
+    "bindingVerified": true,
+    "mismatches": []
   },
   "routes": {
-    "build": "runtime/text/react",
+    "build": "runtime-canonical/text",
     "runtime": "/text/react",
     "directory": "/components/text/"
   },
   "checks": {
     "canonicalSourceProvenance": {
-      "status": "blocked",
-      "reason": "No exact canonical Kumo React source/package revision provenance; downstream gates cannot truthfully be attributed to canonical React."
-    },
-    "productionBuild": {
-      "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
-    },
-    "runtimeRoute": {
-      "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
-    },
-    "ssrMarkup": {
-      "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
-    },
-    "hydration": {
-      "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
-    },
-    "assetsStyles": {
-      "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
-    },
-    "console": {
-      "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
-    },
-    "network": {
-      "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
-    },
-    "domAria": {
-      "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
-    },
-    "behaviorVectors": {
-      "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
-    },
-    "screenshotPixel": {
-      "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
+      "status": "passed",
+      "reason": "exact npm package identity, export and relevant byte hashes match the attestation"
     },
     "packageEvidence": {
-      "status": "blocked",
-      "reason": "Not credited because canonical source provenance is blocked."
+      "status": "passed",
+      "reason": "package identity and relevant bytes match"
+    },
+    "productionBuild": {
+      "status": "passed",
+      "reason": "canonical server/client entry graph generated directly against public package export"
+    },
+    "runtimeRoute": {
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+    },
+    "ssrMarkup": {
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+    },
+    "hydration": {
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+    },
+    "assetsStyles": {
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+    },
+    "console": {
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+    },
+    "network": {
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+    },
+    "domAria": {
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+    },
+    "behaviorVectors": {
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
+    },
+    "screenshotPixel": {
+      "status": "failed",
+      "reason": "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
     }
   },
   "limitations": [
-    "No exact canonical Kumo React source/package revision provenance; downstream gates cannot truthfully be attributed to canonical React."
+    "Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited."
   ],
   "determinism": {
-    "sourceManifestHash": "8991cbdb3b9f2f3c04650cf8a53797c6d07bbfc0aef86a27c93c0362167ce6ec"
+    "canonicalManifestHash": "d15fa0efd1bf9fbe99d6bce544a0d6ff749c5e6b88512213d7b32b407f9cfda2",
+    "mappingHash": "14ee8b0de37b27bbc6d6806edd32aba140789968f40dd401a6f5db24e345f016"
   }
 }

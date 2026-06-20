@@ -1,0 +1,2 @@
+import React from 'react';
+export const fixture=<React.Fragment><main className="family"><h1>"DropdownMenu"</h1><section><button className="menu-button" aria-haspopup="menu" aria-expanded=false>"Actions"</button><div className="menu" role="menu"><button role="menuitem" tabindex=-1>"Edit"</button><button role="menuitem" tabindex=-1>"Duplicate"</button><button role="menuitem" tabindex=-1>"Delete"</button></div></section></main></React.Fragment>;

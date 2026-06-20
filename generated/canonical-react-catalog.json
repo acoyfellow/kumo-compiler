@@ -1,0 +1,208 @@
+{
+  "schemaVersion": "kumo.canonical-react-catalog/v1",
+  "package": "@cloudflare/kumo@2.5.2",
+  "components": {
+    "select": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/select",
+      "symbol": "Select"
+    },
+    "button": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/button",
+      "symbol": "Button"
+    },
+    "dialog": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/dialog",
+      "symbol": "Dialog"
+    },
+    "popover": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/popover",
+      "symbol": "Popover"
+    },
+    "checkbox": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/checkbox",
+      "symbol": "Checkbox"
+    },
+    "switch": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/switch",
+      "symbol": "Switch"
+    },
+    "field": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/field",
+      "symbol": "Field"
+    },
+    "input": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/input",
+      "symbol": "Input"
+    },
+    "input-group": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/input-group",
+      "symbol": "InputGroup"
+    },
+    "input-area": {
+      "status": "unsupported",
+      "reason": "No independent ./components/input-area export exists (InputArea is only a named export of ./components/input). Mapping policy is required."
+    },
+    "sensitive-input": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/sensitive-input",
+      "symbol": "SensitiveInput"
+    },
+    "clipboard-text": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/clipboard-text",
+      "symbol": "ClipboardText"
+    },
+    "tabs": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/tabs",
+      "symbol": "Tabs"
+    },
+    "menu-bar": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/menubar",
+      "symbol": "MenuBar"
+    },
+    "sidebar": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/sidebar",
+      "symbol": "Sidebar"
+    },
+    "breadcrumbs": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/breadcrumbs",
+      "symbol": "Breadcrumbs"
+    },
+    "table-of-contents": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/table-of-contents",
+      "symbol": "TableOfContents"
+    },
+    "badge": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/badge",
+      "symbol": "Badge"
+    },
+    "banner": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/banner",
+      "symbol": "Banner"
+    },
+    "surface": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/surface",
+      "symbol": "Surface"
+    },
+    "layer-card": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/layer-card",
+      "symbol": "LayerCard"
+    },
+    "grid": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/grid",
+      "symbol": "Grid"
+    },
+    "grid-item": {
+      "status": "unsupported",
+      "reason": "No independent ./components/grid-item export exists (GridItem is only a named export of ./components/grid). Mapping policy is required."
+    },
+    "loader": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/loader",
+      "symbol": "Loader"
+    },
+    "meter": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/meter",
+      "symbol": "Meter"
+    },
+    "empty": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/empty",
+      "symbol": "Empty"
+    },
+    "label": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/label",
+      "symbol": "Label"
+    },
+    "link": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/link",
+      "symbol": "Link"
+    },
+    "text": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/text",
+      "symbol": "Text"
+    },
+    "cloudflare-logo": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/cloudflare-logo",
+      "symbol": "CloudflareLogo"
+    },
+    "code": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/code",
+      "symbol": "Code"
+    },
+    "table": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/table",
+      "symbol": "Table"
+    },
+    "radio": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/radio",
+      "symbol": "Radio"
+    },
+    "autocomplete": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/autocomplete",
+      "symbol": "Autocomplete"
+    },
+    "combobox": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/combobox",
+      "symbol": "Combobox"
+    },
+    "command-palette": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/command-palette",
+      "symbol": "CommandPalette"
+    },
+    "date-picker": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/date-picker",
+      "symbol": "DatePicker"
+    },
+    "date-range-picker": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/date-range-picker",
+      "symbol": "DateRangePicker"
+    },
+    "dropdown-menu": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/dropdown",
+      "symbol": "DropdownMenu"
+    },
+    "toasty": {
+      "status": "unsupported",
+      "reason": "No independent ./components/toasty export exists (Toasty is only a named export of ./components/toast). Mapping policy is required."
+    },
+    "pagination": {
+      "status": "mapped",
+      "exportPath": "@cloudflare/kumo/components/pagination",
+      "symbol": "Pagination"
+    }
+  }
+}

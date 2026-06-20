@@ -1,12 +1,18 @@
 {
-  "schemaVersion": "kumo.react-audit-summary/v1",
+  "schemaVersion": "kumo.react-audit-summary/v3",
   "catalogSchema": "kumo.ir/v1",
   "total": 41,
   "passed": 0,
-  "failed": 0,
-  "blocked": 41,
+  "failed": 38,
+  "blocked": 3,
+  "canonicalPackage": {
+    "name": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "manifest": "audit/kumo-react-2.5.2.provenance.json",
+    "packageBinding": true
+  },
   "limitations": [
-    "No React runtime has machine-verifiable provenance binding it to an exact canonical Kumo package source/revision.",
-    "A reachable build or visual lookalike is not accepted as canonical-source, SSR/hydration, behavior, console/network, or pixel evidence."
+    "38 public exports are canonically mapped and generated, but fail until the equal browser evidence suite is run against these entries.",
+    "input-area, grid-item, and toasty are blocked because no same-name public package subpath exists; nested exports were deliberately not guessed."
   ]
 }

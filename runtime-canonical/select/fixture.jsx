@@ -1,0 +1,2 @@
+import React from 'react';
+export const fixture=<React.Fragment><main className="form-shell"><h1>"Select"</h1><section className="matrix"><button role="combobox" aria-expanded=false aria-controls="select-options">"Choose fruit"</button><ul id="select-options" role="listbox"><li role="option">"Apple"</li><li role="option">"Banana"</li><li role="option">"Cherry"</li></ul></section></main></React.Fragment>;

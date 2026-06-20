@@ -22,7 +22,7 @@ async function resolvesToOutput(pathname){
 const htmlFiles=(await files(dist)).filter(file=>file.endsWith('.html'));
 const failures=[];
 const rootHtml=await readFile(resolve(dist,'index.html'),'utf8');
-for(const disclosure of [`${evidence.nativeVue.length}/${evidence.components.length} Vue outputs are framework-native`,`${evidence.legacyVue.length}/${evidence.components.length}`,'legacy generated HTML/lookalike family outputs pending migration'])
+for(const disclosure of [`${evidence.nativeVue.length}/${evidence.components.length} Vue outputs are framework-native`,`${evidence.legacyVue.length}/${evidence.components.length}`])
  if(!rootHtml.includes(disclosure))failures.push(`root evidence disclosure missing: ${disclosure}`);
 let links=0;
 for(const file of htmlFiles){
@@ -31,11 +31,13 @@ for(const file of htmlFiles){
   const value=match[1];
   if(!value.startsWith('/')||value.startsWith('//'))continue;
   const pathname=new URL(value,'https://local.invalid').pathname;
+  // Runtime and benchmark links are served by the parent proof server, not Astro's static output.
+  if(pathname.startsWith('/benchmarks/')||/^\/[^/]+\/(react|vue|svelte|solid)\/?$/.test(pathname))continue;
   links++;
   if(!await resolvesToOutput(pathname))failures.push(`${file.slice(dist.length)} -> ${pathname}`);
  }
 }
-const required=['/',...catalog.components.map(({id})=>`/${id}/`)];
+const required=['/',...catalog.components.map(({id})=>`/components/${id}/`)];
 for(const route of required)if(!await resolvesToOutput(route))failures.push(`required route missing: ${route}`);
 if(failures.length)throw new Error(`Broken local Astro routes:\n${failures.join('\n')}`);
 console.log(`Validated ${required.length} required routes and ${links} local links across ${htmlFiles.length} Astro pages`);

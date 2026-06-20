@@ -1,0 +1,2 @@
+import React from 'react';
+export const fixture=<React.Fragment><main className="family"><h1>"CommandPalette"</h1><section><button className="command" aria-haspopup="dialog">"Open commands ⌘K"</button><div className="palette" role="dialog" aria-modal=true aria-label="Command palette"><input aria-label="Filter commands"></input><ul role="listbox"><li role="option" tabindex=-1>"Create project"</li><li role="option" tabindex=-1>"Open settings"</li></ul></div></section></main></React.Fragment>;

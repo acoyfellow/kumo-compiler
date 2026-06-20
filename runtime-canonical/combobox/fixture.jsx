@@ -1,0 +1,2 @@
+import React from 'react';
+export const fixture=<React.Fragment><main className="family"><h1>"Combobox"</h1><section><button className="combo" role="combobox" aria-controls="region-list" aria-expanded=false>"Choose region"</button><ul id="region-list" role="listbox"><li role="option" tabindex=-1>"North America"</li><li role="option" tabindex=-1>"Europe"</li></ul></section></main></React.Fragment>;

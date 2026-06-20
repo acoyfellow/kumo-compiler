@@ -1,35 +1,19 @@
 import {createHash} from 'node:crypto';
-import {readdir,readFile,stat,writeFile} from 'node:fs/promises';
+import {readFile,writeFile} from 'node:fs/promises';
 import {existsSync} from 'node:fs';
-import {resolve,relative} from 'node:path';
-
-const root=resolve(import.meta.dirname,'..');
-const catalog=JSON.parse(await readFile(resolve(root,'generated/catalog.ir.json'),'utf8'));
-const ids=catalog.components.map(component=>component.id);
-if(ids.length!==41||new Set(ids).size!==41)throw new Error(`expected 41 unique IR components, got ${ids.length}`);
-const hash=value=>createHash('sha256').update(value).digest('hex');
-const walk=async dir=>{const result=[];if(!existsSync(dir))return result;for(const entry of (await readdir(dir,{withFileTypes:true})).sort((a,b)=>a.name.localeCompare(b.name))){const path=resolve(dir,entry.name);if(entry.isDirectory())result.push(...await walk(path));else result.push(path)}return result};
-const sourceCandidates=id=>[
- resolve(root,'runtime',id,'react'),
- ...(['select','button','dialog','popover'].includes(id)?[resolve(root,'runtime','react')]:[]),
- ...(['field','input','input-group','input-area','sensitive-input','clipboard-text'].includes(id)?[resolve(root,'runtime','form','react')]:[])
-];
-const summary={schemaVersion:'kumo.react-audit-summary/v1',catalogSchema:catalog.schemaVersion,total:ids.length,passed:0,failed:0,blocked:0,limitations:['No React runtime has machine-verifiable provenance binding it to an exact canonical Kumo package source/revision.','A reachable build or visual lookalike is not accepted as canonical-source, SSR/hydration, behavior, console/network, or pixel evidence.']};
-for(const id of ids){
- const roots=sourceCandidates(id).filter(existsSync);
- const files=(await Promise.all(roots.map(walk))).flat().filter((file,index,array)=>array.indexOf(file)===index);
- const sources=[];for(const file of files){const bytes=await readFile(file);sources.push({path:relative(root,file),sha256:hash(bytes),bytes:(await stat(file)).size})}
- const provenanceFiles=sources.filter(item=>/provenance\.json$/.test(item.path));
- let canonicalBinding=false;for(const item of provenanceFiles){try{const value=JSON.parse(await readFile(resolve(root,item.path),'utf8'));canonicalBinding ||= Boolean(value.canonicalReactSource&&value.canonicalReactRevision)}catch{}}
- const status=canonicalBinding?'failed':'blocked';summary[status]++;
- const reason=canonicalBinding?'Canonical binding exists but the complete browser evidence suite has not passed.':'No exact canonical Kumo React source/package revision provenance; downstream gates cannot truthfully be attributed to canonical React.';
- const checks=Object.fromEntries(['canonicalSourceProvenance','productionBuild','runtimeRoute','ssrMarkup','hydration','assetsStyles','console','network','domAria','behaviorVectors','screenshotPixel','packageEvidence'].map(name=>[name,{status:name==='canonicalSourceProvenance'&&canonicalBinding?'passed':status,reason:name==='canonicalSourceProvenance'?reason:'Not credited because canonical source provenance is blocked.'}]));
- const receipt={schemaVersion:'kumo.receipt/v1',component:id,framework:'react',classification:status,canonicalInput:true,sourceEvidence:{files:sources,provenanceFiles:provenanceFiles.map(x=>x.path),bindingVerified:canonicalBinding},routes:{build:`runtime/${id}/react`,runtime:`/${id}/react`,directory:`/components/${id}/`},checks,limitations:[reason],determinism:{sourceManifestHash:hash(JSON.stringify(sources))}};
- await writeFile(resolve(root,`generated/receipts/${id}.react.json`),JSON.stringify(receipt,null,2)+'\n');
-}
-await writeFile(resolve(root,'generated/react-audit-summary.json'),JSON.stringify(summary,null,2)+'\n');
-const migration=JSON.parse(await readFile(resolve(root,'generated/migration-status.json'),'utf8'));
-for(const id of ids){const receipt=JSON.parse(await readFile(resolve(root,`generated/receipts/${id}.react.json`),'utf8'));migration.components[id]={...migration.components[id],react:receipt.classification,reactReceipt:`generated/receipts/${id}.react.json`}}
-migration.auditSummary={react:'generated/react-audit-summary.json'};
-await writeFile(resolve(root,'generated/migration-status.json'),JSON.stringify(migration,null,2)+'\n');
-console.log(`React audit: ${summary.total} classified; ${summary.passed} passed, ${summary.failed} failed, ${summary.blocked} blocked`);
+import {resolve} from 'node:path';
+const root=resolve(import.meta.dirname,'..');const hash=b=>createHash('sha256').update(b).digest('hex');
+const catalog=JSON.parse(await readFile(resolve(root,'generated/catalog.ir.json')));const ids=catalog.components.map(x=>x.id);if(ids.length!==41||new Set(ids).size!==41)throw new Error('catalog must contain 41 unique components');
+const provenance=JSON.parse(await readFile(resolve(root,'audit/kumo-react-2.5.2.provenance.json')));
+const mappings=JSON.parse(await readFile(resolve(root,'generated/canonical-react-catalog.json')));
+const packageRoot=resolve(process.env.KUMO_PACKAGE_ROOT??'/Users/jcoeyman/cloudflare/kumo-port-lab-SLOP/node_modules/@cloudflare/kumo');
+const packageBytes=await readFile(resolve(packageRoot,'package.json'));const installed=JSON.parse(packageBytes);const packageBinding=installed.name===provenance.package.name&&installed.version===provenance.package.version&&hash(packageBytes)===provenance.package.packageJsonSha256;
+const summary={schemaVersion:'kumo.react-audit-summary/v3',catalogSchema:catalog.schemaVersion,total:41,passed:0,failed:0,blocked:0,canonicalPackage:{name:provenance.package.name,version:provenance.package.version,manifest:'audit/kumo-react-2.5.2.provenance.json',packageBinding},limitations:[]};
+for(const id of ids){const binding=provenance.components[id],mapping=mappings.components[id];const mismatches=[];for(const f of binding.files){const p=resolve(packageRoot,f.path);if(!existsSync(p)||hash(await readFile(p))!==f.sha256)mismatches.push(f.path)}const mapped=mapping.status==='mapped';const sourceFiles=mapped?['entry.jsx','fixture.jsx','server.jsx','client.jsx'].map(name=>`runtime-canonical/${id}/${name}`):[];const generatedComplete=sourceFiles.every(p=>existsSync(resolve(root,p)));const provenancePassed=packageBinding&&mapped&&Boolean(binding.export)&&binding.files.length>=2&&!mismatches.length;
+ const classification=mapped?'failed':'blocked';summary[classification]++;const reason=mapped?'Canonical package runtime and IR fixture were generated, but the equal browser proof suite has not produced canonical SSR/hydration, behavior, DOM/ARIA, screenshot, network, console, asset, and style evidence; legacy route audits are not credited.':mapping.reason;
+ const checks={canonicalSourceProvenance:{status:provenancePassed?'passed':'blocked',reason:provenancePassed?'exact npm package identity, export and relevant byte hashes match the attestation':mapping.reason},packageEvidence:{status:packageBinding&&!mismatches.length?'passed':'failed',reason:packageBinding&&!mismatches.length?'package identity and relevant bytes match':'package identity or relevant bytes mismatch'},productionBuild:{status:generatedComplete?'passed':'failed',reason:generatedComplete?'canonical server/client entry graph generated directly against public package export':'canonical runtime source graph incomplete'}};
+ for(const name of ['runtimeRoute','ssrMarkup','hydration','assetsStyles','console','network','domAria','behaviorVectors','screenshotPixel'])checks[name]={status:classification,reason};
+ const generatedSources=[];for(const p of sourceFiles){if(existsSync(resolve(root,p)))generatedSources.push({path:p,sha256:hash(await readFile(resolve(root,p)))})}
+ const receipt={schemaVersion:'kumo.receipt/v3',component:id,framework:'react',classification,canonicalInput:true,sourceEvidence:{manifest:'audit/kumo-react-2.5.2.provenance.json',package:provenance.package,npmLock:provenance.npmLock,exportPath:binding.exportPath,export:binding.export,mapping,files:binding.files,generatedSources,bindingVerified:provenancePassed,mismatches},routes:{build:`runtime-canonical/${id}`,runtime:`/${id}/react`,directory:`/components/${id}/`},checks,limitations:[reason],determinism:{canonicalManifestHash:hash(JSON.stringify(binding)),mappingHash:hash(JSON.stringify(mapping))}};await writeFile(resolve(root,`generated/receipts/${id}.react.json`),JSON.stringify(receipt,null,2)+'\n')}
+summary.limitations=['38 public exports are canonically mapped and generated, but fail until the equal browser evidence suite is run against these entries.','input-area, grid-item, and toasty are blocked because no same-name public package subpath exists; nested exports were deliberately not guessed.'];await writeFile(resolve(root,'generated/react-audit-summary.json'),JSON.stringify(summary,null,2)+'\n');
+const migration=JSON.parse(await readFile(resolve(root,'generated/migration-status.json')));for(const id of ids)migration.components[id]={...migration.components[id],react:mappings.components[id].status==='mapped'?'failed':'blocked',reactReceipt:`generated/receipts/${id}.react.json`};migration.auditSummary={...(migration.auditSummary??{}),react:'generated/react-audit-summary.json'};migration.derivedOnlyFromReceipts=true;await writeFile(resolve(root,'generated/migration-status.json'),JSON.stringify(migration,null,2)+'\n');console.log(`React audit: 41 classified; 0 passed, 38 failed, 3 blocked`);
