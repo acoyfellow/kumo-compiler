@@ -1,6 +1,6 @@
 {
   "candidate": "mitosis",
-  "runId": "ter_20260620185149117_v1naq0",
+  "runId": "ter_20260620185824227_x67sdt",
   "mitosisVersion": "0.13.2",
   "diagnosis": "Candidate misuse: generators require TranspilerArgs { component, path }; passing a bare model made component undefined. No upstream generator bug was demonstrated and no upgrade was required.",
   "generated": {
@@ -50,36 +50,60 @@
   "button": {
     "react": {
       "build": "passed",
-      "browser": "passed"
+      "browser": "passed",
+      "ssr": "blocked",
+      "hydration": "blocked",
+      "nodePreservation": "blocked"
     },
     "vue": {
       "build": "passed",
-      "browser": "passed"
+      "browser": "passed",
+      "ssr": "blocked",
+      "hydration": "blocked",
+      "nodePreservation": "blocked"
     },
     "svelte": {
       "build": "passed",
-      "browser": "passed"
+      "browser": "passed",
+      "ssr": "blocked",
+      "hydration": "blocked",
+      "nodePreservation": "blocked"
     },
     "solid": {
       "build": "passed",
-      "browser": "passed"
+      "browser": "passed",
+      "ssr": "blocked",
+      "hydration": "blocked",
+      "nodePreservation": "blocked"
     }
   },
   "limitations": [
-    "The 24 non-Button targets generated with provenance, but build and browser verification were not run.",
-    "SSR, hydration, node preservation, assets/styles, packaging, Dialog portal/focus management, and compound/context parity remain not-run."
+    "Field generated model has implicit label and controlled callback but no descriptions, errors, or aria reference props.",
+    "Tabs is a monolithic labels-array component rather than compound/context; it lacks Arrow navigation and id-based ARIA relationships.",
+    "All 12 target SSR bundles built, but no target SSR renderer/hydration adapter exists; render, hydration warnings, and node preservation are blocked after attempt.",
+    "Assets are Vite harness bundles/screenshots; styles, package publishing, and types remain not-run and are not claimed."
   ],
   "candidateRevision": "d1bcccf",
   "targetCounts": {
-    "passed": 4,
-    "partial": 24,
+    "passed": 0,
+    "partial": 16,
     "failed": 0,
-    "blocked": 0
+    "blocked": 12
   },
   "gateCounts": {
-    "passed": 76,
+    "passed": 152,
     "failed": 0,
-    "not-run": 372,
-    "blocked": 0
+    "not-run": 260,
+    "blocked": 36
+  },
+  "fieldTabs": {
+    "targets": 8,
+    "build": "8/8 passed",
+    "systemChrome": "8/8 passed",
+    "fieldCallback": "4/4 passed",
+    "tabsClick": "4/4 passed",
+    "tabsArrowNavigation": "0/4 unsupported by generated output",
+    "ssrBuild": "12/12 passed",
+    "ssrRenderHydrationNodePreservation": "0/12 blocked"
   }
 }

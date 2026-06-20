@@ -1,0 +1,322 @@
+{
+  "Field.react": {
+    "component": "Field",
+    "framework": "react",
+    "generatedSource": "generated/react/Field.tsx",
+    "systemChrome": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "network": [
+      {
+        "url": "http://127.0.0.1:60650/",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:60650/assets/index-9_wFMucp.js",
+        "status": 200
+      }
+    ],
+    "console": [],
+    "assets": [],
+    "build": "passed",
+    "dom": {
+      "label": "Name",
+      "value": "Ada",
+      "description": null,
+      "error": null,
+      "ariaDescribedby": null
+    },
+    "behavior": {
+      "controlledCallback": true
+    },
+    "domAria": "passed",
+    "behaviorStatus": "passed",
+    "limitations": [
+      "Generated model emits implicit label only; no description/error nodes or aria-describedby references."
+    ],
+    "runtime": "passed",
+    "consoleStatus": "passed",
+    "networkStatus": "passed",
+    "assetsStatus": "failed",
+    "domHtml": "<label>Name<input value=\"Ada\"></label>",
+    "screenshot": ".evidence/Field.react/screenshot.png"
+  },
+  "Field.vue": {
+    "component": "Field",
+    "framework": "vue",
+    "generatedSource": "generated/vue/Field.vue",
+    "systemChrome": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "network": [
+      {
+        "url": "http://127.0.0.1:60671/",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:60671/assets/index-BArcmG_y.js",
+        "status": 200
+      }
+    ],
+    "console": [],
+    "assets": [],
+    "build": "passed",
+    "dom": {
+      "label": "Name",
+      "value": "Ada",
+      "description": null,
+      "error": null,
+      "ariaDescribedby": null
+    },
+    "behavior": {
+      "controlledCallback": true
+    },
+    "domAria": "passed",
+    "behaviorStatus": "passed",
+    "limitations": [
+      "Generated model emits implicit label only; no description/error nodes or aria-describedby references."
+    ],
+    "runtime": "passed",
+    "consoleStatus": "passed",
+    "networkStatus": "passed",
+    "assetsStatus": "failed",
+    "domHtml": "<label>Name<input value=\"Ada\"></label>",
+    "screenshot": ".evidence/Field.vue/screenshot.png"
+  },
+  "Field.svelte": {
+    "component": "Field",
+    "framework": "svelte",
+    "generatedSource": "generated/svelte/Field.svelte",
+    "systemChrome": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "network": [
+      {
+        "url": "http://127.0.0.1:60711/",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:60711/assets/index-BZdTEArq.js",
+        "status": 200
+      }
+    ],
+    "console": [],
+    "assets": [],
+    "build": "passed",
+    "dom": {
+      "label": "Name",
+      "value": "Ada",
+      "description": null,
+      "error": null,
+      "ariaDescribedby": null
+    },
+    "behavior": {
+      "controlledCallback": true
+    },
+    "domAria": "passed",
+    "behaviorStatus": "passed",
+    "limitations": [
+      "Generated model emits implicit label only; no description/error nodes or aria-describedby references."
+    ],
+    "runtime": "passed",
+    "consoleStatus": "passed",
+    "networkStatus": "passed",
+    "assetsStatus": "failed",
+    "domHtml": "<label>Name<input></label>",
+    "screenshot": ".evidence/Field.svelte/screenshot.png"
+  },
+  "Field.solid": {
+    "component": "Field",
+    "framework": "solid",
+    "generatedSource": "generated/solid/Field.tsx",
+    "systemChrome": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "network": [
+      {
+        "url": "http://127.0.0.1:60751/",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:60751/assets/index-jeqXjXjP.js",
+        "status": 200
+      }
+    ],
+    "console": [],
+    "assets": [],
+    "build": "passed",
+    "dom": {
+      "label": "Name",
+      "value": "Ada",
+      "description": null,
+      "error": null,
+      "ariaDescribedby": null
+    },
+    "behavior": {
+      "controlledCallback": true
+    },
+    "domAria": "passed",
+    "behaviorStatus": "passed",
+    "limitations": [
+      "Generated model emits implicit label only; no description/error nodes or aria-describedby references."
+    ],
+    "runtime": "passed",
+    "consoleStatus": "passed",
+    "networkStatus": "passed",
+    "assetsStatus": "failed",
+    "domHtml": "<label>Name<input></label>",
+    "screenshot": ".evidence/Field.solid/screenshot.png"
+  },
+  "Tabs.react": {
+    "component": "Tabs",
+    "framework": "react",
+    "generatedSource": "generated/react/Tabs.tsx",
+    "systemChrome": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "network": [
+      {
+        "url": "http://127.0.0.1:60780/",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:60780/assets/index-BKQ0FAYR.js",
+        "status": 200
+      }
+    ],
+    "console": [],
+    "assets": [],
+    "build": "passed",
+    "dom": {
+      "tabCount": 2,
+      "selected": "true",
+      "panel": "Two"
+    },
+    "behavior": {
+      "click": true,
+      "arrowNavigation": false
+    },
+    "domAria": "passed",
+    "behaviorStatus": "passed",
+    "limitations": [
+      "Generated output is monolithic labels-array state, not compound/context API.",
+      "Generated output has no Arrow-key handler, tab ids, aria-controls, or labelledby links."
+    ],
+    "runtime": "passed",
+    "consoleStatus": "passed",
+    "networkStatus": "passed",
+    "assetsStatus": "failed",
+    "domHtml": "<div><div role=\"tablist\"><button role=\"tab\" aria-selected=\"false\">One</button><button role=\"tab\" aria-selected=\"true\">Two</button></div><div role=\"tabpanel\">Two</div></div>",
+    "screenshot": ".evidence/Tabs.react/screenshot.png"
+  },
+  "Tabs.vue": {
+    "component": "Tabs",
+    "framework": "vue",
+    "generatedSource": "generated/vue/Tabs.vue",
+    "systemChrome": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "network": [
+      {
+        "url": "http://127.0.0.1:60805/",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:60805/assets/index-CRxSV-SV.js",
+        "status": 200
+      }
+    ],
+    "console": [],
+    "assets": [],
+    "build": "passed",
+    "dom": {
+      "tabCount": 2,
+      "selected": "true",
+      "panel": "Two"
+    },
+    "behavior": {
+      "click": true,
+      "arrowNavigation": false
+    },
+    "domAria": "passed",
+    "behaviorStatus": "passed",
+    "limitations": [
+      "Generated output is monolithic labels-array state, not compound/context API.",
+      "Generated output has no Arrow-key handler, tab ids, aria-controls, or labelledby links."
+    ],
+    "runtime": "passed",
+    "consoleStatus": "passed",
+    "networkStatus": "passed",
+    "assetsStatus": "failed",
+    "domHtml": "<div><div role=\"tablist\"><button role=\"tab\" aria-selected=\"false\">One</button><button role=\"tab\" aria-selected=\"true\">Two</button></div><div role=\"tabpanel\">Two</div></div>",
+    "screenshot": ".evidence/Tabs.vue/screenshot.png"
+  },
+  "Tabs.svelte": {
+    "component": "Tabs",
+    "framework": "svelte",
+    "generatedSource": "generated/svelte/Tabs.svelte",
+    "systemChrome": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "network": [
+      {
+        "url": "http://127.0.0.1:60826/",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:60826/assets/index-DiKL6wtw.js",
+        "status": 200
+      }
+    ],
+    "console": [],
+    "assets": [],
+    "build": "passed",
+    "dom": {
+      "tabCount": 2,
+      "selected": "true",
+      "panel": "Two"
+    },
+    "behavior": {
+      "click": true,
+      "arrowNavigation": false
+    },
+    "domAria": "passed",
+    "behaviorStatus": "passed",
+    "limitations": [
+      "Generated output is monolithic labels-array state, not compound/context API.",
+      "Generated output has no Arrow-key handler, tab ids, aria-controls, or labelledby links."
+    ],
+    "runtime": "passed",
+    "consoleStatus": "passed",
+    "networkStatus": "passed",
+    "assetsStatus": "failed",
+    "domHtml": "<div><div role=\"tablist\"><button role=\"tab\" aria-selected=\"false\">One</button><button role=\"tab\" aria-selected=\"true\">Two</button></div> <div role=\"tabpanel\">Two</div></div>",
+    "screenshot": ".evidence/Tabs.svelte/screenshot.png"
+  },
+  "Tabs.solid": {
+    "component": "Tabs",
+    "framework": "solid",
+    "generatedSource": "generated/solid/Tabs.tsx",
+    "systemChrome": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "network": [
+      {
+        "url": "http://127.0.0.1:60858/",
+        "status": 200
+      },
+      {
+        "url": "http://127.0.0.1:60858/assets/index-CQqeONQ5.js",
+        "status": 200
+      }
+    ],
+    "console": [],
+    "assets": [],
+    "build": "passed",
+    "dom": {
+      "tabCount": 2,
+      "selected": "true",
+      "panel": "Two"
+    },
+    "behavior": {
+      "click": true,
+      "arrowNavigation": false
+    },
+    "domAria": "passed",
+    "behaviorStatus": "passed",
+    "limitations": [
+      "Generated output is monolithic labels-array state, not compound/context API.",
+      "Generated output has no Arrow-key handler, tab ids, aria-controls, or labelledby links."
+    ],
+    "runtime": "passed",
+    "consoleStatus": "passed",
+    "networkStatus": "passed",
+    "assetsStatus": "failed",
+    "domHtml": "<div><div role=\"tablist\"><button role=\"tab\" aria-selected=\"false\">One</button><button role=\"tab\" aria-selected=\"true\">Two</button></div><div role=\"tabpanel\">Two</div></div>",
+    "screenshot": ".evidence/Tabs.solid/screenshot.png"
+  }
+}

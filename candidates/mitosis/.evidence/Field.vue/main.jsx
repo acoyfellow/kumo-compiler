@@ -1,0 +1,1 @@
+import{createApp,h}from'vue';import C from '../../generated/vue/Field.vue';createApp({render:()=>h(C,{label:'Name',value:'Ada',onInput:v=>{document.body.dataset.value=v}})}).mount('#app');

@@ -1,0 +1,39 @@
+{
+  "candidate": "mitosis",
+  "component": "Button",
+  "framework": "solid",
+  "kumoRevision": "d1bcccf",
+  "candidateRevision": "d1bcccf",
+  "runId": "ter_20260620185824227_x67sdt",
+  "status": "blocked",
+  "evidence": {
+    "build": "passed",
+    "runtime": "passed",
+    "console": "passed",
+    "network": "passed",
+    "domAria": "passed",
+    "behavior": "passed",
+    "ssr": "blocked",
+    "hydrationWarnings": "blocked",
+    "nodePreservation": "blocked",
+    "screenshot": "passed",
+    "assets": "passed",
+    "styles": "not-run",
+    "package": "not-run",
+    "provenance": "passed",
+    "types": "not-run",
+    "generated": "passed"
+  },
+  "adaptations": [
+    {
+      "kind": "generator",
+      "reason": "Mitosis 0.13.2 TranspilerArgs adapter: generate({ component, path })",
+      "files": [
+        "candidates/mitosis/scripts/generate.mjs"
+      ],
+      "lines": "all",
+      "maintenance": "low",
+      "upstreamSensitivity": "generator API"
+    }
+  ]
+}

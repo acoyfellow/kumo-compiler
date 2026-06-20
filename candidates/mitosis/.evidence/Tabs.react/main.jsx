@@ -1,0 +1,1 @@
+import React from 'react';import{createRoot}from'react-dom/client';import C from '../../generated/react/Tabs.tsx';createRoot(document.querySelector('#app')).render(React.createElement(C,{labels:['One','Two']}));

@@ -1,0 +1,39 @@
+{
+  "candidate": "mitosis",
+  "component": "Select",
+  "framework": "react",
+  "kumoRevision": "d1bcccf",
+  "candidateRevision": "d1bcccf",
+  "runId": "ter_20260620185824227_x67sdt",
+  "status": "partial",
+  "evidence": {
+    "build": "not-run",
+    "runtime": "not-run",
+    "console": "not-run",
+    "network": "not-run",
+    "domAria": "not-run",
+    "behavior": "not-run",
+    "ssr": "not-run",
+    "hydrationWarnings": "not-run",
+    "nodePreservation": "not-run",
+    "screenshot": "not-run",
+    "assets": "not-run",
+    "styles": "not-run",
+    "package": "not-run",
+    "provenance": "passed",
+    "types": "not-run",
+    "generated": "passed"
+  },
+  "adaptations": [
+    {
+      "kind": "generator",
+      "reason": "Mitosis 0.13.2 TranspilerArgs adapter: generate({ component, path })",
+      "files": [
+        "candidates/mitosis/scripts/generate.mjs"
+      ],
+      "lines": "all",
+      "maintenance": "low",
+      "upstreamSensitivity": "generator API"
+    }
+  ]
+}

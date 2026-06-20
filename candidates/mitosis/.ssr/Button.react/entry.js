@@ -1,0 +1,1 @@
+export {default} from '../../generated/react/Button.tsx';

@@ -1,0 +1,1 @@
+import React from 'react';import{createRoot}from'react-dom/client';import C from '../../generated/react/Field.tsx';createRoot(document.querySelector('#app')).render(React.createElement(C,{label:'Name',value:'Ada',onInput:v=>{document.body.dataset.value=v}}));

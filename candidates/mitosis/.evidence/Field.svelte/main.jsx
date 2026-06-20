@@ -1,0 +1,1 @@
+import{mount}from'svelte';import C from '../../generated/svelte/Field.svelte';mount(C,{target:document.querySelector('#app'),props:{label:'Name',value:'Ada',onInput:v=>{document.body.dataset.value=v}}});

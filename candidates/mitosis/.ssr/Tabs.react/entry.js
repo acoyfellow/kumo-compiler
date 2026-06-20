@@ -1,0 +1,1 @@
+export {default} from '../../generated/react/Tabs.tsx';
