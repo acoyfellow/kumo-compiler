@@ -1,12 +1,85 @@
 {
   "candidate": "mitosis",
-  "runId": "ter_20260620183522178_cocfpa",
+  "runId": "ter_20260620185149117_v1naq0",
   "mitosisVersion": "0.13.2",
   "diagnosis": "Candidate misuse: generators require TranspilerArgs { component, path }; passing a bare model made component undefined. No upstream generator bug was demonstrated and no upgrade was required.",
-  "generated": { "Button": ["react", "vue", "svelte", "solid"], "Field": ["react", "vue", "svelte", "solid"], "Tabs": ["react", "vue", "svelte", "solid"], "Select": ["react", "vue", "svelte", "solid"], "Dialog": ["react", "vue", "svelte", "solid"], "Popover": ["react", "vue", "svelte", "solid"], "DatePicker": ["react", "vue", "svelte", "solid"] },
-  "button": { "react": {"build":"passed","browser":"passed"}, "vue": {"build":"passed","browser":"passed"}, "svelte": {"build":"passed","browser":"passed"}, "solid": {"build":"passed","browser":"passed"} },
+  "generated": {
+    "Button": [
+      "react",
+      "vue",
+      "svelte",
+      "solid"
+    ],
+    "Field": [
+      "react",
+      "vue",
+      "svelte",
+      "solid"
+    ],
+    "Tabs": [
+      "react",
+      "vue",
+      "svelte",
+      "solid"
+    ],
+    "Select": [
+      "react",
+      "vue",
+      "svelte",
+      "solid"
+    ],
+    "Dialog": [
+      "react",
+      "vue",
+      "svelte",
+      "solid"
+    ],
+    "Popover": [
+      "react",
+      "vue",
+      "svelte",
+      "solid"
+    ],
+    "DatePicker": [
+      "react",
+      "vue",
+      "svelte",
+      "solid"
+    ]
+  },
+  "button": {
+    "react": {
+      "build": "passed",
+      "browser": "passed"
+    },
+    "vue": {
+      "build": "passed",
+      "browser": "passed"
+    },
+    "svelte": {
+      "build": "passed",
+      "browser": "passed"
+    },
+    "solid": {
+      "build": "passed",
+      "browser": "passed"
+    }
+  },
   "limitations": [
-    "Field and Tabs generated on all targets but build/browser receipts are not yet collected.",
+    "The 24 non-Button targets generated with provenance, but build and browser verification were not run.",
     "SSR, hydration, node preservation, assets/styles, packaging, Dialog portal/focus management, and compound/context parity remain not-run."
-  ]
+  ],
+  "candidateRevision": "d1bcccf",
+  "targetCounts": {
+    "passed": 4,
+    "partial": 24,
+    "failed": 0,
+    "blocked": 0
+  },
+  "gateCounts": {
+    "passed": 76,
+    "failed": 0,
+    "not-run": 372,
+    "blocked": 0
+  }
 }
