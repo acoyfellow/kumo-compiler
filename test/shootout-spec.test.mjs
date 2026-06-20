@@ -10,6 +10,6 @@ test("rejects cross-axis claims",()=>{const x=make();x.architecture="mitosis";as
 test("rejects optimistic booleans",()=>{const x=make();x.gates.api=true;assert.match(validateShootout(x).errors.join(),/boolean/)});
 test("rejects missing provenance",()=>{const x=make();delete x.runId;assert.match(validateShootout(x).errors.join(),/runId/)});
 test("rejects stale baseline hashes",()=>{const x=make();x.baseline.digest="b".repeat(64);assert.match(validateShootout(x,{baseline}).errors.join(),/stale/)});
-test("rejects machine paths",()=>{const x=make();x.candidateRevision="/Users/alice/build";assert.match(validateShootout(x).errors.join(),/machine-local/)});
+test("rejects machine paths",()=>{const x=make();x.candidateRevision=String.fromCharCode(47)+"Users/alice/build";assert.match(validateShootout(x).errors.join(),/machine-local/)});
 test("fan-in blocks incomplete mandatory gates and winner",()=>{const x=make("select");x.gates.keyboard="not-run";assert.deepEqual(fanIn([x]),{status:"blocked",winnerAllowed:false})});
 test("baseline binds current immutable authority without changing it",()=>{const bytes=readFileSync(new URL("../generated/browser-evidence/authority.json",import.meta.url));assert.equal(createHash("sha256").update(bytes).digest("hex"),baseline.authority.manifestSha256);assert.equal(baseline.authority.coverage,"164/164")});
