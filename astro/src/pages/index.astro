@@ -1,69 +1,32 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import FrameworkIcon from '../components/FrameworkIcon.astro';
-import catalog from '../../../benchmarks/catalog.json';
-import { catalogEvidence, frameworks } from '../../../scripts/catalog-evidence.mjs';
-
-const groups = [
-  ['Core', ['select','button','dialog','popover','checkbox','switch']],
-  ['Navigation', ['tabs','menu-bar','sidebar','breadcrumbs','table-of-contents']],
-  ['Forms', ['field','input','input-group','input-area','sensitive-input','clipboard-text']],
-  ['Data and display', ['badge','banner','surface','layer-card','grid','grid-item','loader','meter','empty','label','link','text','cloudflare-logo','code','table']],
-  ['Selection, command, and date', ['radio','autocomplete','combobox','command-palette','date-picker','date-range-picker','dropdown-menu','toasty','pagination']],
+const candidates = [
+  { id: 'typescript', name: 'TypeScript', status: 'Current reference', description: 'The working compiler and complete 41 × 4 evidence catalog.', href: '/typescript/', detail: '164 browser-verified surfaces' },
+  { id: 'go', name: 'Go', status: 'Coming soon', description: 'Native binary candidate focused on simple distribution, startup time, and concurrency.', detail: 'Benchmark implementation pending' },
+  { id: 'rust', name: 'Rust', status: 'Coming soon', description: 'Native candidate focused on throughput, memory use, correctness, and parallel compilation.', detail: 'Benchmark implementation pending' },
+  { id: 'zig', name: 'Zig', status: 'Coming soon', description: 'Small native binary candidate with explicit allocation and a minimal runtime surface.', detail: 'Benchmark implementation pending' },
 ];
-const { components, totals, frameworkStatus, statusCounts } = catalogEvidence(catalog);
-const byId = Object.fromEntries(components.map(component => [component.id, component]));
-const names = { react: 'React', vue: 'Vue', svelte: 'Svelte', solid: 'Solid' };
-const statusFor = (framework, id) => frameworkStatus[framework][id].status;
-const ms = value => `${Number(value).toLocaleString(undefined, { maximumFractionDigits: 1 })} ms`;
-const kb = value => `${(Number(value) / 1024).toLocaleString(undefined, { maximumFractionDigits: 1 })} kB`;
-const totalSurfaces = components.length * frameworks.length;
 ---
-<Layout title="Kumo compiler evidence catalog">
+<Layout title="Kumo compiler candidates">
   <header class="intro">
-    <p class="eyebrow">Kumo compiler · @cloudflare/kumo 2.5.2</p>
-    <h1>Compile one component model to React, Vue, Svelte, and Solid.</h1>
-    <p class="description">Kumo treats the published React package as the canonical source. The compiler normalizes each component into <code>kumo.ir/v1</code>, emits native framework runtimes, then builds and checks every component in a real browser. The table below shows the current result for all <strong>{components.length}</strong> components and <strong>{totalSurfaces}</strong> component-framework surfaces.</p>
-    <ul class="facts" aria-label="Compiler facts">
-      <li><strong>41</strong><span>components</span></li>
-      <li><strong>4</strong><span>frameworks</span></li>
-      <li><strong>164</strong><span>browser-verified surfaces</span></li>
-      <li><strong>2.5.2</strong><span>canonical Kumo version</span></li>
-    </ul>
-    <p class="method">Each framework column reports the receipt result, measured production build time, and built JavaScript bytes for that fixture. Receipts are bound to selected v2 browser evidence covering runtime, console, network, DOM and ARIA, behavior, SSR, hydration, screenshots, assets, styles, package identity, and provenance.</p>
+    <p class="eyebrow">Kumo compiler study</p>
+    <h1>Which implementation should compile Kumo?</h1>
+    <p>We have one working TypeScript reference compiler. Next we will implement the same normalized contract in Go, Rust, and Zig, run each against the same 41-component fixture set, and compare output correctness, build throughput, startup time, memory, binary size, and maintenance cost before choosing a reference implementation.</p>
   </header>
 
-  <section class="summary" aria-labelledby="summary-title">
-    <div class="summary-head"><h2 id="summary-title">Current compiler result</h2><p>All numbers below are read from checked-in receipts and measured catalog data.</p></div>
-    <div class="summary-grid">
-      {frameworks.map(framework => <article>
-        <div class="framework-name"><FrameworkIcon framework={framework} size={22}/><strong>{names[framework]}</strong></div>
-        <p>{Object.entries(statusCounts[framework]).map(([status,count]) => `${count} ${status}`).join(' · ')}</p>
-        <dl><div><dt>Mean build</dt><dd>{ms(totals[framework].meanBuildMs)}</dd></div><div><dt>Total JS</dt><dd>{kb(totals[framework].bundleBytes)}</dd></div></dl>
-      </article>)}
-    </div>
-  </section>
+  <section class="rules" aria-labelledby="rules-title"><h2 id="rules-title">One benchmark contract</h2><p>Every candidate must consume the same <code>kumo.ir/v1</code> input, produce equivalent framework source, pass the same browser and provenance gates, and report raw repeatable measurements. A faster compiler does not win if its output or developer workflow is weaker.</p></section>
 
-  <section class="catalog" aria-labelledby="catalog-title">
-    <div class="catalog-head"><div><h2 id="catalog-title">Component results</h2><p>Select a component to compare its four live runtimes. Select a status to inspect its receipt.</p></div><p class="source">Measurements source: <code>{catalog.source.commit}</code></p></div>
-    {groups.map(([family, ids]) => <section class="family" aria-labelledby={`${family}-title`}>
-      <h3 id={`${family}-title`}>{family} <span>{ids.length}</span></h3>
-      <div class="table-scroll">
-        <table>
-          <thead><tr><th scope="col">Component</th>{frameworks.map(framework => <th scope="col"><span class="framework-header"><FrameworkIcon framework={framework} size={20}/>{names[framework]}</span></th>)}</tr></thead>
-          <tbody>{ids.map(id => { const component = byId[id]; return <tr>
-            <th scope="row"><a href={`/components/${id}/`}>{component.name}</a><span>Compare runtimes →</span></th>
-            {frameworks.map(framework => <td data-label={names[framework]}><a class="status" href={`/receipts/${id}.${framework}.json`}>{statusFor(framework,id)}</a><span>{ms(component.metrics.buildMs[framework])}</span><span>{kb(component.metrics.bundleBytes[framework])} JS</span></td>)}
-          </tr> })}</tbody>
-        </table>
-      </div>
-    </section>)}
-  </section>
+  <section class="candidates" aria-labelledby="candidate-title"><div class="heading"><h2 id="candidate-title">Compiler candidates</h2><p>TypeScript is available now. The native implementations are intentionally marked pending until real code and measurements exist.</p></div><div class="grid">
+    {candidates.map(candidate => candidate.href ? <a class="card active" href={candidate.href}><span class="status">{candidate.status}</span><h3>{candidate.name}</h3><p>{candidate.description}</p><small>{candidate.detail}</small><b>View compiler results →</b></a> : <article class="card"><span class="status pending">{candidate.status}</span><h3>{candidate.name}</h3><p>{candidate.description}</p><small>{candidate.detail}</small></article>)}
+  </div></section>
 
-  <aside class="limitations"><strong>What this proves.</strong> These results prove the checked-in compiler fixtures and selected evidence at the recorded revisions. They do not promise identical framework internals or predict bundle size in an application. Two upstream Kumo exports remain outside the 41 executable targets: PageHeader and ResourceListPage; Chart and Flow remain supplemental.</aside>
+  <section class="roadmap" aria-labelledby="roadmap-title"><div class="heading"><h2 id="roadmap-title">Roadmap</h2><p>The TypeScript implementation is working. The comparison and product layers are next.</p></div><ol>
+    <li class="done"><span>1</span><div><strong>TypeScript reference compiler</strong><p>Done for the current 41 executable targets: normalized IR, native framework outputs, package provenance, and selected browser evidence. It is a working reference—not yet proof that TypeScript is the best implementation.</p></div><b>Done</b></li>
+    <li><span>2</span><div><strong>Go, Rust, and Zig implementations</strong><p>Implement the same contract, validate equivalent outputs, and collect raw benchmark samples for throughput, startup, memory, and distribution size.</p></div><b>Next</b></li>
+    <li><span>3</span><div><strong>Choose the compiler</strong><p>Compare correctness, performance, maintainability, ecosystem fit, and operational complexity. Pick one from evidence rather than preference.</p></div><b>Planned</b></li>
+    <li><span>4</span><div><strong>Developer and agent experience</strong><p>Design how people and agents install, import, generate, inspect, and update Kumo for Svelte, Vue, and Solid. Test upstream-change regeneration and prepare the technical proposal for Brandon and Brayden.</p></div><b>Planned</b></li>
+  </ol></section>
 </Layout>
 <style>
-.intro{max-width:850px;padding:30px 0 12px}.eyebrow{margin:0 0 12px;color:#64748b;font-size:12px;font-weight:750;letter-spacing:.08em;text-transform:uppercase}.intro h1{max-width:820px;margin:0;font-size:clamp(38px,5vw,58px);line-height:1.04;letter-spacing:-.045em}.description{margin:22px 0 0;color:#475569;font-size:18px;line-height:1.65}.description code,.source code{font-size:.9em}.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;overflow:hidden;margin:30px 0 0;padding:0;border:1px solid #d8dde5;border-radius:10px;background:#d8dde5;list-style:none}.facts li{display:grid;gap:2px;padding:16px;background:#fff}.facts strong{font-size:24px;letter-spacing:-.03em}.facts span{color:#64748b;font-size:12px}.method{margin:18px 0 0;color:#64748b;font-size:14px;line-height:1.6}.summary,.catalog{margin-top:48px}.summary-head,.catalog-head{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:16px}.summary h2,.catalog h2{margin:0;font-size:26px;letter-spacing:-.025em}.summary-head>p,.catalog-head p{max-width:520px;margin:6px 0 0;color:#64748b;font-size:13px;line-height:1.5}.summary-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid #d8dde5;border-radius:10px;background:#fff}.summary-grid article{min-width:0;padding:16px;border-left:1px solid #e5e7eb}.summary-grid article:first-child{border-left:0}.framework-name{display:flex;align-items:center;gap:8px}.summary-grid article>p{margin:8px 0 14px;color:#166534;font-size:12px;font-weight:700}.summary-grid dl{display:grid;gap:7px;margin:0}.summary-grid dl div{display:flex;justify-content:space-between;gap:12px}.summary-grid dt{color:#64748b;font-size:12px}.summary-grid dd{margin:0;font-size:12px;font-weight:750;font-variant-numeric:tabular-nums}.source{text-align:right}.family{margin-top:28px}.family h3{display:flex;align-items:center;gap:8px;margin:0 0 8px;font-size:15px}.family h3 span{color:#64748b;font-size:12px;font-weight:500}.table-scroll{overflow-x:auto;border:1px solid #d8dde5;border-radius:10px;background:#fff}table{width:100%;min-width:760px;border-collapse:collapse;table-layout:fixed}th,td{border-bottom:1px solid #e5e7eb;border-left:1px solid #e5e7eb;padding:11px 13px;text-align:left;vertical-align:top}tr:last-child th,tr:last-child td{border-bottom:0}th:first-child,td:first-child{border-left:0}thead th{background:#f7f8fa;color:#475569;font-size:12px;font-weight:750}thead th:first-child{width:22%}.framework-header{display:flex;align-items:center;gap:7px}tbody th a{display:block;color:#111827;font-size:13px;font-weight:750;text-decoration:none}tbody th a:hover{text-decoration:underline}tbody th span{display:block;margin-top:3px;color:#94a3b8;font-size:10px;font-weight:500}tbody td{font-size:11px;font-variant-numeric:tabular-nums}tbody td>span{display:block;margin-top:3px;color:#64748b}.status{display:inline-flex;color:#166534;font-weight:750;text-decoration:none;text-transform:capitalize}.status::before{content:"";width:6px;height:6px;margin:4px 6px 0 0;border-radius:50%;background:#16a34a}.limitations{margin:42px 0 0;padding:18px 0;border-top:1px solid #d8dde5;color:#64748b;font-size:13px;line-height:1.6}.limitations strong{color:#334155}
-@media(max-width:800px){.facts,.summary-grid{grid-template-columns:repeat(2,1fr)}.summary-grid article:nth-child(3){border-left:0;border-top:1px solid #e5e7eb}.summary-grid article:nth-child(4){border-top:1px solid #e5e7eb}.catalog-head{align-items:start}.source{text-align:left}}
-@media(max-width:600px){.intro{padding-top:12px}.intro h1{font-size:36px}.description{font-size:16px}.facts{grid-template-columns:repeat(2,1fr)}.summary,.catalog{margin-top:38px}.summary-head,.catalog-head{display:block}.summary-grid{grid-template-columns:1fr}.summary-grid article,.summary-grid article:nth-child(3){border-top:1px solid #e5e7eb;border-left:0}.summary-grid article:first-child{border-top:0}.table-scroll{overflow:visible;border:0;background:transparent}table{min-width:0;table-layout:auto}thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}tbody,tr,th,td{display:block}tbody tr{overflow:hidden;margin-bottom:10px;border:1px solid #d8dde5;border-radius:9px;background:#fff}tbody th,tbody td{border:0;border-top:1px solid #e5e7eb;padding:10px 13px}tbody th{border-top:0;background:#f7f8fa}tbody td{display:grid;grid-template-columns:82px 1fr 1fr;align-items:center;gap:8px}tbody td::before{content:attr(data-label);color:#334155;font-weight:750}.status::before{margin-top:3px}.family{margin-top:24px}}
+.intro{max-width:850px;padding:34px 0 14px}.eyebrow{margin:0 0 12px;color:#64748b;font-size:12px;font-weight:750;letter-spacing:.08em;text-transform:uppercase}.intro h1{margin:0;font-size:clamp(38px,5vw,58px);line-height:1.05;letter-spacing:-.045em}.intro>p:last-child{margin:22px 0 0;color:#475569;font-size:18px;line-height:1.65}.rules{max-width:850px;margin-top:42px;padding-top:22px;border-top:1px solid #d8dde5}.rules h2,.roadmap h2,.heading h2{margin:0;font-size:24px;letter-spacing:-.025em}.rules p,.heading p{margin:8px 0 0;color:#64748b;line-height:1.6}.candidates{margin-top:48px}.heading{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:16px}.heading p{max-width:540px;font-size:13px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{display:block;min-height:210px;padding:20px;border:1px solid #d8dde5;border-radius:10px;background:#fff;color:inherit;text-decoration:none}.card.active{border-color:#94a3b8}.card.active:hover{border-color:#475569}.status{display:inline-block;color:#166534;font-size:11px;font-weight:750;text-transform:uppercase;letter-spacing:.05em}.status.pending{color:#64748b}.card h3{margin:14px 0 8px;font-size:25px;letter-spacing:-.03em}.card p{margin:0;color:#475569;line-height:1.55}.card small{display:block;margin-top:22px;color:#64748b}.card b{display:block;margin-top:14px;color:#0759b6;font-size:13px}.roadmap{margin-top:48px}.roadmap ol{display:grid;gap:0;margin:16px 0 0;padding:0;border:1px solid #d8dde5;border-radius:10px;background:#fff;list-style:none}.roadmap li{display:grid;grid-template-columns:30px 1fr auto;gap:14px;align-items:start;padding:18px;border-top:1px solid #e5e7eb}.roadmap li:first-child{border-top:0}.roadmap li>span{display:grid;width:27px;height:27px;place-items:center;border:1px solid #cbd5e1;border-radius:50%;color:#64748b;font-size:12px;font-weight:750}.roadmap li.done>span{border-color:#16a34a;background:#dcfce7;color:#166534}.roadmap li strong{font-size:15px}.roadmap li p{margin:5px 0 0;color:#64748b;font-size:13px;line-height:1.55}.roadmap li>b{color:#64748b;font-size:11px;text-transform:uppercase;letter-spacing:.05em}.roadmap li.done>b{color:#166534}@media(max-width:700px){.heading{display:block}.grid{grid-template-columns:1fr}.intro>p:last-child{font-size:16px}.card{min-height:0}}
 </style>
