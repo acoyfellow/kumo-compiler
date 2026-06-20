@@ -1,12 +1,11 @@
 {
-  "schemaVersion": "kumo.language-shootout/v1",
+  "schemaVersion": "kumo.language-shootout/v2",
   "axis": "language",
   "revision": "f1a07a962997b9d662cbf58ae5b7be13e6c9d8b7",
   "runId": "92ece110-7188-424d-8396-00b9bb7e6a90",
   "fixture": {
-    "projection": "temporary canonical catalog projection; rebind to shootout/v1 workloads when merged",
-    "path": "benchmarks/shootout/languages/fixtures.json",
-    "digest": "0cf758de230b0d7d11c3a8c7f51bf737ba499cd50caa316f2a63f930c10e2757",
+    "path": "shootout/workloads.json",
+    "schemaVersion": "shootout-workloads/v1",
     "components": [
       "button",
       "select"
@@ -22,8 +21,10 @@
     "retryPolicy": "infrastructure failures only",
     "measurement": "Node spawnSync resourceUsage for all candidates; fresh output root each invocation",
     "setupBuild": "excluded and recorded separately by benchmark producer; candidates must already be built",
-    "cwd": "/private/tmp/kumo-language-parity",
-    "cleanState": false
+    "cleanState": false,
+    "correctnessBeforePerformance": true,
+    "serialized": true,
+    "claims": "Axis A planner protocol only; no architecture/browser claim; no winner while correctness gates are incomplete"
   },
   "environment": {
     "platform": "darwin",
@@ -37,7 +38,6 @@
     {
       "language": "typescript",
       "toolchain": "v24.17.0",
-      "binaryBytes": 120591840,
       "measurementStatus": "blocked-runtime-resource-usage-unavailable",
       "request": {
         "semanticDigest": "cfad62bb65584b662946a66e1dc0963d5efae5eb0a63d4f4e1a23343dc185409",
@@ -67,11 +67,6 @@
             "framework": "react"
           }
         ]
-      },
-      "output": {
-        "files": 2,
-        "bytes": 192,
-        "digest": "1ff5c8a2d868bdca753ce56e6b7f0e84e28a41df4dcd1e11e2024cee9158448e"
       },
       "samples": [
         {
@@ -138,12 +133,30 @@
       "summary": {
         "medianWallMs": 40.118041,
         "p95WallMs": 43.615375
+      },
+      "correctness": "passed",
+      "artifactSchema": "kumo.language-artifact/v1",
+      "coldSetupBuild": {
+        "status": "not-measured-prebuilt-input"
+      },
+      "incremental": {
+        "status": "not-applicable-fresh-output-roots"
+      },
+      "maintenance": {
+        "status": "recorded-by-next-run"
+      },
+      "distribution": {
+        "binaryBytes": 120591840
+      },
+      "rawOutput": {
+        "files": 2,
+        "bytes": 192,
+        "digest": "1ff5c8a2d868bdca753ce56e6b7f0e84e28a41df4dcd1e11e2024cee9158448e"
       }
     },
     {
       "language": "go",
       "toolchain": "go version go1.26.1 darwin/arm64",
-      "binaryBytes": 3394514,
       "measurementStatus": "blocked-runtime-resource-usage-unavailable",
       "request": {
         "semanticDigest": "cfad62bb65584b662946a66e1dc0963d5efae5eb0a63d4f4e1a23343dc185409",
@@ -173,11 +186,6 @@
             "framework": "react"
           }
         ]
-      },
-      "output": {
-        "files": 2,
-        "bytes": 3307,
-        "digest": "31cb538fc648faf920a1660c9e0e9ffeebfbf55189b3777254ab1dcf5eb50ed5"
       },
       "samples": [
         {
@@ -244,12 +252,30 @@
       "summary": {
         "medianWallMs": 32.7585,
         "p95WallMs": 34.968041
+      },
+      "correctness": "passed",
+      "artifactSchema": "kumo.language-artifact/v1",
+      "coldSetupBuild": {
+        "status": "not-measured-prebuilt-input"
+      },
+      "incremental": {
+        "status": "not-applicable-fresh-output-roots"
+      },
+      "maintenance": {
+        "status": "recorded-by-next-run"
+      },
+      "distribution": {
+        "binaryBytes": 3394514
+      },
+      "rawOutput": {
+        "files": 2,
+        "bytes": 3307,
+        "digest": "31cb538fc648faf920a1660c9e0e9ffeebfbf55189b3777254ab1dcf5eb50ed5"
       }
     },
     {
       "language": "rust",
       "toolchain": "rustc 1.94.1 (e408947bf 2026-03-25)",
-      "binaryBytes": 630272,
       "measurementStatus": "blocked-runtime-resource-usage-unavailable",
       "request": {
         "semanticDigest": "cfad62bb65584b662946a66e1dc0963d5efae5eb0a63d4f4e1a23343dc185409",
@@ -279,11 +305,6 @@
             "framework": "react"
           }
         ]
-      },
-      "output": {
-        "files": 2,
-        "bytes": 5369,
-        "digest": "f2afcd5f598561de2065e39271bd3a89607065da16b3af6978ce16970ef6889c"
       },
       "samples": [
         {
@@ -350,12 +371,30 @@
       "summary": {
         "medianWallMs": 39.493,
         "p95WallMs": 41.968125
+      },
+      "correctness": "passed",
+      "artifactSchema": "kumo.language-artifact/v1",
+      "coldSetupBuild": {
+        "status": "not-measured-prebuilt-input"
+      },
+      "incremental": {
+        "status": "not-applicable-fresh-output-roots"
+      },
+      "maintenance": {
+        "status": "recorded-by-next-run"
+      },
+      "distribution": {
+        "binaryBytes": 630272
+      },
+      "rawOutput": {
+        "files": 2,
+        "bytes": 5369,
+        "digest": "f2afcd5f598561de2065e39271bd3a89607065da16b3af6978ce16970ef6889c"
       }
     },
     {
       "language": "zig",
       "toolchain": "0.16.0",
-      "binaryBytes": 566216,
       "measurementStatus": "blocked-runtime-resource-usage-unavailable",
       "request": {
         "semanticDigest": "cfad62bb65584b662946a66e1dc0963d5efae5eb0a63d4f4e1a23343dc185409",
@@ -385,11 +424,6 @@
             "framework": "react"
           }
         ]
-      },
-      "output": {
-        "files": 2,
-        "bytes": 1375,
-        "digest": "32c7a310bd1bbe8568cf72d14dd4e6c72a9bf43e15bb68c32eb634137a2b4286"
       },
       "samples": [
         {
@@ -456,6 +490,25 @@
       "summary": {
         "medianWallMs": 31.512958,
         "p95WallMs": 33.716167
+      },
+      "correctness": "passed",
+      "artifactSchema": "kumo.language-artifact/v1",
+      "coldSetupBuild": {
+        "status": "not-measured-prebuilt-input"
+      },
+      "incremental": {
+        "status": "not-applicable-fresh-output-roots"
+      },
+      "maintenance": {
+        "status": "recorded-by-next-run"
+      },
+      "distribution": {
+        "binaryBytes": 566216
+      },
+      "rawOutput": {
+        "files": 2,
+        "bytes": 1375,
+        "digest": "32c7a310bd1bbe8568cf72d14dd4e6c72a9bf43e15bb68c32eb634137a2b4286"
       }
     }
   ]
