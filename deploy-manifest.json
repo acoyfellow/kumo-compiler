@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "service": "kumo-compiler-proof",
+  "version": "2026.06.20",
+  "routes": [
+    { "id": "component-runtime", "pattern": "/:component/:framework/", "components": ["select", "button", "dialog", "popover", "checkbox", "switch", "field", "input", "input-group", "input-area", "sensitive-input", "clipboard-text", "tabs", "menu-bar", "sidebar", "breadcrumbs", "table-of-contents", "badge", "banner", "surface", "layer-card", "grid", "grid-item", "loader", "meter", "empty", "label", "link", "text", "cloudflare-logo", "code", "table", "radio", "autocomplete", "combobox", "command-palette", "date-picker", "date-range-picker", "dropdown-menu", "toasty", "pagination"], "frameworks": ["react", "vue", "svelte", "solid"], "asset": "/:component/:framework/index.html", "canonicalSlash": true },
+    { "id": "benchmarks", "pattern": "/benchmarks/", "asset": "/benchmarks/index.html", "canonicalSlash": true },
+    { "id": "benchmark-component", "pattern": "/benchmarks/components/:component/", "components": ["select"], "asset": "/benchmarks/components/:component/index.html", "canonicalSlash": true },
+    { "id": "benchmark-embed", "pattern": "/benchmarks/embed/:component/:framework/kitchen-sink/", "components": ["select"], "frameworks": ["react", "vue", "svelte", "solid"], "asset": "/:component/:framework/index.html", "canonicalSlash": true }
+  ]
+}
