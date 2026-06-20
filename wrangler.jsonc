@@ -12,5 +12,12 @@
   "vars": {
     "WORKER_VERSION": "2026.06.20",
     "GIT_COMMIT": "set-by-scripts-deploy"
-  }
+  },
+  "account_id": "bfcb6ac5b3ceaf42a09607f6f7925823",
+  "routes": [
+    {
+      "pattern": "kumo-compiler.coey.dev",
+      "custom_domain": true
+    }
+  ]
 }

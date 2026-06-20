@@ -15,7 +15,7 @@ npm run deploy
 CF_ACCESS_CLIENT_ID=… CF_ACCESS_CLIENT_SECRET=… npm run proof:production
 ```
 
-Production is `https://kumo-compiler.coey.dev`. `deploy:prepare` builds Astro, copies `astro/dist` to `deploy/`, and validates deploy-manifest routes without proof side effects. Record command/tool version, target, times, revision, manifest hash, and artifact identity; never log secrets.
+Production is custom domain `https://kumo-compiler.coey.dev`, Worker `kumo-compiler-proof`, personal account `Coeyman@gmail.com's Account` (`bfcb6ac5b3ceaf42a09607f6f7925823`), zone `coey.dev` (`1563da24f904f018b89fdcb2147c558b`). The manifest and Wrangler config pin these values and the approved full source revision; deployment fails closed on drift or a modified tracked worktree. `deploy:prepare` builds Astro, copies `astro/dist` to `deploy/`, and validates deploy-manifest routes without proof side effects. Record command/tool version, target, times, revision, manifest hash, and artifact identity; never log secrets.
 
 ## Verify and roll back
 
