@@ -9,7 +9,8 @@ const mandatory=['client-build','pointer-open-select','keyboard-arrow-home-end-p
 
 test('native Select evidence is revision/run/candidate bound',()=>{
  assert.equal(receipts.candidate,'shared-core-native-select');assert.equal(receipts.component,'Select');
- assert.equal(receipts.runId,'ter_20260620195116424_2ebads');assert.match(receipts.revisions.kumo,/^[0-9a-f]{40}$/);assert.equal(receipts.revisions.kumo,receipts.revisions.candidate);
+ assert.equal(receipts.runId,'ter_20260620195237367_ru53g4');assert.match(receipts.revisions.kumo,/^[0-9a-f]{40}$/);assert.equal(receipts.revisions.kumo,receipts.revisions.candidate);
+ assert.equal(receipts.dependencyRoot,'/Users/jcoeyman/cloudflare/kumo-compiler/node_modules');
  assert.match(receipts.evidenceDigest,/^sha256:[a-f0-9]{64}$/);assert.deepEqual(Object.keys(receipts.targets).sort(),['react','solid','svelte','vue']);
 });
 
