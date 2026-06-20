@@ -9,30 +9,29 @@
   ],
   "exports": {
     ".": {
-      "types": "./dist/index.ts",
-      "import": "./dist/index.ts"
+      "types": "./package/index.d.ts",
+      "import": "./package/index.js"
     },
     "./button": {
-      "types": "./dist/index.ts",
-      "import": "./dist/index.ts"
+      "types": "./package/index.d.ts",
+      "import": "./package/index.js"
     },
     "./field": {
-      "types": "./dist/index.ts",
-      "import": "./dist/index.ts"
+      "types": "./package/index.d.ts",
+      "import": "./package/index.js"
     },
     "./tabs": {
-      "types": "./dist/index.ts",
-      "import": "./dist/index.ts"
+      "types": "./package/index.d.ts",
+      "import": "./package/index.js"
     },
-    "./styles.css": "./dist/styles.css",
-    "./tokens.css": "./dist/tokens.css",
+    "./styles.css": "./package/styles.css",
+    "./tokens.css": "./package/tokens.css",
     "./manifest": "./kumo.manifest.json"
   },
-  "peerDependencies": {
-    "vue": "*"
-  },
   "files": [
-    "dist",
+    "package",
     "kumo.manifest.json"
-  ]
+  ],
+  "main": "./package/index.js",
+  "types": "./package/index.d.ts"
 }
