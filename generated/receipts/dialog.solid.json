@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "kumo.receipt/v1",
+  "component": "dialog",
+  "framework": "solid",
+  "checks": {
+    "productionBuild": true,
+    "network": true,
+    "console": true,
+    "domAria": true,
+    "behavior": true,
+    "ssrHydration": true,
+    "screenshotPixel": true,
+    "assetsStylesPackage": true,
+    "provenance": true
+  },
+  "browser": {
+    "hydration": true,
+    "realBrowser": true,
+    "keyboard": true,
+    "aria": true,
+    "nativeActivation": false,
+    "outsideDismiss": true,
+    "focusReturn": true
+  },
+  "screenshotHash": "0287e73fcd6fce565ffc6658d95bdd2b445424f1762b07d4c7d4bd53d73b4d37",
+  "irHash": "4add8b413076bd459b81d12aef028b28bbd7f7a5168599f13760d00ae6846456",
+  "emitterHash": "1966a3833c0e4555f65c8f32961829b034f97f411e177bfc565013393889c6ac"
+}
