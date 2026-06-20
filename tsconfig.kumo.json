@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "rootDir": "src/kumo",
+    "outDir": "dist/kumo",
+    "strict": true,
+    "declaration": true,
+    "noUncheckedIndexedAccess": true
+  },
+  "include": ["src/kumo/**/*.ts"]
+}

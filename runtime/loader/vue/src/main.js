@@ -1,1 +1,0 @@
-import'./style.css';import{createSSRApp,h}from'vue';createSSRApp({render:()=>h('div',{innerHTML:"<main class=\"data-shell\"><h1>Loader</h1><div class=\"demo\" id=\"details\"><span class=\"loader\" role=\"status\" aria-label=\"Loading\"></span></div></main>"})}).mount('#app');

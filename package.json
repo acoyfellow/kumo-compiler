@@ -33,7 +33,9 @@
     "compile:navigation": "node src/navigation-compiler.mjs",
     "build:navigation": "npm run compile:navigation && for c in tabs menu-bar sidebar breadcrumbs table-of-contents; do for f in react vue svelte solid; do vite build runtime/$c/$f || exit 1; done; done",
     "proof:navigation": "npm run build:navigation && node proof/navigation-proof.mjs && npm pack --dry-run --ignore-scripts && npm run catalog:validate",
-    "compile:data-presentational": "node src/data-presentational-compiler.mjs",
+    "compile:kumo": "tsc -p tsconfig.kumo.json && node dist/kumo/compiler.js",
+    "verify:kumo:vue": "node scripts/verify-kumo-vue.mjs",
+    "compile:data-presentational": "npm run compile:kumo",
     "build:data-presentational": "npm run compile:data-presentational && for c in badge banner surface layer-card grid grid-item loader meter empty label link text cloudflare-logo code table; do for f in react vue svelte solid; do vite build runtime/$c/$f || exit 1; done; done",
     "proof:data-presentational": "npm run build:data-presentational && node proof/data-presentational-proof.mjs && npm pack --dry-run --ignore-scripts && npm run catalog:validate",
     "compile:selection-command-date": "node src/selection-command-date-compiler.mjs",
@@ -43,7 +45,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "@hono/node-server": "^2.0.5",
     "hono": "^4.12.26",
@@ -52,9 +54,11 @@
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^7.1.2",
+    "@types/node": "^22.20.0",
     "@vitejs/plugin-vue": "^6.0.7",
     "solid-js": "^1.9.13",
     "svelte": "^5.56.3",
+    "typescript": "^5.9.3",
     "vite": "^8.0.16",
     "vite-plugin-solid": "^2.11.12",
     "vue": "^3.5.38"
