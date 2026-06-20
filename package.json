@@ -20,6 +20,8 @@
     "workflow:complete": "node scripts/workflow-complete.mjs",
     "test": "npm run test:workflow && npm run proof:select && npm run proof:button && npm run proof:dialog && npm run proof:popover",
     "test:workflow": "node --test test/workflow-runner.test.mjs",
+    "test:catalog-browser-proof": "node --test test/catalog-browser-proof.test.mjs",
+    "proof:catalog-browser": "node proof/catalog-browser-proof.mjs",
     "compile:native-controls": "node src/native-control-compiler.mjs",
     "build:native-controls": "npm run compile:native-controls && vite build runtime/checkbox/react && vite build runtime/checkbox/vue && vite build runtime/checkbox/svelte && vite build runtime/checkbox/solid && vite build runtime/switch/react && vite build runtime/switch/vue && vite build runtime/switch/svelte && vite build runtime/switch/solid",
     "proof:native-controls": "npm run build:native-controls && node proof/native-control-proof.mjs && npm pack --dry-run --ignore-scripts && npm run catalog:validate",

@@ -14,6 +14,7 @@ app.use('*',async(c,next)=>{
 const nav=`<nav style="display:flex;gap:16px;padding:14px 28px;border-bottom:1px solid #d1d5db;background:#fff;font:700 14px system-ui"><a href="/progress">Progress</a><a href="/benchmarks/">Benchmarks</a><a href="/select/compare">Select</a><a href="/button/compare">Button</a><a href="/dialog/compare">Dialog</a><a href="/popover/compare">Popover</a><a href="/checkbox/compare">Checkbox</a><a href="/switch/compare">Switch</a></nav>`;
 const css=readFileSync(resolve(root,'public/styles.css'),'utf8');
 app.get('/',c=>c.redirect('/progress'));
+app.get('/favicon.ico',c=>c.body(null,204));
 const cases=[{label:'Extra small',size:'xs',placeholder:'Choose fruit'},{label:'Small',size:'sm',value:'Apple'},{label:'Base',size:'base',placeholder:'Choose fruit',description:'Choose the closest region.'},{label:'Large',size:'lg',value:'Cherry'},{label:'Loading',loading:true,placeholder:'Loading…'},{label:'Hidden label',hideLabel:true,placeholder:'Hidden label'},{label:'Disabled',disabled:true,placeholder:'Unavailable'},{label:'Error',placeholder:'Select an option',error:'Selection required'}];
 function Select(p){const id=p.label.toLowerCase().replace(/[^a-z0-9]+/g,'-')+'-listbox';return React.createElement('div',{className:'kumo-field'},React.createElement('label',{htmlFor:id+'-trigger',className:p.hideLabel?'sr-only':undefined},p.label),React.createElement('button',{type:'button',role:'combobox',id:id+'-trigger','aria-controls':id,'aria-expanded':'false','aria-haspopup':'listbox','aria-busy':p.loading||undefined,'aria-invalid':p.error?true:undefined,disabled:p.disabled||p.loading,className:`kumo-trigger ${p.size||'base'}`},React.createElement('span',null,p.value||p.placeholder),React.createElement('svg',{'aria-hidden':'true',width:16,height:16,viewBox:'0 0 16 16'},React.createElement('path',{fill:'currentColor',d:'m4 6 4 4 4-4z'}))),p.error?React.createElement('p',{className:'error'},p.error):p.description?React.createElement('p',{className:'description'},p.description):null)}
 const canonical=renderToStaticMarkup(React.createElement('main',{className:'shell'},React.createElement('h1',{className:'title'},'Select'),React.createElement('section',{className:'matrix'},cases.map((p,i)=>React.createElement(Select,{...p,key:i})) )));
@@ -50,6 +51,15 @@ for(const kind of ['checkbox','switch']){
  for(const f of frameworks)app.get(`/${kind}/${f}/`,c=>c.redirect(`/${kind}/${f}`));
  app.get(`/${kind}/compare`,c=>c.html(`<!doctype html><html><head><meta charset="utf-8"><title>${kind} comparison</title><style>body{margin:0;background:#f3f4f6;font-family:system-ui}header,main{max-width:900px;margin:20px auto}.tabs{display:flex;gap:8px}.tabs button{padding:8px 14px}.tabs button[aria-selected=true]{background:#111827;color:white}.panel{margin-top:12px;background:white;border:1px solid #d1d5db;border-radius:12px;overflow:hidden}iframe{width:100%;height:520px;border:0}</style></head><body>${nav}<header><h1>${kind[0].toUpperCase()+kind.slice(1)} runtime comparison</h1><p>One native-control family policy · four generated runtimes</p></header><main><div class="tabs" role="tablist">${[...frameworks].map((f,i)=>`<button role="tab" aria-selected="${!i}" data-f="${f}">${f}</button>`).join('')}</div><div class="panel"><iframe title="${kind} runtime" src="/${kind}/react"></iframe></div></main><script>for(const b of document.querySelectorAll('[data-f]'))b.onclick=()=>{document.querySelectorAll('[data-f]').forEach(x=>x.setAttribute('aria-selected',x===b));document.querySelector('iframe').src='/${kind}/'+b.dataset.f}</script></body></html>`));
 }
+// Catalog-wide proof route: always serves the actual Vite build, never a fixture.
+const builtRuntime=c=>{
+ const {component,framework}=c.req.param();if(!frameworks.has(framework)||!/^[-\w]+$/.test(component))return c.notFound();
+ const suffix=new URL(c.req.url).pathname.split(`/${component}/${framework}/`)[1]||'index.html';if(suffix.includes('..'))return c.notFound();
+ const file=resolve(root,'runtime',component,framework,'public-runtime',suffix);if(!file.startsWith(resolve(root,'runtime')+'/')||!existsSync(file)||!statSync(file).isFile())return c.notFound();
+ const ext=file.split('.').pop(),contentType={html:'text/html; charset=utf-8',css:'text/css; charset=utf-8',js:'text/javascript; charset=utf-8',svg:'image/svg+xml'}[ext]||'application/octet-stream';return c.body(readFileSync(file),200,{'Content-Type':contentType});
+};
+app.get('/:component/:framework/',builtRuntime);
+app.get('/:component/:framework/*',builtRuntime);
 // Serve generated deploy and Astro directory artifacts that do not need bespoke
 // review behavior. Keeping this fallback data-driven prevents catalog additions
 // from silently producing dead links.
