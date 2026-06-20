@@ -1,0 +1,16 @@
+import fs from 'node:fs';import path from 'node:path';import {createHash} from 'node:crypto';
+const root=path.resolve(import.meta.dirname,'../../..'),read=p=>fs.readFileSync(path.join(root,p)),json=p=>JSON.parse(read(p)),hash=b=>'sha256:'+createHash('sha256').update(b).digest('hex');
+const language=json('benchmarks/shootout/languages/latest.json'),architecture=json('proof/shootout/architectures/matrix.json'),consumer=json('proof/dx/consumer-receipts.json');
+const count=xs=>xs.reduce((a,x)=>(a[x.status]=(a[x.status]||0)+1,a),{passed:0,failed:0,blocked:0,'not-run':0});
+const consumerCounts=count(consumer.receipts);
+const shared=['sourceTree','workloadHash','baselineHash','environmentHash','browserHash','contract'];
+if(language.shootoutRecords.length!==8)throw Error('Axis A must contain exactly 8 records');
+const aKeys=new Set(language.shootoutRecords.map(r=>`${r.language}/${r.component}`));if(aKeys.size!==8)throw Error('Axis A duplicate record');
+if(architecture.receipts.length!==32||architecture.cellCount!==32)throw Error('Axis B must contain exactly 32 cells');
+const bKeys=new Set(architecture.receipts.map(r=>`${r.candidate}/${r.component}/${r.framework}`));if(bKeys.size!==32)throw Error('Axis B duplicate cell');
+for(const r of architecture.receipts)for(const k of shared)if(r[k]!==architecture[k])throw Error(`Axis B mixed ${k}`);
+if(architecture.weightsApplied||architecture.winner!==null)throw Error('incomplete Axis B cannot be weighted or select a winner');
+const expected={passed:87,failed:5,blocked:212,'not-run':80};for(const k in expected)if(architecture.gateCounts[k]!==expected[k])throw Error(`Axis B ${k} mismatch`);
+const consumerExpected={passed:10,failed:0,blocked:21,'not-run':6};for(const k in consumerExpected)if(consumerCounts[k]!==consumerExpected[k])throw Error(`consumer ${k} mismatch`);
+const manifest={schemaVersion:'kumo.shootout-fan-in/v1',generatedFrom:{axisA:{path:'benchmarks/shootout/languages/latest.json',sha256:hash(read('benchmarks/shootout/languages/latest.json'))},axisB:{path:'proof/shootout/architectures/matrix.json',sha256:hash(read('proof/shootout/architectures/matrix.json'))},consumers:{path:'proof/dx/consumer-receipts.json',sha256:hash(read('proof/dx/consumer-receipts.json'))}},baselineAuthority:{coverage:'164/164',path:'proof/shootout/baseline/baseline.json',note:'immutable control authority; not a shootout score'},axisA:{recordCount:8,verdict:'no-winner',winnerSupported:false,scope:'planner correctness/performance/distribution only',correctness:'passed',performance:'wall samples recorded; CPU and peak RSS blocked',productGates:'all blocked'},axisB:{cellCount:32,gateCounts:expected,weightsApplied:false,winner:null,verdict:'no-winner-critical-cells-incomplete',evidenceModes:[...new Set(architecture.receipts.map(r=>r.evidenceMode))],caveat:'mapped/prepared evidence is not executed parity'},consumers:{counts:consumerExpected,source:'separate consumer pilot receipts'},reports:{axisA:'/engine-language/',axisB:'/output-architecture/'}};
+fs.writeFileSync(path.join(root,'proof/shootout/fan-in/selected.json'),JSON.stringify(manifest,null,2)+'\n');console.log('validated exact 8-record Axis A and 32-cell Axis B fan-in');

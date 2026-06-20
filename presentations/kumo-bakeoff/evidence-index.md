@@ -18,7 +18,10 @@ All links are repository-relative and were current at preparation time (2026-06-
 | Select contract (8/8; model scope only) | [`proof/select-contract/receipt.json`](../../proof/select-contract/receipt.json), [`proof/select-contract/vectors.json`](../../proof/select-contract/vectors.json) | receipt candidate revision |
 | Select structural/browser result (12 passed / 4 failed / 40 blocked) | [`proof/select/summary.json`](../../proof/select/summary.json), [`proof/select/receipts.json`](../../proof/select/receipts.json) | receipt run/revisions |
 | Select comparison, LOC/bytes, provenance and verdict | [`proof/select/comparison.json`](../../proof/select/comparison.json), [`docs/decisions/003-select-native-core-pilot.md`](../../docs/decisions/003-select-native-core-pilot.md) | current comparison commit |
-| Consumer DX (3 passed / 22 blocked / 6 not-run) | [`proof/dx/consumer-receipts.json`](../../proof/dx/consumer-receipts.json) | receipt contents |
+| Compiler Shootout v1 selected fan-in (axes separate; no winner) | [`proof/shootout/fan-in/selected.json`](../../proof/shootout/fan-in/selected.json), [ADR 004](../../docs/decisions/004-compiler-shootout-v1.md) | pinned source SHA-256 digests |
+| Axis A (8 records; all product gates blocked) | [`benchmarks/shootout/languages/latest.json`](../../benchmarks/shootout/languages/latest.json) | selected receipt |
+| Axis B (32 cells; 87 passed / 5 failed / 212 blocked / 80 not-run) | [`proof/shootout/architectures/matrix.json`](../../proof/shootout/architectures/matrix.json) | selected matrix |
+| Consumer DX (10 passed / 0 failed / 21 blocked / 6 not-run) | [`proof/dx/consumer-receipts.json`](../../proof/dx/consumer-receipts.json) | receipt contents |
 
 ## Reproduction shortcuts
 

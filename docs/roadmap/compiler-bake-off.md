@@ -171,6 +171,10 @@ The receipt-derived comparison is [`proof/select/comparison.json`](../../proof/s
 
 Next milestone: repair Select evidence and product gaps before Dialog. Dialog may run earlier only as a bounded contract experiment, not a parity campaign.
 
+## Compiler Shootout v1 fan-in (2026-06-20)
+
+[ADR 004](../decisions/004-compiler-shootout-v1.md) records the fail-closed result. Axis A has eight selected planner records and no supported winner because CPU/RSS and all product gates are blocked. Axis B has 32 exact cells (87 passed / 5 failed / 212 blocked / 80 not-run); critical incompleteness prevents applying the documented architecture weights or producing a score. Consumer evidence remains separate at 10 passed / 0 failed / 21 blocked / 6 not-run. The axes are never combined, and the immutable 164/164 authority remains separate.
+
 ## Completion gate
 
 A candidate is complete only when its claimed scope has immutable selected receipts, reproducible commands, raw benchmark data, explicit limitations, and no unrecorded escape hatches.
