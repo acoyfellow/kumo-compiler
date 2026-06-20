@@ -1,10 +1,10 @@
 {
   "candidate": "shared-core-native-select",
   "component": "Select",
-  "runId": "ter_20260620195355674_8fznxm",
+  "runId": "ter_20260620195649887_gd9uva",
   "revisions": {
-    "kumo": "0882d40a5f451516dcfa5bd9740e2857c686b654",
-    "candidate": "0882d40a5f451516dcfa5bd9740e2857c686b654"
+    "kumo": "cee90f192dcaa45e380f9228ec544858ec337413",
+    "candidate": "cee90f192dcaa45e380f9228ec544858ec337413"
   },
   "dependencyRoot": "/Users/jcoeyman/cloudflare/kumo-compiler/node_modules",
   "chrome": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
@@ -13,10 +13,10 @@
       "candidate": "shared-core-native-select",
       "framework": "react",
       "component": "Select",
-      "runId": "ter_20260620195355674_8fznxm",
+      "runId": "ter_20260620195649887_gd9uva",
       "revisions": {
-        "kumo": "0882d40a5f451516dcfa5bd9740e2857c686b654",
-        "candidate": "0882d40a5f451516dcfa5bd9740e2857c686b654"
+        "kumo": "cee90f192dcaa45e380f9228ec544858ec337413",
+        "candidate": "cee90f192dcaa45e380f9228ec544858ec337413"
       },
       "status": "blocked",
       "gates": {
@@ -49,17 +49,17 @@
       "ssrHtml": "",
       "observations": null,
       "diagnostics": [
-        "Build failed with 1 error:\n\n\u001b[31m[MISSING_EXPORT] \u001b[0m\"jsx\" is not exported by \"candidates/shared-core/node_modules/solid-js/dist/solid.js\".\n   \u001b[38;5;246m╭\u001b[0m\u001b[38;5;246m─\u001b[0m\u001b[38;5;246m[\u001b[0m candidates/shared-core/src/views/select/react/index.tsx:3:10 \u001b[38;5;246m]\u001b[0m\n   \u001b[38;5;246m│\u001b[0m\n \u001b[38;5;246m3 │\u001b[0m \u001b[38;5;249mi\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249mp\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249m{\u001b[0m\u001b[38;5;249m \u001b[0mjsx\u001b[38;5;249m \u001b[0m\u001b[38;5;249ma\u001b[0m\u001b[38;5;249ms\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249m_\u001b[0m\u001b[38;5;249mj\u001b[0m\u001b[38;5;249ms\u001b[0m\u001b[38;5;249mx\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249m}\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mf\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249m\"\u001b[0m\u001b[38;5;249ms\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249ml\u001b[0m\u001b[38;5;249mi\u001b[0m\u001b[38;5;249md\u001b[0m\u001b[38;5;249m-\u001b[0m\u001b[38;5;249mj\u001b[0m\u001b[38;5;249ms\u001b[0m\u001b[38;5;249m/\u001b[0m\u001b[38;5;249mj\u001b[0m\u001b[38;5;249ms\u001b[0m\u001b[38;5;249mx\u001b[0m\u001b[38;5;249m-\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mu\u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249mi\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249me\u001b[0m\u001b[38;5;249m\"\u001b[0m\u001b[38;5;249m;\u001b[0m\n \u001b[38;5;240m  │\u001b[0m          ─┬─  \n \u001b[38;5;240m  │\u001b[0m           ╰─── Missing export\n\u001b[38;5;246m───╯\u001b[0m\n\n    at aggregateBindingErrorsIntoJsError (file:///Users/jcoeyman/cloudflare/kumo-compiler/node_modules/rolldown/dist/shared/error-BuvQYXuZ.mjs:48:18)\n    at unwrapBindingResult (file:///Users/jcoeyman/cloudflare/kumo-compiler/node_modules/rolldown/dist/shared/error-BuvQYXuZ.mjs:18:128)\n    at #build (file:///Users/jcoeyman/cloudflare/kumo-compiler/node_modules/rolldown/dist/shared/rolldown-build-CrPk_lZe.mjs:3246:34)\n    at async buildEnvironment (file:///Users/jcoeyman/cloudflare/kumo-compiler/node_modules/vite/dist/node/chunks/node.js:33253:64)\n    at async Object.build (file:///Users/jcoeyman/cloudflare/kumo-compiler/node_modules/vite/dist/node/chunks/node.js:33675:19)\n    at async file:///private/tmp/kumo-select-harness/proof/select/run.mjs:7:1283"
+        "Build failed with 1 error:\n\n\u001b[31m[UNLOADABLE_DEPENDENCY] \u001b[0mCould not load node_modules/solid-js/jsx-runtime\n   \u001b[38;5;246m╭\u001b[0m\u001b[38;5;246m─\u001b[0m\u001b[38;5;246m[\u001b[0m candidates/shared-core/src/views/select/react/index.tsx:3:29 \u001b[38;5;246m]\u001b[0m\n   \u001b[38;5;246m│\u001b[0m\n \u001b[38;5;246m3 │\u001b[0m \u001b[38;5;249mi\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249mp\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249m{\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mj\u001b[0m\u001b[38;5;249ms\u001b[0m\u001b[38;5;249mx\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249ma\u001b[0m\u001b[38;5;249ms\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249m_\u001b[0m\u001b[38;5;249mj\u001b[0m\u001b[38;5;249ms\u001b[0m\u001b[38;5;249mx\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249m}\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mf\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249m \u001b[0m\"solid-js/jsx-runtime\"\u001b[38;5;249m;\u001b[0m\n \u001b[38;5;240m  │\u001b[0m                             ───────────┬──────────  \n \u001b[38;5;240m  │\u001b[0m                                        ╰──────────── No such file or directory (os error 2)\n\u001b[38;5;246m───╯\u001b[0m\n\n    at aggregateBindingErrorsIntoJsError (file:///Users/jcoeyman/cloudflare/kumo-compiler/node_modules/rolldown/dist/shared/error-BuvQYXuZ.mjs:48:18)\n    at unwrapBindingResult (file:///Users/jcoeyman/cloudflare/kumo-compiler/node_modules/rolldown/dist/shared/error-BuvQYXuZ.mjs:18:128)\n    at #build (file:///Users/jcoeyman/cloudflare/kumo-compiler/node_modules/rolldown/dist/shared/rolldown-build-CrPk_lZe.mjs:3246:34)\n    at async buildEnvironment (file:///Users/jcoeyman/cloudflare/kumo-compiler/node_modules/vite/dist/node/chunks/node.js:33253:64)\n    at async Object.build (file:///Users/jcoeyman/cloudflare/kumo-compiler/node_modules/vite/dist/node/chunks/node.js:33675:19)\n    at async file:///private/tmp/kumo-select-harness-fix/proof/select/run.mjs:7:1534"
       ]
     },
     "vue": {
       "candidate": "shared-core-native-select",
       "framework": "vue",
       "component": "Select",
-      "runId": "ter_20260620195355674_8fznxm",
+      "runId": "ter_20260620195649887_gd9uva",
       "revisions": {
-        "kumo": "0882d40a5f451516dcfa5bd9740e2857c686b654",
-        "candidate": "0882d40a5f451516dcfa5bd9740e2857c686b654"
+        "kumo": "cee90f192dcaa45e380f9228ec544858ec337413",
+        "candidate": "cee90f192dcaa45e380f9228ec544858ec337413"
       },
       "status": "blocked",
       "gates": {
@@ -89,25 +89,25 @@
         ]
       },
       "evidenceDigest": "sha256:e582a4885898d1b3eaa354868b6f36c791e14a00a0276428407cd50ce36ec489",
-      "ssrHtml": "<main data-fixture-import=\"src/views/select/vue/index.ts\"><section id=\"uncontrolled\"><!--[--><label id=\"kumo-select-vue-u-label\">Choice</label><button id=\"kumo-select-vue-u-trigger\" role=\"combobox\" aria-expanded=\"false\" aria-controls=\"kumo-select-vue-u-listbox\" aria-labelledby=\"kumo-select-vue-u-label kumo-select-vue-u-value\" aria-describedby=\"kumo-select-vue-u-description\" type=\"button\"><span id=\"kumo-select-vue-u-value\">Choose</span></button><span id=\"kumo-select-vue-u-description\">Pick one</span><!----><!--]--></section><section id=\"controlled\"><!----></section></main>",
+      "ssrHtml": "<main data-fixture-import=\"src/views/select/vue/index.ts\"><section id=\"uncontrolled\"><!--[--><label id=\"kumo-select-vue-u-label\">Choice</label><button id=\"kumo-select-vue-u-trigger\" role=\"combobox\" aria-expanded=\"false\" aria-controls=\"kumo-select-vue-u-listbox\" aria-labelledby=\"kumo-select-vue-u-label kumo-select-vue-u-value\" aria-describedby=\"kumo-select-vue-u-description\" type=\"button\"><span id=\"kumo-select-vue-u-value\">Choose</span></button><span id=\"kumo-select-vue-u-description\">Pick one</span><!----><!--]--></section><section id=\"controlled\"><!--[--><label id=\"kumo-select-vue-c-label\">Controlled</label><button id=\"kumo-select-vue-c-trigger\" role=\"combobox\" aria-expanded=\"false\" aria-controls=\"kumo-select-vue-c-listbox\" aria-labelledby=\"kumo-select-vue-c-label kumo-select-vue-c-value\" aria-describedby=\"kumo-select-vue-c-description\" type=\"button\"><span id=\"kumo-select-vue-c-value\">Choose</span></button><span id=\"kumo-select-vue-c-description\">Pick one</span><!----><!--]--></section></main>",
       "observations": null,
       "diagnostics": [
-        "TypeError: Cannot read properties of undefined (reading 'value')\n    at ev (file:///private/tmp/kumo-select-harness/proof/select/run.mjs:6:2221)\n    at async browser (file:///private/tmp/kumo-select-harness/proof/select/run.mjs:6:2249)\n    at async file:///private/tmp/kumo-select-harness/proof/select/run.mjs:7:1726"
+        "Error: Uncaught (in promise) TypeError: Cannot read properties of null (reading 'getAttribute'): TypeError: Cannot read properties of null (reading 'getAttribute')\n    at <anonymous>:1:2075\n    at ev (file:///private/tmp/kumo-select-harness-fix/proof/select/run.mjs:6:2153)\n    at async browser (file:///private/tmp/kumo-select-harness-fix/proof/select/run.mjs:6:2430)\n    at async file:///private/tmp/kumo-select-harness-fix/proof/select/run.mjs:7:1977"
       ]
     },
     "svelte": {
       "candidate": "shared-core-native-select",
       "framework": "svelte",
       "component": "Select",
-      "runId": "ter_20260620195355674_8fznxm",
+      "runId": "ter_20260620195649887_gd9uva",
       "revisions": {
-        "kumo": "0882d40a5f451516dcfa5bd9740e2857c686b654",
-        "candidate": "0882d40a5f451516dcfa5bd9740e2857c686b654"
+        "kumo": "cee90f192dcaa45e380f9228ec544858ec337413",
+        "candidate": "cee90f192dcaa45e380f9228ec544858ec337413"
       },
       "status": "blocked",
       "gates": {
         "package-types-exports-styles": "passed",
-        "client-build": "passed",
+        "client-build": "blocked",
         "pointer-open-select": "blocked",
         "keyboard-arrow-home-end-page-enter-space-escape-tab": "blocked",
         "typeahead": "blocked",
@@ -115,7 +115,7 @@
         "controlled-uncontrolled-value-open": "blocked",
         "callback-event-ordering": "blocked",
         "dom-aria": "blocked",
-        "ssr": "passed",
+        "ssr": "blocked",
         "hydration": "blocked",
         "console-network": "blocked",
         "server-node-preservation": "blocked",
@@ -132,36 +132,36 @@
         ]
       },
       "evidenceDigest": "sha256:bafd317f73b89cca51a068512d2a697cf12a886b6889f14239faa989f149b67d",
-      "ssrHtml": "<!--[--><main data-fixture-import=\"src/views/select/svelte/index.ts\"><section id=\"uncontrolled\"><div id=\"kumo-select-svelte-u\" data-kumo-select=\"\"><label id=\"kumo-select-svelte-u-label\">Choice</label> <button type=\"button\" id=\"kumo-select-svelte-u-trigger\" role=\"combobox\" aria-expanded=\"false\" aria-controls=\"kumo-select-svelte-u-listbox\" aria-labelledby=\"kumo-select-svelte-u-label kumo-select-svelte-u-value\" aria-describedby=\"kumo-select-svelte-u-description\"><span id=\"kumo-select-svelte-u-value\"></span></button> <!--[0--><div id=\"kumo-select-svelte-u-description\">Pick one</div><!--]--> <!--[-1--><!--]--> <ul id=\"kumo-select-svelte-u-listbox\" role=\"listbox\" aria-labelledby=\"kumo-select-svelte-u-label\" tabindex=\"-1\" hidden=\"\"><!--[--><li id=\"kumo-select-svelte-u-option-alpha\" role=\"option\" aria-selected=\"false\" class=\"\"><!--[-1-->Alpha<!--]--></li><li id=\"kumo-select-svelte-u-option-blocked\" role=\"option\" aria-selected=\"false\" aria-disabled=\"true\" class=\"\"><!--[-1-->Blocked<!--]--></li><li id=\"kumo-select-svelte-u-option-charlie\" role=\"option\" aria-selected=\"false\" class=\"\"><!--[-1-->Charlie<!--]--></li><li id=\"kumo-select-svelte-u-option-delta\" role=\"option\" aria-selected=\"false\" class=\"\"><!--[-1-->Delta<!--]--></li><li id=\"kumo-select-svelte-u-option-echo\" role=\"option\" aria-selected=\"false\" class=\"\"><!--[-1-->Éclair<!--]--></li><!--]--><!----></ul></div><!----></section><section id=\"controlled\"><div id=\"kumo-select-svelte-c\" data-kumo-select=\"\"><label id=\"kumo-select-svelte-c-label\">Controlled</label> <button type=\"button\" id=\"kumo-select-svelte-c-trigger\" role=\"combobox\" aria-expanded=\"false\" aria-controls=\"kumo-select-svelte-c-listbox\" aria-labelledby=\"kumo-select-svelte-c-label kumo-select-svelte-c-value\" aria-describedby=\"kumo-select-svelte-c-description\"><span id=\"kumo-select-svelte-c-value\"></span></button> <!--[0--><div id=\"kumo-select-svelte-c-description\">Pick controlled</div><!--]--> <!--[-1--><!--]--> <ul id=\"kumo-select-svelte-c-listbox\" role=\"listbox\" aria-labelledby=\"kumo-select-svelte-c-label\" tabindex=\"-1\" hidden=\"\"><!--[--><li id=\"kumo-select-svelte-c-option-c-alpha\" role=\"option\" aria-selected=\"false\" class=\"\"><!--[-1-->Alpha<!--]--></li><li id=\"kumo-select-svelte-c-option-c-blocked\" role=\"option\" aria-selected=\"false\" aria-disabled=\"true\" class=\"\"><!--[-1-->Blocked<!--]--></li><li id=\"kumo-select-svelte-c-option-c-charlie\" role=\"option\" aria-selected=\"false\" class=\"\"><!--[-1-->Charlie<!--]--></li><li id=\"kumo-select-svelte-c-option-c-delta\" role=\"option\" aria-selected=\"false\" class=\"\"><!--[-1-->Delta<!--]--></li><li id=\"kumo-select-svelte-c-option-c-echo\" role=\"option\" aria-selected=\"false\" class=\"\"><!--[-1-->Éclair<!--]--></li><!--]--><!----></ul></div><!----></section></main><!--]-->",
+      "ssrHtml": "",
       "observations": null,
       "diagnostics": [
-        "TypeError: Cannot read properties of undefined (reading 'value')\n    at ev (file:///private/tmp/kumo-select-harness/proof/select/run.mjs:6:2221)\n    at async browser (file:///private/tmp/kumo-select-harness/proof/select/run.mjs:6:2249)\n    at async file:///private/tmp/kumo-select-harness/proof/select/run.mjs:7:1726"
+        "Build failed with 2 errors:\n\n\u001b[31m[UNLOADABLE_DEPENDENCY] \u001b[0mCould not load node_modules/svelte/internal/client\n   \u001b[38;5;246m╭\u001b[0m\u001b[38;5;246m─\u001b[0m\u001b[38;5;246m[\u001b[0m node_modules/svelte/src/attachments/index.js:3:37 \u001b[38;5;246m]\u001b[0m\n   \u001b[38;5;246m│\u001b[0m\n \u001b[38;5;246m3 │\u001b[0m \u001b[38;5;249mi\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249mp\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249m{\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mp\u001b[0m\u001b[38;5;249m,\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249me\u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249md\u001b[0m\u001b[38;5;249me\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249m_\u001b[0m\u001b[38;5;249me\u001b[0m\u001b[38;5;249mf\u001b[0m\u001b[38;5;249mf\u001b[0m\u001b[38;5;249me\u001b[0m\u001b[38;5;249mc\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249m}\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mf\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249m \u001b[0m'svelte/internal/client'\u001b[38;5;249m;\u001b[0m\n \u001b[38;5;240m  │\u001b[0m                                     ────────────┬───────────  \n \u001b[38;5;240m  │\u001b[0m                                                 ╰───────────── No such file or directory (os error 2)\n\u001b[38;5;246m───╯\u001b[0m\n\n\u001b[31m[UNLOADABLE_DEPENDENCY] \u001b[0mCould not load node_modules/svelte/internal/disclose-version\n   \u001b[38;5;246m╭\u001b[0m\u001b[38;5;246m─\u001b[0m\u001b[38;5;246m[\u001b[0m proof/select/fixture/SvelteApp.svelte:1:8 \u001b[38;5;246m]\u001b[0m\n   \u001b[38;5;246m│\u001b[0m\n \u001b[38;5;246m1 │\u001b[0m \u001b[38;5;249mi\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249mp\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249m \u001b[0m'svelte/internal/disclose-version'\u001b[38;5;249m;\u001b[0m\n \u001b[38;5;240m  │\u001b[0m        ─────────────────┬────────────────  \n \u001b[38;5;240m  │\u001b[0m                         ╰────────────────── No such file or directory (os error 2)\n\u001b[38;5;246m───╯\u001b[0m\n\n    at aggregateBindingErrorsIntoJsError (file:///Users/jcoeyman/cloudflare/kumo-compiler/node_modules/rolldown/dist/shared/error-BuvQYXuZ.mjs:48:18)\n    at unwrapBindingResult (file:///Users/jcoeyman/cloudflare/kumo-compiler/node_modules/rolldown/dist/shared/error-BuvQYXuZ.mjs:18:128)\n    at #build (file:///Users/jcoeyman/cloudflare/kumo-compiler/node_modules/rolldown/dist/shared/rolldown-build-CrPk_lZe.mjs:3246:34)\n    at async buildEnvironment (file:///Users/jcoeyman/cloudflare/kumo-compiler/node_modules/vite/dist/node/chunks/node.js:33253:64)\n    at async Object.build (file:///Users/jcoeyman/cloudflare/kumo-compiler/node_modules/vite/dist/node/chunks/node.js:33675:19)\n    at async file:///private/tmp/kumo-select-harness-fix/proof/select/run.mjs:7:1534"
       ]
     },
     "solid": {
       "candidate": "shared-core-native-select",
       "framework": "solid",
       "component": "Select",
-      "runId": "ter_20260620195355674_8fznxm",
+      "runId": "ter_20260620195649887_gd9uva",
       "revisions": {
-        "kumo": "0882d40a5f451516dcfa5bd9740e2857c686b654",
-        "candidate": "0882d40a5f451516dcfa5bd9740e2857c686b654"
+        "kumo": "cee90f192dcaa45e380f9228ec544858ec337413",
+        "candidate": "cee90f192dcaa45e380f9228ec544858ec337413"
       },
-      "status": "blocked",
+      "status": "failed",
       "gates": {
         "package-types-exports-styles": "passed",
         "client-build": "passed",
-        "pointer-open-select": "blocked",
-        "keyboard-arrow-home-end-page-enter-space-escape-tab": "blocked",
-        "typeahead": "blocked",
-        "disabled-options": "blocked",
-        "controlled-uncontrolled-value-open": "blocked",
+        "pointer-open-select": "failed",
+        "keyboard-arrow-home-end-page-enter-space-escape-tab": "passed",
+        "typeahead": "failed",
+        "disabled-options": "passed",
+        "controlled-uncontrolled-value-open": "failed",
         "callback-event-ordering": "blocked",
         "dom-aria": "blocked",
         "ssr": "passed",
-        "hydration": "blocked",
-        "console-network": "blocked",
-        "server-node-preservation": "blocked",
+        "hydration": "failed",
+        "console-network": "passed",
+        "server-node-preservation": "passed",
         "focus-scroll": "blocked"
       },
       "adapter": {
@@ -175,12 +175,107 @@
         ]
       },
       "evidenceDigest": "sha256:f30216963fb2dca706daa18d20e1dc9219a6a5dfdf7c3728e98786664cf54be7",
-      "ssrHtml": "<main data-hk=\"00\" data-fixture-import=\"src/views/select/solid/index.tsx\"><section id=\"uncontrolled\"><div data-hk=\"01000\" id=\"kumo-select-solid-u\" data-kumo-select=\"\"><label data-hk=\"010010\" id=\"kumo-select-solid-u-label\">Choice</label><button data-hk=\"010020\" id=\"kumo-select-solid-u-trigger\" role=\"combobox\" aria-expanded=\"false\" aria-controls=\"kumo-select-solid-u-listbox\" aria-labelledby=\"kumo-select-solid-u-label kumo-select-solid-u-value\" aria-describedby=\"kumo-select-solid-u-description\" type=\"button\" ><span data-hk=\"0100210\" id=\"kumo-select-solid-u-value\">Choose</span></button><div data-hk=\"010030\" id=\"kumo-select-solid-u-description\">Pick one</div><ul data-hk=\"010040\" id=\"kumo-select-solid-u-listbox\" role=\"listbox\" aria-labelledby=\"kumo-select-solid-u-label\" hidden tabIndex=\"-1\"><li data-hk=\"0100410\" >Alpha</li><li data-hk=\"0100420\" >Blocked</li><li data-hk=\"0100430\" >Charlie</li><li data-hk=\"0100440\" >Delta</li><li data-hk=\"0100450\" >Éclair</li></ul></div></section><section id=\"controlled\"><div data-hk=\"02000\" id=\"kumo-select-solid-c\" data-kumo-select=\"\"><label data-hk=\"020010\" id=\"kumo-select-solid-c-label\">Controlled</label><button data-hk=\"020020\" id=\"kumo-select-solid-c-trigger\" role=\"combobox\" aria-expanded=\"false\" aria-controls=\"kumo-select-solid-c-listbox\" aria-labelledby=\"kumo-select-solid-c-label kumo-select-solid-c-value\" aria-describedby=\"kumo-select-solid-c-description\" type=\"button\" ><span data-hk=\"0200210\" id=\"kumo-select-solid-c-value\">Choose</span></button><div data-hk=\"020030\" id=\"kumo-select-solid-c-description\">Pick one</div><ul data-hk=\"020040\" id=\"kumo-select-solid-c-listbox\" role=\"listbox\" aria-labelledby=\"kumo-select-solid-c-label\" hidden tabIndex=\"-1\"><li data-hk=\"0200410\" >Alpha</li><li data-hk=\"0200420\" >Blocked</li><li data-hk=\"0200430\" >Charlie</li><li data-hk=\"0200440\" >Delta</li><li data-hk=\"0200450\" >Éclair</li></ul></div></section></main>",
-      "observations": null,
+      "ssrHtml": "<main data-hk=\"00\" data-fixture-import=\"src/views/select/solid/index.tsx\"><section id=\"uncontrolled\"><div data-hk=\"01000\" id=\"kumo-select-solid-u\" data-kumo-select=\"\"><label data-hk=\"010010\" id=\"kumo-select-solid-u-label\">Choice</label><button data-hk=\"010020\" id=\"kumo-select-solid-u-trigger\" role=\"combobox\" aria-expanded=\"false\" aria-controls=\"kumo-select-solid-u-listbox\" aria-labelledby=\"kumo-select-solid-u-label kumo-select-solid-u-value\" aria-describedby=\"kumo-select-solid-u-description\" type=\"button\" ><span data-hk=\"0100210\" id=\"kumo-select-solid-u-value\">Choose</span></button><div data-hk=\"010030\" id=\"kumo-select-solid-u-description\">Pick one</div><ul data-hk=\"010040\" id=\"kumo-select-solid-u-listbox\" role=\"listbox\" aria-labelledby=\"kumo-select-solid-u-label\" hidden tabIndex=\"-1\"><li data-hk=\"0100410\" id=\"kumo-select-solid-u-option-alpha\" role=\"option\" aria-selected=\"true\">Alpha</li><li data-hk=\"0100420\" id=\"kumo-select-solid-u-option-blocked\" role=\"option\" aria-selected=\"false\" aria-disabled=\"true\">Blocked</li><li data-hk=\"0100430\" id=\"kumo-select-solid-u-option-charlie\" role=\"option\" aria-selected=\"false\">Charlie</li><li data-hk=\"0100440\" id=\"kumo-select-solid-u-option-delta\" role=\"option\" aria-selected=\"false\">Delta</li><li data-hk=\"0100450\" id=\"kumo-select-solid-u-option-echo\" role=\"option\" aria-selected=\"false\">Éclair</li></ul></div></section><section id=\"controlled\"><div data-hk=\"02000\" id=\"kumo-select-solid-c\" data-kumo-select=\"\"><label data-hk=\"020010\" id=\"kumo-select-solid-c-label\">Controlled</label><button data-hk=\"020020\" id=\"kumo-select-solid-c-trigger\" role=\"combobox\" aria-expanded=\"false\" aria-controls=\"kumo-select-solid-c-listbox\" aria-labelledby=\"kumo-select-solid-c-label kumo-select-solid-c-value\" aria-describedby=\"kumo-select-solid-c-description\" type=\"button\" ><span data-hk=\"0200210\" id=\"kumo-select-solid-c-value\">Choose</span></button><div data-hk=\"020030\" id=\"kumo-select-solid-c-description\">Pick one</div><ul data-hk=\"020040\" id=\"kumo-select-solid-c-listbox\" role=\"listbox\" aria-labelledby=\"kumo-select-solid-c-label\" hidden tabIndex=\"-1\"><li data-hk=\"0200410\" id=\"kumo-select-solid-c-option-c-alpha\" role=\"option\" aria-selected=\"false\">Alpha</li><li data-hk=\"0200420\" id=\"kumo-select-solid-c-option-c-blocked\" role=\"option\" aria-selected=\"false\" aria-disabled=\"true\">Blocked</li><li data-hk=\"0200430\" id=\"kumo-select-solid-c-option-c-charlie\" role=\"option\" aria-selected=\"false\">Charlie</li><li data-hk=\"0200440\" id=\"kumo-select-solid-c-option-c-delta\" role=\"option\" aria-selected=\"false\">Delta</li><li data-hk=\"0200450\" id=\"kumo-select-solid-c-option-c-echo\" role=\"option\" aria-selected=\"false\">Éclair</li></ul></div></section></main>",
+      "observations": {
+        "fixtureImport": "src/views/select/solid/index.tsx",
+        "marker": "preserved",
+        "hydrated": false,
+        "pointerOpen": {
+          "expanded": "false",
+          "value": "Choose",
+          "active": null,
+          "focus": "BODY"
+        },
+        "pointerSelect": {
+          "expanded": "false",
+          "value": "Choose",
+          "active": null,
+          "focus": "BODY"
+        },
+        "movement": {
+          "ArrowDown": null,
+          "ArrowUp": null,
+          "Home": null,
+          "End": null,
+          "PageDown": null,
+          "PageUp": null
+        },
+        "escape": {
+          "expanded": "false",
+          "value": "Choose",
+          "active": null,
+          "focus": "BODY"
+        },
+        "typeahead": {
+          "expanded": "false",
+          "value": "Choose",
+          "active": null,
+          "focus": "BODY"
+        },
+        "afterDisabled": {
+          "expanded": "false",
+          "value": "Choose",
+          "active": null,
+          "focus": "BODY"
+        },
+        "tab": {
+          "expanded": "false",
+          "value": "Choose",
+          "active": null,
+          "focus": "BODY"
+        },
+        "keyboardSelect": {
+          "expanded": "false",
+          "value": "Choose",
+          "active": null,
+          "focus": "BODY"
+        },
+        "controlled": {
+          "expanded": "false",
+          "value": "Choose"
+        },
+        "aria": {
+          "trigger": [
+            "combobox",
+            "kumo-select-solid-u-listbox",
+            "kumo-select-solid-u-label kumo-select-solid-u-value",
+            "kumo-select-solid-u-description"
+          ],
+          "listbox": "listbox",
+          "options": [
+            [
+              "Alpha",
+              "true",
+              null
+            ],
+            [
+              "Blocked",
+              "false",
+              "true"
+            ],
+            [
+              "Charlie",
+              "false",
+              null
+            ],
+            [
+              "Delta",
+              "false",
+              null
+            ],
+            [
+              "Ã‰clair",
+              "false",
+              null
+            ]
+          ]
+        },
+        "scrollCalls": 0
+      },
       "diagnostics": [
-        "TypeError: Cannot read properties of undefined (reading 'value')\n    at ev (file:///private/tmp/kumo-select-harness/proof/select/run.mjs:6:2221)\n    at async browser (file:///private/tmp/kumo-select-harness/proof/select/run.mjs:6:2249)\n    at async file:///private/tmp/kumo-select-harness/proof/select/run.mjs:7:1726"
+        "TypeError: Cannot read properties of undefined (reading 'some')\n    at file:///private/tmp/kumo-select-harness-fix/proof/select/run.mjs:7:3009"
       ]
     }
   },
-  "evidenceDigest": "sha256:78a2d15d58212fcafeae2946fdedda06f81ed8ab79dd41b03894fd8e7e03a6d3"
+  "evidenceDigest": "sha256:4236b2ea342c5b4125f31c300137654e4e4f713798b66e936abe42cc42890f49"
 }

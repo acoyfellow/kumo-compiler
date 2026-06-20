@@ -1,25 +1,25 @@
 {
   "candidate": "shared-core-native-select",
   "component": "Select",
-  "runId": "ter_20260620195355674_8fznxm",
+  "runId": "ter_20260620195649887_gd9uva",
   "revisions": {
-    "kumo": "0882d40a5f451516dcfa5bd9740e2857c686b654",
-    "candidate": "0882d40a5f451516dcfa5bd9740e2857c686b654"
+    "kumo": "cee90f192dcaa45e380f9228ec544858ec337413",
+    "candidate": "cee90f192dcaa45e380f9228ec544858ec337413"
   },
-  "verdict": "blocked",
+  "verdict": "failed",
   "failClosed": true,
   "gateCounts": {
-    "passed": 10,
-    "failed": 0,
-    "blocked": 46,
+    "passed": 12,
+    "failed": 4,
+    "blocked": 40,
     "not-run": 0
   },
-  "evidenceDigest": "sha256:78a2d15d58212fcafeae2946fdedda06f81ed8ab79dd41b03894fd8e7e03a6d3",
+  "evidenceDigest": "sha256:4236b2ea342c5b4125f31c300137654e4e4f713798b66e936abe42cc42890f49",
   "determinism": {
     "normalization": [
       "ephemeral localhost ports",
       "checkout root paths"
     ],
-    "canonicalDigest": "sha256:78a2d15d58212fcafeae2946fdedda06f81ed8ab79dd41b03894fd8e7e03a6d3"
+    "canonicalDigest": "sha256:4236b2ea342c5b4125f31c300137654e4e4f713798b66e936abe42cc42890f49"
   }
 }

@@ -9,7 +9,7 @@ export interface SelectRootProps extends ParentProps, Omit<SelectConfig,'idSeed'
 interface ContextValue {
   state:()=>SelectState;
   send:(event:Parameters<typeof transition>[1])=>void;
-  register:(option:SelectOptionInput, element:HTMLElement)=>void;
+  register:(option:SelectOptionInput, element?:HTMLElement)=>void;
   unregister:(id:string)=>void;
   trigger:(element:HTMLButtonElement)=>void;
   listbox:(element:HTMLUListElement)=>void;
@@ -35,7 +35,7 @@ export function Root(props:SelectRootProps):JSX.Element {
   createEffect(()=>{const value=local.value;if(value!==undefined&&value!==state().value)send({type:'set-controlled-value',value})});
   createEffect(()=>{const open=local.open;if(open!==undefined&&open!==state().open)send({type:'set-controlled-open',open})});
   createEffect(()=>{const disabled=local.disabled??false;if(disabled!==state().disabled)send({type:'set-disabled',disabled})});
-  const context:ContextValue={state,send,register:(option,element)=>{optionElements.set(option.id,element);send({type:'register',option})},unregister:id=>{optionElements.delete(id);send({type:'unregister',id})},trigger:element=>triggerElement=element,listbox:element=>listboxElement=element};
+  const context:ContextValue={state,send,register:(option,element)=>{if(element)optionElements.set(option.id,element);send({type:'register',option})},unregister:id=>{optionElements.delete(id);send({type:'unregister',id})},trigger:element=>triggerElement=element,listbox:element=>listboxElement=element};
   return <SelectContext.Provider value={context}><div {...rest} id={state().ids.root} data-kumo-select="">{local.children}</div></SelectContext.Provider>;
 }
 
@@ -57,9 +57,10 @@ export interface OptionProps extends Omit<JSX.LiHTMLAttributes<HTMLLIElement>,'i
 export function Option(props:OptionProps):JSX.Element {
   const context=useSelect();const [local,rest]=splitProps(props,['id','value','label','disabled','order','children','onClick']);let element!:HTMLLIElement;
   const input=():SelectOptionInput=>({id:local.id,value:local.value,label:local.label??String(local.children??local.value),disabled:local.disabled,order:local.order});
+  context.register(input());
   onMount(()=>context.register(input(),element));onCleanup(()=>context.unregister(local.id));
   createEffect(()=>{local.value;local.label;local.disabled;local.order;if(element)context.register(input(),element)});
-  const option=createMemo(()=>context.state().options.find(item=>item.id===local.id));const aria=createMemo(()=>option()?selectAria(context.state()).option(option()!):undefined);
+  const option=createMemo(()=>context.state().options.find(item=>item.id===local.id)??input());const aria=createMemo(()=>selectAria(context.state()).option(option()));
   const click:JSX.EventHandler<HTMLLIElement,MouseEvent>=event=>{if(typeof local.onClick==='function')local.onClick(event);if(!event.defaultPrevented)context.send({type:'select',id:local.id})};
   return <li {...rest} {...aria()} ref={element} onClick={click}>{local.children??local.label}</li>;
 }

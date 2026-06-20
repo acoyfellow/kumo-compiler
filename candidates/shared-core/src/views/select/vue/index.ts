@@ -43,7 +43,7 @@ export const KumoSelect = defineComponent({
     id: {type: String, required: true},
     value: {type: [String, null] as unknown as PropType<SelectValue>, default: undefined},
     defaultValue: {type: [String, null] as unknown as PropType<SelectValue>, default: undefined},
-    open: {type: Boolean, default: undefined}, defaultOpen: Boolean, disabled: Boolean,
+    open: {type: Boolean, default: undefined}, defaultOpen: {type: Boolean, default: undefined}, disabled: Boolean,
     pageSize: Number, typeaheadTimeoutMs: Number,
   },
   emits: {'update:value': (_: SelectValue) => true, 'update:open': (_: boolean) => true, change: (_: string) => true},
