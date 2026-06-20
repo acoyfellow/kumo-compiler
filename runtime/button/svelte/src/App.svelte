@@ -1,1 +1,4 @@
-<script>import Button from'./Button.svelte';import'../../../../public/button.css';const cases=[{"label":"Primary","variant":"primary"},{"label":"Secondary","variant":"secondary"},{"label":"Outline","variant":"outline"},{"label":"Danger","variant":"danger"},{"label":"Ghost","variant":"ghost"},{"label":"Extra small","size":"xs"},{"label":"Small","size":"sm"},{"label":"Large","size":"lg"},{"label":"Disabled","disabled":true},{"label":"Saving","loading":true},{"label":"Add item","iconOnly":true},{"label":"Submit","type":"submit"}]</script><main class="button-shell"><h1>Button</h1><section class="button-matrix">{#each cases as p}<Button {...p}/>{/each}</section></main>
+<script>
+let count=$state(0);
+</script>
+<main class="form-shell"><h1>Button</h1><section class="button-matrix"><button type="button" class="kumo-button primary base" onclick={()=>count++}>Primary</button></section></main>

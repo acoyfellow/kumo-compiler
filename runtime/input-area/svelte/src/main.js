@@ -1,2 +1,4 @@
-import'../../../../public/form.css';import{hydrate}from'svelte';// hydrate SSR-owned markup progressively
-const root=document.getElementById('app');root.dataset.hydration='ready';
+import './style.css';
+import {hydrate} from 'svelte';
+import App from './App.svelte';
+hydrate(App,{target:document.getElementById('app')});

@@ -1,1 +1,4 @@
-<main class="family"><h1>Combobox</h1><section><button class="combo" role="combobox" aria-controls="region-list" aria-expanded="false">Choose region</button><ul id="region-list" role="listbox" hidden><li role="option" tabindex="0">North America</li><li role="option" tabindex="0">Europe</li></ul></section></main>
+<script>
+let value=$state(""),query=$state(''),open=$state(false),message=$state('Ready'),page=$state(1);let range=['',''],start=$state(range[0]),end=$state(range[1]);const matches=x=>x.toLowerCase().includes(query.toLowerCase());function choose(x){value=x;query=x;open=false}function key(e){if(e.key==='Escape')open=false;else if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();open=true}}
+</script>
+<main class="family"><h1>Combobox</h1><section><button class="combo" role="combobox" aria-controls="region-list" aria-expanded={open} onclick={()=>open=!open} onkeydown={key}>Choose region</button>{#if open}<ul id="region-list" role="listbox"><li role="option" tabindex="-1" onclick={()=>choose("North America")}>North America</li><li role="option" tabindex="-1" onclick={()=>choose("Europe")}>Europe</li></ul>{/if}</section></main>

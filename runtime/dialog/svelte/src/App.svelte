@@ -1,1 +1,4 @@
-<script>import Dialog from'./Dialog.svelte';import'../../../../public/dialog.css';const cases=[{"title":"Small dialog","size":"sm","open":true},{"title":"Default dialog","size":"md","open":true},{"title":"Large dialog","size":"lg","open":true},{"title":"Full width","size":"full","open":true},{"title":"Modal with backdrop","size":"md","modal":true},{"title":"Escape disabled","size":"sm","open":true,"closeOnEscape":false,"closeButton":false}]</script><main class="dialog-shell"><h1>Dialog</h1><div class="dialog-matrix">{#each cases as p}<Dialog {...p}/>{/each}</div></main>
+<script>
+function cancel(event){event.preventDefault()}
+</script>
+<main class="form-shell"><h1>Dialog</h1><section class="dialog-matrix"><dialog open aria-labelledby="dialog-title" oncancel={cancel}><h2 id="dialog-title">Dialog</h2><button>Close</button></dialog></section></main>

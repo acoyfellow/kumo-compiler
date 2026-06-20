@@ -1,1 +1,4 @@
-<script>import Popover from'./Popover.svelte';import'../../../../public/popover.css';const cases=[{"label":"Top start","side":"top","align":"start","open":true},{"label":"Top center","side":"top","align":"center","open":true},{"label":"Right end","side":"right","align":"end","open":true},{"label":"Bottom start","side":"bottom","align":"start","open":true},{"label":"Bottom offset","side":"bottom","align":"center","sideOffset":14,"alignOffset":18,"open":true},{"label":"Left center","side":"left","align":"center","open":true},{"label":"Closed","side":"bottom","align":"center"},{"label":"Persistent","side":"bottom","align":"end","open":true,"closeOnOutside":false,"closeOnEscape":false}]</script><main class="popover-shell"><h1>Popover</h1><div class="popover-matrix">{#each cases as p}<Popover {...p}/>{/each}</div></main>
+<script>
+let open=$state(true);
+</script>
+<main class="form-shell"><h1>Popover</h1><section class="popover-matrix"><button aria-haspopup="dialog" aria-expanded={open} onclick={()=>open=!open}>Toggle</button>{#if open}<div role="dialog">Popover content</div>{/if}</section></main>

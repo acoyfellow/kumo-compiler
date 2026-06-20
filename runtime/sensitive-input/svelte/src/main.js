@@ -1,2 +1,4 @@
-import'../../../../public/form.css';import{hydrate}from'svelte';// hydrate SSR-owned markup progressively
-const root=document.getElementById('app');root.dataset.hydration='ready';const reveal=root.querySelector('.reveal'),secret=root.querySelector('#secret');reveal.onclick=()=>{const shown=secret.type==='text';secret.type=shown?'password':'text';reveal.textContent=shown?'Show':'Hide';reveal.setAttribute('aria-pressed',String(!shown));root.dataset.hydrated='true'};
+import './style.css';
+import {hydrate} from 'svelte';
+import App from './App.svelte';
+hydrate(App,{target:document.getElementById('app')});

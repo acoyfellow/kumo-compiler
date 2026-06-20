@@ -1,1 +1,4 @@
-import'../../../../public/navigation.css';import{hydrate}from'svelte';import App from'./App.svelte';hydrate(App,{target:document.getElementById('app')});const root=document.getElementById('app');root.addEventListener('keydown',e=>{const group=e.target.closest('[role=tablist],[role=menubar]');if(!group)return;const items=[...group.querySelectorAll('[role=tab],[role=menuitem]')],i=items.indexOf(e.target);let n;if(e.key==='ArrowRight')n=(i+1)%items.length;if(e.key==='ArrowLeft')n=(i-1+items.length)%items.length;if(e.key==='Home')n=0;if(e.key==='End')n=items.length-1;if(n===undefined)return;e.preventDefault();items.forEach((x,j)=>{x.tabIndex=j===n?0:-1;if(x.matches('[role=tab]'))x.setAttribute('aria-selected',String(j===n))});items[n].focus();root.querySelector('output').textContent=items[n].textContent+' focused'});
+import './style.css';
+import {hydrate} from 'svelte';
+import App from './App.svelte';
+hydrate(App,{target:document.getElementById('app')});

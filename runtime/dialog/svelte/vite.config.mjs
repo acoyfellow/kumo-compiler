@@ -1,8 +1,3 @@
-import { defineConfig } from 'vite';
-import { svelte } from '@sveltejs/vite-plugin-svelte';
-
-export default defineConfig({
-  base: '/dialog/svelte/',
-  plugins: [svelte()],
-  build: { outDir: 'public-runtime', emptyOutDir: true },
-});
+import {svelte} from '@sveltejs/vite-plugin-svelte';
+import {defineConfig} from 'vite';
+export default defineConfig({base:'./',plugins:[svelte()],build:{outDir:'public-runtime',emptyOutDir:true,rollupOptions:{output:{entryFileNames:'assets/svelte-dialog.js'}}}});
