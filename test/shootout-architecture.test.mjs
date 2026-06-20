@@ -12,11 +12,12 @@ test('Axis B inventory fails closed without selecting a winner',()=>{
 });
 test('Axis B fan-in is portable, deterministic, exact, and fail closed',()=>{
  const script=path.join(root,'scripts/shootout/architectures/run.mjs');
- const env={...process.env,SHOOTOUT_REVISION:'fixed-test-revision'};
+ const output=path.join(fs.mkdtempSync(path.join(os.tmpdir(),'axis-b-')),'matrix.json');
+ const env={...process.env,SHOOTOUT_REVISION:'fixed-test-revision',SHOOTOUT_OUTPUT:output};
  const rootOut=execFileSync(process.execPath,[script],{cwd:root,env,encoding:'utf8'});
- const first=fs.readFileSync(path.join(root,'proof/shootout/architectures/matrix.json'));
+ const first=fs.readFileSync(output);
  const externalOut=execFileSync(process.execPath,[script],{cwd:os.tmpdir(),env,encoding:'utf8'});
- const second=fs.readFileSync(path.join(root,'proof/shootout/architectures/matrix.json'));
+ const second=fs.readFileSync(output);
  assert.equal(rootOut,externalOut); assert.deepEqual(first,second);
  const out=JSON.parse(rootOut); assert.equal(out.cellCount,32); assert.equal(out.winner,null);
  const matrix=JSON.parse(second); const expectedCandidates=['internal-ts','mitosis','shared-core-native','minimal-hybrid'];

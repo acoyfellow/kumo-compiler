@@ -1,7 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
-import { readFile } from 'node:fs/promises';
+import { mkdtemp, readFile, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { once } from 'node:events';
 
 const root = new URL('../', import.meta.url);
@@ -16,9 +18,12 @@ async function command(executable, args, options = {}) {
 }
 
 test('standalone React builds emit their runtime HTML and all referenced assets are served', { timeout: 30_000 }, async () => {
-  for (const kind of kinds) {
-    await command(process.execPath, ['node_modules/vite/bin/vite.js', 'build', `runtime/${kind}/react`]);
-    const html = await readFile(new URL(`../runtime/${kind}/react/public-runtime/index.html`, import.meta.url), 'utf8');
+  const canonicalRoot = await mkdtemp(join(tmpdir(), 'native-react-'));
+  try {
+   for (const kind of kinds) {
+    const outDir = join(canonicalRoot, kind, 'public-runtime');
+    await command(process.execPath, ['node_modules/vite/bin/vite.js', 'build', `runtime/${kind}/react`, '--outDir', outDir]);
+    const html = await readFile(join(outDir, 'index.html'), 'utf8');
     assert.match(html, new RegExp(`/${kind}/react/assets/react-${kind}\\.js`));
     assert.match(html, new RegExp(`/${kind}/react/assets/[^"']+\\.css`));
   }
@@ -26,7 +31,7 @@ test('standalone React builds emit their runtime HTML and all referenced assets 
   const port = 46_000 + process.pid % 1_000;
   const server = spawn(process.execPath, ['review/server.mjs'], {
     cwd: root,
-    env: { ...process.env, PORT: String(port) },
+    env: { ...process.env, PORT: String(port), KUMO_CANONICAL_RUNTIME_ROOT: canonicalRoot },
     stdio: ['ignore', 'pipe', 'pipe'],
   });
   try {
@@ -48,5 +53,8 @@ test('standalone React builds emit their runtime HTML and all referenced assets 
   } finally {
     server.kill('SIGTERM');
     await once(server, 'exit').catch(() => {});
+  }
+  } finally {
+    await rm(canonicalRoot, { recursive: true, force: true });
   }
 });

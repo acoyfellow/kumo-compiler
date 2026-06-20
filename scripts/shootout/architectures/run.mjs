@@ -62,6 +62,9 @@ const candidateCellCounts=Object.fromEntries(candidates.map(c=>[c,receipts.filte
 const criticalIncomplete=receipts.some(r=>r.status!=='passed');
 const output={schemaVersion:'kumo.architecture-matrix/v1',axis:'B-output-architecture',revision:sourceRevision,...provenance,contract:'shootout/v1',environment,dimensions:{candidates,components,frameworks},cellCount:receipts.length,candidateCellCounts,gateCounts,receipts,disqualifications:gateSpec.hardDisqualifiers,weightsApplied:!criticalIncomplete,winner:null,verdict:criticalIncomplete?'no-winner-critical-cells-incomplete':'eligible-for-weighting',failClosed:true};
 if(criticalIncomplete&&(output.weightsApplied||output.winner!==null)) throw new Error('critical incomplete matrix must fail closed');
-fs.mkdirSync(path.join(root,'proof/shootout/architectures'),{recursive:true});
-fs.writeFileSync(path.join(root,'proof/shootout/architectures/matrix.json'),JSON.stringify(output,null,2)+'\n');
+const outputPath=process.env.SHOOTOUT_OUTPUT
+ ? path.resolve(process.env.SHOOTOUT_OUTPUT)
+ : path.join(root,'proof/shootout/architectures/matrix.json');
+fs.mkdirSync(path.dirname(outputPath),{recursive:true});
+fs.writeFileSync(outputPath,JSON.stringify(output,null,2)+'\n');
 console.log(JSON.stringify({cellCount:receipts.length,candidateCellCounts,gateCounts,winner:null,verdict:output.verdict}));
