@@ -61,7 +61,8 @@
     "release:check": "npm test && npm run evidence:validate && npm run build:migration-status && npm run catalog:validate && npm --prefix astro run build && node scripts/validate-astro-routes.mjs",
     "evidence:validate": "node scripts/browser-evidence-authority.mjs",
     "manifest:validate": "node scripts/verify-package.mjs",
-    "package:verify": "node scripts/verify-package.mjs"
+    "package:verify": "node scripts/verify-package.mjs",
+    "artifact:check": "node scripts/check-artifact-boundary.mjs"
   },
   "keywords": [],
   "author": "",
