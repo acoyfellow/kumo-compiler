@@ -165,6 +165,12 @@ Likely native framework implementations:
 8. Rehearse additive, behavioral, styling, and breaking upstream Kumo changes.
 9. Prepare the seven-minute Brandon/Brayden proposal. Do not send it automatically.
 
+## Select pilot checkpoint (2026-06-20)
+
+The receipt-derived comparison is [`proof/select/comparison.json`](../../proof/select/comparison.json) and the decision record is [ADR 003](../decisions/003-select-native-core-pilot.md). No winner is declared. Shared-core passes 8/8 model contract vectors, but its current browser receipt records four actual Solid failures and blocked React/Vue/Svelte gates; structural build/SSR checks are not parity. Consumer DX remains 3 passed / 22 blocked / 6 not-run.
+
+Next milestone: repair Select evidence and product gaps before Dialog. Dialog may run earlier only as a bounded contract experiment, not a parity campaign.
+
 ## Completion gate
 
 A candidate is complete only when its claimed scope has immutable selected receipts, reproducible commands, raw benchmark data, explicit limitations, and no unrecorded escape hatches.

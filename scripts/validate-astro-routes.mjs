@@ -36,6 +36,9 @@ for(const disclosure of ['28','116','220','Zero browser targets passed','Synthet
 const bakeoffHtml=await readFile(resolve(dist,'bakeoff/index.html'),'utf8');
 for(const disclosure of ['No winner is declared','Internal TypeScript control','Mitosis','Shared core','passed','partial','not-run','blocked'])
  if(!bakeoffHtml.includes(disclosure))failures.push(`bakeoff disclosure missing: ${disclosure}`);
+const selectPilotHtml=await readFile(resolve(dist,'select-pilot/index.html'),'utf8');
+for(const disclosure of ['No winner is declared','8/8','Observed Solid failures','React, Vue, and Svelte browser gates are blocked','3 / 22 / 6','bounded contract experiment'])
+ if(!selectPilotHtml.includes(disclosure))failures.push(`Select pilot disclosure missing: ${disclosure}`);
 const comparisonHtml=await readFile(resolve(dist,'comparison/index.html'),'utf8');
 for(const disclosure of ['No winner is declared','Protocol planner artifacts only','Full product baseline','Unavailable / unavailable'])
  if(!comparisonHtml.includes(disclosure))failures.push(`compiler comparison disclosure missing: ${disclosure}`);
@@ -57,7 +60,7 @@ for(const file of htmlFiles){
   if(!await resolvesToOutput(pathname))failures.push(`${file.slice(dist.length)} -> ${pathname}`);
  }
 }
-const required=['/','/typescript/','/go/','/rust/','/zig/','/comparison/','/mitosis/','/shared-core/','/bakeoff/',...catalog.components.map(({id})=>`/components/${id}/`)];
+const required=['/','/typescript/','/go/','/rust/','/zig/','/comparison/','/mitosis/','/shared-core/','/bakeoff/','/select-pilot/',...catalog.components.map(({id})=>`/components/${id}/`)];
 for(const route of required)if(!await resolvesToOutput(route))failures.push(`required route missing: ${route}`);
 if(failures.length)throw new Error(`Broken local Astro routes:\n${failures.join('\n')}`);
 console.log(`Validated ${required.length + 1} routes/links (${required.length} required routes plus link graph) and ${links} local link references across ${htmlFiles.length} Astro pages`);

@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "kumo.select.comparison/v1",
+  "component": "Select",
+  "generatedFrom": [
+    "generated/receipts/select.react.json",
+    "proof/select-contract/receipt.json",
+    "proof/select/receipts.json",
+    "proof/bakeoff/mitosis/receipts/select.react.json",
+    "proof/dx/consumer-receipts.json"
+  ],
+  "control": {
+    "name": "immutable TypeScript control",
+    "package": "@cloudflare/kumo@2.5.2",
+    "status": "passed",
+    "publicBehavior": "selected browser-backed React, Vue, Svelte and Solid receipts",
+    "packageSourceBytes": {"runtimeChunk": 7986, "entry": 138, "types": 10698},
+    "provenance": "generated/receipts/select.react.json"
+  },
+  "sharedCore": {
+    "name": "shared-core native Select",
+    "status": "failed",
+    "contractTests": {"passed": 8, "total": 8, "scope": "model contract only"},
+    "structural": {"packageTypesExportsStyles": "passed in 4/4 targets", "clientBuild": "passed in Vue and Solid", "ssr": "passed in Vue and Solid"},
+    "browser": {
+      "solid": {"status": "failed", "observedFailures": ["pointer open/select", "typeahead", "controlled/uncontrolled value/open", "hydration"]},
+      "react": {"status": "blocked"},
+      "vue": {"status": "blocked"},
+      "svelte": {"status": "blocked"}
+    },
+    "gateCounts": {"passed": 12, "failed": 4, "blocked": 40, "notRun": 0},
+    "ownership": {"sharedModelLoc": 41, "nativeViewLoc": {"react": 43, "vue": 79, "svelte": 180, "solid": 69}},
+    "sourceBytes": {"sharedModel": 10052, "nativeViews": {"react": 7045, "vue": 6031, "svelte": 7124, "solid": 7267}},
+    "nativeEscapeHatches": ["framework rendering/reactivity/events", "focus and scrolling", "SSR/hydration integration"],
+    "harnessAdapters": "three fixture adapter files per framework",
+    "provenance": "proof/select/receipts.json"
+  },
+  "mitosis": {
+    "name": "Mitosis Select",
+    "status": "partial",
+    "publicBehavior": "native HTML select sketch; parity behavior not run",
+    "generatedSourceBytes": {"react": 400, "vue": 488, "svelte": 336, "solid": 517},
+    "gates": "generated/provenance passed; build, runtime, SSR, hydration, types, package and styles not-run",
+    "escapeHatches": ["Mitosis 0.13.2 generator API adapter"],
+    "provenance": "proof/bakeoff/mitosis/receipts/select.react.json"
+  },
+  "consumerDx": {"passed": 3, "blocked": 22, "notRun": 6},
+  "verdict": "No winner. Repair Select evidence and product gaps before a parity campaign.",
+  "nextMilestone": "Repair Select first; Dialog may proceed only as a bounded contract experiment, not a parity campaign."
+}
