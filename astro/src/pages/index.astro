@@ -2,9 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 const candidates = [
   { id: 'typescript', name: 'TypeScript', status: 'Current reference', description: 'The working compiler and complete 41 × 4 evidence catalog.', href: '/typescript/', detail: '164 browser-verified surfaces' },
-  { id: 'go', name: 'Go', status: 'Coming soon', description: 'Native binary candidate focused on simple distribution, startup time, and concurrency.', detail: 'Benchmark implementation pending' },
-  { id: 'rust', name: 'Rust', status: 'Coming soon', description: 'Native candidate focused on throughput, memory use, correctness, and parallel compilation.', detail: 'Benchmark implementation pending' },
-  { id: 'zig', name: 'Zig', status: 'Coming soon', description: 'Small native binary candidate with explicit allocation and a minimal runtime surface.', detail: 'Benchmark implementation pending' },
+  { id: 'go', name: 'Go', status: 'Planner benchmark complete', description: 'Standard-library native protocol planner with deterministic artifacts.', href: '/go/', detail: '41 components · 164 target plans' },
+  { id: 'rust', name: 'Rust', status: 'Planner benchmark complete', description: 'Native protocol planner with atomic content-addressed output.', href: '/rust/', detail: '41 components · 164 target plans' },
+  { id: 'zig', name: 'Zig', status: 'Planner benchmark complete', description: 'Standard-library-only protocol planner with staged atomic output.', href: '/zig/', detail: '41 components · 164 target plans' },
   { id: 'mitosis', name: 'Mitosis', status: 'Coming soon', description: 'Builder.io Mitosis generation tested against Kumo APIs, native SSR, hydration, focus, types, and package output.', detail: 'Architectural bake-off pending' },
   { id: 'shared-core', name: 'Shared core', status: 'Coming soon', description: 'Framework-neutral state and behavior with thin native React, Vue, Svelte, and Solid views.', detail: 'Architectural bake-off pending' },
 ];
@@ -13,19 +13,19 @@ const candidates = [
   <header class="intro">
     <p class="eyebrow">Kumo compiler study</p>
     <h1>Which implementation should compile Kumo?</h1>
-    <p>We have one working TypeScript reference compiler. Next we will implement the same normalized contract in Go, Rust, and Zig, run each against the same 41-component fixture set, and compare output correctness, build throughput, startup time, memory, binary size, and maintenance cost before choosing a reference implementation.</p>
+    <p>We have one working TypeScript reference compiler and completed protocol planner benchmarks in Go, Rust, and Zig. The native planners prove the shared contract and deterministic planning path; the full emitter bake-off is next before any reference implementation is chosen.</p>
   </header>
 
   <section class="rules" aria-labelledby="rules-title"><h2 id="rules-title">One benchmark contract</h2><p>Every candidate must consume the same <code>kumo.ir/v1</code> input, produce equivalent framework source, pass the same browser and provenance gates, and report raw repeatable measurements. A faster compiler does not win if its output or developer workflow is weaker.</p></section>
 
-  <section class="candidates" aria-labelledby="candidate-title"><div class="heading"><h2 id="candidate-title">Compiler candidates</h2><p>TypeScript is available now. The native implementations are intentionally marked pending until real code and measurements exist.</p></div><div class="grid">
+  <section class="candidates" aria-labelledby="candidate-title"><div class="heading"><h2 id="candidate-title">Compiler candidates</h2><p>TypeScript is the current full product baseline. Go, Rust, and Zig now have real protocol planner measurements; <a href="/comparison/">compare their recorded scope and results</a>.</p></div><div class="grid">
     {candidates.map(candidate => candidate.href ? <a class="card active" href={candidate.href}><span class="status">{candidate.status}</span><h3>{candidate.name}</h3><p>{candidate.description}</p><small>{candidate.detail}</small><b>View compiler results →</b></a> : <article class="card"><span class="status pending">{candidate.status}</span><h3>{candidate.name}</h3><p>{candidate.description}</p><small>{candidate.detail}</small></article>)}
   </div></section>
 
   <section class="roadmap" aria-labelledby="roadmap-title"><div class="heading"><h2 id="roadmap-title">Roadmap</h2><p>Prove the compiler, compare implementations, then make the result useful.</p></div><ol>
     <li class="done"><div class="rail"><span>✓</span></div><div class="step"><div class="step-head"><small>Phase 1</small><b>Done</b></div><strong>TypeScript reference compiler</strong><p>Working across the current 41 executable targets with normalized IR, native framework outputs, package provenance, and selected browser evidence.</p><a href="/typescript/">View TypeScript results →</a></div></li>
-    <li class="active"><div class="rail"><span>2</span></div><div class="step"><div class="step-head"><small>Phase 2</small><b>In progress</b></div><strong>Compare compiler languages</strong><p>Implement the shared planning protocol in Go, Rust, and Zig. Collect comparable raw samples for throughput, startup, memory, and distribution size.</p><div class="languages"><span>Go</span><span>Rust</span><span>Zig</span></div></div></li>
-    <li><div class="rail"><span>3</span></div><div class="step"><div class="step-head"><small>Phase 3</small><b>Next</b></div><strong>Run the architectural bake-off</strong><p>Compare the internal compiler, Builder.io Mitosis, and a shared behavior core on seven representative Kumo components using the same browser-backed gates.</p><div class="languages"><span>Internal</span><span>Mitosis</span><span>Shared core</span></div></div></li>
+    <li class="done"><div class="rail"><span>✓</span></div><div class="step"><div class="step-head"><small>Phase 2</small><b>Done</b></div><strong>Benchmark compiler planners</strong><p>Protocol planners are complete in Go, Rust, and Zig with raw samples and deterministic 164-artifact output. These are not yet full framework emitters.</p><a href="/comparison/">Compare planner benchmarks →</a><div class="languages"><span>Go</span><span>Rust</span><span>Zig</span></div></div></li>
+    <li class="active"><div class="rail"><span>3</span></div><div class="step"><div class="step-head"><small>Phase 3</small><b>Next</b></div><strong>Run the full emitter bake-off</strong><p>Implement and compare full framework emission, Builder.io Mitosis, and a shared behavior core on representative Kumo components using the same browser-backed gates.</p><div class="languages"><span>Internal</span><span>Mitosis</span><span>Shared core</span></div></div></li>
     <li><div class="rail"><span>4</span></div><div class="step"><div class="step-head"><small>Phase 4</small><b>Planned</b></div><strong>Choose, then focus on DX and AX</strong><p>Select from evidence, design Svelte/Vue/Solid consumer workflows, rehearse upstream changes, and prepare the Brandon/Brayden proposal.</p></div></li>
   </ol></section>
 </Layout>

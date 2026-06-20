@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const { language, benchmark, architecture, reproduce, binary, build } = Astro.props;
+const number = value => Number(value).toLocaleString(undefined, { maximumFractionDigits: 6 });
+const bytes = value => Number(value).toLocaleString();
+---
+<Layout title={`${language} compiler benchmark · Kumo`}>
+  <header class="intro">
+    <p class="eyebrow"><a href="/">Compiler candidates</a> / {language}</p>
+    <div class="title"><div><h1>{language} protocol planner</h1><p class="status">Protocol planner complete</p></div><a class="compare" href="/comparison/">Compare all planners →</a></div>
+    <p class="description"><code>{benchmark.compiler.name}</code> {benchmark.compiler.version} validates the shared compiler protocol and produces a deterministic target plan. It processed <strong>41 components</strong>, generated <strong>164 target plans</strong>, and wrote <strong>164 deterministic artifacts</strong>.</p>
+    <aside class="warning"><strong>Scope limitation:</strong> this native candidate emits protocol planner artifacts, not runnable React, Vue, Svelte, or Solid framework source. The TypeScript implementation is the current full product baseline, and its benchmark performs a different planning workload. Wall-clock numbers are therefore not a fair winner comparison.</aside>
+  </header>
+
+  <section aria-labelledby="result-title"><h2 id="result-title">Recorded result</h2><div class="facts">
+    <article><span>Median wall</span><strong>{number(benchmark.summary.medianWallMs)} ms</strong></article>
+    <article><span>p95 wall</span><strong>{number(benchmark.summary.p95WallMs)} ms</strong></article>
+    <article><span>Wall variance</span><strong>{number(benchmark.summary.varianceWallMs)} ms²</strong></article>
+    <article><span>Samples</span><strong>{benchmark.methodology.measured} measured</strong><small>{benchmark.methodology.warmups} warmups discarded</small></article>
+  </div></section>
+
+  <section class="details" aria-labelledby="details-title"><h2 id="details-title">Compiler and output</h2><dl>
+    <div><dt>Compiler</dt><dd>{benchmark.compiler.name} {benchmark.compiler.version}</dd></div>
+    <div><dt>Toolchain</dt><dd>{benchmark.compiler.toolchain}</dd></div>
+    <div><dt>Architecture</dt><dd>{architecture}</dd></div>
+    <div><dt>Output</dt><dd>{benchmark.output.files} files · {bytes(benchmark.output.bytes)} bytes</dd></div>
+    <div class="wide"><dt>Output hash</dt><dd><code>{benchmark.output.hash}</code></dd></div>
+    {build && <div><dt>Documented clean build</dt><dd>{build}</dd></div>}
+    {binary && <div><dt>Documented binary</dt><dd>{binary}</dd></div>}
+    <div><dt>CPU telemetry</dt><dd>Unavailable</dd></div>
+    <div><dt>Peak RSS</dt><dd>Unavailable</dd></div>
+  </dl></section>
+
+  <section aria-labelledby="samples-title"><h2 id="samples-title">Raw measured samples</h2><p class="method">{benchmark.methodology.isolation}</p><div class="table-scroll"><table><thead><tr><th scope="col">Sample</th><th scope="col">Kind</th><th scope="col">Wall (ms)</th><th scope="col">Startup</th><th scope="col">CPU user/system</th><th scope="col">Peak RSS</th></tr></thead><tbody>{benchmark.samples.map((sample, index) => <tr><th scope="row">{index + 1}</th><td>{sample.kind}</td><td>{number(sample.wallMs)}</td><td>{sample.startupMs === null ? 'Unavailable' : `${number(sample.startupMs)} ms`}</td><td>{sample.cpuUserMs === 0 && sample.cpuSystemMs === 0 ? 'Unavailable' : `${number(sample.cpuUserMs)} / ${number(sample.cpuSystemMs)} ms`}</td><td>{sample.peakRssBytes === null ? 'Unavailable' : bytes(sample.peakRssBytes)}</td></tr>)}</tbody></table></div></section>
+
+  <section class="architecture" aria-labelledby="architecture-title"><h2 id="architecture-title">Architecture</h2><p>{architecture}</p><h3>Reproduce</h3><pre><code>{reproduce}</code></pre></section>
+</Layout>
+<style>
+.intro{max-width:900px;padding:30px 0 10px}.eyebrow{color:#64748b;font-size:12px;font-weight:750;letter-spacing:.08em;text-transform:uppercase}.eyebrow a{color:inherit}.title{display:flex;align-items:end;justify-content:space-between;gap:24px}.title h1{margin:8px 0 4px;font-size:clamp(38px,5vw,58px);letter-spacing:-.045em}.status{margin:0;color:#166534;font-size:13px;font-weight:750;text-transform:uppercase}.compare{color:#0759b6;font-weight:700}.description{color:#475569;font-size:18px;line-height:1.65}.warning{margin-top:22px;padding:16px 18px;border-left:4px solid #d97706;background:#fffbeb;color:#78350f;line-height:1.55}section{margin-top:42px}h2{margin:0 0 14px;font-size:25px}.facts{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid #d8dde5;border-radius:10px;background:#fff}.facts article{display:grid;gap:5px;padding:17px;border-left:1px solid #e5e7eb}.facts article:first-child{border:0}.facts span,.facts small,dt,.method{color:#64748b;font-size:12px}.facts strong{font-size:18px}.details dl{display:grid;grid-template-columns:repeat(2,1fr);margin:0;border:1px solid #d8dde5;border-radius:10px;background:#fff}.details dl div{padding:14px 16px;border-bottom:1px solid #e5e7eb}.details .wide{grid-column:1/-1}.details dd{overflow-wrap:anywhere;margin:5px 0 0;font-weight:650}.table-scroll{overflow-x:auto;border:1px solid #d8dde5;border-radius:10px}table{width:100%;min-width:760px;border-collapse:collapse;background:#fff}th,td{padding:10px 12px;border-bottom:1px solid #e5e7eb;text-align:left;font-size:12px;font-variant-numeric:tabular-nums}thead th{background:#f7f8fa;color:#475569}.architecture p{color:#475569;line-height:1.65}.architecture h3{margin-top:24px}pre{overflow:auto;padding:16px;border-radius:8px;background:#111827;color:#f8fafc;line-height:1.55}@media(max-width:700px){.title{display:block}.compare{display:inline-block;margin-top:14px}.description{font-size:16px}.facts{grid-template-columns:repeat(2,1fr)}.facts article:nth-child(3){border-left:0;border-top:1px solid #e5e7eb}.details dl{grid-template-columns:1fr}.details .wide{grid-column:auto}}
+</style>
