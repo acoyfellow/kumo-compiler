@@ -1,7 +1,20 @@
 # Mitosis bake-off candidate
 
-Seven source exports live in `src/components.lite.tsx`. `scripts/generate.mjs` parses real Mitosis models and invokes React, Vue, Svelte, and Solid generators. Generated target files are committed.
+Seven isolated source models are generated to React, Vue, Svelte, and Solid with Mitosis 0.13.2. Run:
 
-## Adaptations and limitations
+```sh
+npm ci
+npm run verify
+```
 
-The generation driver is the sole adapter (all file/lines, low maintenance, sensitive to Mitosis parser/generator APIs). No post-processing, native wrappers, or manual target implementations are used. Mitosis 0.13.2 does not itself supply portals, focus management, compound/context contracts, packaging, SSR hosts, or hydration harnesses. Those dimensions are honestly `not-run`; they are not forced to pass. Refs, controlled/uncontrolled state, events/slots, and types exist in the richer source models but generated smoke models are intentionally minimal because the parser rejected a multi-export model. This parser adaptation applies to all 28 targets.
+## API diagnosis and adaptation
+
+The original driver passed a bare `MitosisComponent` to each generated transpiler. In 0.13.2 the published `Transpiler` type and implementation require `TranspilerArgs`: `{ component, path? }`. The React stack failed at `fastClone(component)` because destructuring a bare model made `component` undefined, producing `JSON.parse(JSON.stringify(undefined))` and the misleading `SyntaxError: "undefined" is not valid JSON`. This was candidate misuse, not a Mitosis generator defect and not a product verdict. The repair is `generate({ component: model, path })`; no package upgrade or generator patch was needed.
+
+Mitosis' JSX parser accepts one default component per parse. The candidate therefore retains one isolated official-style model per named component rather than attempting to parse `src/components.lite.tsx` as a multi-export unit. No generated target is manually edited or post-processed.
+
+## Evidence scope
+
+All seven models currently generate for all four targets. `verify-builds.mjs` performs real Vite library compilation of generated Button source for each framework. `browser-button.mjs` performs real framework client bundles, loads them in Chromium, asserts one native button, clicks it, confirms the callback, and records console errors. Receipts are in `receipts/`.
+
+Button has generated/build/browser evidence on all targets. Field and Tabs have generated source on all targets but no browser receipt yet. Dialog portals/focus management, compound/context APIs, SSR/hydration, package output, and full Kumo parity remain unverified and must not be counted as passing.
