@@ -1,1 +1,1 @@
-import{defineConfig}from'vite';export default defineConfig({base:'/checkbox/react/',build:{outDir:'public-runtime',emptyOutDir:true,rollupOptions:{input:'src/main.jsx',output:{entryFileNames:'assets/react-checkbox.js',assetFileNames:'assets/[name][extname]'}}}})
+import{defineConfig}from'vite';export default defineConfig({base:'/checkbox/react/',build:{outDir:'public-runtime',emptyOutDir:true,rollupOptions:{input:'index.html',output:{entryFileNames:'assets/react-checkbox.js',assetFileNames:'assets/[name][extname]'}}}})
