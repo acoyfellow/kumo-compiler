@@ -14,4 +14,4 @@ A later layer cannot strengthen a missing earlier link. A screenshot can support
 
 Evidence is revision-specific and schema-specific. Stale hashes, absent files, failed checks, or an unbound package make the corresponding claim unproved. Preserve failures and limitations rather than replacing them with narrative confidence.
 
-The project scope is 45 components: 41 represented in current IR, 2 pending, and 2 excluded. Current repository evidence authoritatively names only the 41 represented entries. Classification details for the other four must come from the inventory authority when it merges.
+The project scope is 45 components: 41 represented in current IR, 2 pending, and 2 excluded. The selected `kumo.browser-proof-run/v2` authority covers exactly 164 targets: 41 represented components across four frameworks. A complete run is promoted only after all 24 shards fan in; receipts and status remain downstream of that authority.

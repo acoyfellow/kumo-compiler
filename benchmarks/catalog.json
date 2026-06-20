@@ -64,8 +64,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/button-proof.mjs",
-        "spec": "specs/button.json"
+        "spec": "specs/button.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "states": 12,
@@ -104,8 +104,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/dialog-proof.mjs",
-        "spec": "specs/dialog.json"
+        "spec": "specs/dialog.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "states": 6,
@@ -145,8 +145,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/popover-proof.mjs",
-        "spec": "specs/popover.json"
+        "spec": "specs/popover.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "states": 8,
@@ -188,8 +188,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/native-control-proof.mjs",
-        "spec": "specs/native-control.json"
+        "spec": "specs/native-control.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "states": 4,
@@ -229,8 +229,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/native-control-proof.mjs",
-        "spec": "specs/native-control.json"
+        "spec": "specs/native-control.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "states": 4,
@@ -270,9 +270,9 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/form-proof.mjs",
         "spec": "specs/form.json",
-        "benchmark": "benchmarks/field/results.json"
+        "benchmark": "benchmarks/field/results.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -313,9 +313,9 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/form-proof.mjs",
         "spec": "specs/form.json",
-        "benchmark": "benchmarks/input/results.json"
+        "benchmark": "benchmarks/input/results.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -356,9 +356,9 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/form-proof.mjs",
         "spec": "specs/form.json",
-        "benchmark": "benchmarks/input-group/results.json"
+        "benchmark": "benchmarks/input-group/results.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -399,9 +399,9 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/form-proof.mjs",
         "spec": "specs/form.json",
-        "benchmark": "benchmarks/input-area/results.json"
+        "benchmark": "benchmarks/input-area/results.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -442,9 +442,9 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/form-proof.mjs",
         "spec": "specs/form.json",
-        "benchmark": "benchmarks/sensitive-input/results.json"
+        "benchmark": "benchmarks/sensitive-input/results.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -485,9 +485,9 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/form-proof.mjs",
         "spec": "specs/form.json",
-        "benchmark": "benchmarks/clipboard-text/results.json"
+        "benchmark": "benchmarks/clipboard-text/results.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -528,9 +528,9 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/navigation-proof.mjs",
         "spec": "specs/navigation.json",
-        "benchmark": "benchmarks/tabs/results.json"
+        "benchmark": "benchmarks/tabs/results.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -572,9 +572,9 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/navigation-proof.mjs",
         "spec": "specs/navigation.json",
-        "benchmark": "benchmarks/menu-bar/results.json"
+        "benchmark": "benchmarks/menu-bar/results.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -616,9 +616,9 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/navigation-proof.mjs",
         "spec": "specs/navigation.json",
-        "benchmark": "benchmarks/sidebar/results.json"
+        "benchmark": "benchmarks/sidebar/results.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -660,9 +660,9 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/navigation-proof.mjs",
         "spec": "specs/navigation.json",
-        "benchmark": "benchmarks/breadcrumbs/results.json"
+        "benchmark": "benchmarks/breadcrumbs/results.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -704,9 +704,9 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/navigation-proof.mjs",
         "spec": "specs/navigation.json",
-        "benchmark": "benchmarks/table-of-contents/results.json"
+        "benchmark": "benchmarks/table-of-contents/results.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -748,8 +748,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/badge/results.json"
+        "benchmark": "benchmarks/badge/results.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -790,8 +790,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/banner/results.json"
+        "benchmark": "benchmarks/banner/results.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -832,8 +832,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/surface/results.json"
+        "benchmark": "benchmarks/surface/results.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -874,8 +874,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/layer-card/results.json"
+        "benchmark": "benchmarks/layer-card/results.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -916,8 +916,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/grid/results.json"
+        "benchmark": "benchmarks/grid/results.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -958,8 +958,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/grid-item/results.json"
+        "benchmark": "benchmarks/grid-item/results.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -1000,8 +1000,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/loader/results.json"
+        "benchmark": "benchmarks/loader/results.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -1042,8 +1042,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/meter/results.json"
+        "benchmark": "benchmarks/meter/results.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -1084,8 +1084,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/empty/results.json"
+        "benchmark": "benchmarks/empty/results.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -1126,8 +1126,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/label/results.json"
+        "benchmark": "benchmarks/label/results.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -1168,8 +1168,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/link/results.json"
+        "benchmark": "benchmarks/link/results.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -1210,8 +1210,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/text/results.json"
+        "benchmark": "benchmarks/text/results.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -1252,8 +1252,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/cloudflare-logo/results.json"
+        "benchmark": "benchmarks/cloudflare-logo/results.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -1294,8 +1294,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/code/results.json"
+        "benchmark": "benchmarks/code/results.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -1336,8 +1336,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/data-presentational-proof.mjs",
-        "benchmark": "benchmarks/table/results.json"
+        "benchmark": "benchmarks/table/results.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -1377,8 +1377,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/selection-command-date-proof.mjs",
-        "spec": "specs/selection-command-date.json"
+        "spec": "specs/selection-command-date.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -1418,8 +1418,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/selection-command-date-proof.mjs",
-        "spec": "specs/selection-command-date.json"
+        "spec": "specs/selection-command-date.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -1459,8 +1459,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/selection-command-date-proof.mjs",
-        "spec": "specs/selection-command-date.json"
+        "spec": "specs/selection-command-date.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -1500,8 +1500,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/selection-command-date-proof.mjs",
-        "spec": "specs/selection-command-date.json"
+        "spec": "specs/selection-command-date.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -1541,8 +1541,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/selection-command-date-proof.mjs",
-        "spec": "specs/selection-command-date.json"
+        "spec": "specs/selection-command-date.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -1582,8 +1582,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/selection-command-date-proof.mjs",
-        "spec": "specs/selection-command-date.json"
+        "spec": "specs/selection-command-date.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -1623,8 +1623,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/selection-command-date-proof.mjs",
-        "spec": "specs/selection-command-date.json"
+        "spec": "specs/selection-command-date.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -1664,8 +1664,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/selection-command-date-proof.mjs",
-        "spec": "specs/selection-command-date.json"
+        "spec": "specs/selection-command-date.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,
@@ -1705,8 +1705,8 @@
         "solid"
       ],
       "evidence": {
-        "proof": "proof/selection-command-date-proof.mjs",
-        "spec": "specs/selection-command-date.json"
+        "spec": "specs/selection-command-date.json",
+        "authority": "generated/browser-evidence/authority.json"
       },
       "metrics": {
         "runtimeCount": 4,

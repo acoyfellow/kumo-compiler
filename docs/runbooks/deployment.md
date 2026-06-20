@@ -2,31 +2,23 @@
 
 ## Preconditions
 
-- Release revision and change approval are recorded.
-- `npm ci` and `npm run release:check` pass on Node 22.
-- Generated migration status has no unexplained diff.
-- Artifact and receipt revisions are recorded.
-- Deployment owner, production target, credentials, approval path, health checks, and rollback mechanism are supplied by the operations authority.
+- Node 22; approved source revision; `npm run release:check` passes.
+- Complete v2 browser authority: 24 matrix shards and exactly 164 targets.
+- Immutable artifact, manifest identity, receipts, and predecessor Worker version have retention locations.
+- Authorized production operator and Cloudflare Access service token are available.
 
-The final item is **pending at this revision**. Without it, stop after local preparation.
-
-## Prepare
+## Prepare and execute
 
 ```sh
-npm run deploy:prepare
-npm run release:check
+npm run deploy:dry-run
+npm run deploy
+CF_ACCESS_CLIENT_ID=… CF_ACCESS_CLIENT_SECRET=… npm run proof:production
 ```
 
-Do not interpret preparation as deployment. `wrangler.jsonc` establishes only the Worker entry point and static asset directory.
+Production is `https://kumo-compiler.coey.dev`. `deploy:prepare` builds Astro, copies `astro/dist` to `deploy/`, and validates deploy-manifest routes without proof side effects. Record command/tool version, target, times, revision, manifest hash, and artifact identity; never log secrets.
 
-## Execute
+## Verify and roll back
 
-Pending: use the reviewed command from the operations authority. Record operator, command/tool version, target, start/end time, source revision, and artifact identity. Never place credentials in logs or receipts.
+Verify Access denial without credentials, authorized health, representative Astro/component routes, revision/manifest identity, Cloudflare Ray IDs, and errors/latency. On mismatch or regression, stop and follow [rollback](../how-to/rollback.md).
 
-## Verify
-
-Pending production URL and service-level checks. At minimum, the approved plan should check Worker health, Astro index/component/receipt routes, representative interaction routes, revision identity, and errors/latency.
-
-## Abort or roll back
-
-Stop on failed gates, target ambiguity, revision mismatch, or health regression. Follow [rollback](../how-to/rollback.md) and [incident response](incident-response.md).
+The only external readiness blockers are an authorized Access service token and completion of a live rollback rehearsal.

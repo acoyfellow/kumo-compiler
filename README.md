@@ -1,38 +1,36 @@
 # Kumo compiler
 
-Kumo compiler treats the pinned React package as the canonical input, normalizes supported components into a versioned intermediate representation (IR), emits Vue, Svelte, and Solid runtimes, records proof receipts, and presents receipt-derived status through Astro.
+Private package-backed compiler and proof service for Cloudflare Kumo. `@cloudflare/kumo@2.5.2` React is canonical; TypeScript compilers normalize 41 supported components to `kumo.ir/v1` and emit React, Vue, Svelte, and Solid runtimes.
 
 ```text
-@cloudflare/kumo React → kumo.ir/v1 → framework emitters → proof receipts → Astro catalog
+pinned Kumo package → versioned IR → framework emitters → v2 browser authority → Astro catalog
 ```
 
 ## Seven-minute start
 
-Requires Node 22 (the CI image) and npm.
+Requires Node 22 and npm. The package is private and versioned `0.0.1`.
 
 ```sh
 npm ci
 npm test
+npm run matrix:kumo       # 24 shards; exact 164 component/framework targets
 npm run release:check
+npm run deploy:dry-run
 ```
 
-`npm test` runs the Node test suite. `release:check` reruns it, rebuilds migration status, builds Astro, and validates Astro routes. It is the repository's release gate, not a production deployment. For focused compiler work, run `npm run compile:kumo`; it writes generated files, so review the diff.
+The matrix atomically promotes only a complete 164-target run into [`generated/browser-evidence/authority.json`](generated/browser-evidence/authority.json). Browser run records use `kumo.browser-proof-run/v2`; receipts and [`generated/migration-status.json`](generated/migration-status.json) derive from that authority. Use `npm run compile:kumo` for focused compiler work and review generated diffs.
 
-The current scoped inventory is **45 components: 41 represented by `kumo.ir/v1`, 2 pending, and 2 excluded**. The checked-in evidence identifies and proves the 41 represented components; it does not yet authoritatively identify the four non-catalog entries. Do not infer their names or readiness until the inventory authority lands. The 41 have React audit receipts plus Vue, Svelte, and Solid receipts; status is computed from receipts, not prose.
+## Production and operations
 
-Start at [`generated/catalog.ir.json`](generated/catalog.ir.json) for normalized data, [`src/kumo/schema.ts`](src/kumo/schema.ts) for its type contract, [`generated/receipts/`](generated/receipts/) for component/framework claims, and [`astro/src/pages/index.astro`](astro/src/pages/index.astro) for the directory. Generated artifacts are outputs: change their sources and regenerate them.
+The production Worker is **https://kumo-compiler.coey.dev** and is Cloudflare Access protected for external requests. `npm run deploy:prepare` only builds Astro, replaces `deploy/` with `astro/dist`, and validates manifest route inventories; it has no proof side effects. Authorized operators use `npm run deploy`, then `npm run proof:production`. Use `npm run rollback:dry-run` or `npm run rollback` with `CLOUDFLARE_WORKER_VERSION_ID`, followed by production probes.
 
-## Evidence and operations
+Retain immutable deploy artifacts, manifest identity, receipts, production proof, source revision, and the predecessor Worker version for rollback. The remaining external blocker is an authorized Access service token (`CF_ACCESS_CLIENT_ID`/`CF_ACCESS_CLIENT_SECRET`) and a live rollback rehearsal; neither belongs in this repository.
 
-A checked-in receipt supports only the claim and revision it names. The canonical React package is bound by [`audit/kumo-react-2.5.2.provenance.json`](audit/kumo-react-2.5.2.provenance.json); [`generated/migration-status.json`](generated/migration-status.json) is explicitly derived from receipts. Screenshots, successful builds, and dashboard labels alone do not establish canonical parity. See [evidence authority](docs/explanation/evidence-authority.md) and [how to reproduce evidence](docs/how-to/reproduce-evidence.md).
+A receipt supports only its named claim and revision. Screenshots or successful builds alone do not establish parity. See [evidence authority](docs/explanation/evidence-authority.md), [deployment](docs/runbooks/deployment.md), and [evidence reproduction](docs/how-to/reproduce-evidence.md).
 
-`npm run deploy:prepare` prepares local assets but does not deploy. `wrangler.jsonc` describes a Worker and `deploy/` assets, yet no reviewed production target, command, owner, approval path, or retention policy exists at this revision. Deployment and rollback remain operator-controlled and pending those facts; see the [deployment runbook](docs/runbooks/deployment.md).
+## Documentation
 
-## Documentation map
-
-- **Tutorial:** [produce a first proof](docs/tutorials/first-proof.md)
-- **How-to:** [add a component](docs/how-to/add-component.md), [reproduce evidence](docs/how-to/reproduce-evidence.md), [deploy](docs/how-to/deploy.md), [roll back](docs/how-to/rollback.md)
-- **Reference:** [IR](docs/reference/ir.md), [manifests and receipts](docs/reference/manifests.md)
-- **Explanation:** [evidence authority](docs/explanation/evidence-authority.md)
-- **Runbooks:** [deployment](docs/runbooks/deployment.md), [incident response](docs/runbooks/incident-response.md)
-- **Policy:** [security](SECURITY.md), [deletion](DELETION.md)
+- [Add a component](docs/how-to/add-component.md) · [first proof](docs/tutorials/first-proof.md)
+- [Deploy](docs/how-to/deploy.md) · [rollback](docs/how-to/rollback.md) · [incident response](docs/runbooks/incident-response.md)
+- [IR](docs/reference/ir.md) · [manifests and receipts](docs/reference/manifests.md)
+- [Security](SECURITY.md) · [deletion](DELETION.md)

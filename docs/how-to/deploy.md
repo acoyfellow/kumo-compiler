@@ -1,15 +1,15 @@
 # Deploy
 
-No production deployment procedure is authoritative at this revision.
-
-You may prepare and validate local output:
+Production is `https://kumo-compiler.coey.dev`; external requests are protected by Cloudflare Access.
 
 ```sh
 npm ci
-npm run deploy:prepare
 npm run release:check
+npm run deploy:dry-run
+npm run deploy                 # authorized operator only
+CF_ACCESS_CLIENT_ID=… CF_ACCESS_CLIENT_SECRET=… npm run proof:production
 ```
 
-`deploy:prepare` builds runtimes and the benchmark catalog. `wrangler.jsonc` points at `worker.mjs` and `deploy/`, but the repository does not specify a production account, environment, URL, deployment command, approver, or post-deploy checks. Do not guess them or run `wrangler deploy` from this document.
+`deploy:prepare` builds Astro, replaces `deploy/` from `astro/dist`, and validates the deploy manifest inventory. It does not run proofs or deploy. Preserve the source revision, manifest identity, immutable artifact, receipts, production proof, and predecessor Worker version.
 
-An authorized operator must supply those facts and follow the [deployment runbook](../runbooks/deployment.md). Record artifact revision and receipt set so rollback can select a known predecessor.
+The service token is external secret material. The outstanding operational gate is obtaining an authorized token and completing a live rollback rehearsal. Follow the [deployment runbook](../runbooks/deployment.md).
