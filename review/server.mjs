@@ -4,7 +4,13 @@ import { existsSync, readFileSync, statSync } from 'node:fs';
 import { resolve } from 'node:path';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
+import { class2RuntimeRoute } from '../runtime-routes.mjs';
 const app=new Hono(),root=resolve(import.meta.dirname,'..'),frameworks=new Set(['react','vue','svelte','solid']);
+app.use('*',async(c,next)=>{
+ const url=new URL(c.req.url),route=class2RuntimeRoute(url.pathname);
+ if(route?.needsSlash)return c.redirect(`${url.pathname}/${url.search}`,308);
+ return next();
+});
 const nav=`<nav style="display:flex;gap:16px;padding:14px 28px;border-bottom:1px solid #d1d5db;background:#fff;font:700 14px system-ui"><a href="/progress">Progress</a><a href="/benchmarks/">Benchmarks</a><a href="/select/compare">Select</a><a href="/button/compare">Button</a><a href="/dialog/compare">Dialog</a><a href="/popover/compare">Popover</a><a href="/checkbox/compare">Checkbox</a><a href="/switch/compare">Switch</a></nav>`;
 const css=readFileSync(resolve(root,'public/styles.css'),'utf8');
 app.get('/',c=>c.redirect('/progress'));
