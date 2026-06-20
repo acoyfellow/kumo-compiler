@@ -1,0 +1,5 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","$id":"kumo.compiler.receipt/v1","type":"object","additionalProperties":false,
+  "required":["schemaVersion","compiler","roots","status","diagnostics","plan","outputs"],
+  "properties":{"schemaVersion":{"const":"kumo.compiler.receipt/v1"},"compiler":{"type":"object","required":["name","version","toolchain"],"properties":{"name":{"type":"string"},"version":{"type":"string"},"toolchain":{"type":"string"}}},"roots":{"type":"object","required":["input","output"],"properties":{"input":{"type":"string"},"output":{"type":"string"}}},"status":{"enum":["ok","error"]},"diagnostics":{"type":"array","items":{"$ref":"diagnostic.schema.json"}},"plan":{"type":"array","items":{"type":"object","required":["component","framework"],"properties":{"component":{"type":"string"},"framework":{"enum":["react","vue","svelte","solid"]}}}},"outputs":{"type":"array","items":{"type":"object","required":["path","sha256","bytes"],"properties":{"path":{"type":"string","pattern":"^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"},"sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"},"bytes":{"type":"integer","minimum":0}}}}}
+}

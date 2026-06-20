@@ -5,6 +5,10 @@
   "scripts": {
     "compile:kumo": "tsc -p tsconfig.kumo.json && node dist/kumo/compiler.js",
     "matrix:kumo": "node scripts/run-kumo-matrix.mjs",
+    "protocol:fixture": "node scripts/compiler-protocol/fixture.mjs",
+    "protocol:conformance": "node scripts/compiler-protocol/conformance.mjs",
+    "protocol:benchmark": "node scripts/compiler-protocol/benchmark.mjs",
+    "protocol:benchmark:validate": "node scripts/compiler-protocol/validate-benchmark.mjs",
     "matrix:kumo:shard": "node scripts/run-kumo-shard.mjs",
     "build:kumo:vue": "npm run compile:kumo && node scripts/build-from-manifest.mjs kumo-vue",
     "verify:kumo:vue": "node scripts/verify-kumo-vue.mjs",
