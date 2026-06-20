@@ -1,18 +1,31 @@
 import {spawnSync} from 'node:child_process';
-import {readFile,writeFile,rm} from 'node:fs/promises';
-import {resolve} from 'node:path';
-const root=resolve(import.meta.dirname,'..');
-const catalog=JSON.parse(await readFile(resolve(root,'generated/catalog.ir.json'),'utf8'));
-const results=[];
-for(const {id} of catalog.components){
- try{const dir=resolve(root,'runtime-canonical',id);
- for(const args of [['build',dir],['build',dir,'--ssr','server.jsx','--outDir','server-runtime']]){const r=spawnSync(resolve(root,'node_modules/.bin/vite'),args,{cwd:root,stdio:'inherit'});if(r.status)throw Error(`${id}: vite ${args.join(' ')} failed`)}
- const serverFile=resolve(dir,'server-runtime/server.js');
- const {render}=await import(`${new URL(`file://${serverFile}`)}?v=${Date.now()}`);
- const markup=render();const htmlPath=resolve(dir,'public-runtime/index.html');let html=await readFile(htmlPath,'utf8');
- if(!html.includes('<div id="root"></div>'))throw Error(`${id}: client shell root missing`);
- html=html.replace('<div id="root"></div>',`<div id="root">${markup}</div>`);await writeFile(htmlPath,html);await rm(resolve(dir,'server-runtime'),{recursive:true,force:true});results.push({component:id,status:'passed'});
- }catch(error){results.push({component:id,status:'failed',error:String(error?.stack||error)});console.error(`${id}: ${error.message}`)}
+import {readFile,writeFile,rm,rename,mkdir,readdir} from 'node:fs/promises';
+import {existsSync} from 'node:fs';
+import {resolve,dirname} from 'node:path';
+import {pathToFileURL} from 'node:url';
+const defaultRoot=resolve(import.meta.dirname,'..');
+
+export async function validateCanonicalPublicRuntime(output,{component,root=defaultRoot}={}){
+ const htmlPath=resolve(output,'index.html');let html;
+ try{html=await readFile(htmlPath,'utf8')}catch{throw Error(`${component}: preflight missing index.html`)}
+ if(!html.includes('<main'))throw Error(`${component}: preflight SSR <main> missing`);
+ const links=[...html.matchAll(/(?:src|href)="([^"#?]+)"/g)].map(x=>x[1]).filter(x=>!/^https?:|^data:/.test(x));
+ if(!links.length)throw Error(`${component}: preflight linked assets missing`);
+ for(const link of links){const p=resolve(output,link.replace(/^\//,''));if(!existsSync(p))throw Error(`${component}: preflight linked asset missing: ${link}`)}
+ const provenance=JSON.parse(await readFile(resolve(root,'audit/kumo-react-2.5.2.provenance.json'),'utf8'));
+ if(provenance.package?.name!=='@cloudflare/kumo')throw Error(`${component}: preflight canonical package provenance invalid`);
+ return true;
 }
-await writeFile(resolve(root,'generated/canonical-react-build-summary.json'),JSON.stringify({schemaVersion:'kumo.canonical-build/v1',results},null,2)+'\n');
-console.log(`Canonical React builds: ${results.filter(x=>x.status==='passed').length} passed, ${results.filter(x=>x.status==='failed').length} failed`);
+export async function buildCanonicalReactRuntimes({root=defaultRoot,hook=async()=>{}}={}){
+ const catalog=JSON.parse(await readFile(resolve(root,'generated/catalog.ir.json'),'utf8')),results=[];
+ for(const {id} of catalog.components){const dir=resolve(root,'runtime-canonical',id),live=resolve(dir,'public-runtime'),temp=resolve(dir,`.public-runtime.tmp-${process.pid}`),backup=resolve(dir,`.public-runtime.backup-${process.pid}`);
+  try{await rm(temp,{recursive:true,force:true});await mkdir(temp,{recursive:true});
+   const vite=resolve(root,'node_modules/.bin/vite');for(const args of [['build',dir,'--outDir',temp,'--emptyOutDir'],['build',dir,'--ssr','server.jsx','--outDir',resolve(temp,'server-runtime'),'--emptyOutDir']]){const r=spawnSync(vite,args,{cwd:root,stdio:'inherit'});if(r.status)throw Error(`${id}: vite ${args.join(' ')} failed`)}
+   await hook({phase:'after-vite-before-ssr',component:id,live,temp});
+   const serverFile=resolve(temp,'server-runtime/server.js'),{render}=await import(`${pathToFileURL(serverFile)}?v=${Date.now()}`),markup=render();let html=await readFile(resolve(temp,'index.html'),'utf8');if(!html.includes('<div id="root"></div>'))throw Error(`${id}: client shell root missing`);html=html.replace('<div id="root"></div>',`<div id="root">${markup}</div>`);await writeFile(resolve(temp,'index.html'),html);await rm(resolve(temp,'server-runtime'),{recursive:true,force:true});await validateCanonicalPublicRuntime(temp,{component:id,root});
+   await rm(backup,{recursive:true,force:true});if(existsSync(live))await rename(live,backup);try{await rename(temp,live)}catch(e){if(existsSync(backup))await rename(backup,live);throw e}await rm(backup,{recursive:true,force:true});results.push({component:id,status:'passed'});
+  }catch(error){await rm(temp,{recursive:true,force:true});if(!existsSync(live)&&existsSync(backup))await rename(backup,live);await rm(backup,{recursive:true,force:true});results.push({component:id,status:'failed',error:String(error?.stack||error)});console.error(`${id}: ${error.message}`)}
+ }
+ await writeFile(resolve(root,'generated/canonical-react-build-summary.json'),JSON.stringify({schemaVersion:'kumo.canonical-build/v1',results},null,2)+'\n');return results;
+}
+if(import.meta.url===pathToFileURL(process.argv[1]).href){const results=await buildCanonicalReactRuntimes();console.log(`Canonical React builds: ${results.filter(x=>x.status==='passed').length} passed, ${results.filter(x=>x.status==='failed').length} failed`);if(results.some(x=>x.status==='failed'))process.exitCode=1}
