@@ -16,4 +16,4 @@ export type Behavior =
  | {kind:'popover'; sides:string[]; aligns:string[]};
 export interface InteractionPolicy {state:string[]; events:string[]; keyboard:string[]; aria:string[]; hydration:'ssr-identical'}
 export interface ComponentIR { schemaVersion:typeof IR_SCHEMA_VERSION; id:string; name:string; family:string; root:ElementNode|null; behavior?:Behavior; policy?:InteractionPolicy; source:{kind:'normalized-ir'; revision:string}; migration:{vue:'pending'|'candidate'|'verified'} }
-export interface Provenance { schemaVersion:typeof IR_SCHEMA_VERSION; component:string; framework:'vue'; sourceHash:string; irHash:string; emitterHash:string; outputs:Record<string,string> }
+export interface Provenance { schemaVersion:typeof IR_SCHEMA_VERSION; component:string; framework:'vue'|'svelte'|'solid'; sourceHash:string; irHash:string; emitterHash:string; outputs:Record<string,string> }
