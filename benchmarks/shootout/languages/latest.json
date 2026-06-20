@@ -1,8 +1,23 @@
 {
   "schemaVersion": "kumo.language-shootout/v2",
   "axis": "language",
-  "revision": "df91657cd8c3b06d08941dfcadc50bee2f00f327",
-  "runId": "sha256:78f9e2b124c975e54955a0097f8ee6872cca7b278668a1ee50a50d5841aead86",
+  "sourceRevision": "4acf0a39f9989544c7bda6fb6a73b8f10539bf4f",
+  "protocolRevision": "4acf0a39f9989544c7bda6fb6a73b8f10539bf4f",
+  "sourceTree": {
+    "paths": [
+      "scripts/shootout/languages/run.mjs",
+      "benchmarks/compilers/typescript-adapter.mjs",
+      "compilers/go",
+      "compilers/rust",
+      "compilers/zig",
+      "protocol/fixtures/current-catalog.fixture.json",
+      "shootout/workloads.json",
+      "proof/shootout/baseline/baseline.json",
+      "shootout/validate.mjs"
+    ],
+    "digest": "c38e4d5c34c92b0076c1e94b69319cdee04a2a4f9529ef18cd3461169bb9a230"
+  },
+  "runId": "sha256:ac99f2556b41b1cdd6d8db0db29848dee2ee8988abd4b26cd5060d99059f23bd",
   "provenance": {
     "workloads": {
       "schemaVersion": "shootout-workloads/v1",
@@ -28,7 +43,7 @@
     "outputRoots": "fresh and removed per invocation",
     "resourceMeasurement": "blocked: portable Node spawn does not expose reliable macOS CPU/peak RSS; do not rank",
     "variancePolicy": "wall variance is measured metadata only",
-    "claims": "Axis A planner protocol only; no architecture/browser claim; no winner while shootout gates are blocked"
+    "claims": "Axis A planner protocol only; all shootout product gates blocked; no architecture/browser claim; no winner"
   },
   "environment": {
     "platform": "darwin",
@@ -48,10 +63,10 @@
       "candidateId": "typescript-planner",
       "framework": "react",
       "component": "button",
-      "candidateRevision": "df91657cd8c3b06d08941dfcadc50bee2f00f327",
+      "candidateRevision": "4acf0a39f9989544c7bda6fb6a73b8f10539bf4f",
       "frameworkRevision": "react",
       "componentRevision": "e75b1587b2d2ec44d05564e0bf31ca22dfe8137be8ed6445bc46ee37dd4ec095",
-      "runId": "sha256:d9121a436bdb96052f757de63ffa89802995804c949e23ef3153abdaee67813b",
+      "runId": "sha256:e44cfbd0553a2889a86d068079795a77cbe66a5830d22276dd8508d2827bc804",
       "evidenceDigest": "f3b8c3fa3f37415fe01d8d3b41ce0c7735444ce4c9aa3245e4a28a10437756d7",
       "environmentManifestDigest": "2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
       "baseline": {
@@ -74,10 +89,10 @@
       "candidateId": "typescript-planner",
       "framework": "react",
       "component": "select",
-      "candidateRevision": "df91657cd8c3b06d08941dfcadc50bee2f00f327",
+      "candidateRevision": "4acf0a39f9989544c7bda6fb6a73b8f10539bf4f",
       "frameworkRevision": "react",
       "componentRevision": "e75b1587b2d2ec44d05564e0bf31ca22dfe8137be8ed6445bc46ee37dd4ec095",
-      "runId": "sha256:c209503a2f2d4e3135ab7061fee6857a9b9ec1cf89d566d807255491d7ad8c10",
+      "runId": "sha256:f861b733386a587a901ddfb3200d1987531c8e853f016694166a2b874f4eea65",
       "evidenceDigest": "f3b8c3fa3f37415fe01d8d3b41ce0c7735444ce4c9aa3245e4a28a10437756d7",
       "environmentManifestDigest": "2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
       "baseline": {
@@ -101,10 +116,10 @@
       "candidateId": "go-planner",
       "framework": "react",
       "component": "button",
-      "candidateRevision": "df91657cd8c3b06d08941dfcadc50bee2f00f327",
+      "candidateRevision": "4acf0a39f9989544c7bda6fb6a73b8f10539bf4f",
       "frameworkRevision": "react",
       "componentRevision": "e75b1587b2d2ec44d05564e0bf31ca22dfe8137be8ed6445bc46ee37dd4ec095",
-      "runId": "sha256:bcbcec06564ad88b28388fa92bbbe1601510f86eb9b05ce0324048549bc07f7b",
+      "runId": "sha256:7785653fe59d22222c3be1397c5045db4fd14dc18568b8cd13d6152e94b04273",
       "evidenceDigest": "fbcbe7618437708ec8a2af5fff0fd2f37886dabd629ddd2179feab7d529c4353",
       "environmentManifestDigest": "2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
       "baseline": {
@@ -127,10 +142,10 @@
       "candidateId": "go-planner",
       "framework": "react",
       "component": "select",
-      "candidateRevision": "df91657cd8c3b06d08941dfcadc50bee2f00f327",
+      "candidateRevision": "4acf0a39f9989544c7bda6fb6a73b8f10539bf4f",
       "frameworkRevision": "react",
       "componentRevision": "e75b1587b2d2ec44d05564e0bf31ca22dfe8137be8ed6445bc46ee37dd4ec095",
-      "runId": "sha256:ba03cbd1f4ae64dac14feac5ecbc70998f3aefaff10402aef3d4f73819c3532a",
+      "runId": "sha256:5e8df65f9dabdcd7913e9322b76701d8b1ec5a1e27d9583ecf53e30ca6c8bd19",
       "evidenceDigest": "fbcbe7618437708ec8a2af5fff0fd2f37886dabd629ddd2179feab7d529c4353",
       "environmentManifestDigest": "2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
       "baseline": {
@@ -154,10 +169,10 @@
       "candidateId": "rust-planner",
       "framework": "react",
       "component": "button",
-      "candidateRevision": "df91657cd8c3b06d08941dfcadc50bee2f00f327",
+      "candidateRevision": "4acf0a39f9989544c7bda6fb6a73b8f10539bf4f",
       "frameworkRevision": "react",
       "componentRevision": "e75b1587b2d2ec44d05564e0bf31ca22dfe8137be8ed6445bc46ee37dd4ec095",
-      "runId": "sha256:95e76e57f3421790b95b35a44055bafa3db98ed8beac2cc4bbf09f3b4871ba2d",
+      "runId": "sha256:3bb5efcdb1ebc19fce77b790b26e9c79a519770499982727564beb5904ecd306",
       "evidenceDigest": "aa980484c349d49d0efbc16ec14d7a582ea345b212bbca6a59ff0833854ef775",
       "environmentManifestDigest": "2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
       "baseline": {
@@ -180,10 +195,10 @@
       "candidateId": "rust-planner",
       "framework": "react",
       "component": "select",
-      "candidateRevision": "df91657cd8c3b06d08941dfcadc50bee2f00f327",
+      "candidateRevision": "4acf0a39f9989544c7bda6fb6a73b8f10539bf4f",
       "frameworkRevision": "react",
       "componentRevision": "e75b1587b2d2ec44d05564e0bf31ca22dfe8137be8ed6445bc46ee37dd4ec095",
-      "runId": "sha256:b1cedd16240547b7abde4f26b74b1c6f70cca2e59323fdb7602dee61d4d4ccf6",
+      "runId": "sha256:e90e8172f8eba0d354b6a889d26bb153bff1a2f0122f98ee42abfdeb6e80a1ed",
       "evidenceDigest": "aa980484c349d49d0efbc16ec14d7a582ea345b212bbca6a59ff0833854ef775",
       "environmentManifestDigest": "2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
       "baseline": {
@@ -207,10 +222,10 @@
       "candidateId": "zig-planner",
       "framework": "react",
       "component": "button",
-      "candidateRevision": "df91657cd8c3b06d08941dfcadc50bee2f00f327",
+      "candidateRevision": "4acf0a39f9989544c7bda6fb6a73b8f10539bf4f",
       "frameworkRevision": "react",
       "componentRevision": "e75b1587b2d2ec44d05564e0bf31ca22dfe8137be8ed6445bc46ee37dd4ec095",
-      "runId": "sha256:3aa6dd05b53bd8d05b056597de757ef8f8284bb40fe42a684bc198d1b77fa810",
+      "runId": "sha256:b9ce9b1178708ddb550961fe6560cc14cc64c520def4cfea8f08fc9f87297ba6",
       "evidenceDigest": "74545258ee5307f36acc53f4eb586aca2c35993b080c4f3718b4256c35ca4413",
       "environmentManifestDigest": "2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
       "baseline": {
@@ -233,10 +248,10 @@
       "candidateId": "zig-planner",
       "framework": "react",
       "component": "select",
-      "candidateRevision": "df91657cd8c3b06d08941dfcadc50bee2f00f327",
+      "candidateRevision": "4acf0a39f9989544c7bda6fb6a73b8f10539bf4f",
       "frameworkRevision": "react",
       "componentRevision": "e75b1587b2d2ec44d05564e0bf31ca22dfe8137be8ed6445bc46ee37dd4ec095",
-      "runId": "sha256:7b43521b0ffb00b26a2c76e9e2c83d660225c75e146fa47f92284312929bcba2",
+      "runId": "sha256:991f3857f82f9d39ab57ab6905ced1eac86a26aa669069a4183a8070be948a81",
       "evidenceDigest": "74545258ee5307f36acc53f4eb586aca2c35993b080c4f3718b4256c35ca4413",
       "environmentManifestDigest": "2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
       "baseline": {
@@ -304,76 +319,76 @@
         "serialized": true,
         "samples": [
           {
-            "wallMs": 40.37025,
+            "wallMs": 36.867541,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 37.653083,
+            "wallMs": 36.983167,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 40.309917,
+            "wallMs": 36.927834,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 40.474541,
+            "wallMs": 34.803125,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 39.09,
+            "wallMs": 48.656334,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 40.67125,
+            "wallMs": 39.7515,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 38.782958,
+            "wallMs": 36.867208,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 36.812291,
+            "wallMs": 38.834125,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 39.63175,
+            "wallMs": 37.642458,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 37.644208,
+            "wallMs": 38.025375,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           }
         ],
         "approvedVariance": {
-          "wallMs": 1.7246127215517586
+          "wallMs": 12.95471002048961
         },
         "summary": {
-          "medianWallMs": 39.09,
-          "p95WallMs": 40.67125
+          "medianWallMs": 36.983167,
+          "p95WallMs": 48.656334
         }
       },
       "coldSetupBuild": {
-        "status": "not-measured-prebuilt-input"
+        "status": "built-once-before-measurement"
       },
       "incremental": {
         "status": "not-applicable-fresh-output-roots"
@@ -436,76 +451,76 @@
         "serialized": true,
         "samples": [
           {
-            "wallMs": 31.832,
+            "wallMs": 3.791792,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 32.660125,
+            "wallMs": 3.732834,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 32.762375,
+            "wallMs": 3.712667,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 34.269125,
+            "wallMs": 3.538,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 33.390084,
+            "wallMs": 3.439375,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 35.49925,
+            "wallMs": 3.622958,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 32.552583,
+            "wallMs": 3.302584,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 32.032875,
+            "wallMs": 3.349833,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 34.276042,
+            "wallMs": 3.766166,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 34.058792,
+            "wallMs": 4.271625,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           }
         ],
         "approvedVariance": {
-          "wallMs": 1.2319079211072916
+          "wallMs": 0.06991645680684004
         },
         "summary": {
-          "medianWallMs": 32.762375,
-          "p95WallMs": 35.49925
+          "medianWallMs": 3.622958,
+          "p95WallMs": 4.271625
         }
       },
       "coldSetupBuild": {
-        "status": "not-measured-prebuilt-input"
+        "status": "built-once-before-measurement"
       },
       "incremental": {
         "status": "not-applicable-fresh-output-roots"
@@ -568,76 +583,76 @@
         "serialized": true,
         "samples": [
           {
-            "wallMs": 43.488292,
+            "wallMs": 10.223708,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 38.837792,
+            "wallMs": 11.306208,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 41.512875,
+            "wallMs": 21.187583,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 39.795042,
+            "wallMs": 12.498,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 38.644459,
+            "wallMs": 13.30975,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 40.535417,
+            "wallMs": 11.140625,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 42.114042,
+            "wallMs": 12.095625,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 39.100542,
+            "wallMs": 11.505292,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 44.638625,
+            "wallMs": 10.339833,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 39.231834,
+            "wallMs": 8.74575,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           }
         ],
         "approvedVariance": {
-          "wallMs": 3.9119695275556006
+          "wallMs": 10.37970277762324
         },
         "summary": {
-          "medianWallMs": 39.795042,
-          "p95WallMs": 44.638625
+          "medianWallMs": 11.306208,
+          "p95WallMs": 21.187583
         }
       },
       "coldSetupBuild": {
-        "status": "not-measured-prebuilt-input"
+        "status": "built-once-before-measurement"
       },
       "incremental": {
         "status": "not-applicable-fresh-output-roots"
@@ -700,76 +715,76 @@
         "serialized": true,
         "samples": [
           {
-            "wallMs": 29.636833,
+            "wallMs": 3.044334,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 29.993625,
+            "wallMs": 2.983708,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 31.869083,
+            "wallMs": 2.929167,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 31.456209,
+            "wallMs": 2.907125,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 35.595791,
+            "wallMs": 3.30325,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 32.685958,
+            "wallMs": 2.936375,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 32.165459,
+            "wallMs": 3.014083,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 34.551042,
+            "wallMs": 3.056,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 33.602959,
+            "wallMs": 3.149541,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           },
           {
-            "wallMs": 35.611375,
+            "wallMs": 2.9705,
             "cpuUserMs": null,
             "cpuSystemMs": null,
             "peakRssBytes": null
           }
         ],
         "approvedVariance": {
-          "wallMs": 4.03313957957244
+          "wallMs": 0.01298013259400999
         },
         "summary": {
-          "medianWallMs": 32.165459,
-          "p95WallMs": 35.611375
+          "medianWallMs": 2.983708,
+          "p95WallMs": 3.30325
         }
       },
       "coldSetupBuild": {
-        "status": "not-measured-prebuilt-input"
+        "status": "built-once-before-measurement"
       },
       "incremental": {
         "status": "not-applicable-fresh-output-roots"
@@ -780,7 +795,7 @@
         "loc": 232
       },
       "distribution": {
-        "binaryBytes": 275672
+        "binaryBytes": 665896
       }
     }
   ]
