@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "kumo.receipt/v1",
+  "component": "tabs",
+  "framework": "solid",
+  "checks": {
+    "productionBuild": true,
+    "network": true,
+    "console": true,
+    "domAria": true,
+    "behavior": true,
+    "ssrHydration": true,
+    "screenshotPixel": true,
+    "assetsStylesPackage": true,
+    "provenance": true
+  },
+  "browser": {
+    "before": "Overview",
+    "after": "Settings",
+    "current": [],
+    "selected": [
+      "Settings"
+    ],
+    "panel": "Settings content",
+    "hydration": true
+  },
+  "screenshotHash": "c28cf64b42375227c18e2a9aaaf1428c74a367e5614dfe022c1d99705d08d6ea",
+  "irHash": "d4607602b22a70ff75ebe4aed4aaf14f642b7c4ed4371c0cf475d6678c3a89e7",
+  "emitterHash": "a2879ca86310d435bcb0c2f1612c1e1c694c819281256c349dde4d8629b585ca"
+}

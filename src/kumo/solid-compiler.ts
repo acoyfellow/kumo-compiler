@@ -11,6 +11,19 @@ const htmlAttr=(key:string,value:string|number|boolean)=>value===true?` ${key}`:
 const html=(node:Node):string=>node.kind==='text'?text(node.value):`<${node.tag}${Object.entries(node.attrs??{}).map(([k,v])=>htmlAttr(k,v)).join('')}>${(node.children??[]).map(html).join('')}</${node.tag}>`;
 
 function app(ir:ComponentIR):string {
+ if(ir.family==='navigation'){
+  if(ir.behavior?.kind==='roving')return `import {For,createSignal} from 'solid-js';
+const labels=${JSON.stringify(ir.behavior.labels)} as const;
+export default function ${ir.name}(){const [active,setActive]=createSignal(0);let items:HTMLButtonElement[]=[];const move=(event:KeyboardEvent,index:number)=>{let next=index;if(event.key==='ArrowRight')next=(index+1)%labels.length;else if(event.key==='ArrowLeft')next=(index-1+labels.length)%labels.length;else if(event.key==='Home')next=0;else if(event.key==='End')next=labels.length-1;else return;event.preventDefault();setActive(next);items[next]?.focus()};return <main class="nav-shell"><h1>${ir.name}</h1><div class="${ir.id==='tabs'?'tabs':'menubar'}" role="${ir.behavior.groupRole}" aria-label="${ir.id==='tabs'?'Account':'Application'}"><For each={labels}>{(label,index)=><button ref={el=>items[index()]=el} role="${ir.behavior.itemRole}" tabindex={active()===index()?0:-1}${ir.id==='tabs'?' aria-selected={active()===index()} aria-controls={`panel-${index()}`} id={`tab-${index()}`}':''} onClick={()=>{setActive(index());items[index()]?.focus()}} onKeyDown={event=>move(event,index())}>{label}</button>}</For></div>${ir.id==='tabs'?'<div id={`panel-${active()}`} class="panel" role="tabpanel" aria-labelledby={`tab-${active()}`} tabindex="0">{labels[active()]} content</div>':''}</main>}
+`;
+  const navLabel=ir.id==='sidebar'?'Workspace':ir.id==='breadcrumbs'?'Breadcrumb':'On this page';
+  if(ir.behavior?.kind==='current-link')return `import {For,createSignal} from 'solid-js';
+const links=${JSON.stringify(ir.behavior.labels)} as const;
+export default function ${ir.name}(){const [current,setCurrent]=createSignal(0);return <main class="nav-shell"><h1>${ir.name}</h1><nav class="${ir.id==='sidebar'?'sidebar':'toc'}" aria-label="${navLabel}"><For each={links}>{(label,index)=><a href={'#'+label.toLowerCase().replaceAll(' ','-')} aria-current={current()===index()?'${ir.behavior.current}':undefined} onClick={()=>setCurrent(index())}>{label}</a>}</For></nav></main>}
+`;
+  return `export default function Breadcrumbs(){return <main class="nav-shell"><h1>Breadcrumbs</h1><nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="#home">Home</a></li><li><a href="#docs">Docs</a></li><li aria-current="page">Navigation</li></ol></nav></main>}
+`;
+ }
  if(ir.family==='form'){
   const name=ir.name;
   if(ir.id==='sensitive-input')return `import {createSignal} from 'solid-js';
@@ -38,8 +51,8 @@ export default function Select(){const [open,setOpen]=createSignal(false),[activ
 `;
 }
 const emitter=await readFile('src/kumo/solid-compiler.ts','utf8'),source=await readFile('src/kumo/catalog.ts','utf8');
-const solidIds=['select','badge','checkbox','switch','field','input','input-group','input-area','sensitive-input','clipboard-text'];
-for(const ir of catalog.filter(x=>solidIds.includes(x.id))){const dir=`runtime/${ir.id}/solid`;await mkdir(`${dir}/src`,{recursive:true});const css=await readFile(ir.family==='native-control'?'public/native-control.css':ir.family==='form'?'public/form.css':'public/styles.css','utf8');const initial=html(ir.root!);const outputs:Record<string,string>={
+const solidIds=['select','badge','checkbox','switch','field','input','input-group','input-area','sensitive-input','clipboard-text','tabs','menu-bar','sidebar','breadcrumbs','table-of-contents'];
+for(const ir of catalog.filter(x=>solidIds.includes(x.id))){const dir=`runtime/${ir.id}/solid`;await mkdir(`${dir}/src`,{recursive:true});const css=await readFile(ir.family==='native-control'?'public/native-control.css':ir.family==='form'?'public/form.css':ir.family==='navigation'?'public/navigation.css':'public/styles.css','utf8');const initial=html(ir.root!);const outputs:Record<string,string>={
  'src/App.tsx':app(ir),
  'src/client.tsx':`import './style.css';\nimport {hydrate} from 'solid-js/web';\nimport App from './App';\nhydrate(()=> <App/>,document.getElementById('app')!);\n`,
  'src/server.tsx':`import {generateHydrationScript,renderToString} from 'solid-js/web';\nimport App from './App';\nexport const render=()=>({html:renderToString(()=> <App/>),hydration:generateHydrationScript()});\n`,
