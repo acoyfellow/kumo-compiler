@@ -1,1 +1,0 @@
-import{mount}from'svelte';import C from '../../generated/svelte/Tabs.svelte';mount(C,{target:document.querySelector('#app'),props:{labels:['One','Two']}});

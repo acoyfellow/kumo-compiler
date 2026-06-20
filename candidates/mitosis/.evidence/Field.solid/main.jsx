@@ -1,1 +1,0 @@
-import{render}from'solid-js/web';import C from '../../generated/solid/Field.tsx';render(()=><C {...{label:'Name',value:'Ada',onInput:v=>{document.body.dataset.value=v}}}/>,document.querySelector('#app'));

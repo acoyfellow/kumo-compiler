@@ -1,1 +1,0 @@
-import{render}from'solid-js/web';import C from '../../generated/solid/Tabs.tsx';render(()=><C {...{labels:['One','Two']}}/>,document.querySelector('#app'));

@@ -1,1 +1,0 @@
-export {default} from '../../generated/solid/Button.tsx';

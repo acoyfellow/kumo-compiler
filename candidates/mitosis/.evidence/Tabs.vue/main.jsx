@@ -1,1 +1,0 @@
-import{createApp,h}from'vue';import C from '../../generated/vue/Tabs.vue';createApp({render:()=>h(C,{labels:['One','Two']})}).mount('#app');
