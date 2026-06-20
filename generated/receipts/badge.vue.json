@@ -3,13 +3,21 @@
   "component": "badge",
   "framework": "vue",
   "checks": {
+    "build": true,
+    "runtime": true,
+    "assets": true,
+    "styles": true,
+    "console": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssrHydration": true,
+    "package": true,
+    "screenshot": true,
     "nativeSfc": true,
-    "runtimeBuild": true,
-    "ssrMarkup": true,
-    "hydrationEntry": true,
     "provenance": true,
     "staticRules": true
   },
-  "irHash": "3445cb2ed749839e5e92f839c91cade98e1c7073170405ba79ce87f40e2bcf25",
-  "emitterHash": "d26cfc3c78212c71364882a79dc779b5edd2d7c73e15d2a3f33f49ce35cb16d2"
+  "irHash": "89184f7f6bc9a07d8024cffa2d6d1b811d2b4030d85cef0fbe71a15e8055d66e",
+  "emitterHash": "3fbffe58217a9a967bca771d82403b60c601ed198a41ff6d52f77926fc287374"
 }

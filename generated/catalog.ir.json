@@ -9,7 +9,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "pending"
@@ -23,7 +23,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "pending"
@@ -37,7 +37,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "pending"
@@ -51,7 +51,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "pending"
@@ -65,7 +65,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "pending"
@@ -79,7 +79,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "pending"
@@ -89,84 +89,605 @@
       "schemaVersion": "kumo.ir/v1",
       "id": "field",
       "name": "Field",
-      "family": "legacy",
-      "root": null,
+      "family": "form",
+      "root": {
+        "kind": "element",
+        "tag": "main",
+        "attrs": {
+          "class": "form-shell"
+        },
+        "children": [
+          {
+            "kind": "element",
+            "tag": "h1",
+            "attrs": {},
+            "children": [
+              {
+                "kind": "text",
+                "value": "Field"
+              }
+            ]
+          },
+          {
+            "kind": "element",
+            "tag": "section",
+            "attrs": {
+              "class": "form-grid"
+            },
+            "children": [
+              {
+                "kind": "element",
+                "tag": "article",
+                "attrs": {
+                  "class": "form-card",
+                  "data-member": "field"
+                },
+                "children": [
+                  {
+                    "kind": "element",
+                    "tag": "div",
+                    "attrs": {
+                      "class": "field"
+                    },
+                    "children": [
+                      {
+                        "kind": "element",
+                        "tag": "label",
+                        "attrs": {
+                          "for": "field-value"
+                        },
+                        "children": [
+                          {
+                            "kind": "text",
+                            "value": "Project name"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "element",
+                        "tag": "input",
+                        "attrs": {
+                          "class": "control",
+                          "id": "field-value",
+                          "value": "Kumo"
+                        },
+                        "children": []
+                      },
+                      {
+                        "kind": "element",
+                        "tag": "small",
+                        "attrs": {},
+                        "children": [
+                          {
+                            "kind": "text",
+                            "value": "Visible to your team."
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
-        "vue": "pending"
+        "vue": "candidate"
       }
     },
     {
       "schemaVersion": "kumo.ir/v1",
       "id": "input",
       "name": "Input",
-      "family": "legacy",
-      "root": null,
+      "family": "form",
+      "root": {
+        "kind": "element",
+        "tag": "main",
+        "attrs": {
+          "class": "form-shell"
+        },
+        "children": [
+          {
+            "kind": "element",
+            "tag": "h1",
+            "attrs": {},
+            "children": [
+              {
+                "kind": "text",
+                "value": "Input"
+              }
+            ]
+          },
+          {
+            "kind": "element",
+            "tag": "section",
+            "attrs": {
+              "class": "form-grid"
+            },
+            "children": [
+              {
+                "kind": "element",
+                "tag": "article",
+                "attrs": {
+                  "class": "form-card",
+                  "data-member": "input"
+                },
+                "children": [
+                  {
+                    "kind": "element",
+                    "tag": "label",
+                    "attrs": {
+                      "class": "field",
+                      "for": "email"
+                    },
+                    "children": [
+                      {
+                        "kind": "element",
+                        "tag": "span",
+                        "attrs": {},
+                        "children": [
+                          {
+                            "kind": "text",
+                            "value": "Email address"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "element",
+                        "tag": "input",
+                        "attrs": {
+                          "class": "control",
+                          "id": "email",
+                          "type": "email",
+                          "placeholder": "you@example.com"
+                        },
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
-        "vue": "pending"
+        "vue": "candidate"
       }
     },
     {
       "schemaVersion": "kumo.ir/v1",
       "id": "input-group",
       "name": "InputGroup",
-      "family": "legacy",
-      "root": null,
+      "family": "form",
+      "root": {
+        "kind": "element",
+        "tag": "main",
+        "attrs": {
+          "class": "form-shell"
+        },
+        "children": [
+          {
+            "kind": "element",
+            "tag": "h1",
+            "attrs": {},
+            "children": [
+              {
+                "kind": "text",
+                "value": "InputGroup"
+              }
+            ]
+          },
+          {
+            "kind": "element",
+            "tag": "section",
+            "attrs": {
+              "class": "form-grid"
+            },
+            "children": [
+              {
+                "kind": "element",
+                "tag": "article",
+                "attrs": {
+                  "class": "form-card",
+                  "data-member": "input-group"
+                },
+                "children": [
+                  {
+                    "kind": "element",
+                    "tag": "label",
+                    "attrs": {
+                      "class": "field",
+                      "for": "domain"
+                    },
+                    "children": [
+                      {
+                        "kind": "element",
+                        "tag": "span",
+                        "attrs": {},
+                        "children": [
+                          {
+                            "kind": "text",
+                            "value": "Domain"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "element",
+                        "tag": "span",
+                        "attrs": {
+                          "class": "group"
+                        },
+                        "children": [
+                          {
+                            "kind": "element",
+                            "tag": "span",
+                            "attrs": {},
+                            "children": [
+                              {
+                                "kind": "text",
+                                "value": "https://"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "element",
+                            "tag": "input",
+                            "attrs": {
+                              "id": "domain",
+                              "value": "example.com"
+                            },
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
-        "vue": "pending"
+        "vue": "candidate"
       }
     },
     {
       "schemaVersion": "kumo.ir/v1",
       "id": "input-area",
       "name": "InputArea",
-      "family": "legacy",
-      "root": null,
+      "family": "form",
+      "root": {
+        "kind": "element",
+        "tag": "main",
+        "attrs": {
+          "class": "form-shell"
+        },
+        "children": [
+          {
+            "kind": "element",
+            "tag": "h1",
+            "attrs": {},
+            "children": [
+              {
+                "kind": "text",
+                "value": "InputArea"
+              }
+            ]
+          },
+          {
+            "kind": "element",
+            "tag": "section",
+            "attrs": {
+              "class": "form-grid"
+            },
+            "children": [
+              {
+                "kind": "element",
+                "tag": "article",
+                "attrs": {
+                  "class": "form-card",
+                  "data-member": "input-area"
+                },
+                "children": [
+                  {
+                    "kind": "element",
+                    "tag": "label",
+                    "attrs": {
+                      "class": "field",
+                      "for": "notes"
+                    },
+                    "children": [
+                      {
+                        "kind": "element",
+                        "tag": "span",
+                        "attrs": {},
+                        "children": [
+                          {
+                            "kind": "text",
+                            "value": "Notes"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "element",
+                        "tag": "textarea",
+                        "attrs": {
+                          "class": "control",
+                          "id": "notes"
+                        },
+                        "children": [
+                          {
+                            "kind": "text",
+                            "value": "Compiler proof"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
-        "vue": "pending"
+        "vue": "candidate"
       }
     },
     {
       "schemaVersion": "kumo.ir/v1",
       "id": "sensitive-input",
       "name": "SensitiveInput",
-      "family": "legacy",
-      "root": null,
+      "family": "form",
+      "root": {
+        "kind": "element",
+        "tag": "main",
+        "attrs": {
+          "class": "form-shell"
+        },
+        "children": [
+          {
+            "kind": "element",
+            "tag": "h1",
+            "attrs": {},
+            "children": [
+              {
+                "kind": "text",
+                "value": "SensitiveInput"
+              }
+            ]
+          },
+          {
+            "kind": "element",
+            "tag": "section",
+            "attrs": {
+              "class": "form-grid"
+            },
+            "children": [
+              {
+                "kind": "element",
+                "tag": "article",
+                "attrs": {
+                  "class": "form-card",
+                  "data-member": "sensitive-input"
+                },
+                "children": [
+                  {
+                    "kind": "element",
+                    "tag": "label",
+                    "attrs": {
+                      "class": "field",
+                      "for": "secret"
+                    },
+                    "children": [
+                      {
+                        "kind": "element",
+                        "tag": "span",
+                        "attrs": {},
+                        "children": [
+                          {
+                            "kind": "text",
+                            "value": "API token"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "element",
+                        "tag": "span",
+                        "attrs": {
+                          "class": "row"
+                        },
+                        "children": [
+                          {
+                            "kind": "element",
+                            "tag": "input",
+                            "attrs": {
+                              "class": "control",
+                              "id": "secret",
+                              "type": "password",
+                              "value": "secret-123"
+                            },
+                            "children": []
+                          },
+                          {
+                            "kind": "element",
+                            "tag": "button",
+                            "attrs": {
+                              "class": "action reveal",
+                              "type": "button",
+                              "aria-pressed": "false"
+                            },
+                            "children": [
+                              {
+                                "kind": "text",
+                                "value": "Show"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "behavior": {
+        "kind": "sensitive-toggle",
+        "inputId": "secret",
+        "buttonClass": "reveal"
+      },
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
-        "vue": "pending"
+        "vue": "candidate"
       }
     },
     {
       "schemaVersion": "kumo.ir/v1",
       "id": "clipboard-text",
       "name": "ClipboardText",
-      "family": "legacy",
-      "root": null,
+      "family": "form",
+      "root": {
+        "kind": "element",
+        "tag": "main",
+        "attrs": {
+          "class": "form-shell"
+        },
+        "children": [
+          {
+            "kind": "element",
+            "tag": "h1",
+            "attrs": {},
+            "children": [
+              {
+                "kind": "text",
+                "value": "ClipboardText"
+              }
+            ]
+          },
+          {
+            "kind": "element",
+            "tag": "section",
+            "attrs": {
+              "class": "form-grid"
+            },
+            "children": [
+              {
+                "kind": "element",
+                "tag": "article",
+                "attrs": {
+                  "class": "form-card",
+                  "data-member": "clipboard-text"
+                },
+                "children": [
+                  {
+                    "kind": "element",
+                    "tag": "div",
+                    "attrs": {
+                      "class": "field"
+                    },
+                    "children": [
+                      {
+                        "kind": "element",
+                        "tag": "label",
+                        "attrs": {
+                          "for": "copy-value"
+                        },
+                        "children": [
+                          {
+                            "kind": "text",
+                            "value": "Install command"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "element",
+                        "tag": "span",
+                        "attrs": {
+                          "class": "row"
+                        },
+                        "children": [
+                          {
+                            "kind": "element",
+                            "tag": "input",
+                            "attrs": {
+                              "class": "control",
+                              "id": "copy-value",
+                              "readonly": true,
+                              "value": "npm i kumo"
+                            },
+                            "children": []
+                          },
+                          {
+                            "kind": "element",
+                            "tag": "button",
+                            "attrs": {
+                              "class": "action copy",
+                              "type": "button"
+                            },
+                            "children": [
+                              {
+                                "kind": "text",
+                                "value": "Copy"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "element",
+                        "tag": "p",
+                        "attrs": {
+                          "class": "status",
+                          "role": "status"
+                        },
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "behavior": {
+        "kind": "clipboard-copy",
+        "inputId": "copy-value",
+        "buttonClass": "copy",
+        "statusClass": "status",
+        "message": "Copied npm i kumo"
+      },
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
-        "vue": "pending"
+        "vue": "candidate"
       }
     },
     {
@@ -177,7 +698,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "pending"
@@ -191,7 +712,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "pending"
@@ -205,7 +726,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "pending"
@@ -219,7 +740,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "pending"
@@ -233,7 +754,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "pending"
@@ -289,7 +810,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "candidate"
@@ -366,7 +887,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "candidate"
@@ -440,7 +961,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "candidate"
@@ -514,7 +1035,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "candidate"
@@ -605,7 +1126,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "candidate"
@@ -679,7 +1200,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "candidate"
@@ -732,7 +1253,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "candidate"
@@ -811,7 +1332,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "candidate"
@@ -885,7 +1406,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "candidate"
@@ -941,7 +1462,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "candidate"
@@ -997,7 +1518,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "candidate"
@@ -1053,7 +1574,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "candidate"
@@ -1111,7 +1632,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "candidate"
@@ -1165,7 +1686,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "candidate"
@@ -1331,7 +1852,7 @@
       },
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "candidate"
@@ -1345,7 +1866,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "pending"
@@ -1359,7 +1880,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "pending"
@@ -1373,7 +1894,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "pending"
@@ -1387,7 +1908,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "pending"
@@ -1401,7 +1922,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "pending"
@@ -1415,7 +1936,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "pending"
@@ -1429,7 +1950,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "pending"
@@ -1443,7 +1964,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "pending"
@@ -1457,7 +1978,7 @@
       "root": null,
       "source": {
         "kind": "normalized-ir",
-        "revision": "1"
+        "revision": "2"
       },
       "migration": {
         "vue": "pending"

@@ -2,6 +2,30 @@
   "schemaVersion": "kumo.migration-status/v1",
   "derivedOnlyFromReceipts": true,
   "components": {
+    "field": {
+      "vue": "verified",
+      "receipt": "generated/receipts/field.vue.json"
+    },
+    "input": {
+      "vue": "verified",
+      "receipt": "generated/receipts/input.vue.json"
+    },
+    "input-group": {
+      "vue": "verified",
+      "receipt": "generated/receipts/input-group.vue.json"
+    },
+    "input-area": {
+      "vue": "verified",
+      "receipt": "generated/receipts/input-area.vue.json"
+    },
+    "sensitive-input": {
+      "vue": "verified",
+      "receipt": "generated/receipts/sensitive-input.vue.json"
+    },
+    "clipboard-text": {
+      "vue": "verified",
+      "receipt": "generated/receipts/clipboard-text.vue.json"
+    },
     "badge": {
       "vue": "verified",
       "receipt": "generated/receipts/badge.vue.json"

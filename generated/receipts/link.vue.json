@@ -3,13 +3,21 @@
   "component": "link",
   "framework": "vue",
   "checks": {
+    "build": true,
+    "runtime": true,
+    "assets": true,
+    "styles": true,
+    "console": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssrHydration": true,
+    "package": true,
+    "screenshot": true,
     "nativeSfc": true,
-    "runtimeBuild": true,
-    "ssrMarkup": true,
-    "hydrationEntry": true,
     "provenance": true,
     "staticRules": true
   },
-  "irHash": "62dffae7213d46b72d176d82edca9c6678bc47e263cd8520e28d6e00fd075f67",
-  "emitterHash": "d26cfc3c78212c71364882a79dc779b5edd2d7c73e15d2a3f33f49ce35cb16d2"
+  "irHash": "f2c6fc6bd1bc89f71d036db281887d6223f271b9a67f32ea1dad994238e34118",
+  "emitterHash": "3fbffe58217a9a967bca771d82403b60c601ed198a41ff6d52f77926fc287374"
 }

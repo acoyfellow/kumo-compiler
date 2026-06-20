@@ -3,13 +3,21 @@
   "component": "meter",
   "framework": "vue",
   "checks": {
+    "build": true,
+    "runtime": true,
+    "assets": true,
+    "styles": true,
+    "console": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssrHydration": true,
+    "package": true,
+    "screenshot": true,
     "nativeSfc": true,
-    "runtimeBuild": true,
-    "ssrMarkup": true,
-    "hydrationEntry": true,
     "provenance": true,
     "staticRules": true
   },
-  "irHash": "4d504c4ae4a3d5f82294496558b7a67efa2ccf9f3593b91cc3eedd11688a9c98",
-  "emitterHash": "d26cfc3c78212c71364882a79dc779b5edd2d7c73e15d2a3f33f49ce35cb16d2"
+  "irHash": "46e8810b2c67b3386b0b525352a5dc251703a7ec053f8c8373571a21851c2887",
+  "emitterHash": "3fbffe58217a9a967bca771d82403b60c601ed198a41ff6d52f77926fc287374"
 }

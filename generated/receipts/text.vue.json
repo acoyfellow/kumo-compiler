@@ -3,13 +3,21 @@
   "component": "text",
   "framework": "vue",
   "checks": {
+    "build": true,
+    "runtime": true,
+    "assets": true,
+    "styles": true,
+    "console": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssrHydration": true,
+    "package": true,
+    "screenshot": true,
     "nativeSfc": true,
-    "runtimeBuild": true,
-    "ssrMarkup": true,
-    "hydrationEntry": true,
     "provenance": true,
     "staticRules": true
   },
-  "irHash": "9920887c0d26e126c37cdccdf155cc61a7d30eb5b107e6691d2c4d4ffdc09c39",
-  "emitterHash": "d26cfc3c78212c71364882a79dc779b5edd2d7c73e15d2a3f33f49ce35cb16d2"
+  "irHash": "07ac71e27bcb65262d8bc6cc269eacf9f7b8d3cc9ab88bab76de6f53a1e242d0",
+  "emitterHash": "3fbffe58217a9a967bca771d82403b60c601ed198a41ff6d52f77926fc287374"
 }
