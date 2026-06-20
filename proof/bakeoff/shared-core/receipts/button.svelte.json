@@ -2,25 +2,25 @@
   "candidate": "shared-core",
   "component": "button",
   "framework": "svelte",
-  "revision": "follow-up-working-tree",
-  "run": "isolated-proof-2026-06-20",
-  "status": "passed",
+  "revision": "0086d8cd4858c9c8e9e199b9ec0563c8a7dce2a2",
+  "run": "proof-2026-06-20T18:38:14.985Z",
+  "status": "partial",
   "gates": {
-    "publicApi": "passed",
-    "domAria": "passed",
-    "behavior": "passed",
-    "ssr": "passed",
-    "hydrationWarnings": "passed",
-    "nodePreservation": "passed",
-    "nativeErgonomics": "passed",
+    "publicApi": "not-run",
+    "domAria": "not-run",
+    "behavior": "not-run",
+    "ssr": "not-run",
+    "hydrationWarnings": "not-run",
+    "nodePreservation": "not-run",
+    "nativeErgonomics": "not-run",
     "types": "passed",
-    "packageTreeShaking": "passed",
+    "packageTreeShaking": "not-run",
     "maintainability": "passed",
-    "upstreamCostProxy": "passed",
+    "upstreamCostProxy": "not-run",
     "escapeHatches": "passed"
   },
   "evidence": [
-    "proof/bakeoff/shared-core/evidence/svelte/button/78cd9522b587e072c43b34dde995260c017b254ad81e54573e990632f1823141/evidence.json",
+    "proof/bakeoff/shared-core/evidence/svelte/button/not-run.json",
     "candidates/shared-core/src/views/svelte/Button.svelte",
     "candidates/shared-core/proof/fixtures.mjs"
   ],
@@ -30,6 +30,8 @@
   },
   "escapeHatches": [],
   "limitations": [
-    "Focus and portal gates are not applicable and are not claimed; these components do not exercise them"
+    "No browser execution",
+    "No target framework SSR/client build",
+    "Browser, SSR, hydration, node, network, and console gates are not run"
   ]
 }

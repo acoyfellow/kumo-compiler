@@ -1,7 +1,24 @@
 # Shared-core pilot evidence
 
-The Button, Field/Input, and Tabs pilot executes 12 framework targets (React, Vue, Svelte, Solid). Each passed receipt links immutable SSR/client evidence containing console, network, DOM, ARIA, behavior, and pre/post hydration node-identity captures. `focusGate` and `portalGate` remain explicitly `not-run-not-applicable`: these components do not exercise focus-management or portals.
+Button, Field/Input, and Tabs cover 12 framework/component targets (React, Vue, Svelte, Solid), but **none currently has a target-native SSR/client build or real Chrome/CDP execution**. Their browser, DOM/ARIA, behavior, SSR, hydration, node-preservation, network, and console evidence is therefore `not-run`; no pilot target is passed.
 
-Select, Dialog, Popover, and Date Picker remain partial with gates explicitly `not-run`. No waiver is implied.
+Select, Dialog, Popover, and Date Picker also remain partial. Unit/type/static-source results may remain passed only where separately exercised; they are not browser evidence.
 
-Reproduce from `candidates/shared-core` with `npm run proof`. The isolated runner does not modify root dependencies. `loc-boundary-ledger.json` records shared/native LOC, native boundaries, and escape hatches.
+Reproduce independently from any working directory:
+
+```sh
+cd /path/to/repository/candidates/shared-core
+npm ci
+npm run build
+npm run proof
+```
+
+Or from the repository root:
+
+```sh
+npm --prefix candidates/shared-core ci
+npm --prefix candidates/shared-core run build
+npm --prefix candidates/shared-core run proof
+```
+
+`proof/run.mjs` emits explicit module-relative `not-run.json` records. `proof/receipts.mjs` derives revision from `git rev-parse HEAD` and creates an ISO-timestamped run identity. `loc-boundary-ledger.json` records shared/native LOC and boundaries.

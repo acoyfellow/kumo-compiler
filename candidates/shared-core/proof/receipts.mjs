@@ -1,5 +1,45 @@
-import fs from 'node:fs';import path from 'node:path';import {components,frameworks} from './fixtures.mjs';
-const root=path.resolve('../..'),receiptDir=path.join(root,'proof/bakeoff/shared-core/receipts'),evRoot=path.join(root,'proof/bakeoff/shared-core/evidence');const revision='follow-up-working-tree';
-const all=fs.readdirSync(receiptDir).filter(x=>x.endsWith('.json'));
-for(const file of all){const [component,framework]=file.replace('.json','').split('.');if(!components.includes(component)||!frameworks.includes(framework))continue;const base=path.join(evRoot,framework,component),hash=fs.readdirSync(base).sort().at(-1),evidence=path.relative(root,path.join(base,hash,'evidence.json'));const native=framework==='svelte'?`candidates/shared-core/src/views/svelte/${component[0].toUpperCase()+component.slice(1)}.svelte`:framework==='solid'?'candidates/shared-core/src/views/solid/components.tsx':`candidates/shared-core/src/views/${framework}/index.ts`;const gates={publicApi:'passed',domAria:'passed',behavior:'passed',ssr:'passed',hydrationWarnings:'passed',nodePreservation:'passed',nativeErgonomics:'passed',types:'passed',packageTreeShaking:'passed',maintainability:'passed',upstreamCostProxy:'passed',escapeHatches:'passed'};fs.writeFileSync(path.join(receiptDir,file),JSON.stringify({candidate:'shared-core',component,framework,revision,run:'isolated-proof-2026-06-20',status:'passed',gates,evidence:[evidence,native,'candidates/shared-core/proof/fixtures.mjs'],nativeCode:{path:native,lines:fs.readFileSync(path.join(root,native),'utf8').split('\n').length-1},escapeHatches:[],limitations:['Focus and portal gates are not applicable and are not claimed; these components do not exercise them']},null,2)+'\n')}
-const receipts=all.map(f=>JSON.parse(fs.readFileSync(path.join(receiptDir,f))));const counts={};for(const r of receipts)for(const v of Object.values(r.gates))counts[v]=(counts[v]??0)+1;const summary={candidate:'shared-core',revision,receipts:receipts.length,gateCounts:counts,verdict:'pilot-complete-remaining-components-partial',pilot:{targets:12,passed:receipts.filter(x=>components.includes(x.component)&&x.status==='passed').length,failed:0,blocked:0},matrix:receipts.map(({component,framework,status})=>({component,framework,status}))};fs.writeFileSync(path.join(root,'proof/bakeoff/shared-core/summary.json'),JSON.stringify(summary,null,2)+'\n');console.log(counts);
+import fs from 'node:fs';
+import path from 'node:path';
+import { execFileSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+import { components, frameworks } from './fixtures.mjs';
+
+const here = path.dirname(fileURLToPath(import.meta.url));
+const root = path.resolve(here, '../../..');
+const receiptDir = path.join(root, 'proof/bakeoff/shared-core/receipts');
+const revision = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim();
+const run = `proof-${new Date().toISOString()}`;
+const browserGates = ['domAria', 'behavior', 'ssr', 'hydrationWarnings', 'nodePreservation'];
+const files = fs.readdirSync(receiptDir).filter(x => x.endsWith('.json'));
+
+// Every receipt emitted by this run gets traceable revision/run identity.
+for (const file of files) {
+  const existing = JSON.parse(fs.readFileSync(path.join(receiptDir, file)));
+  fs.writeFileSync(path.join(receiptDir, file), JSON.stringify({ ...existing, revision, run }, null, 2) + '\n');
+}
+
+for (const component of components) for (const framework of frameworks) {
+  const file = `${component}.${framework}.json`;
+  const existing = JSON.parse(fs.readFileSync(path.join(receiptDir, file)));
+  const gates = { ...existing.gates };
+  for (const gate of browserGates) gates[gate] = 'not-run';
+  // These also lack an independently executed target build/package proof.
+  for (const gate of ['publicApi', 'nativeErgonomics', 'packageTreeShaking', 'upstreamCostProxy']) gates[gate] = 'not-run';
+  const marker = `proof/bakeoff/shared-core/evidence/${framework}/${component}/not-run.json`;
+  fs.writeFileSync(path.join(receiptDir, file), JSON.stringify({
+    ...existing, revision, run, status: 'partial', gates,
+    evidence: [marker, existing.nativeCode.path, 'candidates/shared-core/proof/fixtures.mjs'],
+    limitations: ['No browser execution', 'No target framework SSR/client build', 'Browser, SSR, hydration, node, network, and console gates are not run']
+  }, null, 2) + '\n');
+}
+
+const receipts = files.map(file => JSON.parse(fs.readFileSync(path.join(receiptDir, file))));
+const gateCounts = {};
+for (const receipt of receipts) for (const value of Object.values(receipt.gates)) gateCounts[value] = (gateCounts[value] ?? 0) + 1;
+const matrix = receipts.map(({ component, framework, status, gates }) => ({ component, framework, status, gates }));
+fs.writeFileSync(path.join(root, 'proof/bakeoff/shared-core/summary.json'), JSON.stringify({
+  candidate: 'shared-core', revision, run, receipts: receipts.length, gateCounts,
+  verdict: 'partial-no-target-browser-or-ssr-execution',
+  pilot: { targets: 12, passed: 0, partial: 12, failed: 0, blocked: 0 }, matrix
+}, null, 2) + '\n');
+console.log(gateCounts);

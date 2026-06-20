@@ -1,15 +1,17 @@
 {
   "candidate": "shared-core",
-  "revision": "follow-up-working-tree",
+  "revision": "0086d8cd4858c9c8e9e199b9ec0563c8a7dce2a2",
+  "run": "proof-2026-06-20T18:38:14.985Z",
   "receipts": 28,
   "gateCounts": {
-    "passed": 224,
-    "not-run": 112
+    "not-run": 220,
+    "passed": 116
   },
-  "verdict": "pilot-complete-remaining-components-partial",
+  "verdict": "partial-no-target-browser-or-ssr-execution",
   "pilot": {
     "targets": 12,
-    "passed": 12,
+    "passed": 0,
+    "partial": 12,
     "failed": 0,
     "blocked": 0
   },
@@ -17,142 +19,534 @@
     {
       "component": "button",
       "framework": "react",
-      "status": "passed"
+      "status": "partial",
+      "gates": {
+        "publicApi": "not-run",
+        "domAria": "not-run",
+        "behavior": "not-run",
+        "ssr": "not-run",
+        "hydrationWarnings": "not-run",
+        "nodePreservation": "not-run",
+        "nativeErgonomics": "not-run",
+        "types": "passed",
+        "packageTreeShaking": "not-run",
+        "maintainability": "passed",
+        "upstreamCostProxy": "not-run",
+        "escapeHatches": "passed"
+      }
     },
     {
       "component": "button",
       "framework": "solid",
-      "status": "passed"
+      "status": "partial",
+      "gates": {
+        "publicApi": "not-run",
+        "domAria": "not-run",
+        "behavior": "not-run",
+        "ssr": "not-run",
+        "hydrationWarnings": "not-run",
+        "nodePreservation": "not-run",
+        "nativeErgonomics": "not-run",
+        "types": "passed",
+        "packageTreeShaking": "not-run",
+        "maintainability": "passed",
+        "upstreamCostProxy": "not-run",
+        "escapeHatches": "passed"
+      }
     },
     {
       "component": "button",
       "framework": "svelte",
-      "status": "passed"
+      "status": "partial",
+      "gates": {
+        "publicApi": "not-run",
+        "domAria": "not-run",
+        "behavior": "not-run",
+        "ssr": "not-run",
+        "hydrationWarnings": "not-run",
+        "nodePreservation": "not-run",
+        "nativeErgonomics": "not-run",
+        "types": "passed",
+        "packageTreeShaking": "not-run",
+        "maintainability": "passed",
+        "upstreamCostProxy": "not-run",
+        "escapeHatches": "passed"
+      }
     },
     {
       "component": "button",
       "framework": "vue",
-      "status": "passed"
+      "status": "partial",
+      "gates": {
+        "publicApi": "not-run",
+        "domAria": "not-run",
+        "behavior": "not-run",
+        "ssr": "not-run",
+        "hydrationWarnings": "not-run",
+        "nodePreservation": "not-run",
+        "nativeErgonomics": "not-run",
+        "types": "passed",
+        "packageTreeShaking": "not-run",
+        "maintainability": "passed",
+        "upstreamCostProxy": "not-run",
+        "escapeHatches": "passed"
+      }
     },
     {
       "component": "date-picker",
       "framework": "react",
-      "status": "partial"
+      "status": "partial",
+      "gates": {
+        "publicApi": "not-run",
+        "domAria": "passed",
+        "behavior": "passed",
+        "ssr": "not-run",
+        "hydrationWarnings": "not-run",
+        "nodePreservation": "not-run",
+        "nativeErgonomics": "not-run",
+        "types": "passed",
+        "packageTreeShaking": "not-run",
+        "maintainability": "passed",
+        "upstreamCostProxy": "not-run",
+        "escapeHatches": "passed"
+      }
     },
     {
       "component": "date-picker",
       "framework": "solid",
-      "status": "partial"
+      "status": "partial",
+      "gates": {
+        "publicApi": "not-run",
+        "domAria": "passed",
+        "behavior": "passed",
+        "ssr": "not-run",
+        "hydrationWarnings": "not-run",
+        "nodePreservation": "not-run",
+        "nativeErgonomics": "not-run",
+        "types": "passed",
+        "packageTreeShaking": "not-run",
+        "maintainability": "passed",
+        "upstreamCostProxy": "not-run",
+        "escapeHatches": "passed"
+      }
     },
     {
       "component": "date-picker",
       "framework": "svelte",
-      "status": "partial"
+      "status": "partial",
+      "gates": {
+        "publicApi": "not-run",
+        "domAria": "passed",
+        "behavior": "passed",
+        "ssr": "not-run",
+        "hydrationWarnings": "not-run",
+        "nodePreservation": "not-run",
+        "nativeErgonomics": "not-run",
+        "types": "passed",
+        "packageTreeShaking": "not-run",
+        "maintainability": "passed",
+        "upstreamCostProxy": "not-run",
+        "escapeHatches": "passed"
+      }
     },
     {
       "component": "date-picker",
       "framework": "vue",
-      "status": "partial"
+      "status": "partial",
+      "gates": {
+        "publicApi": "not-run",
+        "domAria": "passed",
+        "behavior": "passed",
+        "ssr": "not-run",
+        "hydrationWarnings": "not-run",
+        "nodePreservation": "not-run",
+        "nativeErgonomics": "not-run",
+        "types": "passed",
+        "packageTreeShaking": "not-run",
+        "maintainability": "passed",
+        "upstreamCostProxy": "not-run",
+        "escapeHatches": "passed"
+      }
     },
     {
       "component": "dialog",
       "framework": "react",
-      "status": "partial"
+      "status": "partial",
+      "gates": {
+        "publicApi": "not-run",
+        "domAria": "passed",
+        "behavior": "passed",
+        "ssr": "not-run",
+        "hydrationWarnings": "not-run",
+        "nodePreservation": "not-run",
+        "nativeErgonomics": "not-run",
+        "types": "passed",
+        "packageTreeShaking": "not-run",
+        "maintainability": "passed",
+        "upstreamCostProxy": "not-run",
+        "escapeHatches": "passed"
+      }
     },
     {
       "component": "dialog",
       "framework": "solid",
-      "status": "partial"
+      "status": "partial",
+      "gates": {
+        "publicApi": "not-run",
+        "domAria": "passed",
+        "behavior": "passed",
+        "ssr": "not-run",
+        "hydrationWarnings": "not-run",
+        "nodePreservation": "not-run",
+        "nativeErgonomics": "not-run",
+        "types": "passed",
+        "packageTreeShaking": "not-run",
+        "maintainability": "passed",
+        "upstreamCostProxy": "not-run",
+        "escapeHatches": "passed"
+      }
     },
     {
       "component": "dialog",
       "framework": "svelte",
-      "status": "partial"
+      "status": "partial",
+      "gates": {
+        "publicApi": "not-run",
+        "domAria": "passed",
+        "behavior": "passed",
+        "ssr": "not-run",
+        "hydrationWarnings": "not-run",
+        "nodePreservation": "not-run",
+        "nativeErgonomics": "not-run",
+        "types": "passed",
+        "packageTreeShaking": "not-run",
+        "maintainability": "passed",
+        "upstreamCostProxy": "not-run",
+        "escapeHatches": "passed"
+      }
     },
     {
       "component": "dialog",
       "framework": "vue",
-      "status": "partial"
+      "status": "partial",
+      "gates": {
+        "publicApi": "not-run",
+        "domAria": "passed",
+        "behavior": "passed",
+        "ssr": "not-run",
+        "hydrationWarnings": "not-run",
+        "nodePreservation": "not-run",
+        "nativeErgonomics": "not-run",
+        "types": "passed",
+        "packageTreeShaking": "not-run",
+        "maintainability": "passed",
+        "upstreamCostProxy": "not-run",
+        "escapeHatches": "passed"
+      }
     },
     {
       "component": "field",
       "framework": "react",
-      "status": "passed"
+      "status": "partial",
+      "gates": {
+        "publicApi": "not-run",
+        "domAria": "not-run",
+        "behavior": "not-run",
+        "ssr": "not-run",
+        "hydrationWarnings": "not-run",
+        "nodePreservation": "not-run",
+        "nativeErgonomics": "not-run",
+        "types": "passed",
+        "packageTreeShaking": "not-run",
+        "maintainability": "passed",
+        "upstreamCostProxy": "not-run",
+        "escapeHatches": "passed"
+      }
     },
     {
       "component": "field",
       "framework": "solid",
-      "status": "passed"
+      "status": "partial",
+      "gates": {
+        "publicApi": "not-run",
+        "domAria": "not-run",
+        "behavior": "not-run",
+        "ssr": "not-run",
+        "hydrationWarnings": "not-run",
+        "nodePreservation": "not-run",
+        "nativeErgonomics": "not-run",
+        "types": "passed",
+        "packageTreeShaking": "not-run",
+        "maintainability": "passed",
+        "upstreamCostProxy": "not-run",
+        "escapeHatches": "passed"
+      }
     },
     {
       "component": "field",
       "framework": "svelte",
-      "status": "passed"
+      "status": "partial",
+      "gates": {
+        "publicApi": "not-run",
+        "domAria": "not-run",
+        "behavior": "not-run",
+        "ssr": "not-run",
+        "hydrationWarnings": "not-run",
+        "nodePreservation": "not-run",
+        "nativeErgonomics": "not-run",
+        "types": "passed",
+        "packageTreeShaking": "not-run",
+        "maintainability": "passed",
+        "upstreamCostProxy": "not-run",
+        "escapeHatches": "passed"
+      }
     },
     {
       "component": "field",
       "framework": "vue",
-      "status": "passed"
+      "status": "partial",
+      "gates": {
+        "publicApi": "not-run",
+        "domAria": "not-run",
+        "behavior": "not-run",
+        "ssr": "not-run",
+        "hydrationWarnings": "not-run",
+        "nodePreservation": "not-run",
+        "nativeErgonomics": "not-run",
+        "types": "passed",
+        "packageTreeShaking": "not-run",
+        "maintainability": "passed",
+        "upstreamCostProxy": "not-run",
+        "escapeHatches": "passed"
+      }
     },
     {
       "component": "popover",
       "framework": "react",
-      "status": "partial"
+      "status": "partial",
+      "gates": {
+        "publicApi": "not-run",
+        "domAria": "passed",
+        "behavior": "passed",
+        "ssr": "not-run",
+        "hydrationWarnings": "not-run",
+        "nodePreservation": "not-run",
+        "nativeErgonomics": "not-run",
+        "types": "passed",
+        "packageTreeShaking": "not-run",
+        "maintainability": "passed",
+        "upstreamCostProxy": "not-run",
+        "escapeHatches": "passed"
+      }
     },
     {
       "component": "popover",
       "framework": "solid",
-      "status": "partial"
+      "status": "partial",
+      "gates": {
+        "publicApi": "not-run",
+        "domAria": "passed",
+        "behavior": "passed",
+        "ssr": "not-run",
+        "hydrationWarnings": "not-run",
+        "nodePreservation": "not-run",
+        "nativeErgonomics": "not-run",
+        "types": "passed",
+        "packageTreeShaking": "not-run",
+        "maintainability": "passed",
+        "upstreamCostProxy": "not-run",
+        "escapeHatches": "passed"
+      }
     },
     {
       "component": "popover",
       "framework": "svelte",
-      "status": "partial"
+      "status": "partial",
+      "gates": {
+        "publicApi": "not-run",
+        "domAria": "passed",
+        "behavior": "passed",
+        "ssr": "not-run",
+        "hydrationWarnings": "not-run",
+        "nodePreservation": "not-run",
+        "nativeErgonomics": "not-run",
+        "types": "passed",
+        "packageTreeShaking": "not-run",
+        "maintainability": "passed",
+        "upstreamCostProxy": "not-run",
+        "escapeHatches": "passed"
+      }
     },
     {
       "component": "popover",
       "framework": "vue",
-      "status": "partial"
+      "status": "partial",
+      "gates": {
+        "publicApi": "not-run",
+        "domAria": "passed",
+        "behavior": "passed",
+        "ssr": "not-run",
+        "hydrationWarnings": "not-run",
+        "nodePreservation": "not-run",
+        "nativeErgonomics": "not-run",
+        "types": "passed",
+        "packageTreeShaking": "not-run",
+        "maintainability": "passed",
+        "upstreamCostProxy": "not-run",
+        "escapeHatches": "passed"
+      }
     },
     {
       "component": "select",
       "framework": "react",
-      "status": "partial"
+      "status": "partial",
+      "gates": {
+        "publicApi": "not-run",
+        "domAria": "passed",
+        "behavior": "passed",
+        "ssr": "not-run",
+        "hydrationWarnings": "not-run",
+        "nodePreservation": "not-run",
+        "nativeErgonomics": "not-run",
+        "types": "passed",
+        "packageTreeShaking": "not-run",
+        "maintainability": "passed",
+        "upstreamCostProxy": "not-run",
+        "escapeHatches": "passed"
+      }
     },
     {
       "component": "select",
       "framework": "solid",
-      "status": "partial"
+      "status": "partial",
+      "gates": {
+        "publicApi": "not-run",
+        "domAria": "passed",
+        "behavior": "passed",
+        "ssr": "not-run",
+        "hydrationWarnings": "not-run",
+        "nodePreservation": "not-run",
+        "nativeErgonomics": "not-run",
+        "types": "passed",
+        "packageTreeShaking": "not-run",
+        "maintainability": "passed",
+        "upstreamCostProxy": "not-run",
+        "escapeHatches": "passed"
+      }
     },
     {
       "component": "select",
       "framework": "svelte",
-      "status": "partial"
+      "status": "partial",
+      "gates": {
+        "publicApi": "not-run",
+        "domAria": "passed",
+        "behavior": "passed",
+        "ssr": "not-run",
+        "hydrationWarnings": "not-run",
+        "nodePreservation": "not-run",
+        "nativeErgonomics": "not-run",
+        "types": "passed",
+        "packageTreeShaking": "not-run",
+        "maintainability": "passed",
+        "upstreamCostProxy": "not-run",
+        "escapeHatches": "passed"
+      }
     },
     {
       "component": "select",
       "framework": "vue",
-      "status": "partial"
+      "status": "partial",
+      "gates": {
+        "publicApi": "not-run",
+        "domAria": "passed",
+        "behavior": "passed",
+        "ssr": "not-run",
+        "hydrationWarnings": "not-run",
+        "nodePreservation": "not-run",
+        "nativeErgonomics": "not-run",
+        "types": "passed",
+        "packageTreeShaking": "not-run",
+        "maintainability": "passed",
+        "upstreamCostProxy": "not-run",
+        "escapeHatches": "passed"
+      }
     },
     {
       "component": "tabs",
       "framework": "react",
-      "status": "passed"
+      "status": "partial",
+      "gates": {
+        "publicApi": "not-run",
+        "domAria": "not-run",
+        "behavior": "not-run",
+        "ssr": "not-run",
+        "hydrationWarnings": "not-run",
+        "nodePreservation": "not-run",
+        "nativeErgonomics": "not-run",
+        "types": "passed",
+        "packageTreeShaking": "not-run",
+        "maintainability": "passed",
+        "upstreamCostProxy": "not-run",
+        "escapeHatches": "passed"
+      }
     },
     {
       "component": "tabs",
       "framework": "solid",
-      "status": "passed"
+      "status": "partial",
+      "gates": {
+        "publicApi": "not-run",
+        "domAria": "not-run",
+        "behavior": "not-run",
+        "ssr": "not-run",
+        "hydrationWarnings": "not-run",
+        "nodePreservation": "not-run",
+        "nativeErgonomics": "not-run",
+        "types": "passed",
+        "packageTreeShaking": "not-run",
+        "maintainability": "passed",
+        "upstreamCostProxy": "not-run",
+        "escapeHatches": "passed"
+      }
     },
     {
       "component": "tabs",
       "framework": "svelte",
-      "status": "passed"
+      "status": "partial",
+      "gates": {
+        "publicApi": "not-run",
+        "domAria": "not-run",
+        "behavior": "not-run",
+        "ssr": "not-run",
+        "hydrationWarnings": "not-run",
+        "nodePreservation": "not-run",
+        "nativeErgonomics": "not-run",
+        "types": "passed",
+        "packageTreeShaking": "not-run",
+        "maintainability": "passed",
+        "upstreamCostProxy": "not-run",
+        "escapeHatches": "passed"
+      }
     },
     {
       "component": "tabs",
       "framework": "vue",
-      "status": "passed"
+      "status": "partial",
+      "gates": {
+        "publicApi": "not-run",
+        "domAria": "not-run",
+        "behavior": "not-run",
+        "ssr": "not-run",
+        "hydrationWarnings": "not-run",
+        "nodePreservation": "not-run",
+        "nativeErgonomics": "not-run",
+        "types": "passed",
+        "packageTreeShaking": "not-run",
+        "maintainability": "passed",
+        "upstreamCostProxy": "not-run",
+        "escapeHatches": "passed"
+      }
     }
   ]
 }
