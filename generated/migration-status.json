@@ -2,6 +2,22 @@
   "schemaVersion": "kumo.migration-status/v1",
   "derivedOnlyFromReceipts": true,
   "components": {
+    "select": {
+      "vue": "verified",
+      "receipt": "generated/receipts/select.vue.json"
+    },
+    "button": {
+      "vue": "verified",
+      "receipt": "generated/receipts/button.vue.json"
+    },
+    "dialog": {
+      "vue": "verified",
+      "receipt": "generated/receipts/dialog.vue.json"
+    },
+    "popover": {
+      "vue": "verified",
+      "receipt": "generated/receipts/popover.vue.json"
+    },
     "checkbox": {
       "vue": "verified",
       "receipt": "generated/receipts/checkbox.vue.json"

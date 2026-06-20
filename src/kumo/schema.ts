@@ -9,7 +9,11 @@ export type Behavior =
  | {kind:'native-check'; inputIds:string[]}
  | {kind:'roving'; groupRole:'tablist'|'menubar'; itemRole:'tab'|'menuitem'; labels:string[]; selection:'activation'|'focus'}
  | {kind:'current-link'; current:'page'|'location'; labels:string[]}
- | {kind:'selection'; mode:'radio'|'autocomplete'|'combobox'|'command'|'date'|'date-range'|'menu'|'toast'|'pagination'; options?:string[]; initial?:string|string[]|number};
+ | {kind:'selection'; mode:'radio'|'autocomplete'|'combobox'|'command'|'date'|'date-range'|'menu'|'toast'|'pagination'; options?:string[]; initial?:string|string[]|number}
+ | {kind:'select'; options:string[]; sizes:string[]; variants:string[]}
+ | {kind:'button'; sizes:string[]; variants:string[]}
+ | {kind:'dialog'; sizes:string[]}
+ | {kind:'popover'; sides:string[]; aligns:string[]};
 export interface InteractionPolicy {state:string[]; events:string[]; keyboard:string[]; aria:string[]; hydration:'ssr-identical'}
 export interface ComponentIR { schemaVersion:typeof IR_SCHEMA_VERSION; id:string; name:string; family:string; root:ElementNode|null; behavior?:Behavior; policy?:InteractionPolicy; source:{kind:'normalized-ir'; revision:string}; migration:{vue:'pending'|'candidate'|'verified'} }
 export interface Provenance { schemaVersion:typeof IR_SCHEMA_VERSION; component:string; framework:'vue'; sourceHash:string; irHash:string; emitterHash:string; outputs:Record<string,string> }

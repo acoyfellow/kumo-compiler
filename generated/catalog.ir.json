@@ -5,56 +5,462 @@
       "schemaVersion": "kumo.ir/v1",
       "id": "select",
       "name": "Select",
-      "family": "legacy",
-      "root": null,
+      "family": "rich",
+      "root": {
+        "kind": "element",
+        "tag": "main",
+        "attrs": {
+          "class": "form-shell"
+        },
+        "children": [
+          {
+            "kind": "element",
+            "tag": "h1",
+            "attrs": {},
+            "children": [
+              {
+                "kind": "text",
+                "value": "Select"
+              }
+            ]
+          },
+          {
+            "kind": "element",
+            "tag": "section",
+            "attrs": {
+              "class": "matrix"
+            },
+            "children": [
+              {
+                "kind": "element",
+                "tag": "button",
+                "attrs": {
+                  "role": "combobox",
+                  "aria-expanded": false,
+                  "aria-controls": "select-options"
+                },
+                "children": [
+                  {
+                    "kind": "text",
+                    "value": "Choose fruit"
+                  }
+                ]
+              },
+              {
+                "kind": "element",
+                "tag": "ul",
+                "attrs": {
+                  "id": "select-options",
+                  "role": "listbox"
+                },
+                "children": [
+                  {
+                    "kind": "element",
+                    "tag": "li",
+                    "attrs": {
+                      "role": "option"
+                    },
+                    "children": [
+                      {
+                        "kind": "text",
+                        "value": "Apple"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "element",
+                    "tag": "li",
+                    "attrs": {
+                      "role": "option"
+                    },
+                    "children": [
+                      {
+                        "kind": "text",
+                        "value": "Banana"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "element",
+                    "tag": "li",
+                    "attrs": {
+                      "role": "option"
+                    },
+                    "children": [
+                      {
+                        "kind": "text",
+                        "value": "Cherry"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "behavior": {
+        "kind": "select",
+        "options": [
+          "Apple",
+          "Banana",
+          "Cherry"
+        ],
+        "sizes": [
+          "xs",
+          "sm",
+          "base",
+          "lg"
+        ],
+        "variants": [
+          "default",
+          "error"
+        ]
+      },
+      "policy": {
+        "state": [
+          "open",
+          "active option",
+          "object value",
+          "loading",
+          "disabled"
+        ],
+        "events": [
+          "click",
+          "change",
+          "focus"
+        ],
+        "keyboard": [
+          "ArrowDown",
+          "ArrowUp",
+          "Home",
+          "End",
+          "Enter",
+          "Space",
+          "Escape"
+        ],
+        "aria": [
+          "combobox",
+          "listbox",
+          "option",
+          "aria-expanded",
+          "aria-selected"
+        ],
+        "hydration": "ssr-identical"
+      },
       "source": {
         "kind": "normalized-ir",
         "revision": "4"
       },
       "migration": {
-        "vue": "pending"
+        "vue": "candidate"
       }
     },
     {
       "schemaVersion": "kumo.ir/v1",
       "id": "button",
       "name": "Button",
-      "family": "legacy",
-      "root": null,
+      "family": "rich",
+      "root": {
+        "kind": "element",
+        "tag": "main",
+        "attrs": {
+          "class": "form-shell"
+        },
+        "children": [
+          {
+            "kind": "element",
+            "tag": "h1",
+            "attrs": {},
+            "children": [
+              {
+                "kind": "text",
+                "value": "Button"
+              }
+            ]
+          },
+          {
+            "kind": "element",
+            "tag": "section",
+            "attrs": {
+              "class": "button-matrix"
+            },
+            "children": [
+              {
+                "kind": "element",
+                "tag": "button",
+                "attrs": {
+                  "type": "button",
+                  "class": "kumo-button primary base"
+                },
+                "children": [
+                  {
+                    "kind": "text",
+                    "value": "Primary"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "behavior": {
+        "kind": "button",
+        "sizes": [
+          "xs",
+          "sm",
+          "base",
+          "lg"
+        ],
+        "variants": [
+          "primary",
+          "secondary",
+          "outline",
+          "danger",
+          "ghost"
+        ]
+      },
+      "policy": {
+        "state": [
+          "loading",
+          "disabled",
+          "activation count"
+        ],
+        "events": [
+          "click",
+          "submit"
+        ],
+        "keyboard": [
+          "Enter",
+          "Space"
+        ],
+        "aria": [
+          "button",
+          "aria-busy",
+          "aria-disabled",
+          "aria-label"
+        ],
+        "hydration": "ssr-identical"
+      },
       "source": {
         "kind": "normalized-ir",
         "revision": "4"
       },
       "migration": {
-        "vue": "pending"
+        "vue": "candidate"
       }
     },
     {
       "schemaVersion": "kumo.ir/v1",
       "id": "dialog",
       "name": "Dialog",
-      "family": "legacy",
-      "root": null,
+      "family": "rich",
+      "root": {
+        "kind": "element",
+        "tag": "main",
+        "attrs": {
+          "class": "form-shell"
+        },
+        "children": [
+          {
+            "kind": "element",
+            "tag": "h1",
+            "attrs": {},
+            "children": [
+              {
+                "kind": "text",
+                "value": "Dialog"
+              }
+            ]
+          },
+          {
+            "kind": "element",
+            "tag": "section",
+            "attrs": {
+              "class": "dialog-matrix"
+            },
+            "children": [
+              {
+                "kind": "element",
+                "tag": "dialog",
+                "attrs": {
+                  "open": true,
+                  "aria-labelledby": "dialog-title"
+                },
+                "children": [
+                  {
+                    "kind": "element",
+                    "tag": "h2",
+                    "attrs": {
+                      "id": "dialog-title"
+                    },
+                    "children": [
+                      {
+                        "kind": "text",
+                        "value": "Dialog"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "element",
+                    "tag": "button",
+                    "attrs": {},
+                    "children": [
+                      {
+                        "kind": "text",
+                        "value": "Close"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "behavior": {
+        "kind": "dialog",
+        "sizes": [
+          "sm",
+          "md",
+          "lg",
+          "full"
+        ]
+      },
+      "policy": {
+        "state": [
+          "open",
+          "modal"
+        ],
+        "events": [
+          "click",
+          "cancel",
+          "close"
+        ],
+        "keyboard": [
+          "Escape",
+          "Tab"
+        ],
+        "aria": [
+          "dialog",
+          "aria-modal",
+          "aria-labelledby",
+          "aria-describedby"
+        ],
+        "hydration": "ssr-identical"
+      },
       "source": {
         "kind": "normalized-ir",
         "revision": "4"
       },
       "migration": {
-        "vue": "pending"
+        "vue": "candidate"
       }
     },
     {
       "schemaVersion": "kumo.ir/v1",
       "id": "popover",
       "name": "Popover",
-      "family": "legacy",
-      "root": null,
+      "family": "rich",
+      "root": {
+        "kind": "element",
+        "tag": "main",
+        "attrs": {
+          "class": "form-shell"
+        },
+        "children": [
+          {
+            "kind": "element",
+            "tag": "h1",
+            "attrs": {},
+            "children": [
+              {
+                "kind": "text",
+                "value": "Popover"
+              }
+            ]
+          },
+          {
+            "kind": "element",
+            "tag": "section",
+            "attrs": {
+              "class": "popover-matrix"
+            },
+            "children": [
+              {
+                "kind": "element",
+                "tag": "button",
+                "attrs": {
+                  "aria-haspopup": "dialog",
+                  "aria-expanded": true
+                },
+                "children": [
+                  {
+                    "kind": "text",
+                    "value": "Toggle"
+                  }
+                ]
+              },
+              {
+                "kind": "element",
+                "tag": "div",
+                "attrs": {
+                  "role": "dialog"
+                },
+                "children": [
+                  {
+                    "kind": "text",
+                    "value": "Popover content"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "behavior": {
+        "kind": "popover",
+        "sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "aligns": [
+          "start",
+          "center",
+          "end"
+        ]
+      },
+      "policy": {
+        "state": [
+          "open",
+          "side",
+          "align",
+          "offset"
+        ],
+        "events": [
+          "click",
+          "focusout"
+        ],
+        "keyboard": [
+          "Escape",
+          "Tab"
+        ],
+        "aria": [
+          "aria-haspopup",
+          "aria-expanded",
+          "aria-controls",
+          "dialog"
+        ],
+        "hydration": "ssr-identical"
+      },
       "source": {
         "kind": "normalized-ir",
         "revision": "4"
       },
       "migration": {
-        "vue": "pending"
+        "vue": "candidate"
       }
     },
     {
