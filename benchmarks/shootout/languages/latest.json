@@ -1,63 +1,275 @@
 {
   "schemaVersion": "kumo.language-shootout/v2",
   "axis": "language",
-  "revision": "f1a07a962997b9d662cbf58ae5b7be13e6c9d8b7",
-  "runId": "92ece110-7188-424d-8396-00b9bb7e6a90",
-  "fixture": {
-    "path": "shootout/workloads.json",
-    "schemaVersion": "shootout-workloads/v1",
-    "components": [
-      "button",
-      "select"
-    ],
-    "frameworks": [
-      "react"
-    ]
+  "revision": "df91657cd8c3b06d08941dfcadc50bee2f00f327",
+  "runId": "sha256:78f9e2b124c975e54955a0097f8ee6872cca7b278668a1ee50a50d5841aead86",
+  "provenance": {
+    "workloads": {
+      "schemaVersion": "shootout-workloads/v1",
+      "path": "shootout/workloads.json",
+      "sha256": "6b2a2fa231d7a51c633842c5bcea3256bc675f98cdc984ce2a43d61c4808cbf5"
+    },
+    "baseline": {
+      "path": "proof/shootout/baseline/baseline.json",
+      "digest": "2f6e2c006f928bd1580dedd9fdfdca17df31d4a9c097b95dc766df8fc4de20bf"
+    },
+    "environmentManifestDigest": "2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6"
   },
   "methodology": {
+    "correctnessBeforePerformance": true,
     "warmups": 2,
     "measured": 10,
-    "retries": 0,
-    "retryPolicy": "infrastructure failures only",
-    "measurement": "Node spawnSync resourceUsage for all candidates; fresh output root each invocation",
-    "setupBuild": "excluded and recorded separately by benchmark producer; candidates must already be built",
-    "cleanState": false,
-    "correctnessBeforePerformance": true,
     "serialized": true,
-    "claims": "Axis A planner protocol only; no architecture/browser claim; no winner while correctness gates are incomplete"
+    "retries": 0,
+    "cwdModes": [
+      "repository-root",
+      "external-temporary-directory"
+    ],
+    "outputRoots": "fresh and removed per invocation",
+    "resourceMeasurement": "blocked: portable Node spawn does not expose reliable macOS CPU/peak RSS; do not rank",
+    "variancePolicy": "wall variance is measured metadata only",
+    "claims": "Axis A planner protocol only; no architecture/browser claim; no winner while shootout gates are blocked"
   },
   "environment": {
     "platform": "darwin",
     "arch": "arm64",
     "release": "25.4.0",
-    "cpu": "Apple M4 Pro"
+    "cpu": "Apple M4 Pro",
+    "node": "v24.17.0"
   },
-  "environmentDigest": "f52f89e2bbfe053359c7efc41f7fc21d8ae24ed04349c75dc5b358d65b8b94b8",
-  "inventoryDigest": "f1084e239b4ece7a82b0aad0eabeeabadab28670af1a9eb7fb54b0f6379c0400",
+  "environmentDigest": "a13a887f592a86cfea7771891f6b64bf0ec9e3fe71d6d1526a69ff3f46fdbc74",
+  "semanticDigest": "d332d74386e2f6ec471c4f507bc5384b8b32590fab633a1377ca1fd37d071db3",
+  "artifactSchema": "kumo.language-artifact/v1",
+  "shootoutRecords": [
+    {
+      "schemaVersion": "shootout/v1",
+      "axis": "language",
+      "language": "typescript",
+      "candidateId": "typescript-planner",
+      "framework": "react",
+      "component": "button",
+      "candidateRevision": "df91657cd8c3b06d08941dfcadc50bee2f00f327",
+      "frameworkRevision": "react",
+      "componentRevision": "e75b1587b2d2ec44d05564e0bf31ca22dfe8137be8ed6445bc46ee37dd4ec095",
+      "runId": "sha256:d9121a436bdb96052f757de63ffa89802995804c949e23ef3153abdaee67813b",
+      "evidenceDigest": "f3b8c3fa3f37415fe01d8d3b41ce0c7735444ce4c9aa3245e4a28a10437756d7",
+      "environmentManifestDigest": "2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "baseline": {
+        "digest": "2f6e2c006f928bd1580dedd9fdfdca17df31d4a9c097b95dc766df8fc4de20bf"
+      },
+      "gates": {
+        "simple-emission": "blocked",
+        "api": "blocked",
+        "dom": "blocked",
+        "click": "blocked",
+        "ssr": "blocked",
+        "hydration": "blocked",
+        "package": "blocked"
+      }
+    },
+    {
+      "schemaVersion": "shootout/v1",
+      "axis": "language",
+      "language": "typescript",
+      "candidateId": "typescript-planner",
+      "framework": "react",
+      "component": "select",
+      "candidateRevision": "df91657cd8c3b06d08941dfcadc50bee2f00f327",
+      "frameworkRevision": "react",
+      "componentRevision": "e75b1587b2d2ec44d05564e0bf31ca22dfe8137be8ed6445bc46ee37dd4ec095",
+      "runId": "sha256:c209503a2f2d4e3135ab7061fee6857a9b9ec1cf89d566d807255491d7ad8c10",
+      "evidenceDigest": "f3b8c3fa3f37415fe01d8d3b41ce0c7735444ce4c9aa3245e4a28a10437756d7",
+      "environmentManifestDigest": "2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "baseline": {
+        "digest": "2f6e2c006f928bd1580dedd9fdfdca17df31d4a9c097b95dc766df8fc4de20bf"
+      },
+      "gates": {
+        "full-contract": "blocked",
+        "api": "blocked",
+        "aria": "blocked",
+        "keyboard": "blocked",
+        "typeahead": "blocked",
+        "controlled": "blocked",
+        "hydration": "blocked",
+        "package": "blocked"
+      }
+    },
+    {
+      "schemaVersion": "shootout/v1",
+      "axis": "language",
+      "language": "go",
+      "candidateId": "go-planner",
+      "framework": "react",
+      "component": "button",
+      "candidateRevision": "df91657cd8c3b06d08941dfcadc50bee2f00f327",
+      "frameworkRevision": "react",
+      "componentRevision": "e75b1587b2d2ec44d05564e0bf31ca22dfe8137be8ed6445bc46ee37dd4ec095",
+      "runId": "sha256:bcbcec06564ad88b28388fa92bbbe1601510f86eb9b05ce0324048549bc07f7b",
+      "evidenceDigest": "fbcbe7618437708ec8a2af5fff0fd2f37886dabd629ddd2179feab7d529c4353",
+      "environmentManifestDigest": "2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "baseline": {
+        "digest": "2f6e2c006f928bd1580dedd9fdfdca17df31d4a9c097b95dc766df8fc4de20bf"
+      },
+      "gates": {
+        "simple-emission": "blocked",
+        "api": "blocked",
+        "dom": "blocked",
+        "click": "blocked",
+        "ssr": "blocked",
+        "hydration": "blocked",
+        "package": "blocked"
+      }
+    },
+    {
+      "schemaVersion": "shootout/v1",
+      "axis": "language",
+      "language": "go",
+      "candidateId": "go-planner",
+      "framework": "react",
+      "component": "select",
+      "candidateRevision": "df91657cd8c3b06d08941dfcadc50bee2f00f327",
+      "frameworkRevision": "react",
+      "componentRevision": "e75b1587b2d2ec44d05564e0bf31ca22dfe8137be8ed6445bc46ee37dd4ec095",
+      "runId": "sha256:ba03cbd1f4ae64dac14feac5ecbc70998f3aefaff10402aef3d4f73819c3532a",
+      "evidenceDigest": "fbcbe7618437708ec8a2af5fff0fd2f37886dabd629ddd2179feab7d529c4353",
+      "environmentManifestDigest": "2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "baseline": {
+        "digest": "2f6e2c006f928bd1580dedd9fdfdca17df31d4a9c097b95dc766df8fc4de20bf"
+      },
+      "gates": {
+        "full-contract": "blocked",
+        "api": "blocked",
+        "aria": "blocked",
+        "keyboard": "blocked",
+        "typeahead": "blocked",
+        "controlled": "blocked",
+        "hydration": "blocked",
+        "package": "blocked"
+      }
+    },
+    {
+      "schemaVersion": "shootout/v1",
+      "axis": "language",
+      "language": "rust",
+      "candidateId": "rust-planner",
+      "framework": "react",
+      "component": "button",
+      "candidateRevision": "df91657cd8c3b06d08941dfcadc50bee2f00f327",
+      "frameworkRevision": "react",
+      "componentRevision": "e75b1587b2d2ec44d05564e0bf31ca22dfe8137be8ed6445bc46ee37dd4ec095",
+      "runId": "sha256:95e76e57f3421790b95b35a44055bafa3db98ed8beac2cc4bbf09f3b4871ba2d",
+      "evidenceDigest": "aa980484c349d49d0efbc16ec14d7a582ea345b212bbca6a59ff0833854ef775",
+      "environmentManifestDigest": "2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "baseline": {
+        "digest": "2f6e2c006f928bd1580dedd9fdfdca17df31d4a9c097b95dc766df8fc4de20bf"
+      },
+      "gates": {
+        "simple-emission": "blocked",
+        "api": "blocked",
+        "dom": "blocked",
+        "click": "blocked",
+        "ssr": "blocked",
+        "hydration": "blocked",
+        "package": "blocked"
+      }
+    },
+    {
+      "schemaVersion": "shootout/v1",
+      "axis": "language",
+      "language": "rust",
+      "candidateId": "rust-planner",
+      "framework": "react",
+      "component": "select",
+      "candidateRevision": "df91657cd8c3b06d08941dfcadc50bee2f00f327",
+      "frameworkRevision": "react",
+      "componentRevision": "e75b1587b2d2ec44d05564e0bf31ca22dfe8137be8ed6445bc46ee37dd4ec095",
+      "runId": "sha256:b1cedd16240547b7abde4f26b74b1c6f70cca2e59323fdb7602dee61d4d4ccf6",
+      "evidenceDigest": "aa980484c349d49d0efbc16ec14d7a582ea345b212bbca6a59ff0833854ef775",
+      "environmentManifestDigest": "2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "baseline": {
+        "digest": "2f6e2c006f928bd1580dedd9fdfdca17df31d4a9c097b95dc766df8fc4de20bf"
+      },
+      "gates": {
+        "full-contract": "blocked",
+        "api": "blocked",
+        "aria": "blocked",
+        "keyboard": "blocked",
+        "typeahead": "blocked",
+        "controlled": "blocked",
+        "hydration": "blocked",
+        "package": "blocked"
+      }
+    },
+    {
+      "schemaVersion": "shootout/v1",
+      "axis": "language",
+      "language": "zig",
+      "candidateId": "zig-planner",
+      "framework": "react",
+      "component": "button",
+      "candidateRevision": "df91657cd8c3b06d08941dfcadc50bee2f00f327",
+      "frameworkRevision": "react",
+      "componentRevision": "e75b1587b2d2ec44d05564e0bf31ca22dfe8137be8ed6445bc46ee37dd4ec095",
+      "runId": "sha256:3aa6dd05b53bd8d05b056597de757ef8f8284bb40fe42a684bc198d1b77fa810",
+      "evidenceDigest": "74545258ee5307f36acc53f4eb586aca2c35993b080c4f3718b4256c35ca4413",
+      "environmentManifestDigest": "2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "baseline": {
+        "digest": "2f6e2c006f928bd1580dedd9fdfdca17df31d4a9c097b95dc766df8fc4de20bf"
+      },
+      "gates": {
+        "simple-emission": "blocked",
+        "api": "blocked",
+        "dom": "blocked",
+        "click": "blocked",
+        "ssr": "blocked",
+        "hydration": "blocked",
+        "package": "blocked"
+      }
+    },
+    {
+      "schemaVersion": "shootout/v1",
+      "axis": "language",
+      "language": "zig",
+      "candidateId": "zig-planner",
+      "framework": "react",
+      "component": "select",
+      "candidateRevision": "df91657cd8c3b06d08941dfcadc50bee2f00f327",
+      "frameworkRevision": "react",
+      "componentRevision": "e75b1587b2d2ec44d05564e0bf31ca22dfe8137be8ed6445bc46ee37dd4ec095",
+      "runId": "sha256:7b43521b0ffb00b26a2c76e9e2c83d660225c75e146fa47f92284312929bcba2",
+      "evidenceDigest": "74545258ee5307f36acc53f4eb586aca2c35993b080c4f3718b4256c35ca4413",
+      "environmentManifestDigest": "2bce86e8e4026b8ed1c041cb4ec79c884fceebadb3db29f24e65fa72d5d7e9b6",
+      "baseline": {
+        "digest": "2f6e2c006f928bd1580dedd9fdfdca17df31d4a9c097b95dc766df8fc4de20bf"
+      },
+      "gates": {
+        "full-contract": "blocked",
+        "api": "blocked",
+        "aria": "blocked",
+        "keyboard": "blocked",
+        "typeahead": "blocked",
+        "controlled": "blocked",
+        "hydration": "blocked",
+        "package": "blocked"
+      }
+    }
+  ],
   "results": [
     {
       "language": "typescript",
       "toolchain": "v24.17.0",
-      "measurementStatus": "blocked-runtime-resource-usage-unavailable",
       "request": {
-        "semanticDigest": "cfad62bb65584b662946a66e1dc0963d5efae5eb0a63d4f4e1a23343dc185409",
-        "fixtureDigest": "0cf758de230b0d7d11c3a8c7f51bf737ba499cd50caa316f2a63f930c10e2757"
+        "schemaVersion": "kumo.compiler.request/v1",
+        "semanticDigest": "d332d74386e2f6ec471c4f507bc5384b8b32590fab633a1377ca1fd37d071db3",
+        "workloadDigest": "6b2a2fa231d7a51c633842c5bcea3256bc675f98cdc984ce2a43d61c4808cbf5",
+        "portableInputRoot": "$REPOSITORY",
+        "portableOutputRoot": "$OUTPUT"
       },
-      "inventory": [
-        {
-          "component": "button",
-          "framework": "react"
-        },
-        {
-          "component": "select",
-          "framework": "react"
-        }
-      ],
-      "normalized": {
-        "schemaVersion": "kumo.language-plan/v1",
+      "artifact": {
+        "schemaVersion": "kumo.language-artifact/v1",
         "status": "ok",
         "diagnostics": [],
-        "targets": [
+        "plan": [
           {
             "component": "button",
             "framework": "react"
@@ -66,117 +278,130 @@
             "component": "select",
             "framework": "react"
           }
+        ],
+        "outputs": [
+          {
+            "sha256": "febd3b5b06ff6bc6e065565e865fc736e6e501d3b3dfef3fc332e0fde5f3786e",
+            "bytes": 96
+          },
+          {
+            "sha256": "52491b78c24404742580f7792a2ec67ed5f31a02855c4c7213ff0b7a6ebbd17f",
+            "bytes": 96
+          }
         ]
       },
-      "samples": [
-        {
-          "wallMs": 36.992708,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 37.43575,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 40.118041,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 40.247667,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 38.29075,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 41.653,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 43.615375,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 40.920167,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 40.259833,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 39.742375,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        }
-      ],
-      "summary": {
-        "medianWallMs": 40.118041,
-        "p95WallMs": 43.615375
+      "artifactDigest": "f3b8c3fa3f37415fe01d8d3b41ce0c7735444ce4c9aa3245e4a28a10437756d7",
+      "rawOutput": {
+        "files": 2,
+        "bytes": 192,
+        "digest": "99da426b2c94cb02faecd07ebfb4c9ac8d377081455fda2f4fd5c67edf108a44"
       },
       "correctness": "passed",
-      "artifactSchema": "kumo.language-artifact/v1",
+      "performance": {
+        "status": "blocked-resource-metrics-unavailable",
+        "warmups": 2,
+        "measured": 10,
+        "serialized": true,
+        "samples": [
+          {
+            "wallMs": 40.37025,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 37.653083,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 40.309917,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 40.474541,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 39.09,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 40.67125,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 38.782958,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 36.812291,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 39.63175,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 37.644208,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          }
+        ],
+        "approvedVariance": {
+          "wallMs": 1.7246127215517586
+        },
+        "summary": {
+          "medianWallMs": 39.09,
+          "p95WallMs": 40.67125
+        }
+      },
       "coldSetupBuild": {
         "status": "not-measured-prebuilt-input"
       },
       "incremental": {
         "status": "not-applicable-fresh-output-roots"
       },
+      "diagnostics": [],
       "maintenance": {
-        "status": "recorded-by-next-run"
+        "sourceFiles": 1,
+        "loc": 9
       },
       "distribution": {
         "binaryBytes": 120591840
-      },
-      "rawOutput": {
-        "files": 2,
-        "bytes": 192,
-        "digest": "1ff5c8a2d868bdca753ce56e6b7f0e84e28a41df4dcd1e11e2024cee9158448e"
       }
     },
     {
       "language": "go",
       "toolchain": "go version go1.26.1 darwin/arm64",
-      "measurementStatus": "blocked-runtime-resource-usage-unavailable",
       "request": {
-        "semanticDigest": "cfad62bb65584b662946a66e1dc0963d5efae5eb0a63d4f4e1a23343dc185409",
-        "fixtureDigest": "0cf758de230b0d7d11c3a8c7f51bf737ba499cd50caa316f2a63f930c10e2757"
+        "schemaVersion": "kumo.compiler.request/v1",
+        "semanticDigest": "d332d74386e2f6ec471c4f507bc5384b8b32590fab633a1377ca1fd37d071db3",
+        "workloadDigest": "6b2a2fa231d7a51c633842c5bcea3256bc675f98cdc984ce2a43d61c4808cbf5",
+        "portableInputRoot": "$REPOSITORY",
+        "portableOutputRoot": "$OUTPUT"
       },
-      "inventory": [
-        {
-          "component": "button",
-          "framework": "react"
-        },
-        {
-          "component": "select",
-          "framework": "react"
-        }
-      ],
-      "normalized": {
-        "schemaVersion": "kumo.language-plan/v1",
+      "artifact": {
+        "schemaVersion": "kumo.language-artifact/v1",
         "status": "ok",
         "diagnostics": [],
-        "targets": [
+        "plan": [
           {
             "component": "button",
             "framework": "react"
@@ -185,117 +410,130 @@
             "component": "select",
             "framework": "react"
           }
+        ],
+        "outputs": [
+          {
+            "sha256": "11be10d0fd7b7109ed3aea2b4aa0e44fd934394a57bb87390c0474b99912954c",
+            "bytes": 1012
+          },
+          {
+            "sha256": "2bc31ca83d81b69c8faedbe42125ed1de4c38d9a2bbb95b0ae4d1b9c501f1dc0",
+            "bytes": 2295
+          }
         ]
       },
-      "samples": [
-        {
-          "wallMs": 33.617959,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 31.753792,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 31.563334,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 32.7585,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 31.441667,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 33.330875,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 31.942,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 33.2485,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 34.968041,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 33.733125,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        }
-      ],
-      "summary": {
-        "medianWallMs": 32.7585,
-        "p95WallMs": 34.968041
+      "artifactDigest": "fbcbe7618437708ec8a2af5fff0fd2f37886dabd629ddd2179feab7d529c4353",
+      "rawOutput": {
+        "files": 2,
+        "bytes": 3307,
+        "digest": "dae9872aaae46d0dce0d5cfff92335c457585d21edeb7f3b3c79672fea07e72a"
       },
       "correctness": "passed",
-      "artifactSchema": "kumo.language-artifact/v1",
+      "performance": {
+        "status": "blocked-resource-metrics-unavailable",
+        "warmups": 2,
+        "measured": 10,
+        "serialized": true,
+        "samples": [
+          {
+            "wallMs": 31.832,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 32.660125,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 32.762375,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 34.269125,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 33.390084,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 35.49925,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 32.552583,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 32.032875,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 34.276042,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 34.058792,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          }
+        ],
+        "approvedVariance": {
+          "wallMs": 1.2319079211072916
+        },
+        "summary": {
+          "medianWallMs": 32.762375,
+          "p95WallMs": 35.49925
+        }
+      },
       "coldSetupBuild": {
         "status": "not-measured-prebuilt-input"
       },
       "incremental": {
         "status": "not-applicable-fresh-output-roots"
       },
+      "diagnostics": [],
       "maintenance": {
-        "status": "recorded-by-next-run"
+        "sourceFiles": 6,
+        "loc": 287
       },
       "distribution": {
-        "binaryBytes": 3394514
-      },
-      "rawOutput": {
-        "files": 2,
-        "bytes": 3307,
-        "digest": "31cb538fc648faf920a1660c9e0e9ffeebfbf55189b3777254ab1dcf5eb50ed5"
+        "binaryBytes": 3377954
       }
     },
     {
       "language": "rust",
       "toolchain": "rustc 1.94.1 (e408947bf 2026-03-25)",
-      "measurementStatus": "blocked-runtime-resource-usage-unavailable",
       "request": {
-        "semanticDigest": "cfad62bb65584b662946a66e1dc0963d5efae5eb0a63d4f4e1a23343dc185409",
-        "fixtureDigest": "0cf758de230b0d7d11c3a8c7f51bf737ba499cd50caa316f2a63f930c10e2757"
+        "schemaVersion": "kumo.compiler.request/v1",
+        "semanticDigest": "d332d74386e2f6ec471c4f507bc5384b8b32590fab633a1377ca1fd37d071db3",
+        "workloadDigest": "6b2a2fa231d7a51c633842c5bcea3256bc675f98cdc984ce2a43d61c4808cbf5",
+        "portableInputRoot": "$REPOSITORY",
+        "portableOutputRoot": "$OUTPUT"
       },
-      "inventory": [
-        {
-          "component": "button",
-          "framework": "react"
-        },
-        {
-          "component": "select",
-          "framework": "react"
-        }
-      ],
-      "normalized": {
-        "schemaVersion": "kumo.language-plan/v1",
+      "artifact": {
+        "schemaVersion": "kumo.language-artifact/v1",
         "status": "ok",
         "diagnostics": [],
-        "targets": [
+        "plan": [
           {
             "component": "button",
             "framework": "react"
@@ -304,117 +542,130 @@
             "component": "select",
             "framework": "react"
           }
+        ],
+        "outputs": [
+          {
+            "sha256": "4962c17f988ae076988592346625f9684814a34c39ab8dc3aae9ce704534ce9f",
+            "bytes": 1900
+          },
+          {
+            "sha256": "12357a718ea2064d4563316b7ab00985a1a0820c80bc83ac2970f623d54a9fd1",
+            "bytes": 3469
+          }
         ]
       },
-      "samples": [
-        {
-          "wallMs": 39.493,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 39.591834,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 41.968125,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 38.503542,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 40.654375,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 39.681625,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 38.671042,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 40.712959,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 39.030916,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 38.685667,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        }
-      ],
-      "summary": {
-        "medianWallMs": 39.493,
-        "p95WallMs": 41.968125
+      "artifactDigest": "aa980484c349d49d0efbc16ec14d7a582ea345b212bbca6a59ff0833854ef775",
+      "rawOutput": {
+        "files": 2,
+        "bytes": 5369,
+        "digest": "c0a8e04d38c72e9bf40366d4df7d2a7722526f23f020598ab0cba707dcb43eee"
       },
       "correctness": "passed",
-      "artifactSchema": "kumo.language-artifact/v1",
+      "performance": {
+        "status": "blocked-resource-metrics-unavailable",
+        "warmups": 2,
+        "measured": 10,
+        "serialized": true,
+        "samples": [
+          {
+            "wallMs": 43.488292,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 38.837792,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 41.512875,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 39.795042,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 38.644459,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 40.535417,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 42.114042,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 39.100542,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 44.638625,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 39.231834,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          }
+        ],
+        "approvedVariance": {
+          "wallMs": 3.9119695275556006
+        },
+        "summary": {
+          "medianWallMs": 39.795042,
+          "p95WallMs": 44.638625
+        }
+      },
       "coldSetupBuild": {
         "status": "not-measured-prebuilt-input"
       },
       "incremental": {
         "status": "not-applicable-fresh-output-roots"
       },
+      "diagnostics": [],
       "maintenance": {
-        "status": "recorded-by-next-run"
+        "sourceFiles": 8,
+        "loc": 294
       },
       "distribution": {
         "binaryBytes": 630272
-      },
-      "rawOutput": {
-        "files": 2,
-        "bytes": 5369,
-        "digest": "f2afcd5f598561de2065e39271bd3a89607065da16b3af6978ce16970ef6889c"
       }
     },
     {
       "language": "zig",
       "toolchain": "0.16.0",
-      "measurementStatus": "blocked-runtime-resource-usage-unavailable",
       "request": {
-        "semanticDigest": "cfad62bb65584b662946a66e1dc0963d5efae5eb0a63d4f4e1a23343dc185409",
-        "fixtureDigest": "0cf758de230b0d7d11c3a8c7f51bf737ba499cd50caa316f2a63f930c10e2757"
+        "schemaVersion": "kumo.compiler.request/v1",
+        "semanticDigest": "d332d74386e2f6ec471c4f507bc5384b8b32590fab633a1377ca1fd37d071db3",
+        "workloadDigest": "6b2a2fa231d7a51c633842c5bcea3256bc675f98cdc984ce2a43d61c4808cbf5",
+        "portableInputRoot": "$REPOSITORY",
+        "portableOutputRoot": "$OUTPUT"
       },
-      "inventory": [
-        {
-          "component": "button",
-          "framework": "react"
-        },
-        {
-          "component": "select",
-          "framework": "react"
-        }
-      ],
-      "normalized": {
-        "schemaVersion": "kumo.language-plan/v1",
+      "artifact": {
+        "schemaVersion": "kumo.language-artifact/v1",
         "status": "ok",
         "diagnostics": [],
-        "targets": [
+        "plan": [
           {
             "component": "button",
             "framework": "react"
@@ -423,92 +674,113 @@
             "component": "select",
             "framework": "react"
           }
+        ],
+        "outputs": [
+          {
+            "sha256": "79d7baf171d92d31fa1d17cdfa140df59852bb86a35e3fb59a94c74f166aff32",
+            "bytes": 479
+          },
+          {
+            "sha256": "4aef17e98ecd00f010ca992f5125a0f5cba0605bab9909ac99870de58ad67820",
+            "bytes": 896
+          }
         ]
       },
-      "samples": [
-        {
-          "wallMs": 31.5,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 31.675041,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 31.763292,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 31.063625,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 33.716167,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 32.183958,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 31.751875,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 30.848875,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 31.512958,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        },
-        {
-          "wallMs": 31.507125,
-          "cpuUserMs": 0,
-          "cpuSystemMs": 0,
-          "peakRssBytes": null
-        }
-      ],
-      "summary": {
-        "medianWallMs": 31.512958,
-        "p95WallMs": 33.716167
+      "artifactDigest": "74545258ee5307f36acc53f4eb586aca2c35993b080c4f3718b4256c35ca4413",
+      "rawOutput": {
+        "files": 2,
+        "bytes": 1375,
+        "digest": "438da0e5756eb7849d765aff9f9fc46477b1098c83aa768837c89821193cd51c"
       },
       "correctness": "passed",
-      "artifactSchema": "kumo.language-artifact/v1",
+      "performance": {
+        "status": "blocked-resource-metrics-unavailable",
+        "warmups": 2,
+        "measured": 10,
+        "serialized": true,
+        "samples": [
+          {
+            "wallMs": 29.636833,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 29.993625,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 31.869083,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 31.456209,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 35.595791,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 32.685958,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 32.165459,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 34.551042,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 33.602959,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          },
+          {
+            "wallMs": 35.611375,
+            "cpuUserMs": null,
+            "cpuSystemMs": null,
+            "peakRssBytes": null
+          }
+        ],
+        "approvedVariance": {
+          "wallMs": 4.03313957957244
+        },
+        "summary": {
+          "medianWallMs": 32.165459,
+          "p95WallMs": 35.611375
+        }
+      },
       "coldSetupBuild": {
         "status": "not-measured-prebuilt-input"
       },
       "incremental": {
         "status": "not-applicable-fresh-output-roots"
       },
+      "diagnostics": [],
       "maintenance": {
-        "status": "recorded-by-next-run"
+        "sourceFiles": 3,
+        "loc": 232
       },
       "distribution": {
-        "binaryBytes": 566216
-      },
-      "rawOutput": {
-        "files": 2,
-        "bytes": 1375,
-        "digest": "32c7a310bd1bbe8568cf72d14dd4e6c72a9bf43e15bb68c32eb634137a2b4286"
+        "binaryBytes": 275672
       }
     }
   ]
