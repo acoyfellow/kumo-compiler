@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "checkbox",
+  "framework": "vue",
+  "url": "http://127.0.0.1:4260/checkbox/vue/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "caa9e80acb6971a507f63cb5101c2a3d2e94e2b8c2c422b8957baeefa7fc21fd",
+    "postHydration": "6a90643a39f4f70755a901b346a62b73ef0753e40680766836d4e234ed8614e2",
+    "aria": [],
+    "behaviorVector": {
+      "policy": "native-check",
+      "target": true,
+      "active": "INPUT",
+      "checked": true
+    }
+  },
+  "screenshot": {
+    "sha256": "f4c4a11081836da74535bb2a188dc388cc613614e6aec01b1099ccfb7d0ccc18",
+    "pixelSha256": "1b7a29ab3debe22d1f838884337c11291f90bd51f7c03c1499d17373d2dfbb99",
+    "bytes": 16614
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/checkbox/vue/assets/index-BP2V1Ibz.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/checkbox/vue/assets/vue-checkbox.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

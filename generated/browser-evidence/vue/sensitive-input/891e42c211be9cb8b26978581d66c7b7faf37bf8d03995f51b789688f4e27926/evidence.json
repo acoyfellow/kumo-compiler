@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "sensitive-input",
+  "framework": "vue",
+  "url": "http://127.0.0.1:4260/sensitive-input/vue/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "8f1abbf5e28d7208dc33bb20da1d9a17afce0767c5fd3d1a32c660bf1d5dd0b0",
+    "postHydration": "e871138ecd6a7342bddc0bfa00d8f66088218f15d39c5641cbbed9cd03684c4a",
+    "aria": [],
+    "behaviorVector": {
+      "policy": "sensitive-toggle",
+      "target": true,
+      "active": "INPUT",
+      "checked": false
+    }
+  },
+  "screenshot": {
+    "sha256": "3ebe8d50f3ff3fd0481df3cbad4c284e3c606f1701b62100ffc0e9bec649b849",
+    "pixelSha256": "4cfb339ff9556e7653f0df38cc3cc7a2782f98cce935909b4d32a99718f1bc32",
+    "bytes": 10865
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/sensitive-input/vue/assets/index-DxNxOLbY.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/sensitive-input/vue/assets/vue-sensitive-input.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

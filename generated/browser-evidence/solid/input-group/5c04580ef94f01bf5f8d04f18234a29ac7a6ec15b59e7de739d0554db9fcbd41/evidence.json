@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "input-group",
+  "framework": "solid",
+  "url": "http://127.0.0.1:4260/input-group/solid/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "1c3ce258a8deee7efc00588f2db9d08572d9738337b20e229f7ab3853c31e816",
+    "postHydration": "b6ad18d88c5db5359841d18e06685f863daa5902fcfc68910ba9bf3c3141d1fe",
+    "aria": [
+      {
+        "tag": "input",
+        "role": null,
+        "label": "Domain name",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": null,
+      "target": true,
+      "active": "INPUT",
+      "checked": false
+    }
+  },
+  "screenshot": {
+    "sha256": "dd379374e1855ab8b667374ef942ec78506f89faeb248256f076852e9fc31fbe",
+    "pixelSha256": "4dd034de5cb0353b5fa80387e3ad495bbff37a169f90813b86019bdc6f3a481d",
+    "bytes": 10473
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/input-group/solid/assets/index-DxNxOLbY.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/input-group/solid/assets/solid-input-group.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "cloudflare-logo",
+  "framework": "svelte",
+  "url": "http://127.0.0.1:4260/cloudflare-logo/svelte/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "3eb29e079a4fc525f08056433f72635ad2d7ea6a059f954a7a20f19e94d02194",
+    "postHydration": "781f5f7ae38dfc303fce56dfdf300506b03013037867513d94fa5d78b4cb58a0",
+    "aria": [
+      {
+        "tag": "div",
+        "role": "img",
+        "label": "Cloudflare",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "b74f05fc87e459857a55580b107192814b362ec86fac336c1394e821cb96a9fb",
+    "pixelSha256": "484521a1e0ed722e2ff1a15abe59d78fd5000ad325cdec33ef2855a39b2313c4",
+    "bytes": 9846
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/cloudflare-logo/svelte/assets/index-XUZVPns1.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/cloudflare-logo/svelte/assets/svelte-cloudflare-logo.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

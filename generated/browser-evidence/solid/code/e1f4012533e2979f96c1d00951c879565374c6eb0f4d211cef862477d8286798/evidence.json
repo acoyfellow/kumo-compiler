@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "code",
+  "framework": "solid",
+  "url": "http://127.0.0.1:4260/code/solid/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "f5e0b48d56d81c2f08d37b08bd9f553e694d6a829aa9e787510fd4d86624d2b9",
+    "postHydration": "f9030e5f24c0465f34c7e67c255765fcd0baef718ba8db614dc095e0139b75c4",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "df7a64d865a1387d03998e27fe53bc577be585d78c82261a89f47c57d56bc9c9",
+    "pixelSha256": "b8efd74fe988ec7595fd303e539199fd9f3b0f32557c4757a19aad8b950522cc",
+    "bytes": 7290
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/code/solid/assets/index-XUZVPns1.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/code/solid/assets/solid-code.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

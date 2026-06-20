@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "pagination",
+  "framework": "solid",
+  "url": "http://127.0.0.1:4260/pagination/solid/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "9a2ea29573c99ab179df16630da5a77a186f5a82216f28e40fa6eed0ed8e9c65",
+    "postHydration": "d1d7d39b1c2ed1d0fd0159e2a65255e5321a062ae69d65c22064608848028541",
+    "aria": [
+      {
+        "tag": "nav",
+        "role": null,
+        "label": "Pagination",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Previous page",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Next page",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "deed34ed09c4d72c53a7ebc6908a87561c2082ec5f5daa417946856ca84299c4",
+    "pixelSha256": "0ec198706595fed0ee0475c28628d803ff08fa6816fc7ed79369dd459710c429",
+    "bytes": 8088
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/pagination/solid/assets/index-DHsnio_D.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/pagination/solid/assets/solid-pagination.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

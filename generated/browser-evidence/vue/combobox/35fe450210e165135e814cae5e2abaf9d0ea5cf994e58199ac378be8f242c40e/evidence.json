@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "combobox",
+  "framework": "vue",
+  "url": "http://127.0.0.1:4260/combobox/vue/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "dc33d367eb01a8e13539e6884847b956e61d15643030c6317ccb892a51948383",
+    "postHydration": "a07f0e33aa28427bf3a26b4909b67ef43044f679b530443bedb50bef3bdfbde7",
+    "aria": [
+      {
+        "tag": "button",
+        "role": "combobox",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "ul",
+        "role": "listbox",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "li",
+        "role": "option",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "li",
+        "role": "option",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "58f7467cac0ac594226bec6c1de86f436de018f4e450ce41580a1a1014e94c1f",
+    "pixelSha256": "57e6def092d4f149e0b750c27aa0295f5914da18381243d98850cd3d98a62f20",
+    "bytes": 11863
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/combobox/vue/assets/index-DHsnio_D.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/combobox/vue/assets/vue-combobox.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

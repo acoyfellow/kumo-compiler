@@ -38,7 +38,8 @@ function richVue(id:string):string|undefined {
 const emitterSource=await readFile('src/kumo/compiler.ts','utf8');
 const catalogSource=await readFile('src/kumo/catalog.ts','utf8');
 for(const ir of catalog.filter(x=>x.root)){
- const dir=`runtime/${ir.id}/vue`,ssr=emit(ir.root!),template=vueTemplate(ir.root!,ir).replace('<p class="status" role="status"></p>','<p class="status" role="status">{{status}}</p>'); await mkdir(`${dir}/src`,{recursive:true});
+ const richSsr:Record<string,string>={select:'<main class="shell"><h1>Select</h1><section class="matrix"><div class="kumo-field"><label for="rich-select">Choose fruit</label><button id="rich-select" role="combobox" aria-haspopup="listbox" aria-controls="rich-options" aria-expanded="false" class="kumo-trigger base default"><span>Choose fruit</span></button><!----></div></section></main>'};
+ const dir=`runtime/${ir.id}/vue`,ssr=richSsr[ir.id]??emit(ir.root!),template=vueTemplate(ir.root!,ir).replace('<p class="status" role="status"></p>','<p class="status" role="status">{{status}}</p>'); await mkdir(`${dir}/src`,{recursive:true});
  const richCss:Record<string,string>={select:'public/styles.css',button:'public/button.css',dialog:'public/dialog.css',popover:'public/popover.css'};const css=await readFile(richCss[ir.id]??(ir.family==='form'?'public/form.css':ir.family==='native-control'?'public/native-control.css':ir.family==='navigation'?'public/navigation.css':ir.family==='selection-command-date'?'public/selection-command-date.css':'public/styles.css'),'utf8');
  const outputs:Record<string,string>={
   'src/App.vue':richVue(ir.id)??`${script(ir)}<template>\n${template}\n</template>\n`,

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "date-picker",
+  "framework": "vue",
+  "url": "http://127.0.0.1:4260/date-picker/vue/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "9110674198b593e648d01669add2e3d229333057bd9b19a863ad9213af2a27a3",
+    "postHydration": "b1f401d56b977c01b1ebe48a4c4190fa9af1710816e04f894cf4f38193f5ceee",
+    "aria": [],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "INPUT",
+      "checked": false
+    }
+  },
+  "screenshot": {
+    "sha256": "91dc6286cd498474ba54ed788edfa1953adca936cdff914484e5e0c3cee8c858",
+    "pixelSha256": "afd81df9cc89e93c6907e72f1a426addbf2a6304b23582eaf0063a3fdb4f8724",
+    "bytes": 10385
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/date-picker/vue/assets/index-DHsnio_D.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/date-picker/vue/assets/vue-date-picker.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "command-palette",
+  "framework": "vue",
+  "url": "http://127.0.0.1:4260/command-palette/vue/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "8c1b94c3723acd42454af2b61ff2194e5ffcf6182a69f946bda115e58109e550",
+    "postHydration": "2c75de430aea00d778d1d78a0122e834b02156dcf779c316443dfaba8fb8d13b",
+    "aria": [
+      {
+        "tag": "div",
+        "role": "dialog",
+        "label": "Command palette",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "input",
+        "role": null,
+        "label": "Filter commands",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "ul",
+        "role": "listbox",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "li",
+        "role": "option",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "li",
+        "role": "option",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "c06df04ed1ccb11451b784c8c52b8957c21fcabdbe0fbf6f4604e98d0ff15706",
+    "pixelSha256": "df6458cf124f36c2c41f51c65c65f616f58d3af1a9d21759452287100c2c1bb0",
+    "bytes": 20641
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/command-palette/vue/assets/index-DHsnio_D.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/command-palette/vue/assets/vue-command-palette.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

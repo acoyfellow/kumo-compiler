@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "switch",
+  "framework": "vue",
+  "url": "http://127.0.0.1:4260/switch/vue/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "760c47a879cee99dd45905aca3e3b53a3ba4a9a5860af03ca08f767381929877",
+    "postHydration": "d46fd669f4961242e42ace2b188908e334d077af01fa4cffc0abacdb2cd8196a",
+    "aria": [
+      {
+        "tag": "input",
+        "role": "switch",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "input",
+        "role": "switch",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "input",
+        "role": "switch",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "input",
+        "role": "switch",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "native-check",
+      "target": true,
+      "active": "INPUT",
+      "checked": true
+    }
+  },
+  "screenshot": {
+    "sha256": "78465b322b5473e5e6592f1e577f4dd9666c4aecd3463d7fe5ea38f463d9b3b6",
+    "pixelSha256": "5fff6ab8928e79c04ddc3c8f5552145c67785d8a74b225dc9a25de7026121712",
+    "bytes": 18031
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/switch/vue/assets/index-BP2V1Ibz.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/switch/vue/assets/vue-switch.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "empty",
+  "framework": "solid",
+  "url": "http://127.0.0.1:4260/empty/solid/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "5fa3a2595a7ddb66927b1e90a958106a07eb2ab72ffc275914a900a83fd51c5a",
+    "postHydration": "401922387ff7eb88fca7181902e14a25c3244c6964fc2f2c406ae8b97d9a2262",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "f58177d48d2d1dacb62addb1d139ec4d94d72d8a9039ec4ad787b63d1b6c2fbf",
+    "pixelSha256": "e21c8905ae27157a95cfc01f574360a6bca76e5a828aa1dedc059583fd244995",
+    "bytes": 10647
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/empty/solid/assets/index-XUZVPns1.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/empty/solid/assets/solid-empty.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

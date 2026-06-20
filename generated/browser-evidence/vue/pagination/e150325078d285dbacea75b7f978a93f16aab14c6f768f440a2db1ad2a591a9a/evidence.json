@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "pagination",
+  "framework": "vue",
+  "url": "http://127.0.0.1:4260/pagination/vue/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "41dac25608bd7784bf7d7d42a1cf44e6020f0b6a1d183f4e0d2b6c0b7d2b849f",
+    "postHydration": "f6acf3d0d585dcacb9968e09b0b98de842e429faf83e759bb45a128dc3f9feae",
+    "aria": [
+      {
+        "tag": "nav",
+        "role": null,
+        "label": "Pagination",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Previous page",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Next page",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "d1d24c604f041f2f17b96be0783ca2a282c3403dda869ae4fe50fb9e2118a6c0",
+    "pixelSha256": "e0e3c383152db2e5a4ac4b8f57f7b97c981ea18d3cea3b5764b0a4ab52a15576",
+    "bytes": 8064
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/pagination/vue/assets/index-DHsnio_D.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/pagination/vue/assets/vue-pagination.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

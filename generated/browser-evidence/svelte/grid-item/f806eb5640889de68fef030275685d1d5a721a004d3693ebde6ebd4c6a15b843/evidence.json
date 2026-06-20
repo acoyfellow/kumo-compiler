@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "grid-item",
+  "framework": "svelte",
+  "url": "http://127.0.0.1:4260/grid-item/svelte/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "5889f3e2650216cad508553b1be4b068a8364bc5b3ea22a7b89c5c477a359198",
+    "postHydration": "d322c16afe7b19cc1f5c5dc96c03ec05ca7456a1f23cbb1e67534a7f12758912",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "07abb2487e5513e276855b72466d0f6e0f85a4d56648e4d98b5ef7ef89fb1974",
+    "pixelSha256": "80af25021fe37faefcdf8ffc2274c52877fc9ba1f2dda7ad35a7d11e787e71f1",
+    "bytes": 9931
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/grid-item/svelte/assets/index-XUZVPns1.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/grid-item/svelte/assets/svelte-grid-item.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

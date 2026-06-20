@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "command-palette",
+  "framework": "solid",
+  "url": "http://127.0.0.1:4260/command-palette/solid/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "c05113d4ad8c5cce16dd02c9f221e3b0e6a775a807d9f311130885997a60edd1",
+    "postHydration": "2b7f95219a577d98cab24d7cdbbaee9b0995df59bf33cfaa0da00bd9ba641201",
+    "aria": [
+      {
+        "tag": "input",
+        "role": "combobox",
+        "label": null,
+        "expanded": "false",
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "INPUT",
+      "checked": false
+    }
+  },
+  "screenshot": {
+    "sha256": "6c5f0cf5f817f05d2f9fefd81bfc37a0d3af848f6fd96ba525aaa8b0bd9747c2",
+    "pixelSha256": "f4d85da57260ff3a4ecaaa0672d17677a0b0d90a68af2c3738ca920a5c83fed1",
+    "bytes": 9103
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/command-palette/solid/assets/index-DHsnio_D.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/command-palette/solid/assets/solid-command-palette.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

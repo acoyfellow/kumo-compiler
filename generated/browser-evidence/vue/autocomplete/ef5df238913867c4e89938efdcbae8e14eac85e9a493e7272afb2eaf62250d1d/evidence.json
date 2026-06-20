@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "autocomplete",
+  "framework": "vue",
+  "url": "http://127.0.0.1:4260/autocomplete/vue/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "02c114a5a461bbcc37da8195e1574f58f0ba5e755ab1687a07798ad6f42b056d",
+    "postHydration": "23a1778229d92c86297b5ff4b31b92112b73664766cecb4899afd04f6e5b2d41",
+    "aria": [
+      {
+        "tag": "input",
+        "role": "combobox",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "ul",
+        "role": "listbox",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "li",
+        "role": "option",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "li",
+        "role": "option",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "li",
+        "role": "option",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "INPUT",
+      "checked": false
+    }
+  },
+  "screenshot": {
+    "sha256": "cd2b2c1cd031e816b335e2e975f581ba6c2eaed0d7e732111c5bbe12ad1ae175",
+    "pixelSha256": "6266c908bae8a3f1ae391ec50dc89115e992171a9a970c4593092e0a01e70a84",
+    "bytes": 8865
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/autocomplete/vue/assets/index-DHsnio_D.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/autocomplete/vue/assets/vue-autocomplete.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

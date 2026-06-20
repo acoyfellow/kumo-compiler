@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "layer-card",
+  "framework": "svelte",
+  "url": "http://127.0.0.1:4260/layer-card/svelte/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "34790cda86c398c8d251fb87cc490aa9440d3a387cdea53d489248802843de26",
+    "postHydration": "0f8ba8622b62fc1ee7ece71aae746e1b3522d96894871f3b642522df1ba9e5bf",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "97d4bd0e48633d46ea3250d2404e4b1b5a585fc2dccc9342a3a29f585fae58b2",
+    "pixelSha256": "27d4acc04b85216078ac84540d2caddf0e280014730c8b4a025afdb6706a5abe",
+    "bytes": 12419
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/layer-card/svelte/assets/index-XUZVPns1.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/layer-card/svelte/assets/svelte-layer-card.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

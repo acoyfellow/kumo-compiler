@@ -7,8 +7,10 @@ for(const id of ids){
  const run=async args=>{const child=spawn('npx',['vite','build',dir,...args],{stdio:'inherit'});const [code]=await once(child,'exit');if(code)throw Error(`vite ${id} failed`)};
  await run([]);await run(['--ssr','src/server.tsx','--outDir','ssr-runtime','--emptyOutDir']);
  const server=await import(`../${ssr}/assets/solid-${id}.js?${Date.now()}`),rendered=server.render();
- const source=await readFile(`${dir}/index.html`,'utf8');
- const page=source.replace('<!--HYDRATION-->',rendered.hydration).replace(/<!--APP-->[\s\S]*?<!--\/APP-->/,`<!--APP--><div id="app">${rendered.html}</div><!--/APP-->`).replace('/src/client.tsx',`/${id}/solid/assets/solid-${id}.js`);
+ // Preserve Vite's transformed script and stylesheet tags. Reading the source
+ // index here dropped extracted CSS from the final SSR page.
+ const source=await readFile(`${dir}/public-runtime/index.html`,'utf8');
+ const page=source.replace('<!--HYDRATION-->',rendered.hydration).replace(/<!--APP-->[\s\S]*?<!--\/APP-->/,`<!--APP--><div id="app">${rendered.html}</div><!--/APP-->`);
  await writeFile(`${dir}/public-runtime/index.html`,page);
  if(['button','dialog','popover'].includes(id)){const deploy=`deploy/${id}/solid`;await rm(deploy,{recursive:true,force:true});await mkdir(deploy,{recursive:true});await cp(`${dir}/public-runtime`,deploy,{recursive:true});}
  await rm(ssr,{recursive:true,force:true});

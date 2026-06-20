@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "autocomplete",
+  "framework": "svelte",
+  "url": "http://127.0.0.1:4260/autocomplete/svelte/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "3095b77690af82800f48360594e84ac49f942aa87328c66946763b2920c087b5",
+    "postHydration": "ab9ae986dba5e759468745a4b435ecbf3e9e27e25c8f067c7326c04ab3136415",
+    "aria": [
+      {
+        "tag": "input",
+        "role": "combobox",
+        "label": null,
+        "expanded": "false",
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "INPUT",
+      "checked": false
+    }
+  },
+  "screenshot": {
+    "sha256": "cd2b2c1cd031e816b335e2e975f581ba6c2eaed0d7e732111c5bbe12ad1ae175",
+    "pixelSha256": "6266c908bae8a3f1ae391ec50dc89115e992171a9a970c4593092e0a01e70a84",
+    "bytes": 8865
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/autocomplete/svelte/assets/index-DHsnio_D.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/autocomplete/svelte/assets/svelte-autocomplete.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

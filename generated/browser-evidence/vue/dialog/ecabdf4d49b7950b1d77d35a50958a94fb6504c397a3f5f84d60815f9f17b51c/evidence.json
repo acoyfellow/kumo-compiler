@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "dialog",
+  "framework": "vue",
+  "url": "http://127.0.0.1:4260/dialog/vue/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "2521139ad08a14259787600c4c00218e34080a8e08103c0f143cce75babff337",
+    "postHydration": "65f2d6879e3cd20cc54ed2228e930eda464c3ea54e642600a8f5987cca02e50d",
+    "aria": [
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Close",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Close",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Close",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Close",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Close",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "dialog",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "d9277fb3d2ef325fa6ae264ea44afd2253e65e5e3cc0378b43da2a201a7155d1",
+    "pixelSha256": "de2fc04a17096b44179da16f829300a390cdfdd4333f899cbc04b3ed68f5653b",
+    "bytes": 50410
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/dialog/vue/assets/index-Nae9zVdC.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/dialog/vue/assets/index-DMSyZ2cA.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

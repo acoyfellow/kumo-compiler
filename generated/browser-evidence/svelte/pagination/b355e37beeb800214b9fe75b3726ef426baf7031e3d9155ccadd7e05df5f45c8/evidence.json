@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "pagination",
+  "framework": "svelte",
+  "url": "http://127.0.0.1:4260/pagination/svelte/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "516bb37fe60e60b14180830882587b24cf75dd0e973b83574f3678c287e79beb",
+    "postHydration": "9a5bda3a5fe666d181dba28e3dfeac267736a8a3f9b47e3901debffa50084bde",
+    "aria": [
+      {
+        "tag": "nav",
+        "role": null,
+        "label": "Pagination",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Previous page",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Next page",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "d1d24c604f041f2f17b96be0783ca2a282c3403dda869ae4fe50fb9e2118a6c0",
+    "pixelSha256": "e0e3c383152db2e5a4ac4b8f57f7b97c981ea18d3cea3b5764b0a4ab52a15576",
+    "bytes": 8064
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/pagination/svelte/assets/index-DHsnio_D.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/pagination/svelte/assets/svelte-pagination.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

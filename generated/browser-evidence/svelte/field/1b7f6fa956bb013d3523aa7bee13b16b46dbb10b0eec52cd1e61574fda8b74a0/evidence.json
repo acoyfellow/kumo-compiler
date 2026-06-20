@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "field",
+  "framework": "svelte",
+  "url": "http://127.0.0.1:4260/field/svelte/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "0be62f71b42f6df1a5e4392e7acc3013f5f80b00fd91df9e7deb9d80399412ea",
+    "postHydration": "a9bc793440939031af6f00c8376385bcab38914a06464f4979e41248e6986ffe",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": true,
+      "active": "INPUT",
+      "checked": false
+    }
+  },
+  "screenshot": {
+    "sha256": "c111b1526f7832478b57112b0c2a7006c41563adf5b12e494e4d3b838cbb9ba5",
+    "pixelSha256": "ef7c303de0971055af7b4c24cc58d704ad4269e63a04d7d49046b0531fdca844",
+    "bytes": 9744
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/field/svelte/assets/index-DxNxOLbY.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/field/svelte/assets/svelte-field.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "select",
+  "framework": "vue",
+  "url": "http://127.0.0.1:4260/select/vue/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "4345d49f2580de195704e63f02f6278c5b6056494c2d43a2bbd1e3a8dba61933",
+    "postHydration": "cc43070da0b69cc5f0120ed57f73f0d0733f6a3adfe3b5c6c03963a3ae7258eb",
+    "aria": [
+      {
+        "tag": "button",
+        "role": "combobox",
+        "label": null,
+        "expanded": "false",
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "select",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "1284a3322d3ab0bf5cd7a8b8732756a7a5243a6d46c0c3a2080e34c81485c4b5",
+    "pixelSha256": "b18828ad39e5b533a2d83b73d2ca6eaa4f6ebb56a47d876f4c0f37f0e5070de0",
+    "bytes": 16951
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/select/vue/assets/index-XUZVPns1.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/select/vue/assets/vue-select.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

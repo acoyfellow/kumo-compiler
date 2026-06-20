@@ -1,0 +1,793 @@
+{
+  "schemaVersion": "kumo.browser-proof-run/v1",
+  "runId": "2026-06-20T15-29-00-348Z-24292",
+  "createdAt": "2026-06-20T15:29:00.349Z",
+  "frameworks": [
+    "vue",
+    "svelte",
+    "solid"
+  ],
+  "components": [
+    "select",
+    "button",
+    "dialog",
+    "popover",
+    "checkbox",
+    "switch",
+    "field",
+    "input",
+    "input-group",
+    "input-area",
+    "sensitive-input",
+    "clipboard-text",
+    "tabs",
+    "menu-bar",
+    "sidebar",
+    "breadcrumbs",
+    "table-of-contents",
+    "badge",
+    "banner",
+    "surface",
+    "layer-card",
+    "grid",
+    "grid-item",
+    "loader",
+    "meter",
+    "empty",
+    "label",
+    "link",
+    "text",
+    "cloudflare-logo",
+    "code",
+    "table",
+    "radio",
+    "autocomplete",
+    "combobox",
+    "command-palette",
+    "date-picker",
+    "date-range-picker",
+    "dropdown-menu",
+    "toasty",
+    "pagination"
+  ],
+  "results": [
+    {
+      "component": "select",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/select/0ed260b530ea387b3964c1f73728d2c5d0e8aa59ab1ef41c62e6b42ffdab2786/evidence.json"
+    },
+    {
+      "component": "select",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/select/34eb6db1e2fa08806e469da1a89347de72c4e434e293b36b74e6b911d3aa27c8/evidence.json"
+    },
+    {
+      "component": "select",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/select/c18fa2e84e41580e7ef85e90a3a1fd0d757ed56d9bbaeb23d43da90644eb9def/evidence.json"
+    },
+    {
+      "component": "button",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/button/080ed32073e47f2d8afabf5b41b287dab6ace9d27bc78434c6bb7b5c55c9ad37/evidence.json"
+    },
+    {
+      "component": "button",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/button/d408f9b4ab67b4fb411944a526a091667ca2c3322d983795f251a24a4d739b34/evidence.json"
+    },
+    {
+      "component": "button",
+      "framework": "solid",
+      "status": "failed",
+      "error": "Error: missing proof check: network\n    at validateEvidence (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:13:184)\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:79:266)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:87:143"
+    },
+    {
+      "component": "dialog",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/dialog/ecabdf4d49b7950b1d77d35a50958a94fb6504c397a3f5f84d60815f9f17b51c/evidence.json"
+    },
+    {
+      "component": "dialog",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/dialog/a865f1f242b65d394e5ae7d178a6799d2c2b18625cf10514994274fb1c8ea6fd/evidence.json"
+    },
+    {
+      "component": "dialog",
+      "framework": "solid",
+      "status": "failed",
+      "error": "Error: missing proof check: network\n    at validateEvidence (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:13:184)\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:79:266)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:87:143"
+    },
+    {
+      "component": "popover",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/popover/7910b2fb112bd0e29bd5665062aff0c5530f1018edd36a806a3efe7e16fbdb7b/evidence.json"
+    },
+    {
+      "component": "popover",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/popover/ecf22659fd87453863561417cc6a12b5cbf9a8e4a07fdaf087f2a13ab9827c3f/evidence.json"
+    },
+    {
+      "component": "popover",
+      "framework": "solid",
+      "status": "failed",
+      "error": "Error: missing proof check: network\n    at validateEvidence (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:13:184)\n    at run (file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:79:266)\n    at async file:///Users/jcoeyman/cloudflare/kumo-compiler/proof/catalog-browser-proof.mjs:87:143"
+    },
+    {
+      "component": "checkbox",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/checkbox/035b6fcec2bff23ae479b003f6e5cc58665f2c639705aabaeb3c64a542b27f8d/evidence.json"
+    },
+    {
+      "component": "checkbox",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/checkbox/3dc7392dad811ff1a5ba894bce9448e08084a38806e328f5937f7c9a7f5985fd/evidence.json"
+    },
+    {
+      "component": "checkbox",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/checkbox/336ab93c0c98593bae40af621b8b8ec6a1750db1380c701da0e76710abc78524/evidence.json"
+    },
+    {
+      "component": "switch",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/switch/b6fc151ca2d40bbdb7666484d3428f8ae531e70a96a8d15532495c13316982dc/evidence.json"
+    },
+    {
+      "component": "switch",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/switch/d4915d0cb6a1b6423080fe17d9f5201765cc5b740165f9c7aeb2c54af7f6334c/evidence.json"
+    },
+    {
+      "component": "switch",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/switch/22063355dde049e0eff882b19e0c429677f864ab8c050634e9102f8e3784c9c6/evidence.json"
+    },
+    {
+      "component": "field",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/field/c22e713aeb54ce1dae8f927fe86648277cef26e9bc7c5a188cae6d993795f53b/evidence.json"
+    },
+    {
+      "component": "field",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/field/1b7f6fa956bb013d3523aa7bee13b16b46dbb10b0eec52cd1e61574fda8b74a0/evidence.json"
+    },
+    {
+      "component": "field",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/field/57c44c9351eca51d4f7b185ec3f165b58f54979e45fa500dd13c8b996a84dc3b/evidence.json"
+    },
+    {
+      "component": "input",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/input/37db9757f946406e367cabcce7a1bd615398af928003fd001881c77396524c59/evidence.json"
+    },
+    {
+      "component": "input",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/input/0f070773efb702068b08e0d7ae4ed6de4a3a21bca310e50d9d1e72ed3fe913c4/evidence.json"
+    },
+    {
+      "component": "input",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/input/e477f8b759e4e9077fb3151269e7091559eaaf0422dcbdb20aa8b92b8c6d5851/evidence.json"
+    },
+    {
+      "component": "input-group",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/input-group/0e4965cb92f5b49de1e095efd4e173fb49a6155508abc1efefdf4ba2f1393e40/evidence.json"
+    },
+    {
+      "component": "input-group",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/input-group/5464835b58120f73abe4ac7446b44abd2c2a6dcf03015c95bd4192917ef3e409/evidence.json"
+    },
+    {
+      "component": "input-group",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/input-group/5c04580ef94f01bf5f8d04f18234a29ac7a6ec15b59e7de739d0554db9fcbd41/evidence.json"
+    },
+    {
+      "component": "input-area",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/input-area/f0b8e6a759a5bbe54e3a7ce8336c221c43038adf481b62af930e041195d13885/evidence.json"
+    },
+    {
+      "component": "input-area",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/input-area/5eec04dcedbbb657847c580e75079a8a274daabd0c434ebc26bd073bfd6598b9/evidence.json"
+    },
+    {
+      "component": "input-area",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/input-area/0cffe149cedc471b251563229adda7137aa4175236929d35b6021b95bfabb798/evidence.json"
+    },
+    {
+      "component": "sensitive-input",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/sensitive-input/891e42c211be9cb8b26978581d66c7b7faf37bf8d03995f51b789688f4e27926/evidence.json"
+    },
+    {
+      "component": "sensitive-input",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/sensitive-input/4309b0654a708f458c0dd5f8a70cbcdf3e79889d1ec476f854622af7010a8fc0/evidence.json"
+    },
+    {
+      "component": "sensitive-input",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/sensitive-input/a607868d90b7daec7a83551a839661b4fb1a2a11a44b2102543ca1c338c19de1/evidence.json"
+    },
+    {
+      "component": "clipboard-text",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/clipboard-text/47133e7e1fc3f835c0ef0ff5e387e25b6c168964b18bf2e5575acf0799e16fd8/evidence.json"
+    },
+    {
+      "component": "clipboard-text",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/clipboard-text/770b77a4da40b98a28149d9be228ad1cb7f488583fb4fb0d1238cd94d0894615/evidence.json"
+    },
+    {
+      "component": "clipboard-text",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/clipboard-text/2e75a7ee91bb608175a65fc6156dc046c5090ab1240725bf2d177c7680d537ac/evidence.json"
+    },
+    {
+      "component": "tabs",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/tabs/14d51c044b2b8ef906a158ab7dd654e950b2480e4cd5ebaab658838fbf44795c/evidence.json"
+    },
+    {
+      "component": "tabs",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/tabs/7653a9e87c26c3cbf8843c85a84d40d8d7c0a61585dfd047a6e1d6a0e6c3e687/evidence.json"
+    },
+    {
+      "component": "tabs",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/tabs/e72569b3a62e950e93bc78c4c7e34e1bce016e06211c3773c3911c6341d340bd/evidence.json"
+    },
+    {
+      "component": "menu-bar",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/menu-bar/6fc1920f999adcb9461f69b38994c0bf1b9a3f99a7a647ba668227f6f79b0ef2/evidence.json"
+    },
+    {
+      "component": "menu-bar",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/menu-bar/8f036cf96aec750fc3dc3cf38f163d292dc9d21a85b53231a8298f0676a24270/evidence.json"
+    },
+    {
+      "component": "menu-bar",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/menu-bar/5d6eb75e30e39b63ece66737b762c240dc524a9a7adc1b8411c32802a1ca0b98/evidence.json"
+    },
+    {
+      "component": "sidebar",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/sidebar/8740ff482ce90761de4fee8e9a728b0fb744b6d1b5e03db918fb58bb7f841db3/evidence.json"
+    },
+    {
+      "component": "sidebar",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/sidebar/d35a45ca750392a53ecc4d7bc79c7140f760370cda91debf39ab8fe3c9caca43/evidence.json"
+    },
+    {
+      "component": "sidebar",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/sidebar/aa789a093a22da5f53745b5a2cb865618d1f3f5a071b5f3e05f0e626ae141c51/evidence.json"
+    },
+    {
+      "component": "breadcrumbs",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/breadcrumbs/787adba37d7161cc10d136a78d42a241746abef89d1278e0d53d1bbb620332eb/evidence.json"
+    },
+    {
+      "component": "breadcrumbs",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/breadcrumbs/9e1457dd1c26f31565ab43cb691252c2f613d5fa4fc7590152960fce8f22f917/evidence.json"
+    },
+    {
+      "component": "breadcrumbs",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/breadcrumbs/e8b5292291d0a26be4fe47dcdc31036d5597cbf93f65ceaf7832fb38d932d9f0/evidence.json"
+    },
+    {
+      "component": "table-of-contents",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/table-of-contents/cb0825dfd8d8476ea85adaadf15d1c337fa15b685b2d676285838b95b851ab44/evidence.json"
+    },
+    {
+      "component": "table-of-contents",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/table-of-contents/fee591e36b5a69a2bc5ec8553d3888ec9204c3d8df8bdcd551bed304d536a3e2/evidence.json"
+    },
+    {
+      "component": "table-of-contents",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/table-of-contents/2fbc955cb07deb60a027e0c199616d395a6fc4cf24be20d1c8b6c7a051528075/evidence.json"
+    },
+    {
+      "component": "badge",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/badge/e31889be288877f331c6b388f1be6e01b791d6555bac1d54c017222f67138247/evidence.json"
+    },
+    {
+      "component": "badge",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/badge/d89d2cd8523a4613331696d7131bcf959048ab8f9bd462973185b576848202cb/evidence.json"
+    },
+    {
+      "component": "badge",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/badge/e3575baa195188195ae0d240c4d7dcb79dff77d1346147cd81284ffb5b864f2f/evidence.json"
+    },
+    {
+      "component": "banner",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/banner/dc96c4c44b33af75ff64dd482ce3ea24f979c78ab3dea2446fd4aedb6fc9de5f/evidence.json"
+    },
+    {
+      "component": "banner",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/banner/41a75bcbbb30067525767be780f98f8e5e40a20481b292f1aefc849b04d51bc6/evidence.json"
+    },
+    {
+      "component": "banner",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/banner/dfccd9e36ab8b7d43dd4a9ec8198d0ca68bbfbdcd0ecd1b1a6eb91a4c6ec80f0/evidence.json"
+    },
+    {
+      "component": "surface",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/surface/74acf99fd7478a8942075238aec0cdd0738aa4474b8d14152b2a52f4f18b3168/evidence.json"
+    },
+    {
+      "component": "surface",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/surface/76751b5f476e4bc37b6f3a8c379154978ac023c8a244aab5ed9ff6e3a096842e/evidence.json"
+    },
+    {
+      "component": "surface",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/surface/d1bda9849a169b8a389224d9211a451018254cc64488f8c28151a7b8c2749f3d/evidence.json"
+    },
+    {
+      "component": "layer-card",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/layer-card/5cd104864432538ecd87d7ed130d946ddd8603affd2b41ceeb8e2e9b88ab72b7/evidence.json"
+    },
+    {
+      "component": "layer-card",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/layer-card/9b03af596242c795910fbd710d997c4dd139a5b0a25edf5af0b8830185f90882/evidence.json"
+    },
+    {
+      "component": "layer-card",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/layer-card/8069a48fcefd6fa7a5ec6c8bb35d96d84f3f8344343245ff93af47ef7434c2f1/evidence.json"
+    },
+    {
+      "component": "grid",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/grid/befdb2200f91fe4bb9c24bd30375c1de4f858e00d8693381f50f2f84bd1626e3/evidence.json"
+    },
+    {
+      "component": "grid",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/grid/48d1517743da4e0e189a2fa0371c9b7aa4f6cf7c27bbe25626bb7022a5f32e5e/evidence.json"
+    },
+    {
+      "component": "grid",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/grid/937bf2c8cfdb4dcd9ef7956c3a307805fc183d2be461d48d467f15291f11e841/evidence.json"
+    },
+    {
+      "component": "grid-item",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/grid-item/302017da4669b969114eca9b673caf15fde068be35bbf74c464aba28f8ba0e6c/evidence.json"
+    },
+    {
+      "component": "grid-item",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/grid-item/f806eb5640889de68fef030275685d1d5a721a004d3693ebde6ebd4c6a15b843/evidence.json"
+    },
+    {
+      "component": "grid-item",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/grid-item/a9f075db98cd65f4825940a43c7eb5f61eca95f0200ed312d45a11293bc54b14/evidence.json"
+    },
+    {
+      "component": "loader",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/loader/58414a15797d3530b1625ab84f0611285337a48b6f1343fc9704a6081b3aa704/evidence.json"
+    },
+    {
+      "component": "loader",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/loader/9403cc0fab4993d689370cb09f3ad2cffe59163e9c6874eac7e4a3db7972dfd8/evidence.json"
+    },
+    {
+      "component": "loader",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/loader/a3fea4a4f32793cfe38ece75e40f114198248897bd9eae35f5d7a21543c476b6/evidence.json"
+    },
+    {
+      "component": "meter",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/meter/5427dd4d8de26076b6c65fe79a3e5c83495babe1591e6fb7d018d00e735890c2/evidence.json"
+    },
+    {
+      "component": "meter",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/meter/8550e58f976ef4f7c740e0e2b1c5af337a99d27f22d3d54abda8069f8407d864/evidence.json"
+    },
+    {
+      "component": "meter",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/meter/ceca7d6a8baad93f097a4a06811d8d65e02a5fcb815d2a0931ca7d210881c39a/evidence.json"
+    },
+    {
+      "component": "empty",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/empty/698ab5dfdd2e2b8c5ebb0acf6c3e4bfde26d16d8c07a7a9077e3a078c8c68c80/evidence.json"
+    },
+    {
+      "component": "empty",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/empty/d5170432fbd5920f8c77cce0cec32489502ba93f0329316680f6d7895e20f6dc/evidence.json"
+    },
+    {
+      "component": "empty",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/empty/b41cd1ddb3dd915c539240ed3c4b1b4d9a099fc518e5869cd4a1d36a412227d5/evidence.json"
+    },
+    {
+      "component": "label",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/label/d2f4a9a3164f08370e064142cde12e4e567b8e2b0197ef7ec23735ecf26a08a7/evidence.json"
+    },
+    {
+      "component": "label",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/label/bea29948469ec063233672f637db94c2d5d5ac303cf964714b23b8856213a399/evidence.json"
+    },
+    {
+      "component": "label",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/label/acbacfe3004e6f7e3bc554c5f0ce73d196bdae26746318cf9af0c9297ff94cc2/evidence.json"
+    },
+    {
+      "component": "link",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/link/b40fbe1f74a183b0cb50780df0d937bbd2daf94d34702a56911a47f3d504668d/evidence.json"
+    },
+    {
+      "component": "link",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/link/539e2a200126067e9d3b226f1bd080919e2e9fa7e89c75420024baf8b87e3ad5/evidence.json"
+    },
+    {
+      "component": "link",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/link/35fea22aa1892ff9b49f1d274ef8446f097f76214512877e4392abb88a4c0fe9/evidence.json"
+    },
+    {
+      "component": "text",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/text/1a38532ac2d7389623349d2221d14c122e8967ac43a7882830648c534a11bc9d/evidence.json"
+    },
+    {
+      "component": "text",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/text/cd05676bf2dec68965b7452224ff02b385e99ac7e81a78ac1418e4ff94e3669d/evidence.json"
+    },
+    {
+      "component": "text",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/text/d22e62da069af5a56b202cda4d8fbad535ad6dc7f32b1dd9658bdf9c27129657/evidence.json"
+    },
+    {
+      "component": "cloudflare-logo",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/cloudflare-logo/7879b70eb020975e85237ca4404c95795746d6f7a3e8c34127ea099738c92f29/evidence.json"
+    },
+    {
+      "component": "cloudflare-logo",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/cloudflare-logo/cafaf950f3322e7fe07654da0dfe751495164e360c91d2c91e2bc499b3611018/evidence.json"
+    },
+    {
+      "component": "cloudflare-logo",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/cloudflare-logo/d593ee7bd0cb6963d540c68fe20454fde3d01a3d62e477d41ee641faccf5fd6d/evidence.json"
+    },
+    {
+      "component": "code",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/code/37bdb0f468507b503b6999c3ede5dcc1536a0917f2742fbe24a3bb60da03e33e/evidence.json"
+    },
+    {
+      "component": "code",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/code/7d70ceab8e122bbf6da08e7c2f5b6d45be12eff47a2264c31eea6cebb1300c93/evidence.json"
+    },
+    {
+      "component": "code",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/code/e1f4012533e2979f96c1d00951c879565374c6eb0f4d211cef862477d8286798/evidence.json"
+    },
+    {
+      "component": "table",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/table/4dc719957edae0846cebc0e0b82aa30affdd66511f4f7601270b7b703d3d7aaf/evidence.json"
+    },
+    {
+      "component": "table",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/table/d393879fd19a3465de220004c5bb0770f753775a9b098bdd2465fe4fbb243700/evidence.json"
+    },
+    {
+      "component": "table",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/table/e8ffcb16003fdbfeff9b8a6c4027d631088f35a7dbfc45643be247954ad0fad8/evidence.json"
+    },
+    {
+      "component": "radio",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/radio/c672fa7d3dfa1bb2c9ab5ce5336da6d4cc405c66d8777842f46e540666c2ca7a/evidence.json"
+    },
+    {
+      "component": "radio",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/radio/d0a0df3b4ba397669efbb673564192e16c58b06f6874130c0c8383f0aac5ab71/evidence.json"
+    },
+    {
+      "component": "radio",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/radio/87eb7a954eb7ad143d820d6dba14c44971761941050df49f6335eccf6ce08540/evidence.json"
+    },
+    {
+      "component": "autocomplete",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/autocomplete/ef5df238913867c4e89938efdcbae8e14eac85e9a493e7272afb2eaf62250d1d/evidence.json"
+    },
+    {
+      "component": "autocomplete",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/autocomplete/e72e84f6c6859ad0ccfd30a2ac4a037e2715a74a4687c574c03541a90623e534/evidence.json"
+    },
+    {
+      "component": "autocomplete",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/autocomplete/74a116038cbe5190e650f1e049754843e7785b18de01f80b40431bf9afee2b61/evidence.json"
+    },
+    {
+      "component": "combobox",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/combobox/35fe450210e165135e814cae5e2abaf9d0ea5cf994e58199ac378be8f242c40e/evidence.json"
+    },
+    {
+      "component": "combobox",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/combobox/1c75e3e3f416e220283a7574caefa2bd27638cf673be4e8a02f648550ffe5823/evidence.json"
+    },
+    {
+      "component": "combobox",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/combobox/6a68ae764c6959961f79cec9ab2c8c5c38ca5c46e803f519679f6585cfc8f254/evidence.json"
+    },
+    {
+      "component": "command-palette",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/command-palette/681054757c9b964ab8568d9ebb2855cb1288d97c937f51a1e9ff4f3222e61951/evidence.json"
+    },
+    {
+      "component": "command-palette",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/command-palette/cbed0ebc0a24980f0bb9a31b2be1db2804cb925d715414be00acbcd10d05f472/evidence.json"
+    },
+    {
+      "component": "command-palette",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/command-palette/b23daecd79a8327687b62397dbb88962314e8ba933b86ad2512b2da532d9757f/evidence.json"
+    },
+    {
+      "component": "date-picker",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/date-picker/b8497c7faca234126c9c16fe5580f367e2fe90ae3219aadc34ea7208565e1959/evidence.json"
+    },
+    {
+      "component": "date-picker",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/date-picker/cb1686f221129317144674e2d4b080505674304111515ffd5e8f30417b38191e/evidence.json"
+    },
+    {
+      "component": "date-picker",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/date-picker/609f9a0a15d461194211d4676bef4e87aaeabb942bd0f60967700463e6c684f5/evidence.json"
+    },
+    {
+      "component": "date-range-picker",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/date-range-picker/b028cbf39f7801ccf25d5dde7fbed752fb22aca653b3853373e0ddfc0ab00685/evidence.json"
+    },
+    {
+      "component": "date-range-picker",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/date-range-picker/8da1c3f53fcfbe66d26beac2291a3bcd7f54e21cdd5d30121aaffbc2f17a8c45/evidence.json"
+    },
+    {
+      "component": "date-range-picker",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/date-range-picker/fa68804144d876071eddb6c8596539f02704b8d237e9e7bc2282edbe781e75f0/evidence.json"
+    },
+    {
+      "component": "dropdown-menu",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/dropdown-menu/66231c7a7c295c15df8a692b7c59b6f018d49160912012aac4c98ad95a48721a/evidence.json"
+    },
+    {
+      "component": "dropdown-menu",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/dropdown-menu/469437aa19dd2f91829844e58a0cfcd46325721528461d3a08cd7e18dae4773b/evidence.json"
+    },
+    {
+      "component": "dropdown-menu",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/dropdown-menu/4825b6e594c8b3953301870792390672f0832f620fe7543b73bf5830c0e4ee31/evidence.json"
+    },
+    {
+      "component": "toasty",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/toasty/b1537e2c6ecfacd83642fbcb0cca099f01790698ececd776506a38b228d4dd3c/evidence.json"
+    },
+    {
+      "component": "toasty",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/toasty/66928421106f06d9d51a4a366bbf633fca361c08bbe35244e8aebca13df80c7b/evidence.json"
+    },
+    {
+      "component": "toasty",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/toasty/e24bcf8a482fedccd1d2d56bc3921066103467a6734dbe977d7419ff028f64c9/evidence.json"
+    },
+    {
+      "component": "pagination",
+      "framework": "vue",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/vue/pagination/e150325078d285dbacea75b7f978a93f16aab14c6f768f440a2db1ad2a591a9a/evidence.json"
+    },
+    {
+      "component": "pagination",
+      "framework": "svelte",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/svelte/pagination/b355e37beeb800214b9fe75b3726ef426baf7031e3d9155ccadd7e05df5f45c8/evidence.json"
+    },
+    {
+      "component": "pagination",
+      "framework": "solid",
+      "status": "passed",
+      "evidence": "generated/browser-evidence/solid/pagination/2172a86a7d1a7131ad26d556cfe0986674874bb00881ac2b36581bc812e56961/evidence.json"
+    }
+  ]
+}

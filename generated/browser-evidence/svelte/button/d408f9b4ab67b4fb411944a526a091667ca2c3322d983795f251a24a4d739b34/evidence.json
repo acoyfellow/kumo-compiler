@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "button",
+  "framework": "svelte",
+  "url": "http://127.0.0.1:4260/button/svelte/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "c92200be002119a5bca06838c8482dde83fc5243826ef54984350ee715da3b7a",
+    "postHydration": "4e168911ccbf637bdf7bba31a0c991f6deb31ea5ffff4ff162401e90db1aedd4",
+    "aria": [
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Add item",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "button",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "dfbd00375fcc08eb1dc81247999b2793014f8d0992c71c95d66e85e989feda7a",
+    "pixelSha256": "c48fa4c7958b610d73040f006f9feaa2f94aabcd11b15f6f3e77d6a45168561c",
+    "bytes": 19880
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/button/svelte/assets/index-PqO5Up2y.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/button/svelte/assets/index-BLuQIR3h.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

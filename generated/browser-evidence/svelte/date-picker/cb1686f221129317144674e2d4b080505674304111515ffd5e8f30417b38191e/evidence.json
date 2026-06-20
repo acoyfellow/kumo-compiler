@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "date-picker",
+  "framework": "svelte",
+  "url": "http://127.0.0.1:4260/date-picker/svelte/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "ac0cdccdaccde212d02d30bd52bc79812018a01ab3d31b40c7e28679bcdd143a",
+    "postHydration": "37b693dd9297f7e5beb1a33f09b010d159d8fef1402fade1f59769c7f7835f5b",
+    "aria": [],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "INPUT",
+      "checked": false
+    }
+  },
+  "screenshot": {
+    "sha256": "91dc6286cd498474ba54ed788edfa1953adca936cdff914484e5e0c3cee8c858",
+    "pixelSha256": "afd81df9cc89e93c6907e72f1a426addbf2a6304b23582eaf0063a3fdb4f8724",
+    "bytes": 10385
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/date-picker/svelte/assets/index-DHsnio_D.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/date-picker/svelte/assets/svelte-date-picker.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "combobox",
+  "framework": "solid",
+  "url": "http://127.0.0.1:4260/combobox/solid/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "810c2e13894c2889c8b9cd9a8e54b07d22be4cd32fbb3cfb1e9dfe55e8d36cb0",
+    "postHydration": "d4ff11e25b729feb68d0b943d1eb6ec1bb7144df01762c258d44520e86a11c3a",
+    "aria": [
+      {
+        "tag": "input",
+        "role": "combobox",
+        "label": null,
+        "expanded": "false",
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "INPUT",
+      "checked": false
+    }
+  },
+  "screenshot": {
+    "sha256": "665e378cd19df3a389ad1f3e93e250125d6a236c6bf3bcfacb3f60c26d2f5091",
+    "pixelSha256": "1e5d93b8dd02ea1fc10836231b0262f9231754c87b50e8e2870312df538a36d5",
+    "bytes": 7488
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/combobox/solid/assets/index-DHsnio_D.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/combobox/solid/assets/solid-combobox.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

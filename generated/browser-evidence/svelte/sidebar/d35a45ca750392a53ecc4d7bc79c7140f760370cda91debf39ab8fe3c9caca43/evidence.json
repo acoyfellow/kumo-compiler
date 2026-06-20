@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "sidebar",
+  "framework": "svelte",
+  "url": "http://127.0.0.1:4260/sidebar/svelte/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "1fbc964f728fcf6d272c5ba036e4c9b8c2b854614a1505e7444ce7990d179542",
+    "postHydration": "42c583183ae21520872dde1ce4b0bfaede6efa24bb7a62c30e7df6bdc54a901c",
+    "aria": [
+      {
+        "tag": "nav",
+        "role": null,
+        "label": "Workspace",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "current-link",
+      "target": true,
+      "active": "A",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "bd6e9b05e506344061f0ac4369be0bd4b5a7226c205e5ed6dd70c3aef0e16cf9",
+    "pixelSha256": "9ee24366170fcfd99d64b9ae480f537e776776915d3b4e2c28cb6f2fd41e2e8b",
+    "bytes": 10556
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/sidebar/svelte/assets/index-BFC_pzOc.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/sidebar/svelte/assets/svelte-sidebar.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

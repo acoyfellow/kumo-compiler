@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "toasty",
+  "framework": "vue",
+  "url": "http://127.0.0.1:4260/toasty/vue/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "179523bb9fb413dc60cca8331d2efa9e1d8bcb29396e22d25aecc69325ca1cc5",
+    "postHydration": "7dfadb9afdb629a192371514ef657ebbf68e2a0985e4e22111b172ad5f180672",
+    "aria": [
+      {
+        "tag": "output",
+        "role": "status",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "180d12ca1ab3b9b2c1a35eb97851e55865ecfd5084c3d3c51c4e24b42093739d",
+    "pixelSha256": "bc6deec2914a0b50cf28adbf4eb16f09bddbc5dc0b06a8027b5950cc43cdecc0",
+    "bytes": 9880
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/toasty/vue/assets/index-DHsnio_D.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/toasty/vue/assets/vue-toasty.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

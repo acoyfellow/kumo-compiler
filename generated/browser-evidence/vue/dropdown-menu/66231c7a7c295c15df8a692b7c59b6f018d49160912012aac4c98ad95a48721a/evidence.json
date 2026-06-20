@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "dropdown-menu",
+  "framework": "vue",
+  "url": "http://127.0.0.1:4260/dropdown-menu/vue/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "a611e6a232abbadba4dacaebb3c0ce2d2e7357213b29c0237e4808415d7c2e14",
+    "postHydration": "e60f9a6c7bb1297440955c86dc8f78e96e7c7fa46dd978a9d6b8689876a3fd1a",
+    "aria": [
+      {
+        "tag": "div",
+        "role": "menu",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": "menuitem",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": "menuitem",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": "menuitem",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "c8df16b4f7cbdd182008e2651add57ded53c4fa3b8415aaee0a6381c6c3fb90d",
+    "pixelSha256": "8bc7dd3356534028b0a4ddb9b555579aa57950d39763d427af2a44a939f8eebb",
+    "bytes": 11691
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/dropdown-menu/vue/assets/index-DHsnio_D.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/dropdown-menu/vue/assets/vue-dropdown-menu.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

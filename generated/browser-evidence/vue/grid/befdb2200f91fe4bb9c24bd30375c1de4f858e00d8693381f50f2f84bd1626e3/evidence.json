@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "grid",
+  "framework": "vue",
+  "url": "http://127.0.0.1:4260/grid/vue/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "e018846aef216facaf385276343674aa2b4395181483bece1d03c193c0ddc89f",
+    "postHydration": "b16bd060aa7ff3dea9c4d93a8662f84324442336ae74598967b276809a50b2c2",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "1c51a798d8cf4e5e809bd40839519ea6b87d012144c4390e7ce5488909635434",
+    "pixelSha256": "f2325441dc21a6a0ff5da60d477d52e2f344e63deea5c2e1efb451c77b7e70ad",
+    "bytes": 8599
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/grid/vue/assets/index-mu3fn2Nd.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/grid/vue/assets/vue-grid.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

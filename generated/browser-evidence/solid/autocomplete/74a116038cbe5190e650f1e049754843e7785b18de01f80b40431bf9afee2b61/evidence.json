@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "autocomplete",
+  "framework": "solid",
+  "url": "http://127.0.0.1:4260/autocomplete/solid/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "5057c0306e538038a4b76e88002e3b9cd19e7e7d4dfb956681d55e37f6f22952",
+    "postHydration": "d619ae06c3581e2f650b2cf34a57258956e4421558d9a07b2c008dff35aba2b2",
+    "aria": [
+      {
+        "tag": "input",
+        "role": "combobox",
+        "label": null,
+        "expanded": "false",
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "INPUT",
+      "checked": false
+    }
+  },
+  "screenshot": {
+    "sha256": "c50a3d3f796406badf252dc8b61fb3038eb618a85494107cbce67baae89d4c08",
+    "pixelSha256": "39b9e0f808db0117fe2c85c8d099df97c2cde2a4f3c45bc40d8403855cd4faa9",
+    "bytes": 7353
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/autocomplete/solid/assets/index-DHsnio_D.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/autocomplete/solid/assets/solid-autocomplete.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

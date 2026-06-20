@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "switch",
+  "framework": "svelte",
+  "url": "http://127.0.0.1:4260/switch/svelte/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "de0c6c6d12238eae1e54659236b00bf7d9ef550c56ad3a7559e0de3f8b74a8ec",
+    "postHydration": "b5e995fc8f7f1fb76a24c1a98c370039951a87873c2283f2fd787f9694166ebe",
+    "aria": [
+      {
+        "tag": "input",
+        "role": "switch",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "input",
+        "role": "switch",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "input",
+        "role": "switch",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "input",
+        "role": "switch",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "native-check",
+      "target": true,
+      "active": "INPUT",
+      "checked": true
+    }
+  },
+  "screenshot": {
+    "sha256": "f0083ad9a64f9e7e840e90e02c002cc36446e8615d4e8e20b1b2cb6ac552725e",
+    "pixelSha256": "53968600cc69c285e6b0d471cfdd07d17390248780982113e564f4c89be064af",
+    "bytes": 17980
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/switch/svelte/assets/index-BP2V1Ibz.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/switch/svelte/assets/svelte-switch.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

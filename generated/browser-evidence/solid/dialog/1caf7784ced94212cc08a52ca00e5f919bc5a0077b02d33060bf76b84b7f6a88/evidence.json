@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "dialog",
+  "framework": "solid",
+  "url": "http://127.0.0.1:4260/dialog/solid/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": false,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": false,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "2be10e21144dda5e040812fb9eb7f24084a896736732e529b66aca9272eb675b",
+    "postHydration": "f1f169b5264ebe364b6f0a40733948879ec8b655d12b550fac4ecd86cfee4443",
+    "aria": [
+      {
+        "tag": "p",
+        "role": "status",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "dialog",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "f826315be51798ec1968acd8740d2ca612cf400fa745557d7b2b18dd446ed3bf",
+    "pixelSha256": "d702b5c29b4e0e0b2f04a862778ff66439c6c7e44afc70418a50aaa3be08458e",
+    "bytes": 7973
+  },
+  "assets": [],
+  "failures": [
+    "net::ERR_ABORTED",
+    "net::ERR_ABORTED",
+    "404 http://127.0.0.1:4260/dialog/assets/index-Nae9zVdC.css",
+    "404 http://127.0.0.1:4260/dialog/assets/solid-dialog.js",
+    "runtime DOM, linked asset, or style missing"
+  ]
+}

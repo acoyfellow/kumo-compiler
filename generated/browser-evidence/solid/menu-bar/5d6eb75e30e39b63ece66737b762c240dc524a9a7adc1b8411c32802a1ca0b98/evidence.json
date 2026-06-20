@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "menu-bar",
+  "framework": "solid",
+  "url": "http://127.0.0.1:4260/menu-bar/solid/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "5a70e760f2d6dcf65559b52295b360045909a20d3648c6d8a3f973ce66840f8e",
+    "postHydration": "a4187a17235d85718ef1497c232b81d930694c6cfb458572537e287486f85b36",
+    "aria": [
+      {
+        "tag": "div",
+        "role": "menubar",
+        "label": "Application",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": "menuitem",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": "menuitem",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "button",
+        "role": "menuitem",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "roving",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "2440f57bce374b05b61b0ce94db33f78e70c069c47ae390e31053ca66804eee3",
+    "pixelSha256": "f85b573695e2ee9bf08f353defab8e937c49562b4b8ba22215931c36e31e72b3",
+    "bytes": 7261
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/menu-bar/solid/assets/index-BFC_pzOc.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/menu-bar/solid/assets/solid-menu-bar.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

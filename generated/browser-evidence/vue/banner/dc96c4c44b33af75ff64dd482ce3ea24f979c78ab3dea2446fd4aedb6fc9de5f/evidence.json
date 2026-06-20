@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "banner",
+  "framework": "vue",
+  "url": "http://127.0.0.1:4260/banner/vue/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "2c8b783842e281655307b7caf6a0aee044586e3c427c83a9c6e866304db81435",
+    "postHydration": "43c07520e84a5760e3dfa5a4096dfff639640005ff92dbe431d9138bcf03da64",
+    "aria": [
+      {
+        "tag": "div",
+        "role": "status",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "24e1f4715ed685af8cc2907ba2f6ee8a435512735310253f15849b1e9b007ef0",
+    "pixelSha256": "30011e4abcd693d00c2419b292c10091961db42cd328d4d945a6f18ed2e38796",
+    "bytes": 9451
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/banner/vue/assets/index-mu3fn2Nd.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/banner/vue/assets/vue-banner.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

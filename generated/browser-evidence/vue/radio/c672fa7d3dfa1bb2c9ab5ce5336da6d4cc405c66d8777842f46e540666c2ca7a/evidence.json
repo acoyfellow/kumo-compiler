@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "radio",
+  "framework": "vue",
+  "url": "http://127.0.0.1:4260/radio/vue/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "151dfc043e8f3c7272dbd419eb557264f49e135ba3e75cb2c6c8829378c9425e",
+    "postHydration": "b01f14941c5761b05fa4698ed6c6300474ad3377e5cfda2ff476ca9d05b48abc",
+    "aria": [],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "INPUT",
+      "checked": true
+    }
+  },
+  "screenshot": {
+    "sha256": "19d3722a8d1e4ab5edc1780da9a9d60ffa1cc83e430af9a5e9fcf28f215fa01e",
+    "pixelSha256": "5d85e65df36c9cfae0b6f8b33e21e67fdd4a00ca6190953ce640c2fea0df7f91",
+    "bytes": 7345
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/radio/vue/assets/index-DHsnio_D.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/radio/vue/assets/vue-radio.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

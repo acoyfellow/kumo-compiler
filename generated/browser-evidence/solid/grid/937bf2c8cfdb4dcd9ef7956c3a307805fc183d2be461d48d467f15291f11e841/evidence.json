@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "grid",
+  "framework": "solid",
+  "url": "http://127.0.0.1:4260/grid/solid/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "657b70a87c411dfe70a6303f07253d384344d20090127c3671c427b88435a689",
+    "postHydration": "bb9f0f76fc48c16ec4949ac41ee411225e102068d99bde52efe21e9aec5c9135",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "caf344a52acba0621feba3a0e1e6add4739bcd1f7726ef43c9c36515feee5395",
+    "pixelSha256": "44416129c25058e1e4d47275784cb923f3d6fdc468ea575dee403f3a7cf9fd37",
+    "bytes": 8710
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/grid/solid/assets/index-XUZVPns1.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/grid/solid/assets/solid-grid.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

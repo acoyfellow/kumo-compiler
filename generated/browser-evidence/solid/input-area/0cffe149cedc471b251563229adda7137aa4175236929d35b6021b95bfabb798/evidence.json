@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "input-area",
+  "framework": "solid",
+  "url": "http://127.0.0.1:4260/input-area/solid/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "aece73a1a8405a514efd28e613650bc78024c8a0db367b7129bddfc271dc38bc",
+    "postHydration": "49caa2925ca78a971fce407af79bb1d93f4a1e48e72fea231c2f296084cbaa94",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "fa833b7eb12923652ebd337cf1aecac362ab085973b214dc78a7626cf7c88ce1",
+    "pixelSha256": "be997a33ef033959eb2a8bad306782884251037aba6cfdabe2fa96246a282893",
+    "bytes": 7547
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/input-area/solid/assets/index-DxNxOLbY.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/input-area/solid/assets/solid-input-area.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

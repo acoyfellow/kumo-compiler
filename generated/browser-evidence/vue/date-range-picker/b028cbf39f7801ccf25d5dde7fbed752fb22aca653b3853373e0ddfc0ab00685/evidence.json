@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "date-range-picker",
+  "framework": "vue",
+  "url": "http://127.0.0.1:4260/date-range-picker/vue/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "60b251cd8beaf8dcdd5360ab30619efdbd0ad2444d77a6e9ed29fbe483b0a7ff",
+    "postHydration": "da8affcad598442bc6b79a49871314e8ad760cc4a312add7d07d377615b8d5f0",
+    "aria": [],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "INPUT",
+      "checked": false
+    }
+  },
+  "screenshot": {
+    "sha256": "415893b1a2090dbd473f81068a4deed0ac264bfa31e77e68361cd1868be638f4",
+    "pixelSha256": "f87d5000cdf9ab0c31d70580c8a2d67b19be82c20ad4af1ebeeeefbdd85eeae0",
+    "bytes": 13907
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/date-range-picker/vue/assets/index-DHsnio_D.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/date-range-picker/vue/assets/vue-date-range-picker.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

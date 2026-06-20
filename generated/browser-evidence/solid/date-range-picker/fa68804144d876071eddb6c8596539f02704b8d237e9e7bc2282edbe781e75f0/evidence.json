@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "date-range-picker",
+  "framework": "solid",
+  "url": "http://127.0.0.1:4260/date-range-picker/solid/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "3a1bc75bdc870a4e3cb2f807990f7a6db68eca68ad316aa21e523682a43b5bd4",
+    "postHydration": "cc70c414599d8262bb8e3e3a2b31b227ad6913919323b54298ecc4c53fb80d92",
+    "aria": [
+      {
+        "tag": "p",
+        "role": "status",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "INPUT",
+      "checked": false
+    }
+  },
+  "screenshot": {
+    "sha256": "12bd1e22cfcae5391668696619dfe48ee900beaa166d9f94cb017c55f9b891c7",
+    "pixelSha256": "6d6dccd78b66b50c9812f589128e89ca0f595b58ae975d73bc1e9ad95b68a63e",
+    "bytes": 16738
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/date-range-picker/solid/assets/index-DHsnio_D.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/date-range-picker/solid/assets/solid-date-range-picker.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

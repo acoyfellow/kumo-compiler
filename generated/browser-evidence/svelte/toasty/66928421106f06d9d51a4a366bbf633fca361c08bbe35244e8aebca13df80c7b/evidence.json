@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "toasty",
+  "framework": "svelte",
+  "url": "http://127.0.0.1:4260/toasty/svelte/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "39f616ae4cd46baa5fd8656e04a9c87bc3d9824eaa4b08ffcf0b547b41311d23",
+    "postHydration": "f0b1b5d83a811e023823f05e95de5058043d937aabe6898fbc30a73a49efba39",
+    "aria": [
+      {
+        "tag": "output",
+        "role": "status",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "180d12ca1ab3b9b2c1a35eb97851e55865ecfd5084c3d3c51c4e24b42093739d",
+    "pixelSha256": "bc6deec2914a0b50cf28adbf4eb16f09bddbc5dc0b06a8027b5950cc43cdecc0",
+    "bytes": 9880
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/toasty/svelte/assets/index-DHsnio_D.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/toasty/svelte/assets/svelte-toasty.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

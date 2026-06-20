@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "toasty",
+  "framework": "solid",
+  "url": "http://127.0.0.1:4260/toasty/solid/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "81c455e099c89c51579d9ba2e6611550911a2313815fb73c130f5124fdc8e84a",
+    "postHydration": "78080aa8e706ab8100baa5f2191062f4d2d5267f20361ae6be1f450e7cc7a945",
+    "aria": [
+      {
+        "tag": "output",
+        "role": "status",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "a57b7c939c3ddd58d0f1f1f1a3906e5d1cc354555e309862cef31e69157ece2a",
+    "pixelSha256": "5a8201331150e99434c5ea29c9b14d4673ae872a3d8f12bf7218c5adaec9febc",
+    "bytes": 9814
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/toasty/solid/assets/index-DHsnio_D.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/toasty/solid/assets/solid-toasty.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

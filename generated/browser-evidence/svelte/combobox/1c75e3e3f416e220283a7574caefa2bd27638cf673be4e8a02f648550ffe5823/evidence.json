@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "combobox",
+  "framework": "svelte",
+  "url": "http://127.0.0.1:4260/combobox/svelte/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "4820258b7e85b63c22793f3f067f23cfd673e8af72d043ca5dc4bfadb227d9d9",
+    "postHydration": "26120b28dfbb4240028636c1414f6ddf1b839ff6afbc742ecc81431f5f11d60c",
+    "aria": [
+      {
+        "tag": "button",
+        "role": "combobox",
+        "label": null,
+        "expanded": "false",
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "58f7467cac0ac594226bec6c1de86f436de018f4e450ce41580a1a1014e94c1f",
+    "pixelSha256": "57e6def092d4f149e0b750c27aa0295f5914da18381243d98850cd3d98a62f20",
+    "bytes": 11863
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/combobox/svelte/assets/index-DHsnio_D.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/combobox/svelte/assets/svelte-combobox.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

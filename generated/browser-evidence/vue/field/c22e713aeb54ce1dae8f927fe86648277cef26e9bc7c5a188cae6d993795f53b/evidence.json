@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "field",
+  "framework": "vue",
+  "url": "http://127.0.0.1:4260/field/vue/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "9e3a8dea79fe90fec783990501d691eef99b7e3a41068cd6972323d37c831db2",
+    "postHydration": "0545134985e384e9972e35aa7bf8a5bd8ffe70c377648622efd309ec21612216",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": true,
+      "active": "INPUT",
+      "checked": false
+    }
+  },
+  "screenshot": {
+    "sha256": "c111b1526f7832478b57112b0c2a7006c41563adf5b12e494e4d3b838cbb9ba5",
+    "pixelSha256": "ef7c303de0971055af7b4c24cc58d704ad4269e63a04d7d49046b0531fdca844",
+    "bytes": 9744
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/field/vue/assets/index-DxNxOLbY.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/field/vue/assets/vue-field.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

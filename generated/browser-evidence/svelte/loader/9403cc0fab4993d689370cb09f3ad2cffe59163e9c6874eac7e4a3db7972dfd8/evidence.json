@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "loader",
+  "framework": "svelte",
+  "url": "http://127.0.0.1:4260/loader/svelte/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "84fdc3c5ce3498decc446e0040ff47836c248034e7acb661193eb6065ad5cda8",
+    "postHydration": "38388b6c773bf90fc0386c7fcd8ec9ec680acb9bd4adddad46ee8acf071205ff",
+    "aria": [
+      {
+        "tag": "span",
+        "role": "status",
+        "label": "Loading",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "05d78b803bd2060efce2e9aaafbf1b91dbf4c6c2f57f05911ead9b2459f3f4db",
+    "pixelSha256": "3f7a8511db3961e355f18a786fee8e6c3f6bb68a23a10939b72e316cfbfafd20",
+    "bytes": 5438
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/loader/svelte/assets/index-XUZVPns1.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/loader/svelte/assets/svelte-loader.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

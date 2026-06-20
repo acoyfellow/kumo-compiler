@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "popover",
+  "framework": "solid",
+  "url": "http://127.0.0.1:4260/popover/solid/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "35bc4a7fcd9f205bc0fb19a428d74eec0fcdaf5c6ac65f741c29dca4577d6d48",
+    "postHydration": "44145fb60163cf174b5e5962fd8368f683c70619650f459af78b091c2d28c53b",
+    "aria": [
+      {
+        "tag": "button",
+        "role": null,
+        "label": null,
+        "expanded": "true",
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "div",
+        "role": "dialog",
+        "label": "Popover",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "popover",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "53f8ea033ee903282f0392286bff23c326e45a535423e40c63edb8ecac996361",
+    "pixelSha256": "7d419ac4152ea80fbbb7b57c27cea9addd88140309ebeaa9d683193970aabfe1",
+    "bytes": 8048
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/popover/solid/assets/index-CddHWC0V.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/popover/solid/assets/solid-popover.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

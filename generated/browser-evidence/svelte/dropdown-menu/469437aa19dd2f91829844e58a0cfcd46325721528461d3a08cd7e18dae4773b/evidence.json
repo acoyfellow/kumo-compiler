@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "dropdown-menu",
+  "framework": "svelte",
+  "url": "http://127.0.0.1:4260/dropdown-menu/svelte/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "d2215024154c49b8c7497bdcca63b0192ef11cc6e2b6e9944e8c6cdb9990e272",
+    "postHydration": "c2548e4f99c1bfe2934a6fffaa05262ca9f919d2adffb0a0c899073402e39c7c",
+    "aria": [
+      {
+        "tag": "button",
+        "role": null,
+        "label": null,
+        "expanded": "false",
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "c8df16b4f7cbdd182008e2651add57ded53c4fa3b8415aaee0a6381c6c3fb90d",
+    "pixelSha256": "8bc7dd3356534028b0a4ddb9b555579aa57950d39763d427af2a44a939f8eebb",
+    "bytes": 11691
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/dropdown-menu/svelte/assets/index-DHsnio_D.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/dropdown-menu/svelte/assets/svelte-dropdown-menu.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

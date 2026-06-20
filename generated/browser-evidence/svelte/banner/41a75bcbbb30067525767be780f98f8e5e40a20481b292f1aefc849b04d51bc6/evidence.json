@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "banner",
+  "framework": "svelte",
+  "url": "http://127.0.0.1:4260/banner/svelte/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "e59c49bdbe0af1a5a11c091f73dbd0586655acdc36132e75e5898a8632de3fd8",
+    "postHydration": "0c1ba29ca5992c411a4c46e3da0fd463518ea311cde908e49bdf05cc64f4f6fc",
+    "aria": [
+      {
+        "tag": "div",
+        "role": "status",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "9ae9a86c7e73e3af6fce07103237fab0bbd8b84f325ee5c477394818fcb2cfc4",
+    "pixelSha256": "e838c7e9b88f3f6f7d12b6353dbc7c80e02251f8b28f66528d64ee88abc30ac4",
+    "bytes": 8887
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/banner/svelte/assets/index-XUZVPns1.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/banner/svelte/assets/svelte-banner.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

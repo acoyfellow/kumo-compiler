@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "button",
+  "framework": "vue",
+  "url": "http://127.0.0.1:4260/button/vue/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "01cf4f0e2a48020ad51019cb4e5bcb8d629a54a8714e74ac31bc894a2f2ae03a",
+    "postHydration": "7f595eebfdb87add285d7c042ab3dab787f1cbcd157d33b88ea33b7379cc9563",
+    "aria": [
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Add item",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "button",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "dfbd00375fcc08eb1dc81247999b2793014f8d0992c71c95d66e85e989feda7a",
+    "pixelSha256": "c48fa4c7958b610d73040f006f9feaa2f94aabcd11b15f6f3e77d6a45168561c",
+    "bytes": 19880
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/button/vue/assets/index-PqO5Up2y.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/button/vue/assets/index-CY7XSN7s.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "button",
+  "framework": "solid",
+  "url": "http://127.0.0.1:4260/button/solid/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "12458f8d89e690e60743b4ee0621d1b24edbdba8ea03d9006640e70541f745a0",
+    "postHydration": "d5abdab398ed2b4f359f2d9a26f13f3c14ccaec365dcbec406060c36019bfa1a",
+    "aria": [
+      {
+        "tag": "button",
+        "role": null,
+        "label": "Icon action",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "p",
+        "role": "status",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "button",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "b14e478834ca87dad12497ca3e9def458a962f75c5d6f56eae0b0fea9a2da133",
+    "pixelSha256": "36563932e18d28a7f1be6b576dcc13cba80233d3c52a3ee99be01f882c91e0fc",
+    "bytes": 21041
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/button/solid/assets/index-PqO5Up2y.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/button/solid/assets/solid-button.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

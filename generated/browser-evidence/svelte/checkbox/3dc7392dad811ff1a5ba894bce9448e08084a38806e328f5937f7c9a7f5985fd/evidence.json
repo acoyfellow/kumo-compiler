@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "checkbox",
+  "framework": "svelte",
+  "url": "http://127.0.0.1:4260/checkbox/svelte/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "977c50657851f78d02268a34c76ca29e025929e96be62836d0094f4702c98463",
+    "postHydration": "534db5681cc5141567e97e4160065ecc3502d4719cef2a2e1d92f067fa655161",
+    "aria": [],
+    "behaviorVector": {
+      "policy": "native-check",
+      "target": true,
+      "active": "INPUT",
+      "checked": true
+    }
+  },
+  "screenshot": {
+    "sha256": "f4c4a11081836da74535bb2a188dc388cc613614e6aec01b1099ccfb7d0ccc18",
+    "pixelSha256": "1b7a29ab3debe22d1f838884337c11291f90bd51f7c03c1499d17373d2dfbb99",
+    "bytes": 16614
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/checkbox/svelte/assets/index-BP2V1Ibz.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/checkbox/svelte/assets/svelte-checkbox.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

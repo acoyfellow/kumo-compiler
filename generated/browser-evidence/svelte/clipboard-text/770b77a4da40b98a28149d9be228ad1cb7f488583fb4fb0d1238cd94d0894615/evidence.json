@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "clipboard-text",
+  "framework": "svelte",
+  "url": "http://127.0.0.1:4260/clipboard-text/svelte/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "c6eb2a6e4f1d0ce08f2896ab44e5bd7711ae95245c41c63d33ead87da2d6cd38",
+    "postHydration": "e7c1ed0b32dd0f84ddd3660ea8d5c19bdbc38a1ac6e56a25144b49dbb2177568",
+    "aria": [
+      {
+        "tag": "p",
+        "role": "status",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "clipboard-copy",
+      "target": true,
+      "active": "INPUT",
+      "checked": false
+    }
+  },
+  "screenshot": {
+    "sha256": "1125771a4b6bfc3b15ff978a526c574b5ad5d27bf65d5a204b77e23c2ba8be82",
+    "pixelSha256": "1eb85d8e5d4e8eb5d8d3cf7ae1d87436b2b8f7f78d221cc8380f45ea70b3c621",
+    "bytes": 12133
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/clipboard-text/svelte/assets/index-DxNxOLbY.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/clipboard-text/svelte/assets/svelte-clipboard-text.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "command-palette",
+  "framework": "svelte",
+  "url": "http://127.0.0.1:4260/command-palette/svelte/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "6fafe79a107c76ccf29b2e4d5f89354bd8a9431d6ce59b3a905cf4fbdb31d71c",
+    "postHydration": "bd68c55027a3c5c490ca4b2c35ec87bb73fc826cdbc2f889be5da767253401cd",
+    "aria": [],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "c06df04ed1ccb11451b784c8c52b8957c21fcabdbe0fbf6f4604e98d0ff15706",
+    "pixelSha256": "df6458cf124f36c2c41f51c65c65f616f58d3af1a9d21759452287100c2c1bb0",
+    "bytes": 20641
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/command-palette/svelte/assets/index-DHsnio_D.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/command-palette/svelte/assets/svelte-command-palette.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "date-range-picker",
+  "framework": "svelte",
+  "url": "http://127.0.0.1:4260/date-range-picker/svelte/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "df297fd3ea8ef8baa19a6852cbf2b49852707c9222bb5274d6b37145aa22ff7a",
+    "postHydration": "24c48f548e266c152238db683fe725ba102bf5d087456862ef5ad31208773db8",
+    "aria": [],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "INPUT",
+      "checked": false
+    }
+  },
+  "screenshot": {
+    "sha256": "415893b1a2090dbd473f81068a4deed0ac264bfa31e77e68361cd1868be638f4",
+    "pixelSha256": "f87d5000cdf9ab0c31d70580c8a2d67b19be82c20ad4af1ebeeeefbdd85eeae0",
+    "bytes": 13907
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/date-range-picker/svelte/assets/index-DHsnio_D.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/date-range-picker/svelte/assets/svelte-date-range-picker.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

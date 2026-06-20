@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "dropdown-menu",
+  "framework": "solid",
+  "url": "http://127.0.0.1:4260/dropdown-menu/solid/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "311bc39bfcfea3395557b3175eec5f195d1a75e0423ea6c19ac1f7299ba8002f",
+    "postHydration": "43afaa7d711ffda0fe9902c53101639e399cc553653fbad446aa67dffeeb3acc",
+    "aria": [
+      {
+        "tag": "button",
+        "role": null,
+        "label": null,
+        "expanded": "false",
+        "selected": null,
+        "checked": null
+      },
+      {
+        "tag": "p",
+        "role": "status",
+        "label": null,
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "selection",
+      "target": true,
+      "active": "BUTTON",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "ef99b888e5d31f8ac1a0ae14d953b167344104298e26d485a42f73f8fd9f5974",
+    "pixelSha256": "b3f309910ffba7661a62ec7cf0fcdb3a1b2f87a69278ee3ad145d1f780eac506",
+    "bytes": 11832
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/dropdown-menu/solid/assets/index-DHsnio_D.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/dropdown-menu/solid/assets/solid-dropdown-menu.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "sensitive-input",
+  "framework": "svelte",
+  "url": "http://127.0.0.1:4260/sensitive-input/svelte/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "af002010eec2143ed2396fb942149cdac4b2bfbb9a0b419a79c30ff83ca11d06",
+    "postHydration": "31db06c17ab9cf93dc5cff5b136db3092a0b31879480aa3650bc601738b682f3",
+    "aria": [],
+    "behaviorVector": {
+      "policy": "sensitive-toggle",
+      "target": true,
+      "active": "INPUT",
+      "checked": false
+    }
+  },
+  "screenshot": {
+    "sha256": "3ebe8d50f3ff3fd0481df3cbad4c284e3c606f1701b62100ffc0e9bec649b849",
+    "pixelSha256": "4cfb339ff9556e7653f0df38cc3cc7a2782f98cce935909b4d32a99718f1bc32",
+    "bytes": 10865
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/sensitive-input/svelte/assets/index-DxNxOLbY.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/sensitive-input/svelte/assets/svelte-sensitive-input.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "layer-card",
+  "framework": "vue",
+  "url": "http://127.0.0.1:4260/layer-card/vue/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "7a638cc6dbcb91d9fff11c49c0af3e2084238f3da5b3bf6c8926d965876fde5f",
+    "postHydration": "56293b74719cb56f17015022e4737770573200a46300dc5adba432e6a38195ca",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "14a94328764585412a0b2cb68355bb33d78a13d36479d989a1ed617670352dcd",
+    "pixelSha256": "746ed573a22eb437fb4ba161eb9319590b945534f5e832e71837db9e7c60ef1c",
+    "bytes": 13706
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/layer-card/vue/assets/index-mu3fn2Nd.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/layer-card/vue/assets/vue-layer-card.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

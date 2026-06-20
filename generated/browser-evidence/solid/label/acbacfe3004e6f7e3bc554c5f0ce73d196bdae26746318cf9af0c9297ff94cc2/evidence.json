@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "label",
+  "framework": "solid",
+  "url": "http://127.0.0.1:4260/label/solid/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "d0dfafb13c3086a4424fa8ffd6752e334f8cd972e7728c6a867194756f37bf29",
+    "postHydration": "ed14dba9a5bccc6b4aaa18d9e140660b811fb4e89efabc99bf5b60fb641aea30",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "433a673f7700926386f9464795b6cc8df106ab776e56905992756aa6f55afb13",
+    "pixelSha256": "76138e79a0cbfb2e884f1c7a33fde2c4239b3fae2842836fd6e72988c3230bb1",
+    "bytes": 6665
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/label/solid/assets/index-XUZVPns1.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/label/solid/assets/solid-label.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

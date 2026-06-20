@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "breadcrumbs",
+  "framework": "solid",
+  "url": "http://127.0.0.1:4260/breadcrumbs/solid/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "f44581ca899fcfda4d647b1d4e087b3fb103011d0eb72087e53f64cf0fc7cd6e",
+    "postHydration": "3dad3d0ecb2a01f10e64de35077ff228e5c4434a1b62aee8fa670d03d97a716a",
+    "aria": [
+      {
+        "tag": "nav",
+        "role": null,
+        "label": "Breadcrumb",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": null,
+      "target": true,
+      "active": "A",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "f60cc924745d5d8429d0c138b211b8de679650ca42f293b3ee22f239105644c5",
+    "pixelSha256": "6f2fc6258ee3823ff756d2a6a84cac5bfed9ccd65cbf3f4803daca957084639d",
+    "bytes": 10234
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/breadcrumbs/solid/assets/index-BFC_pzOc.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/breadcrumbs/solid/assets/solid-breadcrumbs.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "input-area",
+  "framework": "svelte",
+  "url": "http://127.0.0.1:4260/input-area/svelte/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "117752cef29d388552e3907dc86c418d13a4a0795bbc4f10c1ff76dce22efec9",
+    "postHydration": "40a135ade0c8cbabf98062f73049f183d57d414d6511979970b034fff3ae695c",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "8c7ecd7fcecd2cdcc3d50c96e27ead85ab6a9fecc9b351749630d712d5fe87ea",
+    "pixelSha256": "60feeb843823bc89d56747cf1a9e42ae4baa133bf488914a3286ace9806e7b30",
+    "bytes": 9202
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/input-area/svelte/assets/index-DxNxOLbY.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/input-area/svelte/assets/svelte-input-area.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

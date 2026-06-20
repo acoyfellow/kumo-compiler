@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "code",
+  "framework": "vue",
+  "url": "http://127.0.0.1:4260/code/vue/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "a6e6bbbf8f3b87b2ead96fc70fb46c9f59b92f37767312fec9c330b7a4e75cd4",
+    "postHydration": "55b9460e94574e34308d071a9dd4cb13a1dfd1a857deb749164eddacb23c726c",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "9ad38b09d50b55e71cd5dfbbb36aca57f478ff060e5b6cf921305b15c6179f14",
+    "pixelSha256": "f96111d24fe34f756460835250eb784d6a201518b6f318efbbb74687e5c0f4c8",
+    "bytes": 7609
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/code/vue/assets/index-mu3fn2Nd.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/code/vue/assets/vue-code.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

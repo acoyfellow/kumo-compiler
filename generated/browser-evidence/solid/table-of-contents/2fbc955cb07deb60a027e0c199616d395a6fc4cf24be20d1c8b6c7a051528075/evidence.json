@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "table-of-contents",
+  "framework": "solid",
+  "url": "http://127.0.0.1:4260/table-of-contents/solid/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "d1f44f22fdca8e831f5ea77bbece54f2ba0e9c911d17cd482514a43134264acc",
+    "postHydration": "becb46aeb082dac9216d507c93445b4fe446578c480eccd4252a869fc66f2710",
+    "aria": [
+      {
+        "tag": "nav",
+        "role": null,
+        "label": "On this page",
+        "expanded": null,
+        "selected": null,
+        "checked": null
+      }
+    ],
+    "behaviorVector": {
+      "policy": "current-link",
+      "target": true,
+      "active": "A",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "6c7db5ce64b954b0254a1865ed8cb8bcdb3308143ed32d425a3b100829ee8245",
+    "pixelSha256": "a3b736325baf995e8638027f3b7cffcd6f01617a03f4450485a9ecd6977992bf",
+    "bytes": 13236
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/table-of-contents/solid/assets/index-BFC_pzOc.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/table-of-contents/solid/assets/solid-table-of-contents.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "kumo.browser-evidence/v1",
+  "synthetic": false,
+  "component": "text",
+  "framework": "svelte",
+  "url": "http://127.0.0.1:4260/text/svelte/",
+  "checks": {
+    "runtime": true,
+    "console": true,
+    "network": true,
+    "dom": true,
+    "aria": true,
+    "behavior": true,
+    "ssr": true,
+    "hydration": true,
+    "screenshot": true,
+    "pixels": true,
+    "assets": true,
+    "styles": true,
+    "package": true,
+    "provenance": true
+  },
+  "snapshots": {
+    "preHydration": "023291d3edbb25fc83b3cb34e1a4c0220d912443527f193e15400a3482efd303",
+    "postHydration": "e1106877487543c4b5500ce5093b85e2a759e2cd5cb9da71cf753684dc51427e",
+    "aria": [],
+    "behaviorVector": {
+      "policy": null,
+      "target": false,
+      "active": "BODY",
+      "checked": null
+    }
+  },
+  "screenshot": {
+    "sha256": "d186833e369f86ce114bd24597890af224f5d91a627914462525d958e9a3760f",
+    "pixelSha256": "80d2ada3b9c2bdac106240a26e5c0da22dd806606c76e9a70fe55bb9c9c7c249",
+    "bytes": 11592
+  },
+  "assets": [
+    {
+      "url": "http://127.0.0.1:4260/text/svelte/assets/index-XUZVPns1.css",
+      "status": 200,
+      "mime": "text/css"
+    },
+    {
+      "url": "http://127.0.0.1:4260/text/svelte/assets/svelte-text.js",
+      "status": 200,
+      "mime": "text/javascript"
+    }
+  ],
+  "failures": []
+}
