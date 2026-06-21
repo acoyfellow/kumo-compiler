@@ -225,6 +225,57 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "small",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "aria-label",
+            "value": "Small"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "size",
+            "value": "sm"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "button"
+          },
+          "attributes": {
+            "role": {
+              "kind": "literal",
+              "value": "switch"
+            },
+            "aria-checked": {
+              "kind": "literal",
+              "value": "false"
+            }
+          },
+          "classes": [
+            {
+              "kind": "literal",
+              "value": "h-4"
+            },
+            {
+              "kind": "literal",
+              "value": "w-8"
+            }
+          ],
+          "children": []
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/switch.json",
+          "vectorId": "small",
+          "contractDigest": "a21654b67149440d975ad94adce6162a28f87b911334a974938067200f76f6b0"
+        },
+        "expectationDigest": "e0811ab839a9cd4a2d610f0a57140eaa69b6d32d30c94b0fff43aac89f46bd28"
+      }
     ]
   },
   "semanticRender": {
@@ -234,5 +285,6 @@
       "small"
     ]
   },
-  "modelDigest": "5247c1baaeaecf291959b0cbe7d64e1f6d98d29af2af4d948af8c46a93c72d96"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "45b759a0413309448508b145adecd9c95981fecda322f2b7f7443f2d3f5ed3e5"
 }

@@ -184,6 +184,102 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "default",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "children",
+            "value": "Card"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {
+            "data-surface-color": {
+              "kind": "literal",
+              "value": "primary"
+            },
+            "data-deprecated": {
+              "kind": "literal",
+              "value": "surface"
+            }
+          },
+          "classes": [],
+          "children": [
+            {
+              "kind": "text",
+              "value": {
+                "kind": "consumer-children"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/surface.json",
+          "vectorId": "default",
+          "contractDigest": "27580550c2b679cf47529c4bed3092c60406d59b9b7d2602ee2b9a8570b711e0"
+        },
+        "expectationDigest": "4441c41c07410c7e20f820d8180d29bc4fa68fb41f9ec635bcc641391f687b4b"
+      },
+      {
+        "id": "as-section",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "as",
+            "value": "section"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "children",
+            "value": "Card"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "color",
+            "value": "secondary"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "section"
+          },
+          "attributes": {
+            "data-surface-color": {
+              "kind": "literal",
+              "value": "secondary"
+            },
+            "data-deprecated": {
+              "kind": "literal",
+              "value": "surface"
+            }
+          },
+          "classes": [],
+          "children": [
+            {
+              "kind": "text",
+              "value": {
+                "kind": "consumer-children"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/surface.json",
+          "vectorId": "as-section",
+          "contractDigest": "27580550c2b679cf47529c4bed3092c60406d59b9b7d2602ee2b9a8570b711e0"
+        },
+        "expectationDigest": "308e0794f759650df3841b6d3e8260c5277c3b302bc9c17b2cac90eb36457489"
+      }
     ]
   },
   "semanticRender": {
@@ -194,5 +290,6 @@
       "as-section"
     ]
   },
-  "modelDigest": "02ea47c27208825e7648517815babc8662a0efbc33599d4d7939a955a660f3c4"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "97e129f5f9aa52214f84f0d93a19fcda29a6305d79efd2606f3f30e12129fcda"
 }

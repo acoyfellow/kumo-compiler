@@ -180,6 +180,39 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "ssr",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "text",
+            "value": "visible"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "textToCopy",
+            "value": "payload"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {},
+          "classes": [],
+          "children": []
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/clipboard-text.json",
+          "vectorId": "ssr",
+          "contractDigest": "1a9749b6c0399605bf4030786d13ff98de3082204a6f73a4157477efe585f838"
+        },
+        "expectationDigest": "84316287b165e3499c9844cb130cdf3cf1d8ce7ea5c049ca51705c1fc977cd48"
+      }
     ]
   },
   "semanticRender": {
@@ -189,5 +222,6 @@
       "ssr"
     ]
   },
-  "modelDigest": "e3fdf15df205749acbcddf922f3d7c9275e745acf82bdac7e4f298112a97e781"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "00a3f6fda7beba1a0b5d8925eaaf3a396917695fb817c769cc203af6e8da92c2"
 }

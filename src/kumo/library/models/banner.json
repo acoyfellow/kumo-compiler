@@ -233,6 +233,136 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "structured",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "description",
+            "value": "Details"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "title",
+            "value": "Notice"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {},
+          "classes": [
+            {
+              "kind": "literal",
+              "value": "bg-kumo-banner-info"
+            }
+          ],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "p"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "p"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "text",
+              "value": {
+                "kind": "literal",
+                "value": "NoticeDetails"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/banner.json",
+          "vectorId": "structured",
+          "contractDigest": "f4855027feabf5bbd38750fa44001d7e705ed7d8871f6ee74b4d0fa1e4f6edf1"
+        },
+        "expectationDigest": "72afbfbc62b222448d476f2fe1a729495d6c4b4c8da3a915add21e95acf328a7"
+      },
+      {
+        "id": "alert-simple",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "children",
+            "value": "Careful"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "variant",
+            "value": "alert"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {},
+          "classes": [
+            {
+              "kind": "literal",
+              "value": "bg-kumo-banner-warning"
+            },
+            {
+              "kind": "literal",
+              "value": "text-kumo-warning"
+            }
+          ],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "p"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": [
+                {
+                  "kind": "text",
+                  "value": {
+                    "kind": "consumer-children"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "value": {
+                "kind": "consumer-children"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/banner.json",
+          "vectorId": "alert-simple",
+          "contractDigest": "f4855027feabf5bbd38750fa44001d7e705ed7d8871f6ee74b4d0fa1e4f6edf1"
+        },
+        "expectationDigest": "b905eb0b86c579c36dd4cff9c50b555e66a8547f3deb1456ffeadbedb20a441b"
+      }
     ]
   },
   "semanticRender": {
@@ -243,5 +373,6 @@
       "alert-simple"
     ]
   },
-  "modelDigest": "ac651d2c0cecf70bb351db483be4876771169417d5dcf0bcb72aab55e0687331"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "3dd22aa9e5715668f99e253af9e5b6ddd8ae536b9f076b234422da9fef3f6a96"
 }

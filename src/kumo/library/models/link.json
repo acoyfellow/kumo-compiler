@@ -193,6 +193,117 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "internal",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "children",
+            "value": "Docs"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "href",
+            "value": "/docs"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "a"
+          },
+          "attributes": {
+            "href": {
+              "kind": "literal",
+              "value": "/docs"
+            },
+            "data-kumo-component": {
+              "kind": "literal",
+              "value": "Link"
+            }
+          },
+          "classes": [
+            {
+              "kind": "literal",
+              "value": "text-kumo-link"
+            },
+            {
+              "kind": "literal",
+              "value": "underline"
+            }
+          ],
+          "children": [
+            {
+              "kind": "text",
+              "value": {
+                "kind": "consumer-children"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/link.json",
+          "vectorId": "internal",
+          "contractDigest": "6789b7665f193b8d00d518ff84cee040de14d3aeed5dfe9f54c1e771236a954a"
+        },
+        "expectationDigest": "29e7ed1c47e2e5846d73164683b615e304a7c4b479fa40d162ff644a54fe0a42"
+      },
+      {
+        "id": "plain-external",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "children",
+            "value": "External"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "href",
+            "value": "https://example.com"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "variant",
+            "value": "plain"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "a"
+          },
+          "attributes": {
+            "href": {
+              "kind": "literal",
+              "value": "https://example.com"
+            }
+          },
+          "classes": [
+            {
+              "kind": "literal",
+              "value": "hover:text-kumo-link/70"
+            }
+          ],
+          "children": [
+            {
+              "kind": "text",
+              "value": {
+                "kind": "consumer-children"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/link.json",
+          "vectorId": "plain-external",
+          "contractDigest": "6789b7665f193b8d00d518ff84cee040de14d3aeed5dfe9f54c1e771236a954a"
+        },
+        "expectationDigest": "55849ea241349409983a1f64b0567fc60bcfddac212cbfbd2a2b0d73ca8bd710"
+      }
     ]
   },
   "semanticRender": {
@@ -203,5 +314,6 @@
       "plain-external"
     ]
   },
-  "modelDigest": "fbcc1de4d90da1cd7ac51f4a0a9a2f2a3e391748a9c46b921642c9b16cff4145"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "7788e2dcb1ce47cb68c2f9ec62a5bc078986b931bd2c1cbfc1b21e473a94334c"
 }

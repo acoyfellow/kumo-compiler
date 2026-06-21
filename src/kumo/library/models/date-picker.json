@@ -245,6 +245,440 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "single-selected",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "aria-label",
+            "value": "Choose date"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "defaultMonthDate",
+            "value": "2025-01-01"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "mode",
+            "value": "single"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "selectedDate",
+            "value": "2025-01-15"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {
+            "aria-label": {
+              "kind": "literal",
+              "value": "Choose date"
+            }
+          },
+          "classes": [],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "table"
+              },
+              "attributes": {
+                "role": {
+                  "kind": "literal",
+                  "value": "grid"
+                }
+              },
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/date-picker.json",
+          "vectorId": "single-selected",
+          "contractDigest": "f303d136d3831ff34dfcc30045081b8df8c6026a733e5da0924efbe2e36c0576"
+        },
+        "expectationDigest": "90a3e8f4e57496245fa749e6800c37b954ae86c0abed9de8887a1a989de3dbd3"
+      }
     ]
   },
   "semanticRender": {
@@ -254,5 +688,6 @@
       "single-selected"
     ]
   },
-  "modelDigest": "f3bcd15c0243497eda4792b529bcadee2955572070d4dd45e98715904acae165"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "8470e458b300a04852a473c107d0e5e3a53ca5e521edc62a993d564fdd1d3c20"
 }

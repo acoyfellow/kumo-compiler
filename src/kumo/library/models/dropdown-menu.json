@@ -415,6 +415,67 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "closed-trigger-ssr",
+        "when": [
+          {
+            "kind": "fixture-equals",
+            "value": {
+              "export": "root",
+              "props": {},
+              "children": [
+                {
+                  "export": ".Trigger",
+                  "props": {},
+                  "children": [
+                    {
+                      "text": "Actions"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "button"
+          },
+          "attributes": {
+            "type": {
+              "kind": "literal",
+              "value": "button"
+            },
+            "tabindex": {
+              "kind": "literal",
+              "value": "0"
+            },
+            "aria-haspopup": {
+              "kind": "literal",
+              "value": "menu"
+            }
+          },
+          "classes": [],
+          "children": [
+            {
+              "kind": "fixture-children",
+              "value": {
+                "kind": "fixture"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/dropdown-menu.json",
+          "vectorId": "closed-trigger-ssr",
+          "contractDigest": "21bf29e0898604231db71d5016c69c94b69a55ee8696e7f7de611e17818e2de5"
+        },
+        "expectationDigest": "96a51ef90c52bda16064391fbaddcdd8221a7f254583a75aa51732efd36fee89"
+      }
     ]
   },
   "semanticRender": {
@@ -424,5 +485,6 @@
       "closed-trigger-ssr"
     ]
   },
-  "modelDigest": "c41e9aa655c05ba46af63779a911d3db2ae65516f347765817be585100bd7405"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "8160e7a22d2d7fc68698e72727c99e47271a36b1d0fe1bcf32b99194f77ad3bc"
 }

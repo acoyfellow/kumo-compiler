@@ -192,6 +192,113 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "default",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "children",
+            "value": "PRO"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "span"
+          },
+          "attributes": {},
+          "classes": [
+            {
+              "kind": "literal",
+              "value": "inline-flex"
+            },
+            {
+              "kind": "literal",
+              "value": "bg-kumo-badge-inverted"
+            }
+          ],
+          "children": [
+            {
+              "kind": "text",
+              "value": {
+                "kind": "consumer-children"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/badge.json",
+          "vectorId": "default",
+          "contractDigest": "254ed3d98bc51fa5772a3c5dc71fae18f7b0b9959cfffdc1ae3246cfc1a457b5"
+        },
+        "expectationDigest": "48bd51a011b414273bbd831d961d8036cf9784ebdc9fe8c8262cc5d849ee78b0"
+      },
+      {
+        "id": "success-dot",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "appearance",
+            "value": "dot"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "children",
+            "value": "Healthy"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "variant",
+            "value": "success"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "span"
+          },
+          "attributes": {},
+          "classes": [],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "span"
+              },
+              "attributes": {
+                "aria-hidden": {
+                  "kind": "literal",
+                  "value": "true"
+                }
+              },
+              "classes": [
+                {
+                  "kind": "literal",
+                  "value": "bg-kumo-success"
+                }
+              ],
+              "children": []
+            },
+            {
+              "kind": "text",
+              "value": {
+                "kind": "consumer-children"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/badge.json",
+          "vectorId": "success-dot",
+          "contractDigest": "254ed3d98bc51fa5772a3c5dc71fae18f7b0b9959cfffdc1ae3246cfc1a457b5"
+        },
+        "expectationDigest": "bb8522ff40566aaf102005beefd81fefdf1d361b4ffc6d1116e8b3094bfeb576"
+      }
     ]
   },
   "semanticRender": {
@@ -202,5 +309,6 @@
       "success-dot"
     ]
   },
-  "modelDigest": "1d36de3d548cc61a3375f77952c8b8e2402a2595597e565add2783c76fb15f52"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "006d85d298954f51354ac3e2f2f129e9796faf242d510fd5a25903f769e60657"
 }

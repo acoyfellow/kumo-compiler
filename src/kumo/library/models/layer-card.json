@@ -181,6 +181,138 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "simple",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "children",
+            "value": "Card"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {},
+          "classes": [
+            {
+              "kind": "literal",
+              "value": "bg-kumo-base"
+            },
+            {
+              "kind": "literal",
+              "value": "shadow-xs"
+            },
+            {
+              "kind": "literal",
+              "value": "ring-kumo-line"
+            }
+          ],
+          "children": [
+            {
+              "kind": "text",
+              "value": {
+                "kind": "consumer-children"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/layer-card.json",
+          "vectorId": "simple",
+          "contractDigest": "b4d1d4adae01fa79bd1597a8df1b893526767d44cace26acca1b0521886df031"
+        },
+        "expectationDigest": "a499a4590b2889a399fb37ec1aea23b834bd37a9decc081349d87104441126a5"
+      },
+      {
+        "id": "layered",
+        "when": [
+          {
+            "kind": "fixture-equals",
+            "value": {
+              "export": "root",
+              "props": {},
+              "children": [
+                {
+                  "export": ".Secondary",
+                  "props": {},
+                  "children": [
+                    {
+                      "text": "Top"
+                    }
+                  ]
+                },
+                {
+                  "export": ".Primary",
+                  "props": {},
+                  "children": [
+                    {
+                      "text": "Main"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {},
+          "classes": [
+            {
+              "kind": "literal",
+              "value": "bg-kumo-elevated"
+            },
+            {
+              "kind": "literal",
+              "value": "ring-kumo-hairline"
+            }
+          ],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "div"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "div"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "fixture-children",
+              "value": {
+                "kind": "fixture"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/layer-card.json",
+          "vectorId": "layered",
+          "contractDigest": "b4d1d4adae01fa79bd1597a8df1b893526767d44cace26acca1b0521886df031"
+        },
+        "expectationDigest": "bdf1e0064642e5030741e7e6b3cfbefc3cb01d9355b221061e54ad98f1d48d10"
+      }
     ]
   },
   "semanticRender": {
@@ -191,5 +323,6 @@
       "layered"
     ]
   },
-  "modelDigest": "ddca11a9ed8ef8c7469e89650c9b2ae478dc2b29e3c732fc2f82edb96e45cda2"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "fd939af05201967cffd0c170320971fa78ceaf75165af48a02a704e5594b7f38"
 }

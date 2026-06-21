@@ -364,6 +364,79 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "closed-trigger-ssr",
+        "when": [
+          {
+            "kind": "fixture-equals",
+            "value": {
+              "export": "root",
+              "props": {},
+              "children": [
+                {
+                  "export": ".Trigger",
+                  "props": {},
+                  "children": [
+                    {
+                      "text": "Open"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "button"
+          },
+          "attributes": {
+            "type": {
+              "kind": "literal",
+              "value": "button"
+            },
+            "tabindex": {
+              "kind": "literal",
+              "value": "0"
+            },
+            "aria-haspopup": {
+              "kind": "literal",
+              "value": "dialog"
+            },
+            "aria-expanded": {
+              "kind": "literal",
+              "value": "false"
+            },
+            "data-kumo-component": {
+              "kind": "literal",
+              "value": "Popover"
+            },
+            "data-kumo-part": {
+              "kind": "literal",
+              "value": "trigger"
+            }
+          },
+          "classes": [],
+          "children": [
+            {
+              "kind": "fixture-children",
+              "value": {
+                "kind": "fixture"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/popover.json",
+          "vectorId": "closed-trigger-ssr",
+          "contractDigest": "4ed87b192b9060dd60e8e86efa01860761dbc5714e39b1778be23b79a25f8e22"
+        },
+        "expectationDigest": "47da98bc8697006e9aa6aacecd53fee10ce49002411f7db100e7aa610514ed86"
+      }
     ]
   },
   "semanticRender": {
@@ -373,5 +446,6 @@
       "closed-trigger-ssr"
     ]
   },
-  "modelDigest": "6f556a8c83ff2298dfa0c0ea4e6d61d969bb371ab1f808c0a889c8205e8a2409"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "17b19c7cc9d7e317ac99d48e6f0d9d85e14c60a2c56ee41b0ad371d593982d1b"
 }

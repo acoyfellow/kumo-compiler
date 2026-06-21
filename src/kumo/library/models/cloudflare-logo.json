@@ -171,6 +171,237 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "full-color",
+        "when": [],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "svg"
+          },
+          "attributes": {
+            "role": {
+              "kind": "literal",
+              "value": "img"
+            },
+            "aria-label": {
+              "kind": "literal",
+              "value": "Cloudflare logo"
+            },
+            "viewBox": {
+              "kind": "literal",
+              "value": "0 0 425.6 143.63"
+            }
+          },
+          "classes": [
+            {
+              "kind": "literal",
+              "value": "text-kumo-default"
+            }
+          ],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "path"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "path"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "path"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "path"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "path"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "path"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "path"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "path"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "path"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "path"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "path"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "path"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/cloudflare-logo.json",
+          "vectorId": "full-color",
+          "contractDigest": "b561e386f8396b4a23dc8e6837b5ca89341ccb3a9f1903578cbe75f65771f695"
+        },
+        "expectationDigest": "4a470d188456a2895090a43ed1e98eff1f416323faeac90bb20d43ae581efacd"
+      },
+      {
+        "id": "glyph-white",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "color",
+            "value": "white"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "variant",
+            "value": "glyph"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "svg"
+          },
+          "attributes": {
+            "role": {
+              "kind": "literal",
+              "value": "img"
+            },
+            "aria-label": {
+              "kind": "literal",
+              "value": "Cloudflare logo"
+            },
+            "viewBox": {
+              "kind": "literal",
+              "value": "0 0 49 22"
+            }
+          },
+          "classes": [
+            {
+              "kind": "literal",
+              "value": "text-white"
+            }
+          ],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "path"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "path"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/cloudflare-logo.json",
+          "vectorId": "glyph-white",
+          "contractDigest": "b561e386f8396b4a23dc8e6837b5ca89341ccb3a9f1903578cbe75f65771f695"
+        },
+        "expectationDigest": "caa69a7a338fc00c81a3c2c314bda2998c251b21ddc80f0f0bdb8edc6b54acbd"
+      }
     ]
   },
   "semanticRender": {
@@ -181,5 +412,6 @@
       "glyph-white"
     ]
   },
-  "modelDigest": "c857043972ed3e8937649e91f0f2c871a6ffc583d3a2bd691f3758c478450b90"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "e0451c0088ccb59f34594d962f02d2edc34829e8b2a927a382abebeb3a1f3484"
 }

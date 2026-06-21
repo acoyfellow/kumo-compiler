@@ -170,6 +170,39 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "bare",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "aria-label",
+            "value": "Notes"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "defaultValue",
+            "value": "hello"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "textarea"
+          },
+          "attributes": {},
+          "classes": [],
+          "children": []
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/input-area.json",
+          "vectorId": "bare",
+          "contractDigest": "4d013786afa0089d44e6e40dc041b4b9b3de7dc5a9403384e70f3a8d55cfcd2b"
+        },
+        "expectationDigest": "ebf5bf8b27301ff66eaf323b56e6a9ac48972ee15edb2d88ae114e04d29c04cd"
+      }
     ]
   },
   "semanticRender": {
@@ -179,5 +212,6 @@
       "bare"
     ]
   },
-  "modelDigest": "247d702a999731db1a15c196d7f10fdb91952e1b1b12a7bdcca27fdb41905698"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "2e8146a491bf214e4202760c439b7eee5387f7a70659b1d59e47e7d294f9b6ad"
 }

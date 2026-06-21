@@ -170,6 +170,39 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "masked",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "defaultValue",
+            "value": "alpha"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "label",
+            "value": "Secret"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {},
+          "classes": [],
+          "children": []
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/sensitive-input.json",
+          "vectorId": "masked",
+          "contractDigest": "1be275166efac270e45a2672b8313927fe15d0409fcc9ba113c7fc5a6c46a8f0"
+        },
+        "expectationDigest": "84316287b165e3499c9844cb130cdf3cf1d8ce7ea5c049ca51705c1fc977cd48"
+      }
     ]
   },
   "semanticRender": {
@@ -179,5 +212,6 @@
       "masked"
     ]
   },
-  "modelDigest": "3ea92376cff112b420a01a847e22780e7a2fdf21a5d6b821c59b89ef209f68ae"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "df995b55b04984b5b3392e0170acca372de3b79f2c9178652f3acb7091706f00"
 }

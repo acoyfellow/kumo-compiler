@@ -380,5 +380,16 @@
       "closed-trigger"
     ]
   },
-  "modelDigest": "eb96cf6ed30b62535e2a666876f736b27617eb72466393267d0a344bd6abd833"
+  "unresolvedSemanticOperations": [
+    {
+      "vectorId": "closed-trigger",
+      "reason": "attribute selector [role=dialog] cannot determine an element tag",
+      "provenance": {
+        "contractPath": "contracts/kumo.observable/v1/components/dialog.json",
+        "vectorId": "closed-trigger",
+        "contractDigest": "15bdd0b64f302b4a64929843f7958278d13b196cc80702033dbf526db845a5e3"
+      }
+    }
+  ],
+  "modelDigest": "d9106fef28eec8fbdea97663c79744245f389ee2104f8b09f88cbb8c08389312"
 }

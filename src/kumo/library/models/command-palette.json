@@ -367,6 +367,79 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "highlighted-text",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "highlights",
+            "value": [
+              [
+                0,
+                4
+              ]
+            ]
+          },
+          {
+            "kind": "prop-equals",
+            "name": "text",
+            "value": "Cloudflare"
+          },
+          {
+            "kind": "fixture-equals",
+            "value": {
+              "export": ".HighlightedText",
+              "props": {
+                "text": "Cloudflare",
+                "highlights": [
+                  [
+                    0,
+                    4
+                  ]
+                ]
+              },
+              "children": []
+            }
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "span"
+          },
+          "attributes": {},
+          "classes": [],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "mark"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": [
+                {
+                  "kind": "text",
+                  "value": {
+                    "kind": "literal",
+                    "value": "Cloud"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/command-palette.json",
+          "vectorId": "highlighted-text",
+          "contractDigest": "002e8d68fdb91b46f3b9081d6cba7c0eb4dffcff4ae5c02d18abf9c830bf1320"
+        },
+        "expectationDigest": "c47ffa9c9bb6ae48155882f1e4314b02f15e89d24d472bc83da54565ba878bf0"
+      }
     ]
   },
   "semanticRender": {
@@ -376,5 +449,6 @@
       "highlighted-text"
     ]
   },
-  "modelDigest": "059fe97f89ed6b31313150c27acfaf2b6d293cc4999311c8032ae1a09702491a"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "2e3e15f2b1de40959003e3238b85d8c8e0631ba856e3ae3a893f0c246b3cfa3e"
 }

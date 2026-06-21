@@ -140,6 +140,84 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "default",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "children",
+            "value": "Cell"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {},
+          "classes": [],
+          "children": [
+            {
+              "kind": "text",
+              "value": {
+                "kind": "consumer-children"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/grid-item.json",
+          "vectorId": "default",
+          "contractDigest": "14de81c791eb3817ea08ea2dd1a4b7f242dd7041fda7e174ea1f46d932ccee9c"
+        },
+        "expectationDigest": "51c1d321c43ffacdda6bd6fc684748b42dfba6453c77469911a835a6971f221c"
+      },
+      {
+        "id": "custom-class",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "children",
+            "value": "Cell"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "className",
+            "value": "p-4"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {},
+          "classes": [
+            {
+              "kind": "literal",
+              "value": "p-4"
+            }
+          ],
+          "children": [
+            {
+              "kind": "text",
+              "value": {
+                "kind": "consumer-children"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/grid-item.json",
+          "vectorId": "custom-class",
+          "contractDigest": "14de81c791eb3817ea08ea2dd1a4b7f242dd7041fda7e174ea1f46d932ccee9c"
+        },
+        "expectationDigest": "fae0126eee9399750e209d30c90d71037d08b2d983b07c536fe81384697adc57"
+      }
     ]
   },
   "semanticRender": {
@@ -150,5 +228,6 @@
       "custom-class"
     ]
   },
-  "modelDigest": "a0ff3145e5c0b7f092cb0b6a27ab078c3010c13704bbf5e6cb75d7b321358b82"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "731f046cabfca2ddc6ca5d3fffd4bc0eb020042258529b47b51be3c350d1cb1c"
 }

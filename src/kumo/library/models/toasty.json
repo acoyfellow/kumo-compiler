@@ -251,6 +251,41 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "provider-ssr",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "children",
+            "value": "Application"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {},
+          "classes": [],
+          "children": [
+            {
+              "kind": "text",
+              "value": {
+                "kind": "consumer-children"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/toasty.json",
+          "vectorId": "provider-ssr",
+          "contractDigest": "35460d33f6056c8b070637ba6ed0fc22d0e3ddd9f7a907602154399466c045f5"
+        },
+        "expectationDigest": "4088bd17afcb25d127264e53159684eb5599f996db6063aa6fb7e16a14b73506"
+      }
     ]
   },
   "semanticRender": {
@@ -260,5 +295,6 @@
       "provider-ssr"
     ]
   },
-  "modelDigest": "2dfaec450321bfd37a1ca9696027cef217dc89db5478dbd2e49d31be9b3cbc10"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "da90cc0753a808108a05566c75cd30bc209fbb80a999a7b132febf667b482ae8"
 }

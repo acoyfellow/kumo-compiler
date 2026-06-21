@@ -213,6 +213,78 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "composition",
+        "when": [
+          {
+            "kind": "fixture-equals",
+            "value": {
+              "export": "root",
+              "props": {
+                "label": "Search",
+                "description": "Help",
+                "required": true
+              },
+              "children": [
+                {
+                  "export": ".Addon",
+                  "props": {},
+                  "children": [
+                    {
+                      "text": "$"
+                    }
+                  ]
+                },
+                {
+                  "export": ".Input",
+                  "props": {
+                    "aria-label": "Search"
+                  },
+                  "children": []
+                },
+                {
+                  "export": ".Button",
+                  "props": {
+                    "variant": "secondary"
+                  },
+                  "children": [
+                    {
+                      "text": "Go"
+                    }
+                  ]
+                },
+                {
+                  "export": ".Suffix",
+                  "props": {},
+                  "children": [
+                    {
+                      "text": "USD"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {},
+          "classes": [],
+          "children": []
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/input-group.json",
+          "vectorId": "composition",
+          "contractDigest": "8132f95d8159f27a104585a5a781a9230d374b8e0d3f08010a506237ec2b2d69"
+        },
+        "expectationDigest": "84316287b165e3499c9844cb130cdf3cf1d8ce7ea5c049ca51705c1fc977cd48"
+      }
     ]
   },
   "semanticRender": {
@@ -222,5 +294,6 @@
       "composition"
     ]
   },
-  "modelDigest": "b97338f1c1234a65a7fb56cad9a03fae4c2f7f368e651abb7e16a753922e57f5"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "d9941d0c1ddbafb3ab1c8d2397fbcd27f641bbcd6c6db4f66a653e7765ed14c9"
 }

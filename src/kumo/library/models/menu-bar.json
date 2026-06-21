@@ -268,6 +268,60 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "empty-nav-ssr",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "isActive",
+            "value": 0
+          },
+          {
+            "kind": "prop-equals",
+            "name": "options",
+            "value": []
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "nav"
+          },
+          "attributes": {},
+          "classes": [
+            {
+              "kind": "literal",
+              "value": "isolate"
+            },
+            {
+              "kind": "literal",
+              "value": "flex"
+            },
+            {
+              "kind": "literal",
+              "value": "rounded-lg"
+            },
+            {
+              "kind": "literal",
+              "value": "ring-kumo-line"
+            },
+            {
+              "kind": "literal",
+              "value": "bg-kumo-recessed"
+            }
+          ],
+          "children": []
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/menu-bar.json",
+          "vectorId": "empty-nav-ssr",
+          "contractDigest": "f045535d57d8458b042cab9857f4cd31970c38e58506a55a5da9bc7717da4339"
+        },
+        "expectationDigest": "5cdeed6857aee33ad3beee01ef718b002e5e7d97daf643c1739e8d71cb4922b0"
+      }
     ]
   },
   "semanticRender": {
@@ -277,5 +331,6 @@
       "empty-nav-ssr"
     ]
   },
-  "modelDigest": "9b12807941c5fda9f217185354de3b2547fd4ff10161546e117e8502f2d89070"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "21bdff3ec798fc25bf7ebc465632fb091b0a0c94fb2a9ddae2d05844830d20e5"
 }

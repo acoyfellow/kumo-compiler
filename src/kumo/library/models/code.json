@@ -189,6 +189,108 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "default",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "code",
+            "value": "const x = 1;"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "pre"
+          },
+          "attributes": {},
+          "classes": [
+            {
+              "kind": "literal",
+              "value": "font-mono"
+            },
+            {
+              "kind": "literal",
+              "value": "text-sm"
+            },
+            {
+              "kind": "literal",
+              "value": "text-kumo-subtle"
+            }
+          ],
+          "children": [
+            {
+              "kind": "text",
+              "value": {
+                "kind": "prop",
+                "name": "code"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/code.json",
+          "vectorId": "default",
+          "contractDigest": "2fa80b7d19c26c450eb6ff2615d1a4943cefcc32e7092d729505a2c75f70151f"
+        },
+        "expectationDigest": "face9c8e09407353487403fbf216b21820327f561a4753c60c526ffb7d00fc25"
+      },
+      {
+        "id": "bash",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "className",
+            "value": "custom"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "code",
+            "value": "echo kumo"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "lang",
+            "value": "bash"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "pre"
+          },
+          "attributes": {},
+          "classes": [
+            {
+              "kind": "literal",
+              "value": "custom"
+            },
+            {
+              "kind": "literal",
+              "value": "font-mono"
+            }
+          ],
+          "children": [
+            {
+              "kind": "text",
+              "value": {
+                "kind": "prop",
+                "name": "code"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/code.json",
+          "vectorId": "bash",
+          "contractDigest": "2fa80b7d19c26c450eb6ff2615d1a4943cefcc32e7092d729505a2c75f70151f"
+        },
+        "expectationDigest": "685437b93a0078d4bd57f63886449874af8d7f6e5197dc93d063954e9bc6f2cf"
+      }
     ]
   },
   "semanticRender": {
@@ -199,5 +301,6 @@
       "bash"
     ]
   },
-  "modelDigest": "b5f91c5c3f1d2cce034bfd1d2369bcc11cba59571f68f0d67f6510cb31d2f603"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "0f20f3e06c118fd7d803b2a9d0dd5198a620b5536189d2dc00f63224192525e2"
 }

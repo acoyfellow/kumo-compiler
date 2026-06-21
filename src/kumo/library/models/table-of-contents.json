@@ -265,6 +265,266 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "static-title-items",
+        "when": [
+          {
+            "kind": "fixture-equals",
+            "value": {
+              "export": "root",
+              "props": {
+                "aria-label": "Article sections"
+              },
+              "children": [
+                {
+                  "export": ".Title",
+                  "props": {},
+                  "children": [
+                    {
+                      "text": "On this page"
+                    }
+                  ]
+                },
+                {
+                  "export": ".List",
+                  "props": {},
+                  "children": [
+                    {
+                      "export": ".Item",
+                      "props": {
+                        "href": "#intro",
+                        "active": true
+                      },
+                      "children": [
+                        {
+                          "text": "Introduction"
+                        }
+                      ]
+                    },
+                    {
+                      "export": ".Item",
+                      "props": {
+                        "href": "#install"
+                      },
+                      "children": [
+                        {
+                          "text": "Installation"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "nav"
+          },
+          "attributes": {
+            "aria-label": {
+              "kind": "literal",
+              "value": "Article sections"
+            }
+          },
+          "classes": [],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "p"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": [
+                {
+                  "kind": "text",
+                  "value": {
+                    "kind": "literal",
+                    "value": "On this page"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "ul"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "a"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "a"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/table-of-contents.json",
+          "vectorId": "static-title-items",
+          "contractDigest": "71979902dad3ae9c2285b106715845d05a2c14a42144ea5f71024fff62e79a8f"
+        },
+        "expectationDigest": "2c340de436cabfd4624765e93ce8d80d91469a0f0c64e8492aacf42165197f08"
+      },
+      {
+        "id": "nested-linked-group",
+        "when": [
+          {
+            "kind": "fixture-equals",
+            "value": {
+              "export": "root",
+              "props": {},
+              "children": [
+                {
+                  "export": ".List",
+                  "props": {},
+                  "children": [
+                    {
+                      "export": ".Group",
+                      "props": {
+                        "label": "Getting started",
+                        "href": "#getting-started",
+                        "active": true
+                      },
+                      "children": [
+                        {
+                          "export": ".Item",
+                          "props": {
+                            "href": "#install"
+                          },
+                          "children": [
+                            {
+                              "text": "Install"
+                            }
+                          ]
+                        },
+                        {
+                          "export": ".Item",
+                          "props": {
+                            "href": "#setup"
+                          },
+                          "children": [
+                            {
+                              "text": "Setup"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "nav"
+          },
+          "attributes": {
+            "aria-label": {
+              "kind": "literal",
+              "value": "Table of contents"
+            }
+          },
+          "classes": [],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "ul"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "li"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "li"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "a"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "a"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "a"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/table-of-contents.json",
+          "vectorId": "nested-linked-group",
+          "contractDigest": "71979902dad3ae9c2285b106715845d05a2c14a42144ea5f71024fff62e79a8f"
+        },
+        "expectationDigest": "d46be6fd1882b7d21df1e064de09325ce1bd8b535fe3d2b069a9dc356d2c4625"
+      }
     ]
   },
   "semanticRender": {
@@ -275,5 +535,6 @@
       "nested-linked-group"
     ]
   },
-  "modelDigest": "81014c4c1a30efc3e27481d92caa0982d08b7a628a08367a97eac81b75805827"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "442e94fa23275f2cbbd8e9e6a1b9279eeb8e00402dd5f42f850864c34f9f0ba1"
 }

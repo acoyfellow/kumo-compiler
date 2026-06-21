@@ -325,6 +325,151 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "segmented-uncontrolled-first",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "tabs",
+            "value": [
+              {
+                "value": "overview",
+                "label": "Overview"
+              },
+              {
+                "value": "settings",
+                "label": "Settings"
+              }
+            ]
+          },
+          {
+            "kind": "fixture-equals",
+            "value": {
+              "export": "root",
+              "props": {},
+              "children": []
+            }
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {},
+          "classes": [],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/tabs.json",
+          "vectorId": "segmented-uncontrolled-first",
+          "contractDigest": "fbbb0d671907280d2ae6c38247506d3d7bbfde18604896102b97e066c24f890f"
+        },
+        "expectationDigest": "a86aa236d704763777e7377f6cc01a6d44a1272e07ce21bfd87fb1e61f5bec84"
+      },
+      {
+        "id": "underline-selected-value",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "selectedValue",
+            "value": "settings"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "size",
+            "value": "sm"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "tabs",
+            "value": [
+              {
+                "value": "overview",
+                "label": "Overview"
+              },
+              {
+                "value": "settings",
+                "label": "Settings"
+              }
+            ]
+          },
+          {
+            "kind": "prop-equals",
+            "name": "variant",
+            "value": "underline"
+          },
+          {
+            "kind": "fixture-equals",
+            "value": {
+              "export": "root",
+              "props": {},
+              "children": []
+            }
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {},
+          "classes": [],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/tabs.json",
+          "vectorId": "underline-selected-value",
+          "contractDigest": "fbbb0d671907280d2ae6c38247506d3d7bbfde18604896102b97e066c24f890f"
+        },
+        "expectationDigest": "a86aa236d704763777e7377f6cc01a6d44a1272e07ce21bfd87fb1e61f5bec84"
+      }
     ]
   },
   "semanticRender": {
@@ -335,5 +480,6 @@
       "underline-selected-value"
     ]
   },
-  "modelDigest": "be2d85611b36700f16be10f96c70a078f84cee19e3b8eb304620370936b1e051"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "6763686c876d24d09a4e3db417cfddaa467a96cf9741d6a57fc71a497d7ec5d0"
 }

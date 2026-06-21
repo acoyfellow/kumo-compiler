@@ -170,6 +170,44 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "bare-disabled",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "aria-label",
+            "value": "Email"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "defaultValue",
+            "value": "x"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "disabled",
+            "value": true
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "input"
+          },
+          "attributes": {},
+          "classes": [],
+          "children": []
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/input.json",
+          "vectorId": "bare-disabled",
+          "contractDigest": "8ab290a7d671042434090c4d0e6c8fa30dbb47934480b7b7cabe834ad35553c4"
+        },
+        "expectationDigest": "9f4857a73ca347a341683ae3f56fb85d5f056ec4d0bac47c5b8c71f722f25d48"
+      }
     ]
   },
   "semanticRender": {
@@ -179,5 +217,6 @@
       "bare-disabled"
     ]
   },
-  "modelDigest": "805d15307d274d79180e0f62e60427bfdb10f23a9dde1141b6ba38078493cc86"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "e8a33e484edf40ba2012018e4cecbd2717d8931a91f0055696dc750be0ba5e0d"
 }

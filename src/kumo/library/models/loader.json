@@ -166,6 +166,127 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "default",
+        "when": [],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "svg"
+          },
+          "attributes": {
+            "role": {
+              "kind": "literal",
+              "value": "status"
+            },
+            "aria-label": {
+              "kind": "literal",
+              "value": "Loading"
+            },
+            "width": {
+              "kind": "literal",
+              "value": "24"
+            },
+            "height": {
+              "kind": "literal",
+              "value": "24"
+            }
+          },
+          "classes": [],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "circle"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "circle"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/loader.json",
+          "vectorId": "default",
+          "contractDigest": "f072c4894de40bf1ba588b29a61c4680564d706f0c2dfc745a94bec4cad4fecd"
+        },
+        "expectationDigest": "6eb5c75d6fadb5fd6e7a9b6e216e728db8bed43f1734ef1c19efb96b4766cf1e"
+      },
+      {
+        "id": "large-labelled",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "aria-label",
+            "value": "Working"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "size",
+            "value": "lg"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "svg"
+          },
+          "attributes": {
+            "role": {
+              "kind": "literal",
+              "value": "status"
+            },
+            "aria-label": {
+              "kind": "literal",
+              "value": "Working"
+            }
+          },
+          "classes": [],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "circle"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "circle"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/loader.json",
+          "vectorId": "large-labelled",
+          "contractDigest": "f072c4894de40bf1ba588b29a61c4680564d706f0c2dfc745a94bec4cad4fecd"
+        },
+        "expectationDigest": "163c48e1305118b9b2bc71154f96396b955344e0326a6dcaab28902fbf405547"
+      }
     ]
   },
   "semanticRender": {
@@ -176,5 +297,6 @@
       "large-labelled"
     ]
   },
-  "modelDigest": "2d3f7fbc4e328b91fbecdea3433f61cd56c9f11c4c8ed074aba2395d1657af89"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "2808be9f1c68f90d7f014f4c97a6080bee5614f559a273bd05ebcc41025ae331"
 }

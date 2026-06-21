@@ -206,6 +206,278 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "semantic-selected",
+        "when": [
+          {
+            "kind": "fixture-equals",
+            "value": {
+              "export": "root",
+              "props": {},
+              "children": [
+                {
+                  "export": ".Header",
+                  "props": {},
+                  "children": [
+                    {
+                      "export": ".Row",
+                      "props": {},
+                      "children": [
+                        {
+                          "export": ".Head",
+                          "props": {},
+                          "children": [
+                            {
+                              "text": "Name"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "export": ".Body",
+                  "props": {},
+                  "children": [
+                    {
+                      "export": ".Row",
+                      "props": {},
+                      "children": [
+                        {
+                          "export": ".Cell",
+                          "props": {
+                            "className": "bg-kumo-tint"
+                          },
+                          "children": [
+                            {
+                              "text": "Kumo"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "table"
+          },
+          "attributes": {},
+          "classes": [
+            {
+              "kind": "literal",
+              "value": "isolate"
+            },
+            {
+              "kind": "literal",
+              "value": "w-full"
+            }
+          ],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "thead"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "tbody"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "tr"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "tr"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "th"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": [
+                {
+                  "kind": "text",
+                  "value": {
+                    "kind": "literal",
+                    "value": "Name"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "td"
+              },
+              "attributes": {},
+              "classes": [
+                {
+                  "kind": "literal",
+                  "value": "bg-kumo-tint"
+                }
+              ],
+              "children": [
+                {
+                  "kind": "text",
+                  "value": {
+                    "kind": "literal",
+                    "value": "Kumo"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/table.json",
+          "vectorId": "semantic-selected",
+          "contractDigest": "72a95a5166669a3cdd63a67f52de3db9d74f2725a12008b38d2332256b2518b4"
+        },
+        "expectationDigest": "a5423a58dc392191b6c0c0da8031335754cb3d76eb3efc82177110cdc5164676"
+      },
+      {
+        "id": "fixed-sticky",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "layout",
+            "value": "fixed"
+          },
+          {
+            "kind": "fixture-equals",
+            "value": {
+              "export": "root",
+              "props": {},
+              "children": [
+                {
+                  "export": ".Body",
+                  "props": {},
+                  "children": [
+                    {
+                      "export": ".Row",
+                      "props": {},
+                      "children": [
+                        {
+                          "export": ".Cell",
+                          "props": {
+                            "sticky": "left"
+                          },
+                          "children": [
+                            {
+                              "text": "Pinned"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "table"
+          },
+          "attributes": {},
+          "classes": [
+            {
+              "kind": "literal",
+              "value": "table-fixed"
+            }
+          ],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "tbody"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "td"
+              },
+              "attributes": {},
+              "classes": [
+                {
+                  "kind": "literal",
+                  "value": "sticky"
+                },
+                {
+                  "kind": "literal",
+                  "value": "left-0"
+                },
+                {
+                  "kind": "literal",
+                  "value": "z-1"
+                }
+              ],
+              "children": [
+                {
+                  "kind": "text",
+                  "value": {
+                    "kind": "literal",
+                    "value": "Pinned"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/table.json",
+          "vectorId": "fixed-sticky",
+          "contractDigest": "72a95a5166669a3cdd63a67f52de3db9d74f2725a12008b38d2332256b2518b4"
+        },
+        "expectationDigest": "50d6d26f603776ca0d4c4fc424d863d90e1313e15b6ac7f16822fbcea63d8f52"
+      }
     ]
   },
   "semanticRender": {
@@ -216,5 +488,6 @@
       "fixed-sticky"
     ]
   },
-  "modelDigest": "22624f988b1d7bdc886938897b13100e6143abe26971156585a3a15addc56fa3"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "2733d243a6e1ad2802f477e20e7960f874c2489bbb2a1c6807fa634080df0571"
 }

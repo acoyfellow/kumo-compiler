@@ -225,6 +225,149 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "body-default",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "children",
+            "value": "Body"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "p"
+          },
+          "attributes": {},
+          "classes": [
+            {
+              "kind": "literal",
+              "value": "text-kumo-default"
+            },
+            {
+              "kind": "literal",
+              "value": "text-base"
+            }
+          ],
+          "children": [
+            {
+              "kind": "text",
+              "value": {
+                "kind": "consumer-children"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/text.json",
+          "vectorId": "body-default",
+          "contractDigest": "c4e86fbf176fd1c5bdabe81c1e77150b9730a0dda1f37e75adc5b4f58f8180fc"
+        },
+        "expectationDigest": "b244946da5cf1ff8c2da4897816a693bd86ba446ddee8fd243b808df762f8530"
+      },
+      {
+        "id": "mono-default",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "children",
+            "value": "code"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "variant",
+            "value": "mono"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "span"
+          },
+          "attributes": {},
+          "classes": [
+            {
+              "kind": "literal",
+              "value": "font-mono"
+            },
+            {
+              "kind": "literal",
+              "value": "text-sm"
+            }
+          ],
+          "children": [
+            {
+              "kind": "text",
+              "value": {
+                "kind": "consumer-children"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/text.json",
+          "vectorId": "mono-default",
+          "contractDigest": "c4e86fbf176fd1c5bdabe81c1e77150b9730a0dda1f37e75adc5b4f58f8180fc"
+        },
+        "expectationDigest": "2691e5670a1dd583467defa6638eb39245c0a19c3318ec29eb941ec2dad82e3d"
+      },
+      {
+        "id": "heading-element",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "as",
+            "value": "h1"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "children",
+            "value": "Title"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "variant",
+            "value": "heading1"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "h1"
+          },
+          "attributes": {},
+          "classes": [
+            {
+              "kind": "literal",
+              "value": "text-3xl"
+            },
+            {
+              "kind": "literal",
+              "value": "font-semibold"
+            }
+          ],
+          "children": [
+            {
+              "kind": "text",
+              "value": {
+                "kind": "consumer-children"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/text.json",
+          "vectorId": "heading-element",
+          "contractDigest": "c4e86fbf176fd1c5bdabe81c1e77150b9730a0dda1f37e75adc5b4f58f8180fc"
+        },
+        "expectationDigest": "7ef7a82cbde4f5297024684169079d5c2e336107de762719500223ba34f9ee19"
+      }
     ]
   },
   "semanticRender": {
@@ -236,5 +379,6 @@
       "heading-element"
     ]
   },
-  "modelDigest": "a159611ea37fe0ba641dac73b74473a019cd88c84f86d6e25272bfc15b1e0b8a"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "b43b5e1bb2be788df24923252d5d5a7d7bba401db07c6baf521a7152442e2f45"
 }

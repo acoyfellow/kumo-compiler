@@ -192,6 +192,119 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "three-up",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "children",
+            "value": "Cells"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "variant",
+            "value": "3up"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {},
+          "classes": [
+            {
+              "kind": "literal",
+              "value": "grid"
+            },
+            {
+              "kind": "literal",
+              "value": "grid-cols-1"
+            },
+            {
+              "kind": "literal",
+              "value": "md:grid-cols-2"
+            },
+            {
+              "kind": "literal",
+              "value": "lg:grid-cols-3"
+            },
+            {
+              "kind": "literal",
+              "value": "gap-2"
+            }
+          ],
+          "children": [
+            {
+              "kind": "text",
+              "value": {
+                "kind": "consumer-children"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/grid.json",
+          "vectorId": "three-up",
+          "contractDigest": "483b41dd142b82b4b018a53ec6bdf1b431efa5cb7e9d809e6f4ed8289ab05c52"
+        },
+        "expectationDigest": "1d4ad816e0831f232c9946096131c941667811621348ced2bee375a7e44fe429"
+      },
+      {
+        "id": "side-none",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "children",
+            "value": "Two"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "gap",
+            "value": "none"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "variant",
+            "value": "side-by-side"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {},
+          "classes": [
+            {
+              "kind": "literal",
+              "value": "grid-cols-2"
+            },
+            {
+              "kind": "literal",
+              "value": "gap-0"
+            }
+          ],
+          "children": [
+            {
+              "kind": "text",
+              "value": {
+                "kind": "consumer-children"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/grid.json",
+          "vectorId": "side-none",
+          "contractDigest": "483b41dd142b82b4b018a53ec6bdf1b431efa5cb7e9d809e6f4ed8289ab05c52"
+        },
+        "expectationDigest": "4a534e8926dd3df51c47a717b766f52022b617de627fb0da56db1f5d96740503"
+      }
     ]
   },
   "semanticRender": {
@@ -202,5 +315,6 @@
       "side-none"
     ]
   },
-  "modelDigest": "6da34635dcd095779cb23101097bb698035e96b1995e27095fce06d122a6dbd3"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "8f448ea59addb5dd51bd78ec2a05ab79f2a82c9fa87807bd2a6621cf54efe3c4"
 }

@@ -5,6 +5,7 @@ import {ALGEBRA_VERSION} from './algebra.mjs';
 import {canonicalJSON, digest} from './index.mjs';
 import {deriveCompoundExports} from './compound-exports.mjs';
 import {deriveSemanticRender} from './semantic-render.mjs';
+import {compileSemanticVariants} from './semantic-implementation.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '../../..');
@@ -104,6 +105,9 @@ for (const file of fs.readdirSync(contracts).filter(file => file.endsWith('.json
   else delete model.semanticRender;
   model.componentRoot = {frameworkNeutral:true, implementationReady:false, candidateDefinition:true, draft:true};
   model.draftImplementation = JSON.parse(JSON.stringify(implementation(model, contract)));
+  const compiledSemantic = compileSemanticVariants(semantic ?? {vectors:[]});
+  if (compiledSemantic.semanticVariants.length) model.draftImplementation.semanticVariants = compiledSemantic.semanticVariants;
+  model.unresolvedSemanticOperations = compiledSemantic.unresolvedSemanticOperations;
   model.missingOperations = proofGaps(model);
   model.modelDigest = digest(model);
   fs.writeFileSync(path.join(models,file), `${JSON.stringify(model,null,2)}\n`);

@@ -261,6 +261,268 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "percentage",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "label",
+            "value": "Storage"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "value",
+            "value": 65
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {
+            "role": {
+              "kind": "literal",
+              "value": "meter"
+            },
+            "aria-valuemin": {
+              "kind": "literal",
+              "value": "0"
+            },
+            "aria-valuemax": {
+              "kind": "literal",
+              "value": "100"
+            },
+            "aria-valuenow": {
+              "kind": "literal",
+              "value": "65"
+            },
+            "aria-valuetext": {
+              "kind": "literal",
+              "value": "65%"
+            }
+          },
+          "classes": [],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "span"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "span"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "span"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "text",
+              "value": {
+                "kind": "literal",
+                "value": "Storage65%x"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/meter.json",
+          "vectorId": "percentage",
+          "contractDigest": "5eea2b1b77008d0fc0b8de31c8ecfd08b920ac8d2c8f315efb72b5148355adbc"
+        },
+        "expectationDigest": "c4c772dbf859773aca432276c1644939671936f70dbd45a0f6af9597390b1c21"
+      },
+      {
+        "id": "custom-value",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "customValue",
+            "value": "750 / 1,000"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "label",
+            "value": "Requests"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "value",
+            "value": 75
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {
+            "role": {
+              "kind": "literal",
+              "value": "meter"
+            },
+            "aria-valuenow": {
+              "kind": "literal",
+              "value": "75"
+            }
+          },
+          "classes": [],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "span"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "span"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "span"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "text",
+              "value": {
+                "kind": "literal",
+                "value": "Requests750 / 1,000x"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/meter.json",
+          "vectorId": "custom-value",
+          "contractDigest": "5eea2b1b77008d0fc0b8de31c8ecfd08b920ac8d2c8f315efb72b5148355adbc"
+        },
+        "expectationDigest": "3e23bcf2fb2bef98b1d76f4fd211094cb71c1e90f9c00fb48903c0017a361ad8"
+      },
+      {
+        "id": "custom-range-hidden",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "label",
+            "value": "Hidden"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "max",
+            "value": 200
+          },
+          {
+            "kind": "prop-equals",
+            "name": "min",
+            "value": 0
+          },
+          {
+            "kind": "prop-equals",
+            "name": "showValue",
+            "value": false
+          },
+          {
+            "kind": "prop-equals",
+            "name": "value",
+            "value": 20
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {
+            "role": {
+              "kind": "literal",
+              "value": "meter"
+            },
+            "aria-valuemax": {
+              "kind": "literal",
+              "value": "200"
+            },
+            "aria-valuenow": {
+              "kind": "literal",
+              "value": "20"
+            }
+          },
+          "classes": [],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "span"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "span"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "text",
+              "value": {
+                "kind": "literal",
+                "value": "Hiddenx"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/meter.json",
+          "vectorId": "custom-range-hidden",
+          "contractDigest": "5eea2b1b77008d0fc0b8de31c8ecfd08b920ac8d2c8f315efb72b5148355adbc"
+        },
+        "expectationDigest": "518555dfb2277bb968b95cd238e0505e731df0327e2a77b5e6d3636a3e4c5119"
+      }
     ]
   },
   "semanticRender": {
@@ -272,5 +534,6 @@
       "custom-range-hidden"
     ]
   },
-  "modelDigest": "53b29dc7c0e155d67deeb4174601cf07a09e0220da35273cfdb77b1814d752c5"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "c6790c453c6528f1fc20c70ef514b1cfe50b977eb4b876ba75060d1cf92efffd"
 }

@@ -279,6 +279,364 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "legacy-page-one",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "page",
+            "value": 1
+          },
+          {
+            "kind": "prop-equals",
+            "name": "perPage",
+            "value": 10
+          },
+          {
+            "kind": "prop-equals",
+            "name": "totalCount",
+            "value": 35
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {
+            "data-slot": {
+              "kind": "literal",
+              "value": "pagination"
+            }
+          },
+          "classes": [],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "nav"
+              },
+              "attributes": {
+                "aria-label": {
+                  "kind": "literal",
+                  "value": "Pagination"
+                }
+              },
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "input"
+              },
+              "attributes": {
+                "aria-label": {
+                  "kind": "literal",
+                  "value": "Page number"
+                },
+                "value": {
+                  "kind": "literal",
+                  "value": "1"
+                }
+              },
+              "classes": [],
+              "children": []
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/pagination.json",
+          "vectorId": "legacy-page-one",
+          "contractDigest": "51a1c22d61a7d01fb284cec181585b4d3133e0fcb5cbc39a1439c64130ef8587"
+        },
+        "expectationDigest": "4d6dd46730d1f2856dfdac1e96022778e8b2456051a5d05fbe77595eff741249"
+      },
+      {
+        "id": "legacy-page-three-ssr",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "page",
+            "value": 3
+          },
+          {
+            "kind": "prop-equals",
+            "name": "perPage",
+            "value": 10
+          },
+          {
+            "kind": "prop-equals",
+            "name": "totalCount",
+            "value": 35
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {},
+          "classes": [],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "input"
+              },
+              "attributes": {
+                "value": {
+                  "kind": "literal",
+                  "value": "1"
+                }
+              },
+              "classes": [],
+              "children": []
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/pagination.json",
+          "vectorId": "legacy-page-three-ssr",
+          "contractDigest": "51a1c22d61a7d01fb284cec181585b4d3133e0fcb5cbc39a1439c64130ef8587"
+        },
+        "expectationDigest": "6d7f54862c4c6a6d144229dca911fa8549b1c6208ff6df953d02ab43e529e8b2"
+      },
+      {
+        "id": "compound-simple-labels",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "fixtureMode",
+            "value": "simple"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "labels",
+            "value": {
+              "navigation": "Results pages",
+              "previousPage": "Back",
+              "nextPage": "Forward"
+            }
+          },
+          {
+            "kind": "prop-equals",
+            "name": "page",
+            "value": 2
+          },
+          {
+            "kind": "prop-equals",
+            "name": "perPage",
+            "value": 10
+          },
+          {
+            "kind": "prop-equals",
+            "name": "totalCount",
+            "value": 35
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {},
+          "classes": [],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "nav"
+              },
+              "attributes": {
+                "aria-label": {
+                  "kind": "literal",
+                  "value": "Results pages"
+                }
+              },
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/pagination.json",
+          "vectorId": "compound-simple-labels",
+          "contractDigest": "51a1c22d61a7d01fb284cec181585b4d3133e0fcb5cbc39a1439c64130ef8587"
+        },
+        "expectationDigest": "42d50c63392b2969506d8ffafe38f9c16851bed43a72b2fbe9c96e8fbbb66790"
+      },
+      {
+        "id": "compound-dropdown-size",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "fixtureMode",
+            "value": "dropdown"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "page",
+            "value": 2
+          },
+          {
+            "kind": "prop-equals",
+            "name": "perPage",
+            "value": 25
+          },
+          {
+            "kind": "prop-equals",
+            "name": "totalCount",
+            "value": 100
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {},
+          "classes": [],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/pagination.json",
+          "vectorId": "compound-dropdown-size",
+          "contractDigest": "51a1c22d61a7d01fb284cec181585b4d3133e0fcb5cbc39a1439c64130ef8587"
+        },
+        "expectationDigest": "1d4187fdd0f607bc169db30f8e32f7f287d9e0d031711e185cc8f5ec1822a34e"
+      }
     ]
   },
   "semanticRender": {
@@ -291,5 +649,6 @@
       "compound-dropdown-size"
     ]
   },
-  "modelDigest": "160ae145f44bd67b61eed98182090d943a3d56522deafc440212f29743f9cfc6"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "ea97ff8ea431f5df92a0b31b800bc070bd7dd81373e4117ebe1c66492c503ecf"
 }

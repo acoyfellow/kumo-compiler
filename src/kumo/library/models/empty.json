@@ -219,6 +219,158 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "minimal",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "title",
+            "value": "No results"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {},
+          "classes": [
+            {
+              "kind": "literal",
+              "value": "px-10"
+            },
+            {
+              "kind": "literal",
+              "value": "py-16"
+            },
+            {
+              "kind": "literal",
+              "value": "gap-6"
+            }
+          ],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "h2"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": [
+                {
+                  "kind": "text",
+                  "value": {
+                    "kind": "prop",
+                    "name": "title"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "value": {
+                "kind": "prop",
+                "name": "title"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/empty.json",
+          "vectorId": "minimal",
+          "contractDigest": "cbcbfdf0208594b31ebda18d022e2ab58d90c860592bee81f979bd247949e054"
+        },
+        "expectationDigest": "fac6cc210e864da2dd8e1aefab71c1261c24df86ace2fe3bc85a3cac59f2cce4"
+      },
+      {
+        "id": "small-description",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "description",
+            "value": "Try again"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "size",
+            "value": "sm"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "title",
+            "value": "Empty"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {},
+          "classes": [
+            {
+              "kind": "literal",
+              "value": "px-6"
+            },
+            {
+              "kind": "literal",
+              "value": "py-8"
+            },
+            {
+              "kind": "literal",
+              "value": "gap-4"
+            }
+          ],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "h2"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "p"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": [
+                {
+                  "kind": "text",
+                  "value": {
+                    "kind": "prop",
+                    "name": "description"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "value": {
+                "kind": "literal",
+                "value": "EmptyTry again"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/empty.json",
+          "vectorId": "small-description",
+          "contractDigest": "cbcbfdf0208594b31ebda18d022e2ab58d90c860592bee81f979bd247949e054"
+        },
+        "expectationDigest": "92b78bc5b2f43a8a6d864b961e5d72647a9c82691e3a4fdd71fed52cb41be36a"
+      }
     ]
   },
   "semanticRender": {
@@ -229,5 +381,6 @@
       "small-description"
     ]
   },
-  "modelDigest": "923975a64d01b29549e38fcc46867a926be86e6d23d9d5df8218f30d4d7c2624"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "cb3b959bcf399a3e9598caa9429fa89fdfccb8c883f01626146b7641eef6ce5a"
 }

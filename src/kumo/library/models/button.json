@@ -236,6 +236,256 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "default-native",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "children",
+            "value": "Save"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "data-probe",
+            "value": "native"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "name",
+            "value": "intent"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "value",
+            "value": "save"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "button"
+          },
+          "attributes": {
+            "type": {
+              "kind": "literal",
+              "value": "button"
+            },
+            "name": {
+              "kind": "literal",
+              "value": "intent"
+            },
+            "value": {
+              "kind": "literal",
+              "value": "save"
+            },
+            "data-probe": {
+              "kind": "literal",
+              "value": "native"
+            },
+            "data-kumo-component": {
+              "kind": "literal",
+              "value": "Button"
+            }
+          },
+          "classes": [],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "span"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": [
+                {
+                  "kind": "text",
+                  "value": {
+                    "kind": "consumer-children"
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "text",
+              "value": {
+                "kind": "consumer-children"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/button.json",
+          "vectorId": "default-native",
+          "contractDigest": "b0a24e6a0b736fb73b4d6da386c0410be1d2ca0264ea6edc2adc32785110909d"
+        },
+        "expectationDigest": "89e5a990e2451bf44e0420d88f6e76f062098202f08342f53285ad643e01457d"
+      },
+      {
+        "id": "primary-xs",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "children",
+            "value": "Create"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "size",
+            "value": "xs"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "variant",
+            "value": "primary"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "button"
+          },
+          "attributes": {},
+          "classes": [
+            {
+              "kind": "literal",
+              "value": "bg-kumo-brand"
+            },
+            {
+              "kind": "literal",
+              "value": "h-5"
+            },
+            {
+              "kind": "literal",
+              "value": "text-xs"
+            }
+          ],
+          "children": [
+            {
+              "kind": "text",
+              "value": {
+                "kind": "consumer-children"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/button.json",
+          "vectorId": "primary-xs",
+          "contractDigest": "b0a24e6a0b736fb73b4d6da386c0410be1d2ca0264ea6edc2adc32785110909d"
+        },
+        "expectationDigest": "ea3fa92bf02ca819bfc1f0b1446ff5b5c341ee657a3fa65d338d6c02019a3a82"
+      },
+      {
+        "id": "destructive-lg",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "children",
+            "value": "Delete"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "size",
+            "value": "lg"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "variant",
+            "value": "destructive"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "button"
+          },
+          "attributes": {},
+          "classes": [
+            {
+              "kind": "literal",
+              "value": "bg-kumo-danger"
+            },
+            {
+              "kind": "literal",
+              "value": "h-10"
+            },
+            {
+              "kind": "literal",
+              "value": "text-base"
+            }
+          ],
+          "children": [
+            {
+              "kind": "text",
+              "value": {
+                "kind": "consumer-children"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/button.json",
+          "vectorId": "destructive-lg",
+          "contractDigest": "b0a24e6a0b736fb73b4d6da386c0410be1d2ca0264ea6edc2adc32785110909d"
+        },
+        "expectationDigest": "15b0195a8eb219af4f9e17f2bcaf9c423b9ebee692056c1964a025ed5275ac51"
+      },
+      {
+        "id": "circle-label",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "aria-label",
+            "value": "Add item"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "shape",
+            "value": "circle"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "size",
+            "value": "sm"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "button"
+          },
+          "attributes": {
+            "aria-label": {
+              "kind": "literal",
+              "value": "Add item"
+            }
+          },
+          "classes": [
+            {
+              "kind": "literal",
+              "value": "rounded-full"
+            },
+            {
+              "kind": "literal",
+              "value": "size-6.5"
+            }
+          ],
+          "children": []
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/button.json",
+          "vectorId": "circle-label",
+          "contractDigest": "b0a24e6a0b736fb73b4d6da386c0410be1d2ca0264ea6edc2adc32785110909d"
+        },
+        "expectationDigest": "eec5ae2310b6553ab713fe5aa9d5722c0d36f00714e790b1e42778ccc353dc50"
+      }
     ]
   },
   "semanticRender": {
@@ -248,5 +498,6 @@
       "circle-label"
     ]
   },
-  "modelDigest": "ed054c8fc561042cca597eca2f47cae05ff821a61adde1e650fb733ebbdbfca4"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "3b02d6b7a0e9fa3ef33a420c23a3900d7d055be0968dd698eaa7fee87a96f635"
 }

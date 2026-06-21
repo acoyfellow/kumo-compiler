@@ -513,6 +513,153 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "desktop-collapsed-sliding-inert-intent",
+        "when": [
+          {
+            "kind": "fixture-equals",
+            "value": {
+              "export": ".Provider",
+              "props": {
+                "defaultOpen": false
+              },
+              "children": [
+                {
+                  "export": "root",
+                  "props": {},
+                  "children": [
+                    {
+                      "export": ".SlidingViews",
+                      "props": {
+                        "activeKey": "account"
+                      },
+                      "children": [
+                        {
+                          "export": ".SlidingView",
+                          "props": {
+                            "value": "account"
+                          },
+                          "children": [
+                            {
+                              "text": "Account nav"
+                            }
+                          ]
+                        },
+                        {
+                          "export": ".SlidingView",
+                          "props": {
+                            "value": "zone"
+                          },
+                          "children": [
+                            {
+                              "text": "Zone nav"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "export": ".Trigger",
+                      "props": {},
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {
+            "data-state": {
+              "kind": "literal",
+              "value": "collapsed"
+            }
+          },
+          "classes": [],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "aside"
+              },
+              "attributes": {
+                "data-state": {
+                  "kind": "literal",
+                  "value": "collapsed"
+                }
+              },
+              "classes": [],
+              "children": []
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/sidebar.json",
+          "vectorId": "desktop-collapsed-sliding-inert-intent",
+          "contractDigest": "dcad61e88e48af06516b0fdfba3f33cad06ab66e770be9b9a5ced7c9755c1dd1"
+        },
+        "expectationDigest": "981714b13e8d9e0295d6e896d11ddfb7f45e7b1e2e0b8e685f6c53cebf4de23d"
+      },
+      {
+        "id": "collapsible-closed-mounted",
+        "when": [
+          {
+            "kind": "fixture-equals",
+            "value": {
+              "export": ".Provider",
+              "props": {},
+              "children": [
+                {
+                  "export": "root",
+                  "props": {},
+                  "children": [
+                    {
+                      "export": ".Collapsible",
+                      "props": {},
+                      "children": [
+                        {
+                          "export": ".CollapsibleContent",
+                          "props": {},
+                          "children": [
+                            {
+                              "text": "Nested navigation"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {},
+          "classes": [],
+          "children": []
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/sidebar.json",
+          "vectorId": "collapsible-closed-mounted",
+          "contractDigest": "dcad61e88e48af06516b0fdfba3f33cad06ab66e770be9b9a5ced7c9755c1dd1"
+        },
+        "expectationDigest": "84316287b165e3499c9844cb130cdf3cf1d8ce7ea5c049ca51705c1fc977cd48"
+      }
     ]
   },
   "semanticRender": {
@@ -523,5 +670,6 @@
       "collapsible-closed-mounted"
     ]
   },
-  "modelDigest": "1d7d75612d5eb53bae06017fc37e014004c6226a119b2614f72cab5d3fd66e05"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "55cb05cb06b47f4df129b983e58a4f0d9b516b4315499c5f202eb5a2205b9f95"
 }

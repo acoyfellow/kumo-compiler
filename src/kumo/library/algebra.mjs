@@ -1,7 +1,7 @@
 export const ALGEBRA_VERSION = 'kumo.component-algebra/v1';
 
-export const NODE_KINDS = Object.freeze(['element', 'compound', 'text', 'children', 'slot', 'condition', 'collection', 'portal']);
-export const EXPRESSION_KINDS = Object.freeze(['literal', 'prop', 'state', 'item', 'coalesce', 'equals', 'not', 'concat', 'style-ref']);
+export const NODE_KINDS = Object.freeze(['element', 'semantic-element', 'compound', 'text', 'children', 'fixture-children', 'slot', 'condition', 'collection', 'portal']);
+export const EXPRESSION_KINDS = Object.freeze(['literal', 'prop', 'consumer-children', 'fixture', 'state', 'item', 'coalesce', 'equals', 'not', 'concat', 'style-ref']);
 export const OPERATION_KINDS = Object.freeze(['render', 'emit', 'state', 'ref', 'focus', 'lifecycle', 'browser-service', 'portal', 'style']);
 
 const object = value => value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -15,7 +15,7 @@ const requiredString = (value, where) => {
 export function validateExpression(expression, where = 'expression') {
   if (!object(expression) || !EXPRESSION_KINDS.includes(expression.kind)) throw new Error(`${where}: invalid expression`);
   const fields = {
-    literal: ['kind', 'value'], prop: ['kind', 'name'], state: ['kind', 'name'], item: ['kind', 'name'],
+    literal: ['kind', 'value'], prop: ['kind', 'name'], 'consumer-children': ['kind'], fixture: ['kind'], state: ['kind', 'name'], item: ['kind', 'name'],
     coalesce: ['kind', 'values'], equals: ['kind', 'left', 'right'], not: ['kind', 'value'],
     concat: ['kind', 'values', 'separator'], 'style-ref': ['kind', 'name']
   }[expression.kind];
@@ -36,12 +36,23 @@ export function validateNode(node, where = 'node') {
   if (!object(node) || !NODE_KINDS.includes(node.kind)) throw new Error(`${where}: invalid node`);
   const fields = {
     element: ['kind', 'tag', 'attributes', 'properties', 'events', 'ref', 'styles', 'children'],
-    compound: ['kind', 'name', 'parts'], text: ['kind', 'value'], children: ['kind'], slot: ['kind', 'name', 'fallback'],
+    'semantic-element': ['kind', 'tag', 'attributes', 'classes', 'children'],
+    compound: ['kind', 'name', 'parts'], text: ['kind', 'value'], children: ['kind'], 'fixture-children': ['kind', 'value'], slot: ['kind', 'name', 'fallback'],
     condition: ['kind', 'when', 'then', 'else'], collection: ['kind', 'source', 'item', 'key', 'template'],
     portal: ['kind', 'target', 'layer', 'children']
   }[node.kind];
   assertKeys(node, fields, where);
-  if (node.kind === 'element') {
+  if (node.kind === 'semantic-element') {
+    validateExpression(node.tag, `${where}.tag`);
+    if (!object(node.attributes)) throw new Error(`${where}.attributes: expected object`);
+    for (const [name,value] of Object.entries(node.attributes)) { requiredString(name,where); validateExpression(value,`${where}.attributes.${name}`); }
+    if (!Array.isArray(node.classes)) throw new Error(`${where}.classes: expected array`);
+    node.classes.forEach((value,i)=>validateExpression(value,`${where}.classes[${i}]`));
+    if (!Array.isArray(node.children)) throw new Error(`${where}.children: expected array`);
+    node.children.forEach((value,i)=>validateNode(value,`${where}.children[${i}]`));
+  } else if (node.kind === 'fixture-children') {
+    validateExpression(node.value, `${where}.value`);
+  } else if (node.kind === 'element') {
     requiredString(node.tag, `${where}.tag`);
     for (const group of ['attributes', 'properties', 'events']) if (node[group] !== undefined) {
       if (!object(node[group])) throw new Error(`${where}.${group}: expected object`);
@@ -72,9 +83,21 @@ export function validateNode(node, where = 'node') {
 
 export function validateImplementation(implementation) {
   if (!object(implementation)) throw new Error('implementation must be an object');
-  assertKeys(implementation, ['algebraVersion', 'componentRoot', 'operations'], 'implementation');
+  assertKeys(implementation, ['algebraVersion', 'componentRoot', 'operations', 'semanticVariants'], 'implementation');
   if (implementation.algebraVersion !== ALGEBRA_VERSION) throw new Error(`unknown algebra: ${implementation.algebraVersion}`);
   validateNode(implementation.componentRoot, 'implementation.componentRoot');
+  if (implementation.semanticVariants !== undefined) {
+    if (!Array.isArray(implementation.semanticVariants)) throw new Error('implementation.semanticVariants must be an array');
+    for (const [index, variant] of implementation.semanticVariants.entries()) {
+      const where=`implementation.semanticVariants[${index}]`;
+      if (!object(variant)) throw new Error(`${where}: expected object`);
+      assertKeys(variant,['id','when','tree','provenance','expectationDigest'],where);
+      requiredString(variant.id,`${where}.id`); requiredString(variant.expectationDigest,`${where}.expectationDigest`);
+      if (!Array.isArray(variant.when)) throw new Error(`${where}.when: expected array`);
+      for (const p of variant.when) if (!object(p) || !['prop-equals','fixture-equals'].includes(p.kind) || (p.kind==='prop-equals' && typeof p.name!=='string')) throw new Error(`${where}.when: invalid predicate`);
+      validateNode(variant.tree,`${where}.tree`);
+    }
+  }
   if (!Array.isArray(implementation.operations)) throw new Error('implementation.operations must be an array');
   const ids = new Set();
   for (const [index, operation] of implementation.operations.entries()) {

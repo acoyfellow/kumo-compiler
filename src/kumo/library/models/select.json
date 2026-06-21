@@ -408,6 +408,83 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "closed-placeholder-ssr",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "aria-label",
+            "value": "Fruit"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "placeholder",
+            "value": "Choose"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {},
+          "classes": [],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "button"
+              },
+              "attributes": {
+                "type": {
+                  "kind": "literal",
+                  "value": "button"
+                },
+                "tabindex": {
+                  "kind": "literal",
+                  "value": "0"
+                },
+                "role": {
+                  "kind": "literal",
+                  "value": "combobox"
+                },
+                "aria-expanded": {
+                  "kind": "literal",
+                  "value": "false"
+                },
+                "aria-haspopup": {
+                  "kind": "literal",
+                  "value": "listbox"
+                },
+                "aria-label": {
+                  "kind": "literal",
+                  "value": "Fruit"
+                },
+                "data-kumo-component": {
+                  "kind": "literal",
+                  "value": "Select"
+                },
+                "data-kumo-part": {
+                  "kind": "literal",
+                  "value": "trigger"
+                }
+              },
+              "classes": [],
+              "children": []
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/select.json",
+          "vectorId": "closed-placeholder-ssr",
+          "contractDigest": "409c6d9e38a6840dff897aebaef8d8864b433ac1336831d74494d04ec8f020f6"
+        },
+        "expectationDigest": "9bd3fd944ad73a4601805dcb9ff2f6f4b8d3550ecb383bd6acd65d8d973939f6"
+      }
     ]
   },
   "semanticRender": {
@@ -417,5 +494,6 @@
       "closed-placeholder-ssr"
     ]
   },
-  "modelDigest": "02240d85a44157bd037b50ec53c6808ec265d4450fa0838751432011cd521a7a"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "cf33691f62e40a26d4861c5242d9e04be71716a9eebac89c7170fcca6656f4c7"
 }

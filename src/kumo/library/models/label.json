@@ -207,6 +207,137 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "default",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "children",
+            "value": "Email"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "label"
+          },
+          "attributes": {},
+          "classes": [],
+          "children": [
+            {
+              "kind": "text",
+              "value": {
+                "kind": "consumer-children"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/label.json",
+          "vectorId": "default",
+          "contractDigest": "0f0582f732f16d3bd97c8cecf516b5a371980c2704888ed8d6b71f174cb53596"
+        },
+        "expectationDigest": "c524128c24125acceb5de81fecf2ea71a750dfde1b4bbe4e95d2b7b7400d07ba"
+      },
+      {
+        "id": "optional",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "children",
+            "value": "Middle Name"
+          },
+          {
+            "kind": "prop-equals",
+            "name": "showOptional",
+            "value": true
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "label"
+          },
+          "attributes": {},
+          "classes": [],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "span"
+              },
+              "attributes": {},
+              "classes": [
+                {
+                  "kind": "literal",
+                  "value": "font-normal"
+                },
+                {
+                  "kind": "literal",
+                  "value": "text-kumo-subtle"
+                }
+              ],
+              "children": []
+            },
+            {
+              "kind": "text",
+              "value": {
+                "kind": "literal",
+                "value": "Middle Name(optional)"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/label.json",
+          "vectorId": "optional",
+          "contractDigest": "0f0582f732f16d3bd97c8cecf516b5a371980c2704888ed8d6b71f174cb53596"
+        },
+        "expectationDigest": "d87059331137a9a04142c68aceaccabe92317b4092692a0ca1448f5e96db52dd"
+      },
+      {
+        "id": "as-content",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "asContent",
+            "value": true
+          },
+          {
+            "kind": "prop-equals",
+            "name": "children",
+            "value": "Email"
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "span"
+          },
+          "attributes": {},
+          "classes": [],
+          "children": [
+            {
+              "kind": "text",
+              "value": {
+                "kind": "consumer-children"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/label.json",
+          "vectorId": "as-content",
+          "contractDigest": "0f0582f732f16d3bd97c8cecf516b5a371980c2704888ed8d6b71f174cb53596"
+        },
+        "expectationDigest": "9b3e9b27098c001394df18c124e9969711d7417464cb9725396ad912311eef3d"
+      }
     ]
   },
   "semanticRender": {
@@ -218,5 +349,6 @@
       "as-content"
     ]
   },
-  "modelDigest": "3f30af3f367d90740bdc0e5b56d4b8d10a8ad9ebe5fed74df0271b20b457c1c9"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "3d765f829aeb9964c3c718b42b20afd269c566c27a0250fbf669826b3564b1e9"
 }

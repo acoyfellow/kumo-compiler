@@ -184,6 +184,49 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "optional",
+        "when": [
+          {
+            "kind": "fixture-equals",
+            "value": {
+              "export": "root",
+              "props": {
+                "label": "Name",
+                "description": "Help",
+                "required": false
+              },
+              "children": [
+                {
+                  "export": ".NativeInput",
+                  "props": {
+                    "id": "field-control"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "div"
+          },
+          "attributes": {},
+          "classes": [],
+          "children": []
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/field.json",
+          "vectorId": "optional",
+          "contractDigest": "9dd6d0bc3ab0683f1671958dccbfea163a3658c715de96df67b650a8add6ea55"
+        },
+        "expectationDigest": "84316287b165e3499c9844cb130cdf3cf1d8ce7ea5c049ca51705c1fc977cd48"
+      }
     ]
   },
   "semanticRender": {
@@ -193,5 +236,6 @@
       "optional"
     ]
   },
-  "modelDigest": "81951c94b02d0b23275c09e616a00e5bfad9697da26f5a5f24ac8149c5495209"
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "7b6398a4492865b7242ffc572b8d18734ac618711fd8876756cbd2b59e431155"
 }
