@@ -119,7 +119,9 @@
   ],
   "componentRoot": {
     "frameworkNeutral": true,
-    "implementationReady": false
+    "implementationReady": false,
+    "candidateDefinition": true,
+    "draft": true
   },
   "semanticGraph": {
     "root": "div",
@@ -187,20 +189,97 @@
   "missingOperations": [
     {
       "kind": "browser-service",
-      "reason": "canonical browser-service operation is not yet represented by the implementation algebra"
+      "reason": "draft browser-service semantics require canonical browser proof"
     },
     {
       "kind": "emit",
-      "reason": "canonical emit operation is not yet represented by the implementation algebra"
+      "reason": "draft emit semantics require canonical browser proof"
     },
     {
       "kind": "render",
-      "reason": "canonical render operation is not yet represented by the implementation algebra"
+      "reason": "draft render semantics require canonical browser proof"
     },
     {
       "kind": "state",
-      "reason": "canonical state operation is not yet represented by the implementation algebra"
+      "reason": "draft state semantics require canonical browser proof"
+    },
+    {
+      "kind": "native-forwarding",
+      "reason": "native attributes, properties, and events have not been proven to forward without loss"
+    },
+    {
+      "kind": "style-resolution",
+      "reason": "style references have not been resolved to canonical dependency-backed styles"
+    },
+    {
+      "kind": "semantic-completeness",
+      "reason": "draft render tree has not been proven semantically complete"
+    },
+    {
+      "kind": "framework-output",
+      "reason": "generated Vue, Svelte, and Solid output has not been produced and immutably referenced"
+    },
+    {
+      "kind": "packed-browser-vectors",
+      "reason": "canonical packed browser vectors have not been executed and immutably identified"
     }
   ],
-  "modelDigest": "7b6b25c672d0ad1436b6e9d01ccdabf8e4e7c996dfa81d1f6f4ef923a1c79538"
+  "draftImplementation": {
+    "algebraVersion": "kumo.component-algebra/v1",
+    "componentRoot": {
+      "kind": "compound",
+      "name": "pagination",
+      "parts": {
+        "root": {
+          "kind": "slot",
+          "name": "root"
+        },
+        "collection": {
+          "kind": "slot",
+          "name": "collection"
+        }
+      }
+    },
+    "operations": [
+      {
+        "id": "state-1",
+        "kind": "state",
+        "state": "editingPage",
+        "mode": "declared",
+        "initial": {
+          "kind": "state",
+          "name": "editingPage"
+        }
+      },
+      {
+        "id": "emit-2",
+        "kind": "emit",
+        "event": "change",
+        "value": {
+          "kind": "literal",
+          "value": null
+        }
+      },
+      {
+        "id": "render-3",
+        "kind": "render"
+      },
+      {
+        "id": "browser-service-4",
+        "kind": "browser-service",
+        "service": "clipboard"
+      },
+      {
+        "id": "apply-root-styles",
+        "kind": "style",
+        "styles": [
+          {
+            "kind": "style-ref",
+            "name": "root"
+          }
+        ]
+      }
+    ]
+  },
+  "modelDigest": "8a03b02a4e86e5ee4971e869b775b7efd73bc7e61116c5e794612f2402b7dd2d"
 }

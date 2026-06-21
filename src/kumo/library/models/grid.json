@@ -136,7 +136,7 @@
   "missingOperations": [
     {
       "kind": "render",
-      "reason": "canonical render operation is not yet represented by the implementation algebra"
+      "reason": "draft render semantics require canonical browser proof"
     },
     {
       "kind": "native-forwarding",
@@ -148,7 +148,7 @@
     },
     {
       "kind": "semantic-completeness",
-      "reason": "render tree has not been proven semantically complete; empty visual nodes are not accepted as output"
+      "reason": "draft render tree has not been proven semantically complete"
     },
     {
       "kind": "framework-output",
@@ -159,5 +159,40 @@
       "reason": "canonical packed browser vectors have not been executed and immutably identified"
     }
   ],
-  "modelDigest": "1f87f95a11b48507cb8a216c43be25b6ed0b9c3eebf78d0063f95aac7275bbad"
+  "draftImplementation": {
+    "algebraVersion": "kumo.component-algebra/v1",
+    "componentRoot": {
+      "kind": "element",
+      "tag": "div",
+      "attributes": {},
+      "styles": [
+        {
+          "kind": "style-ref",
+          "name": "root"
+        }
+      ],
+      "children": [
+        {
+          "kind": "children"
+        }
+      ]
+    },
+    "operations": [
+      {
+        "id": "render-1",
+        "kind": "render"
+      },
+      {
+        "id": "apply-root-styles",
+        "kind": "style",
+        "styles": [
+          {
+            "kind": "style-ref",
+            "name": "root"
+          }
+        ]
+      }
+    ]
+  },
+  "modelDigest": "9dbbb8c1edc23a0a1b2ed65add8ac4c1a675b5b9f0afbdb9eae72871c290ace3"
 }

@@ -166,7 +166,7 @@
   "missingOperations": [
     {
       "kind": "render",
-      "reason": "canonical render operation is not yet represented by the implementation algebra"
+      "reason": "draft render semantics require canonical browser proof"
     },
     {
       "kind": "native-forwarding",
@@ -178,7 +178,7 @@
     },
     {
       "kind": "semantic-completeness",
-      "reason": "render tree has not been proven semantically complete; empty visual nodes are not accepted as output"
+      "reason": "draft render tree has not been proven semantically complete"
     },
     {
       "kind": "framework-output",
@@ -189,5 +189,79 @@
       "reason": "canonical packed browser vectors have not been executed and immutably identified"
     }
   ],
-  "modelDigest": "01d2e1c1e019e4d3c9661d5c822c5b51d7de4799d97c63f90a3a1a6b62818e58"
+  "draftImplementation": {
+    "algebraVersion": "kumo.component-algebra/v1",
+    "componentRoot": {
+      "kind": "element",
+      "tag": "div",
+      "attributes": {},
+      "styles": [
+        {
+          "kind": "style-ref",
+          "name": "root"
+        }
+      ],
+      "children": [
+        {
+          "kind": "text",
+          "value": {
+            "kind": "prop",
+            "name": "label"
+          }
+        },
+        {
+          "kind": "element",
+          "tag": "meter",
+          "attributes": {},
+          "styles": [
+            {
+              "kind": "style-ref",
+              "name": "root"
+            }
+          ],
+          "children": []
+        },
+        {
+          "kind": "condition",
+          "when": {
+            "kind": "prop",
+            "name": "showValue"
+          },
+          "then": {
+            "kind": "text",
+            "value": {
+              "kind": "coalesce",
+              "values": [
+                {
+                  "kind": "prop",
+                  "name": "customValue"
+                },
+                {
+                  "kind": "prop",
+                  "name": "value"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "operations": [
+      {
+        "id": "render-1",
+        "kind": "render"
+      },
+      {
+        "id": "apply-root-styles",
+        "kind": "style",
+        "styles": [
+          {
+            "kind": "style-ref",
+            "name": "root"
+          }
+        ]
+      }
+    ]
+  },
+  "modelDigest": "2201de1a1ed8a66d0925c6dae8b6b3197097ad332ed86e9b694f8d7383c8c284"
 }

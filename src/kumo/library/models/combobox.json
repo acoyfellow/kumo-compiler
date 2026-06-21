@@ -112,7 +112,9 @@
   ],
   "componentRoot": {
     "frameworkNeutral": true,
-    "implementationReady": false
+    "implementationReady": false,
+    "candidateDefinition": true,
+    "draft": true
   },
   "semanticGraph": {
     "root": "input",
@@ -203,24 +205,106 @@
   "missingOperations": [
     {
       "kind": "emit",
-      "reason": "canonical emit operation is not yet represented by the implementation algebra"
+      "reason": "draft emit semantics require canonical browser proof"
     },
     {
       "kind": "focus",
-      "reason": "canonical focus operation is not yet represented by the implementation algebra"
+      "reason": "draft focus semantics require canonical browser proof"
     },
     {
       "kind": "ref",
-      "reason": "canonical ref operation is not yet represented by the implementation algebra"
+      "reason": "draft ref semantics require canonical browser proof"
     },
     {
       "kind": "render",
-      "reason": "canonical render operation is not yet represented by the implementation algebra"
+      "reason": "draft render semantics require canonical browser proof"
     },
     {
       "kind": "state",
-      "reason": "canonical state operation is not yet represented by the implementation algebra"
+      "reason": "draft state semantics require canonical browser proof"
+    },
+    {
+      "kind": "native-forwarding",
+      "reason": "native attributes, properties, and events have not been proven to forward without loss"
+    },
+    {
+      "kind": "style-resolution",
+      "reason": "style references have not been resolved to canonical dependency-backed styles"
+    },
+    {
+      "kind": "semantic-completeness",
+      "reason": "draft render tree has not been proven semantically complete"
+    },
+    {
+      "kind": "framework-output",
+      "reason": "generated Vue, Svelte, and Solid output has not been produced and immutably referenced"
+    },
+    {
+      "kind": "packed-browser-vectors",
+      "reason": "canonical packed browser vectors have not been executed and immutably identified"
     }
   ],
-  "modelDigest": "ecb42b0138c17ecb3ef274cd09cafc8ae46ed4e722f370530e6d5e60e750ae1e"
+  "draftImplementation": {
+    "algebraVersion": "kumo.component-algebra/v1",
+    "componentRoot": {
+      "kind": "compound",
+      "name": "combobox",
+      "parts": {
+        "root": {
+          "kind": "slot",
+          "name": "root"
+        },
+        "collection": {
+          "kind": "slot",
+          "name": "collection"
+        }
+      }
+    },
+    "operations": [
+      {
+        "id": "render-1",
+        "kind": "render"
+      },
+      {
+        "id": "state-2",
+        "kind": "state",
+        "state": "multiple",
+        "mode": "declared",
+        "initial": {
+          "kind": "state",
+          "name": "multiple"
+        }
+      },
+      {
+        "id": "emit-3",
+        "kind": "emit",
+        "event": "change",
+        "value": {
+          "kind": "literal",
+          "value": null
+        }
+      },
+      {
+        "id": "ref-4",
+        "kind": "ref",
+        "target": "root"
+      },
+      {
+        "id": "focus-5",
+        "kind": "focus",
+        "target": "root"
+      },
+      {
+        "id": "apply-root-styles",
+        "kind": "style",
+        "styles": [
+          {
+            "kind": "style-ref",
+            "name": "root"
+          }
+        ]
+      }
+    ]
+  },
+  "modelDigest": "b431b499c0e47a951de0104395b33980461e37f3410131f5ddf2fc8c2223070f"
 }

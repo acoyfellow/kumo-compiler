@@ -113,7 +113,9 @@
   ],
   "componentRoot": {
     "frameworkNeutral": true,
-    "implementationReady": false
+    "implementationReady": false,
+    "candidateDefinition": true,
+    "draft": true
   },
   "semanticGraph": {
     "root": "button",
@@ -201,32 +203,130 @@
   "missingOperations": [
     {
       "kind": "emit",
-      "reason": "canonical emit operation is not yet represented by the implementation algebra"
+      "reason": "draft emit semantics require canonical browser proof"
     },
     {
       "kind": "focus",
-      "reason": "canonical focus operation is not yet represented by the implementation algebra"
+      "reason": "draft focus semantics require canonical browser proof"
     },
     {
       "kind": "lifecycle",
-      "reason": "canonical lifecycle operation is not yet represented by the implementation algebra"
+      "reason": "draft lifecycle semantics require canonical browser proof"
     },
     {
       "kind": "portal",
-      "reason": "canonical portal operation is not yet represented by the implementation algebra"
+      "reason": "draft portal semantics require canonical browser proof"
     },
     {
       "kind": "ref",
-      "reason": "canonical ref operation is not yet represented by the implementation algebra"
+      "reason": "draft ref semantics require canonical browser proof"
     },
     {
       "kind": "render",
-      "reason": "canonical render operation is not yet represented by the implementation algebra"
+      "reason": "draft render semantics require canonical browser proof"
     },
     {
       "kind": "state",
-      "reason": "canonical state operation is not yet represented by the implementation algebra"
+      "reason": "draft state semantics require canonical browser proof"
+    },
+    {
+      "kind": "native-forwarding",
+      "reason": "native attributes, properties, and events have not been proven to forward without loss"
+    },
+    {
+      "kind": "style-resolution",
+      "reason": "style references have not been resolved to canonical dependency-backed styles"
+    },
+    {
+      "kind": "semantic-completeness",
+      "reason": "draft render tree has not been proven semantically complete"
+    },
+    {
+      "kind": "framework-output",
+      "reason": "generated Vue, Svelte, and Solid output has not been produced and immutably referenced"
+    },
+    {
+      "kind": "packed-browser-vectors",
+      "reason": "canonical packed browser vectors have not been executed and immutably identified"
     }
   ],
-  "modelDigest": "2761d79bc0116d3ae2785e3fc03898683b18833eef77c23dd4ae10c7d5a77665"
+  "draftImplementation": {
+    "algebraVersion": "kumo.component-algebra/v1",
+    "componentRoot": {
+      "kind": "portal",
+      "target": {
+        "kind": "literal",
+        "value": "document-body"
+      },
+      "layer": "dialog",
+      "children": [
+        {
+          "kind": "compound",
+          "name": "dialog",
+          "parts": {
+            "dialog": {
+              "kind": "slot",
+              "name": "dialog"
+            }
+          }
+        }
+      ]
+    },
+    "operations": [
+      {
+        "id": "render-1",
+        "kind": "render"
+      },
+      {
+        "id": "state-2",
+        "kind": "state",
+        "state": "role",
+        "mode": "declared",
+        "initial": {
+          "kind": "state",
+          "name": "role"
+        }
+      },
+      {
+        "id": "emit-3",
+        "kind": "emit",
+        "event": "change",
+        "value": {
+          "kind": "literal",
+          "value": null
+        }
+      },
+      {
+        "id": "portal-4",
+        "kind": "portal",
+        "layer": "dialog"
+      },
+      {
+        "id": "lifecycle-5",
+        "kind": "lifecycle",
+        "phase": "mounted"
+      },
+      {
+        "id": "focus-6",
+        "kind": "focus",
+        "target": "root"
+      },
+      {
+        "id": "ref-7",
+        "kind": "ref",
+        "target": "root"
+      },
+      {
+        "id": "apply-root-styles",
+        "kind": "style",
+        "styles": [
+          {
+            "kind": "style-ref",
+            "name": "root"
+          }
+        ]
+      }
+    ]
+  },
+  "modelDigest": "b69b28139a711d8e96dd6ddf236811e0a1c5d9510c961808f6912e09a2d48997"
 }

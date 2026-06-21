@@ -106,7 +106,9 @@
   ],
   "componentRoot": {
     "frameworkNeutral": true,
-    "implementationReady": false
+    "implementationReady": false,
+    "candidateDefinition": true,
+    "draft": true
   },
   "semanticGraph": {
     "root": "div",
@@ -160,12 +162,90 @@
   "missingOperations": [
     {
       "kind": "emit",
-      "reason": "canonical emit operation is not yet represented by the implementation algebra"
+      "reason": "draft emit semantics require canonical browser proof"
     },
     {
       "kind": "state",
-      "reason": "canonical state operation is not yet represented by the implementation algebra"
+      "reason": "draft state semantics require canonical browser proof"
+    },
+    {
+      "kind": "native-forwarding",
+      "reason": "native attributes, properties, and events have not been proven to forward without loss"
+    },
+    {
+      "kind": "style-resolution",
+      "reason": "style references have not been resolved to canonical dependency-backed styles"
+    },
+    {
+      "kind": "semantic-completeness",
+      "reason": "draft render tree has not been proven semantically complete"
+    },
+    {
+      "kind": "framework-output",
+      "reason": "generated Vue, Svelte, and Solid output has not been produced and immutably referenced"
+    },
+    {
+      "kind": "packed-browser-vectors",
+      "reason": "canonical packed browser vectors have not been executed and immutably identified"
     }
   ],
-  "modelDigest": "d4613dd16123df4d647f1b67f6f2a1e5111de7725f24530cb2abddbb11326de9"
+  "draftImplementation": {
+    "algebraVersion": "kumo.component-algebra/v1",
+    "componentRoot": {
+      "kind": "portal",
+      "target": {
+        "kind": "literal",
+        "value": "document-body"
+      },
+      "layer": "date-picker",
+      "children": [
+        {
+          "kind": "compound",
+          "name": "date-picker",
+          "parts": {
+            "date-picker": {
+              "kind": "slot",
+              "name": "date-picker"
+            }
+          }
+        }
+      ]
+    },
+    "operations": [
+      {
+        "id": "render-1",
+        "kind": "render"
+      },
+      {
+        "id": "state-2",
+        "kind": "state",
+        "state": "selected",
+        "mode": "declared",
+        "initial": {
+          "kind": "state",
+          "name": "selected"
+        }
+      },
+      {
+        "id": "emit-3",
+        "kind": "emit",
+        "event": "change",
+        "value": {
+          "kind": "literal",
+          "value": null
+        }
+      },
+      {
+        "id": "apply-root-styles",
+        "kind": "style",
+        "styles": [
+          {
+            "kind": "style-ref",
+            "name": "root"
+          }
+        ]
+      }
+    ]
+  },
+  "modelDigest": "efe6ee1704bcfdd921aefd2a33601d5193d45c82454eadc21af9261b848e1bc6"
 }

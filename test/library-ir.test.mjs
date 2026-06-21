@@ -35,22 +35,32 @@ test('component roots and external fixtures cannot be confused', () => {
   }
 });
 
-test('foundation definitions remain fail-closed draft candidates', () => {
+test('all definitions remain fail-closed draft candidates with complete capability algebra', () => {
   const {manifest, models} = loadLibrary(base);
-  const expected = ['badge', 'banner', 'breadcrumbs', 'cloudflare-logo', 'code', 'empty', 'grid', 'grid-item', 'label', 'layer-card', 'link', 'loader', 'meter', 'surface', 'table', 'text'];
   assert.equal(manifest.implementationReadyCount, 0);
-  assert.equal(manifest.candidateDefinitionCount, 16);
-  assert.deepEqual(models.filter(model => model.componentRoot.candidateDefinition).map(model => model.component), expected);
+  assert.equal(manifest.candidateDefinitionCount, 41);
+  assert.equal(models.filter(model => model.componentRoot.candidateDefinition).length, 41);
   assert.deepEqual(models.filter(model => model.componentRoot.implementationReady), []);
   for (const model of models) {
     assert.equal(model.implementation, undefined);
+    assert.equal(model.componentRoot.draft, true);
+    assert.ok(model.draftImplementation.componentRoot);
+    assert.ok(model.draftImplementation.operations.length > 0);
     assert.ok(model.missingOperations.length > 0);
-    if (model.componentRoot.candidateDefinition) {
-      assert.equal(model.componentRoot.draft, true);
-      const kinds = model.missingOperations.map(operation => operation.kind);
-      for (const kind of ['native-forwarding', 'style-resolution', 'semantic-completeness', 'framework-output', 'packed-browser-vectors']) assert.ok(kinds.includes(kind), `${model.component}: ${kind}`);
-    }
+    const kinds = model.missingOperations.map(operation => operation.kind);
+    for (const kind of ['native-forwarding', 'style-resolution', 'semantic-completeness', 'framework-output', 'packed-browser-vectors']) assert.ok(kinds.includes(kind), `${model.component}: ${kind}`);
   }
+});
+
+test('draft reference and capability operation integrity fail closed', () => {
+  const model = structuredClone(loadLibrary(base).models.find(model => model.component === 'checkbox'));
+  model.draftImplementation.componentRoot = {kind:'element', tag:'input', attributes:{value:{kind:'prop',name:'absent'}}, children:[]};
+  delete model.modelDigest; model.modelDigest = digest(model);
+  assert.throws(() => validateModel(model), /referenced prop absent is absent/);
+  model.draftImplementation.componentRoot.attributes.value = {kind:'prop',name:'checked'};
+  model.draftImplementation.operations = model.draftImplementation.operations.filter(operation => operation.kind !== 'emit');
+  delete model.modelDigest; model.modelDigest = digest(model);
+  assert.throws(() => validateModel(model), /requires emit operation/);
 });
 
  test('forged readiness is rejected without immutable downstream and vector proof', () => {

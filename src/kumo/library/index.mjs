@@ -12,6 +12,25 @@ export const CAPABILITIES = Object.freeze([
   'date/range','toast','pagination'
 ]);
 const here = path.dirname(fileURLToPath(import.meta.url));
+const CAPABILITY_OPERATIONS = Object.freeze({
+  'static-element':['render'], polymorphic:['render'], 'compound-context':['render'], 'controlled-state':['state','emit'], 'native-input':['render','emit'],
+  'field-wiring':['render','ref'], 'clipboard/live-region':['browser-service','emit'], 'roving-focus':['state','focus','ref'], 'current-link':['render'],
+  'collection/listbox':['render','state','focus'], 'dismissable-layer':['portal','lifecycle'], 'modal-focus':['focus','ref','lifecycle'], positioning:['browser-service','lifecycle'],
+  'responsive-media':['browser-service','lifecycle'], 'inert/disclosure':['state','render'], 'date/range':['state','emit'], toast:['portal','lifecycle','emit'], pagination:['state','emit']
+});
+
+function validateReferences(model) {
+  const props = new Set(model.props.items.map(item => item.name));
+  const states = new Set(model.states.map(item => item.name));
+  const visit = value => {
+    if (Array.isArray(value)) return value.forEach(visit);
+    if (!value || typeof value !== 'object') return;
+    if (value.kind === 'prop' && typeof value.name === 'string' && !props.has(value.name)) throw new Error(`${model.component}: referenced prop ${value.name} is absent`);
+    if (value.kind === 'state' && typeof value.name === 'string' && !states.has(value.name)) throw new Error(`${model.component}: referenced state ${value.name} is absent`);
+    Object.values(value).forEach(visit);
+  };
+  visit(model.draftImplementation);
+}
 
 export function canonicalJSON(value) {
   if (Array.isArray(value)) return `[${value.map(canonicalJSON).join(',')}]`;
@@ -49,10 +68,17 @@ export function validateModel(model) {
   } else {
     if (model.readinessProof) throw new Error('unready model cannot claim readiness proof');
     if (model.implementation) throw new Error('unready model cannot contain a fake implementation');
+    if (model.componentRoot.candidateDefinition) {
+      if (!model.componentRoot.draft || !model.draftImplementation) throw new Error('candidate definition requires draft algebra');
+      validateImplementation(model.draftImplementation);
+      const operationKinds = new Set(model.draftImplementation.operations.map(operation => operation.kind));
+      for (const capability of model.capabilities) for (const kind of CAPABILITY_OPERATIONS[capability] ?? []) if (!operationKinds.has(kind)) throw new Error(`${model.component}: capability ${capability} requires ${kind} operation`);
+      validateReferences(model);
+    } else if (model.draftImplementation) throw new Error('draft algebra requires candidate definition');
     if (!Array.isArray(model.missingOperations) || !model.missingOperations.length) throw new Error('unready model requires explicit missing operations');
     for (const missing of model.missingOperations) if (!missing?.kind || !missing?.reason) throw new Error('invalid missing operation');
   }
-  const implementationSource = JSON.stringify({componentRoot: model.componentRoot, implementation: model.implementation});
+  const implementationSource = JSON.stringify({componentRoot: model.componentRoot, implementation: model.implementation, draftImplementation: model.draftImplementation});
   if (FORBIDDEN_SOURCE.test(implementationSource)) throw new Error('implementation contains HTML, framework, fixture, or demo material');
   const {modelDigest, ...unsigned} = model;
   if (digest(unsigned) !== modelDigest) throw new Error(`model digest mismatch: ${model.component}`);

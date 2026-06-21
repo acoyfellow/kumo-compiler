@@ -79,7 +79,9 @@
   ],
   "componentRoot": {
     "frameworkNeutral": true,
-    "implementationReady": false
+    "implementationReady": false,
+    "candidateDefinition": true,
+    "draft": true
   },
   "semanticGraph": {
     "root": "nav",
@@ -171,20 +173,102 @@
   "missingOperations": [
     {
       "kind": "emit",
-      "reason": "canonical emit operation is not yet represented by the implementation algebra"
+      "reason": "draft emit semantics require canonical browser proof"
     },
     {
       "kind": "focus",
-      "reason": "canonical focus operation is not yet represented by the implementation algebra"
+      "reason": "draft focus semantics require canonical browser proof"
     },
     {
       "kind": "ref",
-      "reason": "canonical ref operation is not yet represented by the implementation algebra"
+      "reason": "draft ref semantics require canonical browser proof"
     },
     {
       "kind": "state",
-      "reason": "canonical state operation is not yet represented by the implementation algebra"
+      "reason": "draft state semantics require canonical browser proof"
+    },
+    {
+      "kind": "native-forwarding",
+      "reason": "native attributes, properties, and events have not been proven to forward without loss"
+    },
+    {
+      "kind": "style-resolution",
+      "reason": "style references have not been resolved to canonical dependency-backed styles"
+    },
+    {
+      "kind": "semantic-completeness",
+      "reason": "draft render tree has not been proven semantically complete"
+    },
+    {
+      "kind": "framework-output",
+      "reason": "generated Vue, Svelte, and Solid output has not been produced and immutably referenced"
+    },
+    {
+      "kind": "packed-browser-vectors",
+      "reason": "canonical packed browser vectors have not been executed and immutably identified"
     }
   ],
-  "modelDigest": "08f7752ea2a2d0834794d8c48a09634585b91764b183153d1785d42d4ea0d6fc"
+  "draftImplementation": {
+    "algebraVersion": "kumo.component-algebra/v1",
+    "componentRoot": {
+      "kind": "compound",
+      "name": "menu-bar",
+      "parts": {
+        "root": {
+          "kind": "slot",
+          "name": "root"
+        },
+        "collection": {
+          "kind": "slot",
+          "name": "collection"
+        }
+      }
+    },
+    "operations": [
+      {
+        "id": "render-1",
+        "kind": "render"
+      },
+      {
+        "id": "state-2",
+        "kind": "state",
+        "state": "focus",
+        "mode": "declared",
+        "initial": {
+          "kind": "state",
+          "name": "focus"
+        }
+      },
+      {
+        "id": "emit-3",
+        "kind": "emit",
+        "event": "change",
+        "value": {
+          "kind": "literal",
+          "value": null
+        }
+      },
+      {
+        "id": "focus-4",
+        "kind": "focus",
+        "target": "root"
+      },
+      {
+        "id": "ref-5",
+        "kind": "ref",
+        "target": "root"
+      },
+      {
+        "id": "apply-root-styles",
+        "kind": "style",
+        "styles": [
+          {
+            "kind": "style-ref",
+            "name": "root"
+          }
+        ]
+      }
+    ]
+  },
+  "modelDigest": "40c08fc1e03b3a7d723ec35135cb4cf3a2605d12368398588dcda6818ce453ea"
 }
