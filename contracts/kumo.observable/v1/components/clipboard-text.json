@@ -1,0 +1,132 @@
+{
+  "schemaVersion": "kumo.observable/v1",
+  "component": "clipboard-text",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "exportPath": "./components/clipboard-text",
+    "typesPath": "dist/src/components/clipboard-text/index.d.ts",
+    "runtimePath": "dist/components/clipboard-text.js",
+    "typesSha256": "9774e9eeaf067d462722f721f4bed803448bfa9685deba9fc4517db31f277038",
+    "runtimeSha256": "8d9597f370c4f9bef95705d76df339a692552e8524c42e2e069930225b1a2794",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "ClipboardText"
+    ],
+    "props": {
+      "observable": "documented public props"
+    },
+    "defaults": {}
+  },
+  "semantics": {
+    "root": "div",
+    "aria": [
+      "native and Field semantics observed in canonical Chrome"
+    ]
+  },
+  "initialState": {
+    "source": "props/native state"
+  },
+  "transitions": [
+    {
+      "action": "native user action",
+      "effect": "callback/state transition"
+    }
+  ],
+  "keyboardFocus": {
+    "focusable": true,
+    "keys": [
+      "Tab",
+      "Enter",
+      "Escape"
+    ]
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "identical"
+  },
+  "stylingAssets": {
+    "classes": [],
+    "assets": []
+  },
+  "vectors": [
+    {
+      "id": "ssr",
+      "props": {
+        "text": "visible",
+        "textToCopy": "payload"
+      },
+      "expected": {
+        "root": {
+          "tag": "div"
+        }
+      }
+    },
+    {
+      "id": "click-copy",
+      "props": {
+        "text": "visible",
+        "textToCopy": "payload"
+      },
+      "expected": {
+        "root": {
+          "tag": "div"
+        },
+        "state": {
+          "clipboard": [
+            "payload"
+          ],
+          "live": [
+            "Copied"
+          ]
+        },
+        "events": [
+          "copy"
+        ]
+      },
+      "actions": [
+        {
+          "type": "click",
+          "selector": "button"
+        }
+      ]
+    },
+    {
+      "id": "keyboard",
+      "props": {
+        "text": "keyboard"
+      },
+      "expected": {
+        "root": {
+          "tag": "div"
+        },
+        "state": {
+          "clipboard": [
+            "payload",
+            "keyboard"
+          ]
+        },
+        "events": [
+          "copy"
+        ],
+        "focus": "button"
+      },
+      "actions": [
+        {
+          "type": "key",
+          "selector": "button",
+          "key": "Enter"
+        }
+      ]
+    }
+  ],
+  "unknowns": [
+    {
+      "field": "inheritedVendorBehavior",
+      "status": "unknown",
+      "reason": "Base UI event details, autofill/password managers, IME, RTL, selection ranges, clipboard rejection, and platform accessibility-tree differences remain inherited/vendor unknowns."
+    }
+  ]
+}

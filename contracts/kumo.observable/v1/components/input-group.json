@@ -1,0 +1,255 @@
+{
+  "schemaVersion": "kumo.observable/v1",
+  "component": "input-group",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "exportPath": "./components/input-group",
+    "typesPath": "dist/src/components/input-group/index.d.ts",
+    "runtimePath": "dist/components/input-group.js",
+    "typesSha256": "e395819f5798d69b85aabdca26f2cd426090d50f5d4a8a50dbe75efcf7f3ae77",
+    "runtimeSha256": "e03a17a6bf163faf14daa625bd035e07e33c56d46f68d4d7d37b74c87dd416bb",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "InputGroup"
+    ],
+    "props": {
+      "observable": "documented public props"
+    },
+    "defaults": {}
+  },
+  "semantics": {
+    "root": "div",
+    "aria": [
+      "native and Field semantics observed in canonical Chrome"
+    ]
+  },
+  "initialState": {
+    "source": "props/native state"
+  },
+  "transitions": [
+    {
+      "action": "native user action",
+      "effect": "callback/state transition"
+    }
+  ],
+  "keyboardFocus": {
+    "focusable": true,
+    "keys": [
+      "Tab",
+      "Enter",
+      "Escape"
+    ]
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "identical"
+  },
+  "stylingAssets": {
+    "classes": [],
+    "assets": []
+  },
+  "vectors": [
+    {
+      "id": "composition",
+      "props": {},
+      "expected": {
+        "root": {
+          "tag": "div"
+        }
+      },
+      "fixture": {
+        "export": "root",
+        "props": {
+          "label": "Search",
+          "description": "Help",
+          "required": true
+        },
+        "children": [
+          {
+            "export": ".Addon",
+            "props": {},
+            "children": [
+              {
+                "text": "$"
+              }
+            ]
+          },
+          {
+            "export": ".Input",
+            "props": {},
+            "children": []
+          },
+          {
+            "export": ".Button",
+            "props": {
+              "variant": "secondary"
+            },
+            "children": [
+              {
+                "text": "Go"
+              }
+            ]
+          },
+          {
+            "export": ".Suffix",
+            "props": {},
+            "children": [
+              {
+                "text": "USD"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "field-focus",
+      "props": {},
+      "expected": {
+        "root": {
+          "tag": "div"
+        },
+        "state": {
+          "values": [
+            "q"
+          ]
+        },
+        "focus": "button"
+      },
+      "actions": [
+        {
+          "type": "click",
+          "selector": "label"
+        },
+        {
+          "type": "type",
+          "selector": "input",
+          "text": "q"
+        },
+        {
+          "type": "focus",
+          "selector": "button"
+        }
+      ],
+      "fixture": {
+        "export": "root",
+        "props": {
+          "label": "Search",
+          "description": "Help",
+          "required": true
+        },
+        "children": [
+          {
+            "export": ".Addon",
+            "props": {},
+            "children": [
+              {
+                "text": "$"
+              }
+            ]
+          },
+          {
+            "export": ".Input",
+            "props": {},
+            "children": []
+          },
+          {
+            "export": ".Button",
+            "props": {
+              "variant": "secondary"
+            },
+            "children": [
+              {
+                "text": "Go"
+              }
+            ]
+          },
+          {
+            "export": ".Suffix",
+            "props": {},
+            "children": [
+              {
+                "text": "USD"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "disabled-error",
+      "props": {},
+      "expected": {
+        "root": {
+          "tag": "div"
+        },
+        "state": {
+          "values": [
+            ""
+          ]
+        },
+        "focus": "input"
+      },
+      "actions": [
+        {
+          "type": "focus",
+          "selector": "input"
+        }
+      ],
+      "fixture": {
+        "export": "root",
+        "props": {
+          "label": "Search",
+          "description": "Help",
+          "required": true
+        },
+        "children": [
+          {
+            "export": ".Addon",
+            "props": {},
+            "children": [
+              {
+                "text": "$"
+              }
+            ]
+          },
+          {
+            "export": ".Input",
+            "props": {},
+            "children": []
+          },
+          {
+            "export": ".Button",
+            "props": {
+              "variant": "secondary"
+            },
+            "children": [
+              {
+                "text": "Go"
+              }
+            ]
+          },
+          {
+            "export": ".Suffix",
+            "props": {},
+            "children": [
+              {
+                "text": "USD"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "unknowns": [
+    {
+      "field": "inheritedVendorBehavior",
+      "status": "unknown",
+      "reason": "Base UI event details, autofill/password managers, IME, RTL, selection ranges, clipboard rejection, and platform accessibility-tree differences remain inherited/vendor unknowns."
+    }
+  ]
+}

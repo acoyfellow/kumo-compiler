@@ -1,0 +1,122 @@
+{
+  "schemaVersion": "kumo.observable/v1",
+  "component": "input-area",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "exportPath": "./components/input",
+    "typesPath": "dist/src/components/input/index.d.ts",
+    "runtimePath": "dist/components/input.js",
+    "typesSha256": "16477da12cc37d30cead4a5fbf2dd449f19cbb2cdae0d0de25a33eb333c8ec63",
+    "runtimeSha256": "2968e7e66d89e324c57257a3ef26ff358dd52324d86b8742eabc21e99fb5d9b6",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "InputArea"
+    ],
+    "props": {
+      "observable": "documented public props"
+    },
+    "defaults": {}
+  },
+  "semantics": {
+    "root": "textarea",
+    "aria": [
+      "native and Field semantics observed in canonical Chrome"
+    ]
+  },
+  "initialState": {
+    "source": "props/native state"
+  },
+  "transitions": [
+    {
+      "action": "native user action",
+      "effect": "callback/state transition"
+    }
+  ],
+  "keyboardFocus": {
+    "focusable": true,
+    "keys": [
+      "Tab",
+      "Enter",
+      "Escape"
+    ]
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "identical"
+  },
+  "stylingAssets": {
+    "classes": [],
+    "assets": []
+  },
+  "vectors": [
+    {
+      "id": "bare",
+      "props": {
+        "aria-label": "Notes",
+        "defaultValue": "hello"
+      },
+      "expected": {
+        "root": {
+          "tag": "textarea"
+        }
+      }
+    },
+    {
+      "id": "type",
+      "props": {
+        "aria-label": "Notes"
+      },
+      "expected": {
+        "root": {
+          "tag": "textarea"
+        },
+        "state": {
+          "values": [
+            "hello"
+          ]
+        },
+        "events": [
+          "value:hello"
+        ],
+        "focus": "textarea"
+      },
+      "actions": [
+        {
+          "type": "type",
+          "selector": "textarea",
+          "text": "hello"
+        }
+      ]
+    },
+    {
+      "id": "field-error",
+      "props": {
+        "label": "Notes",
+        "error": "Required",
+        "required": true
+      },
+      "expected": {
+        "root": {
+          "tag": "div"
+        },
+        "focus": "textarea"
+      },
+      "actions": [
+        {
+          "type": "click",
+          "selector": "label"
+        }
+      ]
+    }
+  ],
+  "unknowns": [
+    {
+      "field": "inheritedVendorBehavior",
+      "status": "unknown",
+      "reason": "Base UI event details, autofill/password managers, IME, RTL, selection ranges, clipboard rejection, and platform accessibility-tree differences remain inherited/vendor unknowns."
+    }
+  ]
+}

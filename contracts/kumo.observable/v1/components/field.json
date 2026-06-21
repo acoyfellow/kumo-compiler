@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "kumo.observable/v1",
+  "component": "field",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "exportPath": "./components/field",
+    "typesPath": "dist/src/components/field/index.d.ts",
+    "runtimePath": "dist/components/field.js",
+    "typesSha256": "7702d26f115f2d412dfbbe648cb19a1ad5a54c69eb48ee39e9cb7a7f32f2ab8a",
+    "runtimeSha256": "b795d54552593fd0c4ef5ee3ed1973a3faba693bdf947ddd63a25fdff5363097",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "Field"
+    ],
+    "props": {
+      "observable": "documented public props"
+    },
+    "defaults": {}
+  },
+  "semantics": {
+    "root": "div",
+    "aria": [
+      "native and Field semantics observed in canonical Chrome"
+    ]
+  },
+  "initialState": {
+    "source": "props/native state"
+  },
+  "transitions": [
+    {
+      "action": "native user action",
+      "effect": "callback/state transition"
+    }
+  ],
+  "keyboardFocus": {
+    "focusable": true,
+    "keys": [
+      "Tab",
+      "Enter",
+      "Escape"
+    ]
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "identical"
+  },
+  "stylingAssets": {
+    "classes": [],
+    "assets": []
+  },
+  "vectors": [
+    {
+      "id": "optional",
+      "props": {},
+      "expected": {
+        "root": {
+          "tag": "div"
+        }
+      },
+      "fixture": {
+        "export": "root",
+        "props": {
+          "label": "Name",
+          "description": "Help",
+          "required": false
+        },
+        "children": [
+          {
+            "export": ".NativeInput",
+            "props": {
+              "id": "field-control"
+            },
+            "children": []
+          }
+        ]
+      }
+    }
+  ],
+  "unknowns": [
+    {
+      "field": "inheritedVendorBehavior",
+      "status": "unknown",
+      "reason": "Base UI event details, autofill/password managers, IME, RTL, selection ranges, clipboard rejection, and platform accessibility-tree differences remain inherited/vendor unknowns."
+    }
+  ]
+}
