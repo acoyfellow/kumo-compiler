@@ -1,7 +1,8 @@
 {
   "schemaVersion": "kumo.library-manifest/v1",
   "count": 41,
-  "implementationReadyCount": 16,
+  "candidateDefinitionCount": 16,
+  "implementationReadyCount": 0,
   "components": [
     {
       "component": "autocomplete",
@@ -11,17 +12,17 @@
     {
       "component": "badge",
       "file": "models/badge.json",
-      "digest": "30ffadd3e55a22c0b688f0bf185a1f7dedcd841c707e3e170e6f927371d9fca7"
+      "digest": "782cd9a664c2a8b67fdbd5915ba9b2a675fdd15d114780795a7ff766e2857935"
     },
     {
       "component": "banner",
       "file": "models/banner.json",
-      "digest": "50ed8534b48110cf9754f798d258524bb73ef1e296dfdea04b7473eb93a69164"
+      "digest": "04d16e87b71036f5c73c9f82481c266bd88d24b73c84e1010437076cb5b585df"
     },
     {
       "component": "breadcrumbs",
       "file": "models/breadcrumbs.json",
-      "digest": "a54e1508e112a0446e39b23275397c42a14183e148535b3bf86f8ed704e5a296"
+      "digest": "3af62e8a1955b7edbfddb45a291ad1cfd10c9a5b9001f7b1169e728fbcd3d6a5"
     },
     {
       "component": "button",
@@ -41,12 +42,12 @@
     {
       "component": "cloudflare-logo",
       "file": "models/cloudflare-logo.json",
-      "digest": "38cf8aa2ea2d8b6f34aeb54f39f426e7ac9d75c37f35ce3437fe82b61bc5e1f7"
+      "digest": "440f440c505964e4dbc914cfde11352de161a4ac0a00018fb9a61a9e204b2258"
     },
     {
       "component": "code",
       "file": "models/code.json",
-      "digest": "598f1cb32bf62abcddab38888b8b819193dba5dc95afaafc5fc77de853e67580"
+      "digest": "affff8cc259b8e7e3a7f6b29536918c65dc532e2b993d9d58751a9ff7c5671f9"
     },
     {
       "component": "combobox",
@@ -81,7 +82,7 @@
     {
       "component": "empty",
       "file": "models/empty.json",
-      "digest": "01526ec3db7fddd927c42fd759dda046d1b759fcae44b0906d7c35d7e20c8df4"
+      "digest": "1c968c0ff6cece8bc53e371d6939369110a03f5068d048c4c18eb13cbc3204bf"
     },
     {
       "component": "field",
@@ -91,12 +92,12 @@
     {
       "component": "grid",
       "file": "models/grid.json",
-      "digest": "75a0519926711733ac63221bf960df1f3eae10bba780a292f5059ddbba911b65"
+      "digest": "1f87f95a11b48507cb8a216c43be25b6ed0b9c3eebf78d0063f95aac7275bbad"
     },
     {
       "component": "grid-item",
       "file": "models/grid-item.json",
-      "digest": "1d01bd6ca32ec8f6deab246ea271de331229e4963101cc5b13416ea168220d8b"
+      "digest": "153aa9701e33d099420296319f75ea64e9847df6820042e9b2e6084e1a425a8f"
     },
     {
       "component": "input",
@@ -116,22 +117,22 @@
     {
       "component": "label",
       "file": "models/label.json",
-      "digest": "624bd8edf6a3ece44c901a5bc8e273d09e3a3e4bb3937c7386db4fb4f8c74de4"
+      "digest": "eff6da7edaadf8d4a75b455a88435a7f24973417c679f268d43a7f5f7f20d63d"
     },
     {
       "component": "layer-card",
       "file": "models/layer-card.json",
-      "digest": "1b3921ad3185257bccb62002f132d8c8f51354227107d5b1a89418c85496c4b9"
+      "digest": "3acc97013fa777bd024296c1cb2d00b26d5e3db07525b2605a4069ff22b95ea0"
     },
     {
       "component": "link",
       "file": "models/link.json",
-      "digest": "ec4115e9145f306c888eabc02418dcc68d27653e73002147abca4568a03bd6e7"
+      "digest": "f8d491b4b529216b2ecd943e9dae7e058c7710603dd4aae9dd9a470a649fa604"
     },
     {
       "component": "loader",
       "file": "models/loader.json",
-      "digest": "062f93b54123857748b0366fff3b86cb30abba461e5dcbc54d7d3b7a2e338273"
+      "digest": "865d578070ae739390299ed98b70f9ba3cde7f5ea5d4aa61d637056363292ffa"
     },
     {
       "component": "menu-bar",
@@ -141,7 +142,7 @@
     {
       "component": "meter",
       "file": "models/meter.json",
-      "digest": "9d7c990f32bb6ed6c46466fed236b4eddb53e7a098bf38ef76e5dfdb67e9e31f"
+      "digest": "01d2e1c1e019e4d3c9661d5c822c5b51d7de4799d97c63f90a3a1a6b62818e58"
     },
     {
       "component": "pagination",
@@ -176,7 +177,7 @@
     {
       "component": "surface",
       "file": "models/surface.json",
-      "digest": "2bff0f3b48c360545e400d2bd5ae7893965142b65766a71426cdb91b75cb75da"
+      "digest": "77627221ed30d872d014699d8f28a2157c5854cf97fcb10af201ae4dcd4d87ce"
     },
     {
       "component": "switch",
@@ -186,7 +187,7 @@
     {
       "component": "table",
       "file": "models/table.json",
-      "digest": "78f642a376ac4d169cffaa6a4ef1c3250368bdfbecb179e188f8feedc83f2212"
+      "digest": "7bfaf73b44b72552af044aa3ecd1491018998e543cd3eac82cdbf81bca097077"
     },
     {
       "component": "table-of-contents",
@@ -201,7 +202,7 @@
     {
       "component": "text",
       "file": "models/text.json",
-      "digest": "26d883e62294bb0d7017bbca1a2d192e07523c6b72f659c0fbd263ba519fa69e"
+      "digest": "38e55a59bd471012e32cabb3b5c0a3069c9649770c969df101a4bd9a2769030b"
     },
     {
       "component": "toasty",

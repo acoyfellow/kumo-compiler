@@ -123,7 +123,9 @@
   "states": [],
   "componentRoot": {
     "frameworkNeutral": true,
-    "implementationReady": true
+    "implementationReady": false,
+    "candidateDefinition": true,
+    "draft": true
   },
   "semanticGraph": {
     "root": "div",
@@ -153,59 +155,31 @@
     }
   },
   "unknowns": [],
-  "implementation": {
-    "algebraVersion": "kumo.component-algebra/v1",
-    "componentRoot": {
-      "kind": "element",
-      "tag": "section",
-      "attributes": {},
-      "styles": [
-        {
-          "kind": "style-ref",
-          "name": "root"
-        }
-      ],
-      "children": [
-        {
-          "kind": "slot",
-          "name": "icon"
-        },
-        {
-          "kind": "text",
-          "value": {
-            "kind": "prop",
-            "name": "title"
-          }
-        },
-        {
-          "kind": "slot",
-          "name": "description"
-        },
-        {
-          "kind": "slot",
-          "name": "action"
-        },
-        {
-          "kind": "children"
-        }
-      ]
+  "missingOperations": [
+    {
+      "kind": "render",
+      "reason": "canonical render operation is not yet represented by the implementation algebra"
     },
-    "operations": [
-      {
-        "id": "render-root",
-        "kind": "render"
-      },
-      {
-        "id": "apply-root-styles",
-        "kind": "style",
-        "styles": [
-          {
-            "kind": "style-ref",
-            "name": "root"
-          }
-        ]
-      }
-    ]
-  },
-  "modelDigest": "50ed8534b48110cf9754f798d258524bb73ef1e296dfdea04b7473eb93a69164"
+    {
+      "kind": "native-forwarding",
+      "reason": "native attributes, properties, and events have not been proven to forward without loss"
+    },
+    {
+      "kind": "style-resolution",
+      "reason": "style references have not been resolved to canonical dependency-backed styles"
+    },
+    {
+      "kind": "semantic-completeness",
+      "reason": "render tree has not been proven semantically complete; empty visual nodes are not accepted as output"
+    },
+    {
+      "kind": "framework-output",
+      "reason": "generated Vue, Svelte, and Solid output has not been produced and immutably referenced"
+    },
+    {
+      "kind": "packed-browser-vectors",
+      "reason": "canonical packed browser vectors have not been executed and immutably identified"
+    }
+  ],
+  "modelDigest": "04d16e87b71036f5c73c9f82481c266bd88d24b73c84e1010437076cb5b585df"
 }

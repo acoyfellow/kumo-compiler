@@ -71,7 +71,9 @@
   "states": [],
   "componentRoot": {
     "frameworkNeutral": true,
-    "implementationReady": true
+    "implementationReady": false,
+    "candidateDefinition": true,
+    "draft": true
   },
   "semanticGraph": {
     "root": "nav",
@@ -103,45 +105,31 @@
     }
   },
   "unknowns": [],
-  "implementation": {
-    "algebraVersion": "kumo.component-algebra/v1",
-    "componentRoot": {
-      "kind": "element",
-      "tag": "nav",
-      "attributes": {
-        "aria-label": {
-          "kind": "literal",
-          "value": "Breadcrumbs"
-        }
-      },
-      "styles": [
-        {
-          "kind": "style-ref",
-          "name": "root"
-        }
-      ],
-      "children": [
-        {
-          "kind": "children"
-        }
-      ]
+  "missingOperations": [
+    {
+      "kind": "render",
+      "reason": "canonical render operation is not yet represented by the implementation algebra"
     },
-    "operations": [
-      {
-        "id": "render-root",
-        "kind": "render"
-      },
-      {
-        "id": "apply-root-styles",
-        "kind": "style",
-        "styles": [
-          {
-            "kind": "style-ref",
-            "name": "root"
-          }
-        ]
-      }
-    ]
-  },
-  "modelDigest": "a54e1508e112a0446e39b23275397c42a14183e148535b3bf86f8ed704e5a296"
+    {
+      "kind": "native-forwarding",
+      "reason": "native attributes, properties, and events have not been proven to forward without loss"
+    },
+    {
+      "kind": "style-resolution",
+      "reason": "style references have not been resolved to canonical dependency-backed styles"
+    },
+    {
+      "kind": "semantic-completeness",
+      "reason": "render tree has not been proven semantically complete; empty visual nodes are not accepted as output"
+    },
+    {
+      "kind": "framework-output",
+      "reason": "generated Vue, Svelte, and Solid output has not been produced and immutably referenced"
+    },
+    {
+      "kind": "packed-browser-vectors",
+      "reason": "canonical packed browser vectors have not been executed and immutably identified"
+    }
+  ],
+  "modelDigest": "3af62e8a1955b7edbfddb45a291ad1cfd10c9a5b9001f7b1169e728fbcd3d6a5"
 }

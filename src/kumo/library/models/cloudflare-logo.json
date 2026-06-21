@@ -76,7 +76,9 @@
   "states": [],
   "componentRoot": {
     "frameworkNeutral": true,
-    "implementationReady": true
+    "implementationReady": false,
+    "candidateDefinition": true,
+    "draft": true
   },
   "semanticGraph": {
     "root": "svg",
@@ -105,45 +107,31 @@
     }
   },
   "unknowns": [],
-  "implementation": {
-    "algebraVersion": "kumo.component-algebra/v1",
-    "componentRoot": {
-      "kind": "element",
-      "tag": "svg",
-      "attributes": {
-        "role": {
-          "kind": "literal",
-          "value": "img"
-        },
-        "aria-label": {
-          "kind": "literal",
-          "value": "Cloudflare"
-        }
-      },
-      "styles": [
-        {
-          "kind": "style-ref",
-          "name": "root"
-        }
-      ],
-      "children": []
+  "missingOperations": [
+    {
+      "kind": "render",
+      "reason": "canonical render operation is not yet represented by the implementation algebra"
     },
-    "operations": [
-      {
-        "id": "render-root",
-        "kind": "render"
-      },
-      {
-        "id": "apply-root-styles",
-        "kind": "style",
-        "styles": [
-          {
-            "kind": "style-ref",
-            "name": "root"
-          }
-        ]
-      }
-    ]
-  },
-  "modelDigest": "38cf8aa2ea2d8b6f34aeb54f39f426e7ac9d75c37f35ce3437fe82b61bc5e1f7"
+    {
+      "kind": "native-forwarding",
+      "reason": "native attributes, properties, and events have not been proven to forward without loss"
+    },
+    {
+      "kind": "style-resolution",
+      "reason": "style references have not been resolved to canonical dependency-backed styles"
+    },
+    {
+      "kind": "semantic-completeness",
+      "reason": "render tree has not been proven semantically complete; empty visual nodes are not accepted as output"
+    },
+    {
+      "kind": "framework-output",
+      "reason": "generated Vue, Svelte, and Solid output has not been produced and immutably referenced"
+    },
+    {
+      "kind": "packed-browser-vectors",
+      "reason": "canonical packed browser vectors have not been executed and immutably identified"
+    }
+  ],
+  "modelDigest": "440f440c505964e4dbc914cfde11352de161a4ac0a00018fb9a61a9e204b2258"
 }

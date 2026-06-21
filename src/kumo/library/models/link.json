@@ -92,7 +92,9 @@
   "states": [],
   "componentRoot": {
     "frameworkNeutral": true,
-    "implementationReady": true
+    "implementationReady": false,
+    "candidateDefinition": true,
+    "draft": true
   },
   "semanticGraph": {
     "root": "a",
@@ -127,45 +129,31 @@
       "reason": "The render prop or LinkProvider controls the framework-specific root."
     }
   ],
-  "implementation": {
-    "algebraVersion": "kumo.component-algebra/v1",
-    "componentRoot": {
-      "kind": "element",
-      "tag": "a",
-      "attributes": {
-        "href": {
-          "kind": "prop",
-          "name": "href"
-        }
-      },
-      "styles": [
-        {
-          "kind": "style-ref",
-          "name": "root"
-        }
-      ],
-      "children": [
-        {
-          "kind": "children"
-        }
-      ]
+  "missingOperations": [
+    {
+      "kind": "render",
+      "reason": "canonical render operation is not yet represented by the implementation algebra"
     },
-    "operations": [
-      {
-        "id": "render-root",
-        "kind": "render"
-      },
-      {
-        "id": "apply-root-styles",
-        "kind": "style",
-        "styles": [
-          {
-            "kind": "style-ref",
-            "name": "root"
-          }
-        ]
-      }
-    ]
-  },
-  "modelDigest": "ec4115e9145f306c888eabc02418dcc68d27653e73002147abca4568a03bd6e7"
+    {
+      "kind": "native-forwarding",
+      "reason": "native attributes, properties, and events have not been proven to forward without loss"
+    },
+    {
+      "kind": "style-resolution",
+      "reason": "style references have not been resolved to canonical dependency-backed styles"
+    },
+    {
+      "kind": "semantic-completeness",
+      "reason": "render tree has not been proven semantically complete; empty visual nodes are not accepted as output"
+    },
+    {
+      "kind": "framework-output",
+      "reason": "generated Vue, Svelte, and Solid output has not been produced and immutably referenced"
+    },
+    {
+      "kind": "packed-browser-vectors",
+      "reason": "canonical packed browser vectors have not been executed and immutably identified"
+    }
+  ],
+  "modelDigest": "f8d491b4b529216b2ecd943e9dae7e058c7710603dd4aae9dd9a470a649fa604"
 }

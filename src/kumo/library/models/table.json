@@ -70,7 +70,9 @@
   "states": [],
   "componentRoot": {
     "frameworkNeutral": true,
-    "implementationReady": true
+    "implementationReady": false,
+    "candidateDefinition": true,
+    "draft": true
   },
   "semanticGraph": {
     "root": "table",
@@ -100,40 +102,31 @@
     }
   },
   "unknowns": [],
-  "implementation": {
-    "algebraVersion": "kumo.component-algebra/v1",
-    "componentRoot": {
-      "kind": "element",
-      "tag": "table",
-      "attributes": {},
-      "styles": [
-        {
-          "kind": "style-ref",
-          "name": "root"
-        }
-      ],
-      "children": [
-        {
-          "kind": "children"
-        }
-      ]
+  "missingOperations": [
+    {
+      "kind": "render",
+      "reason": "canonical render operation is not yet represented by the implementation algebra"
     },
-    "operations": [
-      {
-        "id": "render-root",
-        "kind": "render"
-      },
-      {
-        "id": "apply-root-styles",
-        "kind": "style",
-        "styles": [
-          {
-            "kind": "style-ref",
-            "name": "root"
-          }
-        ]
-      }
-    ]
-  },
-  "modelDigest": "78f642a376ac4d169cffaa6a4ef1c3250368bdfbecb179e188f8feedc83f2212"
+    {
+      "kind": "native-forwarding",
+      "reason": "native attributes, properties, and events have not been proven to forward without loss"
+    },
+    {
+      "kind": "style-resolution",
+      "reason": "style references have not been resolved to canonical dependency-backed styles"
+    },
+    {
+      "kind": "semantic-completeness",
+      "reason": "render tree has not been proven semantically complete; empty visual nodes are not accepted as output"
+    },
+    {
+      "kind": "framework-output",
+      "reason": "generated Vue, Svelte, and Solid output has not been produced and immutably referenced"
+    },
+    {
+      "kind": "packed-browser-vectors",
+      "reason": "canonical packed browser vectors have not been executed and immutably identified"
+    }
+  ],
+  "modelDigest": "7bfaf73b44b72552af044aa3ecd1491018998e543cd3eac82cdbf81bca097077"
 }

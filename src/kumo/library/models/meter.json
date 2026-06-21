@@ -126,7 +126,9 @@
   "states": [],
   "componentRoot": {
     "frameworkNeutral": true,
-    "implementationReady": true
+    "implementationReady": false,
+    "candidateDefinition": true,
+    "draft": true
   },
   "semanticGraph": {
     "root": "div",
@@ -161,92 +163,31 @@
     }
   },
   "unknowns": [],
-  "implementation": {
-    "algebraVersion": "kumo.component-algebra/v1",
-    "componentRoot": {
-      "kind": "element",
-      "tag": "div",
-      "attributes": {},
-      "styles": [
-        {
-          "kind": "style-ref",
-          "name": "root"
-        }
-      ],
-      "children": [
-        {
-          "kind": "text",
-          "value": {
-            "kind": "prop",
-            "name": "label"
-          }
-        },
-        {
-          "kind": "element",
-          "tag": "meter",
-          "properties": {
-            "value": {
-              "kind": "prop",
-              "name": "value"
-            },
-            "min": {
-              "kind": "prop",
-              "name": "min"
-            },
-            "max": {
-              "kind": "prop",
-              "name": "max"
-            }
-          },
-          "styles": [
-            {
-              "kind": "style-ref",
-              "name": "track"
-            }
-          ],
-          "children": []
-        },
-        {
-          "kind": "condition",
-          "when": {
-            "kind": "prop",
-            "name": "showValue"
-          },
-          "then": {
-            "kind": "text",
-            "value": {
-              "kind": "coalesce",
-              "values": [
-                {
-                  "kind": "prop",
-                  "name": "customValue"
-                },
-                {
-                  "kind": "prop",
-                  "name": "value"
-                }
-              ]
-            }
-          }
-        }
-      ]
+  "missingOperations": [
+    {
+      "kind": "render",
+      "reason": "canonical render operation is not yet represented by the implementation algebra"
     },
-    "operations": [
-      {
-        "id": "render-root",
-        "kind": "render"
-      },
-      {
-        "id": "apply-root-styles",
-        "kind": "style",
-        "styles": [
-          {
-            "kind": "style-ref",
-            "name": "root"
-          }
-        ]
-      }
-    ]
-  },
-  "modelDigest": "9d7c990f32bb6ed6c46466fed236b4eddb53e7a098bf38ef76e5dfdb67e9e31f"
+    {
+      "kind": "native-forwarding",
+      "reason": "native attributes, properties, and events have not been proven to forward without loss"
+    },
+    {
+      "kind": "style-resolution",
+      "reason": "style references have not been resolved to canonical dependency-backed styles"
+    },
+    {
+      "kind": "semantic-completeness",
+      "reason": "render tree has not been proven semantically complete; empty visual nodes are not accepted as output"
+    },
+    {
+      "kind": "framework-output",
+      "reason": "generated Vue, Svelte, and Solid output has not been produced and immutably referenced"
+    },
+    {
+      "kind": "packed-browser-vectors",
+      "reason": "canonical packed browser vectors have not been executed and immutably identified"
+    }
+  ],
+  "modelDigest": "01d2e1c1e019e4d3c9661d5c822c5b51d7de4799d97c63f90a3a1a6b62818e58"
 }

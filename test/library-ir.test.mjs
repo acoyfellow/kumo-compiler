@@ -35,22 +35,36 @@ test('component roots and external fixtures cannot be confused', () => {
   }
 });
 
-test('exact safe foundation family is implementation-ready', () => {
+test('foundation definitions remain fail-closed draft candidates', () => {
   const {manifest, models} = loadLibrary(base);
   const expected = ['badge', 'banner', 'breadcrumbs', 'cloudflare-logo', 'code', 'empty', 'grid', 'grid-item', 'label', 'layer-card', 'link', 'loader', 'meter', 'surface', 'table', 'text'];
-  const actual = models.filter(model => model.componentRoot.implementationReady).map(model => model.component);
-  assert.equal(manifest.implementationReadyCount, 16);
-  assert.deepEqual(actual, expected);
+  assert.equal(manifest.implementationReadyCount, 0);
+  assert.equal(manifest.candidateDefinitionCount, 16);
+  assert.deepEqual(models.filter(model => model.componentRoot.candidateDefinition).map(model => model.component), expected);
+  assert.deepEqual(models.filter(model => model.componentRoot.implementationReady), []);
   for (const model of models) {
-    if (model.componentRoot.implementationReady) {
-      assert.equal(model.implementation.algebraVersion, ALGEBRA_VERSION);
-      assert.doesNotThrow(() => validateImplementation(model.implementation));
-      assert.equal(model.missingOperations, undefined);
-    } else {
-      assert.equal(model.implementation, undefined);
-      assert.ok(model.missingOperations.length > 0);
+    assert.equal(model.implementation, undefined);
+    assert.ok(model.missingOperations.length > 0);
+    if (model.componentRoot.candidateDefinition) {
+      assert.equal(model.componentRoot.draft, true);
+      const kinds = model.missingOperations.map(operation => operation.kind);
+      for (const kind of ['native-forwarding', 'style-resolution', 'semantic-completeness', 'framework-output', 'packed-browser-vectors']) assert.ok(kinds.includes(kind), `${model.component}: ${kind}`);
     }
   }
+});
+
+ test('forged readiness is rejected without immutable downstream and vector proof', () => {
+  const draft = structuredClone(loadLibrary(base).models.find(model => model.component === 'badge'));
+  draft.componentRoot.implementationReady = true;
+  draft.implementation = {algebraVersion: ALGEBRA_VERSION, componentRoot: {kind: 'element', tag: 'span', children: [{kind: 'children'}]}, operations: [{id: 'render-root', kind: 'render'}]};
+  delete draft.missingOperations;
+  delete draft.modelDigest; draft.modelDigest = digest(draft);
+  assert.throws(() => validateModel(draft), /draft candidate cannot satisfy readiness/);
+
+  delete draft.componentRoot.candidateDefinition;
+  delete draft.componentRoot.draft;
+  delete draft.modelDigest; draft.modelDigest = digest(draft);
+  assert.throws(() => validateModel(draft), /immutable proof references/);
 });
 
 test('generator rerun is byte-stable', () => {
@@ -61,13 +75,17 @@ test('generator rerun is byte-stable', () => {
 });
 
 test('algebra rejects source lookalikes and malformed operations', () => {
+  const malformed = {algebraVersion: ALGEBRA_VERSION, componentRoot: {kind: 'element', tag: 'span', children: []}, operations: [{id: 'render-root', kind: 'render'}, {id: 'render-root', kind: 'render'}]};
+  assert.throws(() => validateImplementation(malformed), /duplicate id/);
+  malformed.componentRoot.tag = '<span>';
+  malformed.operations.pop();
   const model = structuredClone(loadLibrary(base).models.find(model => model.component === 'badge'));
-  model.implementation.componentRoot.tag = '<span>';
+  model.componentRoot = {frameworkNeutral: true, implementationReady: true};
+  model.implementation = malformed;
+  delete model.missingOperations;
+  model.readinessProof = Object.freeze({frameworkOutputs: Object.freeze({vue: `out@sha256:${'a'.repeat(64)}`, svelte: `out@sha256:${'b'.repeat(64)}`, solid: `out@sha256:${'c'.repeat(64)}`}), canonicalVectorIds: Object.freeze([`browser#${'d'.repeat(64)}`])});
   delete model.modelDigest; model.modelDigest = digest(model);
   assert.throws(() => validateModel(model), /HTML|invalid|expected/);
-  const malformed = structuredClone(loadLibrary(base).models.find(model => model.component === 'badge').implementation);
-  malformed.operations.push({id: 'render-root', kind: 'render'});
-  assert.throws(() => validateImplementation(malformed), /duplicate id/);
 });
 
 test('capabilities use only evidence-backed closed taxonomy', () => {

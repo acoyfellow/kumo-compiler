@@ -8,7 +8,7 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '../../..');
 const contracts = path.join(root, 'contracts/kumo.observable/v1/components');
 const models = path.join(here, 'models');
-const ready = new Set(['badge', 'banner', 'breadcrumbs', 'cloudflare-logo', 'code', 'empty', 'grid', 'grid-item', 'label', 'layer-card', 'link', 'loader', 'meter', 'surface', 'table', 'text']);
+const candidates = new Set(['badge', 'banner', 'breadcrumbs', 'cloudflare-logo', 'code', 'empty', 'grid', 'grid-item', 'label', 'layer-card', 'link', 'loader', 'meter', 'surface', 'table', 'text']);
 const lit = value => ({kind: 'literal', value});
 const prop = name => ({kind: 'prop', name});
 const style = name => ({kind: 'style-ref', name});
@@ -42,10 +42,21 @@ function implementation(name) {
     {id: 'render-root', kind: 'render'}, {id: 'apply-root-styles', kind: 'style', styles: [style('root')]}
   ]};
 }
-function missingFor(model) {
+function missingFor(model, candidate) {
+  const missing = [];
   const kinds = new Set(model.capabilities.flatMap(capability => capabilityOperations[capability] ?? []));
   if (!kinds.size) kinds.add('render');
-  return [...kinds].sort().map(kind => ({kind, reason: `canonical ${kind} operation is not yet represented by the implementation algebra`}));
+  for (const kind of [...kinds].sort()) missing.push({kind, reason: `canonical ${kind} operation is not yet represented by the implementation algebra`});
+  if (candidate) {
+    missing.push(
+      {kind: 'native-forwarding', reason: 'native attributes, properties, and events have not been proven to forward without loss'},
+      {kind: 'style-resolution', reason: 'style references have not been resolved to canonical dependency-backed styles'},
+      {kind: 'semantic-completeness', reason: 'render tree has not been proven semantically complete; empty visual nodes are not accepted as output'},
+      {kind: 'framework-output', reason: 'generated Vue, Svelte, and Solid output has not been produced and immutably referenced'},
+      {kind: 'packed-browser-vectors', reason: 'canonical packed browser vectors have not been executed and immutably identified'}
+    );
+  }
+  return missing;
 }
 
 fs.mkdirSync(models, {recursive: true});
@@ -57,14 +68,15 @@ for (const file of fs.readdirSync(contracts).filter(file => file.endsWith('.json
   const previous = JSON.parse(fs.readFileSync(path.join(models, file), 'utf8'));
   const model = {...previous, provenance: {...previous.provenance, contractPath, contractDigest: digest(contract)}};
   delete model.modelDigest;
-  model.componentRoot = {frameworkNeutral: true, implementationReady: ready.has(name)};
-  if (ready.has(name)) model.implementation = implementation(name);
-  else { delete model.implementation; model.missingOperations = missingFor(model); }
-  if (ready.has(name)) delete model.missingOperations;
+  const candidate = candidates.has(name);
+  model.componentRoot = {frameworkNeutral: true, implementationReady: false, ...(candidate ? {candidateDefinition: true, draft: true} : {})};
+  delete model.implementation;
+  delete model.readinessProof;
+  model.missingOperations = missingFor(model, candidate);
   model.modelDigest = digest(model);
   fs.writeFileSync(path.join(models, file), `${JSON.stringify(model, null, 2)}\n`);
   entries.push({component: name, file: `models/${file}`, digest: model.modelDigest});
 }
-const manifest = {schemaVersion: 'kumo.library-manifest/v1', count: entries.length, implementationReadyCount: entries.filter(entry => ready.has(entry.component)).length, components: entries};
+const manifest = {schemaVersion: 'kumo.library-manifest/v1', count: entries.length, candidateDefinitionCount: entries.filter(entry => candidates.has(entry.component)).length, implementationReadyCount: 0, components: entries};
 fs.writeFileSync(path.join(here, 'manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`);
-process.stdout.write(`${canonicalJSON({count: entries.length, implementationReadyCount: manifest.implementationReadyCount})}\n`);
+process.stdout.write(`${canonicalJSON({candidateDefinitionCount: manifest.candidateDefinitionCount, count: entries.length, implementationReadyCount: manifest.implementationReadyCount})}\n`);
