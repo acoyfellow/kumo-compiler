@@ -1,37 +1,16 @@
 {
   "name": "@cloudflare/kumo-solid",
-  "version": "0.0.0-consumer-dx-pilot",
-  "private": true,
+  "version": "0.0.1",
   "type": "module",
-  "sideEffects": [
-    "*.css",
-    "./dist/*.css"
-  ],
+  "peerDependencies": { "solid-js": "^1.9.0" },
+  "sideEffects": ["./package/styles.css", "./package/tokens.css"],
   "exports": {
-    ".": {
-      "types": "./package/index.d.ts",
-      "import": "./package/index.js"
-    },
-    "./button": {
-      "types": "./package/index.d.ts",
-      "import": "./package/index.js"
-    },
-    "./field": {
-      "types": "./package/index.d.ts",
-      "import": "./package/index.js"
-    },
-    "./tabs": {
-      "types": "./package/index.d.ts",
-      "import": "./package/index.js"
-    },
+    ".": { "types": "./package/index.d.ts", "import": "./package/index.jsx" },
+    "./button": { "types": "./package/button.d.ts", "import": "./package/button.jsx" },
+    "./field": { "types": "./package/field.d.ts", "import": "./package/field.jsx" },
     "./styles.css": "./package/styles.css",
     "./tokens.css": "./package/tokens.css",
     "./manifest": "./kumo.manifest.json"
   },
-  "files": [
-    "package",
-    "kumo.manifest.json"
-  ],
-  "main": "./package/index.js",
-  "types": "./package/index.d.ts"
+  "files": ["package", "kumo.manifest.json"]
 }

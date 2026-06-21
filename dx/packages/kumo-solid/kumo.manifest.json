@@ -1,28 +1,15 @@
 {
   "schemaVersion": 1,
   "name": "@cloudflare/kumo-solid",
+  "version": "0.0.1",
   "framework": "solid",
+  "components": ["Button", "Field"],
   "exports": {
-    ".": "./dist/index.js",
-    "./styles.css": "./dist/styles.css",
-    "./tokens.css": "./dist/tokens.css",
-    "./manifest": "./kumo.manifest.json"
+    ".": "./package/index.js",
+    "./button": "./package/button.js",
+    "./field": "./package/field.js",
+    "./styles.css": "./package/styles.css",
+    "./tokens.css": "./package/tokens.css"
   },
-  "files": [
-    "dist/index.js",
-    "dist/index.d.ts",
-    "dist/styles.css",
-    "dist/tokens.css",
-    "kumo.manifest.json"
-  ],
-  "ownership": {
-    "authority": "candidates/shared-core",
-    "scope": [
-      "Button",
-      "Field",
-      "Tabs"
-    ],
-    "pilot": true,
-    "publishReady": false
-  }
+  "ownership": { "authority": "dx/packages/kumo-solid", "scope": ["Button", "Field"], "publishReady": true }
 }
