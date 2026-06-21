@@ -294,11 +294,13 @@
         },
         {
           "type": "key",
-          "key": "End"
+          "key": "End",
+          "scope": "active"
         },
         {
           "type": "key",
-          "key": "Escape"
+          "key": "Escape",
+          "scope": "active"
         }
       ],
       "expected": {
@@ -393,15 +395,18 @@
         },
         {
           "type": "key",
-          "key": "End"
+          "key": "End",
+          "scope": "active"
         },
         {
           "type": "key",
-          "key": "Home"
+          "key": "Home",
+          "scope": "active"
         },
         {
           "type": "key",
-          "key": "Escape"
+          "key": "Escape",
+          "scope": "active"
         }
       ],
       "expected": {
@@ -497,11 +502,12 @@
         {
           "type": "key",
           "key": "d",
-          "selector": "button"
+          "scope": "active"
         },
         {
           "type": "key",
-          "key": "Escape"
+          "key": "Escape",
+          "scope": "active"
         }
       ],
       "expected": {
