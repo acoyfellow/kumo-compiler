@@ -7,7 +7,12 @@
   "packageSha256": "386e966a9609b7d07ebfefd85d79fbc6b28474cbd62ea33a5fd96a98702ad8d4",
   "contract": {
     "schemaVersion": "kumo.observable/v1",
-    "hash": "a7fe3efce7677deb02df5635e1c9541b8e618d67763a5ef8ca11f6ef950aeebf"
+    "provenanceDigest": "a7fe3efce7677deb02df5635e1c9541b8e618d67763a5ef8ca11f6ef950aeebf"
+  },
+  "plan": {
+    "schemaVersion": "kumo.packed-fixture/v1",
+    "digest": "e7daabc3db075cef51119a8980d0c7aba7111e0fa3f4648074c677177f0e4b78",
+    "sha256": "3e81bd38185b09a5e0475eaf4c8d6bbe0d6f25847900e8a2e63b5b7d5ee87b65"
   },
   "modelHash": "3d74d663d89d6c5e7aa8147f044b948d930227cde0e550b81038b54f26dca2d1",
   "node": {
@@ -21,12 +26,13 @@
     "trustedInteractions": true,
     "diagnosticsFiltering": false,
     "hiddenVectors": false,
-    "ssrLoader": "vite+vite-plugin-solid"
+    "ssrLoader": "vite+vite-plugin-solid",
+    "fixtureSource": "proof/dx/conformance/shared/packed-fixtures.json"
   },
   "counts": {
-    "blocked": 73,
+    "blocked": 60,
     "passed": 50,
-    "failed": 1
+    "failed": 14
   },
   "totalVectors": 124,
   "diagnostics": [],
@@ -38,9 +44,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "badge",
@@ -48,7 +54,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -61,7 +67,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -74,7 +80,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -87,7 +93,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -97,24 +103,34 @@
     {
       "component": "breadcrumbs",
       "vector": "trail",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:27:3)\n    at Object.assign (<anonymous>)\n    at Breadcrumbs (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:19:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:25:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:25:38\n\nNode.js v24.17.0\n"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "unsupported fixture object capability"
+      "ssr": "failed",
+      "hydration": "not-run",
+      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:27:3)\n    at Object.assign (<anonymous>)\n    at Breadcrumbs (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:19:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:25:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:25:38\n\nNode.js v24.17.0\n"
     },
     {
       "component": "breadcrumbs",
       "vector": "small-current",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:27:3)\n    at Object.assign (<anonymous>)\n    at Breadcrumbs (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:19:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:25:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:25:38\n\nNode.js v24.17.0\n"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "unsupported fixture object capability"
+      "ssr": "failed",
+      "hydration": "not-run",
+      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:27:3)\n    at Object.assign (<anonymous>)\n    at Breadcrumbs (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:19:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:25:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:25:38\n\nNode.js v24.17.0\n"
     },
     {
       "component": "button",
@@ -122,7 +138,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -135,7 +151,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -148,7 +164,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -161,7 +177,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -175,9 +191,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "button",
@@ -186,9 +202,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "button",
@@ -197,9 +213,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "button",
@@ -208,9 +224,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "checkbox",
@@ -219,9 +235,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "checkbox",
@@ -230,9 +246,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "checkbox",
@@ -241,9 +257,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "checkbox",
@@ -252,9 +268,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "checkbox",
@@ -263,9 +279,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "clipboard-text",
@@ -273,7 +289,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -287,9 +303,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "clipboard-text",
@@ -298,9 +314,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "cloudflare-logo",
@@ -308,7 +324,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -321,7 +337,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -334,7 +350,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -347,7 +363,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -361,9 +377,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "command-palette",
@@ -373,13 +389,13 @@
       "diagnostics": [
         {
           "phase": "vite-ssr",
-          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-tedJJo/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-tedJJo/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-tedJJo/consumer/dist/vector.mjs:17:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-tedJJo/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-tedJJo/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-tedJJo/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-tedJJo/consumer/dist/vector.mjs:17:38\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:633:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.17.0\n"
+          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:38\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:633:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.17.0\n"
         }
       ],
       "nodeIdentity": "not-run",
       "ssr": "failed",
       "hydration": "not-run",
-      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-tedJJo/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-tedJJo/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-tedJJo/consumer/dist/vector.mjs:17:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-tedJJo/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-tedJJo/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-tedJJo/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-tedJJo/consumer/dist/vector.mjs:17:38\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:633:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.17.0\n"
+      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:38\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:633:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.17.0\n"
     },
     {
       "component": "command-palette",
@@ -388,9 +404,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "date-picker",
@@ -398,7 +414,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -412,9 +428,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "date-picker",
@@ -423,9 +439,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "date-range-picker",
@@ -433,7 +449,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -446,7 +462,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -460,20 +476,25 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "dialog",
       "vector": "closed-trigger",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:24:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:24:38\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:633:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.17.0\n"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "unsupported fixture object capability"
+      "ssr": "failed",
+      "hydration": "not-run",
+      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:24:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:24:38\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:633:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.17.0\n"
     },
     {
       "component": "dialog",
@@ -482,20 +503,25 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "dropdown-menu",
       "vector": "closed-trigger-ssr",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:18:10)\n    at Object.assign (<anonymous>)\n    at DropdownMenu (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:11:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:38\n\nNode.js v24.17.0\n"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "unknown",
-      "reason": "unsupported fixture object capability"
+      "ssr": "failed",
+      "hydration": "not-run",
+      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:18:10)\n    at Object.assign (<anonymous>)\n    at DropdownMenu (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:11:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:38\n\nNode.js v24.17.0\n"
     },
     {
       "component": "dropdown-menu",
@@ -504,9 +530,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "unknown",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "dropdown-menu",
@@ -515,9 +541,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "unknown",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "empty",
@@ -525,7 +551,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -538,7 +564,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -551,7 +577,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -564,7 +590,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -577,7 +603,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -590,7 +616,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -603,7 +629,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -616,7 +642,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -630,9 +656,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "input-area",
@@ -641,20 +667,25 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "input-group",
       "vector": "composition",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:19:4)\n    at Object.assign (<anonymous>)\n    at InputGroup (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:8:39)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:13:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:13:38\n\nNode.js v24.17.0\n"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "unsupported fixture object capability"
+      "ssr": "failed",
+      "hydration": "not-run",
+      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:19:4)\n    at Object.assign (<anonymous>)\n    at InputGroup (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:8:39)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:13:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:13:38\n\nNode.js v24.17.0\n"
     },
     {
       "component": "input-group",
@@ -663,9 +694,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "input-group",
@@ -674,9 +705,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "input",
@@ -684,7 +715,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -698,9 +729,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "input",
@@ -709,9 +740,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "label",
@@ -719,7 +750,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -732,7 +763,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -745,7 +776,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -758,7 +789,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -768,13 +799,18 @@
     {
       "component": "layer-card",
       "vector": "layered",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:23:10)\n    at Object.assign (<anonymous>)\n    at LayerCard (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:16:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:22:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:22:38\n\nNode.js v24.17.0\n"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "unsupported fixture object capability"
+      "ssr": "failed",
+      "hydration": "not-run",
+      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:23:10)\n    at Object.assign (<anonymous>)\n    at LayerCard (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:16:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:22:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:22:38\n\nNode.js v24.17.0\n"
     },
     {
       "component": "link",
@@ -782,7 +818,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -795,7 +831,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -808,7 +844,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -821,7 +857,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -834,7 +870,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -848,9 +884,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "unknown",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "menu-bar",
@@ -859,9 +895,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "unknown",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "meter",
@@ -869,7 +905,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -882,7 +918,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -895,7 +931,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -908,7 +944,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -922,9 +958,9 @@
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "pagination",
@@ -933,9 +969,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "pagination",
@@ -944,9 +980,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "pagination",
@@ -955,9 +991,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "pagination",
@@ -966,9 +1002,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "pagination",
@@ -976,7 +1012,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -989,7 +1025,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -999,13 +1035,18 @@
     {
       "component": "popover",
       "vector": "closed-trigger-ssr",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:25:10)\n    at Object.assign (<anonymous>)\n    at Popover (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:11:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:24:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:24:38\n\nNode.js v24.17.0\n"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "unknown",
-      "reason": "unsupported fixture object capability"
+      "ssr": "failed",
+      "hydration": "not-run",
+      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:25:10)\n    at Object.assign (<anonymous>)\n    at Popover (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:11:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:24:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:24:38\n\nNode.js v24.17.0\n"
     },
     {
       "component": "popover",
@@ -1014,9 +1055,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "unknown",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "popover",
@@ -1025,9 +1066,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "unknown",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "radio",
@@ -1036,9 +1077,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "radio",
@@ -1047,9 +1088,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "radio",
@@ -1058,9 +1099,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "radio",
@@ -1069,9 +1110,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "radio",
@@ -1080,9 +1121,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "select",
@@ -1090,7 +1131,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -1104,9 +1145,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "unknown",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "select",
@@ -1115,9 +1156,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "unknown",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "select",
@@ -1126,9 +1167,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "unknown",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "select",
@@ -1137,9 +1178,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "unknown",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "select",
@@ -1148,9 +1189,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "unknown",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "select",
@@ -1159,9 +1200,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "unknown",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "sensitive-input",
@@ -1169,7 +1210,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -1183,9 +1224,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "sensitive-input",
@@ -1194,9 +1235,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "sidebar",
@@ -1205,31 +1246,41 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "unknown",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "sidebar",
       "vector": "desktop-collapsed-sliding-inert-intent",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:38\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:633:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.17.0\n"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "unknown",
-      "reason": "unsupported fixture object capability"
+      "ssr": "failed",
+      "hydration": "not-run",
+      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:38\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:633:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.17.0\n"
     },
     {
       "component": "sidebar",
       "vector": "collapsible-closed-mounted",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:38\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:633:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.17.0\n"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "unknown",
-      "reason": "unsupported fixture object capability"
+      "ssr": "failed",
+      "hydration": "not-run",
+      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:38\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:633:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.17.0\n"
     },
     {
       "component": "sidebar",
@@ -1238,9 +1289,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "unknown",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "surface",
@@ -1248,7 +1299,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -1261,7 +1312,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -1275,9 +1326,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "switch",
@@ -1286,9 +1337,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "switch",
@@ -1297,9 +1348,9 @@
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "switch",
@@ -1308,9 +1359,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "switch",
@@ -1319,53 +1370,73 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "table-of-contents",
       "vector": "static-title-items",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:20:11)\n    at Object.assign (<anonymous>)\n    at TableOfContents (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:11:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:38\n\nNode.js v24.17.0\n"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "unsupported fixture object capability"
+      "ssr": "failed",
+      "hydration": "not-run",
+      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:20:11)\n    at Object.assign (<anonymous>)\n    at TableOfContents (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:11:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:38\n\nNode.js v24.17.0\n"
     },
     {
       "component": "table-of-contents",
       "vector": "nested-linked-group",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:18:10)\n    at Object.assign (<anonymous>)\n    at TableOfContents (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:11:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:38\n\nNode.js v24.17.0\n"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "unsupported fixture object capability"
+      "ssr": "failed",
+      "hydration": "not-run",
+      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:18:10)\n    at Object.assign (<anonymous>)\n    at TableOfContents (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:11:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:38\n\nNode.js v24.17.0\n"
     },
     {
       "component": "table",
       "vector": "semantic-selected",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:24:10)\n    at Object.assign (<anonymous>)\n    at Table (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:23:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:23:38\n\nNode.js v24.17.0\n"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "unsupported fixture object capability"
+      "ssr": "failed",
+      "hydration": "not-run",
+      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:24:10)\n    at Object.assign (<anonymous>)\n    at Table (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:23:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:23:38\n\nNode.js v24.17.0\n"
     },
     {
       "component": "table",
       "vector": "fixed-sticky",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:24:10)\n    at Object.assign (<anonymous>)\n    at Table (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:23:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:23:38\n\nNode.js v24.17.0\n"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "unsupported fixture object capability"
+      "ssr": "failed",
+      "hydration": "not-run",
+      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:24:10)\n    at Object.assign (<anonymous>)\n    at Table (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:23:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:23:38\n\nNode.js v24.17.0\n"
     },
     {
       "component": "tabs",
@@ -1373,7 +1444,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -1386,7 +1457,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -1400,9 +1471,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "tabs",
@@ -1411,9 +1482,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "text",
@@ -1421,7 +1492,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -1434,7 +1505,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -1447,7 +1518,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -1460,7 +1531,7 @@
       "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
+      "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
       "observation": {
@@ -1474,9 +1545,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "toasty",
@@ -1485,9 +1556,9 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
     {
       "component": "toasty",
@@ -1496,10 +1567,10 @@
       "mode": "browser",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
+      "ssr": "not-run",
+      "hydration": "not-run",
+      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     }
   ],
-  "receiptHash": "62372d7a0f2e33233fc521b89cc108930e3386183ee9731240773a4c7b8106bc"
+  "receiptHash": "ea256d217dbe17355d8ab737d776aaaef0819ff77cf374f6fcb484d81651cb43"
 }
