@@ -1,0 +1,205 @@
+{
+  "schemaVersion": "kumo.observable/v1",
+  "component": "combobox",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "exportPath": "./components/combobox",
+    "typesPath": "dist/src/components/combobox/index.d.ts",
+    "runtimePath": "dist/components/combobox.js",
+    "typesSha256": "8fb6aab2a21307ed1fba2969749025b8524dded58c90d79c75da56053532556b",
+    "runtimeSha256": "1c07f55d130261c000823ec12a29537ca875225e5d74c3f7e338ae616940d8d1",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "Combobox"
+    ],
+    "props": {
+      "root": "Base UI generic Root props plus label,required,labelTooltip,description,error,size",
+      "variants": "size xs|sm|base|lg; inputSide right|top",
+      "Content": "children,className,align,alignOffset,side,sideOffset,container",
+      "TriggerInput": "Base UI Input props,clearLabel,showOptionsLabel",
+      "TriggerMultipleWithInput": "placeholder,renderItem,className,inputSide,value",
+      "compound": "TriggerValue,Chip,Item,Input,Empty,GroupLabel,Group,List,Collection,Trigger,Value,Icon,useFilter"
+    },
+    "defaults": {
+      "size": "base",
+      "inputSide": "right",
+      "clearLabel": "Clear selection",
+      "showOptionsLabel": "Show options",
+      "chipRemoveLabel": "Remove",
+      "portalContainer": "KumoPortalProvider container or document.body"
+    }
+  },
+  "semantics": {
+    "root": "input",
+    "aria": [
+      "input has combobox semantics and controls popup listbox",
+      "items expose option selection/highlight/disabled state",
+      "clear,show-options,and chip-remove controls have configurable accessible labels",
+      "Field supplies label,required,description,error associations"
+    ]
+  },
+  "initialState": {
+    "selection": "value/defaultValue according to Base UI controlled mode",
+    "open": "closed unless controlled/default-open",
+    "multiple": "false unless set",
+    "inputSide": "right"
+  },
+  "transitions": [
+    {
+      "action": "type in trigger input",
+      "effect": "filters items and opens popup"
+    },
+    {
+      "action": "ArrowDown/ArrowUp",
+      "effect": "moves option highlight"
+    },
+    {
+      "action": "Enter/click option",
+      "effect": "selects constrained item; multiple mode toggles/chips selection"
+    },
+    {
+      "action": "click clear/remove",
+      "effect": "clears selection or removes chip"
+    },
+    {
+      "action": "Escape",
+      "effect": "closes popup"
+    }
+  ],
+  "keyboardFocus": {
+    "focusable": true,
+    "keys": [
+      "ArrowDown",
+      "ArrowUp",
+      "Enter",
+      "Escape",
+      "Home",
+      "End",
+      "Backspace"
+    ]
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "identical"
+  },
+  "stylingAssets": {
+    "classes": [
+      "bg-kumo-control",
+      "ring-kumo-line",
+      "data-highlighted:bg-kumo-overlay",
+      "data-selected:font-medium",
+      "w-full px-2 py-1 border-0 bg-inherit",
+      "flex items-center flex-wrap gap-1.5 flex-1",
+      "min-w-[100px]"
+    ],
+    "assets": [
+      "selection/clear/chevron SVG icons from canonical runtime"
+    ]
+  },
+  "vectors": [
+    {
+      "id": "single-select",
+      "props": {
+        "items": [
+          "Apple",
+          "Banana"
+        ]
+      },
+      "fixture": {
+        "export": "root",
+        "props": {
+          "items": [
+            "Apple",
+            "Banana"
+          ]
+        },
+        "children": [
+          {
+            "export": ".TriggerInput",
+            "props": {
+              "placeholder": "Fruit"
+            },
+            "children": []
+          },
+          {
+            "export": ".Content",
+            "props": {},
+            "children": [
+              {
+                "export": ".List",
+                "props": {},
+                "children": [
+                  {
+                    "export": ".Item",
+                    "props": {
+                      "value": "Apple"
+                    },
+                    "children": [
+                      {
+                        "text": "Apple"
+                      }
+                    ]
+                  },
+                  {
+                    "export": ".Item",
+                    "props": {
+                      "value": "Banana"
+                    },
+                    "children": [
+                      {
+                        "text": "Banana"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "click",
+          "selector": "input"
+        },
+        {
+          "type": "key",
+          "selector": "input",
+          "key": "ArrowDown"
+        },
+        {
+          "type": "key",
+          "selector": "input",
+          "key": "Enter"
+        }
+      ],
+      "expected": {
+        "root": {
+          "tag": "input"
+        },
+        "state": {
+          "value": "Apple"
+        },
+        "events": [
+          "value:Apple"
+        ],
+        "focus": "input"
+      }
+    }
+  ],
+  "unknowns": [
+    {
+      "field": "generatedIds",
+      "status": "unknown",
+      "reason": "Base UI generates input/listbox ids; relationships are required but literal ids are intentionally not frozen."
+    },
+    {
+      "field": "multipleChipDom",
+      "status": "unknown",
+      "reason": "Exact nested chip/input DOM depends on renderItem and controlled value; behavior is specified without inventing a universal fixture shape."
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "schemaVersion": "kumo.observable/v1",
+  "component": "autocomplete",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "exportPath": "./components/autocomplete",
+    "typesPath": "dist/src/components/autocomplete/index.d.ts",
+    "runtimePath": "dist/components/autocomplete.js",
+    "typesSha256": "3d9adea79f082b9a890408c3571677d9970e74dff958839fc0af6239c6895701",
+    "runtimeSha256": "929fcaef232cc3c433ddbc7a735581f993a3ea151b5fb00edb92c2984ff7b205",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "Autocomplete",
+      "KUMO_AUTOCOMPLETE_VARIANTS",
+      "KUMO_AUTOCOMPLETE_DEFAULT_VARIANTS",
+      "autocompleteVariants"
+    ],
+    "props": {
+      "root": "items,value,defaultValue,onValueChange,open,onOpenChange,children,className,label,required,labelTooltip,description,error plus Base UI Root props",
+      "InputGroup": "className,size,placeholder",
+      "Content": "children,className,align,alignOffset,side,sideOffset",
+      "compound": "Item,GroupLabel,Group,Separator,List,Empty,Collection,useFilter"
+    },
+    "defaults": {
+      "size": "base",
+      "contentAlign": "start",
+      "contentSideOffset": 4
+    }
+  },
+  "semantics": {
+    "root": "input",
+    "aria": [
+      "input exposes combobox semantics through Base UI",
+      "popup list items expose highlighted and selected states",
+      "label/description/error use Field associations when label is supplied"
+    ]
+  },
+  "initialState": {
+    "value": "value, otherwise defaultValue",
+    "open": "controlled open or Base UI default closed",
+    "highlight": "none until navigation",
+    "filter": "Base UI autocomplete filtering"
+  },
+  "transitions": [
+    {
+      "action": "focus/type input",
+      "effect": "updates free-form value, filters suggestions, and can open popup"
+    },
+    {
+      "action": "ArrowDown/ArrowUp",
+      "effect": "moves highlighted suggestion"
+    },
+    {
+      "action": "Enter on highlighted item",
+      "effect": "selects suggestion and updates value"
+    },
+    {
+      "action": "Escape",
+      "effect": "closes popup"
+    }
+  ],
+  "keyboardFocus": {
+    "focusable": true,
+    "keys": [
+      "ArrowDown",
+      "ArrowUp",
+      "Enter",
+      "Escape",
+      "Home",
+      "End"
+    ]
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "identical"
+  },
+  "stylingAssets": {
+    "classes": [
+      "w-full",
+      "outline-none",
+      "max-h-[min(var(--available-height),24rem)]",
+      "min-w-(--anchor-width)",
+      "bg-kumo-control",
+      "rounded-lg",
+      "shadow-lg",
+      "ring-kumo-line",
+      "data-highlighted:bg-kumo-overlay",
+      "data-selected:font-medium"
+    ],
+    "assets": [
+      "CheckIcon from @phosphor-icons/react"
+    ]
+  },
+  "vectors": [
+    {
+      "id": "filter-and-select",
+      "props": {
+        "items": [
+          "Apple",
+          "Banana"
+        ]
+      },
+      "fixture": {
+        "export": "root",
+        "props": {
+          "items": [
+            "Apple",
+            "Banana"
+          ]
+        },
+        "children": [
+          {
+            "export": ".InputGroup",
+            "props": {
+              "placeholder": "Fruit"
+            },
+            "children": []
+          },
+          {
+            "export": ".Content",
+            "props": {},
+            "children": [
+              {
+                "export": ".List",
+                "props": {},
+                "children": [
+                  {
+                    "export": ".Item",
+                    "props": {
+                      "value": "Apple"
+                    },
+                    "children": [
+                      {
+                        "text": "Apple"
+                      }
+                    ]
+                  },
+                  {
+                    "export": ".Item",
+                    "props": {
+                      "value": "Banana"
+                    },
+                    "children": [
+                      {
+                        "text": "Banana"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "focus",
+          "selector": "input"
+        },
+        {
+          "type": "type",
+          "selector": "input",
+          "text": "Ban"
+        },
+        {
+          "type": "key",
+          "selector": "input",
+          "key": "ArrowDown"
+        },
+        {
+          "type": "key",
+          "selector": "input",
+          "key": "Enter"
+        }
+      ],
+      "expected": {
+        "root": {
+          "tag": "input"
+        },
+        "state": {
+          "value": "Banana",
+          "open": false
+        },
+        "events": [
+          "value:Ban",
+          "value:Banana"
+        ],
+        "focus": "input"
+      }
+    }
+  ],
+  "unknowns": [
+    {
+      "field": "portal.container",
+      "status": "unknown",
+      "reason": "Autocomplete.Content uses Base UI Portal without exposing a container prop; exact portal target under provider/shadow DOM was not asserted."
+    },
+    {
+      "field": "ssr.popup",
+      "status": "unknown",
+      "reason": "Closed action-free SSR is supported; open portal markup and generated ids depend on Base UI and were not frozen as exact strings."
+    }
+  ]
+}

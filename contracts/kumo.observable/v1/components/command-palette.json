@@ -1,0 +1,252 @@
+{
+  "schemaVersion": "kumo.observable/v1",
+  "component": "command-palette",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "exportPath": "./components/command-palette",
+    "typesPath": "dist/src/components/command-palette/index.d.ts",
+    "runtimePath": "dist/components/command-palette.js",
+    "typesSha256": "2ca80d1388b986dc1475d52163cb7fb65bc3769eeba3824fe3992f91a1fb1755",
+    "runtimeSha256": "73aebb4518a30958d16255ee35d46c16ebe8cbc1d032175d7dcbf319e46dcacc",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "CommandPalette",
+      "KUMO_COMMAND_PALETTE_VARIANTS",
+      "KUMO_COMMAND_PALETTE_DEFAULT_VARIANTS"
+    ],
+    "props": {
+      "Root": "open,onOpenChange,onBackdropClick,children,items,value,onValueChange,onItemHighlighted,itemToStringValue,filter,onSelect,getSelectableItems,container",
+      "Dialog": "open,onOpenChange,onBackdropClick,children,container",
+      "Panel": "children,items,value,onValueChange,onItemHighlighted,itemToStringValue,filter,open,className,onSelect,getSelectableItems",
+      "Input": "HTML input props plus leading,trailing",
+      "compound": "List,Group,GroupLabel,Item,ResultItem,HighlightedText,Empty,Loading,Footer,Results,Items"
+    },
+    "defaults": {
+      "filter": "include all",
+      "panelOpen": true,
+      "inputAutoFocus": true,
+      "emptyText": "No results found",
+      "resultShowArrow": true,
+      "resultExternal": false,
+      "resultNonInteractive": false,
+      "portalContainer": "KumoPortalProvider container or document.body"
+    }
+  },
+  "semantics": {
+    "root": "div",
+    "aria": [
+      "open Root/Dialog renders modal dialog and backdrop",
+      "Panel input uses autocomplete combobox semantics",
+      "items expose highlighted and disabled state",
+      "focus is trapped/restored by Base UI dialog"
+    ]
+  },
+  "initialState": {
+    "open": "required controlled boolean",
+    "query": "controlled value or empty",
+    "highlight": "first result auto-highlighted always and kept as results change",
+    "modal": true
+  },
+  "transitions": [
+    {
+      "action": "backdrop click",
+      "effect": "calls onBackdropClick when provided, otherwise onOpenChange(false)"
+    },
+    {
+      "action": "Escape in Input",
+      "effect": "prevents default and closes dialog"
+    },
+    {
+      "action": "ArrowDown/ArrowUp",
+      "effect": "moves highlight and calls onItemHighlighted"
+    },
+    {
+      "action": "Enter",
+      "effect": "selects highlighted autocomplete item"
+    },
+    {
+      "action": "Meta+Enter or Control+Enter",
+      "effect": "with onSelect and getSelectableItems calls onSelect(item,{newTab:true})"
+    }
+  ],
+  "keyboardFocus": {
+    "focusable": true,
+    "keys": [
+      "ArrowDown",
+      "ArrowUp",
+      "Enter",
+      "Meta+Enter",
+      "Control+Enter",
+      "Escape"
+    ]
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "identical"
+  },
+  "stylingAssets": {
+    "classes": [
+      "fixed inset-0 bg-kumo-overlay opacity-80",
+      "fixed top-[10vh] left-1/2 w-full max-w-2xl -translate-x-1/2",
+      "max-h-[60vh]",
+      "rounded-lg bg-kumo-elevated",
+      "bg-kumo-base",
+      "data-[highlighted]:bg-kumo-overlay",
+      "kumo-input-placeholder"
+    ],
+    "assets": [
+      "MagnifyingGlassIcon",
+      "CaretRightIcon",
+      "ArrowSquareOutIcon",
+      "ArrowRightIcon",
+      "Loader"
+    ]
+  },
+  "vectors": [
+    {
+      "id": "highlighted-text",
+      "props": {
+        "text": "Cloudflare",
+        "highlights": [
+          [
+            0,
+            4
+          ]
+        ]
+      },
+      "fixture": {
+        "export": ".HighlightedText",
+        "props": {
+          "text": "Cloudflare",
+          "highlights": [
+            [
+              0,
+              4
+            ]
+          ]
+        },
+        "children": []
+      },
+      "expected": {
+        "root": {
+          "tag": "span"
+        },
+        "descendants": [
+          {
+            "selector": "mark",
+            "count": 1,
+            "text": "Cloud"
+          }
+        ]
+      }
+    },
+    {
+      "id": "open-search-close",
+      "props": {
+        "open": true,
+        "items": [
+          "Workers",
+          "Pages"
+        ]
+      },
+      "fixture": {
+        "export": ".Root",
+        "props": {
+          "open": true,
+          "items": [
+            "Workers",
+            "Pages"
+          ]
+        },
+        "children": [
+          {
+            "export": ".Input",
+            "props": {
+              "placeholder": "Search"
+            },
+            "children": []
+          },
+          {
+            "export": ".List",
+            "props": {},
+            "children": [
+              {
+                "export": ".Item",
+                "props": {
+                  "value": "Workers"
+                },
+                "children": [
+                  {
+                    "text": "Workers"
+                  }
+                ]
+              },
+              {
+                "export": ".Item",
+                "props": {
+                  "value": "Pages"
+                },
+                "children": [
+                  {
+                    "text": "Pages"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "type",
+          "selector": "input",
+          "text": "W"
+        },
+        {
+          "type": "key",
+          "selector": "input",
+          "key": "ArrowDown"
+        },
+        {
+          "type": "key",
+          "selector": "input",
+          "key": "Escape"
+        }
+      ],
+      "expected": {
+        "root": {
+          "tag": "div"
+        },
+        "state": {
+          "value": "W",
+          "open": false
+        },
+        "events": [
+          "value:W",
+          "open:false"
+        ],
+        "focus": "none"
+      }
+    }
+  ],
+  "unknowns": [
+    {
+      "field": "closedRootPlaceholder",
+      "status": "unknown",
+      "reason": "A controlled closed portal may yield no rendered element; shared runner needs a mount-host convention before root expectations can distinguish host from component output."
+    },
+    {
+      "field": "selectionOnPlainEnter",
+      "status": "unknown",
+      "reason": "Canonical wrapper documents selection but Item click ownership remains consumer-provided; exact event log is not asserted."
+    },
+    {
+      "field": "ssrOpenPortal",
+      "status": "unknown",
+      "reason": "Action-free closed SSR is supported; exact open portal output and generated ids are Base UI implementation details."
+    }
+  ]
+}
