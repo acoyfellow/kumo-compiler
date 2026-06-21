@@ -3,6 +3,7 @@ proof/artifacts/
 *.tgz
 # Reviewed deploy package snapshots are release payload, not generated source artifacts.
 !deploy/packages/*.tgz
+!release/github/libraries-v0.0.1/*.tgz
 .DS_Store
 .wrangler
 .workflow/receipts/
