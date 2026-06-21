@@ -36,6 +36,7 @@
     "test:catalog-browser-proof": "node --test test/catalog-browser-proof.test.mjs",
     "proof:catalog-browser": "node proof/catalog-browser-proof.mjs",
     "proof:production": "node proof/production-proof.mjs",
+    "proof:library-pages": "node proof/library-pages/run.mjs",
     "evidence:validate": "node scripts/browser-evidence-authority.mjs",
     "manifest:validate": "node scripts/verify-package.mjs",
     "package:verify": "node scripts/verify-package.mjs",
