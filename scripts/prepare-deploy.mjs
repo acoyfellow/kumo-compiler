@@ -17,6 +17,8 @@ const destination = resolve(root, 'deploy');
 await rm(destination, { recursive: true, force: true });
 await mkdir(destination, { recursive: true });
 await cp(resolve(root, 'astro/dist'), destination, { recursive: true });
+// Library artifacts are source-staged and copied only after the Astro rebuild.
+await cp(resolve(root, 'library-artifacts'), resolve(destination, 'packages'), { recursive: true });
 
 const runtimeRoute = manifest.routes.find((route) => route.id === 'component-runtime');
 for (const component of runtimeRoute.components) {

@@ -42,6 +42,8 @@
     "artifact:check": "node scripts/check-artifact-boundary.mjs",
     "docs:links": "node scripts/validate-astro-routes.mjs",
     "release:install": "npm --prefix astro ci",
+    "libraries:build": "node scripts/libraries/build.mjs",
+    "libraries:verify": "node scripts/libraries/verify.mjs",
     "deploy:prepare": "node scripts/prepare-deploy.mjs",
     "deploy:dry-run": "npm run deploy:prepare && node scripts/deploy.mjs",
     "deploy": "npm run deploy:prepare && node scripts/deploy.mjs --execute",
