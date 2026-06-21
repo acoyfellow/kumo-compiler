@@ -15,11 +15,11 @@
     ]
   },
   "counts": {
-    "contracted": 7,
-    "pending": 34
+    "contracted": 19,
+    "pending": 22
   },
-  "vectorCount": 25,
-  "interactiveVectorCount": 14,
+  "vectorCount": 50,
+  "interactiveVectorCount": 19,
   "components": [
     {
       "id": "select",
@@ -167,10 +167,10 @@
     {
       "id": "breadcrumbs",
       "family": "navigation",
-      "status": "pending",
-      "contract": null,
-      "vectors": 0,
-      "interactiveVectors": 0,
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/breadcrumbs.json",
+      "vectors": 2,
+      "interactiveVectors": 2,
       "unknowns": []
     },
     {
@@ -194,9 +194,9 @@
     {
       "id": "banner",
       "family": "data-presentational",
-      "status": "pending",
-      "contract": null,
-      "vectors": 0,
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/banner.json",
+      "vectors": 2,
       "interactiveVectors": 0,
       "unknowns": []
     },
@@ -218,54 +218,60 @@
     {
       "id": "layer-card",
       "family": "data-presentational",
-      "status": "pending",
-      "contract": null,
-      "vectors": 0,
-      "interactiveVectors": 0,
-      "unknowns": []
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/layer-card.json",
+      "vectors": 2,
+      "interactiveVectors": 1,
+      "unknowns": [
+        {
+          "field": "semantics.rootWhenRenderProvided",
+          "status": "unknown",
+          "reason": "The caller-provided React element controls the polymorphic root."
+        }
+      ]
     },
     {
       "id": "grid",
       "family": "data-presentational",
-      "status": "pending",
-      "contract": null,
-      "vectors": 0,
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/grid.json",
+      "vectors": 2,
       "interactiveVectors": 0,
       "unknowns": []
     },
     {
       "id": "grid-item",
       "family": "data-presentational",
-      "status": "pending",
-      "contract": null,
-      "vectors": 0,
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/grid-item.json",
+      "vectors": 2,
       "interactiveVectors": 0,
       "unknowns": []
     },
     {
       "id": "loader",
       "family": "data-presentational",
-      "status": "pending",
-      "contract": null,
-      "vectors": 0,
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/loader.json",
+      "vectors": 2,
       "interactiveVectors": 0,
       "unknowns": []
     },
     {
       "id": "meter",
       "family": "data-presentational",
-      "status": "pending",
-      "contract": null,
-      "vectors": 0,
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/meter.json",
+      "vectors": 3,
       "interactiveVectors": 0,
       "unknowns": []
     },
     {
       "id": "empty",
       "family": "data-presentational",
-      "status": "pending",
-      "contract": null,
-      "vectors": 0,
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/empty.json",
+      "vectors": 2,
       "interactiveVectors": 0,
       "unknowns": []
     },
@@ -281,11 +287,17 @@
     {
       "id": "link",
       "family": "data-presentational",
-      "status": "pending",
-      "contract": null,
-      "vectors": 0,
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/link.json",
+      "vectors": 2,
       "interactiveVectors": 0,
-      "unknowns": []
+      "unknowns": [
+        {
+          "field": "semantics.rootWhenRenderProvided",
+          "status": "unknown",
+          "reason": "The render prop or LinkProvider controls the framework-specific root."
+        }
+      ]
     },
     {
       "id": "text",
@@ -299,28 +311,28 @@
     {
       "id": "cloudflare-logo",
       "family": "data-presentational",
-      "status": "pending",
-      "contract": null,
-      "vectors": 0,
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/cloudflare-logo.json",
+      "vectors": 2,
       "interactiveVectors": 0,
       "unknowns": []
     },
     {
       "id": "code",
       "family": "data-presentational",
-      "status": "pending",
-      "contract": null,
-      "vectors": 0,
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/code.json",
+      "vectors": 2,
       "interactiveVectors": 0,
       "unknowns": []
     },
     {
       "id": "table",
       "family": "data-presentational",
-      "status": "pending",
-      "contract": null,
-      "vectors": 0,
-      "interactiveVectors": 0,
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/table.json",
+      "vectors": 2,
+      "interactiveVectors": 2,
       "unknowns": []
     },
     {
@@ -402,5 +414,5 @@
       "unknowns": []
     }
   ],
-  "digest": "47b12bdd00dab1a6d8aa5a44d2d69ae457baebe32f2a840d7ad269163c70689c"
+  "digest": "9d9584d0175418dfdcfe8bd3c7701d21b6914cd2bdb76489bf584745d1998191"
 }
