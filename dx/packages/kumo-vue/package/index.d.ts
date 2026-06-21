@@ -1,3 +1,4 @@
-export declare function Button(props?:Record<string,unknown>):unknown;
-export declare function Field(props?:Record<string,unknown>):unknown;
-export declare function Tabs(props?:Record<string,unknown>):unknown;
+export { Button } from './button.js';
+export type { ButtonProps } from './button.js';
+export { Field } from './field.js';
+export type { FieldProps } from './field.js';

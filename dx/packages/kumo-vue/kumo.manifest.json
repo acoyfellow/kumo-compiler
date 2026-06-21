@@ -1,28 +1,8 @@
 {
   "schemaVersion": 1,
   "name": "@cloudflare/kumo-vue",
+  "version": "0.0.1",
   "framework": "vue",
-  "exports": {
-    ".": "./dist/index.js",
-    "./styles.css": "./dist/styles.css",
-    "./tokens.css": "./dist/tokens.css",
-    "./manifest": "./kumo.manifest.json"
-  },
-  "files": [
-    "dist/index.js",
-    "dist/index.d.ts",
-    "dist/styles.css",
-    "dist/tokens.css",
-    "kumo.manifest.json"
-  ],
-  "ownership": {
-    "authority": "candidates/shared-core",
-    "scope": [
-      "Button",
-      "Field",
-      "Tabs"
-    ],
-    "pilot": true,
-    "publishReady": false
-  }
+  "components": ["Button", "Field"],
+  "exports": [".", "./button", "./field", "./styles.css", "./tokens.css", "./manifest"]
 }
