@@ -9,7 +9,7 @@ const exact={canonical:['package','version','exportPath','typesPath','runtimePat
 const object=x=>x&&typeof x==='object'&&!Array.isArray(x);
 function keysExactly(value,keys,where){if(!object(value)||Object.keys(value).sort().join()!==[...keys].sort().join())throw Error(`${where}: unexpected or missing fields`)}
 function subsetKeys(value,keys,where){if(!object(value)||Object.keys(value).some(k=>!keys.includes(k)))throw Error(`${where}: unexpected fields`)}
-const selector=/^(?:[a-z][a-z0-9-]*|\.[A-Za-z_-][\w-]*|#[A-Za-z_-][\w-]*|\[[a-z][a-z0-9-]*(?:=[A-Za-z0-9_-]+)?\])$/;
+const selector=/^(?:[a-z][a-z0-9-]*|\.[A-Za-z_-][\w-]*|#[A-Za-z_-][\w-]*|\[[a-z][a-z0-9-]*(?:=(?:[A-Za-z0-9_-]+|"[^"]+"))?\])$/;
 function stringMap(x,where){if(!object(x)||Object.entries(x).some(([k,v])=>!k||typeof v!=='string'))throw Error(`${where}: expected string map`)}
 function classSet(x,where){keysExactly(x,Object.keys(x),where);subsetKeys(x,['exact','includes'],where);if(!Object.keys(x).length)throw Error(`${where}: empty operator`);for(const [k,v]of Object.entries(x))if(!Array.isArray(v)||v.some(s=>typeof s!=='string'||!s))throw Error(`${where}.${k}: expected classes`)}
 function attrs(x,where){subsetKeys(x,['exact','includes'],where);if(!Object.keys(x).length)throw Error(`${where}: empty operator`);for(const [k,v]of Object.entries(x))stringMap(v,`${where}.${k}`)}

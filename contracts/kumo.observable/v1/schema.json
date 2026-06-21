@@ -258,11 +258,20 @@
                 "type": {
                   "enum": [
                     "click",
-                    "key"
+                    "key",
+                    "type",
+                    "focus"
                   ]
                 },
                 "key": {
                   "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "selector": {
+                  "type": "string",
+                  "pattern": "^(?:[a-z][a-z0-9-]*|\\.[A-Za-z_-][\\w-]*|#[A-Za-z_-][\\w-]*|\\[[a-z][a-z0-9-]*(?:=(?:[A-Za-z0-9_-]+|\\\"[^\\\"]+\\\"))?\\])$"
                 },
                 "target": {
                   "type": "integer",
@@ -382,7 +391,7 @@
       "properties": {
         "selector": {
           "type": "string",
-          "pattern": "^(?:[a-z][a-z0-9-]*|\\.[A-Za-z_-][\\w-]*|#[A-Za-z_-][\\w-]*)$"
+          "pattern": "^(?:[a-z][a-z0-9-]*|\\.[A-Za-z_-][\\w-]*|#[A-Za-z_-][\\w-]*|\\[[a-z][a-z0-9-]*(?:=(?:[A-Za-z0-9_-]+|\\\"[^\\\"]+\\\"))?\\])$"
         },
         "count": {
           "type": "integer",

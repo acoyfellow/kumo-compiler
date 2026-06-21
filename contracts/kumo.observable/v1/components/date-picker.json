@@ -1,0 +1,16 @@
+{
+  "schemaVersion":"kumo.observable/v1","component":"date-picker",
+  "canonical":{"package":"@cloudflare/kumo","version":"2.5.2","exportPath":"./components/date-picker","typesPath":"dist/src/components/date-picker/index.d.ts","runtimePath":"dist/components/date-picker.js","typesSha256":"22c18052a57ef37754806d78e64e725fd1565b1d5cd28790be90dbbecd511e80","runtimeSha256":"ae0c108a22932ef83b2ce4812659673367ca401dc21cbc9d69a54a40d156a8bf","irSchemaVersion":"kumo.ir/v1"},
+  "publicApi":{"exports":["DatePicker"],"props":{"mode":"single|multiple|range","selected":"Date|Date[]|DateRange","onChange":"callback","fromDate":"Date","toDate":"Date","aria-label":"string","reactDayPickerProps":"PropsBase and mode props"},"defaults":{"selection":"uncontrolled","locale":"react-day-picker/browser default"}},
+  "semantics":{"root":"div","aria":["calendar grid","day buttons expose labels and selected/disabled state","navigation buttons expose labels"]},
+  "initialState":{"selected":"from selected prop","displayMonth":"from selected/defaultMonth/current date"},
+  "transitions":[{"action":"trusted day click","effect":"onChange receives native Date selection according to mode and bounds"}],
+  "keyboardFocus":{"focusable":true,"keys":["ArrowLeft","ArrowRight","ArrowUp","ArrowDown","Enter","Space"]},"ssrHydration":{"ssr":"supported","hydration":"identical"},
+  "stylingAssets":{"classes":["rdp-root","rdp-month_grid","rdp-day_button"],"assets":[]},
+  "vectors":[
+    {"id":"single-selected","props":{"mode":"single","selectedDate":"2025-01-15","defaultMonthDate":"2025-01-01","aria-label":"Choose date"},"expected":{"root":{"tag":"div","attributes":{"includes":{"aria-label":"Choose date"}}},"descendants":[{"selector":"table","count":1,"attributes":{"includes":{"role":"grid"}}},{"selector":"button","count":33}]}},
+    {"id":"single-change","props":{"mode":"single","defaultMonthDate":"2025-01-01"},"actions":[{"type":"click","selector":"[data-day=2025-01-20]"}],"expected":{"root":{"tag":"div"},"state":{"value":"2025-01-20"},"events":["change:2025-01-20"],"focus":"[data-day=2025-01-20]"}},
+    {"id":"bounded-day","props":{"mode":"single","defaultMonthDate":"2025-01-01","disabledBeforeDate":"2025-01-10","disabledAfterDate":"2025-01-20"},"actions":[{"type":"click","selector":"[data-day=2025-01-05]"}],"expected":{"root":{"tag":"div"},"state":{"value":null,"disabledBefore":true,"disabledAfter":true},"events":[],"focus":"none"}}
+  ],
+  "unknowns":[{"field":"localizedLabelsAndCalendarText","status":"unknown","reason":"Calendar strings, week layout, and locale-specific formatting are owned by react-day-picker and Intl/browser locale; this contract intentionally does not invent locale behavior."}]
+}
