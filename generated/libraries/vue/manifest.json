@@ -1,0 +1,759 @@
+{
+  "schemaVersion": "kumo.vue-library/v1",
+  "algebraVersion": "kumo.component-algebra/v1",
+  "candidate": true,
+  "count": 41,
+  "components": [
+    {
+      "component": "autocomplete",
+      "symbol": "Autocomplete",
+      "subpath": "./components/autocomplete",
+      "file": "components/autocomplete.vue",
+      "modelDigest": "fba8232e14f886639f5b9cf04c6dd04fc1c8b09852cd5feefd379fda9ded0e30",
+      "sha256": "52bbb18ebb2e7a56cdf768da26a11ff2378bd9853e0bcac227d36f6c306e7744",
+      "exports": [
+        "Autocomplete",
+        "KUMO_AUTOCOMPLETE_VARIANTS",
+        "KUMO_AUTOCOMPLETE_DEFAULT_VARIANTS",
+        "autocompleteVariants"
+      ]
+    },
+    {
+      "component": "badge",
+      "symbol": "Badge",
+      "subpath": "./components/badge",
+      "file": "components/badge.vue",
+      "modelDigest": "67f224503fcce1b354d3848ac5a55b55587789af9fe0688a4849fef4ad5c8ec5",
+      "sha256": "5accc79198eee6663f0b7cbba4c5444297824af2f2ffb2d5479a3a3749421466",
+      "exports": [
+        "Badge",
+        "KUMO_BADGE_BASE_STYLES",
+        "BadgeVariant"
+      ]
+    },
+    {
+      "component": "banner",
+      "symbol": "Banner",
+      "subpath": "./components/banner",
+      "file": "components/banner.vue",
+      "modelDigest": "c5e7d6281fea509e18399d83a7768d4533db188cdb59ddc8cbf2f1bd99e0dec1",
+      "sha256": "dbb996b72eb06537b0c7828390911c614a086f829d370529c8b8fd7e255e722d",
+      "exports": [
+        "Banner",
+        "BannerVariant"
+      ]
+    },
+    {
+      "component": "breadcrumbs",
+      "symbol": "Breadcrumbs",
+      "subpath": "./components/breadcrumbs",
+      "file": "components/breadcrumbs.vue",
+      "modelDigest": "1cb602a165516ca01de95379b40403eb61ab498fa6557f44ddeb0f0f5d0d9e4f",
+      "sha256": "9e201fe3edf1456c4b2c7ad848143d09eab0b722fe17b75a4cccc01dc645f61b",
+      "exports": [
+        "Breadcrumbs",
+        "breadcrumbsVariants",
+        "KUMO_BREADCRUMBS_VARIANTS",
+        "KUMO_BREADCRUMBS_DEFAULT_VARIANTS"
+      ]
+    },
+    {
+      "component": "button",
+      "symbol": "Button",
+      "subpath": "./components/button",
+      "file": "components/button.vue",
+      "modelDigest": "48798c8ab5bf8d756056311749cd7d344b6c82b50134d057656d5f6e4cad48aa",
+      "sha256": "c6b87043fea67d7512ef9e28884f2aeceffb8f4f13bb679527a304cb4c29e392",
+      "exports": [
+        "Button",
+        "RefreshButton",
+        "LinkButton",
+        "buttonVariants"
+      ]
+    },
+    {
+      "component": "checkbox",
+      "symbol": "Checkbox",
+      "subpath": "./components/checkbox",
+      "file": "components/checkbox.vue",
+      "modelDigest": "fe575b56fa0db80a1e83a5b6976f0303f63a8f6ab45de9ba8f5abfb19d9a935f",
+      "sha256": "c8fb587cbdea2427ce9104fafb329474c91e91f2684ac6eefbc958437ef03c55",
+      "exports": [
+        "Checkbox"
+      ]
+    },
+    {
+      "component": "clipboard-text",
+      "symbol": "ClipboardText",
+      "subpath": "./components/clipboard-text",
+      "file": "components/clipboard-text.vue",
+      "modelDigest": "2519ce9397d7b2de6138a9f8fe7461e138cd766c9a39f7f25d1d4c84345f0d10",
+      "sha256": "c0d273d65468eefb56fd15ca0dc24647263de67e8cd880bc0c0794a18bf9164e",
+      "exports": [
+        "ClipboardText"
+      ]
+    },
+    {
+      "component": "cloudflare-logo",
+      "symbol": "CloudflareLogo",
+      "subpath": "./components/cloudflare-logo",
+      "file": "components/cloudflare-logo.vue",
+      "modelDigest": "50b2371be89b11ae83917c42fdb9b67c42df8467c98e2668e0540afd07dc8c58",
+      "sha256": "2e62a57dc57eadba758334af83b8fff1c50375a4a864fc347e8c58e195fad050",
+      "exports": [
+        "CloudflareLogo",
+        "PoweredByCloudflare",
+        "generateCloudflareLogoSvg",
+        "KUMO_CLOUDFLARE_LOGO_VARIANTS",
+        "KUMO_CLOUDFLARE_LOGO_DEFAULT_VARIANTS"
+      ]
+    },
+    {
+      "component": "code",
+      "symbol": "Code",
+      "subpath": "./components/code",
+      "file": "components/code.vue",
+      "modelDigest": "5e7c1a6e6d7b7973979fc806a00d8999299a443db7eda7b9234417bc397a0fba",
+      "sha256": "79b2e60e48209f160ee2b7a252f6cd8a11a98107f6037aef94c40870d0753db9",
+      "exports": [
+        "Code",
+        "CodeBlock"
+      ]
+    },
+    {
+      "component": "combobox",
+      "symbol": "Combobox",
+      "subpath": "./components/combobox",
+      "file": "components/combobox.vue",
+      "modelDigest": "b431b499c0e47a951de0104395b33980461e37f3410131f5ddf2fc8c2223070f",
+      "sha256": "a0f3c5593c1344db95983896e5619b4f19128f5aadc75000d6f4cebcc20d4663",
+      "exports": [
+        "Combobox"
+      ]
+    },
+    {
+      "component": "command-palette",
+      "symbol": "CommandPalette",
+      "subpath": "./components/command-palette",
+      "file": "components/command-palette.vue",
+      "modelDigest": "534bd5b5c6c38761249fe7fb50b9cc0cc672c5a25c4b72ab4e1808bb92d2dd29",
+      "sha256": "d42c73b2340b1aa41d6675268019da3345534639629c063d63ab8fbb0835590a",
+      "exports": [
+        "CommandPalette",
+        "KUMO_COMMAND_PALETTE_VARIANTS",
+        "KUMO_COMMAND_PALETTE_DEFAULT_VARIANTS"
+      ]
+    },
+    {
+      "component": "date-picker",
+      "symbol": "DatePicker",
+      "subpath": "./components/date-picker",
+      "file": "components/date-picker.vue",
+      "modelDigest": "efe6ee1704bcfdd921aefd2a33601d5193d45c82454eadc21af9261b848e1bc6",
+      "sha256": "ab68abcc21bb63993a6fc346d481df1753baaaf3a6a5e13ab670e1f624e2ee70",
+      "exports": [
+        "DatePicker"
+      ]
+    },
+    {
+      "component": "date-range-picker",
+      "symbol": "DateRangePicker",
+      "subpath": "./components/date-range-picker",
+      "file": "components/date-range-picker.vue",
+      "modelDigest": "24c51f801cb83e8ae05a575e5e3e012c1f46065f0d1fda618759efe36487bc38",
+      "sha256": "f1a902b4f5437691fad5eb71f7e0f992fa73537c3f42ff1b1a4773c114293d32",
+      "exports": [
+        "DateRangePicker"
+      ]
+    },
+    {
+      "component": "dialog",
+      "symbol": "Dialog",
+      "subpath": "./components/dialog",
+      "file": "components/dialog.vue",
+      "modelDigest": "b69b28139a711d8e96dd6ddf236811e0a1c5d9510c961808f6912e09a2d48997",
+      "sha256": "9c971afe71c9091f1d974fef75a36481b93798bbaa884c99408cd245c5b862b9",
+      "exports": [
+        "Dialog",
+        "DialogRoot",
+        "DialogTrigger",
+        "DialogTitle",
+        "DialogDescription",
+        "DialogClose"
+      ]
+    },
+    {
+      "component": "dropdown-menu",
+      "symbol": "DropdownMenu",
+      "subpath": "./components/dropdown",
+      "file": "components/dropdown-menu.vue",
+      "modelDigest": "067c8530a8b7c49b56d39fe9649b03d5a722ce64bb0b9bc7226a6296da3b6f18",
+      "sha256": "f163f7b413eee83aafac8b9dceaf73127cae7dd7ff5e42ba6b23b6d105bf5653",
+      "exports": [
+        "DropdownMenu"
+      ]
+    },
+    {
+      "component": "empty",
+      "symbol": "Empty",
+      "subpath": "./components/empty",
+      "file": "components/empty.vue",
+      "modelDigest": "807df579a4b5811636f6c8ae3fbc56d8907ba572d3a57cf9b47ea9f266a81eca",
+      "sha256": "24eba93dab287447a29ad4c65c28c6c8c1bef4a6a58efc46d00f320ebde460a8",
+      "exports": [
+        "Empty",
+        "emptyVariants",
+        "KUMO_EMPTY_VARIANTS",
+        "KUMO_EMPTY_DEFAULT_VARIANTS"
+      ]
+    },
+    {
+      "component": "field",
+      "symbol": "Field",
+      "subpath": "./components/field",
+      "file": "components/field.vue",
+      "modelDigest": "d09e3c2183930eb35b4c558193926c71ea15e98aba97c8e6179a1afdf7c60d63",
+      "sha256": "01e35c7b613f4ee48b5c23999f79870adfedf5e918c54433dea93faf9a1efe2f",
+      "exports": [
+        "Field"
+      ]
+    },
+    {
+      "component": "grid",
+      "symbol": "Grid",
+      "subpath": "./components/grid",
+      "file": "components/grid.vue",
+      "modelDigest": "9dbbb8c1edc23a0a1b2ed65add8ac4c1a675b5b9f0afbdb9eae72871c290ace3",
+      "sha256": "e39a5a9de25d5140474a19ee7db5861e542d3596da0cebb9b6b90e12da386121",
+      "exports": [
+        "Grid",
+        "GridItem",
+        "gridVariants",
+        "gridItemVariants",
+        "KUMO_GRID_VARIANTS",
+        "KUMO_GRID_DEFAULT_VARIANTS"
+      ]
+    },
+    {
+      "component": "grid-item",
+      "symbol": "GridItem",
+      "subpath": "./components/grid",
+      "file": "components/grid-item.vue",
+      "modelDigest": "914b6bbf31750fa0d8ea618a40c6abab812fc940fed7557bc9b8630e58fe76d7",
+      "sha256": "e1d25d7fffcddd54ce6eb3f613d5f7b046608d57dc4c3f88fd78e6e9fe943ea8",
+      "exports": [
+        "GridItem"
+      ]
+    },
+    {
+      "component": "input",
+      "symbol": "Input",
+      "subpath": "./components/input",
+      "file": "components/input.vue",
+      "modelDigest": "5425763a958aaba88a608179f3dd53d1f9651a0bb15a6c4d82190bf83c5f9512",
+      "sha256": "547f665dfe00f538b856634a0d532cef14efab9b3eaf6d1e449887b9f771867c",
+      "exports": [
+        "Input"
+      ]
+    },
+    {
+      "component": "input-area",
+      "symbol": "InputArea",
+      "subpath": "./components/input",
+      "file": "components/input-area.vue",
+      "modelDigest": "59711469ba9cb63d7177a2ef83d87ae8fdd8835dab30e06846284b0d7497f1c1",
+      "sha256": "f6f2bb8a4fdc18cebbb8d3d278394b03bcad5f775659932dab378a2df3d0f5f3",
+      "exports": [
+        "InputArea"
+      ]
+    },
+    {
+      "component": "input-group",
+      "symbol": "InputGroup",
+      "subpath": "./components/input-group",
+      "file": "components/input-group.vue",
+      "modelDigest": "0edcb3b93ae1bc7dcc9649eb23cbe160e99dff83a87d6a697762a867141a58a8",
+      "sha256": "e5c86a87b6aa763a8f00cb1190e0e5caef7cdb564daaf2d41a8d643ac4ebaf82",
+      "exports": [
+        "InputGroup"
+      ]
+    },
+    {
+      "component": "label",
+      "symbol": "Label",
+      "subpath": "./components/label",
+      "file": "components/label.vue",
+      "modelDigest": "a14b8ca4ef389e6247d422e71305289cda06eeb21a5ec5a1f49f196a6cca012f",
+      "sha256": "858abaaf3f6a3031d040857f285db70d9b659853f9251287eba6467975b5f39e",
+      "exports": [
+        "Label",
+        "LabelProps",
+        "labelVariants",
+        "labelContentVariants",
+        "KUMO_LABEL_VARIANTS",
+        "KUMO_LABEL_DEFAULT_VARIANTS"
+      ]
+    },
+    {
+      "component": "layer-card",
+      "symbol": "LayerCard",
+      "subpath": "./components/layer-card",
+      "file": "components/layer-card.vue",
+      "modelDigest": "c9dad696330b10c952f02f411171c962c2770f5c4b53cf81713d0397ef61abf8",
+      "sha256": "1d41761999788b283abd8ff9338c07006bee18e03961ca808d6305cb5e2a4aec",
+      "exports": [
+        "LayerCard"
+      ]
+    },
+    {
+      "component": "link",
+      "symbol": "Link",
+      "subpath": "./components/link",
+      "file": "components/link.vue",
+      "modelDigest": "c6f0fbd6318e25df8755e6c0053fe1d74c23861e6bcc3f9256588ac62b9fa195",
+      "sha256": "706a61d4401994fc8606aa97123a18c1a2308d68109bde0dc35b1cbb5cd49587",
+      "exports": [
+        "Link",
+        "linkVariants",
+        "KUMO_LINK_VARIANTS",
+        "KUMO_LINK_DEFAULT_VARIANTS"
+      ]
+    },
+    {
+      "component": "loader",
+      "symbol": "Loader",
+      "subpath": "./components/loader",
+      "file": "components/loader.vue",
+      "modelDigest": "8c761d6a326088b816393ffb81fd67e64ad97a3299d323ad3078a93acebc0730",
+      "sha256": "87fc5d3bed035152325d62aa16f8e0af85476dc8990138bf7e90f7532aa80045",
+      "exports": [
+        "Loader",
+        "SkeletonLine"
+      ]
+    },
+    {
+      "component": "menu-bar",
+      "symbol": "MenuBar",
+      "subpath": "./components/menubar",
+      "file": "components/menu-bar.vue",
+      "modelDigest": "40c08fc1e03b3a7d723ec35135cb4cf3a2605d12368398588dcda6818ce453ea",
+      "sha256": "cd6ca907deb7dcfb17a790a6d723006dc42b1f474bfc7b20940755c009e91074",
+      "exports": [
+        "MenuBar",
+        "useMenuNavigation"
+      ]
+    },
+    {
+      "component": "meter",
+      "symbol": "Meter",
+      "subpath": "./components/meter",
+      "file": "components/meter.vue",
+      "modelDigest": "2201de1a1ed8a66d0925c6dae8b6b3197097ad332ed86e9b694f8d7383c8c284",
+      "sha256": "c7993ee97722bca68ac33796fe1eccb96eca3e6e1b782f193a6c0b3407b54448",
+      "exports": [
+        "Meter"
+      ]
+    },
+    {
+      "component": "pagination",
+      "symbol": "Pagination",
+      "subpath": "./components/pagination",
+      "file": "components/pagination.vue",
+      "modelDigest": "8a03b02a4e86e5ee4971e869b775b7efd73bc7e61116c5e794612f2402b7dd2d",
+      "sha256": "a15ac86cae8cca4fe9e8236f34bbc67d7cf75c5a9ad0e64fe5b80f0eadff5882",
+      "exports": [
+        "Pagination"
+      ]
+    },
+    {
+      "component": "popover",
+      "symbol": "Popover",
+      "subpath": "./components/popover",
+      "file": "components/popover.vue",
+      "modelDigest": "7ba76baf0b210a7f5fcc8c192377afd244248598bb69b0a67e5d03b53c7fb59a",
+      "sha256": "7ba4c09f9f6ec71dff48180364af6ce74e9ae3d5a4c6d05b7c3cf7625860c1d5",
+      "exports": [
+        "Popover",
+        "PopoverRoot",
+        "PopoverTrigger",
+        "PopoverContent",
+        "PopoverTitle",
+        "PopoverDescription",
+        "PopoverClose",
+        "KUMO_POPOVER_VARIANTS",
+        "KUMO_POPOVER_DEFAULT_VARIANTS"
+      ]
+    },
+    {
+      "component": "radio",
+      "symbol": "Radio",
+      "subpath": "./components/radio",
+      "file": "components/radio.vue",
+      "modelDigest": "0f71542a2bd3b8e5809f5dbb979a7fe2448e19e4f007cced41a22cbc5ef4cba9",
+      "sha256": "aa68c91d8b775335b24c033011226b057eb20f83434e1e690d978a7f0e7b64f2",
+      "exports": [
+        "Radio"
+      ]
+    },
+    {
+      "component": "select",
+      "symbol": "Select",
+      "subpath": "./components/select",
+      "file": "components/select.vue",
+      "modelDigest": "12a3eb7f1d84d603ca914b803a794e948b5b62e88a1981d4ebb270f13b6bf69c",
+      "sha256": "f59bf56f1643f02ab81aaf94feb3d0fc4e996f9421614f7f8484a769a2a3f85b",
+      "exports": [
+        "Select"
+      ]
+    },
+    {
+      "component": "sensitive-input",
+      "symbol": "SensitiveInput",
+      "subpath": "./components/sensitive-input",
+      "file": "components/sensitive-input.vue",
+      "modelDigest": "9f0862f5064e4584c2616703c9f1cd80330b5ef71dee9361752cc32841164461",
+      "sha256": "dfd39eacd223bb588569bf52da7ad11b8d08c7898667fec2405d5c17a971f9fa",
+      "exports": [
+        "SensitiveInput"
+      ]
+    },
+    {
+      "component": "sidebar",
+      "symbol": "Sidebar",
+      "subpath": "./components/sidebar",
+      "file": "components/sidebar.vue",
+      "modelDigest": "82a1db07c782ac79373452b65cf7a972c8a0ea464dda72ff3fb69e7091df72c5",
+      "sha256": "defc4acbcbbc5904d30c2e198e082aa0659bac5ef6d91f944567e52742f84197",
+      "exports": [
+        "Sidebar",
+        "SidebarProvider",
+        "SidebarRoot",
+        "SidebarHeader",
+        "SidebarContent",
+        "SidebarFooter",
+        "SidebarGroup",
+        "SidebarGroupLabel",
+        "SidebarMenu",
+        "SidebarMenuItem",
+        "SidebarMenuButton",
+        "SidebarMenuBadge",
+        "SidebarMenuSub",
+        "SidebarMenuSubItem",
+        "SidebarMenuSubButton",
+        "SidebarSeparator",
+        "SidebarTrigger",
+        "SidebarRail",
+        "SidebarResizeHandle",
+        "SidebarMenuChevron",
+        "SidebarCollapsible",
+        "SidebarCollapsibleTrigger",
+        "SidebarCollapsibleContent",
+        "SidebarSlidingViews",
+        "SidebarSlidingView",
+        "useSidebar",
+        "KUMO_SIDEBAR_VARIANTS",
+        "KUMO_SIDEBAR_DEFAULT_VARIANTS",
+        "KUMO_SIDEBAR_STYLING"
+      ]
+    },
+    {
+      "component": "surface",
+      "symbol": "Surface",
+      "subpath": "./components/surface",
+      "file": "components/surface.vue",
+      "modelDigest": "ce6505b3ce28964f1d8bb565e8a04a6c23ab186f8a5afc3a83dc631e65c3914e",
+      "sha256": "d8f56a0d6b312ec4734c8e615886958d46600e85b7dc17e3b3871b622cdaaab3",
+      "exports": [
+        "Surface"
+      ]
+    },
+    {
+      "component": "switch",
+      "symbol": "Switch",
+      "subpath": "./components/switch",
+      "file": "components/switch.vue",
+      "modelDigest": "ed2dc968d94168f193e43c4ace0c4c5a0eef92e88c8bbe1a3e168bf1f2b424b9",
+      "sha256": "b9a8d1299426df54d56a0b723ee09169c1c35ad92fafe4eebedb85fa5a823617",
+      "exports": [
+        "Switch"
+      ]
+    },
+    {
+      "component": "table",
+      "symbol": "Table",
+      "subpath": "./components/table",
+      "file": "components/table.vue",
+      "modelDigest": "9d4b8d811da622ddf7ca92cd6b3f7e4f76e0d35094bab50ce0d03c2e4bde88ba",
+      "sha256": "199f8d10e5171b3345dc7081b4ad6558f0ff6e7921be2cd97789b87068d03f45",
+      "exports": [
+        "Table",
+        "KUMO_TABLE_DEFAULT_VARIANTS",
+        "KUMO_TABLE_VARIANTS"
+      ]
+    },
+    {
+      "component": "table-of-contents",
+      "symbol": "TableOfContents",
+      "subpath": "./components/table-of-contents",
+      "file": "components/table-of-contents.vue",
+      "modelDigest": "e48b4239cfca5e769df53ef328dfaf3f910bf892b503c032b84e02002bb57789",
+      "sha256": "745944da10cb760148390a8f4f9979721ee79153759472de3ddd394181828372",
+      "exports": [
+        "TableOfContents",
+        "KUMO_TABLE_OF_CONTENTS_VARIANTS",
+        "KUMO_TABLE_OF_CONTENTS_DEFAULT_VARIANTS"
+      ]
+    },
+    {
+      "component": "tabs",
+      "symbol": "Tabs",
+      "subpath": "./components/tabs",
+      "file": "components/tabs.vue",
+      "modelDigest": "480d0ca0dc8311b3321bb1c078c9277118ed399fcc4ececa5b561d5b695a3336",
+      "sha256": "6e74299a416cc7b841e7584af8954a96b9f5ad5432f25ab7c02bdc1ddc1f87a4",
+      "exports": [
+        "Tabs",
+        "KUMO_TABS_VARIANTS",
+        "KUMO_TABS_DEFAULT_VARIANTS",
+        "KUMO_TABS_STYLING"
+      ]
+    },
+    {
+      "component": "text",
+      "symbol": "Text",
+      "subpath": "./components/text",
+      "file": "components/text.vue",
+      "modelDigest": "60219ad3fa185b8a9db3e82cc4fc77b1b0683b2881bcf6b0460646bb320e67c2",
+      "sha256": "27fed047c38aa69a18b27fb59b085fcf2d658617b8eb63351cf20943f6136184",
+      "exports": [
+        "Text"
+      ]
+    },
+    {
+      "component": "toasty",
+      "symbol": "Toasty",
+      "subpath": "./components/toast",
+      "file": "components/toasty.vue",
+      "modelDigest": "96819ff5ff77c94bea48a81f92da6a4857acc3495fbbd3f4eb7703e24db317d6",
+      "sha256": "197152ae0fdc62a3788cf1512dbd1883f7facfadbbec3a7646a3054be7467761",
+      "exports": [
+        "Toasty",
+        "ToastProvider",
+        "Toast",
+        "createKumoToastManager",
+        "useKumoToastManager"
+      ]
+    }
+  ],
+  "exports": {
+    ".": {
+      "vue": "./index.ts",
+      "types": "./index.d.ts"
+    },
+    "./components/autocomplete": {
+      "vue": "./components/autocomplete.vue",
+      "types": "./components/autocomplete.d.ts",
+      "canonicalSubpath": "./components/autocomplete"
+    },
+    "./components/badge": {
+      "vue": "./components/badge.vue",
+      "types": "./components/badge.d.ts",
+      "canonicalSubpath": "./components/badge"
+    },
+    "./components/banner": {
+      "vue": "./components/banner.vue",
+      "types": "./components/banner.d.ts",
+      "canonicalSubpath": "./components/banner"
+    },
+    "./components/breadcrumbs": {
+      "vue": "./components/breadcrumbs.vue",
+      "types": "./components/breadcrumbs.d.ts",
+      "canonicalSubpath": "./components/breadcrumbs"
+    },
+    "./components/button": {
+      "vue": "./components/button.vue",
+      "types": "./components/button.d.ts",
+      "canonicalSubpath": "./components/button"
+    },
+    "./components/checkbox": {
+      "vue": "./components/checkbox.vue",
+      "types": "./components/checkbox.d.ts",
+      "canonicalSubpath": "./components/checkbox"
+    },
+    "./components/clipboard-text": {
+      "vue": "./components/clipboard-text.vue",
+      "types": "./components/clipboard-text.d.ts",
+      "canonicalSubpath": "./components/clipboard-text"
+    },
+    "./components/cloudflare-logo": {
+      "vue": "./components/cloudflare-logo.vue",
+      "types": "./components/cloudflare-logo.d.ts",
+      "canonicalSubpath": "./components/cloudflare-logo"
+    },
+    "./components/code": {
+      "vue": "./components/code.vue",
+      "types": "./components/code.d.ts",
+      "canonicalSubpath": "./components/code"
+    },
+    "./components/combobox": {
+      "vue": "./components/combobox.vue",
+      "types": "./components/combobox.d.ts",
+      "canonicalSubpath": "./components/combobox"
+    },
+    "./components/command-palette": {
+      "vue": "./components/command-palette.vue",
+      "types": "./components/command-palette.d.ts",
+      "canonicalSubpath": "./components/command-palette"
+    },
+    "./components/date-picker": {
+      "vue": "./components/date-picker.vue",
+      "types": "./components/date-picker.d.ts",
+      "canonicalSubpath": "./components/date-picker"
+    },
+    "./components/date-range-picker": {
+      "vue": "./components/date-range-picker.vue",
+      "types": "./components/date-range-picker.d.ts",
+      "canonicalSubpath": "./components/date-range-picker"
+    },
+    "./components/dialog": {
+      "vue": "./components/dialog.vue",
+      "types": "./components/dialog.d.ts",
+      "canonicalSubpath": "./components/dialog"
+    },
+    "./components/dropdown-menu": {
+      "vue": "./components/dropdown-menu.vue",
+      "types": "./components/dropdown-menu.d.ts",
+      "canonicalSubpath": "./components/dropdown"
+    },
+    "./components/empty": {
+      "vue": "./components/empty.vue",
+      "types": "./components/empty.d.ts",
+      "canonicalSubpath": "./components/empty"
+    },
+    "./components/field": {
+      "vue": "./components/field.vue",
+      "types": "./components/field.d.ts",
+      "canonicalSubpath": "./components/field"
+    },
+    "./components/grid": {
+      "vue": "./components/grid.vue",
+      "types": "./components/grid.d.ts",
+      "canonicalSubpath": "./components/grid"
+    },
+    "./components/grid-item": {
+      "vue": "./components/grid-item.vue",
+      "types": "./components/grid-item.d.ts",
+      "canonicalSubpath": "./components/grid"
+    },
+    "./components/input": {
+      "vue": "./components/input.vue",
+      "types": "./components/input.d.ts",
+      "canonicalSubpath": "./components/input"
+    },
+    "./components/input-area": {
+      "vue": "./components/input-area.vue",
+      "types": "./components/input-area.d.ts",
+      "canonicalSubpath": "./components/input"
+    },
+    "./components/input-group": {
+      "vue": "./components/input-group.vue",
+      "types": "./components/input-group.d.ts",
+      "canonicalSubpath": "./components/input-group"
+    },
+    "./components/label": {
+      "vue": "./components/label.vue",
+      "types": "./components/label.d.ts",
+      "canonicalSubpath": "./components/label"
+    },
+    "./components/layer-card": {
+      "vue": "./components/layer-card.vue",
+      "types": "./components/layer-card.d.ts",
+      "canonicalSubpath": "./components/layer-card"
+    },
+    "./components/link": {
+      "vue": "./components/link.vue",
+      "types": "./components/link.d.ts",
+      "canonicalSubpath": "./components/link"
+    },
+    "./components/loader": {
+      "vue": "./components/loader.vue",
+      "types": "./components/loader.d.ts",
+      "canonicalSubpath": "./components/loader"
+    },
+    "./components/menu-bar": {
+      "vue": "./components/menu-bar.vue",
+      "types": "./components/menu-bar.d.ts",
+      "canonicalSubpath": "./components/menubar"
+    },
+    "./components/meter": {
+      "vue": "./components/meter.vue",
+      "types": "./components/meter.d.ts",
+      "canonicalSubpath": "./components/meter"
+    },
+    "./components/pagination": {
+      "vue": "./components/pagination.vue",
+      "types": "./components/pagination.d.ts",
+      "canonicalSubpath": "./components/pagination"
+    },
+    "./components/popover": {
+      "vue": "./components/popover.vue",
+      "types": "./components/popover.d.ts",
+      "canonicalSubpath": "./components/popover"
+    },
+    "./components/radio": {
+      "vue": "./components/radio.vue",
+      "types": "./components/radio.d.ts",
+      "canonicalSubpath": "./components/radio"
+    },
+    "./components/select": {
+      "vue": "./components/select.vue",
+      "types": "./components/select.d.ts",
+      "canonicalSubpath": "./components/select"
+    },
+    "./components/sensitive-input": {
+      "vue": "./components/sensitive-input.vue",
+      "types": "./components/sensitive-input.d.ts",
+      "canonicalSubpath": "./components/sensitive-input"
+    },
+    "./components/sidebar": {
+      "vue": "./components/sidebar.vue",
+      "types": "./components/sidebar.d.ts",
+      "canonicalSubpath": "./components/sidebar"
+    },
+    "./components/surface": {
+      "vue": "./components/surface.vue",
+      "types": "./components/surface.d.ts",
+      "canonicalSubpath": "./components/surface"
+    },
+    "./components/switch": {
+      "vue": "./components/switch.vue",
+      "types": "./components/switch.d.ts",
+      "canonicalSubpath": "./components/switch"
+    },
+    "./components/table": {
+      "vue": "./components/table.vue",
+      "types": "./components/table.d.ts",
+      "canonicalSubpath": "./components/table"
+    },
+    "./components/table-of-contents": {
+      "vue": "./components/table-of-contents.vue",
+      "types": "./components/table-of-contents.d.ts",
+      "canonicalSubpath": "./components/table-of-contents"
+    },
+    "./components/tabs": {
+      "vue": "./components/tabs.vue",
+      "types": "./components/tabs.d.ts",
+      "canonicalSubpath": "./components/tabs"
+    },
+    "./components/text": {
+      "vue": "./components/text.vue",
+      "types": "./components/text.d.ts",
+      "canonicalSubpath": "./components/text"
+    },
+    "./components/toasty": {
+      "vue": "./components/toasty.vue",
+      "types": "./components/toasty.d.ts",
+      "canonicalSubpath": "./components/toast"
+    }
+  }
+}
