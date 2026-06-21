@@ -1,4 +1,4 @@
-import assert from 'node:assert/strict';import test from 'node:test';
+import assert from 'node:assert/strict';import test from 'node:test';import{execFileSync}from'node:child_process';
 import {CAUSES,canonical,classify,digest,failureFingerprint,guardAntiWeakening,plan} from '../workflow/planner/index.mjs';
 const ownership={agent:['src','shared']};
 const base={runId:'r1',workflow:{gates:[{id:'proof'}]},failures:[],capabilities:{default:{slots:2},browser:{slots:1,owner:'agent',scopes:['shared']}},ownership,slots:{default:2},baselinePolicy:{inventory:41,gates:[{id:'proof',required:true}],canonicalEvidenceDigest:'x'},candidatePolicy:{inventory:41,gates:[{id:'proof',required:true}],canonicalEvidenceDigest:'x'}};
@@ -12,3 +12,4 @@ test('ownership and pairwise locks constrain waves',()=>{const p=plan({...base,f
 test('browser defaults to one and diagnostics reduce parallelism',()=>{const failures=[failure('a',{message:'browser timeout',capability:'browser'}),failure('b',{message:'browser crash',capability:'browser'})];assert.equal(plan({...base,failures}).waves.length,2)});
 test('anti-weakening guard rejects every weakening class',()=>{const b=base.baselinePolicy;for(const c of [{...b,gates:[]},{...b,gates:[{id:'proof',required:false}]},{...b,inventory:40},{...b,skips:['x']},{...b,canonicalEvidenceDigest:'y'}])assert.throws(()=>guardAntiWeakening(b,c));assert.equal(guardAntiWeakening(b,base.candidatePolicy),true)});
 test('reordered failures produce identical plan',()=>{const a=failure('a'),b=failure('b');assert.equal(plan({...base,failures:[a,b]}).planDigest,plan({...base,failures:[b,a]}).planDigest)});
+test('CLI derives a report-only plan from repository checkpoint by default',()=>{const out=JSON.parse(execFileSync(process.execPath,['scripts/workflow-plan.mjs'],{encoding:'utf8'}));assert.equal(out.version,1);assert.ok(out.tasks.length>0);assert.ok(out.tasks.every(x=>x.cause==='contract'&&x.owner==='contracts'));assert.equal(out.halt,false)});
