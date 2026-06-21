@@ -190,12 +190,24 @@
         {
           "type": "key",
           "selector": "[aria-selected=true]",
-          "key": "ArrowRight"
+          "key": "ArrowRight",
+          "checkpoint": {
+            "root": {
+              "tag": "div"
+            },
+            "state": {
+              "value": "overview",
+              "focused": "settings"
+            },
+            "events": [],
+            "focus": "[role=tab]"
+          }
         },
         {
           "type": "key",
           "selector": "[role=tab]",
-          "key": "Enter"
+          "key": "Enter",
+          "target": 1
         }
       ],
       "expected": {
