@@ -3,13 +3,14 @@
   "status": "passed",
   "package": "@cloudflare/kumo",
   "source": {
-    "revision": "b87c0f56f055014b73bb5bdd3c1cc26b5d94dc24",
-    "sourceTree": "041cee83ac54874582a5e2436ba1307f8d0b7ac6b134d2488e73c0e057a30f95",
+    "revision": "01b84d296b42c649a47225b08472f61b14d02f30",
+    "sourceTree": "6c754869982a66c2b32a79ea3bc804f925101fb8b801891003ca5894ba8c50a2",
     "paths": [
       "package.json",
       "package-lock.json",
       "scripts/upstream-rollback.mjs",
       "scripts/upstream-check.mjs",
+      "scripts/upstream-browser-proof.mjs",
       "scripts/upstream/lib.mjs",
       "src/kumo/catalog.ts",
       "src/kumo/compiler.ts",
@@ -21,8 +22,8 @@
     ]
   },
   "identity": {
-    "sourceTree": "041cee83ac54874582a5e2436ba1307f8d0b7ac6b134d2488e73c0e057a30f95",
-    "packageJson": "b684c8bd7976a28a9b227e9ba9a4490c6905628d95562450e7e5c6f2bb1cd759",
+    "sourceTree": "6c754869982a66c2b32a79ea3bc804f925101fb8b801891003ca5894ba8c50a2",
+    "packageJson": "694c2710ba90417b9ce0ca248d909fab82c09fc6a670a99b37c3bda48c3ba1d0",
     "packageLock": "c436d1957c2885403eaa2a4c41e2f824faf6b5a0229a437d0ecbe558724763ae"
   },
   "workspace": {
@@ -43,15 +44,15 @@
   },
   "hashes": {
     "before": {
-      "packageJson": "b684c8bd7976a28a9b227e9ba9a4490c6905628d95562450e7e5c6f2bb1cd759",
+      "packageJson": "694c2710ba90417b9ce0ca248d909fab82c09fc6a670a99b37c3bda48c3ba1d0",
       "packageLock": "c436d1957c2885403eaa2a4c41e2f824faf6b5a0229a437d0ecbe558724763ae"
     },
     "applied": {
-      "packageJson": "df4850f61f08fdecd3dd5df918089f3b50e30fdec2675fe005f8b889f8f9d71c",
+      "packageJson": "53fe6ebc7225c28495bcee811517d825abeb377e74c9cc8a19026ba10b43482b",
       "packageLock": "2aec7677ccb9fcd67e58df032e9b74e20620f861f2699de2741224efef9716e0"
     },
     "restored": {
-      "packageJson": "b684c8bd7976a28a9b227e9ba9a4490c6905628d95562450e7e5c6f2bb1cd759",
+      "packageJson": "694c2710ba90417b9ce0ca248d909fab82c09fc6a670a99b37c3bda48c3ba1d0",
       "packageLock": "c436d1957c2885403eaa2a4c41e2f824faf6b5a0229a437d0ecbe558724763ae"
     }
   },
@@ -70,5 +71,5 @@
     "npm ci --ignore-scripts",
     "node scripts/upstream-check.mjs --from 2.5.1 --to 2.5.2"
   ],
-  "receiptSha256": "8c50798de51c88a0e7ace991d049fad4a80ef4357ced1146b6ae8129a205d03e"
+  "receiptSha256": "c382e6619f0648c4cb3c59510b047c65f20b972b5fa67520ba89e136e74dbe24"
 }

@@ -28,13 +28,16 @@ export function runtimeRoute(pathname, source = manifest) {
     if (!params) continue;
     if (route.components && !route.components.includes(params.component)) continue;
     if (route.frameworks && !route.frameworks.includes(params.framework)) continue;
+    if (route.artifacts && !route.artifacts.includes(params.artifact)) continue;
     return { id: route.id, asset: fill(route.asset, params), params, needsSlash };
   }
   return null;
 }
 
 const nonClass2 = new Set(['select', 'button', 'dialog', 'popover', 'checkbox', 'switch', 'field', 'input', 'input-group', 'input-area', 'sensitive-input', 'clipboard-text']);
-export const class2Components = manifest.routes[0].components.filter((component) => !nonClass2.has(component));
+const componentRuntime = manifest.routes.find((route) => route.id === 'component-runtime');
+if (!componentRuntime?.components) throw new Error('deploy manifest lacks component-runtime inventory');
+export const class2Components = componentRuntime.components.filter((component) => !nonClass2.has(component));
 export function class2RuntimeRoute(pathname) {
   const route = runtimeRoute(pathname);
   return route?.params.framework === 'react' && class2Components.includes(route.params.component)

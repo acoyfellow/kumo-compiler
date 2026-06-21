@@ -3,13 +3,14 @@ import assert from 'node:assert/strict';
 import { deployManifest, runtimeRoute } from '../runtime-routes.mjs';
 import { validateDeployManifest } from '../scripts/validate-deploy-manifest.mjs';
 
-test('every manifest route resolves and maps to an html asset', () => {
+test('every manifest route resolves to its declared asset kind', () => {
   for (const route of deployManifest.routes) {
-    const path = route.pattern.replace(':component', route.components?.[0] || '').replace(':framework', route.frameworks?.[0] || '');
+    const path = route.pattern.replace(':component', route.components?.[0] || '').replace(':framework', route.frameworks?.[0] || '').replace(':artifact', route.artifacts?.[0] || '');
     const result = runtimeRoute(path);
     assert.equal(result?.id, route.id);
-    assert.match(result.asset, /\/index\.html$/);
+    route.id === 'library-packages' ? assert.equal(result.asset, `/packages/${route.artifacts[0]}`) : assert.match(result.asset, /\/index\.html$/);
   }
+  assert.equal(runtimeRoute('/packages/not-declared.tgz'), null);
 });
 
 test('deploy manifest inventory exactly matches catalog IR and supported frameworks', async () => {
