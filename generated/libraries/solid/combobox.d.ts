@@ -12,6 +12,7 @@ export interface ComboboxProps {
   "compound"?: JSX.Element;
   "root"?: JSX.Element;
   children?: JSX.Element;
+  fixture?: unknown;
   styles?: Record<string, string>;
 }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }

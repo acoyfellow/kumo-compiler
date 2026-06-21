@@ -7,6 +7,7 @@ export interface RadioProps {
   "orientation"?: unknown;
   "value"?: unknown;
   children?: JSX.Element;
+  fixture?: unknown;
   styles?: Record<string, string>;
 }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }

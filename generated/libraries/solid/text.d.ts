@@ -11,6 +11,7 @@ export interface TextProps {
   "DANGEROUS_className"?: JSX.Element;
   "DANGEROUS_style"?: JSX.Element;
   children?: JSX.Element;
+  fixture?: unknown;
   styles?: Record<string, string>;
 }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }

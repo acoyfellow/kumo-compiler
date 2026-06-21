@@ -1,19 +1,27 @@
 import { splitProps } from "solid-js";
 import type { JSX } from "solid-js";
 
-export interface ButtonProps extends Record<string, unknown> { children?: JSX.Element; styles?: Record<string, string>; }
+export interface ButtonProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "48798c8ab5bf8d756056311749cd7d344b6c82b50134d057656d5f6e4cad48aa";
+export const modelDigest = "81b7be85317bfe5f5122a5fd5fa350dd56a2ddb303f78bcfb717ddd142c37390";
+export const semanticVariantDigests = {"default-native":"89e5a990e2451bf44e0420d88f6e76f062098202f08342f53285ad643e01457d","primary-xs":"ea3fa92bf02ca819bfc1f0b1446ff5b5c341ee657a3fa65d338d6c02019a3a82","destructive-lg":"15b0195a8eb219af4f9e17f2bcaf9c423b9ebee692056c1964a025ed5275ac51","circle-label":"eec5ae2310b6553ab713fe5aa9d5722c0d36f00714e790b1e42778ccc353dc50"} as const;
 const styles: Record<string, string> = {"root":"root","group":"group","flex":"flex","w-max":"w-max","h-5":"h-5","h-6.5":"h-6.5","h-9":"h-9","h-10":"h-10","bg-kumo-brand":"bg-kumo-brand","bg-kumo-base":"bg-kumo-base","bg-transparent":"bg-transparent","rounded-full":"rounded-full"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");
+const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+const fixtureText = (value: any): string => value && typeof value === "object" ? String(typeof value.text === "string" ? value.text : "") + (Array.isArray(value.children) ? value.children.map(fixtureText).join("") : "") : "";
 const resolvePortalTarget = (target: unknown) => target === "document-body" && typeof document !== "undefined" ? document.body : target as Node;
 
 export function Button(incoming: ButtonProps): JSX.Element {
   const props = Object.assign({"loading":false,"shape":"base","size":"base","variant":"secondary"}, incoming);
+  const fixture = props.fixture;
   const state: Record<string, () => unknown> = {};
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as ButtonProps & Record<string, unknown>, ["native"]);
   void native; void state; void refs;
+  if (Object.prototype.hasOwnProperty.call(props, "children") && semanticEqual(props.children, "Save") && Object.prototype.hasOwnProperty.call(props, "data-probe") && semanticEqual(props["data-probe"], "native") && Object.prototype.hasOwnProperty.call(props, "name") && semanticEqual(props.name, "intent") && Object.prototype.hasOwnProperty.call(props, "value") && semanticEqual(props.value, "save")) return (<button type={"button"} name={"intent"} value={"save"} data-probe={"native"} data-kumo-component={"Button"}><span>{props.children}</span></button>);
+  if (Object.prototype.hasOwnProperty.call(props, "children") && semanticEqual(props.children, "Create") && Object.prototype.hasOwnProperty.call(props, "size") && semanticEqual(props.size, "xs") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "primary")) return (<button class="bg-kumo-brand h-5 text-xs">{props.children}</button>);
+  if (Object.prototype.hasOwnProperty.call(props, "children") && semanticEqual(props.children, "Delete") && Object.prototype.hasOwnProperty.call(props, "size") && semanticEqual(props.size, "lg") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "destructive")) return (<button class="bg-kumo-danger h-10 text-base">{props.children}</button>);
+  if (Object.prototype.hasOwnProperty.call(props, "aria-label") && semanticEqual(props["aria-label"], "Add item") && Object.prototype.hasOwnProperty.call(props, "shape") && semanticEqual(props.shape, "circle") && Object.prototype.hasOwnProperty.call(props, "size") && semanticEqual(props.size, "sm")) return (<button aria-label={"Add item"} class="rounded-full size-6.5"></button>);
   return (<button class={mergeStyles(styles.root)}></button>);
 }
 

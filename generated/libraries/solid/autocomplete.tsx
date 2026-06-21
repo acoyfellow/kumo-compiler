@@ -1,15 +1,19 @@
 import { splitProps } from "solid-js";
 import type { JSX } from "solid-js";
 
-export interface AutocompleteProps extends Record<string, unknown> { children?: JSX.Element; styles?: Record<string, string>; }
+export interface AutocompleteProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "1f41380c0300c6ab1aa370e5a96ed529bb1bdfb6d60bfcaaa9df23cd23dd8b07";
+export const modelDigest = "451c96451a3e83767751353b636f3661727d1b56ea2f973c3edbff4ac482ba7a";
+export const semanticVariantDigests = {} as const;
 const styles: Record<string, string> = {"root":"root","w-full":"w-full","outline-none":"outline-none","max-h-[min(var(--available-height),24rem)]":"max-h-[min(var(--available-height),24rem)]","min-w-(--anchor-width)":"min-w-(--anchor-width)","bg-kumo-control":"bg-kumo-control","rounded-lg":"rounded-lg","shadow-lg":"shadow-lg","ring-kumo-line":"ring-kumo-line","data-highlighted:bg-kumo-overlay":"data-highlighted:bg-kumo-overlay","data-selected:font-medium":"data-selected:font-medium"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");
+const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+const fixtureText = (value: any): string => value && typeof value === "object" ? String(typeof value.text === "string" ? value.text : "") + (Array.isArray(value.children) ? value.children.map(fixtureText).join("") : "") : "";
 const resolvePortalTarget = (target: unknown) => target === "document-body" && typeof document !== "undefined" ? document.body : target as Node;
 
 export function Autocomplete(incoming: AutocompleteProps): JSX.Element {
   const props = Object.assign({}, incoming);
+  const fixture = props.fixture;
   const state: Record<string, () => unknown> = {};
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as AutocompleteProps & Record<string, unknown>, []);

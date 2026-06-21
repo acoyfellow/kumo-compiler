@@ -7,6 +7,7 @@ export interface CheckboxProps {
   "label"?: unknown;
   "onCheckedChange"?: (...args: unknown[]) => void;
   children?: JSX.Element;
+  fixture?: unknown;
   styles?: Record<string, string>;
 }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }

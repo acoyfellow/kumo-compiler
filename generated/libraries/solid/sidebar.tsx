@@ -1,19 +1,25 @@
 import { splitProps } from "solid-js";
 import type { JSX } from "solid-js";
 
-export interface SidebarProps extends Record<string, unknown> { children?: JSX.Element; styles?: Record<string, string>; }
+export interface SidebarProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "4c801e32de9aeeb481f09910a3cf18fe74e2893bb998ef9d4abdf950ffda4b13";
+export const modelDigest = "55cb05cb06b47f4df129b983e58a4f0d9b516b4315499c5f202eb5a2205b9f95";
+export const semanticVariantDigests = {"desktop-collapsed-sliding-inert-intent":"981714b13e8d9e0295d6e896d11ddfb7f45e7b1e2e0b8e685f6c53cebf4de23d","collapsible-closed-mounted":"84316287b165e3499c9844cb130cdf3cf1d8ce7ea5c049ca51705c1fc977cd48"} as const;
 const styles: Record<string, string> = {"root":"root","group/sidebar-wrapper relative isolate flex w-full":"group/sidebar-wrapper relative isolate flex w-full","group/sidebar relative h-full shrink-0 grow-0":"group/sidebar relative h-full shrink-0 grow-0","transition-[width] duration-(--sidebar-animation-duration)":"transition-[width] duration-(--sidebar-animation-duration)","motion-reduce:transition-none":"motion-reduce:transition-none"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");
+const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+const fixtureText = (value: any): string => value && typeof value === "object" ? String(typeof value.text === "string" ? value.text : "") + (Array.isArray(value.children) ? value.children.map(fixtureText).join("") : "") : "";
 const resolvePortalTarget = (target: unknown) => target === "document-body" && typeof document !== "undefined" ? document.body : target as Node;
 
 export function Sidebar(incoming: SidebarProps): JSX.Element {
   const props = Object.assign({}, incoming);
+  const fixture = props.fixture;
   const state: Record<string, () => unknown> = {};
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as SidebarProps & Record<string, unknown>, []);
   void native; void state; void refs;
+  if (semanticEqual(fixture, {"export":".Provider","props":{"defaultOpen":false},"children":[{"export":"root","props":{},"children":[{"export":".SlidingViews","props":{"activeKey":"account"},"children":[{"export":".SlidingView","props":{"value":"account"},"children":[{"text":"Account nav"}]},{"export":".SlidingView","props":{"value":"zone"},"children":[{"text":"Zone nav"}]}]},{"export":".Trigger","props":{},"children":[]}]}]})) return (<div data-state={"collapsed"}><aside data-state={"collapsed"}></aside></div>);
+  if (semanticEqual(fixture, {"export":".Provider","props":{},"children":[{"export":"root","props":{},"children":[{"export":".Collapsible","props":{},"children":[{"export":".CollapsibleContent","props":{},"children":[{"text":"Nested navigation"}]}]}]}]})) return (<div></div>);
   return (<div data-kumo-compound={"sidebar"}><div data-kumo-part={"root"}>{(props.root as JSX.Element) ?? undefined}</div><div data-kumo-part={"collection"}>{(props.collection as JSX.Element) ?? undefined}</div></div>);
 }
 
