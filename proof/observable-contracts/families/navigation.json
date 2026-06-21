@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "family": "navigation",
+  "canonical": "@cloudflare/kumo@2.5.2",
+  "counts": {
+    "passed": 13,
+    "failed": 0,
+    "blocked": 0
+  },
+  "components": [
+    "menu-bar",
+    "sidebar",
+    "table-of-contents",
+    "tabs"
+  ],
+  "cells": [
+    {
+      "component": "menu-bar",
+      "vector": "empty-nav-ssr",
+      "status": "passed"
+    },
+    {
+      "component": "menu-bar",
+      "vector": "buttons-active-index",
+      "status": "passed"
+    },
+    {
+      "component": "menu-bar",
+      "vector": "active-by-id",
+      "status": "passed"
+    },
+    {
+      "component": "sidebar",
+      "vector": "desktop-expanded-compound",
+      "status": "passed"
+    },
+    {
+      "component": "sidebar",
+      "vector": "desktop-collapsed-sliding-inert-intent",
+      "status": "passed"
+    },
+    {
+      "component": "sidebar",
+      "vector": "collapsible-closed-mounted",
+      "status": "passed"
+    },
+    {
+      "component": "sidebar",
+      "vector": "resize-keyboard-expand",
+      "status": "passed"
+    },
+    {
+      "component": "table-of-contents",
+      "vector": "static-title-items",
+      "status": "passed"
+    },
+    {
+      "component": "table-of-contents",
+      "vector": "nested-linked-group",
+      "status": "passed"
+    },
+    {
+      "component": "tabs",
+      "vector": "segmented-uncontrolled-first",
+      "status": "passed"
+    },
+    {
+      "component": "tabs",
+      "vector": "underline-selected-value",
+      "status": "passed"
+    },
+    {
+      "component": "tabs",
+      "vector": "manual-arrow-then-enter",
+      "status": "passed"
+    },
+    {
+      "component": "tabs",
+      "vector": "automatic-arrow",
+      "status": "passed"
+    }
+  ],
+  "digest": "aef91891dcb6d4f6ea6c9b6715163b6dff72f1e873abab9b9afb56fc7a72f983"
+}
