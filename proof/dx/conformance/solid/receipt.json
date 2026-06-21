@@ -4,7 +4,7 @@
   "framework": "solid",
   "package": "@acoyfellow/kumo-solid@0.0.1",
   "artifact": "library-artifacts/kumo-solid-0.0.1.tgz",
-  "packageSha256": "386e966a9609b7d07ebfefd85d79fbc6b28474cbd62ea33a5fd96a98702ad8d4",
+  "packageSha256": "9926d226d9225d3e6fdcf039e9977f879a0941638aa9fa779a1daa418014749d",
   "contract": {
     "schemaVersion": "kumo.observable/v1",
     "provenanceDigest": "a7fe3efce7677deb02df5635e1c9541b8e618d67763a5ef8ca11f6ef950aeebf"
@@ -14,7 +14,7 @@
     "digest": "e7daabc3db075cef51119a8980d0c7aba7111e0fa3f4648074c677177f0e4b78",
     "sha256": "3e81bd38185b09a5e0475eaf4c8d6bbe0d6f25847900e8a2e63b5b7d5ee87b65"
   },
-  "modelHash": "3d74d663d89d6c5e7aa8147f044b948d930227cde0e550b81038b54f26dca2d1",
+  "modelHash": "c5283c795cccab37fda9061175bcb937d6202df3d14aac1371e6acd6d5eb8afa",
   "node": {
     "version": "v24.17.0",
     "platform": "darwin",
@@ -31,8 +31,8 @@
   },
   "counts": {
     "blocked": 60,
-    "passed": 50,
-    "failed": 14
+    "failed": 56,
+    "passed": 8
   },
   "totalVectors": 124,
   "diagnostics": [],
@@ -51,54 +51,66 @@
     {
       "component": "badge",
       "vector": "default",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: missing class inline-flex"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "9b09e1a3ee8221f793f2fba9b1d9911e2bed1f8c605fe4e394ed379c96882124"
-      }
+      "reason": "root: missing class inline-flex"
     },
     {
       "component": "badge",
       "vector": "success-dot",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "descendant span: count expected 1, got 0"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "f2e332f48b8f175314e3c4a1aef971fed0da5766040bfbcd3bba380f78348fd4"
-      }
+      "reason": "descendant span: count expected 1, got 0"
     },
     {
       "component": "banner",
       "vector": "structured",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: tag expected div, got section"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "588d350078e5404f1fb4057cc238291f59291b849d1ee524afb9fc30984c2d36"
-      }
+      "reason": "root: tag expected div, got section"
     },
     {
       "component": "banner",
       "vector": "alert-simple",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: tag expected div, got section"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "82d7931e6d7c91265ff146224b2d41a98bc60c40d3143a39dd1e70aea01286e0"
-      }
+      "reason": "root: tag expected div, got section"
     },
     {
       "component": "breadcrumbs",
@@ -108,13 +120,13 @@
       "diagnostics": [
         {
           "phase": "vite-ssr",
-          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:27:3)\n    at Object.assign (<anonymous>)\n    at Breadcrumbs (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:19:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:25:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:25:38\n\nNode.js v24.17.0\n"
+          "message": "root: text expected HomeHereHomeHere, got HomeHere"
         }
       ],
       "nodeIdentity": "not-run",
       "ssr": "failed",
       "hydration": "not-run",
-      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:27:3)\n    at Object.assign (<anonymous>)\n    at Breadcrumbs (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:19:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:25:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:25:38\n\nNode.js v24.17.0\n"
+      "reason": "root: text expected HomeHereHomeHere, got HomeHere"
     },
     {
       "component": "breadcrumbs",
@@ -124,65 +136,77 @@
       "diagnostics": [
         {
           "phase": "vite-ssr",
-          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:27:3)\n    at Object.assign (<anonymous>)\n    at Breadcrumbs (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:19:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:25:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:25:38\n\nNode.js v24.17.0\n"
+          "message": "root: text expected HomeHereHomeHere, got HomeHere"
         }
       ],
       "nodeIdentity": "not-run",
       "ssr": "failed",
       "hydration": "not-run",
-      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:27:3)\n    at Object.assign (<anonymous>)\n    at Breadcrumbs (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:19:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:25:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:25:38\n\nNode.js v24.17.0\n"
+      "reason": "root: text expected HomeHereHomeHere, got HomeHere"
     },
     {
       "component": "button",
       "vector": "default-native",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: attribute type mismatch"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "67147544ed6bb4081ea51dff342dd9f4e9f2e86079a8c38e52969fda6f6588fe"
-      }
+      "reason": "root: attribute type mismatch"
     },
     {
       "component": "button",
       "vector": "primary-xs",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: missing class bg-kumo-brand"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "6843fb133c86c3e1aa4622a00dbcfa07e907850545cf38bdb55d046daa8686b6"
-      }
+      "reason": "root: missing class bg-kumo-brand"
     },
     {
       "component": "button",
       "vector": "destructive-lg",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: missing class bg-kumo-danger"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "aa4b6127dc3b8c8f1b2b27883419832be086150d2d90de9602332c07af554ff5"
-      }
+      "reason": "root: missing class bg-kumo-danger"
     },
     {
       "component": "button",
       "vector": "circle-label",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: missing class rounded-full"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "a83e3f883c5669828c2bfac2bec6408f0c85142dc11ca4ff531fbd62496204a5"
-      }
+      "reason": "root: missing class rounded-full"
     },
     {
       "component": "button",
@@ -292,6 +316,10 @@
       "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
+      "assertion": {
+        "status": "passed",
+        "digest": "f91886042e2bc1c5a3ecbbe7e01d4bbb019083f6e2a0d07e2157863f82b7fb64"
+      },
       "observation": {
         "markupSha256": "353152e71eea9dee98b6fe9ee0ac5d2e6741058f5b656c16acba3a8fe9b94075"
       }
@@ -321,54 +349,66 @@
     {
       "component": "cloudflare-logo",
       "vector": "full-color",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: missing class text-kumo-default"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "4f475ec861e1f8e465fce2d06002555e0472530f135072eed7c052e83e845bc2"
-      }
+      "reason": "root: missing class text-kumo-default"
     },
     {
       "component": "cloudflare-logo",
       "vector": "glyph-white",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: missing class text-white"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "4f475ec861e1f8e465fce2d06002555e0472530f135072eed7c052e83e845bc2"
-      }
+      "reason": "root: missing class text-white"
     },
     {
       "component": "code",
       "vector": "default",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: tag expected pre, got code"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "8efb1af9f85e2cfe9db3b8acd9fefdf11e89987e30dd2eaab8c5aa32de4efb7a"
-      }
+      "reason": "root: tag expected pre, got code"
     },
     {
       "component": "code",
       "vector": "bash",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: tag expected pre, got code"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "62fef5f11079152d1d165210d5f2afdf838b9faadce6e633638c4e05d669d2b3"
-      }
+      "reason": "root: tag expected pre, got code"
     },
     {
       "component": "combobox",
@@ -389,13 +429,13 @@
       "diagnostics": [
         {
           "phase": "vite-ssr",
-          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:38\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:633:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.17.0\n"
+          "message": "root: tag expected span, got div"
         }
       ],
       "nodeIdentity": "not-run",
       "ssr": "failed",
       "hydration": "not-run",
-      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:38\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:633:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.17.0\n"
+      "reason": "root: tag expected span, got div"
     },
     {
       "component": "command-palette",
@@ -411,15 +451,18 @@
     {
       "component": "date-picker",
       "vector": "single-selected",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "runner: expected one element root"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-      }
+      "reason": "runner: expected one element root"
     },
     {
       "component": "date-picker",
@@ -446,28 +489,34 @@
     {
       "component": "date-range-picker",
       "vector": "default-layout",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "runner: expected one element root"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-      }
+      "reason": "runner: expected one element root"
     },
     {
       "component": "date-range-picker",
       "vector": "small-subtle-timezone",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "runner: expected one element root"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-      }
+      "reason": "runner: expected one element root"
     },
     {
       "component": "date-range-picker",
@@ -488,13 +537,13 @@
       "diagnostics": [
         {
           "phase": "vite-ssr",
-          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:24:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:24:38\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:633:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.17.0\n"
+          "message": "root: tag expected button, got div"
         }
       ],
       "nodeIdentity": "not-run",
       "ssr": "failed",
       "hydration": "not-run",
-      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:24:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:24:38\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:633:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.17.0\n"
+      "reason": "root: tag expected button, got div"
     },
     {
       "component": "dialog",
@@ -515,13 +564,13 @@
       "diagnostics": [
         {
           "phase": "vite-ssr",
-          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:18:10)\n    at Object.assign (<anonymous>)\n    at DropdownMenu (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:11:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:38\n\nNode.js v24.17.0\n"
+          "message": "root: tag expected button, got div"
         }
       ],
       "nodeIdentity": "not-run",
       "ssr": "failed",
       "hydration": "not-run",
-      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:18:10)\n    at Object.assign (<anonymous>)\n    at DropdownMenu (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:11:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:38\n\nNode.js v24.17.0\n"
+      "reason": "root: tag expected button, got div"
     },
     {
       "component": "dropdown-menu",
@@ -548,28 +597,34 @@
     {
       "component": "empty",
       "vector": "minimal",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: tag expected div, got section"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "6641459c86f0356e0458cd139ece83fd4346c2c63d263da36cf57134b28eebc7"
-      }
+      "reason": "root: tag expected div, got section"
     },
     {
       "component": "empty",
       "vector": "small-description",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: tag expected div, got section"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "a6e48db1ca5af65da2fc5cb52a178dfd4367b7e871e8489c75a72b1765e9ec24"
-      }
+      "reason": "root: tag expected div, got section"
     },
     {
       "component": "field",
@@ -580,6 +635,10 @@
       "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
+      "assertion": {
+        "status": "passed",
+        "digest": "f91886042e2bc1c5a3ecbbe7e01d4bbb019083f6e2a0d07e2157863f82b7fb64"
+      },
       "observation": {
         "markupSha256": "5aa15452ec7d794bc8ab3090504da56c59439cf00eaf0c72f3f44d4d1944174d"
       }
@@ -593,6 +652,10 @@
       "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
+      "assertion": {
+        "status": "passed",
+        "digest": "aa17f8f67835dd64d546a90f4dc5605088b401cc927141d1b09d2ff0c80ce96d"
+      },
       "observation": {
         "markupSha256": "242e48fc433a7edf896ef946862b1c9f2456e8959a4a7a47050f1c5398a39132"
       }
@@ -600,41 +663,50 @@
     {
       "component": "grid-item",
       "vector": "custom-class",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: missing class p-4"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "242e48fc433a7edf896ef946862b1c9f2456e8959a4a7a47050f1c5398a39132"
-      }
+      "reason": "root: missing class p-4"
     },
     {
       "component": "grid",
       "vector": "three-up",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: missing class grid"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "0b56b607d58aaa26d4b3aeaf891c02914f11f9fed3bc8718bbb41807f836aee8"
-      }
+      "reason": "root: missing class grid"
     },
     {
       "component": "grid",
       "vector": "side-none",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: missing class grid-cols-2"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "a3a6e860177a4b0f705bc96196257e36a255c8f480f20671a9c177fe7e598798"
-      }
+      "reason": "root: missing class grid-cols-2"
     },
     {
       "component": "input-area",
@@ -645,6 +717,10 @@
       "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
+      "assertion": {
+        "status": "passed",
+        "digest": "ea1c34b34bca1e33d3d6cda9cac379dbf63e94cfcec65186557768a09088140b"
+      },
       "observation": {
         "markupSha256": "a46276398781e81b83fcb871a02c51c76e8efdadb8aafba29e0575e1eb027999"
       }
@@ -674,18 +750,19 @@
     {
       "component": "input-group",
       "vector": "composition",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:19:4)\n    at Object.assign (<anonymous>)\n    at InputGroup (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:8:39)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:13:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:13:38\n\nNode.js v24.17.0\n"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:19:4)\n    at Object.assign (<anonymous>)\n    at InputGroup (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:8:39)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:13:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:13:38\n\nNode.js v24.17.0\n"
+      "assertion": {
+        "status": "passed",
+        "digest": "f91886042e2bc1c5a3ecbbe7e01d4bbb019083f6e2a0d07e2157863f82b7fb64"
+      },
+      "observation": {
+        "markupSha256": "a33bbc6622e070976ea6a58cfd92fd1e9127823e56ccaa04093ef562021127f9"
+      }
     },
     {
       "component": "input-group",
@@ -718,6 +795,10 @@
       "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
+      "assertion": {
+        "status": "passed",
+        "digest": "71219a203f2c7192a1e6410e1161429f25a1fc2ced5237d70b3595f9ac4d30fe"
+      },
       "observation": {
         "markupSha256": "346687b0a4526da51ccc554bcc77c260a43b62947a24cc29144493efe0163535"
       }
@@ -753,6 +834,10 @@
       "nodeIdentity": "native-packed-fixture",
       "ssr": "passed",
       "hydration": "not-run",
+      "assertion": {
+        "status": "passed",
+        "digest": "168bc71e56937634461c75fdd772cb3cf7b0dec645300f3a578519386f24b3dc"
+      },
       "observation": {
         "markupSha256": "d0f9a9a9543a66b806c5c3570f479ff197f3ede4a358f36cc1de43e5aeba3107"
       }
@@ -760,41 +845,50 @@
     {
       "component": "label",
       "vector": "optional",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: text expected Middle Name(optional), got Middle Name"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "88111dc681c9d12f757707b3df2a2fb9b2e1f5e541bdd147da292ca31857fe29"
-      }
+      "reason": "root: text expected Middle Name(optional), got Middle Name"
     },
     {
       "component": "label",
       "vector": "as-content",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: tag expected span, got label"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "d0f9a9a9543a66b806c5c3570f479ff197f3ede4a358f36cc1de43e5aeba3107"
-      }
+      "reason": "root: tag expected span, got label"
     },
     {
       "component": "layer-card",
       "vector": "simple",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: missing class bg-kumo-base"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "2f0042af598bf678b9b005be64e96b6e39336243dbff80bd7c4f22cbe824b022"
-      }
+      "reason": "root: missing class bg-kumo-base"
     },
     {
       "component": "layer-card",
@@ -804,78 +898,93 @@
       "diagnostics": [
         {
           "phase": "vite-ssr",
-          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:23:10)\n    at Object.assign (<anonymous>)\n    at LayerCard (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:16:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:22:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:22:38\n\nNode.js v24.17.0\n"
+          "message": "root: missing class bg-kumo-elevated"
         }
       ],
       "nodeIdentity": "not-run",
       "ssr": "failed",
       "hydration": "not-run",
-      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:23:10)\n    at Object.assign (<anonymous>)\n    at LayerCard (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:16:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:22:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:22:38\n\nNode.js v24.17.0\n"
+      "reason": "root: missing class bg-kumo-elevated"
     },
     {
       "component": "link",
       "vector": "internal",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: missing class text-kumo-link"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "3ffac0070123418317a7bff86064c5947140fb5b81cf2d7799ed194f4e4041fe"
-      }
+      "reason": "root: missing class text-kumo-link"
     },
     {
       "component": "link",
       "vector": "plain-external",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: missing class hover:text-kumo-link/70"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "05e752114470eeeb73f1fef95b61dc14faf1fbfcc611169650860e4d99411dd5"
-      }
+      "reason": "root: missing class hover:text-kumo-link/70"
     },
     {
       "component": "loader",
       "vector": "default",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: tag expected svg, got span"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "78b4622bcd24a29856c35fdd731d5e16324cff863bd300d80daedbca99bdf96d"
-      }
+      "reason": "root: tag expected svg, got span"
     },
     {
       "component": "loader",
       "vector": "large-labelled",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: tag expected svg, got span"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "501c8417d0ca0ad5e38bfa8a8325fed0da750b914b1f4b085a4b99bbe235fa62"
-      }
+      "reason": "root: tag expected svg, got span"
     },
     {
       "component": "menu-bar",
       "vector": "empty-nav-ssr",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: tag expected nav, got div"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "bb14c79af553209c9e4a020f3a5098f98dcd915be2f860a832437ac8dec2f0e4"
-      }
+      "reason": "root: tag expected nav, got div"
     },
     {
       "component": "menu-bar",
@@ -902,54 +1011,66 @@
     {
       "component": "meter",
       "vector": "percentage",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: text expected Storage65%x, got Storage65"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "4b0f74d5d1d9e828f84060d7f94f01e44c31802329fb9a518f3cee1bc95c93a0"
-      }
+      "reason": "root: text expected Storage65%x, got Storage65"
     },
     {
       "component": "meter",
       "vector": "custom-value",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: text expected Requests750 / 1,000x, got Requests750 / 1,000"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "c58c637d5d8d7f307d4b0aca7ddee3a25d558218d3ba80b4a1dabe68ebc5e485"
-      }
+      "reason": "root: text expected Requests750 / 1,000x, got Requests750 / 1,000"
     },
     {
       "component": "meter",
       "vector": "custom-range-hidden",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: text expected Hiddenx, got Hidden"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "38edbba0fc45df15de1c3133e84fa440d32422f4881a7d3945a2f710bef371cc"
-      }
+      "reason": "root: text expected Hiddenx, got Hidden"
     },
     {
       "component": "pagination",
       "vector": "legacy-page-one",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: attribute data-slot mismatch"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "8c9acb938f968b22eb2ae4719f8f717d881fae74ed3473a6c8def8fc7859e2c0"
-      }
+      "reason": "root: attribute data-slot mismatch"
     },
     {
       "component": "pagination",
@@ -1009,28 +1130,34 @@
     {
       "component": "pagination",
       "vector": "compound-simple-labels",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "descendant nav: count expected 1, got 0"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "8c9acb938f968b22eb2ae4719f8f717d881fae74ed3473a6c8def8fc7859e2c0"
-      }
+      "reason": "descendant nav: count expected 1, got 0"
     },
     {
       "component": "pagination",
       "vector": "compound-dropdown-size",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "descendant button: count expected 6, got 0"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "8c9acb938f968b22eb2ae4719f8f717d881fae74ed3473a6c8def8fc7859e2c0"
-      }
+      "reason": "descendant button: count expected 6, got 0"
     },
     {
       "component": "popover",
@@ -1040,13 +1167,13 @@
       "diagnostics": [
         {
           "phase": "vite-ssr",
-          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:25:10)\n    at Object.assign (<anonymous>)\n    at Popover (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:11:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:24:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:24:38\n\nNode.js v24.17.0\n"
+          "message": "runner: expected one element root"
         }
       ],
       "nodeIdentity": "not-run",
       "ssr": "failed",
       "hydration": "not-run",
-      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:25:10)\n    at Object.assign (<anonymous>)\n    at Popover (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:11:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:24:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:24:38\n\nNode.js v24.17.0\n"
+      "reason": "runner: expected one element root"
     },
     {
       "component": "popover",
@@ -1128,15 +1255,18 @@
     {
       "component": "select",
       "vector": "closed-placeholder-ssr",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "descendant button: count expected 1, got 0"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "41ddf195153a7b67c34528b51be4f7f682e29b1d02f5dffad6361dc3ba331e18"
-      }
+      "reason": "descendant button: count expected 1, got 0"
     },
     {
       "component": "select",
@@ -1207,15 +1337,18 @@
     {
       "component": "sensitive-input",
       "vector": "masked",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: tag expected div, got input"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "346687b0a4526da51ccc554bcc77c260a43b62947a24cc29144493efe0163535"
-      }
+      "reason": "root: tag expected div, got input"
     },
     {
       "component": "sensitive-input",
@@ -1258,29 +1391,30 @@
       "diagnostics": [
         {
           "phase": "vite-ssr",
-          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:38\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:633:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.17.0\n"
+          "message": "root: attribute data-state mismatch"
         }
       ],
       "nodeIdentity": "not-run",
       "ssr": "failed",
       "hydration": "not-run",
-      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:38\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:633:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.17.0\n"
+      "reason": "root: attribute data-state mismatch"
     },
     {
       "component": "sidebar",
       "vector": "collapsible-closed-mounted",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:38\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:633:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.17.0\n"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:38\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:633:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.17.0\n"
+      "assertion": {
+        "status": "passed",
+        "digest": "a35984bee12a3bd8c8b6e5673b32db9f5c7f3d6b35dcb5db34354371454b9763"
+      },
+      "observation": {
+        "markupSha256": "0013871befc3f77b890554225731a7dec74334083ba546bb2fe52afdd6627309"
+      }
     },
     {
       "component": "sidebar",
@@ -1296,28 +1430,34 @@
     {
       "component": "surface",
       "vector": "default",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: attribute data-surface-color mismatch"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "2f0042af598bf678b9b005be64e96b6e39336243dbff80bd7c4f22cbe824b022"
-      }
+      "reason": "root: attribute data-surface-color mismatch"
     },
     {
       "component": "surface",
       "vector": "as-section",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: tag expected section, got div"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "2f0042af598bf678b9b005be64e96b6e39336243dbff80bd7c4f22cbe824b022"
-      }
+      "reason": "root: tag expected section, got div"
     },
     {
       "component": "switch",
@@ -1382,13 +1522,13 @@
       "diagnostics": [
         {
           "phase": "vite-ssr",
-          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:20:11)\n    at Object.assign (<anonymous>)\n    at TableOfContents (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:11:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:38\n\nNode.js v24.17.0\n"
+          "message": "root: tag expected nav, got div"
         }
       ],
       "nodeIdentity": "not-run",
       "ssr": "failed",
       "hydration": "not-run",
-      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:20:11)\n    at Object.assign (<anonymous>)\n    at TableOfContents (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:11:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:38\n\nNode.js v24.17.0\n"
+      "reason": "root: tag expected nav, got div"
     },
     {
       "component": "table-of-contents",
@@ -1398,13 +1538,13 @@
       "diagnostics": [
         {
           "phase": "vite-ssr",
-          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:18:10)\n    at Object.assign (<anonymous>)\n    at TableOfContents (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:11:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:38\n\nNode.js v24.17.0\n"
+          "message": "root: tag expected nav, got div"
         }
       ],
       "nodeIdentity": "not-run",
       "ssr": "failed",
       "hydration": "not-run",
-      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:18:10)\n    at Object.assign (<anonymous>)\n    at TableOfContents (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:11:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:38\n\nNode.js v24.17.0\n"
+      "reason": "root: tag expected nav, got div"
     },
     {
       "component": "table",
@@ -1414,13 +1554,13 @@
       "diagnostics": [
         {
           "phase": "vite-ssr",
-          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:24:10)\n    at Object.assign (<anonymous>)\n    at Table (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:23:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:23:38\n\nNode.js v24.17.0\n"
+          "message": "root: missing class isolate"
         }
       ],
       "nodeIdentity": "not-run",
       "ssr": "failed",
       "hydration": "not-run",
-      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:24:10)\n    at Object.assign (<anonymous>)\n    at Table (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:23:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:23:38\n\nNode.js v24.17.0\n"
+      "reason": "root: missing class isolate"
     },
     {
       "component": "table",
@@ -1430,39 +1570,45 @@
       "diagnostics": [
         {
           "phase": "vite-ssr",
-          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:24:10)\n    at Object.assign (<anonymous>)\n    at Table (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:23:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:23:38\n\nNode.js v24.17.0\n"
+          "message": "root: missing class table-fixed"
         }
       ],
       "nodeIdentity": "not-run",
       "ssr": "failed",
       "hydration": "not-run",
-      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at get children (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:24:10)\n    at Object.assign (<anonymous>)\n    at Table (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:17:23)\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:23:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-TOHPhD/consumer/dist/vector.mjs:23:38\n\nNode.js v24.17.0\n"
+      "reason": "root: missing class table-fixed"
     },
     {
       "component": "tabs",
       "vector": "segmented-uncontrolled-first",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "descendant button: count expected 2, got 0"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "8d6f17f603f37c1e37a6d69f9550b338fd3069cbc81e711416850820a9a03db8"
-      }
+      "reason": "descendant button: count expected 2, got 0"
     },
     {
       "component": "tabs",
       "vector": "underline-selected-value",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "descendant button: count expected 2, got 0"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "8d6f17f603f37c1e37a6d69f9550b338fd3069cbc81e711416850820a9a03db8"
-      }
+      "reason": "descendant button: count expected 2, got 0"
     },
     {
       "component": "tabs",
@@ -1489,54 +1635,66 @@
     {
       "component": "text",
       "vector": "body-default",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: tag expected p, got span"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "3b0be6ba1d8faa12404b2389f454da924ee60cc593f9251114ff31fb7c071276"
-      }
+      "reason": "root: tag expected p, got span"
     },
     {
       "component": "text",
       "vector": "mono-default",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: missing class font-mono"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "cb27a1a4a88bf9e3d4d74d6a24dcb71471e6ecab019c5fbbbb2fe7ad5a0be25a"
-      }
+      "reason": "root: missing class font-mono"
     },
     {
       "component": "text",
       "vector": "heading-element",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: tag expected h1, got span"
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "b61c72777b34bc94e61bfc8d725c406e3d8e2f6dd4ee5ef6d5ea46ac3a390079"
-      }
+      "reason": "root: tag expected h1, got span"
     },
     {
       "component": "toasty",
       "vector": "provider-ssr",
-      "status": "passed",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
-      "ssr": "passed",
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "root: text expected Application, got "
+        }
+      ],
+      "nodeIdentity": "not-run",
+      "ssr": "failed",
       "hydration": "not-run",
-      "observation": {
-        "markupSha256": "794bdfc389a18a550cc43f62d2f41153391269e920d29c5e8d4f541463d3e258"
-      }
+      "reason": "root: text expected Application, got "
     },
     {
       "component": "toasty",
@@ -1572,5 +1730,5 @@
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     }
   ],
-  "receiptHash": "ea256d217dbe17355d8ab737d776aaaef0819ff77cf374f6fcb484d81651cb43"
+  "receiptHash": "762efafb792a774fd53367bab93ba59d7b08618ea6395f709f18b2f8d3292a78"
 }
