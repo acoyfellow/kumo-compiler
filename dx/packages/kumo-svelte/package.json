@@ -2,15 +2,230 @@
   "name": "@acoyfellow/kumo-svelte",
   "version": "0.0.1",
   "type": "module",
-  "peerDependencies": { "svelte": "^5.0.0" },
-  "sideEffects": ["./package/styles.css", "./package/tokens.css"],
+  "peerDependencies": {
+    "svelte": "^5.0.0"
+  },
+  "sideEffects": [
+    "./package/styles.css",
+    "./package/tokens.css"
+  ],
   "exports": {
-    ".": { "types": "./package/index.d.ts", "svelte": "./package/index.js", "import": "./package/index.js" },
-    "./button": { "types": "./package/button.d.ts", "svelte": "./package/button.js", "import": "./package/button.js" },
-    "./field": { "types": "./package/field.d.ts", "svelte": "./package/field.js", "import": "./package/field.js" },
+    ".": {
+      "types": "./package/index.d.ts",
+      "svelte": "./package/index.js",
+      "import": "./package/index.js"
+    },
+    "./autocomplete": {
+      "types": "./package/autocomplete.d.ts",
+      "svelte": "./package/autocomplete.js",
+      "import": "./package/autocomplete.js"
+    },
+    "./badge": {
+      "types": "./package/badge.d.ts",
+      "svelte": "./package/badge.js",
+      "import": "./package/badge.js"
+    },
+    "./banner": {
+      "types": "./package/banner.d.ts",
+      "svelte": "./package/banner.js",
+      "import": "./package/banner.js"
+    },
+    "./breadcrumbs": {
+      "types": "./package/breadcrumbs.d.ts",
+      "svelte": "./package/breadcrumbs.js",
+      "import": "./package/breadcrumbs.js"
+    },
+    "./button": {
+      "types": "./package/button.d.ts",
+      "svelte": "./package/button.js",
+      "import": "./package/button.js"
+    },
+    "./checkbox": {
+      "types": "./package/checkbox.d.ts",
+      "svelte": "./package/checkbox.js",
+      "import": "./package/checkbox.js"
+    },
+    "./clipboard-text": {
+      "types": "./package/clipboard-text.d.ts",
+      "svelte": "./package/clipboard-text.js",
+      "import": "./package/clipboard-text.js"
+    },
+    "./cloudflare-logo": {
+      "types": "./package/cloudflare-logo.d.ts",
+      "svelte": "./package/cloudflare-logo.js",
+      "import": "./package/cloudflare-logo.js"
+    },
+    "./code": {
+      "types": "./package/code.d.ts",
+      "svelte": "./package/code.js",
+      "import": "./package/code.js"
+    },
+    "./combobox": {
+      "types": "./package/combobox.d.ts",
+      "svelte": "./package/combobox.js",
+      "import": "./package/combobox.js"
+    },
+    "./command-palette": {
+      "types": "./package/command-palette.d.ts",
+      "svelte": "./package/command-palette.js",
+      "import": "./package/command-palette.js"
+    },
+    "./date-picker": {
+      "types": "./package/date-picker.d.ts",
+      "svelte": "./package/date-picker.js",
+      "import": "./package/date-picker.js"
+    },
+    "./date-range-picker": {
+      "types": "./package/date-range-picker.d.ts",
+      "svelte": "./package/date-range-picker.js",
+      "import": "./package/date-range-picker.js"
+    },
+    "./dialog": {
+      "types": "./package/dialog.d.ts",
+      "svelte": "./package/dialog.js",
+      "import": "./package/dialog.js"
+    },
+    "./dropdown-menu": {
+      "types": "./package/dropdown-menu.d.ts",
+      "svelte": "./package/dropdown-menu.js",
+      "import": "./package/dropdown-menu.js"
+    },
+    "./empty": {
+      "types": "./package/empty.d.ts",
+      "svelte": "./package/empty.js",
+      "import": "./package/empty.js"
+    },
+    "./field": {
+      "types": "./package/field.d.ts",
+      "svelte": "./package/field.js",
+      "import": "./package/field.js"
+    },
+    "./grid": {
+      "types": "./package/grid.d.ts",
+      "svelte": "./package/grid.js",
+      "import": "./package/grid.js"
+    },
+    "./grid-item": {
+      "types": "./package/grid-item.d.ts",
+      "svelte": "./package/grid-item.js",
+      "import": "./package/grid-item.js"
+    },
+    "./input": {
+      "types": "./package/input.d.ts",
+      "svelte": "./package/input.js",
+      "import": "./package/input.js"
+    },
+    "./input-area": {
+      "types": "./package/input-area.d.ts",
+      "svelte": "./package/input-area.js",
+      "import": "./package/input-area.js"
+    },
+    "./input-group": {
+      "types": "./package/input-group.d.ts",
+      "svelte": "./package/input-group.js",
+      "import": "./package/input-group.js"
+    },
+    "./label": {
+      "types": "./package/label.d.ts",
+      "svelte": "./package/label.js",
+      "import": "./package/label.js"
+    },
+    "./layer-card": {
+      "types": "./package/layer-card.d.ts",
+      "svelte": "./package/layer-card.js",
+      "import": "./package/layer-card.js"
+    },
+    "./link": {
+      "types": "./package/link.d.ts",
+      "svelte": "./package/link.js",
+      "import": "./package/link.js"
+    },
+    "./loader": {
+      "types": "./package/loader.d.ts",
+      "svelte": "./package/loader.js",
+      "import": "./package/loader.js"
+    },
+    "./menu-bar": {
+      "types": "./package/menu-bar.d.ts",
+      "svelte": "./package/menu-bar.js",
+      "import": "./package/menu-bar.js"
+    },
+    "./meter": {
+      "types": "./package/meter.d.ts",
+      "svelte": "./package/meter.js",
+      "import": "./package/meter.js"
+    },
+    "./pagination": {
+      "types": "./package/pagination.d.ts",
+      "svelte": "./package/pagination.js",
+      "import": "./package/pagination.js"
+    },
+    "./popover": {
+      "types": "./package/popover.d.ts",
+      "svelte": "./package/popover.js",
+      "import": "./package/popover.js"
+    },
+    "./radio": {
+      "types": "./package/radio.d.ts",
+      "svelte": "./package/radio.js",
+      "import": "./package/radio.js"
+    },
+    "./select": {
+      "types": "./package/select.d.ts",
+      "svelte": "./package/select.js",
+      "import": "./package/select.js"
+    },
+    "./sensitive-input": {
+      "types": "./package/sensitive-input.d.ts",
+      "svelte": "./package/sensitive-input.js",
+      "import": "./package/sensitive-input.js"
+    },
+    "./sidebar": {
+      "types": "./package/sidebar.d.ts",
+      "svelte": "./package/sidebar.js",
+      "import": "./package/sidebar.js"
+    },
+    "./surface": {
+      "types": "./package/surface.d.ts",
+      "svelte": "./package/surface.js",
+      "import": "./package/surface.js"
+    },
+    "./switch": {
+      "types": "./package/switch.d.ts",
+      "svelte": "./package/switch.js",
+      "import": "./package/switch.js"
+    },
+    "./table": {
+      "types": "./package/table.d.ts",
+      "svelte": "./package/table.js",
+      "import": "./package/table.js"
+    },
+    "./table-of-contents": {
+      "types": "./package/table-of-contents.d.ts",
+      "svelte": "./package/table-of-contents.js",
+      "import": "./package/table-of-contents.js"
+    },
+    "./tabs": {
+      "types": "./package/tabs.d.ts",
+      "svelte": "./package/tabs.js",
+      "import": "./package/tabs.js"
+    },
+    "./text": {
+      "types": "./package/text.d.ts",
+      "svelte": "./package/text.js",
+      "import": "./package/text.js"
+    },
+    "./toasty": {
+      "types": "./package/toasty.d.ts",
+      "svelte": "./package/toasty.js",
+      "import": "./package/toasty.js"
+    },
     "./styles.css": "./package/styles.css",
     "./tokens.css": "./package/tokens.css",
     "./manifest": "./kumo.manifest.json"
   },
-  "files": ["package", "kumo.manifest.json"]
+  "files": [
+    "package",
+    "kumo.manifest.json"
+  ]
 }

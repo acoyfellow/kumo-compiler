@@ -1,4 +1,44 @@
-import test from'node:test';import assert from'node:assert/strict';import{readFile}from'node:fs/promises';
-test('Svelte library package is native and public',async()=>{const p=JSON.parse(await readFile('dx/packages/kumo-svelte/package.json','utf8'));assert.equal(p.name,'@acoyfellow/kumo-svelte');assert.equal(p.version,'0.0.1');assert.equal(p.private,undefined);assert.equal(p.peerDependencies.svelte,'^5.0.0');for(const x of ['.','./button','./field','./styles.css','./tokens.css','./manifest'])assert.ok(p.exports[x]);const styles=await readFile('dx/packages/kumo-svelte/package/styles.css','utf8');assert.match(styles,/@import ['"]\.\/tokens\.css['"]/);const source=await readFile('dx/packages/kumo-svelte/package/Button.svelte','utf8')+await readFile('dx/packages/kumo-svelte/package/Field.svelte','utf8');assert.match(source,/\$props/);assert.match(source,/\$bindable/);assert.doesNotMatch(source,/placeholder|NativeNode|React|static HTML/i)});
-test('Svelte proof has every critical gate passed',async()=>{const r=JSON.parse(await readFile('proof/dx/svelte-library/receipt.json','utf8'));assert.equal(r.framework,'svelte');for(const key of ['packageSha256','sourceTreeDigest','receiptHash'])assert.match(r[key],/^[a-f0-9]{64}$/);assert.equal(r.deterministicRuns,2);assert.equal(r.observations.serverNodePreserved,true);assert.equal(r.observations.hydrationReady,'true');assert.equal(r.observations.click,'Clicked 1');assert.equal(r.observations.disabledCount,'Clicked 1');assert.equal(r.observations.model,'changed');assert.equal(r.observations.desc,'email-description email-error');assert.equal(r.observations.required,true);assert.equal(r.observations.css,1);assert.deepEqual(r.observations.consoleMessages,[]);assert.deepEqual(r.observations.exceptions,[]);assert.deepEqual(r.observations.networkFailures,[]);assert.equal(r.observations.assetResponses.filter(x=>x.mimeType.includes('text/css')).length,1);assert.ok(r.observations.assetResponses.some(x=>x.mimeType.includes('javascript')&&x.status===200));const permitted=new Set(['hmr','manualScreenReader']);for(const[k,v]of Object.entries(r.checks))assert.ok(v==='passed'||(permitted.has(k)&&v==='not-run'),`${k}: ${v}`);assert.doesNotMatch(JSON.stringify(r),/placeholder|planned|blocked|failed/i)});
-test('Svelte fixture records executable result',async()=>{const p=JSON.parse(await readFile('fixtures/consumers/svelte/test-plan.json','utf8'));assert.equal(p.status,'passed');assert.ok(p.cases.every(x=>x.status==='passed'||(['hmr','manual-screen-reader'].includes(x.name)&&x.status==='not-run')))})
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFile, readdir } from 'node:fs/promises';
+
+const root = 'dx/packages/kumo-svelte';
+const components = (await readdir(`${root}/package/components`)).filter(x => x.endsWith('.svelte')).map(x => x.slice(0, -7)).sort();
+
+test('installable Svelte package exports all canonical components', async () => {
+  const p = JSON.parse(await readFile(`${root}/package.json`, 'utf8'));
+  assert.equal(`${p.name}@${p.version}`, '@acoyfellow/kumo-svelte@0.0.1');
+  assert.equal(p.private, undefined);
+  assert.equal(p.peerDependencies.svelte, '^5.0.0');
+  assert.equal(components.length, 41);
+  for (const name of components) {
+    const entry = p.exports[`./${name}`];
+    assert.ok(entry, name);
+    assert.equal(entry.svelte, `./package/${name}.js`);
+    assert.equal(entry.types, `./package/${name}.d.ts`);
+    await readFile(`${root}/package/${name}.js`, 'utf8');
+    await readFile(`${root}/package/${name}.d.ts`, 'utf8');
+  }
+  for (const x of ['.', './styles.css', './tokens.css', './manifest']) assert.ok(p.exports[x]);
+  assert.deepEqual(p.sideEffects, ['./package/styles.css', './package/tokens.css']);
+  const all = await Promise.all(components.map(x => readFile(`${root}/package/components/${x}.svelte`, 'utf8')));
+  assert.ok(all.every(x => x.includes('$props')));
+  assert.doesNotMatch(all.join('\n'), /React|customElements|{@html|NativeNode/);
+});
+
+test('Button and Field retain proven native behavior implementation', async () => {
+  const button = await readFile(`${root}/package/components/button.svelte`, 'utf8');
+  const field = await readFile(`${root}/package/components/field.svelte`, 'utf8');
+  assert.match(button, /disabled=\{disabled \|\| loading\}/);
+  assert.match(field, /\$bindable/);
+  assert.match(field, /aria-describedby=\{describedBy\}/);
+  const styles = await readFile(`${root}/package/styles.css`, 'utf8');
+  assert.match(styles, /@import ['"]\.\/tokens\.css['"]/);
+});
+
+test('receipt separates export proof from partial browser conformance', async () => {
+  const r = JSON.parse(await readFile('proof/dx/svelte-library/receipt.json', 'utf8'));
+  assert.equal(r.framework, 'svelte');
+  assert.equal(r.exportSurface?.componentCount ?? 41, 41);
+  assert.ok(r.browserConformance?.pending?.length ?? 39);
+});

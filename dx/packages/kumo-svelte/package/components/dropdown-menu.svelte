@@ -1,0 +1,68 @@
+<script lang="ts">
+  import type { Snippet } from 'svelte';
+   const browser = typeof document !== 'undefined';
+
+  export const modelDigest = "067c8530a8b7c49b56d39fe9649b03d5a722ce64bb0b9bc7226a6296da3b6f18";
+  export type Props = {
+  CheckboxItem?: Snippet;
+  "Content/SubContent"?: Snippet;
+  Item?: Snippet;
+  "Label/Separator/Shortcut/Group"?: Snippet;
+  LinkItem?: Snippet;
+  "RadioGroup/RadioItem/RadioItemIndicator"?: Snippet;
+  Root?: Snippet;
+  "Sub/SubTrigger"?: Snippet;
+  Trigger?: Snippet;
+  collection?: Snippet;
+  root?: Snippet;
+  children?: Snippet;
+  styles?: Record<string, string>;
+  [key: string]: unknown;
+};
+
+  let {
+    CheckboxItem = undefined,
+    Content_SubContent = undefined,
+    Item = undefined,
+    Label_Separator_Shortcut_Group = undefined,
+    LinkItem = undefined,
+    RadioGroup_RadioItem_RadioItemIndicator = undefined,
+    Root = undefined,
+    Sub_SubTrigger = undefined,
+    Trigger = undefined,
+    collection = undefined,
+    root = undefined,
+    children,
+    styles = {},
+    ...rest
+  }: Props = $props();
+  let state_checkboxAndRadioValue = $state("from item/group props");
+  let state_highlightedItem = $state(null);
+  let state_open = $state("controlled/uncontrolled Base UI root state");
+  let state_submenuOpen = $state("controlled/uncontrolled Base UI state");
+  const props: Record<string, unknown> = { "CheckboxItem": CheckboxItem, "Content/SubContent": Content_SubContent, "Item": Item, "Label/Separator/Shortcut/Group": Label_Separator_Shortcut_Group, "LinkItem": LinkItem, "RadioGroup/RadioItem/RadioItemIndicator": RadioGroup_RadioItem_RadioItemIndicator, "Root": Root, "Sub/SubTrigger": Sub_SubTrigger, "Trigger": Trigger };
+  const state: Record<string, unknown> = { "checkboxAndRadioValue": state_checkboxAndRadioValue, "highlightedItem": state_highlightedItem, "open": state_open, "submenuOpen": state_submenuOpen };
+  const refs: Record<string, HTMLElement | undefined> = {};
+  const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
+  const focusTargets = new Set<string>();
+  const lifecycles: Array<{id:string,phase:string}> = [];
+  const services = new Set<string>();
+  const layers = new Set<string>();
+  const styleOperations: unknown[][] = [];
+  const cx = (...values: unknown[]) => values.filter(Boolean).join(' ');
+  void "render-1";
+  state["highlightedItem"] = state["highlightedItem"];
+  emitters.push({ id: "emit-3", event: "change", callback: null, value: () => null });
+  focusTargets.add("root");
+  refs["root"] ??= undefined;
+  layers.add("dropdown-menu");
+  lifecycles.push({ id: "lifecycle-7", phase: "mounted" });
+  styleOperations.push([styles["root"]]);
+</script>
+
+<section data-kumo-part="root">
+  {#if root}{@render root()}{/if}
+</section>
+<section data-kumo-part="collection">
+  {#if collection}{@render collection()}{/if}
+</section>

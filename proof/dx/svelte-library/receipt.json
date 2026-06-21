@@ -74,5 +74,61 @@
     "hmr": "not-run",
     "manualScreenReader": "not-run"
   },
-  "receiptHash": "ab302b1c911b58946c3ea2a0caf7d60d2a4db27ec6c168fa23a90c8c306ded79"
+  "receiptHash": "ab302b1c911b58946c3ea2a0caf7d60d2a4db27ec6c168fa23a90c8c306ded79",
+  "exportSurface": {
+    "status": "passed",
+    "componentCount": 41,
+    "rootExport": true,
+    "canonicalSubpaths": true,
+    "types": true
+  },
+  "browserConformance": {
+    "status": "partial",
+    "passed": [
+      "Button",
+      "Field"
+    ],
+    "pending": [
+      "Autocomplete",
+      "Badge",
+      "Banner",
+      "Breadcrumbs",
+      "Checkbox",
+      "ClipboardText",
+      "CloudflareLogo",
+      "Code",
+      "Combobox",
+      "CommandPalette",
+      "DatePicker",
+      "DateRangePicker",
+      "Dialog",
+      "DropdownMenu",
+      "Empty",
+      "Grid",
+      "GridItem",
+      "Input",
+      "InputArea",
+      "InputGroup",
+      "Label",
+      "LayerCard",
+      "Link",
+      "Loader",
+      "MenuBar",
+      "Meter",
+      "Pagination",
+      "Popover",
+      "Radio",
+      "Select",
+      "SensitiveInput",
+      "Sidebar",
+      "Surface",
+      "Switch",
+      "Table",
+      "TableOfContents",
+      "Tabs",
+      "Text",
+      "Toasty"
+    ],
+    "reason": "Generated candidate components are packaged and compile-tested; behavioral contract vectors have not yet been implemented for these components."
+  }
 }
