@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "status": "prepared",
+  "tag": "libraries-v0.0.1",
+  "repository": "OWNER/kumo-compiler",
+  "assets": [
+    {
+      "package": "@cloudflare/kumo-vue",
+      "framework": "vue",
+      "version": "0.0.1",
+      "file": "kumo-vue-0.0.1.tgz",
+      "bytes": 2201,
+      "sha256": "3948a4ef9185804097a6cdd5d1735d93ef1980451972eb2d800d1b9fddc82635",
+      "integrity": "sha512-7eWMaM3kGfM39T4fWYqcXWo+elbjeWEwRZF2tjZAWwvdluWQVOfYvdMcHWfhuCew6iWTs2XzH5S0hNHTa0qwKQ==",
+      "components": [
+        "Button",
+        "Field"
+      ],
+      "githubUrl": "https://github.com/OWNER/kumo-compiler/releases/download/libraries-v0.0.1/kumo-vue-0.0.1.tgz",
+      "npmRegistryPublishPrepared": true
+    },
+    {
+      "package": "@cloudflare/kumo-svelte",
+      "framework": "svelte",
+      "version": "0.0.1",
+      "file": "kumo-svelte-0.0.1.tgz",
+      "bytes": 2125,
+      "sha256": "7f68595035fa419d59b0ad331eec42781010b2cac2f0bdd198c77917d291445e",
+      "integrity": "sha512-7km8dlYa31bg8wUv9ACnjXKXtIZH1BCHUzRTLLyTcZzB269K8J8c5cBE6GPX/DerprNebuwLO3K3rXCWShrXag==",
+      "components": [
+        "Button",
+        "Field"
+      ],
+      "githubUrl": "https://github.com/OWNER/kumo-compiler/releases/download/libraries-v0.0.1/kumo-svelte-0.0.1.tgz",
+      "npmRegistryPublishPrepared": true
+    },
+    {
+      "package": "@cloudflare/kumo-solid",
+      "framework": "solid",
+      "version": "0.0.1",
+      "file": "kumo-solid-0.0.1.tgz",
+      "bytes": 1958,
+      "sha256": "9ec9e429e5de6f0fbf60e518a48656e1877a3068e1eada839b36c2d69ca8b6db",
+      "integrity": "sha512-GQYAwrO7fKb/vpw59PG6HJuKkkyNfqP+wpoXGQW2rAZyN65tIvwwKLGDgXrgjDoTUCkr6AuNN1ixorzM7XAuMg==",
+      "components": [
+        "Button",
+        "Field"
+      ],
+      "githubUrl": "https://github.com/OWNER/kumo-compiler/releases/download/libraries-v0.0.1/kumo-solid-0.0.1.tgz",
+      "npmRegistryPublishPrepared": true
+    }
+  ],
+  "humanSteps": [
+    "Set KUMO_GITHUB_OWNER or replace OWNER after the GitHub repository exists.",
+    "Create and push tag libraries-v0.0.1.",
+    "Upload all files in this directory as GitHub Release assets."
+  ],
+  "npmPublish": {
+    "performed": false,
+    "command": "npm publish <tarball> --access public",
+    "requiresAuthorizedScopeOwner": true
+  },
+  "receiptHash": "87c251f4a7021579f87ef0fd7ca5dc5b9f592e7bbe98521043e3b2c4c7af3ee9"
+}

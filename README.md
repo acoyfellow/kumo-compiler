@@ -15,7 +15,7 @@ Package-backed component galleries: [Vue](https://kumo-compiler.coey.dev/librari
 - [Package and export reference](https://kumo-compiler.coey.dev/docs/reference/packages/)
 - [Svelte playground validation](https://kumo-compiler.coey.dev/docs/how-to/svelte-playground/)
 
-The current distribution is an installable HTTPS npm tarball, not a public npm registry publication. Dependency-capable projects can install it directly; registry-only resolvers such as svelte.dev Playground remain blocked until an authorized public publication exists.
+The current distribution is an installable HTTPS npm tarball, not a public npm registry publication. Dependency-capable projects can install it directly; registry-only resolvers such as svelte.dev Playground remain blocked until an authorized public publication exists. The single-repository GitHub release workflow is documented in [Distribute from GitHub](docs/how-to/github-release.md); the optional, human-run registry handoff is [Publish to npm](docs/how-to/publish-npm.md).
 
 ## Seven-minute start
 

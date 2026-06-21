@@ -1,0 +1,29 @@
+name: Prepare framework library release
+on:
+  workflow_dispatch:
+  push:
+    tags: ['libraries-v*']
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.22.2'
+          cache: npm
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: npm run libraries:build
+      - run: npm run release:github
+        env:
+          KUMO_GITHUB_OWNER: ${{ github.repository_owner }}
+          KUMO_GITHUB_REPO: ${{ github.event.repository.name }}
+      - run: npm run release:github:verify
+      - run: npm run release:npm:preflight
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kumo-framework-libraries-0.0.1
+          path: release/github/libraries-v0.0.1/
+          if-no-files-found: error
