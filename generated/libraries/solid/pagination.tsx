@@ -3,7 +3,8 @@ import type { JSX } from "solid-js";
 
 export interface PaginationProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "ea97ff8ea431f5df92a0b31b800bc070bd7dd81373e4117ebe1c66492c503ecf";
+export const modelDigest = "e429308d31e783f621359d7f7497bbae2ce32cc82be5a9a21f42a3664d712efb";
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"legacy-page-one":"4d6dd46730d1f2856dfdac1e96022778e8b2456051a5d05fbe77595eff741249","legacy-page-three-ssr":"6d7f54862c4c6a6d144229dca911fa8549b1c6208ff6df953d02ab43e529e8b2","compound-simple-labels":"42d50c63392b2969506d8ffafe38f9c16851bed43a72b2fbe9c96e8fbbb66790","compound-dropdown-size":"1d4187fdd0f607bc169db30f8e32f7f287d9e0d031711e185cc8f5ec1822a34e"} as const;
 const styles: Record<string, string> = {"root":"root","flex":"flex","items-center":"items-center","gap-2":"gap-2","w-full":"w-full"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");

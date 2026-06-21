@@ -3,7 +3,8 @@ import type { JSX } from "solid-js";
 
 export interface DropdownMenuProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "8160e7a22d2d7fc68698e72727c99e47271a36b1d0fe1bcf32b99194f77ad3bc";
+export const modelDigest = "78a6f126416a72db817c63a86e5de4242629bacce8a6329ec88f16a0c671f447";
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"closed-trigger-ssr":"96a51ef90c52bda16064391fbaddcdd8221a7f254583a75aa51732efd36fee89"} as const;
 const styles: Record<string, string> = {"root":"root","data-highlighted":"data-highlighted","data-disabled":"data-disabled","data-popup-open":"data-popup-open","data-starting-style":"data-starting-style","data-ending-style":"data-ending-style","text-kumo-danger":"text-kumo-danger"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");

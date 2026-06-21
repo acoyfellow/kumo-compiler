@@ -3,7 +3,8 @@ import type { JSX } from "solid-js";
 
 export interface ButtonProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "81b7be85317bfe5f5122a5fd5fa350dd56a2ddb303f78bcfb717ddd142c37390";
+export const modelDigest = "fb89a6c7da3d24b06ce460e02d60941a1dc33621cc70df51098d707e9255e776";
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"default-native":"89e5a990e2451bf44e0420d88f6e76f062098202f08342f53285ad643e01457d","primary-xs":"ea3fa92bf02ca819bfc1f0b1446ff5b5c341ee657a3fa65d338d6c02019a3a82","destructive-lg":"15b0195a8eb219af4f9e17f2bcaf9c423b9ebee692056c1964a025ed5275ac51","circle-label":"eec5ae2310b6553ab713fe5aa9d5722c0d36f00714e790b1e42778ccc353dc50"} as const;
 const styles: Record<string, string> = {"root":"root","group":"group","flex":"flex","w-max":"w-max","h-5":"h-5","h-6.5":"h-6.5","h-9":"h-9","h-10":"h-10","bg-kumo-brand":"bg-kumo-brand","bg-kumo-base":"bg-kumo-base","bg-transparent":"bg-transparent","rounded-full":"rounded-full"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");

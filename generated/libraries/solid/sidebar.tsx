@@ -3,7 +3,8 @@ import type { JSX } from "solid-js";
 
 export interface SidebarProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "55cb05cb06b47f4df129b983e58a4f0d9b516b4315499c5f202eb5a2205b9f95";
+export const modelDigest = "25a19cbe99e84a9f4daf06d56a4f43a039827812a3623bc39919eb4683550b77";
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"desktop-collapsed-sliding-inert-intent":"981714b13e8d9e0295d6e896d11ddfb7f45e7b1e2e0b8e685f6c53cebf4de23d","collapsible-closed-mounted":"84316287b165e3499c9844cb130cdf3cf1d8ce7ea5c049ca51705c1fc977cd48"} as const;
 const styles: Record<string, string> = {"root":"root","group/sidebar-wrapper relative isolate flex w-full":"group/sidebar-wrapper relative isolate flex w-full","group/sidebar relative h-full shrink-0 grow-0":"group/sidebar relative h-full shrink-0 grow-0","transition-[width] duration-(--sidebar-animation-duration)":"transition-[width] duration-(--sidebar-animation-duration)","motion-reduce:transition-none":"motion-reduce:transition-none"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");

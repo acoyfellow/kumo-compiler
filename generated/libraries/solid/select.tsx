@@ -3,7 +3,8 @@ import type { JSX } from "solid-js";
 
 export interface SelectProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "cf33691f62e40a26d4861c5242d9e04be71716a9eebac89c7170fcca6656f4c7";
+export const modelDigest = "0c3f889199eb1006a83fb3d1f7315e54f420dbb14327c8661decd4eb1b7a3215";
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"closed-placeholder-ssr":"9bd3fd944ad73a4601805dcb9ff2f6f4b8d3550ecb383bd6acd65d8d973939f6"} as const;
 const styles: Record<string, string> = {"root":"root","data-kumo-component=Select":"data-kumo-component=Select","data-kumo-part=trigger":"data-kumo-part=trigger","data-placeholder":"data-placeholder","data-highlighted":"data-highlighted","data-selected":"data-selected","h-9":"h-9","rounded-lg":"rounded-lg","ring-kumo-line":"ring-kumo-line"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");

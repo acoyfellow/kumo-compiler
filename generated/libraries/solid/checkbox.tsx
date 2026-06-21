@@ -3,7 +3,8 @@ import type { JSX } from "solid-js";
 
 export interface CheckboxProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "447c272187ca7b58a19da06f41c8a06fe409b0612b2bb51653b78a16221323de";
+export const modelDigest = "9bed87c38c3dc76bca19c327b60bc4264efc797aacdce1a4e06e08b722ca4c65";
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {} as const;
 const styles: Record<string, string> = {"root":"root","data-[checked]":"data-[checked]","data-[indeterminate]":"data-[indeterminate]"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");

@@ -3,7 +3,8 @@ import type { JSX } from "solid-js";
 
 export interface CommandPaletteProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "2e3e15f2b1de40959003e3238b85d8c8e0631ba856e3ae3a893f0c246b3cfa3e";
+export const modelDigest = "4aabec222bec5b00f25388a2bb017b36c91349e55fa3ba6cb97fdc3d0afee0c0";
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"highlighted-text":"c47ffa9c9bb6ae48155882f1e4314b02f15e89d24d472bc83da54565ba878bf0"} as const;
 const styles: Record<string, string> = {"root":"root","fixed inset-0 bg-kumo-overlay opacity-80":"fixed inset-0 bg-kumo-overlay opacity-80","fixed top-[10vh] left-1/2 w-full max-w-2xl -translate-x-1/2":"fixed top-[10vh] left-1/2 w-full max-w-2xl -translate-x-1/2","max-h-[60vh]":"max-h-[60vh]","rounded-lg bg-kumo-elevated":"rounded-lg bg-kumo-elevated","bg-kumo-base":"bg-kumo-base","data-[highlighted]:bg-kumo-overlay":"data-[highlighted]:bg-kumo-overlay","kumo-input-placeholder":"kumo-input-placeholder"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");

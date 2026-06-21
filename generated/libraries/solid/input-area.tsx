@@ -3,7 +3,8 @@ import type { JSX } from "solid-js";
 
 export interface InputAreaProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "2e8146a491bf214e4202760c439b7eee5387f7a70659b1d59e47e7d294f9b6ad";
+export const modelDigest = "3f2ca47762723bd72e47c5da8490058c226bbee67e5518d548fc19ba2c467f14";
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"bare":"ebf5bf8b27301ff66eaf323b56e6a9ac48972ee15edb2d88ae114e04d29c04cd"} as const;
 const styles: Record<string, string> = {"root":"root"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");

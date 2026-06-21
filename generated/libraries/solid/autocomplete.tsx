@@ -3,7 +3,8 @@ import type { JSX } from "solid-js";
 
 export interface AutocompleteProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "451c96451a3e83767751353b636f3661727d1b56ea2f973c3edbff4ac482ba7a";
+export const modelDigest = "eaaaeaa276ea71e352f24eb85a16563be59a8a5b44e3b3e57a29ef9c3c6e125b";
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {} as const;
 const styles: Record<string, string> = {"root":"root","w-full":"w-full","outline-none":"outline-none","max-h-[min(var(--available-height),24rem)]":"max-h-[min(var(--available-height),24rem)]","min-w-(--anchor-width)":"min-w-(--anchor-width)","bg-kumo-control":"bg-kumo-control","rounded-lg":"rounded-lg","shadow-lg":"shadow-lg","ring-kumo-line":"ring-kumo-line","data-highlighted:bg-kumo-overlay":"data-highlighted:bg-kumo-overlay","data-selected:font-medium":"data-selected:font-medium"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");

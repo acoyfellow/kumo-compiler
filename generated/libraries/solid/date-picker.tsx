@@ -4,7 +4,8 @@ import type { JSX } from "solid-js";
 
 export interface DatePickerProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "8470e458b300a04852a473c107d0e5e3a53ca5e521edc62a993d564fdd1d3c20";
+export const modelDigest = "5f335d94261bdac9b04be13a3684f1d47504a43360cb208c4a84231a1d259fce";
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"single-selected":"90a3e8f4e57496245fa749e6800c37b954ae86c0abed9de8887a1a989de3dbd3"} as const;
 const styles: Record<string, string> = {"root":"root","rdp-root":"rdp-root","rdp-month_grid":"rdp-month_grid","rdp-day_button":"rdp-day_button"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");

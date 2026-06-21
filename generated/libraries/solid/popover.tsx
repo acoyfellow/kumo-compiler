@@ -4,7 +4,8 @@ import type { JSX } from "solid-js";
 
 export interface PopoverProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "17b19c7cc9d7e317ac99d48e6f0d9d85e14c60a2c56ee41b0ad371d593982d1b";
+export const modelDigest = "34d7ee992f8f6e187cd36b1471f571733ec206033242ce3ffd4aab7a353a5f8b";
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"closed-trigger-ssr":"47da98bc8697006e9aa6aacecd53fee10ce49002411f7db100e7aa610514ed86"} as const;
 const styles: Record<string, string> = {"root":"root","data-kumo-component=Popover":"data-kumo-component=Popover","data-kumo-part=trigger":"data-kumo-part=trigger","data-starting-style":"data-starting-style","data-ending-style":"data-ending-style","origin-[var(--transform-origin)]":"origin-[var(--transform-origin)]"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");

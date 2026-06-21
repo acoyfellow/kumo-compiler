@@ -32,6 +32,8 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   assert.deepEqual([pkg.name, pkg.version], ['@acoyfellow/kumo-solid', '0.0.1']);
   assert.deepEqual(Object.keys(pkg.exports), ['.', ...new Set(a.components.map(x => x.subpath))]);
   assert.deepEqual(manifest.components.map(x => x.modelDigest), library.models.map(x => x.modelDigest));
+  assert.deepEqual(manifest.components.map(x => x.contentBindingDigest), library.models.map(x => x.contentBindings.capabilityDigest));
+  assert.ok(manifest.components.every(x => x.contentBindingDigest === library.contentBindings.capabilityDigest));
   assert.deepEqual(manifest.components.map(x => x.compoundPaths), library.models.map(model => model.composition.compoundExports?.paths.map(x => x.path) ?? []));
   assert.deepEqual(manifest.components.map(x => x.semanticVariants), library.models.map(model => (model.draftImplementation.semanticVariants ?? []).map(({id, expectationDigest}) => ({id, expectationDigest}))));
   assert.deepEqual(manifest.components.map(x => x.unresolvedSemanticOperations), library.models.map(model => model.unresolvedSemanticOperations ?? []));
@@ -48,6 +50,8 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
 
   for (const [item, model] of manifest.components.map((item, index) => [item, library.models[index]])) {
     const source = fs.readFileSync(path.join(first, item.source), 'utf8');
+    assert.match(source, new RegExp(`export const contentBindingDigest = ${JSON.stringify(model.contentBindings.capabilityDigest)}`));
+    if (JSON.stringify(model.draftImplementation).includes('consumer-children')) assert.match(source, /props\.children/);
     for (const pathValue of model.composition.compoundExports?.paths.map(x => x.path) ?? []) {
       assert.match(source, new RegExp(`data-kumo-part=\\${JSON.stringify(pathValue)}`));
       const segments = pathValue.split('.');

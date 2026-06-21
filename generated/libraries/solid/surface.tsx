@@ -3,7 +3,8 @@ import type { JSX } from "solid-js";
 
 export interface SurfaceProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "97e129f5f9aa52214f84f0d93a19fcda29a6305d79efd2606f3f30e12129fcda";
+export const modelDigest = "bcb4aa3e592b9584d7e18fe498c9d2cfaad66ee570e649a81bfcf73eeccac950";
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"default":"4441c41c07410c7e20f820d8180d29bc4fa68fb41f9ec635bcc641391f687b4b","as-section":"308e0794f759650df3841b6d3e8260c5277c3b302bc9c17b2cac90eb36457489"} as const;
 const styles: Record<string, string> = {"root":"root","overflow-visible":"overflow-visible","rounded-none":"rounded-none"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");

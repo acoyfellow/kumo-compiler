@@ -3,7 +3,8 @@ import type { JSX } from "solid-js";
 
 export interface TableOfContentsProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "442e94fa23275f2cbbd8e9e6a1b9279eeb8e00402dd5f42f850864c34f9f0ba1";
+export const modelDigest = "81f51f73fcb15fac9412c9a30a06ea03f1e2fa2292ec5b6197d72c106554a466";
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"static-title-items":"2c340de436cabfd4624765e93ce8d80d91469a0f0c64e8492aacf42165197f08","nested-linked-group":"d46be6fd1882b7d21df1e064de09325ce1bd8b535fe3d2b069a9dc356d2c4625"} as const;
 const styles: Record<string, string> = {"root":"root","flex flex-col gap-2 border-l-2 border-kumo-hairline":"flex flex-col gap-2 border-l-2 border-kumo-hairline","block w-full truncate border-l-2 border-transparent py-0.5 pl-4 text-sm text-left no-underline":"block w-full truncate border-l-2 border-transparent py-0.5 pl-4 text-sm text-left no-underline","border-kumo-brand font-medium text-kumo-default":"border-kumo-brand font-medium text-kumo-default"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");
