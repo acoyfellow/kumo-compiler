@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "kumo.content-bindings/v1",
+  "bindings": [
+    {
+      "role": "consumer-content",
+      "mode": "content",
+      "expression": {
+        "kind": "consumer-children",
+        "contentRole": "consumer-content"
+      }
+    },
+    {
+      "role": "compound-slot",
+      "mode": "slot",
+      "expression": {
+        "kind": "slot-content"
+      }
+    },
+    {
+      "role": "fixture-children",
+      "mode": "collection",
+      "expression": {
+        "kind": "fixture"
+      }
+    }
+  ],
+  "capabilityDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
+}

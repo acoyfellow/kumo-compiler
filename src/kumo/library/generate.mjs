@@ -6,6 +6,7 @@ import {canonicalJSON, digest} from './index.mjs';
 import {deriveCompoundExports} from './compound-exports.mjs';
 import {deriveSemanticRender} from './semantic-render.mjs';
 import {compileSemanticVariants} from './semantic-implementation.mjs';
+import {deriveContentBindings} from './content-bindings.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '../../..');
@@ -88,6 +89,7 @@ function proofGaps(model) {
 fs.mkdirSync(models, {recursive:true});
 const compoundExports = deriveCompoundExports();
 const semanticRender = deriveSemanticRender(contracts);
+const contentBindings = deriveContentBindings();
 const semanticByComponent = new Map(semanticRender.components.map(entry => [entry.component, entry]));
 const compoundByComponent = new Map(compoundExports.roots.map(entry => [entry.component, entry]));
 const entries = [];
@@ -103,6 +105,7 @@ for (const file of fs.readdirSync(contracts).filter(file => file.endsWith('.json
   const semantic = semanticByComponent.get(name);
   if (semantic) model.semanticRender = {schemaVersion:semanticRender.schemaVersion, capabilityDigest:semanticRender.capabilityDigest, vectorIds:semantic.vectors.map(vector => vector.id)};
   else delete model.semanticRender;
+  model.contentBindings = {schemaVersion:contentBindings.schemaVersion, capabilityDigest:contentBindings.capabilityDigest};
   model.componentRoot = {frameworkNeutral:true, implementationReady:false, candidateDefinition:true, draft:true};
   model.draftImplementation = JSON.parse(JSON.stringify(implementation(model, contract)));
   const compiledSemantic = compileSemanticVariants(semantic ?? {vectors:[]});
@@ -118,4 +121,5 @@ fs.writeFileSync(path.join(here,'manifest.json'), `${JSON.stringify(manifest,nul
 fs.mkdirSync(path.join(here, 'capabilities'), {recursive:true});
 fs.writeFileSync(path.join(here, 'capabilities/compound-exports.json'), `${JSON.stringify(compoundExports,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/semantic-render.json'), `${JSON.stringify(semanticRender,null,2)}\n`);
+fs.writeFileSync(path.join(here, 'capabilities/content-bindings.json'), `${JSON.stringify(contentBindings,null,2)}\n`);
 process.stdout.write(`${canonicalJSON({candidateDefinitionCount:41,count:entries.length,implementationReadyCount:0})}\n`);

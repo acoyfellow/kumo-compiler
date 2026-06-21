@@ -224,7 +224,13 @@
             {
               "kind": "text",
               "value": {
-                "kind": "consumer-children"
+                "kind": "consumer-children",
+                "contentRole": "consumer-content",
+                "predicateSource": {
+                  "kind": "prop-equals",
+                  "name": "children",
+                  "value": "PRO"
+                }
               }
             }
           ]
@@ -287,7 +293,13 @@
             {
               "kind": "text",
               "value": {
-                "kind": "consumer-children"
+                "kind": "consumer-children",
+                "contentRole": "consumer-content",
+                "predicateSource": {
+                  "kind": "prop-equals",
+                  "name": "children",
+                  "value": "Healthy"
+                }
               }
             }
           ]
@@ -310,5 +322,9 @@
     ]
   },
   "unresolvedSemanticOperations": [],
-  "modelDigest": "006d85d298954f51354ac3e2f2f129e9796faf242d510fd5a25903f769e60657"
+  "contentBindings": {
+    "schemaVersion": "kumo.content-bindings/v1",
+    "capabilityDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
+  },
+  "modelDigest": "d61594f3236e8d7e4602671f3db5548b0873d563cfc52c9d9249597042a2cf31"
 }

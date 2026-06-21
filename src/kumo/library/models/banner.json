@@ -343,7 +343,13 @@
                 {
                   "kind": "text",
                   "value": {
-                    "kind": "consumer-children"
+                    "kind": "consumer-children",
+                    "contentRole": "consumer-content",
+                    "predicateSource": {
+                      "kind": "prop-equals",
+                      "name": "children",
+                      "value": "Careful"
+                    }
                   }
                 }
               ]
@@ -368,5 +374,9 @@
     ]
   },
   "unresolvedSemanticOperations": [],
-  "modelDigest": "5e0a24e1af2cd4822210f4729090abb7588593f77a9e48810e4d2fbcf5335704"
+  "contentBindings": {
+    "schemaVersion": "kumo.content-bindings/v1",
+    "capabilityDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
+  },
+  "modelDigest": "e57b4fc419d2b1310d0ea4963a5181380a89060415280931c0e7698f1cd2ede2"
 }

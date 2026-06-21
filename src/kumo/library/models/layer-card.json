@@ -217,7 +217,13 @@
             {
               "kind": "text",
               "value": {
-                "kind": "consumer-children"
+                "kind": "consumer-children",
+                "contentRole": "consumer-content",
+                "predicateSource": {
+                  "kind": "prop-equals",
+                  "name": "children",
+                  "value": "Card"
+                }
               }
             }
           ]
@@ -324,5 +330,9 @@
     ]
   },
   "unresolvedSemanticOperations": [],
-  "modelDigest": "fd939af05201967cffd0c170320971fa78ceaf75165af48a02a704e5594b7f38"
+  "contentBindings": {
+    "schemaVersion": "kumo.content-bindings/v1",
+    "capabilityDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
+  },
+  "modelDigest": "4776632c394a536ecd5477ef13e2a89249e69a1b3208a445b782496b317647f1"
 }

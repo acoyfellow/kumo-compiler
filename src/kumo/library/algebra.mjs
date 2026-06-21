@@ -15,12 +15,16 @@ const requiredString = (value, where) => {
 export function validateExpression(expression, where = 'expression') {
   if (!object(expression) || !EXPRESSION_KINDS.includes(expression.kind)) throw new Error(`${where}: invalid expression`);
   const fields = {
-    literal: ['kind', 'value'], prop: ['kind', 'name'], 'consumer-children': ['kind'], fixture: ['kind'], state: ['kind', 'name'], item: ['kind', 'name'],
+    literal: ['kind', 'value'], prop: ['kind', 'name'], 'consumer-children': ['kind', 'contentRole', 'predicateSource'], fixture: ['kind'], state: ['kind', 'name'], item: ['kind', 'name'],
     coalesce: ['kind', 'values'], equals: ['kind', 'left', 'right'], not: ['kind', 'value'],
     concat: ['kind', 'values', 'separator'], 'style-ref': ['kind', 'name']
   }[expression.kind];
   assertKeys(expression, fields, where);
   if (['prop', 'state', 'item', 'style-ref'].includes(expression.kind)) requiredString(expression.name, where);
+  if (expression.kind === 'consumer-children') {
+    if (expression.contentRole !== 'consumer-content') throw new Error(`${where}: unknown content role`);
+    if (!object(expression.predicateSource) || !['prop-equals','fixture-equals'].includes(expression.predicateSource.kind)) throw new Error(`${where}: explicit predicate source required`);
+  }
   if (expression.kind === 'coalesce' || expression.kind === 'concat') {
     if (!Array.isArray(expression.values) || !expression.values.length) throw new Error(`${where}: values required`);
     expression.values.forEach((value, i) => validateExpression(value, `${where}.values[${i}]`));

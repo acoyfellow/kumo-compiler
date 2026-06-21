@@ -241,7 +241,13 @@
             {
               "kind": "text",
               "value": {
-                "kind": "consumer-children"
+                "kind": "consumer-children",
+                "contentRole": "consumer-content",
+                "predicateSource": {
+                  "kind": "prop-equals",
+                  "name": "children",
+                  "value": "Cells"
+                }
               }
             }
           ]
@@ -293,7 +299,13 @@
             {
               "kind": "text",
               "value": {
-                "kind": "consumer-children"
+                "kind": "consumer-children",
+                "contentRole": "consumer-content",
+                "predicateSource": {
+                  "kind": "prop-equals",
+                  "name": "children",
+                  "value": "Two"
+                }
               }
             }
           ]
@@ -316,5 +328,9 @@
     ]
   },
   "unresolvedSemanticOperations": [],
-  "modelDigest": "8f448ea59addb5dd51bd78ec2a05ab79f2a82c9fa87807bd2a6621cf54efe3c4"
+  "contentBindings": {
+    "schemaVersion": "kumo.content-bindings/v1",
+    "capabilityDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
+  },
+  "modelDigest": "77368ecd52b54b2d85a270ad010c77b8e23e8c0be9b82414610908b3a84f636d"
 }

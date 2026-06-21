@@ -1,5 +1,6 @@
 import {digest} from './index.mjs';
-import {validateExpression, validateNode} from './algebra.mjs';
+import {validateNode} from './algebra.mjs';
+import {deriveContentBindings, resolveContentBinding} from './content-bindings.mjs';
 
 const object = value => value !== null && typeof value === 'object' && !Array.isArray(value);
 const literal = value => ({kind:'literal',value});
@@ -7,10 +8,11 @@ const prop = name => ({kind:'prop',name});
 const fixture = () => ({kind:'fixture'});
 const text = value => ({kind:'text',value});
 const element = (tag, attributes={}, classes=[], children=[]) => ({kind:'semantic-element',tag:literal(tag),attributes:Object.fromEntries(Object.entries(attributes).map(([k,v])=>[k,literal(v)])),classes:classes.map(literal),children});
+const contentBindings=deriveContentBindings();
 
 function sourceExpression(value, predicates) {
   const candidates=predicates.filter(p=>p.kind==='prop-equals' && JSON.stringify(p.value)===JSON.stringify(value));
-  if (candidates.length===1) return candidates[0].name==='children' ? {kind:'consumer-children'} : prop(candidates[0].name);
+  if (candidates.length===1) return candidates[0].name==='children' ? resolveContentBinding(contentBindings,'consumer-content',{predicateSource:candidates[0]}).expression : prop(candidates[0].name);
   if (candidates.length>1) return null;
   return literal(value);
 }
@@ -32,7 +34,7 @@ export function compileSemanticVector(vector) {
   let children=descendantNodes;
   const expectedText=root.require.text;
   if (expectedText!==undefined) {
-    const expressionText=c=>c.value.kind==='literal'?c.value.value:c.value.kind==='consumer-children'?vector.when.find(p=>p.kind==='prop-equals'&&p.name==='children')?.value??'':vector.when.find(p=>p.kind==='prop-equals'&&p.name===c.value.name)?.value??'';
+    const expressionText=c=>c.value.kind==='literal'?c.value.value:c.value.kind==='consumer-children'?c.value.predicateSource.value??'':vector.when.find(p=>p.kind==='prop-equals'&&p.name===c.value.name)?.value??'';
     const descendantText=descendantNodes.map(n=>n.children.map(expressionText).join('')).join('');
     if (descendantText && descendantText!==expectedText) return {unresolved:{vectorId:vector.id,reason:'root and descendant text constraints have ambiguous or contradictory allocation',provenance:vector.provenance}};
     if (!descendantText && expectedText!=='') {

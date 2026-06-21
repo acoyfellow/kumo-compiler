@@ -230,7 +230,13 @@
             {
               "kind": "text",
               "value": {
-                "kind": "consumer-children"
+                "kind": "consumer-children",
+                "contentRole": "consumer-content",
+                "predicateSource": {
+                  "kind": "prop-equals",
+                  "name": "children",
+                  "value": "Email"
+                }
               }
             }
           ]
@@ -326,7 +332,13 @@
             {
               "kind": "text",
               "value": {
-                "kind": "consumer-children"
+                "kind": "consumer-children",
+                "contentRole": "consumer-content",
+                "predicateSource": {
+                  "kind": "prop-equals",
+                  "name": "children",
+                  "value": "Email"
+                }
               }
             }
           ]
@@ -350,5 +362,9 @@
     ]
   },
   "unresolvedSemanticOperations": [],
-  "modelDigest": "3d765f829aeb9964c3c718b42b20afd269c566c27a0250fbf669826b3564b1e9"
+  "contentBindings": {
+    "schemaVersion": "kumo.content-bindings/v1",
+    "capabilityDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
+  },
+  "modelDigest": "5095f41d10b4171b26a76054676cdd46240c352d0283a678dedfe13047e9ca2f"
 }

@@ -304,7 +304,13 @@
                 {
                   "kind": "text",
                   "value": {
-                    "kind": "consumer-children"
+                    "kind": "consumer-children",
+                    "contentRole": "consumer-content",
+                    "predicateSource": {
+                      "kind": "prop-equals",
+                      "name": "children",
+                      "value": "Save"
+                    }
                   }
                 }
               ]
@@ -362,7 +368,13 @@
             {
               "kind": "text",
               "value": {
-                "kind": "consumer-children"
+                "kind": "consumer-children",
+                "contentRole": "consumer-content",
+                "predicateSource": {
+                  "kind": "prop-equals",
+                  "name": "children",
+                  "value": "Create"
+                }
               }
             }
           ]
@@ -418,7 +430,13 @@
             {
               "kind": "text",
               "value": {
-                "kind": "consumer-children"
+                "kind": "consumer-children",
+                "contentRole": "consumer-content",
+                "predicateSource": {
+                  "kind": "prop-equals",
+                  "name": "children",
+                  "value": "Delete"
+                }
               }
             }
           ]
@@ -493,5 +511,9 @@
     ]
   },
   "unresolvedSemanticOperations": [],
-  "modelDigest": "81b7be85317bfe5f5122a5fd5fa350dd56a2ddb303f78bcfb717ddd142c37390"
+  "contentBindings": {
+    "schemaVersion": "kumo.content-bindings/v1",
+    "capabilityDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
+  },
+  "modelDigest": "fb89a6c7da3d24b06ce460e02d60941a1dc33621cc70df51098d707e9255e776"
 }

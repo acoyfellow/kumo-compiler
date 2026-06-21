@@ -4,6 +4,7 @@ import crypto from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {validateImplementation} from './algebra.mjs';
 import {validateSemanticRender} from './semantic-render.mjs';
+import {loadContentBindings} from './content-bindings.mjs';
 
 export const LIBRARY_SCHEMA_VERSION = 'kumo.library/v1';
 export const CAPABILITIES = Object.freeze([
@@ -106,6 +107,7 @@ export function validateModel(model) {
 }
 
 export function loadLibrary(base = here) {
+  const contentBindings = loadContentBindings(path.join(base, 'capabilities/content-bindings.json'));
   const semanticRender = validateSemanticRender(JSON.parse(fs.readFileSync(path.join(base, 'capabilities/semantic-render.json'), 'utf8')));
   const manifest = JSON.parse(fs.readFileSync(path.join(base, 'manifest.json'), 'utf8'));
   if (manifest.count !== 41 || manifest.components.length !== 41) throw new Error('library inventory must contain exactly 41 models');
@@ -121,9 +123,12 @@ export function loadLibrary(base = here) {
   if (models.filter(model => model.componentRoot.implementationReady).length !== manifest.implementationReadyCount) throw new Error('implementation-ready count mismatch');
   if (models.filter(model => model.componentRoot.candidateDefinition).length !== manifest.candidateDefinitionCount) throw new Error('candidate-definition count mismatch');
   const semanticComponents = new Map(semanticRender.components.map(component => [component.component, component]));
+  for (const model of models) {
+    if (model.contentBindings?.schemaVersion !== contentBindings.schemaVersion || model.contentBindings?.capabilityDigest !== contentBindings.capabilityDigest) throw new Error(`${model.component}: content binding mismatch`);
+  }
   for (const model of models) if (model.semanticRender) {
     const semantic = semanticComponents.get(model.component);
     if (!semantic || model.semanticRender.capabilityDigest !== semanticRender.capabilityDigest || model.semanticRender.vectorIds.join('\0') !== semantic.vectors.map(vector => vector.id).join('\0')) throw new Error(`${model.component}: semantic render binding mismatch`);
   }
-  return {manifest, models, semanticRender};
+  return {manifest, models, semanticRender, contentBindings};
 }
