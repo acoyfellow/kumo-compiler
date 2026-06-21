@@ -1,41 +1,118 @@
-export { default as Autocomplete } from './components/autocomplete.js';
-export { default as Badge } from './components/badge.js';
-export { default as Banner } from './components/banner.js';
-export { default as Breadcrumbs } from './components/breadcrumbs.js';
-export { default as Button } from './components/button.js';
-export { default as Checkbox } from './components/checkbox.js';
-export { default as ClipboardText } from './components/clipboard-text.js';
-export { default as CloudflareLogo } from './components/cloudflare-logo.js';
-export { default as Code } from './components/code.js';
-export { default as Combobox } from './components/combobox.js';
-export { default as CommandPalette } from './components/command-palette.js';
-export { default as DatePicker } from './components/date-picker.js';
-export { default as DateRangePicker } from './components/date-range-picker.js';
-export { default as Dialog } from './components/dialog.js';
-export { default as DropdownMenu } from './components/dropdown-menu.js';
-export { default as Empty } from './components/empty.js';
-export { default as Field } from './components/field.js';
-export { default as Grid } from './components/grid.js';
-export { default as GridItem } from './components/grid-item.js';
-export { default as Input } from './components/input.js';
-export { default as InputArea } from './components/input-area.js';
-export { default as InputGroup } from './components/input-group.js';
-export { default as Label } from './components/label.js';
-export { default as LayerCard } from './components/layer-card.js';
-export { default as Link } from './components/link.js';
-export { default as Loader } from './components/loader.js';
-export { default as MenuBar } from './components/menu-bar.js';
-export { default as Meter } from './components/meter.js';
-export { default as Pagination } from './components/pagination.js';
-export { default as Popover } from './components/popover.js';
-export { default as Radio } from './components/radio.js';
-export { default as Select } from './components/select.js';
-export { default as SensitiveInput } from './components/sensitive-input.js';
-export { default as Sidebar } from './components/sidebar.js';
-export { default as Surface } from './components/surface.js';
-export { default as Switch } from './components/switch.js';
-export { default as Table } from './components/table.js';
-export { default as TableOfContents } from './components/table-of-contents.js';
-export { default as Tabs } from './components/tabs.js';
-export { default as Text } from './components/text.js';
-export { default as Toasty } from './components/toasty.js';
+import RootAutocomplete from './components/autocomplete.vue'
+import AutocompleteContent from './components/autocomplete.content.vue'
+import AutocompleteInputGroup from './components/autocomplete.input-group.vue'
+import AutocompleteItem from './components/autocomplete.item.vue'
+import AutocompleteList from './components/autocomplete.list.vue'
+export const Autocomplete = Object.assign(RootAutocomplete, { "Content": AutocompleteContent, "InputGroup": AutocompleteInputGroup, "Item": AutocompleteItem, "List": AutocompleteList })
+export { default as Badge } from './components/badge.vue'
+export { default as Banner } from './components/banner.vue'
+import RootBreadcrumbs from './components/breadcrumbs.vue'
+import BreadcrumbsCurrent from './components/breadcrumbs.current.vue'
+import BreadcrumbsLink from './components/breadcrumbs.link.vue'
+import BreadcrumbsSeparator from './components/breadcrumbs.separator.vue'
+export const Breadcrumbs = Object.assign(RootBreadcrumbs, { "Current": BreadcrumbsCurrent, "Link": BreadcrumbsLink, "Separator": BreadcrumbsSeparator })
+export { default as Button } from './components/button.vue'
+export { default as Checkbox } from './components/checkbox.vue'
+export { default as ClipboardText } from './components/clipboard-text.vue'
+export { default as CloudflareLogo } from './components/cloudflare-logo.vue'
+export { default as Code } from './components/code.vue'
+import RootCombobox from './components/combobox.vue'
+import ComboboxContent from './components/combobox.content.vue'
+import ComboboxItem from './components/combobox.item.vue'
+import ComboboxList from './components/combobox.list.vue'
+import ComboboxTriggerInput from './components/combobox.trigger-input.vue'
+export const Combobox = Object.assign(RootCombobox, { "Content": ComboboxContent, "Item": ComboboxItem, "List": ComboboxList, "TriggerInput": ComboboxTriggerInput })
+import RootCommandPalette from './components/command-palette.vue'
+import CommandPaletteHighlightedText from './components/command-palette.highlighted-text.vue'
+import CommandPaletteInput from './components/command-palette.input.vue'
+import CommandPaletteItem from './components/command-palette.item.vue'
+import CommandPaletteList from './components/command-palette.list.vue'
+import CommandPaletteRoot from './components/command-palette.root.vue'
+export const CommandPalette = Object.assign(RootCommandPalette, { "HighlightedText": CommandPaletteHighlightedText, "Input": CommandPaletteInput, "Item": CommandPaletteItem, "List": CommandPaletteList, "Root": CommandPaletteRoot })
+export { default as DatePicker } from './components/date-picker.vue'
+export { default as DateRangePicker } from './components/date-range-picker.vue'
+import RootDialog from './components/dialog.vue'
+import DialogClose from './components/dialog.close.vue'
+import DialogDescription from './components/dialog.description.vue'
+import DialogRoot from './components/dialog.root.vue'
+import DialogTitle from './components/dialog.title.vue'
+import DialogTrigger from './components/dialog.trigger.vue'
+export const Dialog = Object.assign(RootDialog, { "Close": DialogClose, "Description": DialogDescription, "Root": DialogRoot, "Title": DialogTitle, "Trigger": DialogTrigger })
+import RootDropdownMenu from './components/dropdown-menu.vue'
+import DropdownMenuContent from './components/dropdown-menu.content.vue'
+import DropdownMenuItem from './components/dropdown-menu.item.vue'
+import DropdownMenuSub from './components/dropdown-menu.sub.vue'
+import DropdownMenuSubContent from './components/dropdown-menu.sub-content.vue'
+import DropdownMenuSubTrigger from './components/dropdown-menu.sub-trigger.vue'
+import DropdownMenuTrigger from './components/dropdown-menu.trigger.vue'
+export const DropdownMenu = Object.assign(RootDropdownMenu, { "Content": DropdownMenuContent, "Item": DropdownMenuItem, "Sub": DropdownMenuSub, "SubContent": DropdownMenuSubContent, "SubTrigger": DropdownMenuSubTrigger, "Trigger": DropdownMenuTrigger })
+export { default as Empty } from './components/empty.vue'
+import RootField from './components/field.vue'
+import FieldNativeInput from './components/field.native-input.vue'
+export const Field = Object.assign(RootField, { "NativeInput": FieldNativeInput })
+export { default as Grid } from './components/grid.vue'
+export { default as GridItem } from './components/grid-item.vue'
+export { default as Input } from './components/input.vue'
+export { default as InputArea } from './components/input-area.vue'
+import RootInputGroup from './components/input-group.vue'
+import InputGroupAddon from './components/input-group.addon.vue'
+import InputGroupButton from './components/input-group.button.vue'
+import InputGroupInput from './components/input-group.input.vue'
+import InputGroupSuffix from './components/input-group.suffix.vue'
+export const InputGroup = Object.assign(RootInputGroup, { "Addon": InputGroupAddon, "Button": InputGroupButton, "Input": InputGroupInput, "Suffix": InputGroupSuffix })
+export { default as Label } from './components/label.vue'
+import RootLayerCard from './components/layer-card.vue'
+import LayerCardPrimary from './components/layer-card.primary.vue'
+import LayerCardSecondary from './components/layer-card.secondary.vue'
+export const LayerCard = Object.assign(RootLayerCard, { "Primary": LayerCardPrimary, "Secondary": LayerCardSecondary })
+export { default as Link } from './components/link.vue'
+export { default as Loader } from './components/loader.vue'
+export { default as MenuBar } from './components/menu-bar.vue'
+export { default as Meter } from './components/meter.vue'
+export { default as Pagination } from './components/pagination.vue'
+import RootPopover from './components/popover.vue'
+import PopoverClose from './components/popover.close.vue'
+import PopoverContent from './components/popover.content.vue'
+import PopoverDescription from './components/popover.description.vue'
+import PopoverTitle from './components/popover.title.vue'
+import PopoverTrigger from './components/popover.trigger.vue'
+export const Popover = Object.assign(RootPopover, { "Close": PopoverClose, "Content": PopoverContent, "Description": PopoverDescription, "Title": PopoverTitle, "Trigger": PopoverTrigger })
+export { default as Radio } from './components/radio.vue'
+import RootSelect from './components/select.vue'
+import SelectOption from './components/select.option.vue'
+export const Select = Object.assign(RootSelect, { "Option": SelectOption })
+export { default as SensitiveInput } from './components/sensitive-input.vue'
+import RootSidebar from './components/sidebar.vue'
+import SidebarCollapsible from './components/sidebar.collapsible.vue'
+import SidebarCollapsibleContent from './components/sidebar.collapsible-content.vue'
+import SidebarContent from './components/sidebar.content.vue'
+import SidebarFooter from './components/sidebar.footer.vue'
+import SidebarGroup from './components/sidebar.group.vue'
+import SidebarGroupLabel from './components/sidebar.group-label.vue'
+import SidebarHeader from './components/sidebar.header.vue'
+import SidebarMenu from './components/sidebar.menu.vue'
+import SidebarMenuButton from './components/sidebar.menu-button.vue'
+import SidebarProvider from './components/sidebar.provider.vue'
+import SidebarResizeHandle from './components/sidebar.resize-handle.vue'
+import SidebarSlidingView from './components/sidebar.sliding-view.vue'
+import SidebarSlidingViews from './components/sidebar.sliding-views.vue'
+import SidebarTrigger from './components/sidebar.trigger.vue'
+export const Sidebar = Object.assign(RootSidebar, { "Collapsible": SidebarCollapsible, "CollapsibleContent": SidebarCollapsibleContent, "Content": SidebarContent, "Footer": SidebarFooter, "Group": SidebarGroup, "GroupLabel": SidebarGroupLabel, "Header": SidebarHeader, "Menu": SidebarMenu, "MenuButton": SidebarMenuButton, "Provider": SidebarProvider, "ResizeHandle": SidebarResizeHandle, "SlidingView": SidebarSlidingView, "SlidingViews": SidebarSlidingViews, "Trigger": SidebarTrigger })
+export { default as Surface } from './components/surface.vue'
+export { default as Switch } from './components/switch.vue'
+import RootTable from './components/table.vue'
+import TableBody from './components/table.body.vue'
+import TableCell from './components/table.cell.vue'
+import TableHead from './components/table.head.vue'
+import TableHeader from './components/table.header.vue'
+import TableRow from './components/table.row.vue'
+export const Table = Object.assign(RootTable, { "Body": TableBody, "Cell": TableCell, "Head": TableHead, "Header": TableHeader, "Row": TableRow })
+import RootTableOfContents from './components/table-of-contents.vue'
+import TableOfContentsGroup from './components/table-of-contents.group.vue'
+import TableOfContentsItem from './components/table-of-contents.item.vue'
+import TableOfContentsList from './components/table-of-contents.list.vue'
+import TableOfContentsTitle from './components/table-of-contents.title.vue'
+export const TableOfContents = Object.assign(RootTableOfContents, { "Group": TableOfContentsGroup, "Item": TableOfContentsItem, "List": TableOfContentsList, "Title": TableOfContentsTitle })
+export { default as Tabs } from './components/tabs.vue'
+export { default as Text } from './components/text.vue'
+export { default as Toasty } from './components/toasty.vue'

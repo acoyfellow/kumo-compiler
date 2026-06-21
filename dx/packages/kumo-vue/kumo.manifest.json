@@ -1,50 +1,214 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "name": "@acoyfellow/kumo-vue",
   "version": "0.0.1",
   "framework": "vue",
   "components": [
-    "Autocomplete",
-    "Badge",
-    "Banner",
-    "Breadcrumbs",
-    "Button",
-    "Checkbox",
-    "ClipboardText",
-    "CloudflareLogo",
-    "Code",
-    "Combobox",
-    "CommandPalette",
-    "DatePicker",
-    "DateRangePicker",
-    "Dialog",
-    "DropdownMenu",
-    "Empty",
-    "Field",
-    "Grid",
-    "GridItem",
-    "Input",
-    "InputArea",
-    "InputGroup",
-    "Label",
-    "LayerCard",
-    "Link",
-    "Loader",
-    "MenuBar",
-    "Meter",
-    "Pagination",
-    "Popover",
-    "Radio",
-    "Select",
-    "SensitiveInput",
-    "Sidebar",
-    "Surface",
-    "Switch",
-    "Table",
-    "TableOfContents",
-    "Tabs",
-    "Text",
-    "Toasty"
+    {
+      "component": "autocomplete",
+      "symbol": "Autocomplete",
+      "modelDigest": "1f41380c0300c6ab1aa370e5a96ed529bb1bdfb6d60bfcaaa9df23cd23dd8b07"
+    },
+    {
+      "component": "badge",
+      "symbol": "Badge",
+      "modelDigest": "67f224503fcce1b354d3848ac5a55b55587789af9fe0688a4849fef4ad5c8ec5"
+    },
+    {
+      "component": "banner",
+      "symbol": "Banner",
+      "modelDigest": "c5e7d6281fea509e18399d83a7768d4533db188cdb59ddc8cbf2f1bd99e0dec1"
+    },
+    {
+      "component": "breadcrumbs",
+      "symbol": "Breadcrumbs",
+      "modelDigest": "7a7f2d6ea60be21b23d218781fadea8b534345fab15d5b0896600e503857eb65"
+    },
+    {
+      "component": "button",
+      "symbol": "Button",
+      "modelDigest": "48798c8ab5bf8d756056311749cd7d344b6c82b50134d057656d5f6e4cad48aa"
+    },
+    {
+      "component": "checkbox",
+      "symbol": "Checkbox",
+      "modelDigest": "fe575b56fa0db80a1e83a5b6976f0303f63a8f6ab45de9ba8f5abfb19d9a935f"
+    },
+    {
+      "component": "clipboard-text",
+      "symbol": "ClipboardText",
+      "modelDigest": "2519ce9397d7b2de6138a9f8fe7461e138cd766c9a39f7f25d1d4c84345f0d10"
+    },
+    {
+      "component": "cloudflare-logo",
+      "symbol": "CloudflareLogo",
+      "modelDigest": "50b2371be89b11ae83917c42fdb9b67c42df8467c98e2668e0540afd07dc8c58"
+    },
+    {
+      "component": "code",
+      "symbol": "Code",
+      "modelDigest": "5e7c1a6e6d7b7973979fc806a00d8999299a443db7eda7b9234417bc397a0fba"
+    },
+    {
+      "component": "combobox",
+      "symbol": "Combobox",
+      "modelDigest": "e632de38d37be35b83ed3e093ba4e52fbd67247aa10eff83bf2ac59fb1398a41"
+    },
+    {
+      "component": "command-palette",
+      "symbol": "CommandPalette",
+      "modelDigest": "7e72307448756ba3dce186fdd6d001623e82bf54634bcb1dd046b6ec82f31bf6"
+    },
+    {
+      "component": "date-picker",
+      "symbol": "DatePicker",
+      "modelDigest": "efe6ee1704bcfdd921aefd2a33601d5193d45c82454eadc21af9261b848e1bc6"
+    },
+    {
+      "component": "date-range-picker",
+      "symbol": "DateRangePicker",
+      "modelDigest": "24c51f801cb83e8ae05a575e5e3e012c1f46065f0d1fda618759efe36487bc38"
+    },
+    {
+      "component": "dialog",
+      "symbol": "Dialog",
+      "modelDigest": "7f6bdd127570c71956f3e4a345c1dbc0fa7bbc62e2a653d6239a37b232cbf01f"
+    },
+    {
+      "component": "dropdown-menu",
+      "symbol": "DropdownMenu",
+      "modelDigest": "4af0c8a7d7b8b60e856eaff59dc37b9cf13972ebeb4a5efd3e6776a353898221"
+    },
+    {
+      "component": "empty",
+      "symbol": "Empty",
+      "modelDigest": "807df579a4b5811636f6c8ae3fbc56d8907ba572d3a57cf9b47ea9f266a81eca"
+    },
+    {
+      "component": "field",
+      "symbol": "Field",
+      "modelDigest": "c8c1c62130c1f34d0061c3ea6adadfe4728a10920f9906960684ff48e50325c7"
+    },
+    {
+      "component": "grid",
+      "symbol": "Grid",
+      "modelDigest": "9dbbb8c1edc23a0a1b2ed65add8ac4c1a675b5b9f0afbdb9eae72871c290ace3"
+    },
+    {
+      "component": "grid-item",
+      "symbol": "GridItem",
+      "modelDigest": "914b6bbf31750fa0d8ea618a40c6abab812fc940fed7557bc9b8630e58fe76d7"
+    },
+    {
+      "component": "input",
+      "symbol": "Input",
+      "modelDigest": "5425763a958aaba88a608179f3dd53d1f9651a0bb15a6c4d82190bf83c5f9512"
+    },
+    {
+      "component": "input-area",
+      "symbol": "InputArea",
+      "modelDigest": "59711469ba9cb63d7177a2ef83d87ae8fdd8835dab30e06846284b0d7497f1c1"
+    },
+    {
+      "component": "input-group",
+      "symbol": "InputGroup",
+      "modelDigest": "723d817c6c81e88062ee871968eac6318dc1176c7b9e92c407d7f7a29445d8c3"
+    },
+    {
+      "component": "label",
+      "symbol": "Label",
+      "modelDigest": "a14b8ca4ef389e6247d422e71305289cda06eeb21a5ec5a1f49f196a6cca012f"
+    },
+    {
+      "component": "layer-card",
+      "symbol": "LayerCard",
+      "modelDigest": "0863b724219652fb6b34a5c3bc5564e8fc766a990f62178c6a66e5f17aa8ae1f"
+    },
+    {
+      "component": "link",
+      "symbol": "Link",
+      "modelDigest": "c6f0fbd6318e25df8755e6c0053fe1d74c23861e6bcc3f9256588ac62b9fa195"
+    },
+    {
+      "component": "loader",
+      "symbol": "Loader",
+      "modelDigest": "8c761d6a326088b816393ffb81fd67e64ad97a3299d323ad3078a93acebc0730"
+    },
+    {
+      "component": "menu-bar",
+      "symbol": "MenuBar",
+      "modelDigest": "40c08fc1e03b3a7d723ec35135cb4cf3a2605d12368398588dcda6818ce453ea"
+    },
+    {
+      "component": "meter",
+      "symbol": "Meter",
+      "modelDigest": "2201de1a1ed8a66d0925c6dae8b6b3197097ad332ed86e9b694f8d7383c8c284"
+    },
+    {
+      "component": "pagination",
+      "symbol": "Pagination",
+      "modelDigest": "8a03b02a4e86e5ee4971e869b775b7efd73bc7e61116c5e794612f2402b7dd2d"
+    },
+    {
+      "component": "popover",
+      "symbol": "Popover",
+      "modelDigest": "ad3f10680d31c621c1bc54e0a910834f60fbc9d5776de398d94abac24dc0d45d"
+    },
+    {
+      "component": "radio",
+      "symbol": "Radio",
+      "modelDigest": "0f71542a2bd3b8e5809f5dbb979a7fe2448e19e4f007cced41a22cbc5ef4cba9"
+    },
+    {
+      "component": "select",
+      "symbol": "Select",
+      "modelDigest": "3f2897eb8908155ffa6e7d283e13a1cb3e8fc78e30a7b8fe0b1e7bd26f839f11"
+    },
+    {
+      "component": "sensitive-input",
+      "symbol": "SensitiveInput",
+      "modelDigest": "9f0862f5064e4584c2616703c9f1cd80330b5ef71dee9361752cc32841164461"
+    },
+    {
+      "component": "sidebar",
+      "symbol": "Sidebar",
+      "modelDigest": "4c801e32de9aeeb481f09910a3cf18fe74e2893bb998ef9d4abdf950ffda4b13"
+    },
+    {
+      "component": "surface",
+      "symbol": "Surface",
+      "modelDigest": "ce6505b3ce28964f1d8bb565e8a04a6c23ab186f8a5afc3a83dc631e65c3914e"
+    },
+    {
+      "component": "switch",
+      "symbol": "Switch",
+      "modelDigest": "ed2dc968d94168f193e43c4ace0c4c5a0eef92e88c8bbe1a3e168bf1f2b424b9"
+    },
+    {
+      "component": "table",
+      "symbol": "Table",
+      "modelDigest": "2a86761805e0e78f84a2b578b9b43656181ffd9f47ad91f4c17c81f6977c99c7"
+    },
+    {
+      "component": "table-of-contents",
+      "symbol": "TableOfContents",
+      "modelDigest": "7070aecae3ff837a6f60e90d4080694b57defbff08207b8fa4e0e8a96b892b94"
+    },
+    {
+      "component": "tabs",
+      "symbol": "Tabs",
+      "modelDigest": "480d0ca0dc8311b3321bb1c078c9277118ed399fcc4ececa5b561d5b695a3336"
+    },
+    {
+      "component": "text",
+      "symbol": "Text",
+      "modelDigest": "60219ad3fa185b8a9db3e82cc4fc77b1b0683b2881bcf6b0460646bb320e67c2"
+    },
+    {
+      "component": "toasty",
+      "symbol": "Toasty",
+      "modelDigest": "96819ff5ff77c94bea48a81f92da6a4857acc3495fbbd3f4eb7703e24db317d6"
+    }
   ],
   "exports": [
     ".",
@@ -89,8 +253,643 @@
     "./tabs",
     "./text",
     "./toasty",
+    "./autocomplete.content",
+    "./autocomplete.input-group",
+    "./autocomplete.item",
+    "./autocomplete.list",
+    "./breadcrumbs.current",
+    "./breadcrumbs.link",
+    "./breadcrumbs.separator",
+    "./combobox.content",
+    "./combobox.item",
+    "./combobox.list",
+    "./combobox.trigger-input",
+    "./command-palette.highlighted-text",
+    "./command-palette.input",
+    "./command-palette.item",
+    "./command-palette.list",
+    "./command-palette.root",
+    "./dialog.close",
+    "./dialog.description",
+    "./dialog.root",
+    "./dialog.title",
+    "./dialog.trigger",
+    "./dropdown-menu.content",
+    "./dropdown-menu.item",
+    "./dropdown-menu.sub",
+    "./dropdown-menu.sub-content",
+    "./dropdown-menu.sub-trigger",
+    "./dropdown-menu.trigger",
+    "./field.native-input",
+    "./input-group.addon",
+    "./input-group.button",
+    "./input-group.input",
+    "./input-group.suffix",
+    "./layer-card.primary",
+    "./layer-card.secondary",
+    "./popover.close",
+    "./popover.content",
+    "./popover.description",
+    "./popover.title",
+    "./popover.trigger",
+    "./select.option",
+    "./sidebar.collapsible",
+    "./sidebar.collapsible-content",
+    "./sidebar.content",
+    "./sidebar.footer",
+    "./sidebar.group",
+    "./sidebar.group-label",
+    "./sidebar.header",
+    "./sidebar.menu",
+    "./sidebar.menu-button",
+    "./sidebar.provider",
+    "./sidebar.resize-handle",
+    "./sidebar.sliding-view",
+    "./sidebar.sliding-views",
+    "./sidebar.trigger",
+    "./table.body",
+    "./table.cell",
+    "./table.head",
+    "./table.header",
+    "./table.row",
+    "./table-of-contents.group",
+    "./table-of-contents.item",
+    "./table-of-contents.list",
+    "./table-of-contents.title",
     "./styles.css",
     "./tokens.css",
     "./manifest"
-  ]
+  ],
+  "compoundExports": {
+    "schemaVersion": "kumo.compound-exports/v1",
+    "paths": [
+      {
+        "root": "Autocomplete",
+        "path": "Content",
+        "binding": "Autocomplete.Content",
+        "symbol": "AutocompleteContent",
+        "subpath": "./autocomplete.content",
+        "file": "package/components/autocomplete.content.js",
+        "types": "package/components/autocomplete.content.d.ts"
+      },
+      {
+        "root": "Autocomplete",
+        "path": "InputGroup",
+        "binding": "Autocomplete.InputGroup",
+        "symbol": "AutocompleteInputGroup",
+        "subpath": "./autocomplete.input-group",
+        "file": "package/components/autocomplete.input-group.js",
+        "types": "package/components/autocomplete.input-group.d.ts"
+      },
+      {
+        "root": "Autocomplete",
+        "path": "Item",
+        "binding": "Autocomplete.Item",
+        "symbol": "AutocompleteItem",
+        "subpath": "./autocomplete.item",
+        "file": "package/components/autocomplete.item.js",
+        "types": "package/components/autocomplete.item.d.ts"
+      },
+      {
+        "root": "Autocomplete",
+        "path": "List",
+        "binding": "Autocomplete.List",
+        "symbol": "AutocompleteList",
+        "subpath": "./autocomplete.list",
+        "file": "package/components/autocomplete.list.js",
+        "types": "package/components/autocomplete.list.d.ts"
+      },
+      {
+        "root": "Breadcrumbs",
+        "path": "Current",
+        "binding": "Breadcrumbs.Current",
+        "symbol": "BreadcrumbsCurrent",
+        "subpath": "./breadcrumbs.current",
+        "file": "package/components/breadcrumbs.current.js",
+        "types": "package/components/breadcrumbs.current.d.ts"
+      },
+      {
+        "root": "Breadcrumbs",
+        "path": "Link",
+        "binding": "Breadcrumbs.Link",
+        "symbol": "BreadcrumbsLink",
+        "subpath": "./breadcrumbs.link",
+        "file": "package/components/breadcrumbs.link.js",
+        "types": "package/components/breadcrumbs.link.d.ts"
+      },
+      {
+        "root": "Breadcrumbs",
+        "path": "Separator",
+        "binding": "Breadcrumbs.Separator",
+        "symbol": "BreadcrumbsSeparator",
+        "subpath": "./breadcrumbs.separator",
+        "file": "package/components/breadcrumbs.separator.js",
+        "types": "package/components/breadcrumbs.separator.d.ts"
+      },
+      {
+        "root": "Combobox",
+        "path": "Content",
+        "binding": "Combobox.Content",
+        "symbol": "ComboboxContent",
+        "subpath": "./combobox.content",
+        "file": "package/components/combobox.content.js",
+        "types": "package/components/combobox.content.d.ts"
+      },
+      {
+        "root": "Combobox",
+        "path": "Item",
+        "binding": "Combobox.Item",
+        "symbol": "ComboboxItem",
+        "subpath": "./combobox.item",
+        "file": "package/components/combobox.item.js",
+        "types": "package/components/combobox.item.d.ts"
+      },
+      {
+        "root": "Combobox",
+        "path": "List",
+        "binding": "Combobox.List",
+        "symbol": "ComboboxList",
+        "subpath": "./combobox.list",
+        "file": "package/components/combobox.list.js",
+        "types": "package/components/combobox.list.d.ts"
+      },
+      {
+        "root": "Combobox",
+        "path": "TriggerInput",
+        "binding": "Combobox.TriggerInput",
+        "symbol": "ComboboxTriggerInput",
+        "subpath": "./combobox.trigger-input",
+        "file": "package/components/combobox.trigger-input.js",
+        "types": "package/components/combobox.trigger-input.d.ts"
+      },
+      {
+        "root": "CommandPalette",
+        "path": "HighlightedText",
+        "binding": "CommandPalette.HighlightedText",
+        "symbol": "CommandPaletteHighlightedText",
+        "subpath": "./command-palette.highlighted-text",
+        "file": "package/components/command-palette.highlighted-text.js",
+        "types": "package/components/command-palette.highlighted-text.d.ts"
+      },
+      {
+        "root": "CommandPalette",
+        "path": "Input",
+        "binding": "CommandPalette.Input",
+        "symbol": "CommandPaletteInput",
+        "subpath": "./command-palette.input",
+        "file": "package/components/command-palette.input.js",
+        "types": "package/components/command-palette.input.d.ts"
+      },
+      {
+        "root": "CommandPalette",
+        "path": "Item",
+        "binding": "CommandPalette.Item",
+        "symbol": "CommandPaletteItem",
+        "subpath": "./command-palette.item",
+        "file": "package/components/command-palette.item.js",
+        "types": "package/components/command-palette.item.d.ts"
+      },
+      {
+        "root": "CommandPalette",
+        "path": "List",
+        "binding": "CommandPalette.List",
+        "symbol": "CommandPaletteList",
+        "subpath": "./command-palette.list",
+        "file": "package/components/command-palette.list.js",
+        "types": "package/components/command-palette.list.d.ts"
+      },
+      {
+        "root": "CommandPalette",
+        "path": "Root",
+        "binding": "CommandPalette.Root",
+        "symbol": "CommandPaletteRoot",
+        "subpath": "./command-palette.root",
+        "file": "package/components/command-palette.root.js",
+        "types": "package/components/command-palette.root.d.ts"
+      },
+      {
+        "root": "Dialog",
+        "path": "Close",
+        "binding": "Dialog.Close",
+        "symbol": "DialogClose",
+        "subpath": "./dialog.close",
+        "file": "package/components/dialog.close.js",
+        "types": "package/components/dialog.close.d.ts"
+      },
+      {
+        "root": "Dialog",
+        "path": "Description",
+        "binding": "Dialog.Description",
+        "symbol": "DialogDescription",
+        "subpath": "./dialog.description",
+        "file": "package/components/dialog.description.js",
+        "types": "package/components/dialog.description.d.ts"
+      },
+      {
+        "root": "Dialog",
+        "path": "Root",
+        "binding": "Dialog.Root",
+        "symbol": "DialogRoot",
+        "subpath": "./dialog.root",
+        "file": "package/components/dialog.root.js",
+        "types": "package/components/dialog.root.d.ts"
+      },
+      {
+        "root": "Dialog",
+        "path": "Title",
+        "binding": "Dialog.Title",
+        "symbol": "DialogTitle",
+        "subpath": "./dialog.title",
+        "file": "package/components/dialog.title.js",
+        "types": "package/components/dialog.title.d.ts"
+      },
+      {
+        "root": "Dialog",
+        "path": "Trigger",
+        "binding": "Dialog.Trigger",
+        "symbol": "DialogTrigger",
+        "subpath": "./dialog.trigger",
+        "file": "package/components/dialog.trigger.js",
+        "types": "package/components/dialog.trigger.d.ts"
+      },
+      {
+        "root": "DropdownMenu",
+        "path": "Content",
+        "binding": "DropdownMenu.Content",
+        "symbol": "DropdownMenuContent",
+        "subpath": "./dropdown-menu.content",
+        "file": "package/components/dropdown-menu.content.js",
+        "types": "package/components/dropdown-menu.content.d.ts"
+      },
+      {
+        "root": "DropdownMenu",
+        "path": "Item",
+        "binding": "DropdownMenu.Item",
+        "symbol": "DropdownMenuItem",
+        "subpath": "./dropdown-menu.item",
+        "file": "package/components/dropdown-menu.item.js",
+        "types": "package/components/dropdown-menu.item.d.ts"
+      },
+      {
+        "root": "DropdownMenu",
+        "path": "Sub",
+        "binding": "DropdownMenu.Sub",
+        "symbol": "DropdownMenuSub",
+        "subpath": "./dropdown-menu.sub",
+        "file": "package/components/dropdown-menu.sub.js",
+        "types": "package/components/dropdown-menu.sub.d.ts"
+      },
+      {
+        "root": "DropdownMenu",
+        "path": "SubContent",
+        "binding": "DropdownMenu.SubContent",
+        "symbol": "DropdownMenuSubContent",
+        "subpath": "./dropdown-menu.sub-content",
+        "file": "package/components/dropdown-menu.sub-content.js",
+        "types": "package/components/dropdown-menu.sub-content.d.ts"
+      },
+      {
+        "root": "DropdownMenu",
+        "path": "SubTrigger",
+        "binding": "DropdownMenu.SubTrigger",
+        "symbol": "DropdownMenuSubTrigger",
+        "subpath": "./dropdown-menu.sub-trigger",
+        "file": "package/components/dropdown-menu.sub-trigger.js",
+        "types": "package/components/dropdown-menu.sub-trigger.d.ts"
+      },
+      {
+        "root": "DropdownMenu",
+        "path": "Trigger",
+        "binding": "DropdownMenu.Trigger",
+        "symbol": "DropdownMenuTrigger",
+        "subpath": "./dropdown-menu.trigger",
+        "file": "package/components/dropdown-menu.trigger.js",
+        "types": "package/components/dropdown-menu.trigger.d.ts"
+      },
+      {
+        "root": "Field",
+        "path": "NativeInput",
+        "binding": "Field.NativeInput",
+        "symbol": "FieldNativeInput",
+        "subpath": "./field.native-input",
+        "file": "package/components/field.native-input.js",
+        "types": "package/components/field.native-input.d.ts"
+      },
+      {
+        "root": "InputGroup",
+        "path": "Addon",
+        "binding": "InputGroup.Addon",
+        "symbol": "InputGroupAddon",
+        "subpath": "./input-group.addon",
+        "file": "package/components/input-group.addon.js",
+        "types": "package/components/input-group.addon.d.ts"
+      },
+      {
+        "root": "InputGroup",
+        "path": "Button",
+        "binding": "InputGroup.Button",
+        "symbol": "InputGroupButton",
+        "subpath": "./input-group.button",
+        "file": "package/components/input-group.button.js",
+        "types": "package/components/input-group.button.d.ts"
+      },
+      {
+        "root": "InputGroup",
+        "path": "Input",
+        "binding": "InputGroup.Input",
+        "symbol": "InputGroupInput",
+        "subpath": "./input-group.input",
+        "file": "package/components/input-group.input.js",
+        "types": "package/components/input-group.input.d.ts"
+      },
+      {
+        "root": "InputGroup",
+        "path": "Suffix",
+        "binding": "InputGroup.Suffix",
+        "symbol": "InputGroupSuffix",
+        "subpath": "./input-group.suffix",
+        "file": "package/components/input-group.suffix.js",
+        "types": "package/components/input-group.suffix.d.ts"
+      },
+      {
+        "root": "LayerCard",
+        "path": "Primary",
+        "binding": "LayerCard.Primary",
+        "symbol": "LayerCardPrimary",
+        "subpath": "./layer-card.primary",
+        "file": "package/components/layer-card.primary.js",
+        "types": "package/components/layer-card.primary.d.ts"
+      },
+      {
+        "root": "LayerCard",
+        "path": "Secondary",
+        "binding": "LayerCard.Secondary",
+        "symbol": "LayerCardSecondary",
+        "subpath": "./layer-card.secondary",
+        "file": "package/components/layer-card.secondary.js",
+        "types": "package/components/layer-card.secondary.d.ts"
+      },
+      {
+        "root": "Popover",
+        "path": "Close",
+        "binding": "Popover.Close",
+        "symbol": "PopoverClose",
+        "subpath": "./popover.close",
+        "file": "package/components/popover.close.js",
+        "types": "package/components/popover.close.d.ts"
+      },
+      {
+        "root": "Popover",
+        "path": "Content",
+        "binding": "Popover.Content",
+        "symbol": "PopoverContent",
+        "subpath": "./popover.content",
+        "file": "package/components/popover.content.js",
+        "types": "package/components/popover.content.d.ts"
+      },
+      {
+        "root": "Popover",
+        "path": "Description",
+        "binding": "Popover.Description",
+        "symbol": "PopoverDescription",
+        "subpath": "./popover.description",
+        "file": "package/components/popover.description.js",
+        "types": "package/components/popover.description.d.ts"
+      },
+      {
+        "root": "Popover",
+        "path": "Title",
+        "binding": "Popover.Title",
+        "symbol": "PopoverTitle",
+        "subpath": "./popover.title",
+        "file": "package/components/popover.title.js",
+        "types": "package/components/popover.title.d.ts"
+      },
+      {
+        "root": "Popover",
+        "path": "Trigger",
+        "binding": "Popover.Trigger",
+        "symbol": "PopoverTrigger",
+        "subpath": "./popover.trigger",
+        "file": "package/components/popover.trigger.js",
+        "types": "package/components/popover.trigger.d.ts"
+      },
+      {
+        "root": "Select",
+        "path": "Option",
+        "binding": "Select.Option",
+        "symbol": "SelectOption",
+        "subpath": "./select.option",
+        "file": "package/components/select.option.js",
+        "types": "package/components/select.option.d.ts"
+      },
+      {
+        "root": "Sidebar",
+        "path": "Collapsible",
+        "binding": "Sidebar.Collapsible",
+        "symbol": "SidebarCollapsible",
+        "subpath": "./sidebar.collapsible",
+        "file": "package/components/sidebar.collapsible.js",
+        "types": "package/components/sidebar.collapsible.d.ts"
+      },
+      {
+        "root": "Sidebar",
+        "path": "CollapsibleContent",
+        "binding": "Sidebar.CollapsibleContent",
+        "symbol": "SidebarCollapsibleContent",
+        "subpath": "./sidebar.collapsible-content",
+        "file": "package/components/sidebar.collapsible-content.js",
+        "types": "package/components/sidebar.collapsible-content.d.ts"
+      },
+      {
+        "root": "Sidebar",
+        "path": "Content",
+        "binding": "Sidebar.Content",
+        "symbol": "SidebarContent",
+        "subpath": "./sidebar.content",
+        "file": "package/components/sidebar.content.js",
+        "types": "package/components/sidebar.content.d.ts"
+      },
+      {
+        "root": "Sidebar",
+        "path": "Footer",
+        "binding": "Sidebar.Footer",
+        "symbol": "SidebarFooter",
+        "subpath": "./sidebar.footer",
+        "file": "package/components/sidebar.footer.js",
+        "types": "package/components/sidebar.footer.d.ts"
+      },
+      {
+        "root": "Sidebar",
+        "path": "Group",
+        "binding": "Sidebar.Group",
+        "symbol": "SidebarGroup",
+        "subpath": "./sidebar.group",
+        "file": "package/components/sidebar.group.js",
+        "types": "package/components/sidebar.group.d.ts"
+      },
+      {
+        "root": "Sidebar",
+        "path": "GroupLabel",
+        "binding": "Sidebar.GroupLabel",
+        "symbol": "SidebarGroupLabel",
+        "subpath": "./sidebar.group-label",
+        "file": "package/components/sidebar.group-label.js",
+        "types": "package/components/sidebar.group-label.d.ts"
+      },
+      {
+        "root": "Sidebar",
+        "path": "Header",
+        "binding": "Sidebar.Header",
+        "symbol": "SidebarHeader",
+        "subpath": "./sidebar.header",
+        "file": "package/components/sidebar.header.js",
+        "types": "package/components/sidebar.header.d.ts"
+      },
+      {
+        "root": "Sidebar",
+        "path": "Menu",
+        "binding": "Sidebar.Menu",
+        "symbol": "SidebarMenu",
+        "subpath": "./sidebar.menu",
+        "file": "package/components/sidebar.menu.js",
+        "types": "package/components/sidebar.menu.d.ts"
+      },
+      {
+        "root": "Sidebar",
+        "path": "MenuButton",
+        "binding": "Sidebar.MenuButton",
+        "symbol": "SidebarMenuButton",
+        "subpath": "./sidebar.menu-button",
+        "file": "package/components/sidebar.menu-button.js",
+        "types": "package/components/sidebar.menu-button.d.ts"
+      },
+      {
+        "root": "Sidebar",
+        "path": "Provider",
+        "binding": "Sidebar.Provider",
+        "symbol": "SidebarProvider",
+        "subpath": "./sidebar.provider",
+        "file": "package/components/sidebar.provider.js",
+        "types": "package/components/sidebar.provider.d.ts"
+      },
+      {
+        "root": "Sidebar",
+        "path": "ResizeHandle",
+        "binding": "Sidebar.ResizeHandle",
+        "symbol": "SidebarResizeHandle",
+        "subpath": "./sidebar.resize-handle",
+        "file": "package/components/sidebar.resize-handle.js",
+        "types": "package/components/sidebar.resize-handle.d.ts"
+      },
+      {
+        "root": "Sidebar",
+        "path": "SlidingView",
+        "binding": "Sidebar.SlidingView",
+        "symbol": "SidebarSlidingView",
+        "subpath": "./sidebar.sliding-view",
+        "file": "package/components/sidebar.sliding-view.js",
+        "types": "package/components/sidebar.sliding-view.d.ts"
+      },
+      {
+        "root": "Sidebar",
+        "path": "SlidingViews",
+        "binding": "Sidebar.SlidingViews",
+        "symbol": "SidebarSlidingViews",
+        "subpath": "./sidebar.sliding-views",
+        "file": "package/components/sidebar.sliding-views.js",
+        "types": "package/components/sidebar.sliding-views.d.ts"
+      },
+      {
+        "root": "Sidebar",
+        "path": "Trigger",
+        "binding": "Sidebar.Trigger",
+        "symbol": "SidebarTrigger",
+        "subpath": "./sidebar.trigger",
+        "file": "package/components/sidebar.trigger.js",
+        "types": "package/components/sidebar.trigger.d.ts"
+      },
+      {
+        "root": "Table",
+        "path": "Body",
+        "binding": "Table.Body",
+        "symbol": "TableBody",
+        "subpath": "./table.body",
+        "file": "package/components/table.body.js",
+        "types": "package/components/table.body.d.ts"
+      },
+      {
+        "root": "Table",
+        "path": "Cell",
+        "binding": "Table.Cell",
+        "symbol": "TableCell",
+        "subpath": "./table.cell",
+        "file": "package/components/table.cell.js",
+        "types": "package/components/table.cell.d.ts"
+      },
+      {
+        "root": "Table",
+        "path": "Head",
+        "binding": "Table.Head",
+        "symbol": "TableHead",
+        "subpath": "./table.head",
+        "file": "package/components/table.head.js",
+        "types": "package/components/table.head.d.ts"
+      },
+      {
+        "root": "Table",
+        "path": "Header",
+        "binding": "Table.Header",
+        "symbol": "TableHeader",
+        "subpath": "./table.header",
+        "file": "package/components/table.header.js",
+        "types": "package/components/table.header.d.ts"
+      },
+      {
+        "root": "Table",
+        "path": "Row",
+        "binding": "Table.Row",
+        "symbol": "TableRow",
+        "subpath": "./table.row",
+        "file": "package/components/table.row.js",
+        "types": "package/components/table.row.d.ts"
+      },
+      {
+        "root": "TableOfContents",
+        "path": "Group",
+        "binding": "TableOfContents.Group",
+        "symbol": "TableOfContentsGroup",
+        "subpath": "./table-of-contents.group",
+        "file": "package/components/table-of-contents.group.js",
+        "types": "package/components/table-of-contents.group.d.ts"
+      },
+      {
+        "root": "TableOfContents",
+        "path": "Item",
+        "binding": "TableOfContents.Item",
+        "symbol": "TableOfContentsItem",
+        "subpath": "./table-of-contents.item",
+        "file": "package/components/table-of-contents.item.js",
+        "types": "package/components/table-of-contents.item.d.ts"
+      },
+      {
+        "root": "TableOfContents",
+        "path": "List",
+        "binding": "TableOfContents.List",
+        "symbol": "TableOfContentsList",
+        "subpath": "./table-of-contents.list",
+        "file": "package/components/table-of-contents.list.js",
+        "types": "package/components/table-of-contents.list.d.ts"
+      },
+      {
+        "root": "TableOfContents",
+        "path": "Title",
+        "binding": "TableOfContents.Title",
+        "symbol": "TableOfContentsTitle",
+        "subpath": "./table-of-contents.title",
+        "file": "package/components/table-of-contents.title.js",
+        "types": "package/components/table-of-contents.title.d.ts"
+      }
+    ]
+  }
 }

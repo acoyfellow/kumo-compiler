@@ -10,6 +10,9 @@ test('Vue package export surface is independently proven', async () => {
   assert.equal(r.package, '@acoyfellow/kumo-vue@0.0.1');
   assert.equal(r.exportSurface.componentCount, 41);
   assert.equal(r.exportSurface.rootImports, 'passed');
+  assert.equal(r.exportSurface.compoundPathCount, 63);
+  assert.equal(r.exportSurface.modelBindings, 'passed');
+  assert.equal(r.exportSurface.compoundPaths, 'passed');
   assert.equal(r.exportSurface.subpathImports, 'passed');
   assert.equal(r.exportSurface.types, 'passed');
   assert.equal(r.exportSurface.noWorkspaceImports, 'passed');
