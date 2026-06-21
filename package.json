@@ -48,6 +48,7 @@
     "libraries:gallery": "node scripts/libraries/build-gallery.mjs",
     "examples:build": "node scripts/build-examples.mjs",
     "observable:conformance": "node scripts/observable-conformance.mjs",
+    "progress:build": "node scripts/build-public-progress.mjs",
     "release:github": "node scripts/github-release.mjs",
     "release:github:verify": "node scripts/verify-github-release.mjs",
     "release:npm:preflight": "node scripts/npm-publish-preflight.mjs",
@@ -57,7 +58,7 @@
     "deploy": "npm run deploy:prepare && node scripts/deploy.mjs --execute",
     "rollback:dry-run": "node scripts/rollback.mjs",
     "rollback": "node scripts/rollback.mjs --execute",
-    "release:check": "npm run release:install && npm run libraries:build && npm run libraries:gallery && npm run examples:build && npm run release:github && npm run release:github:verify && npm run release:npm:preflight && npm test && npm run artifact:check && npm run package:verify && npm run evidence:validate && npm run build:migration-status && npm run deploy:prepare && npm run catalog:validate && npm run docs:links",
+    "release:check": "npm run release:install && npm run libraries:build && npm run libraries:gallery && npm run examples:build && npm run progress:build && npm run release:github && npm run release:github:verify && npm run release:npm:preflight && npm test && npm run artifact:check && npm run package:verify && npm run evidence:validate && npm run build:migration-status && npm run deploy:prepare && npm run catalog:validate && npm run docs:links",
     "workflow:plan": "node scripts/workflow-plan.mjs"
   },
   "keywords": [],
