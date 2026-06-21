@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "kumo.failure-diagnostic/v1",
+  "status": "diagnostic",
+  "fingerprint": "semantic-variant-consumer-children-empty-ssr",
+  "vector": "button/default-native",
+  "expected": {
+    "rootText": "Save"
+  },
+  "observed": {
+    "rootText": ""
+  },
+  "frameworks": [
+    {
+      "framework": "vue",
+      "attempts": 2,
+      "terrariumRuns": [
+        "ter_20260621214020070_ql6kni",
+        "ter_20260621214415912_mel0i1",
+        "ter_20260621214645814_mbf6ry"
+      ],
+      "diagnosis": "Canonical children was passed as a prop, but Vue reserves consumer content for slots; the semantic predicate fell through to the fallback branch."
+    },
+    {
+      "framework": "svelte",
+      "attempts": 2,
+      "terrariumRuns": [
+        "ter_20260621214020070_mhns3q",
+        "ter_20260621214355592_1otig2",
+        "ter_20260621214645814_14nk6m"
+      ],
+      "diagnosis": "Canonical consumer children was not represented as a Svelte snippet during SSR, leaving semantic root text empty."
+    }
+  ],
+  "promotion": {
+    "cause": "shared-content-binding",
+    "reason": "The identical semantic consumer-content failure occurred in two framework emitters after two bounded attempts."
+  }
+}
