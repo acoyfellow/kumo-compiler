@@ -198,7 +198,7 @@
             "state": {
               "open": true,
               "positionMethod": "fixed",
-              "side": "top",
+              "side": "bottom",
               "align": "start"
             },
             "events": [
@@ -310,6 +310,11 @@
       "field": "portalHydration",
       "status": "unknown",
       "reason": "Custom/provider/body container precedence is declared; SSR open markup, portal relocation, generated ID stability, warnings, and node preservation remain unexecuted."
+    },
+    {
+      "field": "collisionPlacement",
+      "status": "unknown",
+      "reason": "Base UI may flip the requested side at viewport boundaries; this Chrome fixture observes bottom when top collides."
     }
   ]
 }
