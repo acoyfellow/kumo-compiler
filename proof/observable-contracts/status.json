@@ -15,11 +15,11 @@
     ]
   },
   "counts": {
-    "contracted": 19,
-    "pending": 22
+    "contracted": 25,
+    "pending": 16
   },
-  "vectorCount": 50,
-  "interactiveVectorCount": 19,
+  "vectorCount": 66,
+  "interactiveVectorCount": 31,
   "components": [
     {
       "id": "select",
@@ -86,56 +86,92 @@
     {
       "id": "field",
       "family": "form",
-      "status": "pending",
-      "contract": null,
-      "vectors": 0,
-      "interactiveVectors": 0,
-      "unknowns": []
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/field.json",
+      "vectors": 1,
+      "interactiveVectors": 1,
+      "unknowns": [
+        {
+          "field": "inheritedVendorBehavior",
+          "status": "unknown",
+          "reason": "Base UI event details, autofill/password managers, IME, RTL, selection ranges, clipboard rejection, and platform accessibility-tree differences remain inherited/vendor unknowns."
+        }
+      ]
     },
     {
       "id": "input",
       "family": "form",
-      "status": "pending",
-      "contract": null,
-      "vectors": 0,
-      "interactiveVectors": 0,
-      "unknowns": []
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/input.json",
+      "vectors": 3,
+      "interactiveVectors": 2,
+      "unknowns": [
+        {
+          "field": "inheritedVendorBehavior",
+          "status": "unknown",
+          "reason": "Base UI event details, autofill/password managers, IME, RTL, selection ranges, clipboard rejection, and platform accessibility-tree differences remain inherited/vendor unknowns."
+        }
+      ]
     },
     {
       "id": "input-group",
       "family": "form",
-      "status": "pending",
-      "contract": null,
-      "vectors": 0,
-      "interactiveVectors": 0,
-      "unknowns": []
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/input-group.json",
+      "vectors": 3,
+      "interactiveVectors": 3,
+      "unknowns": [
+        {
+          "field": "inheritedVendorBehavior",
+          "status": "unknown",
+          "reason": "Base UI event details, autofill/password managers, IME, RTL, selection ranges, clipboard rejection, and platform accessibility-tree differences remain inherited/vendor unknowns."
+        }
+      ]
     },
     {
       "id": "input-area",
       "family": "form",
-      "status": "pending",
-      "contract": null,
-      "vectors": 0,
-      "interactiveVectors": 0,
-      "unknowns": []
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/input-area.json",
+      "vectors": 3,
+      "interactiveVectors": 2,
+      "unknowns": [
+        {
+          "field": "inheritedVendorBehavior",
+          "status": "unknown",
+          "reason": "Base UI event details, autofill/password managers, IME, RTL, selection ranges, clipboard rejection, and platform accessibility-tree differences remain inherited/vendor unknowns."
+        }
+      ]
     },
     {
       "id": "sensitive-input",
       "family": "form",
-      "status": "pending",
-      "contract": null,
-      "vectors": 0,
-      "interactiveVectors": 0,
-      "unknowns": []
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/sensitive-input.json",
+      "vectors": 3,
+      "interactiveVectors": 2,
+      "unknowns": [
+        {
+          "field": "inheritedVendorBehavior",
+          "status": "unknown",
+          "reason": "Base UI event details, autofill/password managers, IME, RTL, selection ranges, clipboard rejection, and platform accessibility-tree differences remain inherited/vendor unknowns."
+        }
+      ]
     },
     {
       "id": "clipboard-text",
       "family": "form",
-      "status": "pending",
-      "contract": null,
-      "vectors": 0,
-      "interactiveVectors": 0,
-      "unknowns": []
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/clipboard-text.json",
+      "vectors": 3,
+      "interactiveVectors": 2,
+      "unknowns": [
+        {
+          "field": "inheritedVendorBehavior",
+          "status": "unknown",
+          "reason": "Base UI event details, autofill/password managers, IME, RTL, selection ranges, clipboard rejection, and platform accessibility-tree differences remain inherited/vendor unknowns."
+        }
+      ]
     },
     {
       "id": "tabs",
@@ -414,5 +450,5 @@
       "unknowns": []
     }
   ],
-  "digest": "9d9584d0175418dfdcfe8bd3c7701d21b6914cd2bdb76489bf584745d1998191"
+  "digest": "ad2776b92634fc1a5a5b84f08077862ca1dc9b2b85d6fa72f93dc2ed24ebb2fe"
 }
