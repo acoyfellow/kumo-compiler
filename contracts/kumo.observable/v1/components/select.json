@@ -306,7 +306,7 @@
         },
         {
           "type": "key",
-          "key": "é",
+          "key": "d",
           "selector": "button"
         },
         {
@@ -515,6 +515,11 @@
       "field": "crossBrowserStylesAssets",
       "status": "unknown",
       "reason": "Required Chromium, Firefox, WebKit, RTL, zoom, reduced motion, mobile/coarse pointer, stylesheet presence, icon loading, error/loading/Field variants, and animation reversal vectors have not run."
+    },
+    {
+      "field": "diacriticTypeahead",
+      "status": "unknown",
+      "reason": "Locale and diacritic normalization are inherited from Base UI; the executable vector uses deterministic ASCII typeahead."
     }
   ]
 }
