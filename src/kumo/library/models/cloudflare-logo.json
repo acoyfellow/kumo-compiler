@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "cloudflare-logo",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/cloudflare-logo.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "8b166a90ba62e7eb76fdfe42eff046ebfd95db73fa1f502ce4c6efe1eb6e28a0",
+      "runtimeSha256": "3122a65733a2eeeea6ac00c701a75016e3b9f666bbd797561140dda386712d8e"
+    },
+    "contractDigest": "b561e386f8396b4a23dc8e6837b5ca89341ccb3a9f1903578cbe75f65771f695"
+  },
+  "public": {
+    "symbol": "CloudflareLogo",
+    "exports": [
+      "CloudflareLogo",
+      "PoweredByCloudflare",
+      "generateCloudflareLogoSvg",
+      "KUMO_CLOUDFLARE_LOGO_VARIANTS",
+      "KUMO_CLOUDFLARE_LOGO_DEFAULT_VARIANTS"
+    ],
+    "subpath": "./components/cloudflare-logo"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "color",
+        "type": "color|black|white",
+        "required": false,
+        "default": "color",
+        "nativeForwarding": false,
+        "evidence": {
+          "enum": [
+            "color",
+            "black",
+            "white"
+          ]
+        }
+      },
+      {
+        "name": "variant",
+        "type": "glyph|full",
+        "required": false,
+        "default": "full",
+        "nativeForwarding": false,
+        "evidence": {
+          "enum": [
+            "glyph",
+            "full"
+          ]
+        }
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": false,
+    "slots": []
+  },
+  "emissions": {
+    "callbacks": [],
+    "models": []
+  },
+  "states": [],
+  "componentRoot": {
+    "semanticRoot": "svg",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "svg",
+    "aria": [
+      "role=\"img\"",
+      "aria-label=\"Cloudflare logo\""
+    ],
+    "focusable": false,
+    "keys": []
+  },
+  "dependencies": {
+    "styles": [],
+    "tokens": [],
+    "icons": [
+      "inline Cloudflare SVG paths"
+    ]
+  },
+  "capabilities": [
+    "static-element"
+  ],
+  "behavior": {
+    "transitions": [],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [],
+  "modelDigest": "9e98497511aceee1ddd8987f3a872ca6eec3147d1ffdaccb5bfe3064ab789c1c"
+}

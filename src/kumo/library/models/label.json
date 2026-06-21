@@ -1,0 +1,141 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "label",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/label.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "106f239ac8bc22129172b54edc1aba6c55d980f4330e0ba493b6a015d150c3f8",
+      "runtimeSha256": "bd8946b9b272850be200b2cf76dded6e71eba0db123acc4247d6ed13a33e95fd"
+    },
+    "contractDigest": "0f0582f732f16d3bd97c8cecf516b5a371980c2704888ed8d6b71f174cb53596"
+  },
+  "public": {
+    "symbol": "Label",
+    "exports": [
+      "Label",
+      "LabelProps",
+      "labelVariants",
+      "labelContentVariants",
+      "KUMO_LABEL_VARIANTS",
+      "KUMO_LABEL_DEFAULT_VARIANTS"
+    ],
+    "subpath": "./components/label"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "asContent",
+        "type": "boolean",
+        "required": false,
+        "default": false,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "boolean"
+        }
+      },
+      {
+        "name": "children",
+        "type": "unknown",
+        "required": true,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "required": true
+        }
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "htmlFor",
+        "type": "string",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "showOptional",
+        "type": "boolean",
+        "required": false,
+        "default": false,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "boolean"
+        }
+      },
+      {
+        "name": "tooltip",
+        "type": "ReactNode",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "ReactNode"
+        }
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": true,
+    "slots": []
+  },
+  "emissions": {
+    "callbacks": [],
+    "models": []
+  },
+  "states": [],
+  "componentRoot": {
+    "semanticRoot": "label",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "label",
+    "aria": [],
+    "focusable": false,
+    "keys": []
+  },
+  "dependencies": {
+    "styles": [
+      "m-0",
+      "text-base",
+      "font-medium",
+      "text-kumo-default",
+      "inline-flex",
+      "items-center",
+      "gap-1"
+    ],
+    "tokens": [
+      "text-base",
+      "text-kumo-default"
+    ],
+    "icons": []
+  },
+  "capabilities": [
+    "static-element",
+    "polymorphic",
+    "field-wiring"
+  ],
+  "behavior": {
+    "transitions": [],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [],
+  "modelDigest": "25b2d5a682093616612171ba1739a49cfcb165fa1aaa7ea810f46602b5f0bd84"
+}

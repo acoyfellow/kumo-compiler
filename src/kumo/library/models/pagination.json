@@ -1,0 +1,188 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "pagination",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/pagination.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "77edcec0d0034c3a20db1a7b28c866b064069002cd5882bde3dcb06aadab8a8d",
+      "runtimeSha256": "387d7219fd2a0e30d4891612d9f151fcf50a816de53bf9219ab2cc9ea89ceaf5"
+    },
+    "contractDigest": "51a1c22d61a7d01fb284cec181585b4d3133e0fcb5cbc39a1439c64130ef8587"
+  },
+  "public": {
+    "symbol": "Pagination",
+    "exports": [
+      "Pagination"
+    ],
+    "subpath": "./components/pagination"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "compound",
+        "type": "Info|PageSize|Controls|Separator",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "Info|PageSize|Controls|Separator"
+      },
+      {
+        "name": "controls",
+        "type": "full|simple",
+        "required": false,
+        "default": "full",
+        "nativeForwarding": false,
+        "evidence": "full|simple"
+      },
+      {
+        "name": "labels",
+        "type": "PaginationLabels",
+        "required": false,
+        "default": "English canonical labels",
+        "nativeForwarding": false,
+        "evidence": "PaginationLabels"
+      },
+      {
+        "name": "page",
+        "type": "number",
+        "required": false,
+        "default": 1,
+        "nativeForwarding": false,
+        "evidence": "number"
+      },
+      {
+        "name": "pageSelector",
+        "type": "input|dropdown",
+        "required": false,
+        "default": "input",
+        "nativeForwarding": false,
+        "evidence": "input|dropdown"
+      },
+      {
+        "name": "perPage",
+        "type": "number",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "number"
+      },
+      {
+        "name": "setPage",
+        "type": "callback",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "callback"
+      },
+      {
+        "name": "totalCount",
+        "type": "number",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "number"
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": false,
+    "slots": [
+      "compound"
+    ]
+  },
+  "emissions": {
+    "callbacks": [],
+    "models": [
+      "page"
+    ]
+  },
+  "states": [
+    {
+      "name": "editingPage",
+      "mode": "internal",
+      "initial": 1
+    },
+    {
+      "name": "maxPage",
+      "mode": "internal",
+      "initial": "ceil(totalCount/perPage)"
+    },
+    {
+      "name": "page",
+      "mode": "internal",
+      "initial": "controlled prop"
+    }
+  ],
+  "componentRoot": {
+    "semanticRoot": "div",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "div",
+    "aria": [
+      "nav landmark has configurable label",
+      "boundary controls are disabled",
+      "legacy info is polite atomic live region",
+      "page and page-size selectors have configurable labels"
+    ],
+    "focusable": true,
+    "keys": [
+      "Enter",
+      "Tab",
+      "ArrowUp",
+      "ArrowDown"
+    ]
+  },
+  "dependencies": {
+    "styles": [
+      "flex",
+      "items-center",
+      "gap-2",
+      "w-full"
+    ],
+    "tokens": [],
+    "icons": []
+  },
+  "capabilities": [
+    "controlled-state",
+    "native-input",
+    "clipboard/live-region",
+    "pagination"
+  ],
+  "behavior": {
+    "transitions": [
+      {
+        "action": "navigation trusted click",
+        "effect": "setPage receives bounded target"
+      },
+      {
+        "action": "page input Enter or blur",
+        "effect": "numeric value is clamped to [1,maxPage] and committed"
+      },
+      {
+        "action": "dropdown selection",
+        "effect": "selected numeric page is committed"
+      },
+      {
+        "action": "page-size selection",
+        "effect": "onChange receives numeric size"
+      }
+    ],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [
+    {
+      "field": "selectPopupPlatformPresentation",
+      "status": "unknown",
+      "reason": "Dropdown popup geometry, native accessibility projection, and keyboard details are inherited from the Kumo Select/Base UI implementation and browser; they are not guessed here."
+    }
+  ],
+  "modelDigest": "3b4961243c025fbce57b240aae0fbead7b1e9bdc3d076397ff7c922dd2757624"
+}

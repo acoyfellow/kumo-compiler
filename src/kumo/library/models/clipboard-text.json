@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "clipboard-text",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/clipboard-text.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "9774e9eeaf067d462722f721f4bed803448bfa9685deba9fc4517db31f277038",
+      "runtimeSha256": "8d9597f370c4f9bef95705d76df339a692552e8524c42e2e069930225b1a2794"
+    },
+    "contractDigest": "1a9749b6c0399605bf4030786d13ff98de3082204a6f73a4157477efe585f838"
+  },
+  "public": {
+    "symbol": "ClipboardText",
+    "exports": [
+      "ClipboardText"
+    ],
+    "subpath": "./components/clipboard-text"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "observable",
+        "type": "documented public props",
+        "required": false,
+        "default": null,
+        "nativeForwarding": true,
+        "evidence": "documented public props"
+      }
+    ],
+    "nativeAttributeForwarding": true
+  },
+  "composition": {
+    "children": false,
+    "slots": []
+  },
+  "emissions": {
+    "callbacks": [],
+    "models": []
+  },
+  "states": [
+    {
+      "name": "source",
+      "mode": "internal",
+      "initial": "props/native state"
+    }
+  ],
+  "componentRoot": {
+    "semanticRoot": "div",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "div",
+    "aria": [
+      "native and Field semantics observed in canonical Chrome"
+    ],
+    "focusable": true,
+    "keys": [
+      "Tab",
+      "Enter",
+      "Escape"
+    ]
+  },
+  "dependencies": {
+    "styles": [],
+    "tokens": [],
+    "icons": []
+  },
+  "capabilities": [
+    "native-input",
+    "field-wiring",
+    "clipboard/live-region"
+  ],
+  "behavior": {
+    "transitions": [
+      {
+        "action": "native user action",
+        "effect": "callback/state transition"
+      }
+    ],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [
+    {
+      "field": "inheritedVendorBehavior",
+      "status": "unknown",
+      "reason": "Base UI event details, autofill/password managers, IME, RTL, selection ranges, clipboard rejection, and platform accessibility-tree differences remain inherited/vendor unknowns."
+    }
+  ],
+  "modelDigest": "aac84427826ed06735c5f1c1baad6dfae6e2b32db69036825e4699537f45d927"
+}

@@ -1,0 +1,146 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "table-of-contents",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/table-of-contents.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "928b64d2e6d6a12f0266eeff9e5c73c37d6c7a578a2c09c65d0eb66dcce05f78",
+      "runtimeSha256": "80d50618b4c7ace6c7c9be3da286e9134d7563b0f85b022b5ea4850bb53d7a12"
+    },
+    "contractDigest": "71979902dad3ae9c2285b106715845d05a2c14a42144ea5f71024fff62e79a8f"
+  },
+  "public": {
+    "symbol": "TableOfContents",
+    "exports": [
+      "TableOfContents",
+      "KUMO_TABLE_OF_CONTENTS_VARIANTS",
+      "KUMO_TABLE_OF_CONTENTS_DEFAULT_VARIANTS"
+    ],
+    "subpath": "./components/table-of-contents"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "Group",
+        "type": "HTMLAttributes<HTMLLIElement> minus title, plus required label, optional href and active",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "HTMLAttributes<HTMLLIElement> minus title, plus required label, optional href and active"
+      },
+      {
+        "name": "Item",
+        "type": "AnchorHTMLAttributes<HTMLAnchorElement> plus active?: boolean and render?: ReactElement",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "AnchorHTMLAttributes<HTMLAnchorElement> plus active?: boolean and render?: ReactElement"
+      },
+      {
+        "name": "List",
+        "type": "HTMLAttributes<HTMLUListElement>",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "HTMLAttributes<HTMLUListElement>"
+      },
+      {
+        "name": "root",
+        "type": "HTMLAttributes<HTMLElement>; aria-label defaults to Table of contents",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "HTMLAttributes<HTMLElement>; aria-label defaults to Table of contents"
+      },
+      {
+        "name": "Title",
+        "type": "HTMLAttributes<HTMLParagraphElement>",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "HTMLAttributes<HTMLParagraphElement>"
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": false,
+    "slots": [
+      "Group",
+      "Item",
+      "List",
+      "Title",
+      "root"
+    ]
+  },
+  "emissions": {
+    "callbacks": [],
+    "models": []
+  },
+  "states": [
+    {
+      "name": "active",
+      "mode": "internal",
+      "initial": "exactly as supplied per Item or linked Group; no internal selection state"
+    }
+  ],
+  "componentRoot": {
+    "semanticRoot": "nav containing consumer-composed title/list/items/groups",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "nav containing consumer-composed title/list/items/groups",
+    "aria": [
+      "root is a navigation landmark with default aria-label Table of contents",
+      "active Item emits aria-current=true; inactive Item omits aria-current",
+      "Group emits aria-current=true only when href is present and active is true",
+      "component is controlled/presentational: consumer owns scroll tracking and active state",
+      "Group always nests its children in a ul; label is an anchor when href exists and otherwise a paragraph"
+    ],
+    "focusable": true,
+    "keys": [
+      "native anchor navigation only; no component-managed keys"
+    ]
+  },
+  "dependencies": {
+    "styles": [
+      "flex flex-col gap-2 border-l-2 border-kumo-hairline",
+      "block w-full truncate border-l-2 border-transparent py-0.5 pl-4 text-sm text-left no-underline",
+      "border-kumo-brand font-medium text-kumo-default"
+    ],
+    "tokens": [
+      "flex flex-col gap-2 border-l-2 border-kumo-hairline",
+      "block w-full truncate border-l-2 border-transparent py-0.5 pl-4 text-sm text-left no-underline",
+      "border-kumo-brand font-medium text-kumo-default"
+    ],
+    "icons": []
+  },
+  "capabilities": [
+    "compound-context",
+    "controlled-state",
+    "current-link"
+  ],
+  "behavior": {
+    "transitions": [],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [
+    {
+      "field": "render.customElementSemantics",
+      "status": "unknown",
+      "reason": "Item render clones a consumer element with anchor-like props; its resulting tag, router behavior, and focus semantics depend on that supplied element and are not invented."
+    },
+    {
+      "field": "consumer.activeStatePolicy",
+      "status": "unknown",
+      "reason": "Canonical TableOfContents performs no observation or scroll tracking; which item is active and whether multiple active flags are supplied is wholly consumer-controlled."
+    }
+  ],
+  "modelDigest": "08bd273acf10647b15cf2b657933ae22b6b3a40a6aa3579367d9db0fb6de547a"
+}

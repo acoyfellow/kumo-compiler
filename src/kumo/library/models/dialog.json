@@ -1,0 +1,202 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "dialog",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/dialog.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "655fcb0e90d0f520aecf35037a56ac0880c4c0b0d746233a68db98c2f385786e",
+      "runtimeSha256": "62ff230ef36da50bac104d8f08a9ecb8933f684f857c70b0793e15a9fac772f7"
+    },
+    "contractDigest": "15bdd0b64f302b4a64929843f7958278d13b196cc80702033dbf526db845a5e3"
+  },
+  "public": {
+    "symbol": "Dialog",
+    "exports": [
+      "Dialog",
+      "DialogRoot",
+      "DialogTrigger",
+      "DialogTitle",
+      "DialogDescription",
+      "DialogClose"
+    ],
+    "subpath": "./components/dialog"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "Close",
+        "type": "Base UI Close props",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "Base UI Close props"
+      },
+      {
+        "name": "Description",
+        "type": "Base UI Description props",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "Base UI Description props"
+      },
+      {
+        "name": "Dialog",
+        "type": "children,className,style,size,container",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "children,className,style,size,container"
+      },
+      {
+        "name": "Root",
+        "type": "Base UI Dialog.Root props and role dialog|alertdialog",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "Base UI Dialog.Root props and role dialog|alertdialog"
+      },
+      {
+        "name": "Title",
+        "type": "Base UI Title props",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "Base UI Title props"
+      },
+      {
+        "name": "Trigger",
+        "type": "Base UI dialog/alert-dialog trigger props",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "Base UI dialog/alert-dialog trigger props"
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": false,
+    "slots": [
+      "Close",
+      "Description",
+      "Dialog",
+      "Root",
+      "Title",
+      "Trigger"
+    ]
+  },
+  "emissions": {
+    "callbacks": [],
+    "models": [
+      "open"
+    ]
+  },
+  "states": [
+    {
+      "name": "open",
+      "mode": "controlled-or-uncontrolled",
+      "initial": "Base UI controlled/defaultOpen; default closed"
+    },
+    {
+      "name": "role",
+      "mode": "internal",
+      "initial": "dialog"
+    },
+    {
+      "name": "size",
+      "mode": "internal",
+      "initial": "base"
+    }
+  ],
+  "componentRoot": {
+    "semanticRoot": "button",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "button",
+    "aria": [
+      "trigger is a button with popup/dialog expanded semantics",
+      "content has role dialog or alertdialog",
+      "Title and Description are associated with content by generated aria-labelledby/aria-describedby",
+      "modal backdrop makes outside content inert through Base UI"
+    ],
+    "focusable": true,
+    "keys": [
+      "Enter",
+      "Space",
+      "Tab",
+      "Shift+Tab",
+      "Escape"
+    ]
+  },
+  "dependencies": {
+    "styles": [
+      "fixed inset-0 bg-kumo-recessed opacity-80",
+      "fixed top-1/2 left-1/2",
+      "max-w-[calc(100vw-2rem)]",
+      "rounded-xl bg-kumo-base text-kumo-default",
+      "shadow-m ring ring-kumo-line",
+      "sm:min-w-96",
+      "min-w-72",
+      "min-w-[32rem]",
+      "min-w-[48rem]"
+    ],
+    "tokens": [
+      "fixed inset-0 bg-kumo-recessed opacity-80",
+      "rounded-xl bg-kumo-base text-kumo-default",
+      "shadow-m ring ring-kumo-line"
+    ],
+    "icons": []
+  },
+  "capabilities": [
+    "compound-context",
+    "controlled-state",
+    "dismissable-layer",
+    "modal-focus"
+  ],
+  "behavior": {
+    "transitions": [
+      {
+        "action": "click Trigger",
+        "effect": "opens modal portal and moves focus into content"
+      },
+      {
+        "action": "click Close",
+        "effect": "closes and restores focus to Trigger"
+      },
+      {
+        "action": "Escape",
+        "effect": "closes standard dialog and restores focus; alert-dialog dismissal follows AlertDialog primitive"
+      },
+      {
+        "action": "outside press",
+        "effect": "dismisses role=dialog; role=alertdialog requires explicit acknowledgement"
+      }
+    ],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [
+    {
+      "field": "alertdialogEscape",
+      "status": "unknown",
+      "reason": "Declarations guarantee outside-click resistance but do not state Escape policy; delegated browser evidence was not available for an exact claim."
+    },
+    {
+      "field": "generatedIds",
+      "status": "unknown",
+      "reason": "Title/description association ids are generated by Base UI and literal values are not stable contract surface."
+    },
+    {
+      "field": "vectorRootPortalConvention",
+      "status": "unknown",
+      "reason": "Open content is portaled and the shared runner's root selection convention may require adapting the alertdialog vector without changing canonical semantics."
+    }
+  ],
+  "modelDigest": "8b3c0e3a8e50457a8d9f1c361b7796d9d837380f76754689b763aeecdf7fcd12"
+}

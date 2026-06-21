@@ -1,0 +1,229 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "tabs",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/tabs.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "f9a3e4fcd644ba711c86df0d9c0cd3ce0a5b3e4f0a3d621aa919eb11fb26fda9",
+      "runtimeSha256": "8d38d3d8d39deb8ca8929df308c1811e123b50b6599f058b7c9f2aacd0e51419"
+    },
+    "contractDigest": "fbbb0d671907280d2ae6c38247506d3d7bbfde18604896102b97e066c24f890f"
+  },
+  "public": {
+    "symbol": "Tabs",
+    "exports": [
+      "Tabs",
+      "KUMO_TABS_VARIANTS",
+      "KUMO_TABS_DEFAULT_VARIANTS",
+      "KUMO_TABS_STYLING"
+    ],
+    "subpath": "./components/tabs"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "activateOnFocus",
+        "type": "boolean passed to Base UI Tabs.List",
+        "required": false,
+        "default": false,
+        "nativeForwarding": false,
+        "evidence": "boolean passed to Base UI Tabs.List"
+      },
+      {
+        "name": "className",
+        "type": "root classes",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "root classes"
+      },
+      {
+        "name": "indicatorClassName",
+        "type": "indicator classes",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "indicator classes"
+      },
+      {
+        "name": "listClassName",
+        "type": "tablist classes",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "tablist classes"
+      },
+      {
+        "name": "onValueChange",
+        "type": "callback receiving selected value as string",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "callback receiving selected value as string"
+      },
+      {
+        "name": "selectedValue",
+        "type": "uncontrolled initial string value; ignored when value is supplied",
+        "required": false,
+        "default": "first tab value when uncontrolled and selectedValue omitted",
+        "nativeForwarding": false,
+        "evidence": "uncontrolled initial string value; ignored when value is supplied"
+      },
+      {
+        "name": "size",
+        "type": "base|sm",
+        "required": false,
+        "default": "base",
+        "nativeForwarding": false,
+        "evidence": "base|sm"
+      },
+      {
+        "name": "tabs",
+        "type": "TabsItem[]; each item has value, label, optional className and Base UI render override",
+        "required": false,
+        "default": [],
+        "nativeForwarding": false,
+        "evidence": "TabsItem[]; each item has value, label, optional className and Base UI render override"
+      },
+      {
+        "name": "value",
+        "type": "controlled string value",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "controlled string value"
+      },
+      {
+        "name": "variant",
+        "type": "segmented|underline",
+        "required": false,
+        "default": "segmented",
+        "nativeForwarding": false,
+        "evidence": "segmented|underline"
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": false,
+    "slots": []
+  },
+  "emissions": {
+    "callbacks": [
+      "onValueChange"
+    ],
+    "models": []
+  },
+  "states": [
+    {
+      "name": "activation",
+      "mode": "internal",
+      "initial": "manual unless activateOnFocus is true"
+    },
+    {
+      "name": "controlled",
+      "mode": "controlled-or-uncontrolled",
+      "initial": "value prop"
+    },
+    {
+      "name": "overflowing",
+      "mode": "internal",
+      "initial": false
+    },
+    {
+      "name": "uncontrolled",
+      "mode": "controlled-or-uncontrolled",
+      "initial": "selectedValue or first tab value"
+    }
+  ],
+  "componentRoot": {
+    "semanticRoot": "div",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "div",
+    "aria": [
+      "list uses tablist semantics and each item is a tab trigger",
+      "selected trigger has aria-selected=true and roving tabIndex 0; unselected triggers have aria-selected=false and tabIndex -1",
+      "this API renders navigation triggers only: it has no panel/content prop and must not synthesize tabpanel elements",
+      "empty or omitted tabs returns null",
+      "controlled value takes precedence over selectedValue",
+      "segmented list measures horizontal overflow; mouse drag scroll starts only after greater than 3px movement and suppresses the resulting click",
+      "click scrolls its trigger into nearest visible position"
+    ],
+    "focusable": true,
+    "keys": [
+      "ArrowLeft",
+      "ArrowRight",
+      "Home",
+      "End",
+      "Enter",
+      "Space"
+    ]
+  },
+  "dependencies": {
+    "styles": [
+      "relative isolate min-w-0 font-medium",
+      "kumo-tabs-list overflow-x-auto rounded-lg bg-kumo-recessed",
+      "focus-visible:ring-2 focus-visible:ring-kumo-brand"
+    ],
+    "tokens": [
+      "kumo-tabs-list overflow-x-auto rounded-lg bg-kumo-recessed",
+      "focus-visible:ring-2 focus-visible:ring-kumo-brand"
+    ],
+    "icons": []
+  },
+  "capabilities": [
+    "controlled-state",
+    "roving-focus"
+  ],
+  "behavior": {
+    "transitions": [
+      {
+        "action": "click a trigger",
+        "effect": "selects it (or requests controlled change), invokes onValueChange, and scrolls trigger into view"
+      },
+      {
+        "action": "ArrowLeft/ArrowRight focus navigation in manual mode",
+        "effect": "moves roving focus without selection until Enter or Space"
+      },
+      {
+        "action": "ArrowLeft/ArrowRight focus navigation with activateOnFocus=true",
+        "effect": "moves focus and activates focused trigger"
+      },
+      {
+        "action": "mouse pointer drag on overflowing segmented list beyond 3px",
+        "effect": "scrolls horizontally and suppresses click selection"
+      },
+      {
+        "action": "ResizeObserver detects segmented scrollWidth greater than clientWidth",
+        "effect": "sets data-overflowing and enables grab/drag behavior"
+      }
+    ],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [
+    {
+      "field": "overflow.pointerGeometry",
+      "status": "unknown",
+      "reason": "Whether a given label set overflows and exact scrollLeft changes depend on measured browser layout, fonts, and viewport; no browser pass is claimed."
+    },
+    {
+      "field": "baseUi.generatedIds",
+      "status": "unknown",
+      "reason": "Base UI may emit generated identifiers and additional state attributes; their exact values are implementation-managed and are intentionally not frozen."
+    },
+    {
+      "field": "panels",
+      "status": "blocked",
+      "reason": "Canonical Tabs 2.5.2 has no panel API and renders no tabpanel; panel lifecycle, aria-controls linkage to consumer content, and content visibility must not be invented."
+    }
+  ],
+  "modelDigest": "32d8df5ff98b66be79a5f4debe00202265b0683f95f35d83f7ebccf7c2630559"
+}

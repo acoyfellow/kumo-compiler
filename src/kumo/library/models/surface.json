@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "surface",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/surface.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "59e27a14cc713536ce5fcf118e27edb9238892b85457563a49264fc3dd9318c6",
+      "runtimeSha256": "30d7fc2b8e0b4a5ed1961cc4cfa57081d46f4074217e3af81413630fa87d533d"
+    },
+    "contractDigest": "27580550c2b679cf47529c4bed3092c60406d59b9b7d2602ee2b9a8570b711e0"
+  },
+  "public": {
+    "symbol": "Surface",
+    "exports": [
+      "Surface"
+    ],
+    "subpath": "./components/surface"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "as",
+        "type": "ElementType",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "ElementType",
+          "deprecated": true
+        }
+      },
+      {
+        "name": "children",
+        "type": "unknown",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "required": false
+        }
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "color",
+        "type": "primary|secondary",
+        "required": false,
+        "default": "primary",
+        "nativeForwarding": false,
+        "evidence": {
+          "enum": [
+            "primary",
+            "secondary"
+          ]
+        }
+      },
+      {
+        "name": "render",
+        "type": "ReactElement",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "ReactElement"
+        }
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": true,
+    "slots": []
+  },
+  "emissions": {
+    "callbacks": [],
+    "models": []
+  },
+  "states": [],
+  "componentRoot": {
+    "semanticRoot": "div",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "div",
+    "aria": [],
+    "focusable": false,
+    "keys": []
+  },
+  "dependencies": {
+    "styles": [
+      "overflow-visible",
+      "rounded-none"
+    ],
+    "tokens": [],
+    "icons": []
+  },
+  "capabilities": [
+    "static-element",
+    "polymorphic"
+  ],
+  "behavior": {
+    "transitions": [],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [
+    {
+      "field": "semantics.rootWhenRenderProvided",
+      "status": "unknown",
+      "reason": "The caller-provided React element controls the root."
+    }
+  ],
+  "modelDigest": "5d3dac35b4dc97a50c01a3014c1ecac2e1e29d1883279fa7a0ed34ac8343e992"
+}

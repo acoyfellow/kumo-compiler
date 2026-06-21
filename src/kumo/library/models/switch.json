@@ -1,0 +1,145 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "switch",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/switch.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "bf21c4b9a6d2c6ce48f2cce327eccad83fb5e66ea5e1e5fac06687703aab515e",
+      "runtimeSha256": "736abdb6fe71c107d44483cb5355f6f4117f52b6936a20e446a2df4c2ed77852"
+    },
+    "contractDigest": "a21654b67149440d975ad94adce6162a28f87b911334a974938067200f76f6b0"
+  },
+  "public": {
+    "symbol": "Switch",
+    "exports": [
+      "Switch"
+    ],
+    "subpath": "./components/switch"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "checked",
+        "type": "boolean",
+        "required": false,
+        "default": false,
+        "nativeForwarding": false,
+        "evidence": "boolean"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": false,
+        "nativeForwarding": false,
+        "evidence": "boolean"
+      },
+      {
+        "name": "group",
+        "type": "Switch.Group/Item",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "Switch.Group/Item"
+      },
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "ReactNode"
+      },
+      {
+        "name": "onCheckedChange",
+        "type": "callback",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "callback"
+      },
+      {
+        "name": "size",
+        "type": "sm|base|lg",
+        "required": false,
+        "default": "base",
+        "nativeForwarding": false,
+        "evidence": "sm|base|lg"
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": false,
+    "slots": []
+  },
+  "emissions": {
+    "callbacks": [
+      "onCheckedChange"
+    ],
+    "models": []
+  },
+  "states": [
+    {
+      "name": "controlled",
+      "mode": "controlled-or-uncontrolled",
+      "initial": "checked"
+    },
+    {
+      "name": "uncontrolled",
+      "mode": "controlled-or-uncontrolled",
+      "initial": "absence of checked"
+    }
+  ],
+  "componentRoot": {
+    "semanticRoot": "button",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "button",
+    "aria": [
+      "role=switch",
+      "aria-checked=false|true"
+    ],
+    "focusable": true,
+    "keys": [
+      "Space"
+    ]
+  },
+  "dependencies": {
+    "styles": [
+      "h-4 w-8",
+      "h-4.5 w-9",
+      "h-5 w-10"
+    ],
+    "tokens": [],
+    "icons": []
+  },
+  "capabilities": [
+    "controlled-state",
+    "native-input"
+  ],
+  "behavior": {
+    "transitions": [
+      {
+        "action": "click|Space",
+        "effect": "toggle and invoke callback unless disabled"
+      }
+    ],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [
+    {
+      "field": "inheritedBaseUIFormSemantics",
+      "status": "unknown",
+      "reason": "Reset/autofill and platform activation details inherited from Base UI are outside the canonical Kumo declaration and are not guessed."
+    }
+  ],
+  "modelDigest": "dae346d17dc2dfec5d6224c842b918217466d877bb52f5506767fbe9c43adc6a"
+}

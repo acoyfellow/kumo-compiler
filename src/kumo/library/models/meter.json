@@ -1,0 +1,165 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "meter",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/meter.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "91ecd7d060e494f823f89fab4f6b6f87aa128b56ba1f52cddf09545ef0106d81",
+      "runtimeSha256": "7f9f0cfca3ce64f253f509e89632568a86e462383ec0cbfe09a731301f1a3545"
+    },
+    "contractDigest": "5eea2b1b77008d0fc0b8de31c8ecfd08b920ac8d2c8f315efb72b5148355adbc"
+  },
+  "public": {
+    "symbol": "Meter",
+    "exports": [
+      "Meter"
+    ],
+    "subpath": "./components/meter"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "customValue",
+        "type": "string",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "indicatorClassName",
+        "type": "string",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "label",
+        "type": "string",
+        "required": true,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "string",
+          "required": true
+        }
+      },
+      {
+        "name": "max",
+        "type": "number",
+        "required": false,
+        "default": 100,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "number"
+        }
+      },
+      {
+        "name": "min",
+        "type": "number",
+        "required": false,
+        "default": 0,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "number"
+        }
+      },
+      {
+        "name": "showValue",
+        "type": "boolean",
+        "required": false,
+        "default": true,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "boolean"
+        }
+      },
+      {
+        "name": "trackClassName",
+        "type": "string",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "value",
+        "type": "number",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "number"
+        }
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": false,
+    "slots": []
+  },
+  "emissions": {
+    "callbacks": [],
+    "models": []
+  },
+  "states": [],
+  "componentRoot": {
+    "semanticRoot": "div",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "div",
+    "aria": [
+      "role=\"meter\"",
+      "aria-valuemin",
+      "aria-valuemax",
+      "aria-valuenow",
+      "aria-valuetext"
+    ],
+    "focusable": false,
+    "keys": []
+  },
+  "dependencies": {
+    "styles": [
+      "flex",
+      "w-full",
+      "flex-col",
+      "gap-2"
+    ],
+    "tokens": [],
+    "icons": []
+  },
+  "capabilities": [
+    "static-element"
+  ],
+  "behavior": {
+    "transitions": [],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [],
+  "modelDigest": "02256066ec10f16ff1d14c2e7a1a8996ae3eee427a0951321c11cf98521d2753"
+}

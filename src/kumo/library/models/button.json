@@ -1,0 +1,170 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "button",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/button.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "8a4c08f67034b803e08fd44a77ece11ff3b437ff788f67d3ba1a96688d9b81f1",
+      "runtimeSha256": "683d37c04b76b38a2bfc1546e959f72b840b989165c81e2e2b23519dac41c25f"
+    },
+    "contractDigest": "b0a24e6a0b736fb73b4d6da386c0410be1d2ca0264ea6edc2adc32785110909d"
+  },
+  "public": {
+    "symbol": "Button",
+    "exports": [
+      "Button",
+      "RefreshButton",
+      "LinkButton",
+      "buttonVariants"
+    ],
+    "subpath": "./components/button"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "boolean"
+      },
+      {
+        "name": "icon",
+        "type": "Icon|ReactNode",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "Icon|ReactNode"
+      },
+      {
+        "name": "loading",
+        "type": "boolean",
+        "required": false,
+        "default": false,
+        "nativeForwarding": false,
+        "evidence": "boolean"
+      },
+      {
+        "name": "native",
+        "type": "ButtonHTMLAttributes",
+        "required": false,
+        "default": null,
+        "nativeForwarding": true,
+        "evidence": "ButtonHTMLAttributes"
+      },
+      {
+        "name": "shape",
+        "type": "base|square|circle",
+        "required": false,
+        "default": "base",
+        "nativeForwarding": false,
+        "evidence": "base|square|circle"
+      },
+      {
+        "name": "size",
+        "type": "xs|sm|base|lg",
+        "required": false,
+        "default": "base",
+        "nativeForwarding": false,
+        "evidence": "xs|sm|base|lg"
+      },
+      {
+        "name": "variant",
+        "type": "primary|secondary|ghost|destructive|secondary-destructive|outline",
+        "required": false,
+        "default": "secondary",
+        "nativeForwarding": false,
+        "evidence": "primary|secondary|ghost|destructive|secondary-destructive|outline"
+      }
+    ],
+    "nativeAttributeForwarding": true
+  },
+  "composition": {
+    "children": false,
+    "slots": []
+  },
+  "emissions": {
+    "callbacks": [],
+    "models": []
+  },
+  "states": [
+    {
+      "name": "disabled",
+      "mode": "internal",
+      "initial": "false"
+    },
+    {
+      "name": "loading",
+      "mode": "internal",
+      "initial": "false"
+    }
+  ],
+  "componentRoot": {
+    "semanticRoot": "button",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "button",
+    "aria": [
+      "native button semantics",
+      "square/circle require aria-label"
+    ],
+    "focusable": true,
+    "keys": [
+      "Enter",
+      "Space"
+    ]
+  },
+  "dependencies": {
+    "styles": [
+      "group",
+      "flex",
+      "w-max",
+      "h-5",
+      "h-6.5",
+      "h-9",
+      "h-10",
+      "bg-kumo-brand",
+      "bg-kumo-base",
+      "bg-transparent",
+      "rounded-full"
+    ],
+    "tokens": [
+      "bg-kumo-brand",
+      "bg-kumo-base",
+      "bg-transparent"
+    ],
+    "icons": []
+  },
+  "capabilities": [
+    "native-input"
+  ],
+  "behavior": {
+    "transitions": [
+      {
+        "action": "trusted click",
+        "effect": "invokes native onClick unless disabled or loading"
+      },
+      {
+        "action": "form activation",
+        "effect": "submits only when type=submit"
+      }
+    ],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [
+    {
+      "field": "tooltipTimingAndIconIdentity",
+      "status": "unknown",
+      "reason": "Tooltip timing and arbitrary icon component rendering are delegated to Tooltip and React and are not guessed by this contract."
+    }
+  ],
+  "modelDigest": "440e59b513cb31386ada77fa9890d2ea8f652be3aeec2bb0fdddbc5fa6f333d7"
+}

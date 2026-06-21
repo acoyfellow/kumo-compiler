@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "loader",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/loader.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "af4022dcf98d94f891b67d88c757cedf48c2a169b81b20c1727f1e47510e2905",
+      "runtimeSha256": "d17ec4f5625ec4e254c02ecd7e5026136f89e2a2a2b175f0794a34dac7431196"
+    },
+    "contractDigest": "f072c4894de40bf1ba588b29a61c4680564d706f0c2dfc745a94bec4cad4fecd"
+  },
+  "public": {
+    "symbol": "Loader",
+    "exports": [
+      "Loader",
+      "SkeletonLine"
+    ],
+    "subpath": "./components/loader"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "aria-label",
+        "type": "string",
+        "required": false,
+        "default": "Loading",
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "size",
+        "type": "sm|base|lg|number",
+        "required": false,
+        "default": "base",
+        "nativeForwarding": false,
+        "evidence": {
+          "enum": [
+            "sm",
+            "base",
+            "lg",
+            "number"
+          ]
+        }
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": false,
+    "slots": []
+  },
+  "emissions": {
+    "callbacks": [],
+    "models": []
+  },
+  "states": [],
+  "componentRoot": {
+    "semanticRoot": "svg",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "svg",
+    "aria": [
+      "role=\"status\"",
+      "aria-label"
+    ],
+    "focusable": false,
+    "keys": []
+  },
+  "dependencies": {
+    "styles": [],
+    "tokens": [],
+    "icons": [
+      "inline animated SVG circles"
+    ]
+  },
+  "capabilities": [
+    "static-element"
+  ],
+  "behavior": {
+    "transitions": [],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [],
+  "modelDigest": "2856901366f5b67fe771dcbe5dc3df7816d853ce2cf1b4eddbe28477acecf38e"
+}

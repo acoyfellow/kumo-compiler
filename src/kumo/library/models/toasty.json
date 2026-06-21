@@ -1,0 +1,142 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "toasty",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/toasty.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "db0aec09820cb948e375b1ae2a9ff211895cade75aca811e79073d641ed288e7",
+      "runtimeSha256": "a903254a1e2943c1e27e2476de198fad20452aea8849d504f543dc77045289da"
+    },
+    "contractDigest": "35460d33f6056c8b070637ba6ed0fc22d0e3ddd9f7a907602154399466c045f5"
+  },
+  "public": {
+    "symbol": "Toasty",
+    "exports": [
+      "Toasty",
+      "ToastProvider",
+      "Toast",
+      "createKumoToastManager",
+      "useKumoToastManager"
+    ],
+    "subpath": "./components/toast"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "ReactNode"
+      },
+      {
+        "name": "container",
+        "type": "PortalContainer",
+        "required": false,
+        "default": "provider container or document.body",
+        "nativeForwarding": false,
+        "evidence": "PortalContainer"
+      },
+      {
+        "name": "toastManager",
+        "type": "ToastManager",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "ToastManager"
+      },
+      {
+        "name": "variant",
+        "type": "default|success|error|warning|info",
+        "required": false,
+        "default": "default",
+        "nativeForwarding": false,
+        "evidence": "default|success|error|warning|info"
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": true,
+    "slots": []
+  },
+  "emissions": {
+    "callbacks": [],
+    "models": []
+  },
+  "states": [
+    {
+      "name": "toasts",
+      "mode": "internal",
+      "initial": "manager state"
+    },
+    {
+      "name": "viewport",
+      "mode": "internal",
+      "initial": "portaled after hydration"
+    }
+  ],
+  "componentRoot": {
+    "semanticRoot": "div",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "div",
+    "aria": [
+      "viewport is a polite live region",
+      "toast title and description participate in announcement",
+      "close button label is Close"
+    ],
+    "focusable": false,
+    "keys": []
+  },
+  "dependencies": {
+    "styles": [
+      "fixed",
+      "bottom-4",
+      "right-4",
+      "rounded-lg",
+      "shadow-lg"
+    ],
+    "tokens": [],
+    "icons": []
+  },
+  "capabilities": [
+    "compound-context",
+    "controlled-state",
+    "clipboard/live-region",
+    "toast"
+  ],
+  "behavior": {
+    "transitions": [
+      {
+        "action": "manager add",
+        "effect": "toast appears in viewport and live-region announcement"
+      },
+      {
+        "action": "toast action trusted click",
+        "effect": "action callback fires"
+      },
+      {
+        "action": "close trusted click",
+        "effect": "toast enters exit lifecycle then is removed"
+      }
+    ],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [
+    {
+      "field": "announcementTimingAndRemovalDelay",
+      "status": "unknown",
+      "reason": "Assistive technology announcement timing and animation-completion removal timing are inherited from Base UI, CSS, and the user agent; exact wall-clock timing is not guessed."
+    }
+  ],
+  "modelDigest": "abfff686b10167352f2160786d51b0c73995e352d0e5cdfc8640f28883598e8f"
+}

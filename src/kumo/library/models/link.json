@@ -1,0 +1,131 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "link",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/link.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "abd8bc345f1198286325adc0f83b248776d5bcb559e78284b7861bcf9fdd9fb0",
+      "runtimeSha256": "7c0fedca48a1dcd16f03e76753dce5c174eb61477c61d1acbedb83de09e0500a"
+    },
+    "contractDigest": "6789b7665f193b8d00d518ff84cee040de14d3aeed5dfe9f54c1e771236a954a"
+  },
+  "public": {
+    "symbol": "Link",
+    "exports": [
+      "Link",
+      "linkVariants",
+      "KUMO_LINK_VARIANTS",
+      "KUMO_LINK_DEFAULT_VARIANTS"
+    ],
+    "subpath": "./components/link"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "ReactNode"
+        }
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "href",
+        "type": "string",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "render",
+        "type": "ReactElement",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "ReactElement"
+        }
+      },
+      {
+        "name": "variant",
+        "type": "inline|current|plain",
+        "required": false,
+        "default": "inline",
+        "nativeForwarding": false,
+        "evidence": {
+          "enum": [
+            "inline",
+            "current",
+            "plain"
+          ]
+        }
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": true,
+    "slots": []
+  },
+  "emissions": {
+    "callbacks": [],
+    "models": []
+  },
+  "states": [],
+  "componentRoot": {
+    "semanticRoot": "a",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "a",
+    "aria": [],
+    "focusable": false,
+    "keys": []
+  },
+  "dependencies": {
+    "styles": [
+      "group/link",
+      "inline-flex",
+      "items-center"
+    ],
+    "tokens": [],
+    "icons": []
+  },
+  "capabilities": [
+    "static-element",
+    "polymorphic"
+  ],
+  "behavior": {
+    "transitions": [],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [
+    {
+      "field": "semantics.rootWhenRenderProvided",
+      "status": "unknown",
+      "reason": "The render prop or LinkProvider controls the framework-specific root."
+    }
+  ],
+  "modelDigest": "e0ebf962ef757e02149e75157aea5c7ff78dfd4bd9ee3939e50d0d191d313001"
+}

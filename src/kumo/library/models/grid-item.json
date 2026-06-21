@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "grid-item",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/grid-item.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "63f3a671bf4fb0ee3108fce5b797805cad30633874b9ebea1fb9bebab2d6f43b",
+      "runtimeSha256": "b9e6c204a13e32163f3b56a4a3d9705403c13ecfa130c49afe8642e04ec875be"
+    },
+    "contractDigest": "14de81c791eb3817ea08ea2dd1a4b7f242dd7041fda7e174ea1f46d932ccee9c"
+  },
+  "public": {
+    "symbol": "GridItem",
+    "exports": [
+      "GridItem"
+    ],
+    "subpath": "./components/grid"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "ReactNode"
+        }
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "string"
+        }
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": true,
+    "slots": []
+  },
+  "emissions": {
+    "callbacks": [],
+    "models": []
+  },
+  "states": [],
+  "componentRoot": {
+    "semanticRoot": "div",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "div",
+    "aria": [],
+    "focusable": false,
+    "keys": []
+  },
+  "dependencies": {
+    "styles": [],
+    "tokens": [],
+    "icons": []
+  },
+  "capabilities": [
+    "static-element"
+  ],
+  "behavior": {
+    "transitions": [],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [],
+  "modelDigest": "2f9cf3625ff0c96e904c68c4bd3b97e5d5726509f153fa78a285fe25fc6b345a"
+}

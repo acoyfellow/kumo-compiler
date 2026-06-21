@@ -1,0 +1,149 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "radio",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/radio.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "0b4aef7c280bb0bc7cddb2dab650ad9a869b0fd3747a6f0e52faf7c729d07757",
+      "runtimeSha256": "68007ac0ed0ef955d588f459c2e8a9e5833198680c352931977a98aa0209494f"
+    },
+    "contractDigest": "1efdf13299ecfadca60575431a14a175f081174974420aa56bb6a785dd548ed8"
+  },
+  "public": {
+    "symbol": "Radio",
+    "exports": [
+      "Radio"
+    ],
+    "subpath": "./components/radio"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "defaultValue",
+        "type": "string",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "string"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "boolean"
+      },
+      {
+        "name": "items",
+        "type": "Radio.Item[]",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "Radio.Item[]"
+      },
+      {
+        "name": "onValueChange",
+        "type": "callback",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "callback"
+      },
+      {
+        "name": "orientation",
+        "type": "vertical|horizontal",
+        "required": false,
+        "default": "vertical",
+        "nativeForwarding": false,
+        "evidence": "vertical|horizontal"
+      },
+      {
+        "name": "value",
+        "type": "string",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "string"
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": false,
+    "slots": []
+  },
+  "emissions": {
+    "callbacks": [
+      "onValueChange"
+    ],
+    "models": []
+  },
+  "states": [
+    {
+      "name": "controlled",
+      "mode": "controlled-or-uncontrolled",
+      "initial": "value"
+    },
+    {
+      "name": "uncontrolled",
+      "mode": "controlled-or-uncontrolled",
+      "initial": "defaultValue"
+    }
+  ],
+  "componentRoot": {
+    "semanticRoot": "div",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "div",
+    "aria": [
+      "role=radiogroup",
+      "items role=radio",
+      "aria-checked=false|true"
+    ],
+    "focusable": true,
+    "keys": [
+      "ArrowDown",
+      "ArrowUp",
+      "ArrowLeft",
+      "ArrowRight"
+    ]
+  },
+  "dependencies": {
+    "styles": [
+      "rounded-full",
+      "data-[checked]"
+    ],
+    "tokens": [],
+    "icons": []
+  },
+  "capabilities": [
+    "controlled-state",
+    "native-input",
+    "roving-focus"
+  ],
+  "behavior": {
+    "transitions": [
+      {
+        "action": "click|ArrowDown|ArrowUp|ArrowLeft|ArrowRight",
+        "effect": "select enabled item and invoke onValueChange"
+      }
+    ],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [
+    {
+      "field": "inheritedBaseUIRovingFocus",
+      "status": "unknown",
+      "reason": "RTL wrapping, Home/End, and browser-specific roving-focus edge behavior inherited from Base UI are not declared by Kumo and are not guessed."
+    }
+  ],
+  "modelDigest": "9b25bd10dccd6c7bed49b02958b945ec7d515f13e67a7983008caba1da9fae9d"
+}

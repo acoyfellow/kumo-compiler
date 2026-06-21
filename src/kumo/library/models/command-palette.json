@@ -1,0 +1,207 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "command-palette",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/command-palette.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "2ca80d1388b986dc1475d52163cb7fb65bc3769eeba3824fe3992f91a1fb1755",
+      "runtimeSha256": "73aebb4518a30958d16255ee35d46c16ebe8cbc1d032175d7dcbf319e46dcacc"
+    },
+    "contractDigest": "002e8d68fdb91b46f3b9081d6cba7c0eb4dffcff4ae5c02d18abf9c830bf1320"
+  },
+  "public": {
+    "symbol": "CommandPalette",
+    "exports": [
+      "CommandPalette",
+      "KUMO_COMMAND_PALETTE_VARIANTS",
+      "KUMO_COMMAND_PALETTE_DEFAULT_VARIANTS"
+    ],
+    "subpath": "./components/command-palette"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "compound",
+        "type": "List,Group,GroupLabel,Item,ResultItem,HighlightedText,Empty,Loading,Footer,Results,Items",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "List,Group,GroupLabel,Item,ResultItem,HighlightedText,Empty,Loading,Footer,Results,Items"
+      },
+      {
+        "name": "Dialog",
+        "type": "open,onOpenChange,onBackdropClick,children,container",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "open,onOpenChange,onBackdropClick,children,container"
+      },
+      {
+        "name": "Input",
+        "type": "HTML input props plus leading,trailing",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "HTML input props plus leading,trailing"
+      },
+      {
+        "name": "Panel",
+        "type": "children,items,value,onValueChange,onItemHighlighted,itemToStringValue,filter,open,className,onSelect,getSelectableItems",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "children,items,value,onValueChange,onItemHighlighted,itemToStringValue,filter,open,className,onSelect,getSelectableItems"
+      },
+      {
+        "name": "Root",
+        "type": "open,onOpenChange,onBackdropClick,children,items,value,onValueChange,onItemHighlighted,itemToStringValue,filter,onSelect,getSelectableItems,container",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "open,onOpenChange,onBackdropClick,children,items,value,onValueChange,onItemHighlighted,itemToStringValue,filter,onSelect,getSelectableItems,container"
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": false,
+    "slots": [
+      "Dialog",
+      "Input",
+      "Panel",
+      "Root",
+      "compound"
+    ]
+  },
+  "emissions": {
+    "callbacks": [],
+    "models": [
+      "open"
+    ]
+  },
+  "states": [
+    {
+      "name": "highlight",
+      "mode": "internal",
+      "initial": "first result auto-highlighted always and kept as results change"
+    },
+    {
+      "name": "modal",
+      "mode": "internal",
+      "initial": true
+    },
+    {
+      "name": "open",
+      "mode": "controlled-or-uncontrolled",
+      "initial": "required controlled boolean"
+    },
+    {
+      "name": "query",
+      "mode": "internal",
+      "initial": "controlled value or empty"
+    }
+  ],
+  "componentRoot": {
+    "semanticRoot": "div",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "div",
+    "aria": [
+      "open Root/Dialog renders modal dialog and backdrop",
+      "Panel input uses autocomplete combobox semantics",
+      "items expose highlighted and disabled state",
+      "focus is trapped/restored by Base UI dialog"
+    ],
+    "focusable": true,
+    "keys": [
+      "ArrowDown",
+      "ArrowUp",
+      "Enter",
+      "Meta+Enter",
+      "Control+Enter",
+      "Escape"
+    ]
+  },
+  "dependencies": {
+    "styles": [
+      "fixed inset-0 bg-kumo-overlay opacity-80",
+      "fixed top-[10vh] left-1/2 w-full max-w-2xl -translate-x-1/2",
+      "max-h-[60vh]",
+      "rounded-lg bg-kumo-elevated",
+      "bg-kumo-base",
+      "data-[highlighted]:bg-kumo-overlay",
+      "kumo-input-placeholder"
+    ],
+    "tokens": [
+      "fixed inset-0 bg-kumo-overlay opacity-80",
+      "rounded-lg bg-kumo-elevated",
+      "bg-kumo-base",
+      "data-[highlighted]:bg-kumo-overlay",
+      "kumo-input-placeholder"
+    ],
+    "icons": [
+      "MagnifyingGlassIcon",
+      "CaretRightIcon",
+      "ArrowSquareOutIcon",
+      "ArrowRightIcon",
+      "Loader"
+    ]
+  },
+  "capabilities": [
+    "compound-context",
+    "controlled-state",
+    "collection/listbox",
+    "dismissable-layer",
+    "modal-focus"
+  ],
+  "behavior": {
+    "transitions": [
+      {
+        "action": "backdrop click",
+        "effect": "calls onBackdropClick when provided, otherwise onOpenChange(false)"
+      },
+      {
+        "action": "Escape in Input",
+        "effect": "prevents default and closes dialog"
+      },
+      {
+        "action": "ArrowDown/ArrowUp",
+        "effect": "moves highlight and calls onItemHighlighted"
+      },
+      {
+        "action": "Enter",
+        "effect": "selects highlighted autocomplete item"
+      },
+      {
+        "action": "Meta+Enter or Control+Enter",
+        "effect": "with onSelect and getSelectableItems calls onSelect(item,{newTab:true})"
+      }
+    ],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [
+    {
+      "field": "closedRootPlaceholder",
+      "status": "unknown",
+      "reason": "A controlled closed portal may yield no rendered element; shared runner needs a mount-host convention before root expectations can distinguish host from component output."
+    },
+    {
+      "field": "selectionOnPlainEnter",
+      "status": "unknown",
+      "reason": "Canonical wrapper documents selection but Item click ownership remains consumer-provided; exact event log is not asserted."
+    },
+    {
+      "field": "ssrOpenPortal",
+      "status": "unknown",
+      "reason": "Action-free closed SSR is supported; exact open portal output and generated ids are Base UI implementation details."
+    }
+  ],
+  "modelDigest": "d5ad219bd9f1eba36384b4889962acb8158a86ec360f9110fd9178dd91ebfa1b"
+}

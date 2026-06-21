@@ -1,0 +1,271 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "select",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/select.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "f250151516da3de932f9ef4174c23c32187d8260aba5569f64f932b0538e8996",
+      "runtimeSha256": "89c42c0b8412862ba291fa152987e63a323739ea01d5075feda2e762d1c3e026"
+    },
+    "contractDigest": "409c6d9e38a6840dff897aebaef8d8864b433ac1336831d74494d04ec8f020f6"
+  },
+  "public": {
+    "symbol": "Select",
+    "exports": [
+      "Select"
+    ],
+    "subpath": "./components/select"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "aria-label/aria-labelledby",
+        "type": "accessible naming alternatives",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "accessible naming alternatives"
+      },
+      {
+        "name": "children",
+        "type": "Select.Option/Group/GroupLabel/Separator compounds",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "Select.Option/Group/GroupLabel/Separator compounds"
+      },
+      {
+        "name": "container",
+        "type": "portal target",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "portal target"
+      },
+      {
+        "name": "hideLabel",
+        "type": "deprecated boolean",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "deprecated boolean"
+      },
+      {
+        "name": "items",
+        "type": "record of labels/descriptors or readonly {label,value} array",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "record of labels/descriptors or readonly {label,value} array"
+      },
+      {
+        "name": "label",
+        "type": "visible Field label",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "visible Field label"
+      },
+      {
+        "name": "labelTooltip/description/error",
+        "type": "Field decoration",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "Field decoration"
+      },
+      {
+        "name": "placeholder/loading/disabled/required",
+        "type": "display and form states",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "display and form states"
+      },
+      {
+        "name": "renderValue",
+        "type": "selected T or T[] to ReactNode",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "selected T or T[] to ReactNode"
+      },
+      {
+        "name": "Root",
+        "type": "generic T and single/multiple Base UI Select.Root props; value, defaultValue, onValueChange, open/defaultOpen/onOpenChange pass through",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "generic T and single/multiple Base UI Select.Root props; value, defaultValue, onValueChange, open/defaultOpen/onOpenChange pass through"
+      },
+      {
+        "name": "size",
+        "type": "xs|sm|base|lg",
+        "required": false,
+        "default": "base",
+        "nativeForwarding": false,
+        "evidence": "xs|sm|base|lg"
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": true,
+    "slots": [
+      "Root"
+    ]
+  },
+  "emissions": {
+    "callbacks": [],
+    "models": [
+      "open",
+      "value"
+    ]
+  },
+  "states": [
+    {
+      "name": "disabled",
+      "mode": "internal",
+      "initial": "from root and item descriptor/Option props"
+    },
+    {
+      "name": "highlightedOption",
+      "mode": "internal",
+      "initial": null
+    },
+    {
+      "name": "open",
+      "mode": "controlled-or-uncontrolled",
+      "initial": "controlled open, else defaultOpen, else false"
+    },
+    {
+      "name": "value",
+      "mode": "controlled-or-uncontrolled",
+      "initial": "controlled value, else defaultValue, else null or [] in multiple mode"
+    }
+  ],
+  "componentRoot": {
+    "semanticRoot": "div",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "div",
+    "aria": [
+      "trigger is role=combobox with aria-haspopup=listbox and aria-expanded",
+      "popup is listbox and items are options with selected/disabled state",
+      "label or aria-label/aria-labelledby is required from consumer",
+      "hidden input participates in form submission",
+      "multiple selection exposes listbox multiselect semantics via Base UI"
+    ],
+    "focusable": true,
+    "keys": [
+      "Enter",
+      "Space",
+      "ArrowDown",
+      "ArrowUp",
+      "Home",
+      "End",
+      "PageDown",
+      "PageUp",
+      "Escape",
+      "Tab",
+      "printable typeahead"
+    ]
+  },
+  "dependencies": {
+    "styles": [
+      "data-kumo-component=Select",
+      "data-kumo-part=trigger",
+      "data-placeholder",
+      "data-highlighted",
+      "data-selected",
+      "h-9",
+      "rounded-lg",
+      "ring-kumo-line"
+    ],
+    "tokens": [
+      "data-kumo-component=Select",
+      "data-kumo-part=trigger",
+      "ring-kumo-line"
+    ],
+    "icons": [
+      "Phosphor caret-up-down icon",
+      "Phosphor check icon",
+      "loading skeleton",
+      "Field and Tooltip compounds",
+      "@cloudflare/kumo styles"
+    ]
+  },
+  "capabilities": [
+    "compound-context",
+    "controlled-state",
+    "native-input",
+    "field-wiring",
+    "collection/listbox",
+    "dismissable-layer"
+  ],
+  "behavior": {
+    "transitions": [
+      {
+        "action": "pointer trigger then enabled option",
+        "effect": "open, highlight/select, emit value change, and normally dismiss single select"
+      },
+      {
+        "action": "Arrow/Home/End/Page keys",
+        "effect": "move highlight while skipping disabled options and scroll it into view"
+      },
+      {
+        "action": "printable typeahead",
+        "effect": "highlight matching enabled option within Base UI timeout"
+      },
+      {
+        "action": "Escape, Tab, or outside interaction",
+        "effect": "dismiss according to Base UI reason and focus policy"
+      },
+      {
+        "action": "controlled value/open interaction",
+        "effect": "emit callbacks while supplied props remain authoritative"
+      }
+    ],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "unknown"
+    }
+  },
+  "unknowns": [
+    {
+      "field": "existingSelectPilot.react-vue",
+      "status": "blocked",
+      "reason": "proof/select/receipts.json records React and Vue blocked before meaningful interaction because harness queries returned null; their interaction gates remain blocked."
+    },
+    {
+      "field": "existingSelectPilot.svelte",
+      "status": "blocked",
+      "reason": "Existing receipt records failed pointer open/select, typeahead, controlled value/open, and callback ordering. These failures remain required parity gates."
+    },
+    {
+      "field": "existingSelectPilot.solid",
+      "status": "blocked",
+      "reason": "Existing receipt records failed pointer open/select, typeahead, controlled state, callback ordering, hydration, and focus/scroll. These failures remain visible and unresolved."
+    },
+    {
+      "field": "portalPositioningHydration",
+      "status": "unknown",
+      "reason": "Anchor-width minimum, available-height scrolling, collision behavior, provider/custom/body portal precedence, open SSR, portal relocation, generated IDs, warning-free hydration, and node preservation require direct evidence."
+    },
+    {
+      "field": "crossBrowserStylesAssets",
+      "status": "unknown",
+      "reason": "Required Chromium, Firefox, WebKit, RTL, zoom, reduced motion, mobile/coarse pointer, stylesheet presence, icon loading, error/loading/Field variants, and animation reversal vectors have not run."
+    },
+    {
+      "field": "diacriticTypeahead",
+      "status": "unknown",
+      "reason": "Locale and diacritic normalization are inherited from Base UI; the executable vector uses deterministic ASCII typeahead."
+    }
+  ],
+  "modelDigest": "03c956d954848c7b521cc86f53aeef47b8956b4b4d5d743038b7161159f4d923"
+}

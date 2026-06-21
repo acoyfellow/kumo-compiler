@@ -1,0 +1,244 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "dropdown-menu",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/dropdown-menu.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "5fc07ff52adb798187f5b4a5a79102aaf03181982a30beda3d30042ae51cc2a4",
+      "runtimeSha256": "b4a3b859779cac7ab110fa25f5cc25c3d498b69f4ed7e2cf240cd4792c0fed6a"
+    },
+    "contractDigest": "21bf29e0898604231db71d5016c69c94b69a55ee8696e7f7de611e17818e2de5"
+  },
+  "public": {
+    "symbol": "DropdownMenu",
+    "exports": [
+      "DropdownMenu"
+    ],
+    "subpath": "./components/dropdown"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "CheckboxItem",
+        "type": "Menu.CheckboxItem props",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "Menu.CheckboxItem props"
+      },
+      {
+        "name": "Content/SubContent",
+        "type": "Menu.Positioner props plus container",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "Menu.Positioner props plus container"
+      },
+      {
+        "name": "Item",
+        "type": "inset, icon, selected, deprecated href, variant",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "inset, icon, selected, deprecated href, variant"
+      },
+      {
+        "name": "Label/Separator/Shortcut/Group",
+        "type": "compound structural exports",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "compound structural exports"
+      },
+      {
+        "name": "LinkItem",
+        "type": "href, inset, icon, variant",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "href, inset, icon, variant"
+      },
+      {
+        "name": "RadioGroup/RadioItem/RadioItemIndicator",
+        "type": "Base UI radio menu props",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "Base UI radio menu props"
+      },
+      {
+        "name": "Root",
+        "type": "Base UI Menu.Root props, generic payload",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "Base UI Menu.Root props, generic payload"
+      },
+      {
+        "name": "Sub/SubTrigger",
+        "type": "submenu root/trigger; trigger supports inset and icon",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "submenu root/trigger; trigger supports inset and icon"
+      },
+      {
+        "name": "Trigger",
+        "type": "Menu.Trigger props",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "Menu.Trigger props"
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": false,
+    "slots": [
+      "CheckboxItem",
+      "Content/SubContent",
+      "Item",
+      "Label/Separator/Shortcut/Group",
+      "LinkItem",
+      "RadioGroup/RadioItem/RadioItemIndicator",
+      "Root",
+      "Sub/SubTrigger",
+      "Trigger"
+    ]
+  },
+  "emissions": {
+    "callbacks": [],
+    "models": [
+      "open"
+    ]
+  },
+  "states": [
+    {
+      "name": "checkboxAndRadioValue",
+      "mode": "controlled-or-uncontrolled",
+      "initial": "from item/group props"
+    },
+    {
+      "name": "highlightedItem",
+      "mode": "internal",
+      "initial": null
+    },
+    {
+      "name": "open",
+      "mode": "controlled-or-uncontrolled",
+      "initial": "controlled/uncontrolled Base UI root state"
+    },
+    {
+      "name": "submenuOpen",
+      "mode": "controlled-or-uncontrolled",
+      "initial": "controlled/uncontrolled Base UI state"
+    }
+  ],
+  "componentRoot": {
+    "semanticRoot": "button",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "button",
+    "aria": [
+      "closed trigger is a button with aria-haspopup=menu",
+      "open portal uses menu/menuitem roles",
+      "checkbox and radio items expose checked semantics",
+      "selected on Item is decorative, not semantic selection"
+    ],
+    "focusable": true,
+    "keys": [
+      "Enter",
+      "Space",
+      "ArrowDown",
+      "ArrowUp",
+      "ArrowLeft",
+      "ArrowRight",
+      "Home",
+      "End",
+      "Escape",
+      "Tab",
+      "printable typeahead"
+    ]
+  },
+  "dependencies": {
+    "styles": [
+      "data-highlighted",
+      "data-disabled",
+      "data-popup-open",
+      "data-starting-style",
+      "data-ending-style",
+      "text-kumo-danger"
+    ],
+    "tokens": [
+      "text-kumo-danger"
+    ],
+    "icons": [
+      "Phosphor check and caret icons",
+      "@cloudflare/kumo styles"
+    ]
+  },
+  "capabilities": [
+    "compound-context",
+    "controlled-state",
+    "roving-focus",
+    "collection/listbox",
+    "dismissable-layer"
+  ],
+  "behavior": {
+    "transitions": [
+      {
+        "action": "pointer or keyboard trigger activation",
+        "effect": "open menu in portal and establish highlighted/focused item"
+      },
+      {
+        "action": "item activation",
+        "effect": "invoke item callback; close policy is Base UI-owned and requires execution"
+      },
+      {
+        "action": "outside press or Escape",
+        "effect": "dismiss and restore trigger focus, subject to Base UI event cancellation"
+      },
+      {
+        "action": "submenu arrow or pointer intent",
+        "effect": "open nested portalled submenu"
+      }
+    ],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "unknown"
+    }
+  },
+  "unknowns": [
+    {
+      "field": "vectors.pointer-item-selection",
+      "status": "blocked",
+      "reason": "Required browser vector is authored but pending the shared browser adapter; event order and close-on-select are not claimed as passing."
+    },
+    {
+      "field": "vectors.keyboard-typeahead-submenu-dismissal",
+      "status": "blocked",
+      "reason": "Required keyboard/typeahead/submenu vector is pending shared browser execution."
+    },
+    {
+      "field": "dismissalAndEventOrdering",
+      "status": "unknown",
+      "reason": "Exact outside-event phase, cancellation, link activation, close-on-select defaults, callback order, and focus restoration are delegated to Base UI and not directly observed."
+    },
+    {
+      "field": "positioningPortalHydration",
+      "status": "unknown",
+      "reason": "Collision fallback, RTL, nested-layer arbitration, custom container behavior, portal relocation, deterministic IDs, and hydration node preservation need browser evidence."
+    },
+    {
+      "field": "typeahead",
+      "status": "unknown",
+      "reason": "Matching normalization and timeout are Base UI behavior and were not directly observed."
+    }
+  ],
+  "modelDigest": "67e1f0d0c866f8893ef1448ab1746990807d757e0186055d017ed2b3fe815db5"
+}

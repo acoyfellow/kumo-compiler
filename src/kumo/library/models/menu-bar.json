@@ -1,0 +1,172 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "menu-bar",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/menu-bar.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "2fe039e9c38dd9661ecc713c29ec060086022324f73643abf1ab5fdd84a44d8f",
+      "runtimeSha256": "2ed2a1a6312eb34937413bd402037d4c2bcdae722bda3ad94e20ffd0fb43cf8f"
+    },
+    "contractDigest": "f045535d57d8458b042cab9857f4cd31970c38e58506a55a5da9bc7717da4339"
+  },
+  "public": {
+    "symbol": "MenuBar",
+    "exports": [
+      "MenuBar",
+      "useMenuNavigation"
+    ],
+    "subpath": "./components/menubar"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "string"
+      },
+      {
+        "name": "isActive",
+        "type": "number|boolean|string|undefined; required controlled active value",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "number|boolean|string|undefined; required controlled active value"
+      },
+      {
+        "name": "optionIds",
+        "type": "boolean",
+        "required": false,
+        "default": false,
+        "nativeForwarding": false,
+        "evidence": "boolean"
+      },
+      {
+        "name": "options",
+        "type": "array of {icon,id?,isActive?,onClick,tooltip}",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "array of {icon,id?,isActive?,onClick,tooltip}"
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": false,
+    "slots": []
+  },
+  "emissions": {
+    "callbacks": [],
+    "models": []
+  },
+  "states": [
+    {
+      "name": "active",
+      "mode": "internal",
+      "initial": "isActive prop compared to index, or option id when optionIds=true"
+    },
+    {
+      "name": "focus",
+      "mode": "internal",
+      "initial": "native tab order; every option button is tabbable"
+    }
+  ],
+  "componentRoot": {
+    "semanticRoot": "nav",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "nav",
+    "aria": [
+      "root is nav, not role=menubar",
+      "each option is a native button named by aria-label=tooltip",
+      "active state is visual only; no aria-current, aria-pressed, or aria-selected"
+    ],
+    "focusable": true,
+    "keys": [
+      "Tab",
+      "Shift+Tab",
+      "ArrowLeft",
+      "ArrowRight",
+      "Enter",
+      "Space"
+    ]
+  },
+  "dependencies": {
+    "styles": [
+      "isolate",
+      "flex",
+      "rounded-lg",
+      "ring-kumo-line",
+      "bg-kumo-recessed",
+      "shadow-xs"
+    ],
+    "tokens": [
+      "ring-kumo-line",
+      "bg-kumo-recessed"
+    ],
+    "icons": [
+      "consumer-provided React icon nodes",
+      "Tooltip compound",
+      "@cloudflare/kumo styles"
+    ]
+  },
+  "capabilities": [
+    "controlled-state",
+    "roving-focus"
+  ],
+  "behavior": {
+    "transitions": [
+      {
+        "action": "option click",
+        "effect": "invoke that option onClick once; consumer owns active state"
+      },
+      {
+        "action": "ArrowLeft or ArrowRight while focus is inside nav",
+        "effect": "document-level listener wraps focus among focusable descendants"
+      },
+      {
+        "action": "focus leaves nav",
+        "effect": "remove scoped document key listener"
+      }
+    ],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "unknown"
+    }
+  },
+  "unknowns": [
+    {
+      "field": "vectors.buttons-active-index",
+      "status": "blocked",
+      "reason": "Options require ReactNode icons and function callbacks not representable by the serializable fixture DSL; shared browser fixture execution is required."
+    },
+    {
+      "field": "vectors.active-by-id",
+      "status": "blocked",
+      "reason": "ID matching and arrow wrap vector is authored as a requirement but pending shared browser execution."
+    },
+    {
+      "field": "tooltip",
+      "status": "unknown",
+      "reason": "Tooltip portal DOM, accessible description relationship, delays, hover/focus dismissal, and hydration are outside the MenuBar chunk and unobserved."
+    },
+    {
+      "field": "focusLifecycle",
+      "status": "unknown",
+      "reason": "Listener behavior during focus movement, dynamic option changes, disabled descendants, and focus-in/out ordering require browser execution."
+    },
+    {
+      "field": "responsivePositioningTypeahead",
+      "status": "unknown",
+      "reason": "MenuBar has no responsive, portal, positioning, selection typeahead, or dismissal API of its own; only nested Tooltip may portal/dismiss."
+    }
+  ],
+  "modelDigest": "19cffdcf12843992b2c2cb4143517cf3beba00600ddc56ea436cac1986e95aae"
+}

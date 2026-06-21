@@ -1,0 +1,168 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "date-range-picker",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/date-range-picker.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "ecadf4888736c886ec7aaa4e665a9d1d681e3b1efa1b65a946fdb48b18ac08dd",
+      "runtimeSha256": "7e7668e28b93553f8d09364940e60c085e6d503d5255c4f8ec29b155a7b0a662"
+    },
+    "contractDigest": "9a43f2cb758e4a6678efd135e2926c53ad20d981c6c569e8721e1f463e07c0c6"
+  },
+  "public": {
+    "symbol": "DateRangePicker",
+    "exports": [
+      "DateRangePicker"
+    ],
+    "subpath": "./components/date-range-picker"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "string"
+      },
+      {
+        "name": "onEndDateChange",
+        "type": "callback",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "callback"
+      },
+      {
+        "name": "onStartDateChange",
+        "type": "callback",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "callback"
+      },
+      {
+        "name": "size",
+        "type": "sm|base|lg",
+        "required": false,
+        "default": "base",
+        "nativeForwarding": false,
+        "evidence": "sm|base|lg"
+      },
+      {
+        "name": "timezone",
+        "type": "string",
+        "required": false,
+        "default": "New York, NY, USA (GMT-4)",
+        "nativeForwarding": false,
+        "evidence": "string"
+      },
+      {
+        "name": "variant",
+        "type": "default|subtle",
+        "required": false,
+        "default": "default",
+        "nativeForwarding": false,
+        "evidence": "default|subtle"
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": false,
+    "slots": []
+  },
+  "emissions": {
+    "callbacks": [
+      "onEndDateChange",
+      "onStartDateChange"
+    ],
+    "models": [
+      "endDate",
+      "startDate"
+    ]
+  },
+  "states": [
+    {
+      "name": "endDate",
+      "mode": "internal",
+      "initial": null
+    },
+    {
+      "name": "months",
+      "mode": "internal",
+      "initial": "current and next month"
+    },
+    {
+      "name": "startDate",
+      "mode": "internal",
+      "initial": null
+    }
+  ],
+  "componentRoot": {
+    "semanticRoot": "div",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "div",
+    "aria": [
+      "Previous month and Next month buttons",
+      "day buttons have generated accessible labels"
+    ],
+    "focusable": true,
+    "keys": [
+      "Enter",
+      "Space"
+    ]
+  },
+  "dependencies": {
+    "styles": [
+      "p-3",
+      "p-4",
+      "p-5",
+      "bg-kumo-overlay",
+      "bg-kumo-base"
+    ],
+    "tokens": [
+      "bg-kumo-overlay",
+      "bg-kumo-base"
+    ],
+    "icons": []
+  },
+  "capabilities": [
+    "controlled-state",
+    "date/range"
+  ],
+  "behavior": {
+    "transitions": [
+      {
+        "action": "first trusted day click",
+        "effect": "sets start and clears end"
+      },
+      {
+        "action": "second trusted day click",
+        "effect": "sets ordered end or restarts range"
+      },
+      {
+        "action": "reset click",
+        "effect": "both callbacks receive null"
+      }
+    ],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [
+    {
+      "field": "calendarMonthAndLocalizedDayLabels",
+      "status": "unknown",
+      "reason": "The component initializes from the current local month and generates labels with browser locale APIs; exact dates and strings are deliberately not frozen or invented."
+    }
+  ],
+  "modelDigest": "f41dde3fe8cc4b472c03f3a189bb8d573cbe8385a24c2fc605d242a104440f4e"
+}

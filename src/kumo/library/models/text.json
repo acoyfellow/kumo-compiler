@@ -1,0 +1,168 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "text",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/text.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "11379b4746caaa99a61e3cad42410a2967b01eaed6117e790d750687fd1e42a1",
+      "runtimeSha256": "923b39ab4746a208e86728f931d272e24d71ace849e226d7e3543678569984c9"
+    },
+    "contractDigest": "c4e86fbf176fd1c5bdabe81c1e77150b9730a0dda1f37e75adc5b4f58f8180fc"
+  },
+  "public": {
+    "symbol": "Text",
+    "exports": [
+      "Text"
+    ],
+    "subpath": "./components/text"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "as",
+        "type": "TextElement",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "TextElement"
+        }
+      },
+      {
+        "name": "bold",
+        "type": "boolean",
+        "required": false,
+        "default": false,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "boolean"
+        }
+      },
+      {
+        "name": "children",
+        "type": "unknown",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "required": false
+        }
+      },
+      {
+        "name": "DANGEROUS_className",
+        "type": "string",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "DANGEROUS_style",
+        "type": "CSSProperties",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "CSSProperties"
+        }
+      },
+      {
+        "name": "size",
+        "type": "xs|sm|base|lg",
+        "required": false,
+        "default": "base",
+        "nativeForwarding": false,
+        "evidence": {
+          "enum": [
+            "xs",
+            "sm",
+            "base",
+            "lg"
+          ]
+        }
+      },
+      {
+        "name": "truncate",
+        "type": "boolean",
+        "required": false,
+        "default": false,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "boolean"
+        }
+      },
+      {
+        "name": "variant",
+        "type": "heading1|heading2|heading3|body|secondary|success|error|mono|mono-secondary",
+        "required": false,
+        "default": "body",
+        "nativeForwarding": false,
+        "evidence": {
+          "enum": [
+            "heading1",
+            "heading2",
+            "heading3",
+            "body",
+            "secondary",
+            "success",
+            "error",
+            "mono",
+            "mono-secondary"
+          ]
+        }
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": true,
+    "slots": [
+      "DANGEROUS_className",
+      "DANGEROUS_style"
+    ]
+  },
+  "emissions": {
+    "callbacks": [],
+    "models": []
+  },
+  "states": [],
+  "componentRoot": {
+    "semanticRoot": "p",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "p",
+    "aria": [],
+    "focusable": false,
+    "keys": []
+  },
+  "dependencies": {
+    "styles": [
+      "text-kumo-default",
+      "text-base"
+    ],
+    "tokens": [
+      "text-kumo-default",
+      "text-base"
+    ],
+    "icons": []
+  },
+  "capabilities": [
+    "static-element",
+    "polymorphic"
+  ],
+  "behavior": {
+    "transitions": [],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [],
+  "modelDigest": "dcded89c64c6a3865017f953f433ff3cca1ec573e35b9c9d84a447026267f661"
+}

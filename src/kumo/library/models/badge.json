@@ -1,0 +1,135 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "badge",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/badge.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "db7be99e6fb7eb3ea0a177d517f2c124e692be3083538ba295ffb8b40fc231d7",
+      "runtimeSha256": "71013d6edfdae6c5d442708a12df1037986d0c5c41da0539eb05dcc1c5e6f5d7"
+    },
+    "contractDigest": "254ed3d98bc51fa5772a3c5dc71fae18f7b0b9959cfffdc1ae3246cfc1a457b5"
+  },
+  "public": {
+    "symbol": "Badge",
+    "exports": [
+      "Badge",
+      "KUMO_BADGE_BASE_STYLES",
+      "BadgeVariant"
+    ],
+    "subpath": "./components/badge"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "appearance",
+        "type": "filled|dot",
+        "required": false,
+        "default": "filled",
+        "nativeForwarding": false,
+        "evidence": {
+          "enum": [
+            "filled",
+            "dot"
+          ]
+        }
+      },
+      {
+        "name": "children",
+        "type": "unknown",
+        "required": true,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "required": true
+        }
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "variant",
+        "type": "primary|secondary|error|warning|success|destructive|info|beta|outline|red|green|neutral|orange|purple|teal|teal-subtle|blue",
+        "required": false,
+        "default": "primary",
+        "nativeForwarding": false,
+        "evidence": {
+          "enum": [
+            "primary",
+            "secondary",
+            "error",
+            "warning",
+            "success",
+            "destructive",
+            "info",
+            "beta",
+            "outline",
+            "red",
+            "green",
+            "neutral",
+            "orange",
+            "purple",
+            "teal",
+            "teal-subtle",
+            "blue"
+          ]
+        }
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": true,
+    "slots": []
+  },
+  "emissions": {
+    "callbacks": [],
+    "models": []
+  },
+  "states": [],
+  "componentRoot": {
+    "semanticRoot": "span",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "span",
+    "aria": [],
+    "focusable": false,
+    "keys": []
+  },
+  "dependencies": {
+    "styles": [
+      "inline-flex",
+      "rounded-full",
+      "px-2",
+      "py-0.5",
+      "text-xs",
+      "font-medium"
+    ],
+    "tokens": [
+      "text-xs"
+    ],
+    "icons": []
+  },
+  "capabilities": [
+    "static-element"
+  ],
+  "behavior": {
+    "transitions": [],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [],
+  "modelDigest": "31b6df8098f9c1aec37c9a2effc3a59daf987546ffc86254a0b217d9b582d7b9"
+}

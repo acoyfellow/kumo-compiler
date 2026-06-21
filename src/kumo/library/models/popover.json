@@ -1,0 +1,204 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "popover",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/popover.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "efe9d02372f532b4a71b0a3e9e00e730bc3e5a3df99048cc55eae72aaacd9cb2",
+      "runtimeSha256": "e1b8aa83fd739bdd496a1e57d4f3565f9c8b282b37367817b2059a27551c565d"
+    },
+    "contractDigest": "4ed87b192b9060dd60e8e86efa01860761dbc5714e39b1778be23b79a25f8e22"
+  },
+  "public": {
+    "symbol": "Popover",
+    "exports": [
+      "Popover",
+      "PopoverRoot",
+      "PopoverTrigger",
+      "PopoverContent",
+      "PopoverTitle",
+      "PopoverDescription",
+      "PopoverClose",
+      "KUMO_POPOVER_VARIANTS",
+      "KUMO_POPOVER_DEFAULT_VARIANTS"
+    ],
+    "subpath": "./components/popover"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "Close",
+        "type": "Base UI close props; deprecated asChild and render composition",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "Base UI close props; deprecated asChild and render composition"
+      },
+      {
+        "name": "Content",
+        "type": "side, align, sideOffset, alignOffset, positionMethod, anchor, className, children, container",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "side, align, sideOffset, alignOffset, positionMethod, anchor, className, children, container"
+      },
+      {
+        "name": "Root",
+        "type": "Base UI Popover.Root props including controlled open/defaultOpen/onOpenChange",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "Base UI Popover.Root props including controlled open/defaultOpen/onOpenChange"
+      },
+      {
+        "name": "Title/Description",
+        "type": "Base UI title/description props",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "Base UI title/description props"
+      },
+      {
+        "name": "Trigger",
+        "type": "Base UI trigger props; deprecated asChild and render composition",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "Base UI trigger props; deprecated asChild and render composition"
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": false,
+    "slots": [
+      "Close",
+      "Content",
+      "Root",
+      "Title/Description",
+      "Trigger"
+    ]
+  },
+  "emissions": {
+    "callbacks": [],
+    "models": [
+      "open"
+    ]
+  },
+  "states": [
+    {
+      "name": "anchor",
+      "mode": "internal",
+      "initial": "trigger unless explicit element/ref/virtual element/resolver"
+    },
+    {
+      "name": "focus",
+      "mode": "internal",
+      "initial": "trigger remains focusable"
+    },
+    {
+      "name": "open",
+      "mode": "controlled-or-uncontrolled",
+      "initial": "defaultOpen or controlled open; otherwise false"
+    }
+  ],
+  "componentRoot": {
+    "semanticRoot": "button",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "button",
+    "aria": [
+      "closed trigger is button with aria-haspopup=dialog and aria-expanded=false",
+      "content uses Base UI popup/dialog semantics",
+      "title and description provide generated associations"
+    ],
+    "focusable": true,
+    "keys": [
+      "Enter",
+      "Space",
+      "Escape",
+      "Tab",
+      "Shift+Tab"
+    ]
+  },
+  "dependencies": {
+    "styles": [
+      "data-kumo-component=Popover",
+      "data-kumo-part=trigger",
+      "data-starting-style",
+      "data-ending-style",
+      "origin-[var(--transform-origin)]"
+    ],
+    "tokens": [
+      "data-kumo-component=Popover",
+      "data-kumo-part=trigger"
+    ],
+    "icons": [
+      "popover arrow CSS",
+      "@cloudflare/kumo styles"
+    ]
+  },
+  "capabilities": [
+    "compound-context",
+    "controlled-state",
+    "dismissable-layer",
+    "positioning"
+  ],
+  "behavior": {
+    "transitions": [
+      {
+        "action": "pointer or keyboard trigger activation",
+        "effect": "open portalled positioned content"
+      },
+      {
+        "action": "Close activation, Escape, or accepted outside interaction",
+        "effect": "request close and restore trigger focus"
+      },
+      {
+        "action": "controlled open change",
+        "effect": "emit onOpenChange while supplied open prop remains authoritative"
+      }
+    ],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "unknown"
+    }
+  },
+  "unknowns": [
+    {
+      "field": "vectors.pointer-open-close-outside",
+      "status": "blocked",
+      "reason": "Portal positioning, outside interaction, dismissal ordering, ARIA association, and focus restoration require the pending shared browser adapter."
+    },
+    {
+      "field": "vectors.controlled-open",
+      "status": "blocked",
+      "reason": "Controlled open callback semantics are a required browser vector and are not fabricated from SSR."
+    },
+    {
+      "field": "positioning",
+      "status": "unknown",
+      "reason": "Collision fallback order, arrow placement, available-size variables, RTL, zoom, viewport edges, virtual anchors, and fixed versus absolute coordinates need direct browser observation."
+    },
+    {
+      "field": "dismissalFocus",
+      "status": "unknown",
+      "reason": "Exact outside pointer/focus phase, preventDefault behavior, nested layers, initial-focus policy, Tab behavior, and restoration ordering are delegated to Base UI."
+    },
+    {
+      "field": "portalHydration",
+      "status": "unknown",
+      "reason": "Custom/provider/body container precedence is declared; SSR open markup, portal relocation, generated ID stability, warnings, and node preservation remain unexecuted."
+    },
+    {
+      "field": "collisionPlacement",
+      "status": "unknown",
+      "reason": "Base UI may flip the requested side at viewport boundaries; this Chrome fixture observes bottom when top collides."
+    }
+  ],
+  "modelDigest": "9a5b30327e2d29e3cd4ad2a84c8c227d1f975448c6352b839c6758fea19781c5"
+}

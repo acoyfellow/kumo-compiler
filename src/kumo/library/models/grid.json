@@ -1,0 +1,135 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "grid",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/grid.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "63f3a671bf4fb0ee3108fce5b797805cad30633874b9ebea1fb9bebab2d6f43b",
+      "runtimeSha256": "b9e6c204a13e32163f3b56a4a3d9705403c13ecfa130c49afe8642e04ec875be"
+    },
+    "contractDigest": "483b41dd142b82b4b018a53ec6bdf1b431efa5cb7e9d809e6f4ed8289ab05c52"
+  },
+  "public": {
+    "symbol": "Grid",
+    "exports": [
+      "Grid",
+      "GridItem",
+      "gridVariants",
+      "gridItemVariants",
+      "KUMO_GRID_VARIANTS",
+      "KUMO_GRID_DEFAULT_VARIANTS"
+    ],
+    "subpath": "./components/grid"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "ReactNode"
+        }
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "gap",
+        "type": "none|sm|base|lg",
+        "required": false,
+        "default": "base",
+        "nativeForwarding": false,
+        "evidence": {
+          "enum": [
+            "none",
+            "sm",
+            "base",
+            "lg"
+          ]
+        }
+      },
+      {
+        "name": "mobileDivider",
+        "type": "boolean",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "boolean"
+        }
+      },
+      {
+        "name": "variant",
+        "type": "2up|side-by-side|2-1|1-2|1-3up|3up|4up|6up|1-2-4up",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "enum": [
+            "2up",
+            "side-by-side",
+            "2-1",
+            "1-2",
+            "1-3up",
+            "3up",
+            "4up",
+            "6up",
+            "1-2-4up"
+          ]
+        }
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": true,
+    "slots": []
+  },
+  "emissions": {
+    "callbacks": [],
+    "models": []
+  },
+  "states": [],
+  "componentRoot": {
+    "semanticRoot": "div",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "div",
+    "aria": [],
+    "focusable": false,
+    "keys": []
+  },
+  "dependencies": {
+    "styles": [
+      "grid"
+    ],
+    "tokens": [],
+    "icons": []
+  },
+  "capabilities": [
+    "static-element"
+  ],
+  "behavior": {
+    "transitions": [],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [],
+  "modelDigest": "5d1967148f65a78ba2c9afc6ee58f0b0fb63605421cb4ab0bf3a8596493e412b"
+}

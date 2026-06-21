@@ -1,0 +1,161 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "date-picker",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/date-picker.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "22c18052a57ef37754806d78e64e725fd1565b1d5cd28790be90dbbecd511e80",
+      "runtimeSha256": "ae0c108a22932ef83b2ce4812659673367ca401dc21cbc9d69a54a40d156a8bf"
+    },
+    "contractDigest": "f303d136d3831ff34dfcc30045081b8df8c6026a733e5da0924efbe2e36c0576"
+  },
+  "public": {
+    "symbol": "DatePicker",
+    "exports": [
+      "DatePicker"
+    ],
+    "subpath": "./components/date-picker"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "aria-label",
+        "type": "string",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "string"
+      },
+      {
+        "name": "fromDate",
+        "type": "Date",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "Date"
+      },
+      {
+        "name": "mode",
+        "type": "single|multiple|range",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "single|multiple|range"
+      },
+      {
+        "name": "onChange",
+        "type": "callback",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "callback"
+      },
+      {
+        "name": "reactDayPickerProps",
+        "type": "PropsBase and mode props",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "PropsBase and mode props"
+      },
+      {
+        "name": "selected",
+        "type": "Date|Date[]|DateRange",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "Date|Date[]|DateRange"
+      },
+      {
+        "name": "toDate",
+        "type": "Date",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "Date"
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": false,
+    "slots": []
+  },
+  "emissions": {
+    "callbacks": [
+      "onChange"
+    ],
+    "models": [
+      "selected"
+    ]
+  },
+  "states": [
+    {
+      "name": "displayMonth",
+      "mode": "internal",
+      "initial": "from selected/defaultMonth/current date"
+    },
+    {
+      "name": "selected",
+      "mode": "controlled-or-uncontrolled",
+      "initial": "from selected prop"
+    }
+  ],
+  "componentRoot": {
+    "semanticRoot": "div",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "div",
+    "aria": [
+      "calendar grid",
+      "day buttons expose labels and selected/disabled state",
+      "navigation buttons expose labels"
+    ],
+    "focusable": true,
+    "keys": [
+      "ArrowLeft",
+      "ArrowRight",
+      "ArrowUp",
+      "ArrowDown",
+      "Enter",
+      "Space"
+    ]
+  },
+  "dependencies": {
+    "styles": [
+      "rdp-root",
+      "rdp-month_grid",
+      "rdp-day_button"
+    ],
+    "tokens": [],
+    "icons": []
+  },
+  "capabilities": [
+    "controlled-state",
+    "date/range"
+  ],
+  "behavior": {
+    "transitions": [
+      {
+        "action": "trusted day click",
+        "effect": "onChange receives native Date selection according to mode and bounds"
+      }
+    ],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [
+    {
+      "field": "localizedLabelsAndCalendarText",
+      "status": "unknown",
+      "reason": "Calendar strings, week layout, and locale-specific formatting are owned by react-day-picker and Intl/browser locale; this contract intentionally does not invent locale behavior."
+    }
+  ],
+  "modelDigest": "30cb044d29c3863110ff14c907843294348a10f4673e85140e4f5d3ec8da6dba"
+}

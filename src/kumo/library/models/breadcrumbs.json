@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "breadcrumbs",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/breadcrumbs.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "4fe035d9a9935e256e2fb0db1dfc29ffd1827e767b6b103785299ed01dab35b6",
+      "runtimeSha256": "cb38827bb780254d51fdff965d8b2481fa4a654bfd9f174bdb0968ff363364e9"
+    },
+    "contractDigest": "1e5f3ced5834ddfb1b51201ba68b62c8d599d2263855f990b1b2247112e9f255"
+  },
+  "public": {
+    "symbol": "Breadcrumbs",
+    "exports": [
+      "Breadcrumbs",
+      "breadcrumbsVariants",
+      "KUMO_BREADCRUMBS_VARIANTS",
+      "KUMO_BREADCRUMBS_DEFAULT_VARIANTS"
+    ],
+    "subpath": "./components/breadcrumbs"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "ReactNode"
+        }
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "size",
+        "type": "sm|base",
+        "required": false,
+        "default": "base",
+        "nativeForwarding": false,
+        "evidence": {
+          "enum": [
+            "sm",
+            "base"
+          ]
+        }
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": true,
+    "slots": []
+  },
+  "emissions": {
+    "callbacks": [],
+    "models": []
+  },
+  "states": [],
+  "componentRoot": {
+    "semanticRoot": "nav",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "nav",
+    "aria": [
+      "aria-label=\"breadcrumb\""
+    ],
+    "focusable": false,
+    "keys": []
+  },
+  "dependencies": {
+    "styles": [
+      "group",
+      "mr-4",
+      "flex",
+      "items-center"
+    ],
+    "tokens": [],
+    "icons": []
+  },
+  "capabilities": [
+    "static-element",
+    "current-link"
+  ],
+  "behavior": {
+    "transitions": [],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [],
+  "modelDigest": "b0031f788c00296e845149c8b1c6cd0a6b249acd859be6185496bde5c74a2aea"
+}

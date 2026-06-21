@@ -1,0 +1,192 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "autocomplete",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/autocomplete.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "3d9adea79f082b9a890408c3571677d9970e74dff958839fc0af6239c6895701",
+      "runtimeSha256": "929fcaef232cc3c433ddbc7a735581f993a3ea151b5fb00edb92c2984ff7b205"
+    },
+    "contractDigest": "ec76d75c3cb1e5d949e1f02e80b7482c913b188554bc0c235d67b38a77abe585"
+  },
+  "public": {
+    "symbol": "Autocomplete",
+    "exports": [
+      "Autocomplete",
+      "KUMO_AUTOCOMPLETE_VARIANTS",
+      "KUMO_AUTOCOMPLETE_DEFAULT_VARIANTS",
+      "autocompleteVariants"
+    ],
+    "subpath": "./components/autocomplete"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "compound",
+        "type": "Item,GroupLabel,Group,Separator,List,Empty,Collection,useFilter",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "Item,GroupLabel,Group,Separator,List,Empty,Collection,useFilter"
+      },
+      {
+        "name": "Content",
+        "type": "children,className,align,alignOffset,side,sideOffset",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "children,className,align,alignOffset,side,sideOffset"
+      },
+      {
+        "name": "InputGroup",
+        "type": "className,size,placeholder",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "className,size,placeholder"
+      },
+      {
+        "name": "root",
+        "type": "items,value,defaultValue,onValueChange,open,onOpenChange,children,className,label,required,labelTooltip,description,error plus Base UI Root props",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "items,value,defaultValue,onValueChange,open,onOpenChange,children,className,label,required,labelTooltip,description,error plus Base UI Root props"
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": false,
+    "slots": [
+      "Content",
+      "InputGroup",
+      "compound",
+      "root"
+    ]
+  },
+  "emissions": {
+    "callbacks": [],
+    "models": [
+      "open",
+      "value"
+    ]
+  },
+  "states": [
+    {
+      "name": "filter",
+      "mode": "internal",
+      "initial": "Base UI autocomplete filtering"
+    },
+    {
+      "name": "highlight",
+      "mode": "internal",
+      "initial": "none until navigation"
+    },
+    {
+      "name": "open",
+      "mode": "controlled-or-uncontrolled",
+      "initial": "controlled open or Base UI default closed"
+    },
+    {
+      "name": "value",
+      "mode": "controlled-or-uncontrolled",
+      "initial": "value, otherwise defaultValue"
+    }
+  ],
+  "componentRoot": {
+    "semanticRoot": "input",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "input",
+    "aria": [
+      "input exposes combobox semantics through Base UI",
+      "popup list items expose highlighted and selected states",
+      "label/description/error use Field associations when label is supplied"
+    ],
+    "focusable": true,
+    "keys": [
+      "ArrowDown",
+      "ArrowUp",
+      "Enter",
+      "Escape",
+      "Home",
+      "End"
+    ]
+  },
+  "dependencies": {
+    "styles": [
+      "w-full",
+      "outline-none",
+      "max-h-[min(var(--available-height),24rem)]",
+      "min-w-(--anchor-width)",
+      "bg-kumo-control",
+      "rounded-lg",
+      "shadow-lg",
+      "ring-kumo-line",
+      "data-highlighted:bg-kumo-overlay",
+      "data-selected:font-medium"
+    ],
+    "tokens": [
+      "bg-kumo-control",
+      "ring-kumo-line",
+      "data-highlighted:bg-kumo-overlay"
+    ],
+    "icons": [
+      "CheckIcon from @phosphor-icons/react"
+    ]
+  },
+  "capabilities": [
+    "compound-context",
+    "controlled-state",
+    "native-input",
+    "field-wiring",
+    "collection/listbox"
+  ],
+  "behavior": {
+    "transitions": [
+      {
+        "action": "focus/type input",
+        "effect": "updates free-form value, filters suggestions, and can open popup"
+      },
+      {
+        "action": "ArrowDown/ArrowUp",
+        "effect": "moves highlighted suggestion"
+      },
+      {
+        "action": "Enter on highlighted item",
+        "effect": "selects suggestion and updates value"
+      },
+      {
+        "action": "Escape",
+        "effect": "closes popup"
+      }
+    ],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [
+    {
+      "field": "portal.container",
+      "status": "unknown",
+      "reason": "Autocomplete.Content uses Base UI Portal without exposing a container prop; exact portal target under provider/shadow DOM was not asserted."
+    },
+    {
+      "field": "ssr.popup",
+      "status": "unknown",
+      "reason": "Closed action-free SSR is supported; open portal markup and generated ids depend on Base UI and were not frozen as exact strings."
+    },
+    {
+      "field": "defaultFiltering",
+      "status": "unknown",
+      "reason": "Canonical composition with explicit items does not filter automatically in this fixture; ArrowDown selects Apple after typing Ban."
+    }
+  ],
+  "modelDigest": "ee229accc7a8e057b052c42e88551e19ed0fbbb7c71ee0882abe27a912e105fb"
+}

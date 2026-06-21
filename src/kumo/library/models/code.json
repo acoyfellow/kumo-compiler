@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "code",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/code.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "7fb065c80d8bac3bd91fb6e45a5bf2b275349fa5a881e169f9c85bd6c1cec89e",
+      "runtimeSha256": "1675f902b6560cfec9e495578e2491986cf9cc1c7d7f7bd7d8e7f1eb1cb286ad"
+    },
+    "contractDigest": "2fa80b7d19c26c450eb6ff2615d1a4943cefcc32e7092d729505a2c75f70151f"
+  },
+  "public": {
+    "symbol": "Code",
+    "exports": [
+      "Code",
+      "CodeBlock"
+    ],
+    "subpath": "./components/code"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "code",
+        "type": "string",
+        "required": true,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "string",
+          "required": true
+        }
+      },
+      {
+        "name": "lang",
+        "type": "ts|tsx|jsonc|bash|css",
+        "required": false,
+        "default": "ts",
+        "nativeForwarding": false,
+        "evidence": {
+          "enum": [
+            "ts",
+            "tsx",
+            "jsonc",
+            "bash",
+            "css"
+          ]
+        }
+      },
+      {
+        "name": "style",
+        "type": "CSSProperties",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "CSSProperties"
+        }
+      },
+      {
+        "name": "values",
+        "type": "record",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "record"
+        }
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": false,
+    "slots": []
+  },
+  "emissions": {
+    "callbacks": [],
+    "models": []
+  },
+  "states": [],
+  "componentRoot": {
+    "semanticRoot": "pre",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "pre",
+    "aria": [],
+    "focusable": false,
+    "keys": []
+  },
+  "dependencies": {
+    "styles": [
+      "font-mono",
+      "text-sm",
+      "text-kumo-subtle"
+    ],
+    "tokens": [
+      "text-sm",
+      "text-kumo-subtle"
+    ],
+    "icons": []
+  },
+  "capabilities": [
+    "static-element"
+  ],
+  "behavior": {
+    "transitions": [],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [],
+  "modelDigest": "7af796719232ae59536e38867964ebe477b63078b0a806d1d4d86d7279438e7d"
+}

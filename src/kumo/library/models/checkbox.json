@@ -1,0 +1,150 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "checkbox",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/checkbox.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "b5d863b87e52d04e85f5d704359fa724fa7bbe99847e3f866fcf8e258eb1be1d",
+      "runtimeSha256": "990c3b30fcadac24cbcf9624332d3fa43ea65264a649e8e8a8a897c071227f33"
+    },
+    "contractDigest": "6566d99491aae98eb7e0128e8ec05f0ddb04e388aebe4d877b4115904a906872"
+  },
+  "public": {
+    "symbol": "Checkbox",
+    "exports": [
+      "Checkbox"
+    ],
+    "subpath": "./components/checkbox"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "checked",
+        "type": "boolean",
+        "required": false,
+        "default": false,
+        "nativeForwarding": false,
+        "evidence": "boolean"
+      },
+      {
+        "name": "disabled",
+        "type": "boolean",
+        "required": false,
+        "default": false,
+        "nativeForwarding": false,
+        "evidence": "boolean"
+      },
+      {
+        "name": "group",
+        "type": "Checkbox.Group/Item",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "Checkbox.Group/Item"
+      },
+      {
+        "name": "indeterminate",
+        "type": "boolean",
+        "required": false,
+        "default": false,
+        "nativeForwarding": false,
+        "evidence": "boolean"
+      },
+      {
+        "name": "label",
+        "type": "ReactNode",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "ReactNode"
+      },
+      {
+        "name": "onCheckedChange",
+        "type": "callback",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": "callback"
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": false,
+    "slots": []
+  },
+  "emissions": {
+    "callbacks": [
+      "onCheckedChange"
+    ],
+    "models": []
+  },
+  "states": [
+    {
+      "name": "controlled",
+      "mode": "controlled-or-uncontrolled",
+      "initial": "checked"
+    },
+    {
+      "name": "group",
+      "mode": "internal",
+      "initial": "defaultValue/value"
+    },
+    {
+      "name": "uncontrolled",
+      "mode": "controlled-or-uncontrolled",
+      "initial": "absence of checked"
+    }
+  ],
+  "componentRoot": {
+    "semanticRoot": "span",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "span",
+    "aria": [
+      "role=checkbox",
+      "aria-checked=false|true|mixed",
+      "accessible name required"
+    ],
+    "focusable": true,
+    "keys": [
+      "Space"
+    ]
+  },
+  "dependencies": {
+    "styles": [
+      "data-[checked]",
+      "data-[indeterminate]"
+    ],
+    "tokens": [],
+    "icons": []
+  },
+  "capabilities": [
+    "controlled-state",
+    "native-input"
+  ],
+  "behavior": {
+    "transitions": [
+      {
+        "action": "click|Space",
+        "effect": "toggle and invoke callback unless disabled"
+      }
+    ],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [
+    {
+      "field": "inheritedBaseUIEventDetails",
+      "status": "unknown",
+      "reason": "Callback detail object and browser/platform edge behavior are inherited from Base UI and are intentionally not guessed."
+    }
+  ],
+  "modelDigest": "6046a14df76a2a16925016692975eb723d93ecc7707fe7c4851276c66930c125"
+}

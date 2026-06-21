@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "layer-card",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/layer-card.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "5ac4b8b3e885a30896bd20817872f1f6beb93d5ee82dd2d218c5f1d3c27f939d",
+      "runtimeSha256": "054cad0a47af90571350f833c7e814894b08b6ce2914ff645afe889fdbe7f666"
+    },
+    "contractDigest": "b4d1d4adae01fa79bd1597a8df1b893526767d44cace26acca1b0521886df031"
+  },
+  "public": {
+    "symbol": "LayerCard",
+    "exports": [
+      "LayerCard"
+    ],
+    "subpath": "./components/layer-card"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "ReactNode"
+        }
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "render",
+        "type": "ReactElement",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "ReactElement"
+        }
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": true,
+    "slots": []
+  },
+  "emissions": {
+    "callbacks": [],
+    "models": []
+  },
+  "states": [],
+  "componentRoot": {
+    "semanticRoot": "div",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "div",
+    "aria": [],
+    "focusable": false,
+    "keys": []
+  },
+  "dependencies": {
+    "styles": [
+      "overflow-hidden",
+      "rounded-lg"
+    ],
+    "tokens": [],
+    "icons": []
+  },
+  "capabilities": [
+    "static-element",
+    "polymorphic"
+  ],
+  "behavior": {
+    "transitions": [],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [
+    {
+      "field": "semantics.rootWhenRenderProvided",
+      "status": "unknown",
+      "reason": "The caller-provided React element controls the polymorphic root."
+    }
+  ],
+  "modelDigest": "4f91786e848a9bea511adc13c5b6fe0a96d7c97ae5150bc58245b9e06d67f0c2"
+}

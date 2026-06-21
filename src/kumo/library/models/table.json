@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "table",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/table.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "f9a1d6cd05dffc43469dfb4a17bc9cecd978b433db89b58c7387c121f962dccc",
+      "runtimeSha256": "531edb322dfc8d82e2b8105dc75ab97b079af653ce181e2364ff9ab0cd5de610"
+    },
+    "contractDigest": "72a95a5166669a3cdd63a67f52de3db9d74f2725a12008b38d2332256b2518b4"
+  },
+  "public": {
+    "symbol": "Table",
+    "exports": [
+      "Table",
+      "KUMO_TABLE_DEFAULT_VARIANTS",
+      "KUMO_TABLE_VARIANTS"
+    ],
+    "subpath": "./components/table"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "children",
+        "type": "ReactNode",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "ReactNode"
+        }
+      },
+      {
+        "name": "className",
+        "type": "string",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "layout",
+        "type": "auto|fixed",
+        "required": false,
+        "default": "auto",
+        "nativeForwarding": false,
+        "evidence": {
+          "enum": [
+            "auto",
+            "fixed"
+          ]
+        }
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": true,
+    "slots": []
+  },
+  "emissions": {
+    "callbacks": [],
+    "models": []
+  },
+  "states": [],
+  "componentRoot": {
+    "semanticRoot": "table",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "table",
+    "aria": [],
+    "focusable": false,
+    "keys": []
+  },
+  "dependencies": {
+    "styles": [
+      "isolate",
+      "w-full",
+      "text-left"
+    ],
+    "tokens": [
+      "text-left"
+    ],
+    "icons": []
+  },
+  "capabilities": [
+    "static-element"
+  ],
+  "behavior": {
+    "transitions": [],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [],
+  "modelDigest": "113ffbb88bc7f99af60af4dcbe523a4107af2bc4077a8248ff97ea15c377691b"
+}

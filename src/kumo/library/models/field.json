@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "field",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/field.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "typesSha256": "7702d26f115f2d412dfbbe648cb19a1ad5a54c69eb48ee39e9cb7a7f32f2ab8a",
+      "runtimeSha256": "b795d54552593fd0c4ef5ee3ed1973a3faba693bdf947ddd63a25fdff5363097"
+    },
+    "contractDigest": "9dd6d0bc3ab0683f1671958dccbfea163a3658c715de96df67b650a8add6ea55"
+  },
+  "public": {
+    "symbol": "Field",
+    "exports": [
+      "Field"
+    ],
+    "subpath": "./components/field"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "observable",
+        "type": "documented public props",
+        "required": false,
+        "default": null,
+        "nativeForwarding": true,
+        "evidence": "documented public props"
+      }
+    ],
+    "nativeAttributeForwarding": true
+  },
+  "composition": {
+    "children": false,
+    "slots": []
+  },
+  "emissions": {
+    "callbacks": [],
+    "models": []
+  },
+  "states": [
+    {
+      "name": "source",
+      "mode": "internal",
+      "initial": "props/native state"
+    }
+  ],
+  "componentRoot": {
+    "semanticRoot": "div",
+    "frameworkNeutral": true
+  },
+  "semanticGraph": {
+    "root": "div",
+    "aria": [
+      "native and Field semantics observed in canonical Chrome"
+    ],
+    "focusable": true,
+    "keys": [
+      "Tab",
+      "Enter",
+      "Escape"
+    ]
+  },
+  "dependencies": {
+    "styles": [],
+    "tokens": [],
+    "icons": []
+  },
+  "capabilities": [
+    "native-input",
+    "field-wiring"
+  ],
+  "behavior": {
+    "transitions": [
+      {
+        "action": "native user action",
+        "effect": "callback/state transition"
+      }
+    ],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [
+    {
+      "field": "inheritedVendorBehavior",
+      "status": "unknown",
+      "reason": "Base UI event details, autofill/password managers, IME, RTL, selection ranges, clipboard rejection, and platform accessibility-tree differences remain inherited/vendor unknowns."
+    }
+  ],
+  "modelDigest": "82df6d7e6e82f581ecce19ac8b6a13206d06a97f7f2f39f869b795ce55e3da4e"
+}
