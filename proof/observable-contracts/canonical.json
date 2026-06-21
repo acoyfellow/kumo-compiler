@@ -3,8 +3,8 @@
   "status": "pending",
   "canonical": "@cloudflare/kumo@2.5.2",
   "counts": {
-    "pending": 55,
-    "passed": 66
+    "pending": 30,
+    "passed": 92
   },
   "components": [
     {
@@ -41,10 +41,10 @@
     },
     {
       "id": "button",
-      "status": "pending",
+      "status": "passed",
       "vectors": 8,
-      "passed": 0,
-      "pending": 8,
+      "passed": 8,
+      "pending": 0,
       "unknowns": 1
     },
     {
@@ -97,18 +97,18 @@
     },
     {
       "id": "date-picker",
-      "status": "pending",
+      "status": "passed",
       "vectors": 3,
-      "passed": 0,
-      "pending": 3,
+      "passed": 3,
+      "pending": 0,
       "unknowns": 1
     },
     {
       "id": "date-range-picker",
-      "status": "pending",
+      "status": "passed",
       "vectors": 3,
-      "passed": 0,
-      "pending": 3,
+      "passed": 3,
+      "pending": 0,
       "unknowns": 1
     },
     {
@@ -233,10 +233,10 @@
     },
     {
       "id": "pagination",
-      "status": "pending",
+      "status": "passed",
       "vectors": 8,
-      "passed": 0,
-      "pending": 8,
+      "passed": 8,
+      "pending": 0,
       "unknowns": 1
     },
     {
@@ -329,10 +329,10 @@
     },
     {
       "id": "toasty",
-      "status": "pending",
-      "vectors": 3,
-      "passed": 0,
-      "pending": 3,
+      "status": "passed",
+      "vectors": 4,
+      "passed": 4,
+      "pending": 0,
       "unknowns": 1
     }
   ],
@@ -384,57 +384,49 @@
       "component": "button",
       "vector": "default-native",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "button",
       "vector": "primary-xs",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "button",
       "vector": "destructive-lg",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "button",
       "vector": "circle-label",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "button",
       "vector": "disabled-click",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "button",
       "vector": "loading-click",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "button",
       "vector": "enabled-click",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "button",
       "vector": "submit-form",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "checkbox",
@@ -533,43 +525,37 @@
       "component": "date-picker",
       "vector": "single-selected",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "date-picker",
       "vector": "single-change",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "date-picker",
       "vector": "bounded-day",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "date-range-picker",
       "vector": "default-layout",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "date-range-picker",
       "vector": "small-subtle-timezone",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "date-range-picker",
       "vector": "select-range-reset",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "dialog",
@@ -799,57 +785,49 @@
       "component": "pagination",
       "vector": "legacy-page-one",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "pagination",
       "vector": "legacy-page-three-ssr",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "pagination",
       "vector": "next-controlled",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "pagination",
       "vector": "boundaries",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "pagination",
       "vector": "input-enter-clamp",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "pagination",
       "vector": "input-blur-clamp",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "pagination",
       "vector": "compound-simple-labels",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "pagination",
       "vector": "compound-dropdown-size",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "popover",
@@ -1101,23 +1079,26 @@
       "component": "toasty",
       "vector": "provider-ssr",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "toasty",
       "vector": "notify-default",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "toasty",
-      "vector": "action-click-close",
+      "vector": "action-remains-visible",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
+    },
+    {
+      "component": "toasty",
+      "vector": "close-dismiss",
+      "mode": "browser",
+      "status": "passed"
     }
   ],
-  "digest": "f64879df7a4023c19a777d231a182b7b8b2b8077d71c9bbd9e3429a7d892a12a"
+  "digest": "cea936db07912643b560a02621049be394cfa9c104294957db0b33d283703aad"
 }
