@@ -9,8 +9,8 @@
   "stylingAssets":{"classes":["rdp-root","rdp-month_grid","rdp-day_button"],"assets":[]},
   "vectors":[
     {"id":"single-selected","props":{"mode":"single","selectedDate":"2025-01-15","defaultMonthDate":"2025-01-01","aria-label":"Choose date"},"expected":{"root":{"tag":"div","attributes":{"includes":{"aria-label":"Choose date"}}},"descendants":[{"selector":"table","count":1,"attributes":{"includes":{"role":"grid"}}},{"selector":"button","count":37}]}},
-    {"id":"single-change","props":{"mode":"single","defaultMonthDate":"2025-01-01"},"actions":[{"type":"click","selector":"[data-day=2025-01-20]"}],"expected":{"root":{"tag":"div"},"state":{"value":"2025-01-20"},"events":["change:2025-01-20"],"focus":"[data-day=2025-01-20]"}},
-    {"id":"bounded-day","props":{"mode":"single","defaultMonthDate":"2025-01-01","disabledBeforeDate":"2025-01-10","disabledAfterDate":"2025-01-20"},"actions":[{"type":"click","selector":"[data-day=2025-01-05]"}],"expected":{"root":{"tag":"div"},"state":{"value":null,"disabledBefore":true,"disabledAfter":true},"events":[],"focus":"none"}}
+    {"id":"single-change","props":{"mode":"single","defaultMonthDate":"2025-01-01"},"actions":[{"type":"click","selector":"[data-day=\"2025-01-20\"]"}],"expected":{"root":{"tag":"div"},"state":{"value":"2025-01-20"},"events":["change:2025-01-20"],"focus":"[data-day=\"2025-01-20\"]"}},
+    {"id":"bounded-day","props":{"mode":"single","defaultMonthDate":"2025-01-01","disabledBeforeDate":"2025-01-10","disabledAfterDate":"2025-01-20"},"actions":[{"type":"click","selector":"[data-day=\"2025-01-05\"]"}],"expected":{"root":{"tag":"div"},"state":{"value":null,"disabledBefore":true,"disabledAfter":true},"events":[],"focus":"none"}}
   ],
   "unknowns":[{"field":"localizedLabelsAndCalendarText","status":"unknown","reason":"Calendar strings, week layout, and locale-specific formatting are owned by react-day-picker and Intl/browser locale; this contract intentionally does not invent locale behavior."}]
 }

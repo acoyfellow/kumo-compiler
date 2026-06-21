@@ -1,16 +1,220 @@
 {
-  "schemaVersion":"kumo.observable/v1","component":"toasty",
-  "canonical":{"package":"@cloudflare/kumo","version":"2.5.2","exportPath":"./components/toast","typesPath":"dist/src/components/toast/index.d.ts","runtimePath":"dist/components/toast.js","typesSha256":"db0aec09820cb948e375b1ae2a9ff211895cade75aca811e79073d641ed288e7","runtimeSha256":"a903254a1e2943c1e27e2476de198fad20452aea8849d504f543dc77045289da","irSchemaVersion":"kumo.ir/v1"},
-  "publicApi":{"exports":["Toasty","ToastProvider","Toast","createKumoToastManager","useKumoToastManager"],"props":{"children":"ReactNode","container":"PortalContainer","toastManager":"ToastManager","variant":"default|success|error|warning|info"},"defaults":{"container":"provider container or document.body","variant":"default"}},
-  "semantics":{"root":"div","aria":["viewport is a polite live region","toast title and description participate in announcement","close button label is Close"]},
-  "initialState":{"toasts":"manager state","viewport":"portaled after hydration"},
-  "transitions":[{"action":"manager add","effect":"toast appears in viewport and live-region announcement"},{"action":"toast action trusted click","effect":"action callback fires"},{"action":"close trusted click","effect":"toast enters exit lifecycle then is removed"}],
-  "keyboardFocus":{"focusable":false,"keys":[]},"ssrHydration":{"ssr":"supported","hydration":"identical"},
-  "stylingAssets":{"classes":["fixed","bottom-4","right-4","rounded-lg","shadow-lg"],"assets":[]},
-  "vectors":[
-    {"id":"provider-ssr","props":{"children":"Application"},"expected":{"root":{"tag":"div","text":"Application"}}},
-    {"id":"notify-default","props":{"children":"Application"},"actions":[{"type":"click","selector":"[data-notify]"}],"expected":{"root":{"tag":"div"},"state":{"visible":true,"title":"Saved","description":"Changes saved"},"events":["notify"],"focus":"[data-notify]"}},
-    {"id":"action-click-close","props":{"children":"Application"},"actions":[{"type":"click","selector":"[data-notify]"},{"type":"click","selector":"[data-toast-action]"},{"type":"click","selector":"[aria-label=Close]"}],"expected":{"root":{"tag":"div"},"state":{"visible":false,"announcement":"Saved Changes saved"},"events":["notify","action","close"],"focus":"none"}}
+  "schemaVersion": "kumo.observable/v1",
+  "component": "toasty",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "exportPath": "./components/toast",
+    "typesPath": "dist/src/components/toast/index.d.ts",
+    "runtimePath": "dist/components/toast.js",
+    "typesSha256": "db0aec09820cb948e375b1ae2a9ff211895cade75aca811e79073d641ed288e7",
+    "runtimeSha256": "a903254a1e2943c1e27e2476de198fad20452aea8849d504f543dc77045289da",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "Toasty",
+      "ToastProvider",
+      "Toast",
+      "createKumoToastManager",
+      "useKumoToastManager"
+    ],
+    "props": {
+      "children": "ReactNode",
+      "container": "PortalContainer",
+      "toastManager": "ToastManager",
+      "variant": "default|success|error|warning|info"
+    },
+    "defaults": {
+      "container": "provider container or document.body",
+      "variant": "default"
+    }
+  },
+  "semantics": {
+    "root": "div",
+    "aria": [
+      "viewport is a polite live region",
+      "toast title and description participate in announcement",
+      "close button label is Close"
+    ]
+  },
+  "initialState": {
+    "toasts": "manager state",
+    "viewport": "portaled after hydration"
+  },
+  "transitions": [
+    {
+      "action": "manager add",
+      "effect": "toast appears in viewport and live-region announcement"
+    },
+    {
+      "action": "toast action trusted click",
+      "effect": "action callback fires"
+    },
+    {
+      "action": "close trusted click",
+      "effect": "toast enters exit lifecycle then is removed"
+    }
   ],
-  "unknowns":[{"field":"announcementTimingAndRemovalDelay","status":"unknown","reason":"Assistive technology announcement timing and animation-completion removal timing are inherited from Base UI, CSS, and the user agent; exact wall-clock timing is not guessed."}]
+  "keyboardFocus": {
+    "focusable": false,
+    "keys": []
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "identical"
+  },
+  "stylingAssets": {
+    "classes": [
+      "fixed",
+      "bottom-4",
+      "right-4",
+      "rounded-lg",
+      "shadow-lg"
+    ],
+    "assets": []
+  },
+  "vectors": [
+    {
+      "id": "provider-ssr",
+      "props": {
+        "children": "Application"
+      },
+      "expected": {
+        "root": {
+          "tag": "div",
+          "text": "Application"
+        }
+      }
+    },
+    {
+      "id": "notify-default",
+      "props": {
+        "children": "Application"
+      },
+      "actions": [
+        {
+          "type": "click",
+          "selector": "[data-notify]"
+        }
+      ],
+      "expected": {
+        "root": {
+          "tag": "div"
+        },
+        "state": {
+          "visible": true,
+          "title": "Saved",
+          "description": "Changes saved"
+        },
+        "events": [
+          "notify"
+        ],
+        "focus": "[data-notify]"
+      }
+    },
+    {
+      "id": "action-remains-visible",
+      "props": {
+        "children": "Application"
+      },
+      "actions": [
+        {
+          "type": "click",
+          "selector": "[data-notify]"
+        },
+        {
+          "type": "wait",
+          "ms": 600
+        },
+        {
+          "type": "click",
+          "selector": "[data-toast-action]",
+          "checkpoint": {
+            "root": {
+              "tag": "div"
+            },
+            "state": {
+              "visible": true,
+              "announcement": "Saved Changes saved"
+            },
+            "events": [
+              "notify",
+              "action"
+            ]
+          },
+          "scope": "document"
+        }
+      ],
+      "expected": {
+        "root": {
+          "tag": "div"
+        },
+        "state": {
+          "visible": true,
+          "announcement": "Saved Changes saved"
+        },
+        "events": [
+          "notify",
+          "action"
+        ],
+        "focus": "[data-toast-action]"
+      }
+    },
+    {
+      "id": "close-dismiss",
+      "props": {
+        "children": "Application"
+      },
+      "actions": [
+        {
+          "type": "click",
+          "selector": "[data-notify]"
+        },
+        {
+          "type": "wait",
+          "ms": 600
+        },
+        {
+          "type": "click",
+          "selector": "[aria-label=Close]",
+          "checkpoint": {
+            "root": {
+              "tag": "div"
+            },
+            "state": {
+              "announcement": "Saved Changes saved"
+            },
+            "events": [
+              "notify"
+            ]
+          },
+          "scope": "document"
+        },
+        {
+          "type": "wait",
+          "ms": 1000
+        }
+      ],
+      "expected": {
+        "root": {
+          "tag": "div"
+        },
+        "state": {
+          "visible": false
+        },
+        "events": [
+          "notify"
+        ],
+        "focus": "none"
+      }
+    }
+  ],
+  "unknowns": [
+    {
+      "field": "announcementTimingAndRemovalDelay",
+      "status": "unknown",
+      "reason": "Assistive technology announcement timing and animation-completion removal timing are inherited from Base UI, CSS, and the user agent; exact wall-clock timing is not guessed."
+    }
+  ]
 }

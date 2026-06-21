@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "family": "misc",
+  "canonical": "@cloudflare/kumo@2.5.2",
+  "counts": {
+    "passed": 26,
+    "failed": 0,
+    "blocked": 0
+  },
+  "components": [
+    "button",
+    "date-picker",
+    "date-range-picker",
+    "pagination",
+    "toasty"
+  ],
+  "cells": [
+    {
+      "component": "button",
+      "vector": "default-native",
+      "status": "passed"
+    },
+    {
+      "component": "button",
+      "vector": "primary-xs",
+      "status": "passed"
+    },
+    {
+      "component": "button",
+      "vector": "destructive-lg",
+      "status": "passed"
+    },
+    {
+      "component": "button",
+      "vector": "circle-label",
+      "status": "passed"
+    },
+    {
+      "component": "button",
+      "vector": "disabled-click",
+      "status": "passed"
+    },
+    {
+      "component": "button",
+      "vector": "loading-click",
+      "status": "passed"
+    },
+    {
+      "component": "button",
+      "vector": "enabled-click",
+      "status": "passed"
+    },
+    {
+      "component": "button",
+      "vector": "submit-form",
+      "status": "passed"
+    },
+    {
+      "component": "date-picker",
+      "vector": "single-selected",
+      "status": "passed"
+    },
+    {
+      "component": "date-picker",
+      "vector": "single-change",
+      "status": "passed"
+    },
+    {
+      "component": "date-picker",
+      "vector": "bounded-day",
+      "status": "passed"
+    },
+    {
+      "component": "date-range-picker",
+      "vector": "default-layout",
+      "status": "passed"
+    },
+    {
+      "component": "date-range-picker",
+      "vector": "small-subtle-timezone",
+      "status": "passed"
+    },
+    {
+      "component": "date-range-picker",
+      "vector": "select-range-reset",
+      "status": "passed"
+    },
+    {
+      "component": "pagination",
+      "vector": "legacy-page-one",
+      "status": "passed"
+    },
+    {
+      "component": "pagination",
+      "vector": "legacy-page-three-ssr",
+      "status": "passed"
+    },
+    {
+      "component": "pagination",
+      "vector": "next-controlled",
+      "status": "passed"
+    },
+    {
+      "component": "pagination",
+      "vector": "boundaries",
+      "status": "passed"
+    },
+    {
+      "component": "pagination",
+      "vector": "input-enter-clamp",
+      "status": "passed"
+    },
+    {
+      "component": "pagination",
+      "vector": "input-blur-clamp",
+      "status": "passed"
+    },
+    {
+      "component": "pagination",
+      "vector": "compound-simple-labels",
+      "status": "passed"
+    },
+    {
+      "component": "pagination",
+      "vector": "compound-dropdown-size",
+      "status": "passed"
+    },
+    {
+      "component": "toasty",
+      "vector": "provider-ssr",
+      "status": "passed"
+    },
+    {
+      "component": "toasty",
+      "vector": "notify-default",
+      "status": "passed"
+    },
+    {
+      "component": "toasty",
+      "vector": "action-remains-visible",
+      "status": "passed"
+    },
+    {
+      "component": "toasty",
+      "vector": "close-dismiss",
+      "status": "passed"
+    }
+  ],
+  "digest": "9177292a1cd1c733fe486e4b6a8ed01e9dd3401de485cf49a3d8d8556bf3ee8b"
+}
