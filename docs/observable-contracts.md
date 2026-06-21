@@ -1,9 +1,15 @@
 # Observable component contracts
 
-`contracts/kumo.observable/v1/` is the machine-readable authority for emitter output and proof expectations. Each contract is bound to the preserved `@cloudflare/kumo@2.5.2` type and runtime hashes in `audit/kumo-react-2.5.2.provenance.json`, and identifies its normalized input as `kumo.ir/v1`. It does not replace browser evidence or existing receipts.
+`contracts/kumo.observable/v1/` is the machine-readable authority for emitter output and proof expectations. Each contract remains bound to preserved `@cloudflare/kumo@2.5.2` type and runtime hashes in `audit/kumo-react-2.5.2.provenance.json`, and identifies normalized input as `kumo.ir/v1`. It does not replace browser evidence or existing receipts.
 
-The v1 schema records public props/defaults, semantic DOM/ARIA, initial state, transitions, keyboard/focus, SSR/hydration, styling/assets, executable render vectors, and explicit unknown/blocked observations. Claims come from canonical exports, declarations, and runtime; absence of evidence must be represented in `unknowns`, not guessed.
+## Generic assertion DSL
 
-Emitters should validate first, select a vector, emit its props, and preserve the expected root, attributes, text, state, and styling observations. Proof runners should execute the same vectors against canonical and emitted implementations, then compare observable results. Validation is fail-closed: unsupported versions, missing fields, extra fields, invalid hashes, duplicate vectors, and inconsistent roots are rejected.
+Every vector has an `expected.root` node assertion. Node assertions support `tag`, exact `text`, `attributes.exact`, `attributes.includes`, `classes.exact`, and `classes.includes`. `descendants` uses a deliberately strict selector subset (tag, `.class`, or `#id`), a required exact `count`, and the same node observations. Expectations may additionally describe JSON-compatible `state`, ordered event names in `events`, and `focus` (`root`, `none`, or a supported selector). These operators are generic DOM observations; component-specific assertion keys are forbidden.
 
-Run `node scripts/observable-contracts.mjs` to validate inventory and provenance, or `node --test test/observable-contracts.test.mjs` for deterministic contract tests. Future compiler support can add a typed loader, vector-to-framework fixture generation, canonical/emitter DOM comparators, and proof receipt references without changing browser authority.
+Exact attributes ignore the separately asserted root class, while exact classes are order-sensitive to preserve deterministic rendering. Unknown operators, malformed selectors, missing counts, extra fields, and invalid value types fail closed in both schema and runtime validation.
+
+## Runner authority
+
+`scripts/observable-runner.mjs` is the canonical React vector authority. It dynamically imports each contract's `@cloudflare/kumo` export path, server-renders every action-free vector with React, observes markup, and compares the complete DSL expectation. Vectors with actions are routed through an explicit browser adapter interface; none of the current ten vectors require actions. State, events, and focus intentionally require that browser adapter rather than being guessed from SSR.
+
+Run `node scripts/observable-contracts.mjs` to validate inventory and provenance, `node scripts/observable-runner.mjs` to execute canonical vectors, or `node --test test/observable-contracts.test.mjs` for deterministic validation, execution, negative-comparison, provenance, and serialization tests. Browser evidence and immutable receipts remain separate authorities and are unchanged.

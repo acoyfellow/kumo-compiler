@@ -78,9 +78,10 @@
         "children": "Email"
       },
       "expected": {
-        "root": "label",
-        "attributes": {},
-        "text": "Email"
+        "root": {
+          "tag": "label",
+          "text": "Email"
+        }
       }
     },
     {
@@ -90,11 +91,22 @@
         "showOptional": true
       },
       "expected": {
-        "root": "label",
-        "attributes": {
-          "optionalClass": "font-normal text-kumo-subtle"
+        "root": {
+          "tag": "label",
+          "text": "Middle Name(optional)"
         },
-        "text": "Middle Name(optional)"
+        "descendants": [
+          {
+            "selector": "span",
+            "count": 1,
+            "classes": {
+              "includes": [
+                "font-normal",
+                "text-kumo-subtle"
+              ]
+            }
+          }
+        ]
       }
     },
     {
@@ -104,9 +116,10 @@
         "asContent": true
       },
       "expected": {
-        "root": "span",
-        "attributes": {},
-        "text": "Email"
+        "root": {
+          "tag": "span",
+          "text": "Email"
+        }
       }
     }
   ],

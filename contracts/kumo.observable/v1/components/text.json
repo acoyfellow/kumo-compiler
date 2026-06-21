@@ -91,14 +91,16 @@
         "children": "Body"
       },
       "expected": {
-        "root": "p",
-        "attributes": {
-          "classIncludes": [
-            "text-kumo-default",
-            "text-base"
-          ]
-        },
-        "text": "Body"
+        "root": {
+          "tag": "p",
+          "classes": {
+            "includes": [
+              "text-kumo-default",
+              "text-base"
+            ]
+          },
+          "text": "Body"
+        }
       }
     },
     {
@@ -108,14 +110,16 @@
         "variant": "mono"
       },
       "expected": {
-        "root": "span",
-        "attributes": {
-          "classIncludes": [
-            "font-mono",
-            "text-sm"
-          ]
-        },
-        "text": "code"
+        "root": {
+          "tag": "span",
+          "classes": {
+            "includes": [
+              "font-mono",
+              "text-sm"
+            ]
+          },
+          "text": "code"
+        }
       }
     },
     {
@@ -126,14 +130,16 @@
         "as": "h1"
       },
       "expected": {
-        "root": "h1",
-        "attributes": {
-          "classIncludes": [
-            "text-3xl",
-            "font-semibold"
-          ]
-        },
-        "text": "Title"
+        "root": {
+          "tag": "h1",
+          "classes": {
+            "includes": [
+              "text-3xl",
+              "font-semibold"
+            ]
+          },
+          "text": "Title"
+        }
       }
     }
   ],

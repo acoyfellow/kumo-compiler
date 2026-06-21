@@ -68,12 +68,16 @@
         "children": "Card"
       },
       "expected": {
-        "root": "div",
-        "attributes": {
-          "data-surface-color": "primary",
-          "data-deprecated": "surface"
-        },
-        "text": "Card"
+        "root": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-surface-color": "primary",
+              "data-deprecated": "surface"
+            }
+          },
+          "text": "Card"
+        }
       }
     },
     {
@@ -84,12 +88,16 @@
         "color": "secondary"
       },
       "expected": {
-        "root": "section",
-        "attributes": {
-          "data-surface-color": "secondary",
-          "data-deprecated": "surface"
-        },
-        "text": "Card"
+        "root": {
+          "tag": "section",
+          "attributes": {
+            "includes": {
+              "data-surface-color": "secondary",
+              "data-deprecated": "surface"
+            }
+          },
+          "text": "Card"
+        }
       }
     }
   ],

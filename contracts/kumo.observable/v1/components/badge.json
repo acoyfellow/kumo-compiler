@@ -89,14 +89,16 @@
         "children": "PRO"
       },
       "expected": {
-        "root": "span",
-        "attributes": {
-          "classIncludes": [
-            "inline-flex",
-            "bg-kumo-badge-inverted"
-          ]
-        },
-        "text": "PRO"
+        "root": {
+          "tag": "span",
+          "classes": {
+            "includes": [
+              "inline-flex",
+              "bg-kumo-badge-inverted"
+            ]
+          },
+          "text": "PRO"
+        }
       }
     },
     {
@@ -107,12 +109,26 @@
         "appearance": "dot"
       },
       "expected": {
-        "root": "span",
-        "attributes": {
-          "childAriaHidden": "true",
-          "childClassIncludes": "bg-kumo-success"
+        "root": {
+          "tag": "span",
+          "text": "Healthy"
         },
-        "text": "Healthy"
+        "descendants": [
+          {
+            "selector": "span",
+            "count": 1,
+            "attributes": {
+              "includes": {
+                "aria-hidden": "true"
+              }
+            },
+            "classes": {
+              "includes": [
+                "bg-kumo-success"
+              ]
+            }
+          }
+        ]
       }
     }
   ],

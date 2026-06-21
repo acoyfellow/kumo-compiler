@@ -1,10 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {loadContracts,validateContract,verifyCanonical} from '../scripts/observable-contracts.mjs';
+import {loadContracts,validateContract,validateExpectation,verifyCanonical} from '../scripts/observable-contracts.mjs';
+import {compareMarkup,runCanonicalVectors} from '../scripts/observable-runner.mjs';
 const contracts=loadContracts();
-test('inventory is exactly the presentational batch',()=>assert.deepEqual(contracts.map(x=>x.component),['badge','label','surface','text']));
-test('validator fails closed for version, omissions, and additions',()=>{for(const mutate of [x=>delete x.semantics,x=>x.schemaVersion='kumo.observable/v2',x=>x.surprise=true]){const copy=structuredClone(contracts[0]);mutate(copy);assert.throws(()=>validateContract(copy));}});
+test('inventory is exactly four contracts and ten vectors',()=>{assert.deepEqual(contracts.map(x=>x.component),['badge','label','surface','text']);assert.equal(contracts.reduce((n,c)=>n+c.vectors.length,0),10)});
+test('validator fails closed for version, omissions, additions and operators',()=>{for(const mutate of[x=>delete x.semantics,x=>x.schemaVersion='kumo.observable/v2',x=>x.surprise=true]){const copy=structuredClone(contracts[0]);mutate(copy);assert.throws(()=>validateContract(copy));}for(const bad of[{root:{tag:'DIV'}},{root:{},wat:true},{root:{classes:{contains:['x']}}},{root:{},descendants:[{selector:'div > span',count:1}]},{root:{},descendants:[{selector:'span',count:-1}]},{root:{},focus:'div > input'}])assert.throws(()=>validateExpectation(bad));});
 test('contracts bind canonical package provenance and installed bytes',()=>contracts.forEach(verifyCanonical));
-test('vectors have deterministic unique identities and complete expectations',()=>{for(const c of contracts){assert.ok(c.vectors.length);assert.equal(new Set(c.vectors.map(v=>v.id)).size,c.vectors.length);for(const v of c.vectors)assert.deepEqual(Object.keys(v.expected).sort(),['attributes','root','text']);}});
+test('canonical React rendering executes and passes all vectors',async()=>assert.equal((await runCanonicalVectors(contracts)).length,10));
+test('deliberately wrong expectation fails',()=>assert.throws(()=>compareMarkup('<span>right</span>',{root:{tag:'span',text:'wrong'}}),/text expected/));
 test('loading and serialization are repeatable',()=>{const one=JSON.stringify(loadContracts());const two=JSON.stringify(loadContracts());assert.equal(one,two);for(const c of contracts){const disk=JSON.parse(fs.readFileSync(`contracts/kumo.observable/v1/components/${c.component}.json`));assert.deepEqual(c,disk);}});
