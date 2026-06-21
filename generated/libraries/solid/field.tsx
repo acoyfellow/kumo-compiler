@@ -13,7 +13,7 @@ export function Field(incoming: FieldProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as FieldProps & Record<string, unknown>, ["observable"]);
   void native; void state; void refs;
-  return (<field class={mergeStyles(styles.root)}></field>);
+  return (<div class={mergeStyles(styles.root)} data-kumo-element={"field"}></div>);
 }
 
 export default Field;

@@ -14,7 +14,7 @@ export function Popover(incoming: PopoverProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as PopoverProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  return (<Portal mount={resolvePortalTarget("document-body")} children={<><div data-kumo-compound={"popover"}><div data-kumo-part={"popover"}>{props.popover ?? undefined}</div></div></>} />);
+  return (<Portal mount={resolvePortalTarget("document-body")} children={<><div data-kumo-compound={"popover"}><div data-kumo-part={"popover"}>{(props.popover as JSX.Element) ?? undefined}</div></div></>} />);
 }
 
 export default Popover;

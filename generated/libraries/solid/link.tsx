@@ -13,7 +13,7 @@ export function Link(incoming: LinkProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as LinkProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  return (<a href={props.href} class={mergeStyles(styles.root)}>{props.children}</a>);
+  return (<a href={(props.href as any)} class={mergeStyles(styles.root)}>{props.children}</a>);
 }
 
 export default Link;

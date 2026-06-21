@@ -13,7 +13,7 @@ export function Empty(incoming: EmptyProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as EmptyProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  return (<section class={mergeStyles(styles.root)}>{props.icon ?? undefined}{props.title}{props.description ?? undefined}{props.contents ?? undefined}</section>);
+  return (<section class={mergeStyles(styles.root)}>{(props.icon as JSX.Element) ?? undefined}{(props.title as any)}{(props.description as JSX.Element) ?? undefined}{(props.contents as JSX.Element) ?? undefined}</section>);
 }
 
 export default Empty;

@@ -13,7 +13,7 @@ export function Meter(incoming: MeterProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as MeterProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  return (<div class={mergeStyles(styles.root)}>{props.label}<meter class={mergeStyles(styles.root)}></meter>{props.showValue ? ((props.customValue ?? props.value)) : undefined}</div>);
+  return (<div class={mergeStyles(styles.root)}>{(props.label as any)}<meter class={mergeStyles(styles.root)}></meter>{(props.showValue as any) ? (((props.customValue as any) ?? (props.value as any))) : undefined}</div>);
 }
 
 export default Meter;

@@ -14,7 +14,7 @@ export function DateRangePicker(incoming: DateRangePickerProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as DateRangePickerProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  return (<Portal mount={resolvePortalTarget("document-body")} children={<><div data-kumo-compound={"date-range-picker"}><div data-kumo-part={"date-range-picker"}>{props["date-range-picker"] ?? undefined}</div></div></>} />);
+  return (<Portal mount={resolvePortalTarget("document-body")} children={<><div data-kumo-compound={"date-range-picker"}><div data-kumo-part={"date-range-picker"}>{(props["date-range-picker"] as JSX.Element) ?? undefined}</div></div></>} />);
 }
 
 export default DateRangePicker;

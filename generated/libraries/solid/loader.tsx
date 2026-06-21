@@ -13,7 +13,7 @@ export function Loader(incoming: LoaderProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as LoaderProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  return (<span role={"status"} aria-label={props["aria-label"]} class={mergeStyles(styles.root)}></span>);
+  return (<span role={"status"} aria-label={(props["aria-label"] as any)} class={mergeStyles(styles.root)}></span>);
 }
 
 export default Loader;

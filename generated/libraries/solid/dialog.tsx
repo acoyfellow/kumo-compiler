@@ -14,7 +14,7 @@ export function Dialog(incoming: DialogProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as DialogProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  return (<Portal mount={resolvePortalTarget("document-body")} children={<><div data-kumo-compound={"dialog"}><div data-kumo-part={"dialog"}>{props.dialog ?? undefined}</div></div></>} />);
+  return (<Portal mount={resolvePortalTarget("document-body")} children={<><div data-kumo-compound={"dialog"}><div data-kumo-part={"dialog"}>{(props.dialog as JSX.Element) ?? undefined}</div></div></>} />);
 }
 
 export default Dialog;

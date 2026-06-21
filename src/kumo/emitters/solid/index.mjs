@@ -11,9 +11,9 @@ const pascal = value => value.split(/[^A-Za-z0-9]+/).filter(Boolean).map(x => x[
 const expr = (value, context = {}) => {
   switch (value.kind) {
     case 'literal': return JSON.stringify(value.value);
-    case 'prop': return member('props', value.name);
+    case 'prop': return `(${member('props', value.name)} as any)`;
     case 'state': return `${member('state', value.name)}()`;
-    case 'item': return member(context.item ?? 'item', value.name);
+    case 'item': return `(${member(context.item ?? 'item', value.name)} as any)`;
     case 'style-ref': return member('styles', value.name);
     case 'coalesce': return `(${value.values.map(x => expr(x, context)).join(' ?? ')})`;
     case 'equals': return `(${expr(value.left, context)} === ${expr(value.right, context)})`;
@@ -26,7 +26,7 @@ function node(value, context = {}) {
   switch (value.kind) {
     case 'text': return `{${expr(value.value, context)}}`;
     case 'children': return '{props.children}';
-    case 'slot': return `{${member('props', value.name)} ?? ${value.fallback ? `(${node(value.fallback, context)})` : 'undefined'}}`;
+    case 'slot': return `{(${member('props', value.name)} as JSX.Element) ?? ${value.fallback ? `(${node(value.fallback, context)})` : 'undefined'}}`;
     case 'condition': return `{${expr(value.when, context)} ? (${node(value.then, context).replace(/^\{([\s\S]*)\}$/, '$1')}) : ${value.else ? `(${node(value.else, context).replace(/^\{([\s\S]*)\}$/, '$1')})` : 'undefined'}}`;
     case 'collection': return `<For each={${expr(value.source, context)}}>{(${value.item}) => ${node(value.template, {...context, item:value.item})}}</For>`;
     case 'portal': return `<Portal mount={resolvePortalTarget(${expr(value.target, context)})} children={< >${value.children.map(x => node(x, context)).join('')}</ >} />`.replaceAll('< >', '<>').replaceAll('</ >', '</>');
@@ -39,7 +39,9 @@ function node(value, context = {}) {
       if (value.ref) attributes.push(`ref={refs.${value.ref}}`);
       if (value.styles?.length) attributes.push(`class={mergeStyles(${value.styles.map(x => expr(x, context)).join(', ')})}`);
       const body = (value.children ?? []).map(x => node(x, context)).join('');
-      return `<${value.tag}${attributes.length ? ' ' + attributes.join(' ') : ''}>${body}</${value.tag}>`;
+      const tag = ['field'].includes(value.tag) || value.tag.includes('-') ? 'div' : value.tag;
+      if (tag !== value.tag) attributes.push(`data-kumo-element={${JSON.stringify(value.tag)}}`);
+      return `<${tag}${attributes.length ? ' ' + attributes.join(' ') : ''}>${body}</${tag}>`;
     }
     default: throw new Error(`unsupported Solid node: ${value.kind}`);
   }
@@ -77,7 +79,7 @@ export function emitSolidLibrary({libraryPath, outputPath} = {}) {
   fs.writeFileSync(path.join(output,'index.ts'), components.map(x => `export { ${x.symbol} } from "./${x.component}";`).join('\n')+'\n');
   fs.writeFileSync(path.join(output,'index.d.ts'), components.map(x => `export { ${x.symbol} } from "./${x.component}"; export type { ${x.symbol}Props } from "./${x.component}";`).join('\n')+'\n');
   const exports = Object.fromEntries([['.',{source:'./index.ts',types:'./index.d.ts'}], ...components.map(x => [x.subpath,{source:`./${x.source}`,types:`./${x.declaration}`}])]);
-  fs.writeFileSync(path.join(output,'package.json'), JSON.stringify({name:'@cloudflare/kumo-solid-candidate',private:true,type:'module',sideEffects:false,exports},null,2)+'\n');
+  fs.writeFileSync(path.join(output,'package.json'), JSON.stringify({name:'@acoyfellow/kumo-solid',version:'0.0.1',private:true,type:'module',sideEffects:false,exports},null,2)+'\n');
   fs.writeFileSync(path.join(output,'manifest.json'), JSON.stringify({schemaVersion:'kumo.solid-emitter/v1',algebraVersion:'kumo.component-algebra/v1',candidate:true,count:components.length,libraryManifestDigest:crypto.createHash('sha256').update(canonicalJSON(library.manifest)).digest('hex'),components},null,2)+'\n');
   return {output, components};
 }

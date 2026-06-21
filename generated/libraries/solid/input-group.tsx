@@ -13,7 +13,7 @@ export function InputGroup(incoming: InputGroupProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as InputGroupProps & Record<string, unknown>, ["observable"]);
   void native; void state; void refs;
-  return (<input-group class={mergeStyles(styles.root)}></input-group>);
+  return (<div class={mergeStyles(styles.root)} data-kumo-element={"input-group"}></div>);
 }
 
 export default InputGroup;

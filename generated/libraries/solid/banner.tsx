@@ -13,7 +13,7 @@ export function Banner(incoming: BannerProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as BannerProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  return (<section class={mergeStyles(styles.root)}>{props.icon ?? undefined}{props.title}{props.description ?? undefined}{props.action ?? undefined}{props.children}</section>);
+  return (<section class={mergeStyles(styles.root)}>{(props.icon as JSX.Element) ?? undefined}{(props.title as any)}{(props.description as JSX.Element) ?? undefined}{(props.action as JSX.Element) ?? undefined}{props.children}</section>);
 }
 
 export default Banner;

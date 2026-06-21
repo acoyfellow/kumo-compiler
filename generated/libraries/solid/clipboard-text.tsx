@@ -13,7 +13,7 @@ export function ClipboardText(incoming: ClipboardTextProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as ClipboardTextProps & Record<string, unknown>, ["observable"]);
   void native; void state; void refs;
-  return (<clipboard-text class={mergeStyles(styles.root)}></clipboard-text>);
+  return (<div class={mergeStyles(styles.root)} data-kumo-element={"clipboard-text"}></div>);
 }
 
 export default ClipboardText;

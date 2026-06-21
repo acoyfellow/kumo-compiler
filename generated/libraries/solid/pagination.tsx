@@ -13,7 +13,7 @@ export function Pagination(incoming: PaginationProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as PaginationProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  return (<div data-kumo-compound={"pagination"}><div data-kumo-part={"root"}>{props.root ?? undefined}</div><div data-kumo-part={"collection"}>{props.collection ?? undefined}</div></div>);
+  return (<div data-kumo-compound={"pagination"}><div data-kumo-part={"root"}>{(props.root as JSX.Element) ?? undefined}</div><div data-kumo-part={"collection"}>{(props.collection as JSX.Element) ?? undefined}</div></div>);
 }
 
 export default Pagination;

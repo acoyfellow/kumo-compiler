@@ -13,7 +13,7 @@ export function Code(incoming: CodeProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as CodeProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  return (<code class={mergeStyles(styles.root)}>{props.code}</code>);
+  return (<code class={mergeStyles(styles.root)}>{(props.code as any)}</code>);
 }
 
 export default Code;
