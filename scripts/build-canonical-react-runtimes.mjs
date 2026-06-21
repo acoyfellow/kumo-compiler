@@ -6,9 +6,9 @@ import {pathToFileURL} from 'node:url';
 const defaultRoot=resolve(import.meta.dirname,'..');
 
 export function normalizeInlineStyleResources(markup){
- const styles=[];
- const body=markup.replace(/<style\b([^>]*)>([\s\S]*?)<\/style>/g,(_match,attrs,css)=>{styles.push(`<style${attrs.replace(/\s(?:data-)?href="[^"]*"/g,'').replace(/\sdata-precedence="[^"]*"/g,'')}>${css}</style>`);return ''});
- return {body,styles};
+ const styles=[],resources=[];
+ const body=markup.replace(/<style\b([^>]*)>([\s\S]*?)<\/style>/g,(_match,attrs,css)=>{const name=attrs.match(/\s(?:data-)?href="([^"]+)"/)?.[1];if(name&&/^[a-z0-9][a-z0-9._-]*$/i.test(name))resources.push({name,css});styles.push(`<style${attrs.replace(/\s(?:data-)?href="[^"]*"/g,'').replace(/\sdata-precedence="[^"]*"/g,'')}>${css}</style>`);return ''});
+ return {body,styles,resources};
 }
 
 export async function validateCanonicalPublicRuntime(output,{component,root=defaultRoot}={}){
@@ -38,7 +38,7 @@ export async function buildCanonicalReactRuntimes({root=defaultRoot,hook=async()
    // both mismatches the DOM and exposes `href` to asset crawlers. Hoist the
    // identical style outside the root and strip only its resource-only props.
    const normalized=normalizeInlineStyleResources(markup);markup=normalized.body;
-   let html=await readFile(resolve(temp,'index.html'),'utf8');if(normalized.styles.length)html=html.replace('</head>',`${normalized.styles.join('')}</head>`);if(!html.includes('<div id="root"></div>'))throw Error(`${id}: client shell root missing`);html=html.replace('<div id="root"></div>',`<div id="root">${markup}</div>`);await writeFile(resolve(temp,'index.html'),html);await rm(resolve(temp,'server-runtime'),{recursive:true,force:true});await validateCanonicalPublicRuntime(temp,{component:id,root});
+   let html=await readFile(resolve(temp,'index.html'),'utf8');if(normalized.styles.length)html=html.replace('</head>',`${normalized.styles.join('')}</head>`);for(const resource of normalized.resources)await writeFile(resolve(temp,resource.name),resource.css);if(!html.includes('<div id="root"></div>'))throw Error(`${id}: client shell root missing`);html=html.replace('<div id="root"></div>',`<div id="root">${markup}</div>`);await writeFile(resolve(temp,'index.html'),html);await rm(resolve(temp,'server-runtime'),{recursive:true,force:true});await validateCanonicalPublicRuntime(temp,{component:id,root});
    await rm(backup,{recursive:true,force:true});if(existsSync(live))await rename(live,backup);try{await rename(temp,live)}catch(e){if(existsSync(backup))await rename(backup,live);throw e}await rm(backup,{recursive:true,force:true});results.push({component:id,status:'passed'});
   }catch(error){await rm(temp,{recursive:true,force:true});if(!existsSync(live)&&existsSync(backup))await rename(backup,live);await rm(backup,{recursive:true,force:true});results.push({component:id,status:'failed',error:String(error?.stack||error)});console.error(`${id}: ${error.message}`)}
  }

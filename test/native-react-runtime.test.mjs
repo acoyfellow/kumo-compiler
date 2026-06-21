@@ -23,7 +23,13 @@ test('canonical React SSR hoists inline style resources without URL-like hrefs',
   const normalized=normalizeInlineStyleResources(markup);
   assert.equal(normalized.body,'<main><p>hydrated</p></main>');
   assert.deepEqual(normalized.styles,['<style>.base-ui-disable-scrollbar{scrollbar-width:none}</style>']);
+  assert.deepEqual(normalized.resources,[{name:'base-ui-disable-scrollbar',css:'.base-ui-disable-scrollbar{scrollbar-width:none}'}]);
   assert.doesNotMatch(normalized.styles[0], /href=/);
+});
+
+test('canonical Sidebar fixture disables viewport-dependent first render', async () => {
+  const generator = await readFile(new URL('../scripts/generate-canonical-react-runtimes.mjs', import.meta.url), 'utf8');
+  assert.match(generator, /sidebar:`<CanonicalComponent\.Provider mobileBreakpoint=\{1\}>/);
 });
 
 test('standalone React builds emit their runtime HTML and all referenced assets are served', { timeout: 30_000 }, async () => {
