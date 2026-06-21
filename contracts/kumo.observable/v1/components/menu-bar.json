@@ -1,0 +1,23 @@
+{
+  "schemaVersion":"kumo.observable/v1","component":"menu-bar",
+  "canonical":{"package":"@cloudflare/kumo","version":"2.5.2","exportPath":"./components/menubar","typesPath":"dist/src/components/menubar/index.d.ts","runtimePath":"dist/components/menubar.js","typesSha256":"2fe039e9c38dd9661ecc713c29ec060086022324f73643abf1ab5fdd84a44d8f","runtimeSha256":"2ed2a1a6312eb34937413bd402037d4c2bcdae722bda3ad94e20ffd0fb43cf8f","irSchemaVersion":"kumo.ir/v1"},
+  "publicApi":{"exports":["MenuBar","useMenuNavigation"],"props":{"isActive":"number|boolean|string|undefined; required controlled active value","options":"array of {icon,id?,isActive?,onClick,tooltip}","optionIds":"boolean","className":"string"},"defaults":{"optionIds":false,"variants":"none","iconSize":18}},
+  "semantics":{"root":"nav","aria":["root is nav, not role=menubar","each option is a native button named by aria-label=tooltip","active state is visual only; no aria-current, aria-pressed, or aria-selected"]},
+  "initialState":{"active":"isActive prop compared to index, or option id when optionIds=true","focus":"native tab order; every option button is tabbable"},
+  "transitions":[{"action":"option click","effect":"invoke that option onClick once; consumer owns active state"},{"action":"ArrowLeft or ArrowRight while focus is inside nav","effect":"document-level listener wraps focus among focusable descendants"},{"action":"focus leaves nav","effect":"remove scoped document key listener"}],
+  "keyboardFocus":{"focusable":true,"keys":["Tab","Shift+Tab","ArrowLeft","ArrowRight","Enter","Space"]},
+  "ssrHydration":{"ssr":"supported","hydration":"unknown"},
+  "stylingAssets":{"classes":["isolate","flex","rounded-lg","ring-kumo-line","bg-kumo-recessed","shadow-xs"],"assets":["consumer-provided React icon nodes","Tooltip compound","@cloudflare/kumo styles"]},
+  "vectors":[
+    {"id":"empty-nav-ssr","props":{"isActive":0,"options":[]},"expected":{"root":{"tag":"nav","classes":{"includes":["isolate","flex","rounded-lg","ring-kumo-line","bg-kumo-recessed"]},"text":""},"descendants":[{"selector":"button","count":0}]}},
+    {"id":"buttons-active-index","props":{"isActive":0,"options":[{"id":"list","tooltip":"List view","icon":"List","onClick":"fixture-callback"},{"id":"grid","tooltip":"Grid view","icon":"Grid","onClick":"fixture-callback"}]},"actions":[{"type":"focus","selector":"button"},{"type":"key","key":"ArrowLeft"},{"type":"key","key":"ArrowRight"},{"type":"click","selector":"button"}],"expected":{"root":{"tag":"nav"},"state":{"active":0,"allButtonsNativeTabbable":true,"activeSelectionAriaAbsent":true},"events":["click:0"],"focus":"button"}},
+    {"id":"active-by-id","props":{"isActive":"grid","optionIds":true,"options":[{"id":"list","tooltip":"List view","icon":"List","onClick":"fixture-callback"},{"id":"grid","tooltip":"Grid view","icon":"Grid","onClick":"fixture-callback"}]},"actions":[{"type":"focus","selector":"button"},{"type":"key","key":"ArrowLeft"}],"expected":{"root":{"tag":"nav"},"state":{"active":"grid","activeSelectionAriaAbsent":true},"events":[],"focus":"button"}}
+  ],
+  "unknowns":[
+    {"field":"vectors.buttons-active-index","status":"blocked","reason":"Options require ReactNode icons and function callbacks not representable by the serializable fixture DSL; shared browser fixture execution is required."},
+    {"field":"vectors.active-by-id","status":"blocked","reason":"ID matching and arrow wrap vector is authored as a requirement but pending shared browser execution."},
+    {"field":"tooltip","status":"unknown","reason":"Tooltip portal DOM, accessible description relationship, delays, hover/focus dismissal, and hydration are outside the MenuBar chunk and unobserved."},
+    {"field":"focusLifecycle","status":"unknown","reason":"Listener behavior during focus movement, dynamic option changes, disabled descendants, and focus-in/out ordering require browser execution."},
+    {"field":"responsivePositioningTypeahead","status":"unknown","reason":"MenuBar has no responsive, portal, positioning, selection typeahead, or dismissal API of its own; only nested Tooltip may portal/dismiss."}
+  ]
+}
