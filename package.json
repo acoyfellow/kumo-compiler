@@ -29,6 +29,7 @@
     "verify:kumo:svelte": "node scripts/verify-kumo-svelte.mjs",
     "proof:kumo:svelte": "npm run build:kumo:svelte && npm run verify:kumo:svelte && npm run package:verify && npm run catalog:validate",
     "build:migration-status": "node scripts/build-migration-status.mjs",
+    "contract:new": "node scripts/contract-new.mjs",
     "serve": "node review/server.mjs",
     "catalog:validate": "node benchmarks/catalog.mjs",
     "catalog:build": "node benchmarks/catalog.mjs --build",
