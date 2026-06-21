@@ -3,8 +3,8 @@
   "status": "pending",
   "canonical": "@cloudflare/kumo@2.5.2",
   "counts": {
-    "pending": 30,
-    "passed": 92
+    "pending": 17,
+    "passed": 105
   },
   "components": [
     {
@@ -217,10 +217,10 @@
     },
     {
       "id": "menu-bar",
-      "status": "pending",
+      "status": "passed",
       "vectors": 3,
-      "passed": 0,
-      "pending": 3,
+      "passed": 3,
+      "pending": 0,
       "unknowns": 5
     },
     {
@@ -273,10 +273,10 @@
     },
     {
       "id": "sidebar",
-      "status": "pending",
+      "status": "passed",
       "vectors": 4,
-      "passed": 0,
-      "pending": 4,
+      "passed": 4,
+      "pending": 0,
       "unknowns": 5
     },
     {
@@ -297,10 +297,10 @@
     },
     {
       "id": "table-of-contents",
-      "status": "pending",
+      "status": "passed",
       "vectors": 2,
-      "passed": 0,
-      "pending": 2,
+      "passed": 2,
+      "pending": 0,
       "unknowns": 2
     },
     {
@@ -313,10 +313,10 @@
     },
     {
       "id": "tabs",
-      "status": "pending",
+      "status": "passed",
       "vectors": 4,
-      "passed": 0,
-      "pending": 4,
+      "passed": 4,
+      "pending": 0,
       "unknowns": 3
     },
     {
@@ -746,22 +746,19 @@
       "component": "menu-bar",
       "vector": "empty-nav-ssr",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "menu-bar",
       "vector": "buttons-active-index",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "menu-bar",
       "vector": "active-by-id",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "meter",
@@ -937,29 +934,25 @@
       "component": "sidebar",
       "vector": "desktop-expanded-compound",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "sidebar",
       "vector": "desktop-collapsed-sliding-inert-intent",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "sidebar",
       "vector": "collapsible-closed-mounted",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "sidebar",
       "vector": "resize-keyboard-expand",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "surface",
@@ -1007,15 +1000,13 @@
       "component": "table-of-contents",
       "vector": "static-title-items",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "table-of-contents",
       "vector": "nested-linked-group",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "table",
@@ -1033,29 +1024,25 @@
       "component": "tabs",
       "vector": "segmented-uncontrolled-first",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "tabs",
       "vector": "underline-selected-value",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "tabs",
       "vector": "manual-arrow-then-enter",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "tabs",
       "vector": "automatic-arrow",
       "mode": "browser",
-      "status": "pending",
-      "reason": "no accepted shared-runner receipt"
+      "status": "passed"
     },
     {
       "component": "text",
@@ -1100,5 +1087,5 @@
       "status": "passed"
     }
   ],
-  "digest": "cea936db07912643b560a02621049be394cfa9c104294957db0b33d283703aad"
+  "digest": "2f5e1a2e710f1d59267803dc8e22606bbf737310bd9e1a4f76f67a57b844f4a0"
 }
