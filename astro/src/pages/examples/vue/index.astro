@@ -1,0 +1,18 @@
+---
+import ExampleLayout from '../../../layouts/ExampleLayout.astro';
+const install='npm install https://kumo-compiler.coey.dev/packages/kumo-vue-0.0.1.tgz';
+---
+<ExampleLayout title="Vue Button and Field" framework="vue" install={install} download="/examples/downloads/kumo-vue-example.zip" library="/libraries/vue/"><h2>App.vue</h2><pre><code>{`<script setup>
+import { ref } from 'vue';
+import { Button, Field } from '@cloudflare/kumo-vue';
+import '@cloudflare/kumo-vue/styles.css';
+const clicks = ref(0);
+const project = ref('Workers');
+</script>
+
+<template>
+  <Button @click="clicks++">Clicked {{ clicks }}</Button>
+  <Button disabled>Disabled</Button>
+  <Field id="project" label="Project" description="Rendered by Kumo" required v-model="project" />
+  <p>Model: {{ project }}</p>
+</template>`}</code></pre><p>The archive includes <code>package.json</code>, Vite configuration, HTML, and this component.</p></ExampleLayout>

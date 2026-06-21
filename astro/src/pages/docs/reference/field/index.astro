@@ -1,0 +1,11 @@
+---
+import DocsLayout from '../../../../layouts/DocsLayout.astro';
+---
+<DocsLayout title="Field reference"><p class="eyebrow">Reference</p><h1>Field</h1><p class="lede">A labeled native input with description, error, required, disabled, model, and ARIA wiring.</p>
+<h2>Props</h2><div class="table-scroll" tabindex="0" role="region" aria-label="Field properties"><table><thead><tr><th>Prop</th><th>Type</th><th>Required</th><th>Behavior</th></tr></thead><tbody>
+<tr><td><code>id</code></td><td><code>string</code></td><td>yes</td><td>Input ID and base for description/error IDs.</td></tr><tr><td><code>label</code></td><td>renderable text</td><td>yes</td><td>Visible native label.</td></tr><tr><td><code>description</code></td><td>renderable text</td><td>no</td><td>Creates <code>&lt;id&gt;-description</code>.</td></tr><tr><td><code>error</code></td><td>renderable text</td><td>no</td><td>Sets invalid state and creates an alert.</td></tr><tr><td><code>required</code></td><td><code>boolean</code></td><td>no</td><td>Native required state and visible marker.</td></tr><tr><td><code>disabled</code></td><td><code>boolean</code></td><td>no</td><td>Native disabled state.</td></tr><tr><td><code>value</code> / <code>modelValue</code></td><td><code>string | number</code></td><td>no</td><td>Framework-native model value.</td></tr>
+</tbody></table></div>
+<h2>ARIA contract</h2><p>Description and error IDs are joined in <code>aria-describedby</code>. An error sets <code>aria-invalid="true"</code> and renders with <code>role="alert"</code>. The label’s <code>for</code> always targets the input ID.</p>
+<h2>Native attributes</h2><p>Input type, name, autocomplete, placeholder, inputmode, and other supported native input attributes are forwarded. Field does not create form validation policy.</p>
+<h2>Framework models</h2><ul><li>Svelte: <code>bind:value</code></li><li>Vue: <code>v-model</code></li><li>Solid: controlled <code>value</code> and <code>onInput</code></li></ul>
+</DocsLayout><style>.eyebrow{margin:0 0 10px;color:#b45309;font-size:13px;font-weight:850;text-transform:uppercase;letter-spacing:.09em}</style>

@@ -1,0 +1,13 @@
+---
+import DocsLayout from '../../../../layouts/DocsLayout.astro';
+---
+<DocsLayout title="Styles and tokens reference"><p class="eyebrow">Reference</p><h1>Styles and tokens</h1><p class="lede">Import one stylesheet for complete default presentation. Import tokens separately only when you need direct access to the custom properties.</p>
+<h2>Default stylesheet</h2><pre><code>import '@cloudflare/kumo-svelte/styles.css';</code></pre><p>The Vue and Svelte stylesheets include fallbacks or their token stylesheet. Solid’s stylesheet imports tokens. All three produce visible Button states and Field borders without extra setup.</p>
+<h2>Token stylesheet</h2><pre><code>import '@cloudflare/kumo-svelte/tokens.css';</code></pre><div class="table-scroll" tabindex="0" role="region" aria-label="Design tokens"><table><thead><tr><th>Token family</th><th>Purpose</th></tr></thead><tbody><tr><td><code>--kumo-color-*</code></td><td>Primary, danger, text, muted, and border colors.</td></tr><tr><td><code>--kumo-space-*</code></td><td>Internal spacing.</td></tr><tr><td><code>--kumo-radius</code></td><td>Control corner radius.</td></tr></tbody></table></div>
+<h2>Override tokens</h2><pre><code>{`:root {
+  --kumo-color-primary: #0f62fe;
+  --kumo-color-danger: #b42318;
+  --kumo-radius: 0.5rem;
+}`}</code></pre><p>Override tokens after the package stylesheet. Do not target framework-generated internals. Stable class names use the <code>kumo-</code> prefix, but tokens are the intended theme seam.</p>
+<h2>Asset behavior</h2><p>The package contains CSS only—no fonts, images, or remote runtime assets. Packed consumer proofs verify CSS is emitted once and all runtime assets return successfully.</p>
+</DocsLayout><style>.eyebrow{margin:0 0 10px;color:#b45309;font-size:13px;font-weight:850;text-transform:uppercase;letter-spacing:.09em}</style>

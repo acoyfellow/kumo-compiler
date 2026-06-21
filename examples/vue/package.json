@@ -1,0 +1,12 @@
+{
+  "name": "kumo-vue-example",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": { "dev": "vite", "build": "vite build" },
+  "dependencies": {
+    "@cloudflare/kumo-vue": "https://kumo-compiler.coey.dev/packages/kumo-vue-0.0.1.tgz",
+    "vue": "3.5.38"
+  },
+  "devDependencies": { "@vitejs/plugin-vue": "6.0.7", "vite": "8.0.16" }
+}

@@ -1,0 +1,26 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+---
+<DocsLayout title="Framework libraries" description="Install, try, and understand the Kumo Vue, Svelte, and Solid libraries.">
+<p class="eyebrow">Kumo framework libraries</p>
+<h1>Build with Kumo outside React.</h1>
+<p class="lede">Install real Vue, Svelte, and Solid packages, run complete examples, and understand exactly what is supported. Button and Field are ready; Select is deliberately deferred.</p>
+<div class="actions"><a class="action" href="/docs/tutorials/first-library/">Start the tutorial</a><a class="action secondary" href="/examples/">Run examples</a></div>
+<div class="cards">
+<a class="card" href="/libraries/vue/"><strong>Vue library</strong><span>Package-backed Button and Field gallery.</span></a>
+<a class="card" href="/libraries/svelte/"><strong>Svelte library</strong><span>Native Svelte 5 components and bindings.</span></a>
+<a class="card" href="/libraries/solid/"><strong>Solid library</strong><span>Signals, JSX, and native Solid events.</span></a>
+<a class="card" href="/docs/explanation/evidence/"><strong>What “ready” means</strong><span>Packed installs, SSR, hydration, browser behavior, and explicit limits.</span></a>
+</div>
+<h2>Choose the page for your task</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Documentation map; scroll horizontally if needed"><table><thead><tr><th>If you want to…</th><th>Read</th></tr></thead><tbody>
+<tr><td>Build one working app</td><td><a href="/docs/tutorials/first-library/">First library tutorial</a></td></tr>
+<tr><td>Install from the hosted artifact</td><td><a href="/docs/how-to/install/">Install a package</a></td></tr>
+<tr><td>Try Kumo on another platform</td><td><a href="/examples/">Runnable examples</a></td></tr>
+<tr><td>Understand svelte.dev compatibility</td><td><a href="/docs/how-to/svelte-playground/">Svelte playground validation</a></td></tr>
+<tr><td>Look up props and behavior</td><td><a href="/docs/reference/button/">Button</a> and <a href="/docs/reference/field/">Field</a></td></tr>
+<tr><td>Interpret the proof</td><td><a href="/docs/explanation/evidence/">Evidence and readiness</a></td></tr>
+</tbody></table></div>
+<div class="note"><strong>Distribution today:</strong> these packages are installed from immutable HTTPS tarballs. They are not published to the public npm registry. Tools that resolve only registry package names—including svelte.dev Playground—cannot import them yet.</div>
+</DocsLayout>
+<style>.eyebrow{margin:0 0 10px;color:#b45309;font-size:13px;font-weight:850;text-transform:uppercase;letter-spacing:.09em}</style>

@@ -8,7 +8,14 @@ pinned Kumo package → versioned IR → framework emitters → v2 browser autho
 
 ## Framework libraries
 
-Package-backed component galleries: [Vue](/libraries/vue/), [Svelte](/libraries/svelte/), and [Solid](/libraries/solid/). Each ships Button and Field; Select is not included.
+Package-backed component galleries: [Vue](https://kumo-compiler.coey.dev/libraries/vue/), [Svelte](https://kumo-compiler.coey.dev/libraries/svelte/), and [Solid](https://kumo-compiler.coey.dev/libraries/solid/). Each ships Button and Field; Select is not included.
+
+- [Developer documentation](https://kumo-compiler.coey.dev/docs/)
+- [Complete runnable examples](https://kumo-compiler.coey.dev/examples/)
+- [Package and export reference](https://kumo-compiler.coey.dev/docs/reference/packages/)
+- [Svelte playground validation](https://kumo-compiler.coey.dev/docs/how-to/svelte-playground/)
+
+The current distribution is an installable HTTPS npm tarball, not a public npm registry publication. Dependency-capable projects can install it directly; registry-only resolvers such as svelte.dev Playground remain blocked until an authorized public publication exists.
 
 ## Seven-minute start
 
@@ -17,6 +24,7 @@ Requires Node 22 and npm. The package is private and versioned `0.0.1`.
 ```sh
 npm ci
 npm run release:install  # deterministic Astro install from astro/package-lock.json
+npm run examples:build  # fresh HTTPS installs + complete Vue/Svelte/Solid builds
 npm test
 npm run matrix:kumo       # 24 shards; exact 164 component/framework targets
 npm run release:check

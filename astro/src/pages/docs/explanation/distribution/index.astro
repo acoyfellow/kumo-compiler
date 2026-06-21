@@ -1,0 +1,10 @@
+---
+import DocsLayout from '../../../../layouts/DocsLayout.astro';
+---
+<DocsLayout title="Distribution and playgrounds"><p class="eyebrow">Explanation</p><h1>Distribution and playgrounds</h1><p class="lede">A package can be installable without being discoverable by every package resolver. Kumo’s current artifacts are real npm tarballs delivered over HTTPS, but they are not public registry entries.</p>
+<h2>What works</h2><ul><li><code>npm install https://…/kumo-svelte-0.0.1.tgz</code></li><li>npm lockfiles and workspaces</li><li>Vite client and SSR builds</li><li>Dependency-capable cloud sandboxes that accept URL dependencies</li><li>Kumo’s package-backed production galleries</li></ul>
+<h2>What does not work yet</h2><p>Resolvers that only accept a public npm package name cannot find <code>@cloudflare/kumo-svelte</code>, <code>@cloudflare/kumo-vue</code>, or <code>@cloudflare/kumo-solid</code>. The svelte.dev Playground is one such resolver.</p>
+<h2>Why not fake it</h2><p>Copying component source into a playground would show a lookalike, not package installation. Rewriting imports to a CDN bundle would prove a different distribution artifact. The playground receipt therefore records the actual package-name failure and points to the tarball-backed example for executable proof.</p>
+<h2>What registry publication changes</h2><p>Publishing the same package names to the public npm registry would let svelte.dev resolve the import through jsDelivr and registry tarballs. That is an ownership and release-policy action, not a compiler change. It requires an authorized Cloudflare publishing identity.</p>
+<div class="note"><strong>Current status:</strong> package implementation passed; hosted distribution passed; public-registry discovery blocked.</div>
+</DocsLayout><style>.eyebrow{margin:0 0 10px;color:#b45309;font-size:13px;font-weight:850;text-transform:uppercase;letter-spacing:.09em}</style>

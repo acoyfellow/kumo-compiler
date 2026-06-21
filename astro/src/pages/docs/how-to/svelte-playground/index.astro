@@ -1,0 +1,23 @@
+---
+import DocsLayout from '../../../../layouts/DocsLayout.astro';
+const attempted = 'https://svelte.dev/playground/untitled#H4sIAMnUN2oC_3WQwU7DMBBEf2VlIaUVpYFrSCKgEhcuiCvl4NobydSxg70pVFH-nU0tAodynOeZ2V0PojEWoyheB0HHDkVxAmIlnGwndd9163hASxPbyYjnuPKO0BHXiDKqYDqqtw7AtJ0PBAM89ETereDRoNUwQhN8C9mdsr7XjZUB833f-qvUl93-yf5nyiMdee-1ijH5LRIcpO0RKriIJAkX2WaOZsvZpKxR-_jrup6eynxem0VaF7w7eathsYSq_gleVnAz1ptJoIYh0bHMU4gLynSl0dVWdMG_o6KtACt3aJk8z0Rjmmm8Y_6CTmPgxt0RnvhONgT86M0JGaeLdFzOA_jDCb9IFBR6HN9YSWM_2SOKRtqI4zcDd8JY1QEAAA';
+---
+<DocsLayout title="Validate Kumo in the Svelte playground">
+<p class="eyebrow">How-to guide</p><h1>Svelte playground validation</h1><p class="lede">We tested the real package-name import in svelte.dev Playground. The component source is valid, but the playground cannot resolve the package until it exists in the public npm registry.</p>
+<div class="actions"><a class="action" href={attempted} target="_blank" rel="noreferrer">Open the exact attempted import ↗</a><a class="action secondary" href="/examples/svelte/">Run the tarball-backed example</a></div>
+<h2>What was tested</h2><pre><code>{`<script>
+  import { Button, Field } from '@cloudflare/kumo-svelte';
+  import '@cloudflare/kumo-svelte/styles.css';
+  let value = $state('Cloudflare');
+  let clicks = $state(0);
+</script>
+
+<Button onclick={() => clicks += 1}>Clicked {clicks}</Button>
+<Field id="project" label="Project" description="Rendered by Kumo" required bind:value />`}</code></pre>
+<h2>Observed result</h2><pre><code>Failed to import @cloudflare/kumo-svelte@latest. Are you sure the package exists?</code></pre>
+<p>The browser run reached Svelte <strong>5.56.3</strong>, loaded the encoded source, and then failed during dependency resolution. The package name returned HTTP 404 from both the public npm registry and jsDelivr’s npm resolver.</p>
+<h2>Why a tarball URL cannot fix this inside svelte.dev</h2><p>The playground’s worker parses bare imports, asks jsDelivr for a public npm version, then fetches the corresponding tarball from <code>registry.npmjs.org</code>. Its source format has component files and aliases, but no package dependency map for arbitrary remote tarball URLs.</p>
+<div class="note"><strong>Classification:</strong> registry-publication blocked, not component blocked. The same production tarball passes npm installation, type checking, client build, SSR, hydration, browser behavior, CSS, tree-shaking, and workspace checks.</div>
+<h2>What works now</h2><ul><li><a href="/examples/svelte/">The complete Svelte example</a> installs the production HTTPS tarball.</li><li><a href="/libraries/svelte/">The live gallery</a> is compiled from that installed tarball.</li><li>The downloadable project runs locally and in dependency-capable environments that accept URL dependencies.</li></ul>
+<h2>What unlocks direct svelte.dev import</h2><p>Publish <code>@cloudflare/kumo-svelte@0.0.1</code> to the public npm registry under an authorized Cloudflare publishing identity. Publication is intentionally not simulated and is not performed without registry ownership and release approval.</p>
+</DocsLayout><style>.eyebrow{margin:0 0 10px;color:#b45309;font-size:13px;font-weight:850;text-transform:uppercase;letter-spacing:.09em}</style>

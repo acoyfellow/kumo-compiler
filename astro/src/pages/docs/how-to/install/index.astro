@@ -1,0 +1,18 @@
+---
+import DocsLayout from '../../../../layouts/DocsLayout.astro';
+---
+<DocsLayout title="Install a Kumo framework package">
+<p class="eyebrow">How-to guide</p><h1>Install a package</h1><p class="lede">Install the friendly production URL, or pin the content-addressed URL when the exact artifact identity belongs in source control.</p>
+<h2>Friendly URLs</h2><pre><code>{`npm install https://kumo-compiler.coey.dev/packages/kumo-vue-0.0.1.tgz
+npm install https://kumo-compiler.coey.dev/packages/kumo-svelte-0.0.1.tgz
+npm install https://kumo-compiler.coey.dev/packages/kumo-solid-0.0.1.tgz`}</code></pre>
+<p>The friendly URL is stable for the current <code>0.0.1</code> package. npm records the resolved URL and integrity in your lockfile.</p>
+<h2>Immutable URLs</h2><p>Read <a href="/packages/manifest.json">the artifact manifest</a> and install its <code>artifact</code> URL:</p><pre><code>{`npm install https://kumo-compiler.coey.dev/packages/<sha256>.tgz`}</code></pre><p>Content-addressed tarballs are served with immutable caching. The SHA-256 filename equals the artifact bytes.</p>
+<h2>Import components</h2><pre><code>{`import { Button, Field } from '@cloudflare/kumo-svelte';
+import '@cloudflare/kumo-svelte/styles.css';`}</code></pre><p>Replace <code>svelte</code> with <code>vue</code> or <code>solid</code>. Root and component subpath exports are available:</p><pre><code>{`import { Button } from '@cloudflare/kumo-svelte/button';
+import { Field } from '@cloudflare/kumo-svelte/field';`}</code></pre>
+<h2>Verify what was installed</h2><pre><code>{`npm ls @cloudflare/kumo-svelte
+node -p "require('./node_modules/@cloudflare/kumo-svelte/package.json').version"`}</code></pre>
+<div class="note"><strong>Do not run</strong> <code>npm install @cloudflare/kumo-svelte</code> yet. The package is not in the public npm registry; that command cannot resolve it.</div>
+<h2>CI and private registries</h2><p>The tarball URL requires no credentials. If your organization mirrors dependencies, mirror the exact content-addressed artifact and preserve its SHA-256. A future registry publication can use the same permanent package name and version only after publication ownership and release policy are approved.</p>
+</DocsLayout><style>.eyebrow{margin:0 0 10px;color:#b45309;font-size:13px;font-weight:850;text-transform:uppercase;letter-spacing:.09em}</style>

@@ -12,7 +12,8 @@ const run = (command, args) => {
 };
 for (const required of [
   resolve(root, 'library-artifacts/manifest.json'),
-  resolve(root, 'library-gallery/manifest.json')
+  resolve(root, 'library-gallery/manifest.json'),
+  resolve(root, 'example-artifacts/manifest.json')
 ]) {
   try { await readFile(required); }
   catch { throw new Error(`missing ${required.slice(root.length + 1)}; run npm run libraries:build && npm run libraries:gallery first`); }
@@ -27,6 +28,7 @@ await cp(resolve(root, 'astro/dist'), destination, { recursive: true });
 // Library artifacts are source-staged and copied only after the Astro rebuild.
 await cp(resolve(root, 'library-artifacts'), resolve(destination, 'packages'), { recursive: true });
 await cp(resolve(root, 'library-gallery'), resolve(destination, 'library-gallery'), { recursive: true });
+await cp(resolve(root, 'example-artifacts'), resolve(destination, 'examples/downloads'), { recursive: true });
 
 const runtimeRoute = manifest.routes.find((route) => route.id === 'component-runtime');
 for (const component of runtimeRoute.components) {
