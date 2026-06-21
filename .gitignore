@@ -1,6 +1,8 @@
 node_modules/
 proof/artifacts/
 *.tgz
+# Reviewed deploy package snapshots are release payload, not generated source artifacts.
+!deploy/packages/*.tgz
 .DS_Store
 .wrangler
 .workflow/receipts/
