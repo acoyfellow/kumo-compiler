@@ -271,17 +271,22 @@
           "key": "ArrowDown"
         },
         {
-          "type": "type",
-          "text": "m",
-          "editMode": "append"
+          "type": "key",
+          "key": "m",
+          "selector": "[role=menuitem]",
+          "scope": "document"
         },
         {
           "type": "key",
-          "key": "ArrowRight"
+          "key": "ArrowRight",
+          "selector": "[role=menuitem]",
+          "scope": "document"
         },
         {
           "type": "key",
-          "key": "Escape"
+          "key": "Escape",
+          "selector": "[role=menuitem]",
+          "scope": "document"
         }
       ],
       "expected": {
