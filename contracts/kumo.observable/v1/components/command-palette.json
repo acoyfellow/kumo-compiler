@@ -203,7 +203,8 @@
         {
           "type": "type",
           "selector": "input",
-          "text": "W", "editMode": "append"
+          "text": "W",
+          "editMode": "append"
         },
         {
           "type": "key",
@@ -214,6 +215,10 @@
           "type": "key",
           "selector": "input",
           "key": "Escape"
+        },
+        {
+          "type": "wait",
+          "ms": 250
         }
       ],
       "expected": {
@@ -225,7 +230,9 @@
           "open": false
         },
         "events": [
+          "highlight:Workers",
           "value:W",
+          "highlight:Pages",
           "open:false"
         ],
         "focus": "none"
