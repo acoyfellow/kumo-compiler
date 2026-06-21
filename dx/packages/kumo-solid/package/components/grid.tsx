@@ -2,6 +2,7 @@ import { splitProps } from "solid-js";
 import type { JSX } from "solid-js";
 
 export interface GridProps extends Record<string, unknown> { children?: JSX.Element; styles?: Record<string, string>; }
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
 export const modelDigest = "9dbbb8c1edc23a0a1b2ed65add8ac4c1a675b5b9f0afbdb9eae72871c290ace3";
 const styles: Record<string, string> = {"root":"root","grid":"grid"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");

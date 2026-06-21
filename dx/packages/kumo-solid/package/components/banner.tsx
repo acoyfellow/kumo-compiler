@@ -2,6 +2,7 @@ import { splitProps } from "solid-js";
 import type { JSX } from "solid-js";
 
 export interface BannerProps extends Record<string, unknown> { children?: JSX.Element; styles?: Record<string, string>; }
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
 export const modelDigest = "c5e7d6281fea509e18399d83a7768d4533db188cdb59ddc8cbf2f1bd99e0dec1";
 const styles: Record<string, string> = {"root":"root","flex":"flex","w-full":"w-full","items-start":"items-start","gap-3":"gap-3","rounded-lg":"rounded-lg"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");

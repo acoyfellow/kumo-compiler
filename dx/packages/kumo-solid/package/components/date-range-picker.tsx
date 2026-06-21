@@ -3,6 +3,7 @@ import { Portal } from "solid-js/web";
 import type { JSX } from "solid-js";
 
 export interface DateRangePickerProps extends Record<string, unknown> { children?: JSX.Element; styles?: Record<string, string>; }
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
 export const modelDigest = "24c51f801cb83e8ae05a575e5e3e012c1f46065f0d1fda618759efe36487bc38";
 const styles: Record<string, string> = {"root":"root","p-3":"p-3","p-4":"p-4","p-5":"p-5","bg-kumo-overlay":"bg-kumo-overlay","bg-kumo-base":"bg-kumo-base"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");

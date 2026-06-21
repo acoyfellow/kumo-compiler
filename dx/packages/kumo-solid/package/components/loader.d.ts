@@ -6,5 +6,6 @@ export interface LoaderProps {
   children?: JSX.Element;
   styles?: Record<string, string>;
 }
-export declare const Loader: (props: LoaderProps) => JSX.Element;
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
+export declare const Loader: ((props: LoaderProps) => JSX.Element);
 export default Loader;

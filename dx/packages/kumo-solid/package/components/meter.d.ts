@@ -12,5 +12,6 @@ export interface MeterProps {
   children?: JSX.Element;
   styles?: Record<string, string>;
 }
-export declare const Meter: (props: MeterProps) => JSX.Element;
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
+export declare const Meter: ((props: MeterProps) => JSX.Element);
 export default Meter;

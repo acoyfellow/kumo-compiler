@@ -8,3 +8,6 @@ export function Button(props) {
     aria-busy={local.loading ? 'true' : undefined}
   >{local.loading ? 'Loading…' : local.children}</button>;
 }
+
+export const modelDigest = "48798c8ab5bf8d756056311749cd7d344b6c82b50134d057656d5f6e4cad48aa";
+export default Button;

@@ -4,5 +4,6 @@ export interface InputAreaProps {
   children?: JSX.Element;
   styles?: Record<string, string>;
 }
-export declare const InputArea: (props: InputAreaProps) => JSX.Element;
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
+export declare const InputArea: ((props: InputAreaProps) => JSX.Element);
 export default InputArea;

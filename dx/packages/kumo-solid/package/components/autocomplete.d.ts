@@ -11,5 +11,10 @@ export interface AutocompleteProps {
   children?: JSX.Element;
   styles?: Record<string, string>;
 }
-export declare const Autocomplete: (props: AutocompleteProps) => JSX.Element;
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
+export declare const AutocompleteContent: (props: CompoundPartProps) => JSX.Element;
+export declare const AutocompleteInputGroup: (props: CompoundPartProps) => JSX.Element;
+export declare const AutocompleteItem: (props: CompoundPartProps) => JSX.Element;
+export declare const AutocompleteList: (props: CompoundPartProps) => JSX.Element;
+export declare const Autocomplete: ((props: AutocompleteProps) => JSX.Element) & { "Content": typeof AutocompleteContent; "InputGroup": typeof AutocompleteInputGroup; "Item": typeof AutocompleteItem; "List": typeof AutocompleteList };
 export default Autocomplete;

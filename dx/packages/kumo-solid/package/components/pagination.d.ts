@@ -12,5 +12,6 @@ export interface PaginationProps {
   children?: JSX.Element;
   styles?: Record<string, string>;
 }
-export declare const Pagination: (props: PaginationProps) => JSX.Element;
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
+export declare const Pagination: ((props: PaginationProps) => JSX.Element);
 export default Pagination;

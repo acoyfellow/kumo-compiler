@@ -12,3 +12,11 @@ export function Field(props) {
     {local.error ? <div class="kumo-field__error" id={errorId()} role="alert">{local.error}</div> : null}
   </div>;
 }
+
+export const modelDigest = "c8c1c62130c1f34d0061c3ea6adadfe4728a10920f9906960684ff48e50325c7";
+export function FieldNativeInput(props) {
+  const [local, native] = splitProps(props, ['children']);
+  return <div {...native} data-kumo-part="NativeInput">{local.children}</div>;
+}
+Object.defineProperty(Field, 'NativeInput', { value: FieldNativeInput, enumerable: true });
+export default Field;

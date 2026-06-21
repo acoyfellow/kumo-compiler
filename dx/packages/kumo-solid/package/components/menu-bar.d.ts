@@ -7,5 +7,6 @@ export interface MenuBarProps {
   children?: JSX.Element;
   styles?: Record<string, string>;
 }
-export declare const MenuBar: (props: MenuBarProps) => JSX.Element;
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
+export declare const MenuBar: ((props: MenuBarProps) => JSX.Element);
 export default MenuBar;

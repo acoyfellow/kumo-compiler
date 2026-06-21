@@ -2,6 +2,7 @@ import { splitProps } from "solid-js";
 import type { JSX } from "solid-js";
 
 export interface SurfaceProps extends Record<string, unknown> { children?: JSX.Element; styles?: Record<string, string>; }
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
 export const modelDigest = "ce6505b3ce28964f1d8bb565e8a04a6c23ab186f8a5afc3a83dc631e65c3914e";
 const styles: Record<string, string> = {"root":"root","overflow-visible":"overflow-visible","rounded-none":"rounded-none"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");

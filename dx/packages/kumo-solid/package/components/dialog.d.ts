@@ -15,5 +15,11 @@ export interface DialogProps {
   children?: JSX.Element;
   styles?: Record<string, string>;
 }
-export declare const Dialog: (props: DialogProps) => JSX.Element;
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
+export declare const DialogClose: (props: CompoundPartProps) => JSX.Element;
+export declare const DialogDescription: (props: CompoundPartProps) => JSX.Element;
+export declare const DialogRoot: (props: CompoundPartProps) => JSX.Element;
+export declare const DialogTitle: (props: CompoundPartProps) => JSX.Element;
+export declare const DialogTrigger: (props: CompoundPartProps) => JSX.Element;
+export declare const Dialog: ((props: DialogProps) => JSX.Element) & { "Close": typeof DialogClose; "Description": typeof DialogDescription; "Root": typeof DialogRoot; "Title": typeof DialogTitle; "Trigger": typeof DialogTrigger };
 export default Dialog;

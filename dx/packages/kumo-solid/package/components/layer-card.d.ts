@@ -6,5 +6,8 @@ export interface LayerCardProps {
   children?: JSX.Element;
   styles?: Record<string, string>;
 }
-export declare const LayerCard: (props: LayerCardProps) => JSX.Element;
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
+export declare const LayerCardPrimary: (props: CompoundPartProps) => JSX.Element;
+export declare const LayerCardSecondary: (props: CompoundPartProps) => JSX.Element;
+export declare const LayerCard: ((props: LayerCardProps) => JSX.Element) & { "Primary": typeof LayerCardPrimary; "Secondary": typeof LayerCardSecondary };
 export default LayerCard;

@@ -1,352 +1,496 @@
 {
-  "schemaVersion": 1,
-  "name": "@acoyfellow/kumo-solid",
-  "version": "0.0.1",
-  "framework": "solid",
+  "schemaVersion": "kumo.solid-emitter/v1",
+  "algebraVersion": "kumo.component-algebra/v1",
+  "candidate": true,
+  "count": 41,
+  "libraryManifestDigest": "2a932a5cc2a907c836c215ccc53e81373d32aa7c3c1428acd626abfbeb3cdf3e",
   "components": [
     {
       "component": "autocomplete",
       "symbol": "Autocomplete",
-      "subpath": "./autocomplete",
-      "modelDigest": "fba8232e14f886639f5b9cf04c6dd04fc1c8b09852cd5feefd379fda9ded0e30"
+      "subpath": "./components/autocomplete",
+      "modelDigest": "1f41380c0300c6ab1aa370e5a96ed529bb1bdfb6d60bfcaaa9df23cd23dd8b07",
+      "compoundPaths": [
+        "Content",
+        "InputGroup",
+        "Item",
+        "List"
+      ],
+      "source": "autocomplete.tsx",
+      "declaration": "autocomplete.d.ts",
+      "sha256": "107f1e093f4e513e39dd9cf290a03a965ea44bcee0270bae22e32536b0231a41"
     },
     {
       "component": "badge",
       "symbol": "Badge",
-      "subpath": "./badge",
-      "modelDigest": "67f224503fcce1b354d3848ac5a55b55587789af9fe0688a4849fef4ad5c8ec5"
+      "subpath": "./components/badge",
+      "modelDigest": "67f224503fcce1b354d3848ac5a55b55587789af9fe0688a4849fef4ad5c8ec5",
+      "compoundPaths": [],
+      "source": "badge.tsx",
+      "declaration": "badge.d.ts",
+      "sha256": "df05ced386ca6bbb7960d4ebd129d81a11703cc72b8d8f2aa26fb46e61dba1e8"
     },
     {
       "component": "banner",
       "symbol": "Banner",
-      "subpath": "./banner",
-      "modelDigest": "c5e7d6281fea509e18399d83a7768d4533db188cdb59ddc8cbf2f1bd99e0dec1"
+      "subpath": "./components/banner",
+      "modelDigest": "c5e7d6281fea509e18399d83a7768d4533db188cdb59ddc8cbf2f1bd99e0dec1",
+      "compoundPaths": [],
+      "source": "banner.tsx",
+      "declaration": "banner.d.ts",
+      "sha256": "a93876df5bedb551bb4fddec66161faf1426dcf1a19f54b799ed47589cdc1283"
     },
     {
       "component": "breadcrumbs",
       "symbol": "Breadcrumbs",
-      "subpath": "./breadcrumbs",
-      "modelDigest": "1cb602a165516ca01de95379b40403eb61ab498fa6557f44ddeb0f0f5d0d9e4f"
+      "subpath": "./components/breadcrumbs",
+      "modelDigest": "7a7f2d6ea60be21b23d218781fadea8b534345fab15d5b0896600e503857eb65",
+      "compoundPaths": [
+        "Current",
+        "Link",
+        "Separator"
+      ],
+      "source": "breadcrumbs.tsx",
+      "declaration": "breadcrumbs.d.ts",
+      "sha256": "972160395c4b8b09e3ed8b303404b4b1948f75e1882e6a8a06e529002063aa25"
     },
     {
       "component": "button",
       "symbol": "Button",
-      "subpath": "./button",
-      "modelDigest": "48798c8ab5bf8d756056311749cd7d344b6c82b50134d057656d5f6e4cad48aa"
+      "subpath": "./components/button",
+      "modelDigest": "48798c8ab5bf8d756056311749cd7d344b6c82b50134d057656d5f6e4cad48aa",
+      "compoundPaths": [],
+      "source": "button.tsx",
+      "declaration": "button.d.ts",
+      "sha256": "e4a00cb15fea830599954431cf51ce348817ac0c37dfed54af632788973b312e"
     },
     {
       "component": "checkbox",
       "symbol": "Checkbox",
-      "subpath": "./checkbox",
-      "modelDigest": "fe575b56fa0db80a1e83a5b6976f0303f63a8f6ab45de9ba8f5abfb19d9a935f"
+      "subpath": "./components/checkbox",
+      "modelDigest": "fe575b56fa0db80a1e83a5b6976f0303f63a8f6ab45de9ba8f5abfb19d9a935f",
+      "compoundPaths": [],
+      "source": "checkbox.tsx",
+      "declaration": "checkbox.d.ts",
+      "sha256": "75a7151d07dc048f43cce2699c2caa913d023457b762c7465cf30e0aa1ae92b9"
     },
     {
       "component": "clipboard-text",
       "symbol": "ClipboardText",
-      "subpath": "./clipboard-text",
-      "modelDigest": "2519ce9397d7b2de6138a9f8fe7461e138cd766c9a39f7f25d1d4c84345f0d10"
+      "subpath": "./components/clipboard-text",
+      "modelDigest": "2519ce9397d7b2de6138a9f8fe7461e138cd766c9a39f7f25d1d4c84345f0d10",
+      "compoundPaths": [],
+      "source": "clipboard-text.tsx",
+      "declaration": "clipboard-text.d.ts",
+      "sha256": "c61e084fe3d2863cbe2ed2a8ebcd946436e54698bbc09eb25ce6c003c7eef322"
     },
     {
       "component": "cloudflare-logo",
       "symbol": "CloudflareLogo",
-      "subpath": "./cloudflare-logo",
-      "modelDigest": "50b2371be89b11ae83917c42fdb9b67c42df8467c98e2668e0540afd07dc8c58"
+      "subpath": "./components/cloudflare-logo",
+      "modelDigest": "50b2371be89b11ae83917c42fdb9b67c42df8467c98e2668e0540afd07dc8c58",
+      "compoundPaths": [],
+      "source": "cloudflare-logo.tsx",
+      "declaration": "cloudflare-logo.d.ts",
+      "sha256": "5e5084bd9f4a20c96de1880e654412d6ff426aef59bd09be17c69a50c7a833d0"
     },
     {
       "component": "code",
       "symbol": "Code",
-      "subpath": "./code",
-      "modelDigest": "5e7c1a6e6d7b7973979fc806a00d8999299a443db7eda7b9234417bc397a0fba"
+      "subpath": "./components/code",
+      "modelDigest": "5e7c1a6e6d7b7973979fc806a00d8999299a443db7eda7b9234417bc397a0fba",
+      "compoundPaths": [],
+      "source": "code.tsx",
+      "declaration": "code.d.ts",
+      "sha256": "c95e4b6d5b8baccb3f05bce1f9b38c9339024077f93a56bbecab796a81fdadc4"
     },
     {
       "component": "combobox",
       "symbol": "Combobox",
-      "subpath": "./combobox",
-      "modelDigest": "b431b499c0e47a951de0104395b33980461e37f3410131f5ddf2fc8c2223070f"
+      "subpath": "./components/combobox",
+      "modelDigest": "e632de38d37be35b83ed3e093ba4e52fbd67247aa10eff83bf2ac59fb1398a41",
+      "compoundPaths": [
+        "Content",
+        "Item",
+        "List",
+        "TriggerInput"
+      ],
+      "source": "combobox.tsx",
+      "declaration": "combobox.d.ts",
+      "sha256": "23b36bbd86426eedc99c0c2f31dc8ce56ed6b8090e0cbc37a0f8af85cde56262"
     },
     {
       "component": "command-palette",
       "symbol": "CommandPalette",
-      "subpath": "./command-palette",
-      "modelDigest": "534bd5b5c6c38761249fe7fb50b9cc0cc672c5a25c4b72ab4e1808bb92d2dd29"
+      "subpath": "./components/command-palette",
+      "modelDigest": "7e72307448756ba3dce186fdd6d001623e82bf54634bcb1dd046b6ec82f31bf6",
+      "compoundPaths": [
+        "HighlightedText",
+        "Input",
+        "Item",
+        "List",
+        "Root"
+      ],
+      "source": "command-palette.tsx",
+      "declaration": "command-palette.d.ts",
+      "sha256": "ae2880cf6852dcb700633727a462f03eb4095076b6d1b41af1093acf5dab3b1a"
     },
     {
       "component": "date-picker",
       "symbol": "DatePicker",
-      "subpath": "./date-picker",
-      "modelDigest": "efe6ee1704bcfdd921aefd2a33601d5193d45c82454eadc21af9261b848e1bc6"
+      "subpath": "./components/date-picker",
+      "modelDigest": "efe6ee1704bcfdd921aefd2a33601d5193d45c82454eadc21af9261b848e1bc6",
+      "compoundPaths": [],
+      "source": "date-picker.tsx",
+      "declaration": "date-picker.d.ts",
+      "sha256": "2c784a1536e51e14db1c3ed5226255aad855d63398fd232fd055d71b3dc183b2"
     },
     {
       "component": "date-range-picker",
       "symbol": "DateRangePicker",
-      "subpath": "./date-range-picker",
-      "modelDigest": "24c51f801cb83e8ae05a575e5e3e012c1f46065f0d1fda618759efe36487bc38"
+      "subpath": "./components/date-range-picker",
+      "modelDigest": "24c51f801cb83e8ae05a575e5e3e012c1f46065f0d1fda618759efe36487bc38",
+      "compoundPaths": [],
+      "source": "date-range-picker.tsx",
+      "declaration": "date-range-picker.d.ts",
+      "sha256": "a5ccf0a5fb77b6ff92eb4a0c619fae3bf6f905b88e5aa46b9b782836f729fb4a"
     },
     {
       "component": "dialog",
       "symbol": "Dialog",
-      "subpath": "./dialog",
-      "modelDigest": "b69b28139a711d8e96dd6ddf236811e0a1c5d9510c961808f6912e09a2d48997"
+      "subpath": "./components/dialog",
+      "modelDigest": "7f6bdd127570c71956f3e4a345c1dbc0fa7bbc62e2a653d6239a37b232cbf01f",
+      "compoundPaths": [
+        "Close",
+        "Description",
+        "Root",
+        "Title",
+        "Trigger"
+      ],
+      "source": "dialog.tsx",
+      "declaration": "dialog.d.ts",
+      "sha256": "db6383ad9dbae7c4669c452ebe77ec4c036bf7abfa68aa45da1fb86205252025"
     },
     {
       "component": "dropdown-menu",
       "symbol": "DropdownMenu",
-      "subpath": "./dropdown-menu",
-      "modelDigest": "067c8530a8b7c49b56d39fe9649b03d5a722ce64bb0b9bc7226a6296da3b6f18"
+      "subpath": "./components/dropdown",
+      "modelDigest": "4af0c8a7d7b8b60e856eaff59dc37b9cf13972ebeb4a5efd3e6776a353898221",
+      "compoundPaths": [
+        "Content",
+        "Item",
+        "Sub",
+        "SubContent",
+        "SubTrigger",
+        "Trigger"
+      ],
+      "source": "dropdown-menu.tsx",
+      "declaration": "dropdown-menu.d.ts",
+      "sha256": "53c2ed71b9862b87d5c0bbc2563bd333d60b653c6982d0963ca6b202775cd2fb"
     },
     {
       "component": "empty",
       "symbol": "Empty",
-      "subpath": "./empty",
-      "modelDigest": "807df579a4b5811636f6c8ae3fbc56d8907ba572d3a57cf9b47ea9f266a81eca"
+      "subpath": "./components/empty",
+      "modelDigest": "807df579a4b5811636f6c8ae3fbc56d8907ba572d3a57cf9b47ea9f266a81eca",
+      "compoundPaths": [],
+      "source": "empty.tsx",
+      "declaration": "empty.d.ts",
+      "sha256": "cf1349970a12b91d4c6af2202d542e937dfdef80c544946030a33dfa1610821d"
     },
     {
       "component": "field",
       "symbol": "Field",
-      "subpath": "./field",
-      "modelDigest": "d09e3c2183930eb35b4c558193926c71ea15e98aba97c8e6179a1afdf7c60d63"
+      "subpath": "./components/field",
+      "modelDigest": "c8c1c62130c1f34d0061c3ea6adadfe4728a10920f9906960684ff48e50325c7",
+      "compoundPaths": [
+        "NativeInput"
+      ],
+      "source": "field.tsx",
+      "declaration": "field.d.ts",
+      "sha256": "c067fb987d0419c2e0c25505c0291defaa9dfa3e5817c4f8060d38e455cf1bdd"
     },
     {
       "component": "grid",
       "symbol": "Grid",
-      "subpath": "./grid",
-      "modelDigest": "9dbbb8c1edc23a0a1b2ed65add8ac4c1a675b5b9f0afbdb9eae72871c290ace3"
+      "subpath": "./components/grid",
+      "modelDigest": "9dbbb8c1edc23a0a1b2ed65add8ac4c1a675b5b9f0afbdb9eae72871c290ace3",
+      "compoundPaths": [],
+      "source": "grid.tsx",
+      "declaration": "grid.d.ts",
+      "sha256": "64b7ff808ab4663fb55f681bed2cb0a07be8e98a6b7ad090a9301310b7271374"
     },
     {
       "component": "grid-item",
       "symbol": "GridItem",
-      "subpath": "./grid-item",
-      "modelDigest": "914b6bbf31750fa0d8ea618a40c6abab812fc940fed7557bc9b8630e58fe76d7"
+      "subpath": "./components/grid",
+      "modelDigest": "914b6bbf31750fa0d8ea618a40c6abab812fc940fed7557bc9b8630e58fe76d7",
+      "compoundPaths": [],
+      "source": "grid-item.tsx",
+      "declaration": "grid-item.d.ts",
+      "sha256": "3e246b538c253605127d110304fa807653a3c216aecbeaa7ae70e73f1fee25bd"
     },
     {
       "component": "input",
       "symbol": "Input",
-      "subpath": "./input",
-      "modelDigest": "5425763a958aaba88a608179f3dd53d1f9651a0bb15a6c4d82190bf83c5f9512"
+      "subpath": "./components/input",
+      "modelDigest": "5425763a958aaba88a608179f3dd53d1f9651a0bb15a6c4d82190bf83c5f9512",
+      "compoundPaths": [],
+      "source": "input.tsx",
+      "declaration": "input.d.ts",
+      "sha256": "5a39afe950611754d75a62ad4842c09a9ad3413d36ff78989df77e1248873d7a"
     },
     {
       "component": "input-area",
       "symbol": "InputArea",
-      "subpath": "./input-area",
-      "modelDigest": "59711469ba9cb63d7177a2ef83d87ae8fdd8835dab30e06846284b0d7497f1c1"
+      "subpath": "./components/input",
+      "modelDigest": "59711469ba9cb63d7177a2ef83d87ae8fdd8835dab30e06846284b0d7497f1c1",
+      "compoundPaths": [],
+      "source": "input-area.tsx",
+      "declaration": "input-area.d.ts",
+      "sha256": "4dd6854eac970476360662cb060d9eafd5a1aa6a6a939fb630a6fdcbca729a7f"
     },
     {
       "component": "input-group",
       "symbol": "InputGroup",
-      "subpath": "./input-group",
-      "modelDigest": "0edcb3b93ae1bc7dcc9649eb23cbe160e99dff83a87d6a697762a867141a58a8"
+      "subpath": "./components/input-group",
+      "modelDigest": "723d817c6c81e88062ee871968eac6318dc1176c7b9e92c407d7f7a29445d8c3",
+      "compoundPaths": [
+        "Addon",
+        "Button",
+        "Input",
+        "Suffix"
+      ],
+      "source": "input-group.tsx",
+      "declaration": "input-group.d.ts",
+      "sha256": "96c4d3184eccea52054bc99d6aa5eae03600e22e06d7de23f000812f6e9ca519"
     },
     {
       "component": "label",
       "symbol": "Label",
-      "subpath": "./label",
-      "modelDigest": "a14b8ca4ef389e6247d422e71305289cda06eeb21a5ec5a1f49f196a6cca012f"
+      "subpath": "./components/label",
+      "modelDigest": "a14b8ca4ef389e6247d422e71305289cda06eeb21a5ec5a1f49f196a6cca012f",
+      "compoundPaths": [],
+      "source": "label.tsx",
+      "declaration": "label.d.ts",
+      "sha256": "2aeca9ae82073d4ebfa641e3f0270b6c1d89aeb2ce8059cfd8d7acd7be5418cb"
     },
     {
       "component": "layer-card",
       "symbol": "LayerCard",
-      "subpath": "./layer-card",
-      "modelDigest": "c9dad696330b10c952f02f411171c962c2770f5c4b53cf81713d0397ef61abf8"
+      "subpath": "./components/layer-card",
+      "modelDigest": "0863b724219652fb6b34a5c3bc5564e8fc766a990f62178c6a66e5f17aa8ae1f",
+      "compoundPaths": [
+        "Primary",
+        "Secondary"
+      ],
+      "source": "layer-card.tsx",
+      "declaration": "layer-card.d.ts",
+      "sha256": "8569c9dfda2ced8ee4f58bf32cd927a82bbaf0a6bd7d2e21900fac5c4bd10f99"
     },
     {
       "component": "link",
       "symbol": "Link",
-      "subpath": "./link",
-      "modelDigest": "c6f0fbd6318e25df8755e6c0053fe1d74c23861e6bcc3f9256588ac62b9fa195"
+      "subpath": "./components/link",
+      "modelDigest": "c6f0fbd6318e25df8755e6c0053fe1d74c23861e6bcc3f9256588ac62b9fa195",
+      "compoundPaths": [],
+      "source": "link.tsx",
+      "declaration": "link.d.ts",
+      "sha256": "e301061a840fa159385a9f872cc82b5eb1bdbe5f1051b9cbe339e431c45a7abc"
     },
     {
       "component": "loader",
       "symbol": "Loader",
-      "subpath": "./loader",
-      "modelDigest": "8c761d6a326088b816393ffb81fd67e64ad97a3299d323ad3078a93acebc0730"
+      "subpath": "./components/loader",
+      "modelDigest": "8c761d6a326088b816393ffb81fd67e64ad97a3299d323ad3078a93acebc0730",
+      "compoundPaths": [],
+      "source": "loader.tsx",
+      "declaration": "loader.d.ts",
+      "sha256": "6ad5455a5b894ec81ebf5b49caab2d9cf75de4cd5d99c289c9a097c259f67082"
     },
     {
       "component": "menu-bar",
       "symbol": "MenuBar",
-      "subpath": "./menu-bar",
-      "modelDigest": "40c08fc1e03b3a7d723ec35135cb4cf3a2605d12368398588dcda6818ce453ea"
+      "subpath": "./components/menubar",
+      "modelDigest": "40c08fc1e03b3a7d723ec35135cb4cf3a2605d12368398588dcda6818ce453ea",
+      "compoundPaths": [],
+      "source": "menu-bar.tsx",
+      "declaration": "menu-bar.d.ts",
+      "sha256": "6d41086c92dc83de0f409cf06c3a760a52280db02dc794b5b07a39716a63b041"
     },
     {
       "component": "meter",
       "symbol": "Meter",
-      "subpath": "./meter",
-      "modelDigest": "2201de1a1ed8a66d0925c6dae8b6b3197097ad332ed86e9b694f8d7383c8c284"
+      "subpath": "./components/meter",
+      "modelDigest": "2201de1a1ed8a66d0925c6dae8b6b3197097ad332ed86e9b694f8d7383c8c284",
+      "compoundPaths": [],
+      "source": "meter.tsx",
+      "declaration": "meter.d.ts",
+      "sha256": "13853ac175259725ddd369bb30573a6c4c39cb492e4bd49dc1b333e6c8d8d4f3"
     },
     {
       "component": "pagination",
       "symbol": "Pagination",
-      "subpath": "./pagination",
-      "modelDigest": "8a03b02a4e86e5ee4971e869b775b7efd73bc7e61116c5e794612f2402b7dd2d"
+      "subpath": "./components/pagination",
+      "modelDigest": "8a03b02a4e86e5ee4971e869b775b7efd73bc7e61116c5e794612f2402b7dd2d",
+      "compoundPaths": [],
+      "source": "pagination.tsx",
+      "declaration": "pagination.d.ts",
+      "sha256": "c92a7fa6cf2c7cc062ae3f3de5376cfd36fadf5a3c55701a682a21237f125477"
     },
     {
       "component": "popover",
       "symbol": "Popover",
-      "subpath": "./popover",
-      "modelDigest": "7ba76baf0b210a7f5fcc8c192377afd244248598bb69b0a67e5d03b53c7fb59a"
+      "subpath": "./components/popover",
+      "modelDigest": "ad3f10680d31c621c1bc54e0a910834f60fbc9d5776de398d94abac24dc0d45d",
+      "compoundPaths": [
+        "Close",
+        "Content",
+        "Description",
+        "Title",
+        "Trigger"
+      ],
+      "source": "popover.tsx",
+      "declaration": "popover.d.ts",
+      "sha256": "d0f5aea867baaedf193f3cd18597b224e68149e8a44b0cb8b7bd197640b25473"
     },
     {
       "component": "radio",
       "symbol": "Radio",
-      "subpath": "./radio",
-      "modelDigest": "0f71542a2bd3b8e5809f5dbb979a7fe2448e19e4f007cced41a22cbc5ef4cba9"
+      "subpath": "./components/radio",
+      "modelDigest": "0f71542a2bd3b8e5809f5dbb979a7fe2448e19e4f007cced41a22cbc5ef4cba9",
+      "compoundPaths": [],
+      "source": "radio.tsx",
+      "declaration": "radio.d.ts",
+      "sha256": "6150390d5f25136d33b39029e9a056653a58d391470d7463e8b2f1e5b3667570"
     },
     {
       "component": "select",
       "symbol": "Select",
-      "subpath": "./select",
-      "modelDigest": "12a3eb7f1d84d603ca914b803a794e948b5b62e88a1981d4ebb270f13b6bf69c"
+      "subpath": "./components/select",
+      "modelDigest": "3f2897eb8908155ffa6e7d283e13a1cb3e8fc78e30a7b8fe0b1e7bd26f839f11",
+      "compoundPaths": [
+        "Option"
+      ],
+      "source": "select.tsx",
+      "declaration": "select.d.ts",
+      "sha256": "ebac8157634a18d21a762614598f19884f06f3082863bf6ab0200bf845609c70"
     },
     {
       "component": "sensitive-input",
       "symbol": "SensitiveInput",
-      "subpath": "./sensitive-input",
-      "modelDigest": "9f0862f5064e4584c2616703c9f1cd80330b5ef71dee9361752cc32841164461"
+      "subpath": "./components/sensitive-input",
+      "modelDigest": "9f0862f5064e4584c2616703c9f1cd80330b5ef71dee9361752cc32841164461",
+      "compoundPaths": [],
+      "source": "sensitive-input.tsx",
+      "declaration": "sensitive-input.d.ts",
+      "sha256": "0b93bb20e314bfeb9230e987e9fff6c4814b10232461fa7655bd8dd3a1d25ba3"
     },
     {
       "component": "sidebar",
       "symbol": "Sidebar",
-      "subpath": "./sidebar",
-      "modelDigest": "82a1db07c782ac79373452b65cf7a972c8a0ea464dda72ff3fb69e7091df72c5"
+      "subpath": "./components/sidebar",
+      "modelDigest": "4c801e32de9aeeb481f09910a3cf18fe74e2893bb998ef9d4abdf950ffda4b13",
+      "compoundPaths": [
+        "Collapsible",
+        "CollapsibleContent",
+        "Content",
+        "Footer",
+        "Group",
+        "GroupLabel",
+        "Header",
+        "Menu",
+        "MenuButton",
+        "Provider",
+        "ResizeHandle",
+        "SlidingView",
+        "SlidingViews",
+        "Trigger"
+      ],
+      "source": "sidebar.tsx",
+      "declaration": "sidebar.d.ts",
+      "sha256": "cae63ce6964912fd7223b606d70e0e22e5b0a290904560c14c3c0aefc5a310c3"
     },
     {
       "component": "surface",
       "symbol": "Surface",
-      "subpath": "./surface",
-      "modelDigest": "ce6505b3ce28964f1d8bb565e8a04a6c23ab186f8a5afc3a83dc631e65c3914e"
+      "subpath": "./components/surface",
+      "modelDigest": "ce6505b3ce28964f1d8bb565e8a04a6c23ab186f8a5afc3a83dc631e65c3914e",
+      "compoundPaths": [],
+      "source": "surface.tsx",
+      "declaration": "surface.d.ts",
+      "sha256": "6beae006a245940741b2bcc059114ce2c1438563c5836a1ee59ecb67eb035a57"
     },
     {
       "component": "switch",
       "symbol": "Switch",
-      "subpath": "./switch",
-      "modelDigest": "ed2dc968d94168f193e43c4ace0c4c5a0eef92e88c8bbe1a3e168bf1f2b424b9"
+      "subpath": "./components/switch",
+      "modelDigest": "ed2dc968d94168f193e43c4ace0c4c5a0eef92e88c8bbe1a3e168bf1f2b424b9",
+      "compoundPaths": [],
+      "source": "switch.tsx",
+      "declaration": "switch.d.ts",
+      "sha256": "d401f1eedb563d1da32a5d734f333bee38c92ab32dc7b6bf4668e6d6c03a9960"
     },
     {
       "component": "table",
       "symbol": "Table",
-      "subpath": "./table",
-      "modelDigest": "9d4b8d811da622ddf7ca92cd6b3f7e4f76e0d35094bab50ce0d03c2e4bde88ba"
+      "subpath": "./components/table",
+      "modelDigest": "2a86761805e0e78f84a2b578b9b43656181ffd9f47ad91f4c17c81f6977c99c7",
+      "compoundPaths": [
+        "Body",
+        "Cell",
+        "Head",
+        "Header",
+        "Row"
+      ],
+      "source": "table.tsx",
+      "declaration": "table.d.ts",
+      "sha256": "eccab7dedc9756dec0e64f67d8dd7d13f2e9cc9ae1c58461ef71587f950d5a87"
     },
     {
       "component": "table-of-contents",
       "symbol": "TableOfContents",
-      "subpath": "./table-of-contents",
-      "modelDigest": "e48b4239cfca5e769df53ef328dfaf3f910bf892b503c032b84e02002bb57789"
+      "subpath": "./components/table-of-contents",
+      "modelDigest": "7070aecae3ff837a6f60e90d4080694b57defbff08207b8fa4e0e8a96b892b94",
+      "compoundPaths": [
+        "Group",
+        "Item",
+        "List",
+        "Title"
+      ],
+      "source": "table-of-contents.tsx",
+      "declaration": "table-of-contents.d.ts",
+      "sha256": "28ddfabfd1b8891902620fe44e41e37717c1b182566abe05e1c5fc8608cff8ac"
     },
     {
       "component": "tabs",
       "symbol": "Tabs",
-      "subpath": "./tabs",
-      "modelDigest": "480d0ca0dc8311b3321bb1c078c9277118ed399fcc4ececa5b561d5b695a3336"
+      "subpath": "./components/tabs",
+      "modelDigest": "480d0ca0dc8311b3321bb1c078c9277118ed399fcc4ececa5b561d5b695a3336",
+      "compoundPaths": [],
+      "source": "tabs.tsx",
+      "declaration": "tabs.d.ts",
+      "sha256": "ef1658c31e22da7278c395e73f86907aad4f72ee60908eb8539b399379e0c62a"
     },
     {
       "component": "text",
       "symbol": "Text",
-      "subpath": "./text",
-      "modelDigest": "60219ad3fa185b8a9db3e82cc4fc77b1b0683b2881bcf6b0460646bb320e67c2"
+      "subpath": "./components/text",
+      "modelDigest": "60219ad3fa185b8a9db3e82cc4fc77b1b0683b2881bcf6b0460646bb320e67c2",
+      "compoundPaths": [],
+      "source": "text.tsx",
+      "declaration": "text.d.ts",
+      "sha256": "f82747868664f2848b66be3a3bf2ca53fa4d825adf5f698b7f97ddb12a0f227b"
     },
     {
       "component": "toasty",
       "symbol": "Toasty",
-      "subpath": "./toasty",
-      "modelDigest": "96819ff5ff77c94bea48a81f92da6a4857acc3495fbbd3f4eb7703e24db317d6"
+      "subpath": "./components/toast",
+      "modelDigest": "96819ff5ff77c94bea48a81f92da6a4857acc3495fbbd3f4eb7703e24db317d6",
+      "compoundPaths": [],
+      "source": "toasty.tsx",
+      "declaration": "toasty.d.ts",
+      "sha256": "0195c7f49371a3f6ff2c8da4aa050736d7870a724ba3e0f46cbfd10605b7dc9f"
     }
-  ],
-  "ownership": {
-    "authority": "dx/packages/kumo-solid",
-    "scope": [
-      "Autocomplete",
-      "Badge",
-      "Banner",
-      "Breadcrumbs",
-      "Button",
-      "Checkbox",
-      "ClipboardText",
-      "CloudflareLogo",
-      "Code",
-      "Combobox",
-      "CommandPalette",
-      "DatePicker",
-      "DateRangePicker",
-      "Dialog",
-      "DropdownMenu",
-      "Empty",
-      "Field",
-      "Grid",
-      "GridItem",
-      "Input",
-      "InputArea",
-      "InputGroup",
-      "Label",
-      "LayerCard",
-      "Link",
-      "Loader",
-      "MenuBar",
-      "Meter",
-      "Pagination",
-      "Popover",
-      "Radio",
-      "Select",
-      "SensitiveInput",
-      "Sidebar",
-      "Surface",
-      "Switch",
-      "Table",
-      "TableOfContents",
-      "Tabs",
-      "Text",
-      "Toasty"
-    ],
-    "publishReady": true
-  },
-  "conformance": {
-    "exportSurface": "verified",
-    "browserBehavior": {
-      "verified": [
-        "Button",
-        "Field"
-      ],
-      "pending": [
-        "Autocomplete",
-        "Badge",
-        "Banner",
-        "Breadcrumbs",
-        "Checkbox",
-        "ClipboardText",
-        "CloudflareLogo",
-        "Code",
-        "Combobox",
-        "CommandPalette",
-        "DatePicker",
-        "DateRangePicker",
-        "Dialog",
-        "DropdownMenu",
-        "Empty",
-        "Grid",
-        "GridItem",
-        "Input",
-        "InputArea",
-        "InputGroup",
-        "Label",
-        "LayerCard",
-        "Link",
-        "Loader",
-        "MenuBar",
-        "Meter",
-        "Pagination",
-        "Popover",
-        "Radio",
-        "Select",
-        "SensitiveInput",
-        "Sidebar",
-        "Surface",
-        "Switch",
-        "Table",
-        "TableOfContents",
-        "Tabs",
-        "Text",
-        "Toasty"
-      ],
-      "reason": "Candidate implementations have not yet been contract/browser-conformance verified."
-    }
-  }
+  ]
 }

@@ -9,5 +9,6 @@ export interface DateRangePickerProps {
   children?: JSX.Element;
   styles?: Record<string, string>;
 }
-export declare const DateRangePicker: (props: DateRangePickerProps) => JSX.Element;
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
+export declare const DateRangePicker: ((props: DateRangePickerProps) => JSX.Element);
 export default DateRangePicker;

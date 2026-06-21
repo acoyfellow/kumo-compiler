@@ -4,5 +4,10 @@ export interface InputGroupProps {
   children?: JSX.Element;
   styles?: Record<string, string>;
 }
-export declare const InputGroup: (props: InputGroupProps) => JSX.Element;
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
+export declare const InputGroupAddon: (props: CompoundPartProps) => JSX.Element;
+export declare const InputGroupButton: (props: CompoundPartProps) => JSX.Element;
+export declare const InputGroupInput: (props: CompoundPartProps) => JSX.Element;
+export declare const InputGroupSuffix: (props: CompoundPartProps) => JSX.Element;
+export declare const InputGroup: ((props: InputGroupProps) => JSX.Element) & { "Addon": typeof InputGroupAddon; "Button": typeof InputGroupButton; "Input": typeof InputGroupInput; "Suffix": typeof InputGroupSuffix };
 export default InputGroup;
