@@ -3,8 +3,27 @@
   "status": "passed",
   "package": "@cloudflare/kumo",
   "source": {
-    "revision": "6b4ce959dfb5e5e3e880ec6fea3ff46292c5ba62",
-    "sourceTree": "50ec27f93268269a195ca5339667cfed888c67e2744a9c8a72163690aa47baf0"
+    "revision": "1d7190c74d8023707334b88e0568fca6ca0a54b1",
+    "sourceTree": "4f534ed700081578b482e538959a3b7bb3dc32ddcfd4cfae2a61aff944a6e070",
+    "paths": [
+      "package.json",
+      "package-lock.json",
+      "scripts/upstream-rollback.mjs",
+      "scripts/upstream-check.mjs",
+      "scripts/upstream/lib.mjs",
+      "src/kumo/catalog.ts",
+      "src/kumo/compiler.ts",
+      "src/kumo/schema.ts",
+      "src/kumo/solid-compiler.ts",
+      "src/kumo/svelte-compiler.ts",
+      "src/kumo/validate.ts",
+      "generated/canonical-react-catalog.json"
+    ]
+  },
+  "identity": {
+    "sourceTree": "4f534ed700081578b482e538959a3b7bb3dc32ddcfd4cfae2a61aff944a6e070",
+    "packageJson": "b684c8bd7976a28a9b227e9ba9a4490c6905628d95562450e7e5c6f2bb1cd759",
+    "packageLock": "c436d1957c2885403eaa2a4c41e2f824faf6b5a0229a437d0ecbe558724763ae"
   },
   "workspace": {
     "kind": "isolated-temporary",
@@ -37,7 +56,7 @@
     }
   },
   "validation": {
-    "npmCi": "skipped",
+    "npmCi": "passed",
     "firstCheck": "passed",
     "secondCheck": "passed",
     "restoredByteIdentical": true,
@@ -48,7 +67,8 @@
   "commands": [
     "copy package.json package-lock.json to isolated workspace",
     "apply exact @cloudflare/kumo 2.5.1 package and lock pin",
+    "npm ci --ignore-scripts",
     "node scripts/upstream-check.mjs --from 2.5.1 --to 2.5.2"
   ],
-  "receiptSha256": "3e90172af032c59b893e8e148eabb7fac5921a9a161c5f35a649fb5c12516f79"
+  "receiptSha256": "b13d189326fa166e9b026b19a5faf855a782d5277d77023b73c54e5b38a72c7e"
 }
