@@ -1,0 +1,689 @@
+{
+  "schemaVersion": "kumo.compound-exports/v1",
+  "roots": [
+    {
+      "canonicalRoot": "Autocomplete",
+      "component": "autocomplete",
+      "publicExports": [
+        "Autocomplete",
+        "KUMO_AUTOCOMPLETE_DEFAULT_VARIANTS",
+        "KUMO_AUTOCOMPLETE_VARIANTS",
+        "autocompleteVariants"
+      ],
+      "tree": {
+        "Content": {},
+        "InputGroup": {},
+        "Item": {},
+        "List": {}
+      },
+      "paths": [
+        {
+          "path": "Content",
+          "vectorIds": [
+            "autocomplete/filter-and-select"
+          ]
+        },
+        {
+          "path": "InputGroup",
+          "vectorIds": [
+            "autocomplete/filter-and-select"
+          ]
+        },
+        {
+          "path": "Item",
+          "vectorIds": [
+            "autocomplete/filter-and-select"
+          ]
+        },
+        {
+          "path": "List",
+          "vectorIds": [
+            "autocomplete/filter-and-select"
+          ]
+        }
+      ]
+    },
+    {
+      "canonicalRoot": "Breadcrumbs",
+      "component": "breadcrumbs",
+      "publicExports": [
+        "Breadcrumbs",
+        "KUMO_BREADCRUMBS_DEFAULT_VARIANTS",
+        "KUMO_BREADCRUMBS_VARIANTS",
+        "breadcrumbsVariants"
+      ],
+      "tree": {
+        "Current": {},
+        "Link": {},
+        "Separator": {}
+      },
+      "paths": [
+        {
+          "path": "Current",
+          "vectorIds": [
+            "breadcrumbs/small-current",
+            "breadcrumbs/trail"
+          ]
+        },
+        {
+          "path": "Link",
+          "vectorIds": [
+            "breadcrumbs/small-current",
+            "breadcrumbs/trail"
+          ]
+        },
+        {
+          "path": "Separator",
+          "vectorIds": [
+            "breadcrumbs/small-current",
+            "breadcrumbs/trail"
+          ]
+        }
+      ]
+    },
+    {
+      "canonicalRoot": "Combobox",
+      "component": "combobox",
+      "publicExports": [
+        "Combobox"
+      ],
+      "tree": {
+        "Content": {},
+        "Item": {},
+        "List": {},
+        "TriggerInput": {}
+      },
+      "paths": [
+        {
+          "path": "Content",
+          "vectorIds": [
+            "combobox/single-select"
+          ]
+        },
+        {
+          "path": "Item",
+          "vectorIds": [
+            "combobox/single-select"
+          ]
+        },
+        {
+          "path": "List",
+          "vectorIds": [
+            "combobox/single-select"
+          ]
+        },
+        {
+          "path": "TriggerInput",
+          "vectorIds": [
+            "combobox/single-select"
+          ]
+        }
+      ]
+    },
+    {
+      "canonicalRoot": "CommandPalette",
+      "component": "command-palette",
+      "publicExports": [
+        "CommandPalette",
+        "KUMO_COMMAND_PALETTE_DEFAULT_VARIANTS",
+        "KUMO_COMMAND_PALETTE_VARIANTS"
+      ],
+      "tree": {
+        "HighlightedText": {},
+        "Input": {},
+        "Item": {},
+        "List": {},
+        "Root": {}
+      },
+      "paths": [
+        {
+          "path": "HighlightedText",
+          "vectorIds": [
+            "command-palette/highlighted-text"
+          ]
+        },
+        {
+          "path": "Input",
+          "vectorIds": [
+            "command-palette/open-search-close"
+          ]
+        },
+        {
+          "path": "Item",
+          "vectorIds": [
+            "command-palette/open-search-close"
+          ]
+        },
+        {
+          "path": "List",
+          "vectorIds": [
+            "command-palette/open-search-close"
+          ]
+        },
+        {
+          "path": "Root",
+          "vectorIds": [
+            "command-palette/open-search-close"
+          ]
+        }
+      ]
+    },
+    {
+      "canonicalRoot": "Dialog",
+      "component": "dialog",
+      "publicExports": [
+        "Dialog",
+        "DialogClose",
+        "DialogDescription",
+        "DialogRoot",
+        "DialogTitle",
+        "DialogTrigger"
+      ],
+      "tree": {
+        "Close": {},
+        "Description": {},
+        "Root": {},
+        "Title": {},
+        "Trigger": {}
+      },
+      "paths": [
+        {
+          "path": "Close",
+          "vectorIds": [
+            "dialog/open-and-close"
+          ]
+        },
+        {
+          "path": "Description",
+          "vectorIds": [
+            "dialog/open-and-close"
+          ]
+        },
+        {
+          "path": "Root",
+          "vectorIds": [
+            "dialog/closed-trigger",
+            "dialog/open-and-close"
+          ]
+        },
+        {
+          "path": "Title",
+          "vectorIds": [
+            "dialog/closed-trigger",
+            "dialog/open-and-close"
+          ]
+        },
+        {
+          "path": "Trigger",
+          "vectorIds": [
+            "dialog/closed-trigger",
+            "dialog/open-and-close"
+          ]
+        }
+      ]
+    },
+    {
+      "canonicalRoot": "DropdownMenu",
+      "component": "dropdown-menu",
+      "publicExports": [
+        "DropdownMenu"
+      ],
+      "tree": {
+        "Content": {},
+        "Item": {},
+        "Sub": {},
+        "SubContent": {},
+        "SubTrigger": {},
+        "Trigger": {}
+      },
+      "paths": [
+        {
+          "path": "Content",
+          "vectorIds": [
+            "dropdown-menu/keyboard-typeahead-submenu-dismissal",
+            "dropdown-menu/pointer-item-selection"
+          ]
+        },
+        {
+          "path": "Item",
+          "vectorIds": [
+            "dropdown-menu/keyboard-typeahead-submenu-dismissal",
+            "dropdown-menu/pointer-item-selection"
+          ]
+        },
+        {
+          "path": "Sub",
+          "vectorIds": [
+            "dropdown-menu/keyboard-typeahead-submenu-dismissal"
+          ]
+        },
+        {
+          "path": "SubContent",
+          "vectorIds": [
+            "dropdown-menu/keyboard-typeahead-submenu-dismissal"
+          ]
+        },
+        {
+          "path": "SubTrigger",
+          "vectorIds": [
+            "dropdown-menu/keyboard-typeahead-submenu-dismissal"
+          ]
+        },
+        {
+          "path": "Trigger",
+          "vectorIds": [
+            "dropdown-menu/closed-trigger-ssr",
+            "dropdown-menu/keyboard-typeahead-submenu-dismissal",
+            "dropdown-menu/pointer-item-selection"
+          ]
+        }
+      ]
+    },
+    {
+      "canonicalRoot": "Field",
+      "component": "field",
+      "publicExports": [
+        "Field"
+      ],
+      "tree": {
+        "NativeInput": {}
+      },
+      "paths": [
+        {
+          "path": "NativeInput",
+          "vectorIds": [
+            "field/optional"
+          ]
+        }
+      ]
+    },
+    {
+      "canonicalRoot": "InputGroup",
+      "component": "input-group",
+      "publicExports": [
+        "InputGroup"
+      ],
+      "tree": {
+        "Addon": {},
+        "Button": {},
+        "Input": {},
+        "Suffix": {}
+      },
+      "paths": [
+        {
+          "path": "Addon",
+          "vectorIds": [
+            "input-group/composition",
+            "input-group/disabled-error",
+            "input-group/field-focus"
+          ]
+        },
+        {
+          "path": "Button",
+          "vectorIds": [
+            "input-group/composition",
+            "input-group/disabled-error",
+            "input-group/field-focus"
+          ]
+        },
+        {
+          "path": "Input",
+          "vectorIds": [
+            "input-group/composition",
+            "input-group/disabled-error",
+            "input-group/field-focus"
+          ]
+        },
+        {
+          "path": "Suffix",
+          "vectorIds": [
+            "input-group/composition",
+            "input-group/disabled-error",
+            "input-group/field-focus"
+          ]
+        }
+      ]
+    },
+    {
+      "canonicalRoot": "LayerCard",
+      "component": "layer-card",
+      "publicExports": [
+        "LayerCard"
+      ],
+      "tree": {
+        "Primary": {},
+        "Secondary": {}
+      },
+      "paths": [
+        {
+          "path": "Primary",
+          "vectorIds": [
+            "layer-card/layered"
+          ]
+        },
+        {
+          "path": "Secondary",
+          "vectorIds": [
+            "layer-card/layered"
+          ]
+        }
+      ]
+    },
+    {
+      "canonicalRoot": "Popover",
+      "component": "popover",
+      "publicExports": [
+        "KUMO_POPOVER_DEFAULT_VARIANTS",
+        "KUMO_POPOVER_VARIANTS",
+        "Popover",
+        "PopoverClose",
+        "PopoverContent",
+        "PopoverDescription",
+        "PopoverRoot",
+        "PopoverTitle",
+        "PopoverTrigger"
+      ],
+      "tree": {
+        "Close": {},
+        "Content": {},
+        "Description": {},
+        "Title": {},
+        "Trigger": {}
+      },
+      "paths": [
+        {
+          "path": "Close",
+          "vectorIds": [
+            "popover/pointer-open-close-outside"
+          ]
+        },
+        {
+          "path": "Content",
+          "vectorIds": [
+            "popover/controlled-open",
+            "popover/pointer-open-close-outside"
+          ]
+        },
+        {
+          "path": "Description",
+          "vectorIds": [
+            "popover/pointer-open-close-outside"
+          ]
+        },
+        {
+          "path": "Title",
+          "vectorIds": [
+            "popover/pointer-open-close-outside"
+          ]
+        },
+        {
+          "path": "Trigger",
+          "vectorIds": [
+            "popover/closed-trigger-ssr",
+            "popover/controlled-open",
+            "popover/pointer-open-close-outside"
+          ]
+        }
+      ]
+    },
+    {
+      "canonicalRoot": "Select",
+      "component": "select",
+      "publicExports": [
+        "Select"
+      ],
+      "tree": {
+        "Option": {}
+      },
+      "paths": [
+        {
+          "path": "Option",
+          "vectorIds": [
+            "select/controlled-value-open-order",
+            "select/keyboard-end-dismissal",
+            "select/keyboard-home-dismissal",
+            "select/keyboard-typeahead-dismissal",
+            "select/multiple-object-selection",
+            "select/pointer-open-select-disabled"
+          ]
+        }
+      ]
+    },
+    {
+      "canonicalRoot": "Sidebar",
+      "component": "sidebar",
+      "publicExports": [
+        "KUMO_SIDEBAR_DEFAULT_VARIANTS",
+        "KUMO_SIDEBAR_STYLING",
+        "KUMO_SIDEBAR_VARIANTS",
+        "Sidebar",
+        "SidebarCollapsible",
+        "SidebarCollapsibleContent",
+        "SidebarCollapsibleTrigger",
+        "SidebarContent",
+        "SidebarFooter",
+        "SidebarGroup",
+        "SidebarGroupLabel",
+        "SidebarHeader",
+        "SidebarMenu",
+        "SidebarMenuBadge",
+        "SidebarMenuButton",
+        "SidebarMenuChevron",
+        "SidebarMenuItem",
+        "SidebarMenuSub",
+        "SidebarMenuSubButton",
+        "SidebarMenuSubItem",
+        "SidebarProvider",
+        "SidebarRail",
+        "SidebarResizeHandle",
+        "SidebarRoot",
+        "SidebarSeparator",
+        "SidebarSlidingView",
+        "SidebarSlidingViews",
+        "SidebarTrigger",
+        "useSidebar"
+      ],
+      "tree": {
+        "Collapsible": {},
+        "CollapsibleContent": {},
+        "Content": {},
+        "Footer": {},
+        "Group": {},
+        "GroupLabel": {},
+        "Header": {},
+        "Menu": {},
+        "MenuButton": {},
+        "Provider": {},
+        "ResizeHandle": {},
+        "SlidingView": {},
+        "SlidingViews": {},
+        "Trigger": {}
+      },
+      "paths": [
+        {
+          "path": "Collapsible",
+          "vectorIds": [
+            "sidebar/collapsible-closed-mounted"
+          ]
+        },
+        {
+          "path": "CollapsibleContent",
+          "vectorIds": [
+            "sidebar/collapsible-closed-mounted"
+          ]
+        },
+        {
+          "path": "Content",
+          "vectorIds": [
+            "sidebar/desktop-expanded-compound"
+          ]
+        },
+        {
+          "path": "Footer",
+          "vectorIds": [
+            "sidebar/desktop-expanded-compound"
+          ]
+        },
+        {
+          "path": "Group",
+          "vectorIds": [
+            "sidebar/desktop-expanded-compound"
+          ]
+        },
+        {
+          "path": "GroupLabel",
+          "vectorIds": [
+            "sidebar/desktop-expanded-compound"
+          ]
+        },
+        {
+          "path": "Header",
+          "vectorIds": [
+            "sidebar/desktop-expanded-compound"
+          ]
+        },
+        {
+          "path": "Menu",
+          "vectorIds": [
+            "sidebar/desktop-expanded-compound"
+          ]
+        },
+        {
+          "path": "MenuButton",
+          "vectorIds": [
+            "sidebar/desktop-expanded-compound"
+          ]
+        },
+        {
+          "path": "Provider",
+          "vectorIds": [
+            "sidebar/collapsible-closed-mounted",
+            "sidebar/desktop-collapsed-sliding-inert-intent",
+            "sidebar/desktop-expanded-compound",
+            "sidebar/resize-keyboard-expand"
+          ]
+        },
+        {
+          "path": "ResizeHandle",
+          "vectorIds": [
+            "sidebar/resize-keyboard-expand"
+          ]
+        },
+        {
+          "path": "SlidingView",
+          "vectorIds": [
+            "sidebar/desktop-collapsed-sliding-inert-intent"
+          ]
+        },
+        {
+          "path": "SlidingViews",
+          "vectorIds": [
+            "sidebar/desktop-collapsed-sliding-inert-intent"
+          ]
+        },
+        {
+          "path": "Trigger",
+          "vectorIds": [
+            "sidebar/desktop-collapsed-sliding-inert-intent",
+            "sidebar/desktop-expanded-compound"
+          ]
+        }
+      ]
+    },
+    {
+      "canonicalRoot": "Table",
+      "component": "table",
+      "publicExports": [
+        "KUMO_TABLE_DEFAULT_VARIANTS",
+        "KUMO_TABLE_VARIANTS",
+        "Table"
+      ],
+      "tree": {
+        "Body": {},
+        "Cell": {},
+        "Head": {},
+        "Header": {},
+        "Row": {}
+      },
+      "paths": [
+        {
+          "path": "Body",
+          "vectorIds": [
+            "table/fixed-sticky",
+            "table/semantic-selected"
+          ]
+        },
+        {
+          "path": "Cell",
+          "vectorIds": [
+            "table/fixed-sticky",
+            "table/semantic-selected"
+          ]
+        },
+        {
+          "path": "Head",
+          "vectorIds": [
+            "table/semantic-selected"
+          ]
+        },
+        {
+          "path": "Header",
+          "vectorIds": [
+            "table/semantic-selected"
+          ]
+        },
+        {
+          "path": "Row",
+          "vectorIds": [
+            "table/fixed-sticky",
+            "table/semantic-selected"
+          ]
+        }
+      ]
+    },
+    {
+      "canonicalRoot": "TableOfContents",
+      "component": "table-of-contents",
+      "publicExports": [
+        "KUMO_TABLE_OF_CONTENTS_DEFAULT_VARIANTS",
+        "KUMO_TABLE_OF_CONTENTS_VARIANTS",
+        "TableOfContents"
+      ],
+      "tree": {
+        "Group": {},
+        "Item": {},
+        "List": {},
+        "Title": {}
+      },
+      "paths": [
+        {
+          "path": "Group",
+          "vectorIds": [
+            "table-of-contents/nested-linked-group"
+          ]
+        },
+        {
+          "path": "Item",
+          "vectorIds": [
+            "table-of-contents/nested-linked-group",
+            "table-of-contents/static-title-items"
+          ]
+        },
+        {
+          "path": "List",
+          "vectorIds": [
+            "table-of-contents/nested-linked-group",
+            "table-of-contents/static-title-items"
+          ]
+        },
+        {
+          "path": "Title",
+          "vectorIds": [
+            "table-of-contents/static-title-items"
+          ]
+        }
+      ]
+    }
+  ],
+  "digest": "4b19c6d91a2caf3dd0b0c60ea22ae8f956d7172870d9d85121acfd0898ed796a"
+}

@@ -80,7 +80,52 @@
       "Root",
       "Title/Description",
       "Trigger"
-    ]
+    ],
+    "compoundExports": {
+      "canonicalRoot": "Popover",
+      "tree": {
+        "Close": {},
+        "Content": {},
+        "Description": {},
+        "Title": {},
+        "Trigger": {}
+      },
+      "paths": [
+        {
+          "path": "Close",
+          "vectorIds": [
+            "popover/pointer-open-close-outside"
+          ]
+        },
+        {
+          "path": "Content",
+          "vectorIds": [
+            "popover/controlled-open",
+            "popover/pointer-open-close-outside"
+          ]
+        },
+        {
+          "path": "Description",
+          "vectorIds": [
+            "popover/pointer-open-close-outside"
+          ]
+        },
+        {
+          "path": "Title",
+          "vectorIds": [
+            "popover/pointer-open-close-outside"
+          ]
+        },
+        {
+          "path": "Trigger",
+          "vectorIds": [
+            "popover/closed-trigger-ssr",
+            "popover/controlled-open",
+            "popover/pointer-open-close-outside"
+          ]
+        }
+      ]
+    }
   },
   "emissions": {
     "callbacks": [],
@@ -321,5 +366,5 @@
       }
     ]
   },
-  "modelDigest": "7ba76baf0b210a7f5fcc8c192377afd244248598bb69b0a67e5d03b53c7fb59a"
+  "modelDigest": "ad3f10680d31c621c1bc54e0a910834f60fbc9d5776de398d94abac24dc0d45d"
 }

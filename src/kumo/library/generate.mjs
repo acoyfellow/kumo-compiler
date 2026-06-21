@@ -3,6 +3,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {ALGEBRA_VERSION} from './algebra.mjs';
 import {canonicalJSON, digest} from './index.mjs';
+import {deriveCompoundExports} from './compound-exports.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '../../..');
@@ -83,6 +84,8 @@ function proofGaps(model) {
 }
 
 fs.mkdirSync(models, {recursive:true});
+const compoundExports = deriveCompoundExports();
+const compoundByComponent = new Map(compoundExports.roots.map(entry => [entry.component, entry]));
 const entries = [];
 for (const file of fs.readdirSync(contracts).filter(file => file.endsWith('.json')).sort((a,b) => a.slice(0,-5).localeCompare(b.slice(0,-5)))) {
   const name = file.slice(0,-5); const contractPath = `contracts/kumo.observable/v1/components/${file}`;
@@ -90,6 +93,9 @@ for (const file of fs.readdirSync(contracts).filter(file => file.endsWith('.json
   const previous = JSON.parse(fs.readFileSync(path.join(models, file), 'utf8'));
   const model = {...previous, provenance:{...previous.provenance, contractPath, contractDigest:digest(contract)}};
   delete model.modelDigest; delete model.readinessProof;
+  const compoundExport = compoundByComponent.get(name);
+  if (compoundExport) model.composition = {...model.composition, compoundExports:{canonicalRoot:compoundExport.canonicalRoot, tree:compoundExport.tree, paths:compoundExport.paths}};
+  else if (model.composition) delete model.composition.compoundExports;
   model.componentRoot = {frameworkNeutral:true, implementationReady:false, candidateDefinition:true, draft:true};
   model.draftImplementation = JSON.parse(JSON.stringify(implementation(model, contract)));
   model.missingOperations = proofGaps(model);
@@ -99,4 +105,6 @@ for (const file of fs.readdirSync(contracts).filter(file => file.endsWith('.json
 }
 const manifest = {schemaVersion:'kumo.library-manifest/v1',count:entries.length,candidateDefinitionCount:41,implementationReadyCount:0,components:entries};
 fs.writeFileSync(path.join(here,'manifest.json'), `${JSON.stringify(manifest,null,2)}\n`);
+fs.mkdirSync(path.join(here, 'capabilities'), {recursive:true});
+fs.writeFileSync(path.join(here, 'capabilities/compound-exports.json'), `${JSON.stringify(compoundExports,null,2)}\n`);
 process.stdout.write(`${canonicalJSON({candidateDefinitionCount:41,count:entries.length,implementationReadyCount:0})}\n`);

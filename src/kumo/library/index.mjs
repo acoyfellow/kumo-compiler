@@ -19,6 +19,24 @@ const CAPABILITY_OPERATIONS = Object.freeze({
   'responsive-media':['browser-service','lifecycle'], 'inert/disclosure':['state','render'], 'date/range':['state','emit'], toast:['portal','lifecycle','emit'], pagination:['state','emit']
 });
 
+function validateCompoundComposition(model) {
+  const graph = model.composition?.compoundExports;
+  if (!graph) return;
+  if (graph.canonicalRoot !== model.public.symbol && !model.public.exports.includes(graph.canonicalRoot)) throw new Error(`${model.component}: compound root is not public`);
+  if (!graph.paths?.length) throw new Error(`${model.component}: compound export paths required`);
+  const paths = graph.paths.map(item => item.path);
+  if (new Set(paths).size !== paths.length || paths.join('\0') !== [...paths].sort().join('\0')) throw new Error(`${model.component}: compound paths must be unique and sorted`);
+  const visit = (tree, prefix = '') => {
+    if (!tree || typeof tree !== 'object' || Array.isArray(tree)) throw new Error(`${model.component}: invalid compound export tree`);
+    for (const [segment, child] of Object.entries(tree)) {
+      if (!segment || segment.includes('.')) throw new Error(`${model.component}: invalid compound segment`);
+      visit(child, prefix ? `${prefix}.${segment}` : segment);
+    }
+  };
+  visit(graph.tree);
+  for (const item of graph.paths) if (!Array.isArray(item.vectorIds) || !item.vectorIds.length) throw new Error(`${model.component}: compound path requires fixture provenance`);
+}
+
 function validateReferences(model) {
   const props = new Set(model.props.items.map(item => item.name));
   const states = new Set(model.states.map(item => item.name));
@@ -58,6 +76,7 @@ export function validateModel(model) {
   for (const capability of model.capabilities) if (!allowed.has(capability)) throw new Error(`unknown capability: ${capability}`);
   if (!model.provenance?.contractPath || !model.provenance?.contractDigest) throw new Error('model must bind an external contract');
   if (!model.componentRoot?.frameworkNeutral || 'fixture' in model.componentRoot) throw new Error('componentRoot must be framework-neutral and fixture-free');
+  validateCompoundComposition(model);
   if (typeof model.componentRoot.implementationReady !== 'boolean') throw new Error('componentRoot must declare implementationReady');
   if (model.componentRoot.implementationReady) {
     if (model.componentRoot.candidateDefinition) throw new Error('draft candidate cannot satisfy readiness');

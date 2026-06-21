@@ -74,7 +74,49 @@
       "Panel",
       "Root",
       "compound"
-    ]
+    ],
+    "compoundExports": {
+      "canonicalRoot": "CommandPalette",
+      "tree": {
+        "HighlightedText": {},
+        "Input": {},
+        "Item": {},
+        "List": {},
+        "Root": {}
+      },
+      "paths": [
+        {
+          "path": "HighlightedText",
+          "vectorIds": [
+            "command-palette/highlighted-text"
+          ]
+        },
+        {
+          "path": "Input",
+          "vectorIds": [
+            "command-palette/open-search-close"
+          ]
+        },
+        {
+          "path": "Item",
+          "vectorIds": [
+            "command-palette/open-search-close"
+          ]
+        },
+        {
+          "path": "List",
+          "vectorIds": [
+            "command-palette/open-search-close"
+          ]
+        },
+        {
+          "path": "Root",
+          "vectorIds": [
+            "command-palette/open-search-close"
+          ]
+        }
+      ]
+    }
   },
   "emissions": {
     "callbacks": [],
@@ -327,5 +369,5 @@
       }
     ]
   },
-  "modelDigest": "534bd5b5c6c38761249fe7fb50b9cc0cc672c5a25c4b72ab4e1808bb92d2dd29"
+  "modelDigest": "7e72307448756ba3dce186fdd6d001623e82bf54634bcb1dd046b6ec82f31bf6"
 }

@@ -74,7 +74,44 @@
       "List",
       "Title",
       "root"
-    ]
+    ],
+    "compoundExports": {
+      "canonicalRoot": "TableOfContents",
+      "tree": {
+        "Group": {},
+        "Item": {},
+        "List": {},
+        "Title": {}
+      },
+      "paths": [
+        {
+          "path": "Group",
+          "vectorIds": [
+            "table-of-contents/nested-linked-group"
+          ]
+        },
+        {
+          "path": "Item",
+          "vectorIds": [
+            "table-of-contents/nested-linked-group",
+            "table-of-contents/static-title-items"
+          ]
+        },
+        {
+          "path": "List",
+          "vectorIds": [
+            "table-of-contents/nested-linked-group",
+            "table-of-contents/static-title-items"
+          ]
+        },
+        {
+          "path": "Title",
+          "vectorIds": [
+            "table-of-contents/static-title-items"
+          ]
+        }
+      ]
+    }
   },
   "emissions": {
     "callbacks": [],
@@ -230,5 +267,5 @@
       }
     ]
   },
-  "modelDigest": "e48b4239cfca5e769df53ef328dfaf3f910bf892b503c032b84e02002bb57789"
+  "modelDigest": "7070aecae3ff837a6f60e90d4080694b57defbff08207b8fa4e0e8a96b892b94"
 }
