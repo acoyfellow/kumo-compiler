@@ -2,13 +2,13 @@
   "schemaVersion": 2,
   "framework": "solid",
   "package": "@acoyfellow/kumo-solid@0.0.1",
-  "sourceTree": "58c3e933ac8e31f08abd6bc0546934c4100ac70d",
-  "sourceTreeDigest": "6c4e1b0b635d8e87ec5ac174109b5c9e705bef6afba872da2b668dae67520b78",
-  "packageSha256": "3bc9385d021bd8b55b6d963e0523c48412be0f6bf4d38a9c3c62d53f97c1611a",
+  "sourceTree": "110591fd0e69e166888aca2a907ab70b7e43b895",
+  "sourceTreeDigest": "c320cdef7b5e4759ebb2a8e228da05ac8382e7f4ecc3e8f174af12bddd851c81",
+  "packageSha256": "f7c4c488321d7370753fe7cf145cc479e4658e503a76ac6e78127658172a60a6",
   "deterministicRuns": 2,
   "versions": {
-    "node": "v22.22.2",
-    "npm": "10.9.7",
+    "node": "v24.17.0",
+    "npm": "11.13.0",
     "solid": "1.9.13",
     "vite": "8.0.16",
     "browser": "Chrome/149.0.7827.156",
@@ -53,6 +53,57 @@
       }
     ]
   },
+  "exportSurface": {
+    "componentCount": 41,
+    "rootAndCanonicalSubpaths": "passed"
+  },
+  "browserConformance": {
+    "verified": [
+      "Button",
+      "Field"
+    ],
+    "pending": [
+      "Autocomplete",
+      "Badge",
+      "Banner",
+      "Breadcrumbs",
+      "Checkbox",
+      "ClipboardText",
+      "CloudflareLogo",
+      "Code",
+      "Combobox",
+      "CommandPalette",
+      "DatePicker",
+      "DateRangePicker",
+      "Dialog",
+      "DropdownMenu",
+      "Empty",
+      "Grid",
+      "GridItem",
+      "Input",
+      "InputArea",
+      "InputGroup",
+      "Label",
+      "LayerCard",
+      "Link",
+      "Loader",
+      "MenuBar",
+      "Meter",
+      "Pagination",
+      "Popover",
+      "Radio",
+      "Select",
+      "SensitiveInput",
+      "Sidebar",
+      "Surface",
+      "Switch",
+      "Table",
+      "TableOfContents",
+      "Tabs",
+      "Text",
+      "Toasty"
+    ]
+  },
   "checks": {
     "packedTarball": "passed",
     "fileAudit": "passed",
@@ -74,5 +125,5 @@
     "hmr": "not-run",
     "manualScreenReader": "not-run"
   },
-  "receiptHash": "9c393d7ff6495597b29cfdd830b9794e70b5c5804c5b5a7df8871dbaeea85bef"
+  "receiptHash": "a5081a3b8ea01c69ed4f9a6e922a2208d89dcff83da8a66a953c4ee830082ea4"
 }
