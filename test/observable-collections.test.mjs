@@ -1,0 +1,12 @@
+import test from'node:test';
+import assert from'node:assert/strict';
+import{readFile}from'node:fs/promises';
+import{loadContracts,verifyCanonical}from'../scripts/observable-contracts.mjs';
+import{collectionComponents,renderCollectionSsr}from'../scripts/observable-adapters/collections.mjs';
+
+const collections=loadContracts().filter(c=>collectionComponents.includes(c.component));
+test('collections family inventory and canonical provenance',()=>{assert.deepEqual(collections.map(c=>c.component),['autocomplete','combobox','command-palette','select']);collections.forEach(verifyCanonical)});
+test('collections keep canonical compound fixtures and controlled state vectors',()=>{for(const c of collections)assert(c.vectors.some(v=>v.fixture),`${c.component}: fixture`);const select=collections.find(c=>c.component==='select');assert(select.vectors.some(v=>v.props.value!==undefined&&v.props.open!==undefined));assert(select.vectors.some(v=>v.props.multiple&&v.fixture.children.some(x=>typeof x.props.value==='object')))});
+test('collections adapter delegates trusted interactions to shared browser runner',async()=>{const source=await readFile('scripts/observable-adapters/collections.mjs','utf8');assert.match(source,/runObservableBrowser\(/);assert.match(source,/scope='document'/);assert.doesNotMatch(source,/dispatchEvent|new\s+(?:Event|MouseEvent|KeyboardEvent)|suppressHydrationWarning/);for(const word of['onOpenChange','onItemHighlighted','onSelect','onValueChange','highlightScrolled','disabledOptionSelectable','loading'])assert.match(source,new RegExp(word))});
+test('action-free collection SSR is deterministic without issuing a browser receipt',async()=>{const expected=collections.flatMap(c=>c.vectors.filter(v=>!v.actions?.length).map(v=>`${c.component}/${v.id}`)),first=await renderCollectionSsr(collections),second=await renderCollectionSsr(collections);assert.deepEqual(first.map(x=>`${x.component}/${x.id}`),expected);assert.deepEqual(first,second);assert(!first.some(x=>'passed'in x||'receipt'in x))});
+test('Select historical failure vectors remain explicit and unclaimed',()=>{const select=collections.find(c=>c.component==='select'),fields=select.unknowns.map(x=>x.field);assert(fields.includes('existingSelectPilot.svelte'));assert(fields.includes('existingSelectPilot.solid'));for(const v of select.vectors.filter(v=>v.actions?.length))assert(select.unknowns.some(x=>x.field===`vectors.${v.id}`&&x.status==='blocked'),v.id)});
