@@ -2,13 +2,13 @@
   "schemaVersion": 2,
   "framework": "svelte",
   "package": "@cloudflare/kumo-svelte@0.0.1",
-  "sourceTree": "73396d86c24b08948b036b2853cddfb996f58e2d",
-  "sourceTreeDigest": "1aa8fb4d77f779f9447b3af2aea17770e2014941d162f3326aad36cb434ae70a",
-  "packageSha256": "ac5cfdae25641a17de895e524a199a8ae146de1859a5eb6ef287ee251ed21274",
+  "sourceTree": "28bab6e0cf735929740f972b38da1a639f3978d1",
+  "sourceTreeDigest": "fe1b063f905e8a68cea40295909fddd38deb099d70e837de6b46f88150fce350",
+  "packageSha256": "7f68595035fa419d59b0ad331eec42781010b2cac2f0bdd198c77917d291445e",
   "deterministicRuns": 2,
   "versions": {
-    "node": "v24.17.0",
-    "npm": "11.13.0",
+    "node": "v22.22.2",
+    "npm": "10.9.7",
     "svelte": "5.56.3",
     "vite": "8.0.16",
     "browser": "Chrome/149.0.7827.156",
@@ -45,6 +45,11 @@
       {
         "url": "http://127.0.0.1:41740/assets/<hashed>",
         "status": 200,
+        "mimeType": "text/javascript"
+      },
+      {
+        "url": "http://127.0.0.1:41740/assets/<hashed>",
+        "status": 200,
         "mimeType": "text/css"
       },
       {
@@ -74,5 +79,5 @@
     "hmr": "not-run",
     "manualScreenReader": "not-run"
   },
-  "receiptHash": "bda5a8b407d74d26fcd626d1067689ad2b56590657f1f794e21285595705157a"
+  "receiptHash": "3bb374b6a184e1d837f6c90e99bf1c5af1355f26168756aa96c0ad77055ca5d5"
 }
