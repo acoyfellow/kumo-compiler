@@ -22,8 +22,8 @@ Mitosis emits small sources (React 400, Vue 488, Svelte 336, Solid 517 bytes) fr
 - **Structural:** package/type/export/style gates pass 4/4. Vue and Solid client builds and SSR pass. These are not browser behavior passes.
 - **Observed browser failure:** Solid actually reaches the browser and fails pointer open/select, typeahead, controlled/uncontrolled value/open, and hydration. Keyboard, disabled-option, console/network and server-node checks pass; callback ordering, DOM/ARIA and focus/scroll remain blocked after the failed flow.
 - **Blocked browser gates:** React fails before execution because its JSX resolves to `solid-js/jsx-runtime`; Svelte cannot load its internal client modules; Vue builds and SSRs, then its browser assertion dereferences a missing node. Their interaction/hydration gates are **blocked**, not failed behavior and not passed.
-- **Aggregate shared-core receipt:** 12 passed, 4 failed, 40 blocked, 0 not-run; verdict `failed`, fail-closed.
-- **Consumer DX:** separate package-pilot receipts contain **3 passed / 22 blocked / 6 not-run**. The passes are tarball creation, not install/build/hydration readiness.
+- **Aggregate shared-core receipt:** **24 passed, 10 failed, 22 blocked, 0 not-run**; verdict `failed`, fail-closed.
+- **Consumer DX:** separate package-pilot receipts contain **10 passed / 21 blocked / 6 not-run**. These counts describe the current receipt; they do not establish install/build/hydration readiness.
 
 ## Maintenance implication
 

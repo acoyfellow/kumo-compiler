@@ -1,4 +1,5 @@
 .kumo-button {
+  min-height: 44px;
   border: 1px solid transparent;
   border-radius: var(--kumo-radius, .375rem);
   cursor: pointer;
@@ -15,6 +16,6 @@
 .kumo-field { display: grid; gap: var(--kumo-space-1, .25rem); }
 .kumo-field__label { font-weight: 600; }
 .kumo-field__description { color: #4b5563; font-size: .875rem; }
-.kumo-field__input { border: 1px solid var(--kumo-color-border, #8a8f98); border-radius: var(--kumo-radius, .375rem); font: inherit; padding: .5rem; }
+.kumo-field__input { min-height: 44px; border: 1px solid var(--kumo-color-border, #8a8f98); border-radius: var(--kumo-radius, .375rem); font: inherit; padding: .5rem; }
 .kumo-field__input[aria-invalid="true"] { border-color: var(--kumo-color-error, #b42318); }
 .kumo-field__error { color: var(--kumo-color-error, #b42318); font-size: .875rem; }

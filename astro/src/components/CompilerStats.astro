@@ -8,7 +8,7 @@ const bytes = value => Number(value).toLocaleString();
 <Layout title={`${language} compiler benchmark · Kumo`}>
   <header class="intro">
     <p class="eyebrow"><a href="/">Compiler candidates</a> / {language}</p>
-    <div class="title"><div><h1>{language} protocol planner</h1><p class="status">Protocol planner complete</p></div><a class="compare" href="/comparison/">Compare all planners →</a></div>
+    <div class="title"><div><h1>{language} protocol planner</h1><p class="status">Protocol planner complete</p></div><a class="compare touch-link" href="/comparison/">Compare all planners →</a></div>
     <p class="description"><code>{benchmark.compiler.name}</code> {benchmark.compiler.version} validates the shared compiler protocol and produces a deterministic target plan. It processed <strong>41 components</strong>, generated <strong>164 target plans</strong>, and wrote <strong>164 deterministic artifacts</strong>.</p>
     <aside class="warning"><strong>Scope limitation:</strong> this native candidate emits protocol planner artifacts, not runnable React, Vue, Svelte, or Solid framework source. The TypeScript implementation is the current full product baseline, and its benchmark performs a different planning workload. Wall-clock numbers are therefore not a fair winner comparison.</aside>
   </header>
