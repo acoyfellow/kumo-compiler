@@ -10,3 +10,4 @@ export interface FieldProps extends /* @vue-ignore */ Omit<InputHTMLAttributes, 
   modelValue?: string | number;
 }
 export declare const Field: DefineComponent<FieldProps>;
+export default Field;

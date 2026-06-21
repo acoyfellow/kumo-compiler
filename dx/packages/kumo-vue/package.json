@@ -2,15 +2,188 @@
   "name": "@acoyfellow/kumo-vue",
   "version": "0.0.1",
   "type": "module",
-  "peerDependencies": { "vue": "^3.5.0" },
-  "sideEffects": ["./package/styles.css", "./package/tokens.css"],
+  "peerDependencies": {
+    "vue": "^3.5.0"
+  },
+  "sideEffects": [
+    "./package/styles.css",
+    "./package/tokens.css"
+  ],
   "exports": {
-    ".": { "types": "./package/index.d.ts", "import": "./package/index.js" },
-    "./button": { "types": "./package/button.d.ts", "import": "./package/button.js" },
-    "./field": { "types": "./package/field.d.ts", "import": "./package/field.js" },
+    ".": {
+      "types": "./package/index.d.ts",
+      "import": "./package/index.js"
+    },
+    "./autocomplete": {
+      "types": "./package/components/autocomplete.d.ts",
+      "import": "./package/components/autocomplete.js"
+    },
+    "./badge": {
+      "types": "./package/components/badge.d.ts",
+      "import": "./package/components/badge.js"
+    },
+    "./banner": {
+      "types": "./package/components/banner.d.ts",
+      "import": "./package/components/banner.js"
+    },
+    "./breadcrumbs": {
+      "types": "./package/components/breadcrumbs.d.ts",
+      "import": "./package/components/breadcrumbs.js"
+    },
+    "./button": {
+      "types": "./package/components/button.d.ts",
+      "import": "./package/components/button.js"
+    },
+    "./checkbox": {
+      "types": "./package/components/checkbox.d.ts",
+      "import": "./package/components/checkbox.js"
+    },
+    "./clipboard-text": {
+      "types": "./package/components/clipboard-text.d.ts",
+      "import": "./package/components/clipboard-text.js"
+    },
+    "./cloudflare-logo": {
+      "types": "./package/components/cloudflare-logo.d.ts",
+      "import": "./package/components/cloudflare-logo.js"
+    },
+    "./code": {
+      "types": "./package/components/code.d.ts",
+      "import": "./package/components/code.js"
+    },
+    "./combobox": {
+      "types": "./package/components/combobox.d.ts",
+      "import": "./package/components/combobox.js"
+    },
+    "./command-palette": {
+      "types": "./package/components/command-palette.d.ts",
+      "import": "./package/components/command-palette.js"
+    },
+    "./date-picker": {
+      "types": "./package/components/date-picker.d.ts",
+      "import": "./package/components/date-picker.js"
+    },
+    "./date-range-picker": {
+      "types": "./package/components/date-range-picker.d.ts",
+      "import": "./package/components/date-range-picker.js"
+    },
+    "./dialog": {
+      "types": "./package/components/dialog.d.ts",
+      "import": "./package/components/dialog.js"
+    },
+    "./dropdown-menu": {
+      "types": "./package/components/dropdown-menu.d.ts",
+      "import": "./package/components/dropdown-menu.js"
+    },
+    "./empty": {
+      "types": "./package/components/empty.d.ts",
+      "import": "./package/components/empty.js"
+    },
+    "./field": {
+      "types": "./package/components/field.d.ts",
+      "import": "./package/components/field.js"
+    },
+    "./grid": {
+      "types": "./package/components/grid.d.ts",
+      "import": "./package/components/grid.js"
+    },
+    "./grid-item": {
+      "types": "./package/components/grid-item.d.ts",
+      "import": "./package/components/grid-item.js"
+    },
+    "./input": {
+      "types": "./package/components/input.d.ts",
+      "import": "./package/components/input.js"
+    },
+    "./input-area": {
+      "types": "./package/components/input-area.d.ts",
+      "import": "./package/components/input-area.js"
+    },
+    "./input-group": {
+      "types": "./package/components/input-group.d.ts",
+      "import": "./package/components/input-group.js"
+    },
+    "./label": {
+      "types": "./package/components/label.d.ts",
+      "import": "./package/components/label.js"
+    },
+    "./layer-card": {
+      "types": "./package/components/layer-card.d.ts",
+      "import": "./package/components/layer-card.js"
+    },
+    "./link": {
+      "types": "./package/components/link.d.ts",
+      "import": "./package/components/link.js"
+    },
+    "./loader": {
+      "types": "./package/components/loader.d.ts",
+      "import": "./package/components/loader.js"
+    },
+    "./menu-bar": {
+      "types": "./package/components/menu-bar.d.ts",
+      "import": "./package/components/menu-bar.js"
+    },
+    "./meter": {
+      "types": "./package/components/meter.d.ts",
+      "import": "./package/components/meter.js"
+    },
+    "./pagination": {
+      "types": "./package/components/pagination.d.ts",
+      "import": "./package/components/pagination.js"
+    },
+    "./popover": {
+      "types": "./package/components/popover.d.ts",
+      "import": "./package/components/popover.js"
+    },
+    "./radio": {
+      "types": "./package/components/radio.d.ts",
+      "import": "./package/components/radio.js"
+    },
+    "./select": {
+      "types": "./package/components/select.d.ts",
+      "import": "./package/components/select.js"
+    },
+    "./sensitive-input": {
+      "types": "./package/components/sensitive-input.d.ts",
+      "import": "./package/components/sensitive-input.js"
+    },
+    "./sidebar": {
+      "types": "./package/components/sidebar.d.ts",
+      "import": "./package/components/sidebar.js"
+    },
+    "./surface": {
+      "types": "./package/components/surface.d.ts",
+      "import": "./package/components/surface.js"
+    },
+    "./switch": {
+      "types": "./package/components/switch.d.ts",
+      "import": "./package/components/switch.js"
+    },
+    "./table": {
+      "types": "./package/components/table.d.ts",
+      "import": "./package/components/table.js"
+    },
+    "./table-of-contents": {
+      "types": "./package/components/table-of-contents.d.ts",
+      "import": "./package/components/table-of-contents.js"
+    },
+    "./tabs": {
+      "types": "./package/components/tabs.d.ts",
+      "import": "./package/components/tabs.js"
+    },
+    "./text": {
+      "types": "./package/components/text.d.ts",
+      "import": "./package/components/text.js"
+    },
+    "./toasty": {
+      "types": "./package/components/toasty.d.ts",
+      "import": "./package/components/toasty.js"
+    },
     "./styles.css": "./package/styles.css",
     "./tokens.css": "./package/tokens.css",
     "./manifest": "./kumo.manifest.json"
   },
-  "files": ["package", "kumo.manifest.json"]
+  "files": [
+    "package",
+    "kumo.manifest.json"
+  ]
 }

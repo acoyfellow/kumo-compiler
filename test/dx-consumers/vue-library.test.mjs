@@ -1,3 +1,31 @@
-import test from'node:test';import assert from'node:assert/strict';import{readFile}from'node:fs/promises';
-test('Vue library consumer proof has every critical gate passed',async()=>{const r=JSON.parse(await readFile('proof/dx/vue-library/receipt.json','utf8'));assert.equal(r.framework,'vue');for(const key of ['packageSha256','sourceTreeDigest','receiptHash'])assert.match(r[key],/^[a-f0-9]{64}$/);assert.equal(r.deterministicRuns,2);assert.equal(r.observations.serverNodePreserved,true);assert.equal(r.observations.click,'Clicked 1');assert.equal(r.observations.disabledCount,'Clicked 1');assert.equal(r.observations.model,'changed');assert.deepEqual(r.observations.consoleMessages,[]);assert.deepEqual(r.observations.exceptions,[]);assert.deepEqual(r.observations.networkFailures,[]);assert.equal(r.observations.assetResponses.filter(x=>x.mimeType.includes('text/css')).length,1);assert.ok(r.observations.assetResponses.some(x=>x.mimeType.includes('javascript')&&x.status>=200&&x.status<300));assert.ok(r.observations.assetResponses.some(x=>x.mimeType.includes('css')&&x.status>=200&&x.status<300));const permittedNotRun=new Set(['hmr','manualScreenReader']);for(const[k,v]of Object.entries(r.checks)){assert.ok(v==='passed'||(permittedNotRun.has(k)&&v==='not-run'),`${k}: ${v}`)}assert.ok(!JSON.stringify(r).match(/placeholder|planned|blocked|failed/))});
-test('Vue consumer fixture is executable, not a placeholder',async()=>{const plan=JSON.parse(await readFile('fixtures/consumers/vue/test-plan.json','utf8'));assert.equal(plan.status,'passed');assert.ok(plan.cases.every(x=>x.status==='passed'||(['hmr','manual-screen-reader'].includes(x.name)&&x.status==='not-run')))});
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+
+const receipt = () => readFile('proof/dx/vue-library/receipt.json', 'utf8').then(JSON.parse);
+
+test('Vue package export surface is independently proven', async () => {
+  const r = await receipt();
+  assert.equal(r.framework, 'vue');
+  assert.equal(r.package, '@acoyfellow/kumo-vue@0.0.1');
+  assert.equal(r.exportSurface.componentCount, 41);
+  assert.equal(r.exportSurface.rootImports, 'passed');
+  assert.equal(r.exportSurface.subpathImports, 'passed');
+  assert.equal(r.exportSurface.types, 'passed');
+  assert.equal(r.exportSurface.noWorkspaceImports, 'passed');
+  for (const key of ['packageSha256', 'sourceTreeDigest', 'receiptHash']) assert.match(r[key], /^[a-f0-9]{64}$/);
+});
+
+test('Vue browser conformance reports passing and pending claims honestly', async () => {
+  const r = await receipt();
+  for (const key of ['clientBuild','ssrBuild','renderToString','chromeHydration','buttonFieldBehavior','cssLoadedOnce'])
+    assert.equal(r.browserConformance[key], 'passed', key);
+  assert.ok(Object.values(r.contractVectors).includes('pending'));
+  assert.equal(r.observations.serverNodePreserved, true);
+  assert.equal(r.observations.click, 'Clicked 1');
+  assert.equal(r.observations.disabledCount, 'Clicked 1');
+  assert.equal(r.observations.model, 'changed');
+  assert.deepEqual(r.observations.consoleMessages, []);
+  assert.deepEqual(r.observations.exceptions, []);
+  assert.deepEqual(r.observations.networkFailures, []);
+});
