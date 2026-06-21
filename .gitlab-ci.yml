@@ -6,9 +6,5 @@ validate:
   stage: test
   script:
     - npm ci
-    - npm run release:install
-    - npm test
-    - npm run build:migration-status
-    - git diff --exit-code -- generated/migration-status.json
-    - npm run catalog:validate
     - npm run release:check
+    - git diff --exit-code -- generated/migration-status.json

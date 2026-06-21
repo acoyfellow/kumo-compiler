@@ -10,7 +10,13 @@ const run = (command, args) => {
   const result = spawnSync(command, args, { cwd: root, stdio: 'inherit' });
   if (result.status !== 0) throw new Error(`${command} ${args.join(' ')} failed (${result.status})`);
 };
-run('npm', ['run', 'libraries:build']);
+for (const required of [
+  resolve(root, 'library-artifacts/manifest.json'),
+  resolve(root, 'library-gallery/manifest.json')
+]) {
+  try { await readFile(required); }
+  catch { throw new Error(`missing ${required.slice(root.length + 1)}; run npm run libraries:build && npm run libraries:gallery first`); }
+}
 run('npm', ['--prefix', 'astro', 'run', 'build']);
 await validateDeployManifest(manifest);
 

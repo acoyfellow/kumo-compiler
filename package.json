@@ -43,14 +43,15 @@
     "artifact:check": "node scripts/check-artifact-boundary.mjs",
     "docs:links": "node scripts/validate-astro-routes.mjs",
     "release:install": "npm --prefix astro ci",
-    "libraries:build": "node scripts/libraries/build.mjs && node scripts/libraries/build-gallery.mjs",
+    "libraries:build": "node scripts/libraries/build.mjs",
+    "libraries:gallery": "node scripts/libraries/build-gallery.mjs",
     "libraries:verify": "node scripts/libraries/verify.mjs",
     "deploy:prepare": "node scripts/prepare-deploy.mjs",
     "deploy:dry-run": "npm run deploy:prepare && node scripts/deploy.mjs",
     "deploy": "npm run deploy:prepare && node scripts/deploy.mjs --execute",
     "rollback:dry-run": "node scripts/rollback.mjs",
     "rollback": "node scripts/rollback.mjs --execute",
-    "release:check": "npm run release:install && npm test && npm run artifact:check && npm run package:verify && npm run evidence:validate && npm run build:migration-status && npm run deploy:prepare && npm run catalog:validate && npm run docs:links"
+    "release:check": "npm run release:install && npm run libraries:build && npm run libraries:gallery && npm test && npm run artifact:check && npm run package:verify && npm run evidence:validate && npm run build:migration-status && npm run deploy:prepare && npm run catalog:validate && npm run docs:links"
   },
   "keywords": [],
   "author": "",
