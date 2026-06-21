@@ -220,7 +220,7 @@
       }
     },
     {
-      "id": "keyboard-navigation-typeahead",
+      "id": "keyboard-end-dismissal",
       "props": {
         "aria-label": "Choice",
         "defaultValue": "alpha"
@@ -295,6 +295,209 @@
         {
           "type": "key",
           "key": "End"
+        },
+        {
+          "type": "key",
+          "key": "Escape"
+        }
+      ],
+      "expected": {
+        "root": {
+          "tag": "div"
+        },
+        "state": {
+          "value": "alpha",
+          "open": false,
+          "disabledSkipped": true,
+          "highlightScrolled": true
+        },
+        "events": [
+          "open-change:true",
+          "open-change:false"
+        ],
+        "focus": "button"
+      }
+    },
+    {
+      "id": "keyboard-home-dismissal",
+      "props": {
+        "aria-label": "Choice",
+        "defaultValue": "alpha"
+      },
+      "fixture": {
+        "export": "root",
+        "props": {},
+        "children": [
+          {
+            "export": ".Option",
+            "props": {
+              "value": "alpha"
+            },
+            "children": [
+              {
+                "text": "Alpha"
+              }
+            ]
+          },
+          {
+            "export": ".Option",
+            "props": {
+              "value": "blocked",
+              "disabled": true
+            },
+            "children": [
+              {
+                "text": "Blocked"
+              }
+            ]
+          },
+          {
+            "export": ".Option",
+            "props": {
+              "value": "charlie"
+            },
+            "children": [
+              {
+                "text": "Charlie"
+              }
+            ]
+          },
+          {
+            "export": ".Option",
+            "props": {
+              "value": "delta"
+            },
+            "children": [
+              {
+                "text": "Delta"
+              }
+            ]
+          },
+          {
+            "export": ".Option",
+            "props": {
+              "value": "echo"
+            },
+            "children": [
+              {
+                "text": "Éclair"
+              }
+            ]
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "key",
+          "key": "ArrowDown"
+        },
+        {
+          "type": "key",
+          "key": "End"
+        },
+        {
+          "type": "key",
+          "key": "Home"
+        },
+        {
+          "type": "key",
+          "key": "Escape"
+        }
+      ],
+      "expected": {
+        "root": {
+          "tag": "div"
+        },
+        "state": {
+          "value": "alpha",
+          "open": false,
+          "disabledSkipped": true,
+          "highlightScrolled": true
+        },
+        "events": [
+          "open-change:true",
+          "open-change:false"
+        ],
+        "focus": "button"
+      }
+    },
+    {
+      "id": "keyboard-typeahead-dismissal",
+      "props": {
+        "aria-label": "Choice",
+        "defaultValue": "alpha"
+      },
+      "fixture": {
+        "export": "root",
+        "props": {},
+        "children": [
+          {
+            "export": ".Option",
+            "props": {
+              "value": "alpha"
+            },
+            "children": [
+              {
+                "text": "Alpha"
+              }
+            ]
+          },
+          {
+            "export": ".Option",
+            "props": {
+              "value": "blocked",
+              "disabled": true
+            },
+            "children": [
+              {
+                "text": "Blocked"
+              }
+            ]
+          },
+          {
+            "export": ".Option",
+            "props": {
+              "value": "charlie"
+            },
+            "children": [
+              {
+                "text": "Charlie"
+              }
+            ]
+          },
+          {
+            "export": ".Option",
+            "props": {
+              "value": "delta"
+            },
+            "children": [
+              {
+                "text": "Delta"
+              }
+            ]
+          },
+          {
+            "export": ".Option",
+            "props": {
+              "value": "echo"
+            },
+            "children": [
+              {
+                "text": "Éclair"
+              }
+            ]
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "key",
+          "key": "ArrowDown"
+        },
+        {
+          "type": "key",
+          "key": "d",
+          "selector": "button"
         },
         {
           "type": "key",
