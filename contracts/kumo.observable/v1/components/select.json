@@ -657,10 +657,11 @@
           "open": true
         },
         "events": [
+          "open-change:true",
           "value-change:ada",
           "value-change:ada,grace"
         ],
-        "focus": "[role=listbox]"
+        "focus": "[role=option]"
       }
     }
   ],
