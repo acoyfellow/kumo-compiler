@@ -22,7 +22,7 @@ async function resolvesToOutput(pathname){
 const htmlFiles=(await files(dist)).filter(file=>file.endsWith('.html'));
 const failures=[];
 const rootHtml=await readFile(resolve(dist,'index.html'),'utf8');
-for(const disclosure of ['Kumo outside React','One component language.','Three native frameworks.','Svelte','Vue','Solid','Start building','Open examples'])
+for(const disclosure of ['Kumo outside React','One component language.','Three native frameworks.','Svelte','Vue','Solid','Start building','Open examples','kumo-vue-0.0.1.tgz','kumo-svelte-0.0.1.tgz','kumo-solid-0.0.1.tgz'])
  if(!rootHtml.includes(disclosure))failures.push(`root product hero missing: ${disclosure}`);
 const resultsHtml=await readFile(resolve(dist,'docs/evidence/compiler-results/index.html'),'utf8');
 for(const disclosure of ['Compiler results at a glance','Axis A · Engine language','Compiler engines','Axis B · Output architecture','Output architectures','Framework libraries'])
