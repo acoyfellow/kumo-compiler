@@ -1,5 +1,5 @@
 <script>
-  import { Button, Field } from '@cloudflare/kumo-svelte';
+  import { Button, Field } from '@acoyfellow/kumo-svelte';
   let clicks = $state(0);
   let project = $state('Workers');
 </script>

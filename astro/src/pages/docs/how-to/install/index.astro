@@ -9,11 +9,11 @@ npm install https://kumo-compiler.coey.dev/packages/kumo-svelte-0.0.1.tgz
 npm install https://kumo-compiler.coey.dev/packages/kumo-solid-0.0.1.tgz`} />
 <p>The friendly URL is stable for the current <code>0.0.1</code> package. npm records the resolved URL and integrity in your lockfile.</p>
 <h2>Immutable URLs</h2><p>Read <a href="/packages/manifest.json">the artifact manifest</a> and install its <code>artifact</code> URL:</p><SyntaxCode lang="shell" label="Terminal" code={`npm install https://kumo-compiler.coey.dev/packages/<sha256>.tgz`} /><p>Content-addressed tarballs are served with immutable caching. The SHA-256 filename equals the artifact bytes.</p>
-<h2>Import components</h2><SyntaxCode lang="js" label="Application entry" code={`import { Button, Field } from '@cloudflare/kumo-svelte';
-import '@cloudflare/kumo-svelte/styles.css';`} /><p>Replace <code>svelte</code> with <code>vue</code> or <code>solid</code>. Root and component subpath exports are available:</p><SyntaxCode lang="js" label="Subpath imports" code={`import { Button } from '@cloudflare/kumo-svelte/button';
-import { Field } from '@cloudflare/kumo-svelte/field';`} />
-<h2>Verify what was installed</h2><SyntaxCode lang="shell" label="Terminal" code={`npm ls @cloudflare/kumo-svelte
-node -p "require('./node_modules/@cloudflare/kumo-svelte/package.json').version"`} />
-<div class="note"><strong>Do not run</strong> <code>npm install @cloudflare/kumo-svelte</code> yet. The package is not in the public npm registry; that command cannot resolve it.</div>
+<h2>Import components</h2><SyntaxCode lang="js" label="Application entry" code={`import { Button, Field } from '@acoyfellow/kumo-svelte';
+import '@acoyfellow/kumo-svelte/styles.css';`} /><p>Replace <code>svelte</code> with <code>vue</code> or <code>solid</code>. Root and component subpath exports are available:</p><SyntaxCode lang="js" label="Subpath imports" code={`import { Button } from '@acoyfellow/kumo-svelte/button';
+import { Field } from '@acoyfellow/kumo-svelte/field';`} />
+<h2>Verify what was installed</h2><SyntaxCode lang="shell" label="Terminal" code={`npm ls @acoyfellow/kumo-svelte
+node -p "require('./node_modules/@acoyfellow/kumo-svelte/package.json').version"`} />
+<div class="note"><strong>Do not run</strong> <code>npm install @acoyfellow/kumo-svelte</code> yet. The package is not in the public npm registry; that command cannot resolve it.</div>
 <h2>CI and private registries</h2><p>The tarball URL requires no credentials. If your organization mirrors dependencies, mirror the exact content-addressed artifact and preserve its SHA-256. A future registry publication can use the same permanent package name and version only after publication ownership and release policy are approved.</p>
 </DocsLayout><style>.eyebrow{margin:0 0 10px;color:#b45309;font-size:13px;font-weight:850;text-transform:uppercase;letter-spacing:.09em}</style>

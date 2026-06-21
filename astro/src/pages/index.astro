@@ -8,9 +8,9 @@ const installs={
   solid:'npm install https://kumo-compiler.coey.dev/packages/kumo-solid-0.0.1.tgz'
 };
 const snippets={
-  svelte:`<script>\n  import { Button, Field } from '@cloudflare/kumo-svelte';\n  import '@cloudflare/kumo-svelte/styles.css';\n  let project = $state('Workers');\n</script>\n\n<Button>Deploy project</Button>\n<Field id="project" label="Project" bind:value={project} />`,
-  vue:`<script setup>\nimport { ref } from 'vue';\nimport { Button, Field } from '@cloudflare/kumo-vue';\nimport '@cloudflare/kumo-vue/styles.css';\nconst project = ref('Workers');\n</script>\n\n<template>\n  <Button>Deploy project</Button>\n  <Field id="project" label="Project" v-model="project" />\n</template>`,
-  solid:`import { createSignal } from 'solid-js';\nimport { Button, Field } from '@cloudflare/kumo-solid';\nimport '@cloudflare/kumo-solid/styles.css';\n\nexport default function App() {\n  const [project, setProject] = createSignal('Workers');\n  return <>\n    <Button>Deploy project</Button>\n    <Field id="project" label="Project" value={project()} onInput={e => setProject(e.currentTarget.value)} />\n  </>;\n}`
+  svelte:`<script>\n  import { Button, Field } from '@acoyfellow/kumo-svelte';\n  import '@acoyfellow/kumo-svelte/styles.css';\n  let project = $state('Workers');\n</script>\n\n<Button>Deploy project</Button>\n<Field id="project" label="Project" bind:value={project} />`,
+  vue:`<script setup>\nimport { ref } from 'vue';\nimport { Button, Field } from '@acoyfellow/kumo-vue';\nimport '@acoyfellow/kumo-vue/styles.css';\nconst project = ref('Workers');\n</script>\n\n<template>\n  <Button>Deploy project</Button>\n  <Field id="project" label="Project" v-model="project" />\n</template>`,
+  solid:`import { createSignal } from 'solid-js';\nimport { Button, Field } from '@acoyfellow/kumo-solid';\nimport '@acoyfellow/kumo-solid/styles.css';\n\nexport default function App() {\n  const [project, setProject] = createSignal('Workers');\n  return <>\n    <Button>Deploy project</Button>\n    <Field id="project" label="Project" value={project()} onInput={e => setProject(e.currentTarget.value)} />\n  </>;\n}`
 };
 ---
 <Layout title="Kumo framework libraries" description="Install Button and Field for Vue, Svelte, and Solid—framework-native libraries derived from Cloudflare Kumo.">

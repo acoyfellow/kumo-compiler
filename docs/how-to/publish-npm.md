@@ -17,12 +17,12 @@ This runs `npm publish --dry-run --json --access public` against each exact tarb
 The packages retain these names:
 
 ```text
-@cloudflare/kumo-vue
-@cloudflare/kumo-svelte
-@cloudflare/kumo-solid
+@acoyfellow/kumo-vue
+@acoyfellow/kumo-svelte
+@acoyfellow/kumo-solid
 ```
 
-Only publish them with explicit authorization and an npm identity allowed to publish under `@cloudflare`. If that authorization does not exist, rename the packages and regenerate every receipt, artifact hash, manifest, example lockfile, GitHub release bundle, and documentation reference before publishing.
+Publish them only while authenticated as the npm account that owns the personal `@acoyfellow` scope. The packages intentionally avoid Cloudflare's npm namespace while preserving canonical `@cloudflare/kumo@2.5.2` provenance inside the project evidence.
 
 ## Publish manually
 

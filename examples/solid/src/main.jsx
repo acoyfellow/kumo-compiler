@@ -1,7 +1,7 @@
 import { render } from 'solid-js/web';
 import { createSignal } from 'solid-js';
-import { Button, Field } from '@cloudflare/kumo-solid';
-import '@cloudflare/kumo-solid/styles.css';
+import { Button, Field } from '@acoyfellow/kumo-solid';
+import '@acoyfellow/kumo-solid/styles.css';
 import './style.css';
 
 function App() {

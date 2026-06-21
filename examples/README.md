@@ -1,6 +1,6 @@
 # Kumo framework examples
 
-Complete Vite consumers for the hosted `@cloudflare/kumo-vue`, `@cloudflare/kumo-svelte`, and `@cloudflare/kumo-solid` tarballs.
+Complete Vite consumers for the hosted `@acoyfellow/kumo-vue`, `@acoyfellow/kumo-svelte`, and `@acoyfellow/kumo-solid` tarballs.
 
 ```sh
 cd examples/svelte # or vue / solid

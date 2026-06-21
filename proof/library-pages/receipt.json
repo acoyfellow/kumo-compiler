@@ -358,43 +358,43 @@
   },
   "manifest": {
     "status": 200,
-    "sha256": "9b206e3c16dd400363a9fe4fcfcbda65314d30b54ecc3fb149b3dc94483f72a6"
+    "sha256": "f38576a35357dced3e57c580c74f4b532d704b0a6cb992e13948e2c4bee079b0"
   },
   "artifacts": [
     {
       "url": "/packages/kumo-vue-0.0.1.tgz",
-      "bytes": 2201,
-      "sha256": "3948a4ef9185804097a6cdd5d1735d93ef1980451972eb2d800d1b9fddc82635",
+      "bytes": 2202,
+      "sha256": "3380672cead61774694d7ca3746169a53be8f9f7677b0cf85b2f3a8cb62b858b",
       "status": 200
     },
     {
-      "url": "/packages/3948a4ef9185804097a6cdd5d1735d93ef1980451972eb2d800d1b9fddc82635.tgz",
-      "bytes": 2201,
-      "sha256": "3948a4ef9185804097a6cdd5d1735d93ef1980451972eb2d800d1b9fddc82635",
+      "url": "/packages/3380672cead61774694d7ca3746169a53be8f9f7677b0cf85b2f3a8cb62b858b.tgz",
+      "bytes": 2202,
+      "sha256": "3380672cead61774694d7ca3746169a53be8f9f7677b0cf85b2f3a8cb62b858b",
       "status": 200
     },
     {
       "url": "/packages/kumo-svelte-0.0.1.tgz",
-      "bytes": 2125,
-      "sha256": "7f68595035fa419d59b0ad331eec42781010b2cac2f0bdd198c77917d291445e",
+      "bytes": 2126,
+      "sha256": "022d1187329ca50129668e6e2b912e18de04268db7577382befd39d25fecc954",
       "status": 200
     },
     {
-      "url": "/packages/7f68595035fa419d59b0ad331eec42781010b2cac2f0bdd198c77917d291445e.tgz",
-      "bytes": 2125,
-      "sha256": "7f68595035fa419d59b0ad331eec42781010b2cac2f0bdd198c77917d291445e",
+      "url": "/packages/022d1187329ca50129668e6e2b912e18de04268db7577382befd39d25fecc954.tgz",
+      "bytes": 2126,
+      "sha256": "022d1187329ca50129668e6e2b912e18de04268db7577382befd39d25fecc954",
       "status": 200
     },
     {
       "url": "/packages/kumo-solid-0.0.1.tgz",
-      "bytes": 1958,
-      "sha256": "9ec9e429e5de6f0fbf60e518a48656e1877a3068e1eada839b36c2d69ca8b6db",
+      "bytes": 1959,
+      "sha256": "3bc9385d021bd8b55b6d963e0523c48412be0f6bf4d38a9c3c62d53f97c1611a",
       "status": 200
     },
     {
-      "url": "/packages/9ec9e429e5de6f0fbf60e518a48656e1877a3068e1eada839b36c2d69ca8b6db.tgz",
-      "bytes": 1958,
-      "sha256": "9ec9e429e5de6f0fbf60e518a48656e1877a3068e1eada839b36c2d69ca8b6db",
+      "url": "/packages/3bc9385d021bd8b55b6d963e0523c48412be0f6bf4d38a9c3c62d53f97c1611a.tgz",
+      "bytes": 1959,
+      "sha256": "3bc9385d021bd8b55b6d963e0523c48412be0f6bf4d38a9c3c62d53f97c1611a",
       "status": 200
     }
   ],
@@ -402,7 +402,7 @@
     {
       "framework": "vue",
       "url": "http://127.0.0.1:<PORT>/packages/kumo-vue-0.0.1.tgz",
-      "package": "@cloudflare/kumo-vue",
+      "package": "@acoyfellow/kumo-vue",
       "exports": [
         ".",
         "./button",
@@ -420,7 +420,7 @@
     {
       "framework": "svelte",
       "url": "http://127.0.0.1:<PORT>/packages/kumo-svelte-0.0.1.tgz",
-      "package": "@cloudflare/kumo-svelte",
+      "package": "@acoyfellow/kumo-svelte",
       "exports": [
         ".",
         "./button",
@@ -438,7 +438,7 @@
     {
       "framework": "solid",
       "url": "http://127.0.0.1:<PORT>/packages/kumo-solid-0.0.1.tgz",
-      "package": "@cloudflare/kumo-solid",
+      "package": "@acoyfellow/kumo-solid",
       "exports": [
         ".",
         "./button",
@@ -456,9 +456,24 @@
   ],
   "requests": [
     {
-      "path": "/favicon.ico",
-      "status": 204,
-      "bytes": 0
+      "path": "/",
+      "status": 200,
+      "bytes": 37849
+    },
+    {
+      "path": "/docs/",
+      "status": 200,
+      "bytes": 12974
+    },
+    {
+      "path": "/examples/",
+      "status": 200,
+      "bytes": 11413
+    },
+    {
+      "path": "/favicon.svg",
+      "status": 200,
+      "bytes": 254
     },
     {
       "path": "/kumo.css",
@@ -468,17 +483,17 @@
     {
       "path": "/libraries/solid/",
       "status": 200,
-      "bytes": 8027
+      "bytes": 16417
     },
     {
       "path": "/libraries/svelte/",
       "status": 200,
-      "bytes": 8039
+      "bytes": 16758
     },
     {
       "path": "/libraries/vue/",
       "status": 200,
-      "bytes": 8003
+      "bytes": 16379
     },
     {
       "path": "/library-gallery/solid/",
@@ -524,7 +539,17 @@
       "path": "/library-gallery/vue/assets/index-TTPjM3qw.js",
       "status": 200,
       "bytes": 61452
+    },
+    {
+      "path": "/manifest.webmanifest",
+      "status": 200,
+      "bytes": 473
+    },
+    {
+      "path": "/sw.js",
+      "status": 200,
+      "bytes": 830
     }
   ],
-  "receiptHash": "4ad7e5cd2b7ffe13e8d09dbdbf65dd16a23c62c139bb4a1528e45f1843697261"
+  "receiptHash": "1b67aa84e8e517df5ea1b4e94b1a429ec0b0bf58d839433bb45e7d991f6d0d7e"
 }

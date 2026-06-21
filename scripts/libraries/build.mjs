@@ -24,7 +24,7 @@ for (const framework of frameworks) {
   const receiptPath = resolve(root, 'proof/dx', `${framework}-library/receipt.json`);
   const receipt = JSON.parse(await readFile(receiptPath, 'utf8'));
   const pkg = JSON.parse(await readFile(resolve(source, 'package.json'), 'utf8'));
-  const expectedName = `@cloudflare/kumo-${framework}`;
+  const expectedName = `@acoyfellow/kumo-${framework}`;
   if (pkg.name !== expectedName || pkg.version !== '0.0.1' || receipt.package !== `${expectedName}@0.0.1`)
     fail(`${framework}: unexpected package identity`);
   if (canonicalReceiptDigest(receipt) !== receipt.receiptHash)

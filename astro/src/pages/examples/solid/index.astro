@@ -4,8 +4,8 @@ import SyntaxCode from '../../../components/SyntaxCode.astro';
 const install='npm install https://kumo-compiler.coey.dev/packages/kumo-solid-0.0.1.tgz';
 ---
 <ExampleLayout title="Solid Button and Field" framework="solid" install={install} download="/examples/downloads/kumo-solid-example.zip" library="/libraries/solid/"><h2>App.jsx</h2><SyntaxCode lang="jsx" label="App.jsx" code={`import { createSignal } from 'solid-js';
-import { Button, Field } from '@cloudflare/kumo-solid';
-import '@cloudflare/kumo-solid/styles.css';
+import { Button, Field } from '@acoyfellow/kumo-solid';
+import '@acoyfellow/kumo-solid/styles.css';
 
 export default function App() {
   const [clicks, setClicks] = createSignal(0);

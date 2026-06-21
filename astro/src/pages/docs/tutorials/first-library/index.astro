@@ -17,8 +17,8 @@ npm install https://kumo-compiler.coey.dev/packages/kumo-solid-0.0.1.tgz`} />
 <p>Use only one command in your project. npm installs the matching framework peer dependency if your app does not already provide it.</p>
 <h2>2 — Import the library and its styles</h2>
 <h3>Svelte</h3><SyntaxCode lang="svelte" label="App.svelte" code={`<script>
-  import { Button, Field } from '@cloudflare/kumo-svelte';
-  import '@cloudflare/kumo-svelte/styles.css';
+  import { Button, Field } from '@acoyfellow/kumo-svelte';
+  import '@acoyfellow/kumo-svelte/styles.css';
 
   let clicks = $state(0);
   let project = $state('Workers');
@@ -36,8 +36,8 @@ npm install https://kumo-compiler.coey.dev/packages/kumo-solid-0.0.1.tgz`} />
 <p>Model: {project}</p>`} />
 <h3>Vue</h3><SyntaxCode lang="vue" label="App.vue" code={`<script setup>
 import { ref } from 'vue';
-import { Button, Field } from '@cloudflare/kumo-vue';
-import '@cloudflare/kumo-vue/styles.css';
+import { Button, Field } from '@acoyfellow/kumo-vue';
+import '@acoyfellow/kumo-vue/styles.css';
 
 const clicks = ref(0);
 const project = ref('Workers');
@@ -49,8 +49,8 @@ const project = ref('Workers');
   <p>Model: {{ project }}</p>
 </template>`} />
 <h3>Solid</h3><SyntaxCode lang="tsx" label="App.tsx" code={`import { createSignal } from 'solid-js';
-import { Button, Field } from '@cloudflare/kumo-solid';
-import '@cloudflare/kumo-solid/styles.css';
+import { Button, Field } from '@acoyfellow/kumo-solid';
+import '@acoyfellow/kumo-solid/styles.css';
 
 export default function App() {
   const [clicks, setClicks] = createSignal(0);

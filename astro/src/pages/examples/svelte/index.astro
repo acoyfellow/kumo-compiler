@@ -4,8 +4,8 @@ import SyntaxCode from '../../../components/SyntaxCode.astro';
 const install='npm install https://kumo-compiler.coey.dev/packages/kumo-svelte-0.0.1.tgz';
 ---
 <ExampleLayout title="Svelte Button and Field" framework="svelte" install={install} download="/examples/downloads/kumo-svelte-example.zip" library="/libraries/svelte/"><h2>App.svelte</h2><SyntaxCode lang="svelte" label="App.svelte" code={`<script>
-  import { Button, Field } from '@cloudflare/kumo-svelte';
-  import '@cloudflare/kumo-svelte/styles.css';
+  import { Button, Field } from '@acoyfellow/kumo-svelte';
+  import '@acoyfellow/kumo-svelte/styles.css';
   let clicks = $state(0);
   let project = $state('Workers');
 </script>

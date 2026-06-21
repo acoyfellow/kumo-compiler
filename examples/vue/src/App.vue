@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { Button, Field } from '@cloudflare/kumo-vue';
+import { Button, Field } from '@acoyfellow/kumo-vue';
 const clicks = ref(0);
 const project = ref('Workers');
 </script>
