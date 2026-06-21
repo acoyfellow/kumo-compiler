@@ -22,12 +22,13 @@ async function resolvesToOutput(pathname){
 const htmlFiles=(await files(dist)).filter(file=>file.endsWith('.html'));
 const failures=[];
 const rootHtml=await readFile(resolve(dist,'index.html'),'utf8');
+for(const disclosure of ['Kumo outside React','One component language.','Three native frameworks.','Svelte','Vue','Solid','Start building','Open examples'])
+ if(!rootHtml.includes(disclosure))failures.push(`root product hero missing: ${disclosure}`);
+const resultsHtml=await readFile(resolve(dist,'docs/evidence/compiler-results/index.html'),'utf8');
 for(const disclosure of ['Compiler results at a glance','Axis A · Engine language','Compiler engines','Axis B · Output architecture','Output architectures','Framework libraries'])
- if(!rootHtml.includes(disclosure))failures.push(`root receipt-derived results missing: ${disclosure}`);
-for(const result of languageResults())
- if(!rootHtml.includes(`Full ${result} results`))failures.push(`root engine result card missing: ${result}`);
-for(const result of ['Internal compiler','Mitosis','Shared core + native','Minimal hybrid'])
- if(!rootHtml.includes(`Full ${result} results`))failures.push(`root architecture result card missing: ${result}`);
+ if(!resultsHtml.includes(disclosure))failures.push(`compiler results missing: ${disclosure}`);
+for(const result of languageResults())if(!resultsHtml.includes(`Full ${result} results`))failures.push(`engine result card missing: ${result}`);
+for(const result of ['Internal compiler','Mitosis','Shared core + native','Minimal hybrid'])if(!resultsHtml.includes(`Full ${result} results`))failures.push(`architecture result card missing: ${result}`);
 function languageResults(){return ['TypeScript','Go','Rust','Zig']}
 const typeScriptHtml=await readFile(resolve(dist,'typescript/index.html'),'utf8');
 for(const disclosure of ['>41</strong>','>164</strong>','browser-verified surfaces','@cloudflare/kumo@2.5.2'])
@@ -69,7 +70,7 @@ for(const file of htmlFiles){
   if(!await resolvesToOutput(pathname))failures.push(`${file.slice(dist.length)} -> ${pathname}`);
  }
 }
-const required=['/','/docs/','/docs/tutorials/first-library/','/docs/how-to/install/','/docs/how-to/github/','/docs/how-to/svelte-playground/','/docs/how-to/forms/','/docs/reference/packages/','/docs/reference/button/','/docs/reference/field/','/docs/reference/styles/','/docs/explanation/distribution/','/docs/explanation/evidence/','/examples/','/examples/vue/','/examples/svelte/','/examples/solid/','/libraries/vue/','/libraries/svelte/','/libraries/solid/','/typescript/','/go/','/rust/','/zig/','/comparison/','/mitosis/','/shared-core/','/bakeoff/','/select-pilot/','/engine-language/','/output-architecture/','/receipts/shootout-language.json','/receipts/shootout-architecture.json','/receipts/shootout-consumers.json','/receipts/shootout-selected.json',...catalog.components.map(({id})=>`/components/${id}/`)];
+const required=['/','/docs/','/docs/tutorials/first-library/','/docs/how-to/install/','/docs/how-to/github/','/docs/how-to/svelte-playground/','/docs/how-to/forms/','/docs/reference/packages/','/docs/reference/button/','/docs/reference/field/','/docs/reference/styles/','/docs/explanation/distribution/','/docs/explanation/evidence/','/docs/evidence/compiler-results/','/examples/','/examples/vue/','/examples/svelte/','/examples/solid/','/libraries/vue/','/libraries/svelte/','/libraries/solid/','/typescript/','/go/','/rust/','/zig/','/comparison/','/mitosis/','/shared-core/','/bakeoff/','/select-pilot/','/engine-language/','/output-architecture/','/receipts/shootout-language.json','/receipts/shootout-architecture.json','/receipts/shootout-consumers.json','/receipts/shootout-selected.json','/sitemap.xml','/llms.txt',...catalog.components.map(({id})=>`/components/${id}/`)];
 for(const route of required)if(!await resolvesToOutput(route))failures.push(`required route missing: ${route}`);
 if(failures.length)throw new Error(`Broken local Astro routes:\n${failures.join('\n')}`);
 console.log(`Validated ${required.length + 1} routes/links (${required.length} required routes plus link graph) and ${links} local link references across ${htmlFiles.length} Astro pages`);

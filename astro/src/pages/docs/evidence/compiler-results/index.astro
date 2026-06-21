@@ -1,0 +1,88 @@
+---
+import DocsLayout from '../../../../layouts/DocsLayout.astro';
+import language from '../../../../../../benchmarks/shootout/languages/latest.json';
+import baseline from '../../../../../../benchmarks/compilers/typescript-baseline.json';
+import productBaseline from '../../../../../../proof/shootout/baseline/baseline.json';
+import architecture from '../../../../../../proof/shootout/architectures/matrix.json';
+
+const fmtMs = value => `${Number(value).toFixed(2)} ms`;
+const fmtBytes = value => value >= 1_000_000 ? `${(value / 1_000_000).toFixed(2)} MB` : value >= 1_000 ? `${(value / 1_000).toFixed(1)} KB` : `${value} B`;
+const engineLinks = { typescript: '/typescript/', go: '/go/', rust: '/rust/', zig: '/zig/' };
+const engineNames = { typescript: 'TypeScript', go: 'Go', rust: 'Rust', zig: 'Zig' };
+const engineCards = language.results.map(result => ({
+  ...result,
+  name: engineNames[result.language],
+  href: engineLinks[result.language],
+  scope: 'Planner protocol only',
+}));
+const architectureCards = architecture.dimensions.candidates.map(candidate => {
+  const cells = architecture.receipts.filter(cell => cell.candidate === candidate);
+  const statuses = cells.reduce((all, cell) => {
+    for (const status of Object.values(cell.gates)) all[status] = (all[status] || 0) + 1;
+    return all;
+  }, { passed: 0, failed: 0, blocked: 0, 'not-run': 0 });
+  const metadata = {
+    'internal-ts': { name: 'Internal compiler', href: '/typescript/', mode: 'Control evidence' },
+    mitosis: { name: 'Mitosis', href: '/mitosis/', mode: 'Generated candidate' },
+    'shared-core-native': { name: 'Shared core + native', href: '/shared-core/', mode: 'Native-view candidate' },
+    'minimal-hybrid': { name: 'Minimal hybrid', href: '/output-architecture/', mode: 'Prepared candidate' },
+  }[candidate];
+  const receiptStatuses = cells.reduce((all, cell) => {
+    all[cell.status] = (all[cell.status] || 0) + 1;
+    return all;
+  }, {});
+  const eligible = cells.every(cell => cell.eligible);
+  return { candidate, cells: cells.length, statuses, receiptStatuses, eligible, ...metadata };
+});
+---
+<DocsLayout title="Compiler results" description="Receipt-derived engine and output-architecture results for the Kumo compiler study.">
+  <header class="intro">
+    <p class="eyebrow">Kumo compiler study</p>
+    <h1>Compiler results at a glance</h1>
+    <p>Engine language and output architecture are separate questions. These cards show the selected receipt data; open any card for its full results and limitations.</p>
+  </header>
+
+  <section class="results" aria-labelledby="engine-title">
+    <div class="heading"><div><p class="kicker">Axis A · Engine language</p><h2 id="engine-title">Compiler engines</h2></div><p>Same normalized Button + Select planner fixture. Planner correctness passed for all four; product gates, CPU, and peak RSS remain blocked. <a href="/engine-language/">Full engine comparison →</a></p></div>
+    <div class="grid engines">
+      {engineCards.map(card => <a class="card" href={card.href}>
+        <div class="card-top"><span class="status">Planner {card.correctness}</span><span class="scope">{card.scope}</span></div>
+        <h3>{card.name}</h3>
+        <dl class="stats">
+          <div><dt>Median</dt><dd>{fmtMs(card.performance.summary.medianWallMs)}</dd></div>
+          <div><dt>p95</dt><dd>{fmtMs(card.performance.summary.p95WallMs)}</dd></div>
+          <div><dt>Distribution</dt><dd>{fmtBytes(card.distribution.binaryBytes)}</dd></div>
+          <div><dt>Raw output</dt><dd>{card.rawOutput.files} files · {fmtBytes(card.rawOutput.bytes)}</dd></div>
+        </dl>
+        {card.language === 'typescript' && <p class="baseline"><strong>Separate full-product control:</strong> {productBaseline.authority.coverage} authority coverage · {baseline.output.files} generated files · {fmtBytes(baseline.output.bytes)}</p>}
+        <b>Full {card.name} results →</b>
+      </a>)}
+    </div>
+  </section>
+
+  <section class="results" aria-labelledby="architecture-title">
+    <div class="axis-divider" aria-hidden="true"></div>
+    <div class="heading"><div><p class="kicker">Axis B · Output architecture</p><h2 id="architecture-title">Output architectures</h2></div><p>Exact {architecture.cellCount}-cell Button + Select matrix. Critical evidence is incomplete, so weights were not applied and there is no winner. <a href="/output-architecture/">Full architecture comparison →</a></p></div>
+    <div class="grid architectures">
+      {architectureCards.map(card => <a class="card" href={card.href}>
+        <div class="card-top"><span class="status pending">{card.eligible ? 'eligible' : 'not eligible'}</span><span class="scope">{card.mode}</span></div>
+        <h3>{card.name}</h3>
+        <dl class="stats gate-stats">
+          <div><dt>Cells</dt><dd>{card.cells}</dd></div>
+          <div><dt>Cell status</dt><dd>{card.receiptStatuses.failed ? `${card.receiptStatuses.failed} failed` : `${card.receiptStatuses.blocked ?? 0} blocked`}</dd></div>
+          <div><dt>Passed</dt><dd>{card.statuses.passed}</dd></div>
+          <div><dt>Failed</dt><dd>{card.statuses.failed}</dd></div>
+          <div><dt>Blocked</dt><dd>{card.statuses.blocked}</dd></div>
+          <div><dt>Not run</dt><dd>{card.statuses['not-run']}</dd></div>
+        </dl>
+        <b>Full {card.name} results →</b>
+      </a>)}
+    </div>
+    <p class="matrix-total">Matrix total: <strong>{architecture.gateCounts.passed} passed</strong> · <strong>{architecture.gateCounts.failed} failed</strong> · <strong>{architecture.gateCounts.blocked} blocked</strong> · <strong>{architecture.gateCounts['not-run']} not-run</strong>.</p>
+  </section>
+
+  <section class="libraries"><div><p class="kicker">Use the output</p><h2>Framework libraries</h2><p>See and install the current Button + Field libraries.</p></div><nav aria-label="Framework libraries"><a href="/libraries/vue/">Vue →</a><a href="/libraries/svelte/">Svelte →</a><a href="/libraries/solid/">Solid →</a></nav></section>
+</DocsLayout>
+<style>
+.intro{max-width:850px;padding:34px 0 14px}.axis-divider{height:4px;margin:0 0 30px;border-radius:999px;background:linear-gradient(90deg,#2563eb,#7c3aed)}.eyebrow,.kicker{margin:0 0 8px;color:#64748b;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.intro h1{margin:0;font-size:clamp(38px,5vw,58px);line-height:1.04;letter-spacing:-.045em}.intro>p:last-child{margin:20px 0 0;color:#475569;font-size:18px;line-height:1.65}.results{margin-top:50px}.heading{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:16px}.heading h2,.libraries h2{margin:0;font-size:26px;letter-spacing:-.03em}.heading>p{max-width:570px;margin:0;color:#64748b;font-size:13px;line-height:1.55}.heading a{color:#0759b6}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{display:block;min-width:0;padding:20px;border:1px solid #d8dde5;border-radius:11px;background:#fff;color:inherit;text-decoration:none}.card:hover{border-color:#64748b}.card:focus-visible{outline:3px solid #2563eb;outline-offset:3px}.card-top{display:flex;justify-content:space-between;gap:10px}.status,.scope{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.status{color:#166534}.status.pending,.scope{color:#64748b}.card h3{margin:14px 0;font-size:26px;letter-spacing:-.035em}.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 18px}.stats div{min-width:0;padding:11px;border-radius:7px;background:#f5f7fa}.stats dt{color:#64748b;font-size:10px;font-weight:800;text-transform:uppercase}.stats dd{margin:5px 0 0;font-size:14px;font-weight:750;overflow-wrap:anywhere}.gate-stats{grid-template-columns:repeat(3,minmax(0,1fr))}.baseline{margin:0 0 18px;padding:11px;border-left:3px solid #16a34a;background:#f0fdf4;color:#166534;font-size:12px;line-height:1.5}.card>b{color:#0759b6;font-size:13px}.matrix-total{margin:14px 0 0;color:#475569;font-size:13px}.libraries{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:52px;padding:24px;border:1px solid #d8dde5;border-radius:11px;background:#fff}.libraries p{margin:8px 0 0;color:#64748b}.libraries nav{display:flex;flex-wrap:wrap;gap:8px}.libraries nav a{padding:10px 14px;border-radius:7px;background:#111827;color:white;font-weight:750;text-decoration:none}@media(max-width:720px){.heading,.libraries{display:block}.heading>p{margin-top:9px}.grid{grid-template-columns:1fr}.libraries nav{margin-top:18px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.gate-stats{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:420px){.gate-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>

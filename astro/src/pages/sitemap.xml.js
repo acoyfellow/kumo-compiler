@@ -1,0 +1,5 @@
+import catalog from '../../../benchmarks/catalog.json';
+const base='https://kumo-compiler.coey.dev';
+const fixed=['/','/docs/','/docs/tutorials/first-library/','/docs/how-to/install/','/docs/how-to/github/','/docs/how-to/svelte-playground/','/docs/how-to/forms/','/docs/reference/packages/','/docs/reference/button/','/docs/reference/field/','/docs/reference/styles/','/docs/explanation/distribution/','/docs/explanation/evidence/','/docs/evidence/compiler-results/','/examples/','/examples/vue/','/examples/svelte/','/examples/solid/','/libraries/vue/','/libraries/svelte/','/libraries/solid/','/engine-language/','/output-architecture/','/comparison/','/select-pilot/','/typescript/','/go/','/rust/','/zig/','/mitosis/','/shared-core/','/bakeoff/'];
+const routes=[...fixed,...catalog.components.map(x=>`/components/${x.id}/`)];
+export function GET(){const xml=`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${routes.map(path=>`<url><loc>${base}${path}</loc></url>`).join('')}</urlset>\n`;return new Response(xml,{headers:{'content-type':'application/xml; charset=utf-8'}})}
