@@ -1,30 +1,520 @@
 {
-  "schemaVersion":"kumo.observable/v1","component":"select",
-  "canonical":{"package":"@cloudflare/kumo","version":"2.5.2","exportPath":"./components/select","typesPath":"dist/src/components/select/index.d.ts","runtimePath":"dist/components/select.js","typesSha256":"f250151516da3de932f9ef4174c23c32187d8260aba5569f64f932b0538e8996","runtimeSha256":"89c42c0b8412862ba291fa152987e63a323739ea01d5075feda2e762d1c3e026","irSchemaVersion":"kumo.ir/v1"},
-  "publicApi":{"exports":["Select"],"props":{"Root":"generic T and single/multiple Base UI Select.Root props; value, defaultValue, onValueChange, open/defaultOpen/onOpenChange pass through","items":"record of labels/descriptors or readonly {label,value} array","children":"Select.Option/Group/GroupLabel/Separator compounds","renderValue":"selected T or T[] to ReactNode","label":"visible Field label","aria-label/aria-labelledby":"accessible naming alternatives","hideLabel":"deprecated boolean","placeholder/loading/disabled/required":"display and form states","size":"xs|sm|base|lg","labelTooltip/description/error":"Field decoration","container":"portal target"},"defaults":{"size":"base","multiple":false,"open":false,"portalContainer":"KumoPortalProvider container or document.body","accessibleName":"consumer required","selection":"uncontrolled unless value supplied"}},
-  "semantics":{"root":"div","aria":["trigger is role=combobox with aria-haspopup=listbox and aria-expanded","popup is listbox and items are options with selected/disabled state","label or aria-label/aria-labelledby is required from consumer","hidden input participates in form submission","multiple selection exposes listbox multiselect semantics via Base UI"]},
-  "initialState":{"value":"controlled value, else defaultValue, else null or [] in multiple mode","open":"controlled open, else defaultOpen, else false","highlightedOption":null,"disabled":"from root and item descriptor/Option props"},
-  "transitions":[{"action":"pointer trigger then enabled option","effect":"open, highlight/select, emit value change, and normally dismiss single select"},{"action":"Arrow/Home/End/Page keys","effect":"move highlight while skipping disabled options and scroll it into view"},{"action":"printable typeahead","effect":"highlight matching enabled option within Base UI timeout"},{"action":"Escape, Tab, or outside interaction","effect":"dismiss according to Base UI reason and focus policy"},{"action":"controlled value/open interaction","effect":"emit callbacks while supplied props remain authoritative"}],
-  "keyboardFocus":{"focusable":true,"keys":["Enter","Space","ArrowDown","ArrowUp","Home","End","PageDown","PageUp","Escape","Tab","printable typeahead"]},
-  "ssrHydration":{"ssr":"supported","hydration":"unknown"},
-  "stylingAssets":{"classes":["data-kumo-component=Select","data-kumo-part=trigger","data-placeholder","data-highlighted","data-selected","h-9","rounded-lg","ring-kumo-line"],"assets":["Phosphor caret-up-down icon","Phosphor check icon","loading skeleton","Field and Tooltip compounds","@cloudflare/kumo styles"]},
-  "vectors":[
-    {"id":"closed-placeholder-ssr","props":{"aria-label":"Fruit","placeholder":"Choose"},"expected":{"root":{"tag":"div"},"descendants":[{"selector":"button","count":1,"tag":"button","attributes":{"includes":{"type":"button","tabindex":"0","role":"combobox","aria-expanded":"false","aria-haspopup":"listbox","aria-label":"Fruit","data-kumo-component":"Select","data-kumo-part":"trigger"}}}]}},
-    {"id":"pointer-open-select-disabled","props":{"aria-label":"Choice","placeholder":"Choose"},"fixture":{"export":"root","props":{},"children":[{"export":".Option","props":{"value":"alpha"},"children":[{"text":"Alpha"}]},{"export":".Option","props":{"value":"blocked","disabled":true},"children":[{"text":"Blocked"}]},{"export":".Option","props":{"value":"charlie"},"children":[{"text":"Charlie"}]}]},"actions":[{"type":"click","selector":"button"},{"type":"click","selector":"[role=option]"}],"expected":{"root":{"tag":"div"},"state":{"value":"alpha","open":false,"disabledOptionSelectable":false},"events":["open-change:true","value-change:alpha","open-change:false"],"focus":"button"}},
-    {"id":"keyboard-navigation-typeahead","props":{"aria-label":"Choice","defaultValue":"alpha"},"fixture":{"export":"root","props":{},"children":[{"export":".Option","props":{"value":"alpha"},"children":[{"text":"Alpha"}]},{"export":".Option","props":{"value":"blocked","disabled":true},"children":[{"text":"Blocked"}]},{"export":".Option","props":{"value":"charlie"},"children":[{"text":"Charlie"}]},{"export":".Option","props":{"value":"delta"},"children":[{"text":"Delta"}]},{"export":".Option","props":{"value":"echo"},"children":[{"text":"Éclair"}]}]},"actions":[{"type":"key","key":"ArrowDown"},{"type":"key","key":"End"},{"type":"key","key":"Home"},{"type":"key","key":"PageDown"},{"type":"type","text":"é","editMode":"append"},{"type":"key","key":"Escape"}],"expected":{"root":{"tag":"div"},"state":{"value":"alpha","open":false,"disabledSkipped":true,"highlightScrolled":true},"events":["open-change:true","open-change:false"],"focus":"button"}},
-    {"id":"controlled-value-open-order","props":{"aria-label":"Controlled","value":"alpha","open":true},"fixture":{"export":"root","props":{},"children":[{"export":".Option","props":{"value":"alpha"},"children":[{"text":"Alpha"}]},{"export":".Option","props":{"value":"charlie"},"children":[{"text":"Charlie"}]}]},"actions":[{"type":"click","selector":"[role=option]"},{"type":"key","key":"Tab"}],"expected":{"root":{"tag":"div"},"state":{"value":"alpha","open":true,"controlled":true},"events":["value-change:charlie","open-change:false"],"focus":"none"}},
-    {"id":"multiple-object-selection","props":{"aria-label":"People","multiple":true},"fixture":{"export":"root","props":{},"children":[{"export":".Option","props":{"value":{"id":"ada","name":"Ada"}},"children":[{"text":"Ada"}]},{"export":".Option","props":{"value":{"id":"grace","name":"Grace"}},"children":[{"text":"Grace"}]}]},"actions":[{"type":"click","selector":"button"},{"type":"click","selector":"[role=option]"},{"type":"click","selector":"[role=option]"}],"expected":{"root":{"tag":"div"},"state":{"selectedIds":["ada","grace"],"open":true},"events":["value-change:ada","value-change:ada,grace"],"focus":"[role=listbox]"}}
+  "schemaVersion": "kumo.observable/v1",
+  "component": "select",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "exportPath": "./components/select",
+    "typesPath": "dist/src/components/select/index.d.ts",
+    "runtimePath": "dist/components/select.js",
+    "typesSha256": "f250151516da3de932f9ef4174c23c32187d8260aba5569f64f932b0538e8996",
+    "runtimeSha256": "89c42c0b8412862ba291fa152987e63a323739ea01d5075feda2e762d1c3e026",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "Select"
+    ],
+    "props": {
+      "Root": "generic T and single/multiple Base UI Select.Root props; value, defaultValue, onValueChange, open/defaultOpen/onOpenChange pass through",
+      "items": "record of labels/descriptors or readonly {label,value} array",
+      "children": "Select.Option/Group/GroupLabel/Separator compounds",
+      "renderValue": "selected T or T[] to ReactNode",
+      "label": "visible Field label",
+      "aria-label/aria-labelledby": "accessible naming alternatives",
+      "hideLabel": "deprecated boolean",
+      "placeholder/loading/disabled/required": "display and form states",
+      "size": "xs|sm|base|lg",
+      "labelTooltip/description/error": "Field decoration",
+      "container": "portal target"
+    },
+    "defaults": {
+      "size": "base",
+      "multiple": false,
+      "open": false,
+      "portalContainer": "KumoPortalProvider container or document.body",
+      "accessibleName": "consumer required",
+      "selection": "uncontrolled unless value supplied"
+    }
+  },
+  "semantics": {
+    "root": "div",
+    "aria": [
+      "trigger is role=combobox with aria-haspopup=listbox and aria-expanded",
+      "popup is listbox and items are options with selected/disabled state",
+      "label or aria-label/aria-labelledby is required from consumer",
+      "hidden input participates in form submission",
+      "multiple selection exposes listbox multiselect semantics via Base UI"
+    ]
+  },
+  "initialState": {
+    "value": "controlled value, else defaultValue, else null or [] in multiple mode",
+    "open": "controlled open, else defaultOpen, else false",
+    "highlightedOption": null,
+    "disabled": "from root and item descriptor/Option props"
+  },
+  "transitions": [
+    {
+      "action": "pointer trigger then enabled option",
+      "effect": "open, highlight/select, emit value change, and normally dismiss single select"
+    },
+    {
+      "action": "Arrow/Home/End/Page keys",
+      "effect": "move highlight while skipping disabled options and scroll it into view"
+    },
+    {
+      "action": "printable typeahead",
+      "effect": "highlight matching enabled option within Base UI timeout"
+    },
+    {
+      "action": "Escape, Tab, or outside interaction",
+      "effect": "dismiss according to Base UI reason and focus policy"
+    },
+    {
+      "action": "controlled value/open interaction",
+      "effect": "emit callbacks while supplied props remain authoritative"
+    }
   ],
-  "unknowns":[
-    {"field":"vectors.pointer-open-select-disabled","status":"blocked","reason":"Required pointer, disabled-option, callback-order, dismissal, and focus vector is pending shared browser execution; no pass is claimed."},
-    {"field":"vectors.keyboard-navigation-typeahead","status":"blocked","reason":"Full Arrow/Home/End/Page/Escape/typeahead/scroll behavior is required but pending shared browser execution."},
-    {"field":"vectors.controlled-value-open-order","status":"blocked","reason":"Controlled ownership, Tab closure, and exact callback ordering are pending shared browser execution."},
-    {"field":"vectors.multiple-object-selection","status":"blocked","reason":"Object identity and multiple selection require executable browser fixtures and are not inferred from declarations."},
-    {"field":"existingSelectPilot.react-vue","status":"blocked","reason":"proof/select/receipts.json records React and Vue blocked before meaningful interaction because harness queries returned null; their interaction gates remain blocked."},
-    {"field":"existingSelectPilot.svelte","status":"blocked","reason":"Existing receipt records failed pointer open/select, typeahead, controlled value/open, and callback ordering. These failures remain required parity gates."},
-    {"field":"existingSelectPilot.solid","status":"blocked","reason":"Existing receipt records failed pointer open/select, typeahead, controlled state, callback ordering, hydration, and focus/scroll. These failures remain visible and unresolved."},
-    {"field":"canonicalBrowserEvidence","status":"unknown","reason":"No focused canonical @cloudflare/kumo@2.5.2 browser execution establishes exact event order, focus/scroll, outside dismissal, typeahead timeout/normalization, or object comparator behavior."},
-    {"field":"portalPositioningHydration","status":"unknown","reason":"Anchor-width minimum, available-height scrolling, collision behavior, provider/custom/body portal precedence, open SSR, portal relocation, generated IDs, warning-free hydration, and node preservation require direct evidence."},
-    {"field":"crossBrowserStylesAssets","status":"unknown","reason":"Required Chromium, Firefox, WebKit, RTL, zoom, reduced motion, mobile/coarse pointer, stylesheet presence, icon loading, error/loading/Field variants, and animation reversal vectors have not run."}
+  "keyboardFocus": {
+    "focusable": true,
+    "keys": [
+      "Enter",
+      "Space",
+      "ArrowDown",
+      "ArrowUp",
+      "Home",
+      "End",
+      "PageDown",
+      "PageUp",
+      "Escape",
+      "Tab",
+      "printable typeahead"
+    ]
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "unknown"
+  },
+  "stylingAssets": {
+    "classes": [
+      "data-kumo-component=Select",
+      "data-kumo-part=trigger",
+      "data-placeholder",
+      "data-highlighted",
+      "data-selected",
+      "h-9",
+      "rounded-lg",
+      "ring-kumo-line"
+    ],
+    "assets": [
+      "Phosphor caret-up-down icon",
+      "Phosphor check icon",
+      "loading skeleton",
+      "Field and Tooltip compounds",
+      "@cloudflare/kumo styles"
+    ]
+  },
+  "vectors": [
+    {
+      "id": "closed-placeholder-ssr",
+      "props": {
+        "aria-label": "Fruit",
+        "placeholder": "Choose"
+      },
+      "expected": {
+        "root": {
+          "tag": "div"
+        },
+        "descendants": [
+          {
+            "selector": "button",
+            "count": 1,
+            "tag": "button",
+            "attributes": {
+              "includes": {
+                "type": "button",
+                "tabindex": "0",
+                "role": "combobox",
+                "aria-expanded": "false",
+                "aria-haspopup": "listbox",
+                "aria-label": "Fruit",
+                "data-kumo-component": "Select",
+                "data-kumo-part": "trigger"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "pointer-open-select-disabled",
+      "props": {
+        "aria-label": "Choice",
+        "placeholder": "Choose"
+      },
+      "fixture": {
+        "export": "root",
+        "props": {},
+        "children": [
+          {
+            "export": ".Option",
+            "props": {
+              "value": "alpha"
+            },
+            "children": [
+              {
+                "text": "Alpha"
+              }
+            ]
+          },
+          {
+            "export": ".Option",
+            "props": {
+              "value": "blocked",
+              "disabled": true
+            },
+            "children": [
+              {
+                "text": "Blocked"
+              }
+            ]
+          },
+          {
+            "export": ".Option",
+            "props": {
+              "value": "charlie"
+            },
+            "children": [
+              {
+                "text": "Charlie"
+              }
+            ]
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "click",
+          "selector": "button"
+        },
+        {
+          "type": "click",
+          "selector": "[role=option]"
+        }
+      ],
+      "expected": {
+        "root": {
+          "tag": "div"
+        },
+        "state": {
+          "value": "alpha",
+          "open": false,
+          "disabledOptionSelectable": false
+        },
+        "events": [
+          "open-change:true",
+          "value-change:alpha",
+          "open-change:false"
+        ],
+        "focus": "button"
+      }
+    },
+    {
+      "id": "keyboard-navigation-typeahead",
+      "props": {
+        "aria-label": "Choice",
+        "defaultValue": "alpha"
+      },
+      "fixture": {
+        "export": "root",
+        "props": {},
+        "children": [
+          {
+            "export": ".Option",
+            "props": {
+              "value": "alpha"
+            },
+            "children": [
+              {
+                "text": "Alpha"
+              }
+            ]
+          },
+          {
+            "export": ".Option",
+            "props": {
+              "value": "blocked",
+              "disabled": true
+            },
+            "children": [
+              {
+                "text": "Blocked"
+              }
+            ]
+          },
+          {
+            "export": ".Option",
+            "props": {
+              "value": "charlie"
+            },
+            "children": [
+              {
+                "text": "Charlie"
+              }
+            ]
+          },
+          {
+            "export": ".Option",
+            "props": {
+              "value": "delta"
+            },
+            "children": [
+              {
+                "text": "Delta"
+              }
+            ]
+          },
+          {
+            "export": ".Option",
+            "props": {
+              "value": "echo"
+            },
+            "children": [
+              {
+                "text": "Éclair"
+              }
+            ]
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "key",
+          "key": "ArrowDown"
+        },
+        {
+          "type": "key",
+          "key": "End"
+        },
+        {
+          "type": "key",
+          "key": "Home"
+        },
+        {
+          "type": "key",
+          "key": "PageDown"
+        },
+        {
+          "type": "key",
+          "key": "é",
+          "selector": "button"
+        },
+        {
+          "type": "key",
+          "key": "Escape"
+        }
+      ],
+      "expected": {
+        "root": {
+          "tag": "div"
+        },
+        "state": {
+          "value": "alpha",
+          "open": false,
+          "disabledSkipped": true,
+          "highlightScrolled": true
+        },
+        "events": [
+          "open-change:true",
+          "open-change:false"
+        ],
+        "focus": "button"
+      }
+    },
+    {
+      "id": "controlled-value-open-order",
+      "props": {
+        "aria-label": "Controlled",
+        "value": "alpha",
+        "open": true
+      },
+      "fixture": {
+        "export": "root",
+        "props": {},
+        "children": [
+          {
+            "export": ".Option",
+            "props": {
+              "value": "alpha"
+            },
+            "children": [
+              {
+                "text": "Alpha"
+              }
+            ]
+          },
+          {
+            "export": ".Option",
+            "props": {
+              "value": "charlie"
+            },
+            "children": [
+              {
+                "text": "Charlie"
+              }
+            ]
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "click",
+          "selector": "[role=option]"
+        },
+        {
+          "type": "key",
+          "key": "Tab"
+        }
+      ],
+      "expected": {
+        "root": {
+          "tag": "div"
+        },
+        "state": {
+          "value": "alpha",
+          "open": true,
+          "controlled": true
+        },
+        "events": [
+          "value-change:charlie",
+          "open-change:false"
+        ],
+        "focus": "none"
+      }
+    },
+    {
+      "id": "multiple-object-selection",
+      "props": {
+        "aria-label": "People",
+        "multiple": true
+      },
+      "fixture": {
+        "export": "root",
+        "props": {},
+        "children": [
+          {
+            "export": ".Option",
+            "props": {
+              "value": {
+                "id": "ada",
+                "name": "Ada"
+              }
+            },
+            "children": [
+              {
+                "text": "Ada"
+              }
+            ]
+          },
+          {
+            "export": ".Option",
+            "props": {
+              "value": {
+                "id": "grace",
+                "name": "Grace"
+              }
+            },
+            "children": [
+              {
+                "text": "Grace"
+              }
+            ]
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "click",
+          "selector": "button"
+        },
+        {
+          "type": "click",
+          "selector": "[role=option]"
+        },
+        {
+          "type": "click",
+          "selector": "[role=option]"
+        }
+      ],
+      "expected": {
+        "root": {
+          "tag": "div"
+        },
+        "state": {
+          "selectedIds": [
+            "ada",
+            "grace"
+          ],
+          "open": true
+        },
+        "events": [
+          "value-change:ada",
+          "value-change:ada,grace"
+        ],
+        "focus": "[role=listbox]"
+      }
+    }
+  ],
+  "unknowns": [
+    {
+      "field": "vectors.pointer-open-select-disabled",
+      "status": "blocked",
+      "reason": "Required pointer, disabled-option, callback-order, dismissal, and focus vector is pending shared browser execution; no pass is claimed."
+    },
+    {
+      "field": "vectors.keyboard-navigation-typeahead",
+      "status": "blocked",
+      "reason": "Full Arrow/Home/End/Page/Escape/typeahead/scroll behavior is required but pending shared browser execution."
+    },
+    {
+      "field": "vectors.controlled-value-open-order",
+      "status": "blocked",
+      "reason": "Controlled ownership, Tab closure, and exact callback ordering are pending shared browser execution."
+    },
+    {
+      "field": "vectors.multiple-object-selection",
+      "status": "blocked",
+      "reason": "Object identity and multiple selection require executable browser fixtures and are not inferred from declarations."
+    },
+    {
+      "field": "existingSelectPilot.react-vue",
+      "status": "blocked",
+      "reason": "proof/select/receipts.json records React and Vue blocked before meaningful interaction because harness queries returned null; their interaction gates remain blocked."
+    },
+    {
+      "field": "existingSelectPilot.svelte",
+      "status": "blocked",
+      "reason": "Existing receipt records failed pointer open/select, typeahead, controlled value/open, and callback ordering. These failures remain required parity gates."
+    },
+    {
+      "field": "existingSelectPilot.solid",
+      "status": "blocked",
+      "reason": "Existing receipt records failed pointer open/select, typeahead, controlled state, callback ordering, hydration, and focus/scroll. These failures remain visible and unresolved."
+    },
+    {
+      "field": "canonicalBrowserEvidence",
+      "status": "unknown",
+      "reason": "No focused canonical @cloudflare/kumo@2.5.2 browser execution establishes exact event order, focus/scroll, outside dismissal, typeahead timeout/normalization, or object comparator behavior."
+    },
+    {
+      "field": "portalPositioningHydration",
+      "status": "unknown",
+      "reason": "Anchor-width minimum, available-height scrolling, collision behavior, provider/custom/body portal precedence, open SSR, portal relocation, generated IDs, warning-free hydration, and node preservation require direct evidence."
+    },
+    {
+      "field": "crossBrowserStylesAssets",
+      "status": "unknown",
+      "reason": "Required Chromium, Firefox, WebKit, RTL, zoom, reduced motion, mobile/coarse pointer, stylesheet presence, icon loading, error/loading/Field variants, and animation reversal vectors have not run."
+    }
   ]
 }
