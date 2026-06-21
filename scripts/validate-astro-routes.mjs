@@ -59,12 +59,12 @@ for(const file of htmlFiles){
   if(!value.startsWith('/')||value.startsWith('//'))continue;
   const pathname=new URL(value,'https://local.invalid').pathname;
   // Runtime and benchmark links are served by the parent proof server, not Astro's static output.
-  if(pathname.startsWith('/benchmarks/')||pathname.startsWith('/docs/')||/^\/[^/]+\/(react|vue|svelte|solid)\/?$/.test(pathname))continue;
+  if(pathname.startsWith('/benchmarks/')||pathname.startsWith('/packages/')||pathname.startsWith('/library-gallery/')||pathname.startsWith('/docs/')||/^\/[^/]+\/(react|vue|svelte|solid)\/?$/.test(pathname))continue;
   links++;
   if(!await resolvesToOutput(pathname))failures.push(`${file.slice(dist.length)} -> ${pathname}`);
  }
 }
-const required=['/','/typescript/','/go/','/rust/','/zig/','/comparison/','/mitosis/','/shared-core/','/bakeoff/','/select-pilot/','/engine-language/','/output-architecture/','/receipts/shootout-language.json','/receipts/shootout-architecture.json','/receipts/shootout-consumers.json','/receipts/shootout-selected.json',...catalog.components.map(({id})=>`/components/${id}/`)];
+const required=['/','/libraries/vue/','/libraries/svelte/','/libraries/solid/','/typescript/','/go/','/rust/','/zig/','/comparison/','/mitosis/','/shared-core/','/bakeoff/','/select-pilot/','/engine-language/','/output-architecture/','/receipts/shootout-language.json','/receipts/shootout-architecture.json','/receipts/shootout-consumers.json','/receipts/shootout-selected.json',...catalog.components.map(({id})=>`/components/${id}/`)];
 for(const route of required)if(!await resolvesToOutput(route))failures.push(`required route missing: ${route}`);
 if(failures.length)throw new Error(`Broken local Astro routes:\n${failures.join('\n')}`);
 console.log(`Validated ${required.length + 1} routes/links (${required.length} required routes plus link graph) and ${links} local link references across ${htmlFiles.length} Astro pages`);

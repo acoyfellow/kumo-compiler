@@ -10,6 +10,7 @@ const run = (command, args) => {
   const result = spawnSync(command, args, { cwd: root, stdio: 'inherit' });
   if (result.status !== 0) throw new Error(`${command} ${args.join(' ')} failed (${result.status})`);
 };
+run('npm', ['run', 'libraries:build']);
 run('npm', ['--prefix', 'astro', 'run', 'build']);
 await validateDeployManifest(manifest);
 
@@ -19,6 +20,7 @@ await mkdir(destination, { recursive: true });
 await cp(resolve(root, 'astro/dist'), destination, { recursive: true });
 // Library artifacts are source-staged and copied only after the Astro rebuild.
 await cp(resolve(root, 'library-artifacts'), resolve(destination, 'packages'), { recursive: true });
+await cp(resolve(root, 'library-gallery'), resolve(destination, 'library-gallery'), { recursive: true });
 
 const runtimeRoute = manifest.routes.find((route) => route.id === 'component-runtime');
 for (const component of runtimeRoute.components) {

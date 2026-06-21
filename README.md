@@ -6,6 +6,10 @@ Private package-backed compiler and proof service for Cloudflare Kumo. `@cloudfl
 pinned Kumo package → versioned IR → framework emitters → v2 browser authority → Astro catalog
 ```
 
+## Framework libraries
+
+Package-backed component galleries: [Vue](/libraries/vue/), [Svelte](/libraries/svelte/), and [Solid](/libraries/solid/). Each ships Button and Field; Select is not included.
+
 ## Seven-minute start
 
 Requires Node 22 and npm. The package is private and versioned `0.0.1`.
