@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "generatedAt": "2026-06-21T11:48:00Z",
+  "project": "kumo-compiler",
+  "production": "https://kumo-compiler.coey.dev",
+  "scope": {
+    "canonicalPackage": "@cloudflare/kumo@2.5.2",
+    "classifiedComponents": 45,
+    "executableComponents": 41,
+    "upstreamBlocked": ["PageHeader", "ResourceListPage"],
+    "supplemental": ["Chart", "Flow"],
+    "supportedLibraryComponents": ["Button", "Field"],
+    "deferredLibraryComponents": ["Select"]
+  },
+  "gates": {
+    "A": {
+      "status": "passed",
+      "evidence": {
+        "node": "22.22.2",
+        "npm": "11.13.0",
+        "releaseCheckRuns": 2,
+        "tests": 129,
+        "passed": 127,
+        "failed": 0,
+        "skipped": 2,
+        "authority": "164/164",
+        "payload": {
+          "algorithm": "sha256-tree-v1",
+          "sha256": "91a700393645fefd6439ac3e5c502b8805c3700299a229045dec77a6aafceaf9",
+          "files": 777,
+          "identicalRuns": 2
+        },
+        "deployTarget": {
+          "accountId": "bfcb6ac5b3ceaf42a09607f6f7925823",
+          "service": "kumo-compiler-proof",
+          "hostname": "kumo-compiler.coey.dev"
+        }
+      }
+    },
+    "B": {
+      "status": "passed",
+      "evidence": {
+        "engines": ["TypeScript", "Go", "Rust", "Zig"],
+        "engineRecords": 8,
+        "engineWinner": null,
+        "architectureCells": 32,
+        "architectureCounts": {"passed": 87, "failed": 5, "blocked": 212, "notRun": 80},
+        "architectureWinner": null,
+        "weightsApplied": false
+      }
+    },
+    "C": {
+      "status": "passed",
+      "evidence": {
+        "libraryRoutes": 3,
+        "packageBackedGalleries": 3,
+        "galleryViewportCells": 9,
+        "copyCells": 9,
+        "components": ["Button", "Field"],
+        "selectIncluded": false
+      }
+    },
+    "D": {
+      "status": "passed",
+      "evidence": {
+        "manifestRoutes": 1,
+        "tarballRoutes": 6,
+        "exactByteMatches": 6,
+        "freshHttpsInstalls": 3,
+        "packages": {
+          "vue": "3948a4ef9185804097a6cdd5d1735d93ef1980451972eb2d800d1b9fddc82635",
+          "svelte": "7f68595035fa419d59b0ad331eec42781010b2cac2f0bdd198c77917d291445e",
+          "solid": "9ec9e429e5de6f0fbf60e518a48656e1877a3068e1eada839b36c2d69ca8b6db"
+        },
+        "exports": {"button": true, "field": true, "select": false, "tabs": false}
+      }
+    },
+    "E": {
+      "status": "passed",
+      "evidence": {
+        "astroRoutes": 56,
+        "astroViewportCells": 168,
+        "astroViewportFailures": 0,
+        "siteLocalLinks": 356,
+        "deployedAssets": 777,
+        "exactAssetMatches": 777,
+        "jsonDocuments": 171,
+        "runtimeCells": 164,
+        "runtimePassed": 164,
+        "galleryCells": 9,
+        "galleryPassed": 9,
+        "browserConsoleNetworkHttpFailures": 0
+      }
+    },
+    "F": {
+      "status": "passed",
+      "evidence": {
+        "sourceCommitAtProductionProof": "bee118a166090a34984212ebd9f3da2be57a30a5",
+        "deploymentId": "b191e981-a6a8-468b-8885-4646e8e726af",
+        "versionId": "ba60b56a-0a53-49a7-8020-cad206f608e7",
+        "trafficPercent": 100,
+        "headers": ["Content-Security-Policy", "Strict-Transport-Security", "X-Content-Type-Options", "X-Frame-Options", "Referrer-Policy", "Permissions-Policy"],
+        "publicAccess": "intentional"
+      }
+    },
+    "G": {
+      "status": "passed",
+      "evidence": {
+        "realUpdate": "proof/upstream/drills/2.5.1-to-2.5.2-real/receipt.json",
+        "syntheticBreak": "proof/upstream/drills/2.5.1-to-2.5.2-synthetic-export-break/receipt.json",
+        "rollback": "proof/upstream/drills/rollback-2.5.2/receipt.json",
+        "selectedAuthorityMutated": false
+      }
+    },
+    "H": {
+      "status": "passed",
+      "evidence": {
+        "screenshots": [
+          "proof/north-star/screenshots/home-mobile.png",
+          "proof/north-star/screenshots/home-desktop.png",
+          "proof/north-star/screenshots/vue-mobile.png",
+          "proof/north-star/screenshots/svelte-tablet.png",
+          "proof/north-star/screenshots/engine-desktop.png",
+          "proof/north-star/screenshots/output-mobile.png"
+        ],
+        "documentOverflowFailures": 0,
+        "blankPages": 0,
+        "brokenIframes": 0,
+        "tableContainersScrollable": true,
+        "focusVisible": true,
+        "minimumControlTargetPx": 44
+      }
+    },
+    "I": {
+      "status": "passed",
+      "evidence": {
+        "selectDecision": "defer-all",
+        "selectEvidence": "proof/dx/libraries/select-eligibility.json",
+        "engineWinner": null,
+        "architectureWinner": null,
+        "acceptedNotRun": ["package.hmr", "package.manualScreenReader"],
+        "criticalNotRun": []
+      }
+    }
+  },
+  "nonGatingBlockers": [
+    {
+      "status": "blocked",
+      "kind": "human-only",
+      "item": "git-push",
+      "reason": "No Git remote is configured."
+    }
+  ],
+  "protectedUnrelatedChanges": [
+    "runtime/checkbox/react/public-runtime/assets/react-checkbox.js",
+    "runtime/switch/react/public-runtime/assets/react-switch.js"
+  ],
+  "failures": []
+}
