@@ -10,5 +10,6 @@ export interface EmptyProps {
   children?: JSX.Element;
   styles?: Record<string, string>;
 }
-export declare const Empty: (props: EmptyProps) => JSX.Element;
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
+export declare const Empty: ((props: EmptyProps) => JSX.Element);
 export default Empty;

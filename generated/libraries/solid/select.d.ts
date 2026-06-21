@@ -15,5 +15,7 @@ export interface SelectProps {
   children?: JSX.Element;
   styles?: Record<string, string>;
 }
-export declare const Select: (props: SelectProps) => JSX.Element;
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
+export declare const SelectOption: (props: CompoundPartProps) => JSX.Element;
+export declare const Select: ((props: SelectProps) => JSX.Element) & { "Option": typeof SelectOption };
 export default Select;

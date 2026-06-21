@@ -21,5 +21,12 @@ export interface DropdownMenuProps {
   children?: JSX.Element;
   styles?: Record<string, string>;
 }
-export declare const DropdownMenu: (props: DropdownMenuProps) => JSX.Element;
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
+export declare const DropdownMenuContent: (props: CompoundPartProps) => JSX.Element;
+export declare const DropdownMenuItem: (props: CompoundPartProps) => JSX.Element;
+export declare const DropdownMenuSub: (props: CompoundPartProps) => JSX.Element;
+export declare const DropdownMenuSubContent: (props: CompoundPartProps) => JSX.Element;
+export declare const DropdownMenuSubTrigger: (props: CompoundPartProps) => JSX.Element;
+export declare const DropdownMenuTrigger: (props: CompoundPartProps) => JSX.Element;
+export declare const DropdownMenu: ((props: DropdownMenuProps) => JSX.Element) & { "Content": typeof DropdownMenuContent; "Item": typeof DropdownMenuItem; "Sub": typeof DropdownMenuSub; "SubContent": typeof DropdownMenuSubContent; "SubTrigger": typeof DropdownMenuSubTrigger; "Trigger": typeof DropdownMenuTrigger };
 export default DropdownMenu;

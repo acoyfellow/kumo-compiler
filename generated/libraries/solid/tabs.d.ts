@@ -13,5 +13,6 @@ export interface TabsProps {
   children?: JSX.Element;
   styles?: Record<string, string>;
 }
-export declare const Tabs: (props: TabsProps) => JSX.Element;
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
+export declare const Tabs: ((props: TabsProps) => JSX.Element);
 export default Tabs;

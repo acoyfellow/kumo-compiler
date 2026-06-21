@@ -2,6 +2,7 @@ import { splitProps } from "solid-js";
 import type { JSX } from "solid-js";
 
 export interface RadioProps extends Record<string, unknown> { children?: JSX.Element; styles?: Record<string, string>; }
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
 export const modelDigest = "0f71542a2bd3b8e5809f5dbb979a7fe2448e19e4f007cced41a22cbc5ef4cba9";
 const styles: Record<string, string> = {"root":"root","rounded-full":"rounded-full","data-[checked]":"data-[checked]"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");

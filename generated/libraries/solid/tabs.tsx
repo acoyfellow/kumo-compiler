@@ -2,6 +2,7 @@ import { splitProps } from "solid-js";
 import type { JSX } from "solid-js";
 
 export interface TabsProps extends Record<string, unknown> { children?: JSX.Element; styles?: Record<string, string>; }
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
 export const modelDigest = "480d0ca0dc8311b3321bb1c078c9277118ed399fcc4ececa5b561d5b695a3336";
 const styles: Record<string, string> = {"root":"root","relative isolate min-w-0 font-medium":"relative isolate min-w-0 font-medium","kumo-tabs-list overflow-x-auto rounded-lg bg-kumo-recessed":"kumo-tabs-list overflow-x-auto rounded-lg bg-kumo-recessed","focus-visible:ring-2 focus-visible:ring-kumo-brand":"focus-visible:ring-2 focus-visible:ring-kumo-brand"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");

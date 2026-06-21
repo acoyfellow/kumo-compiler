@@ -3,6 +3,7 @@ import { Portal } from "solid-js/web";
 import type { JSX } from "solid-js";
 
 export interface DatePickerProps extends Record<string, unknown> { children?: JSX.Element; styles?: Record<string, string>; }
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
 export const modelDigest = "efe6ee1704bcfdd921aefd2a33601d5193d45c82454eadc21af9261b848e1bc6";
 const styles: Record<string, string> = {"root":"root","rdp-root":"rdp-root","rdp-month_grid":"rdp-month_grid","rdp-day_button":"rdp-day_button"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");

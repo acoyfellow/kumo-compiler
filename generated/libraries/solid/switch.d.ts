@@ -9,5 +9,6 @@ export interface SwitchProps {
   children?: JSX.Element;
   styles?: Record<string, string>;
 }
-export declare const Switch: (props: SwitchProps) => JSX.Element;
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
+export declare const Switch: ((props: SwitchProps) => JSX.Element);
 export default Switch;

@@ -13,5 +13,11 @@ export interface CommandPaletteProps {
   children?: JSX.Element;
   styles?: Record<string, string>;
 }
-export declare const CommandPalette: (props: CommandPaletteProps) => JSX.Element;
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
+export declare const CommandPaletteHighlightedText: (props: CompoundPartProps) => JSX.Element;
+export declare const CommandPaletteInput: (props: CompoundPartProps) => JSX.Element;
+export declare const CommandPaletteItem: (props: CompoundPartProps) => JSX.Element;
+export declare const CommandPaletteList: (props: CompoundPartProps) => JSX.Element;
+export declare const CommandPaletteRoot: (props: CompoundPartProps) => JSX.Element;
+export declare const CommandPalette: ((props: CommandPaletteProps) => JSX.Element) & { "HighlightedText": typeof CommandPaletteHighlightedText; "Input": typeof CommandPaletteInput; "Item": typeof CommandPaletteItem; "List": typeof CommandPaletteList; "Root": typeof CommandPaletteRoot };
 export default CommandPalette;

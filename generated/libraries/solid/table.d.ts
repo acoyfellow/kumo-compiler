@@ -6,5 +6,11 @@ export interface TableProps {
   children?: JSX.Element;
   styles?: Record<string, string>;
 }
-export declare const Table: (props: TableProps) => JSX.Element;
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
+export declare const TableBody: (props: CompoundPartProps) => JSX.Element;
+export declare const TableCell: (props: CompoundPartProps) => JSX.Element;
+export declare const TableHead: (props: CompoundPartProps) => JSX.Element;
+export declare const TableHeader: (props: CompoundPartProps) => JSX.Element;
+export declare const TableRow: (props: CompoundPartProps) => JSX.Element;
+export declare const Table: ((props: TableProps) => JSX.Element) & { "Body": typeof TableBody; "Cell": typeof TableCell; "Head": typeof TableHead; "Header": typeof TableHeader; "Row": typeof TableRow };
 export default Table;

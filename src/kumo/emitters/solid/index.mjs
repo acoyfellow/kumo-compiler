@@ -8,6 +8,8 @@ const identifier = value => /^[A-Za-z_$][\w$]*$/.test(value);
 const member = (base, name) => identifier(name) ? `${base}.${name}` : `${base}[${JSON.stringify(name)}]`;
 const jsxName = name => name === 'class' ? 'class' : name;
 const pascal = value => value.split(/[^A-Za-z0-9]+/).filter(Boolean).map(x => x[0].toUpperCase() + x.slice(1)).join('');
+const compoundPartSymbol = (root, pathValue) => `${root}${pathValue.split('.').map(pascal).join('')}`;
+const compoundParts = model => (model.composition?.compoundExports?.paths ?? []).map(item => ({...item, symbol:compoundPartSymbol(model.public.symbol, item.path)}));
 const expr = (value, context = {}) => {
   switch (value.kind) {
     case 'literal': return JSON.stringify(value.value);
@@ -46,11 +48,15 @@ function node(value, context = {}) {
     default: throw new Error(`unsupported Solid node: ${value.kind}`);
   }
 }
-const safeType = type => type.replace(/ReactNode|Icon/g, 'JSX.Element').replace(/ReactElement/g, 'JSX.Element').replace(/ButtonHTMLAttributes|HTMLAttributes/g, 'JSX.HTMLAttributes<HTMLElement>');
+const safeType = type => type.replace(/ReactNode|Icon/g, 'JSX.Element').replace(/ReactElement/g, 'JSX.Element').replace(/ButtonHTMLAttributes|HTMLAttributes/g, 'JSX.HTMLAttributes<HTMLDivElement>');
 function declaration(model) {
   const props = model.props.items.map(item => `  ${JSON.stringify(item.name)}${item.required ? '' : '?'}: ${safeType(item.type).includes('callback') ? '(...args: unknown[]) => void' : 'unknown'};`).join('\n');
   const slots = (model.composition.slots ?? []).map(value => typeof value === 'string' ? value : value.name).filter(Boolean).map(name => `  ${JSON.stringify(name)}?: JSX.Element;`).join('\n');
-  return `import type { JSX } from "solid-js";\nexport interface ${model.public.symbol}Props {\n${props}${slots ? '\n' + slots : ''}\n  children?: JSX.Element;\n  styles?: Record<string, string>;\n}\nexport declare const ${model.public.symbol}: (props: ${model.public.symbol}Props) => JSX.Element;\nexport default ${model.public.symbol};\n`;
+  const parts = compoundParts(model);
+  const partDeclarations = parts.map(part => `export declare const ${part.symbol}: (props: CompoundPartProps) => JSX.Element;`).join('\n');
+  const api = parts.reduce((tree, part) => { let cursor = tree; for (const segment of part.path.split('.')) cursor = cursor[segment] ??= {}; cursor.$ = part.symbol; return tree; }, {});
+  const apiType = tree => `{ ${Object.entries(tree).map(([segment, child]) => `${JSON.stringify(segment)}: ${child.$ ? `typeof ${child.$}` : apiType(child)}`).join('; ')} }`;
+  return `import type { JSX } from "solid-js";\nexport interface ${model.public.symbol}Props {\n${props}${slots ? '\n' + slots : ''}\n  children?: JSX.Element;\n  styles?: Record<string, string>;\n}\nexport interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }\n${partDeclarations}${partDeclarations ? '\n' : ''}export declare const ${model.public.symbol}: ((props: ${model.public.symbol}Props) => JSX.Element)${parts.length ? ` & ${apiType(api)}` : ''};\nexport default ${model.public.symbol};\n`;
 }
 function source(model) {
   const root = model.draftImplementation.componentRoot;
@@ -62,7 +68,12 @@ function source(model) {
   const nativeNames = model.props.items.filter(x => x.nativeForwarding).map(x => x.name);
   const operations = model.draftImplementation.operations;
   for (const op of operations) if (!['render','emit','state','ref','focus','lifecycle','browser-service','portal','style'].includes(op.kind)) throw new Error(`${model.component}: unsupported operation ${op.kind}`);
-  return `import { ${[...imports].sort().join(', ')} } from "solid-js";\n${hasPortal ? 'import { Portal } from "solid-js/web";\n' : ''}import type { JSX } from "solid-js";\n\nexport interface ${model.public.symbol}Props extends Record<string, unknown> { children?: JSX.Element; styles?: Record<string, string>; }\nexport const modelDigest = ${JSON.stringify(model.modelDigest)};\nconst styles: Record<string, string> = ${JSON.stringify(Object.fromEntries(['root', ...model.dependencies.styles].map(x => [x, x])))};\nconst mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");\nconst resolvePortalTarget = (target: unknown) => target === "document-body" && typeof document !== "undefined" ? document.body : target as Node;\n\nexport function ${model.public.symbol}(incoming: ${model.public.symbol}Props): JSX.Element {\n  const props = Object.assign(${JSON.stringify(defaults)}, incoming);\n  const state: Record<string, () => unknown> = {};\n  const refs: Record<string, HTMLElement | undefined> = {};\n  const [, native] = splitProps(props as ${model.public.symbol}Props & Record<string, unknown>, ${JSON.stringify(nativeNames)});\n  void native; void state; void refs;\n  return (${node(root)});\n}\n\nexport default ${model.public.symbol};\n`;
+  const parts = compoundParts(model);
+  const partSources = parts.map(part => `export function ${part.symbol}(props: CompoundPartProps): JSX.Element {\n  const [local, native] = splitProps(props, ["children"]);\n  return <div {...native} data-kumo-part=${JSON.stringify(part.path)}>{local.children}</div>;\n}`).join('\n\n');
+  const attachments = parts.map(part => `Object.defineProperty(${part.path.split('.').reduce((base, segment, index, all) => index === all.length - 1 ? base : `${base}.${all[index]}`, model.public.symbol)}, ${JSON.stringify(part.path.split('.').at(-1))}, {value:${part.symbol}, enumerable:true});`).join('\n');
+  const intermediatePaths = [...new Set(parts.flatMap(part => { const segments = part.path.split('.'); return segments.slice(0,-1).map((_, i) => segments.slice(0,i+1).join('.')); }))].sort();
+  const intermediates = intermediatePaths.map(pathValue => `Object.defineProperty(${pathValue.split('.').slice(0,-1).reduce((base, segment) => `${base}.${segment}`, model.public.symbol)}, ${JSON.stringify(pathValue.split('.').at(-1))}, {value:{}, enumerable:true});`).join('\n');
+  return `import { ${[...imports].sort().join(', ')} } from "solid-js";\n${hasPortal ? 'import { Portal } from "solid-js/web";\n' : ''}import type { JSX } from "solid-js";\n\nexport interface ${model.public.symbol}Props extends Record<string, unknown> { children?: JSX.Element; styles?: Record<string, string>; }\nexport interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }\nexport const modelDigest = ${JSON.stringify(model.modelDigest)};\nconst styles: Record<string, string> = ${JSON.stringify(Object.fromEntries(['root', ...model.dependencies.styles].map(x => [x, x])))};\nconst mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");\nconst resolvePortalTarget = (target: unknown) => target === "document-body" && typeof document !== "undefined" ? document.body : target as Node;\n\nexport function ${model.public.symbol}(incoming: ${model.public.symbol}Props): JSX.Element {\n  const props = Object.assign(${JSON.stringify(defaults)}, incoming);\n  const state: Record<string, () => unknown> = {};\n  const refs: Record<string, HTMLElement | undefined> = {};\n  const [, native] = splitProps(props as ${model.public.symbol}Props & Record<string, unknown>, ${JSON.stringify(nativeNames)});\n  void native; void state; void refs;\n  return (${node(root)});\n}\n\n${partSources}${partSources ? '\n\n' : ''}${intermediates}${intermediates ? '\n' : ''}${attachments}${attachments ? '\n\n' : ''}export default ${model.public.symbol};\n`;
 }
 export function emitSolidLibrary({libraryPath, outputPath} = {}) {
   const here = path.dirname(fileURLToPath(import.meta.url));
@@ -74,7 +85,7 @@ export function emitSolidLibrary({libraryPath, outputPath} = {}) {
     const js = source(model), dts = declaration(model);
     fs.writeFileSync(path.join(output, `${model.component}.tsx`), js);
     fs.writeFileSync(path.join(output, `${model.component}.d.ts`), dts);
-    components.push({component:model.component,symbol:model.public.symbol,subpath:model.public.subpath,modelDigest:model.modelDigest,source:`${model.component}.tsx`,declaration:`${model.component}.d.ts`,sha256:crypto.createHash('sha256').update(js).digest('hex')});
+    components.push({component:model.component,symbol:model.public.symbol,subpath:model.public.subpath,modelDigest:model.modelDigest,compoundPaths:compoundParts(model).map(x => x.path),source:`${model.component}.tsx`,declaration:`${model.component}.d.ts`,sha256:crypto.createHash('sha256').update(js).digest('hex')});
   }
   fs.writeFileSync(path.join(output,'index.ts'), components.map(x => `export { ${x.symbol} } from "./${x.component}";`).join('\n')+'\n');
   fs.writeFileSync(path.join(output,'index.d.ts'), components.map(x => `export { ${x.symbol} } from "./${x.component}"; export type { ${x.symbol}Props } from "./${x.component}";`).join('\n')+'\n');

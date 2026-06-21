@@ -14,5 +14,10 @@ export interface ComboboxProps {
   children?: JSX.Element;
   styles?: Record<string, string>;
 }
-export declare const Combobox: (props: ComboboxProps) => JSX.Element;
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
+export declare const ComboboxContent: (props: CompoundPartProps) => JSX.Element;
+export declare const ComboboxItem: (props: CompoundPartProps) => JSX.Element;
+export declare const ComboboxList: (props: CompoundPartProps) => JSX.Element;
+export declare const ComboboxTriggerInput: (props: CompoundPartProps) => JSX.Element;
+export declare const Combobox: ((props: ComboboxProps) => JSX.Element) & { "Content": typeof ComboboxContent; "Item": typeof ComboboxItem; "List": typeof ComboboxList; "TriggerInput": typeof ComboboxTriggerInput };
 export default Combobox;

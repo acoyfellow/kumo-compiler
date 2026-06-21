@@ -4,5 +4,6 @@ export interface SensitiveInputProps {
   children?: JSX.Element;
   styles?: Record<string, string>;
 }
-export declare const SensitiveInput: (props: SensitiveInputProps) => JSX.Element;
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
+export declare const SensitiveInput: ((props: SensitiveInputProps) => JSX.Element);
 export default SensitiveInput;

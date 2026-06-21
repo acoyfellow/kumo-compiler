@@ -2,6 +2,7 @@ import { splitProps } from "solid-js";
 import type { JSX } from "solid-js";
 
 export interface PaginationProps extends Record<string, unknown> { children?: JSX.Element; styles?: Record<string, string>; }
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
 export const modelDigest = "8a03b02a4e86e5ee4971e869b775b7efd73bc7e61116c5e794612f2402b7dd2d";
 const styles: Record<string, string> = {"root":"root","flex":"flex","items-center":"items-center","gap-2":"gap-2","w-full":"w-full"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");

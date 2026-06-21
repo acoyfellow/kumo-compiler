@@ -9,5 +9,6 @@ export interface LabelProps {
   children?: JSX.Element;
   styles?: Record<string, string>;
 }
-export declare const Label: (props: LabelProps) => JSX.Element;
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
+export declare const Label: ((props: LabelProps) => JSX.Element);
 export default Label;

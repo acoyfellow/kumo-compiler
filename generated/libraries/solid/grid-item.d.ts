@@ -5,5 +5,6 @@ export interface GridItemProps {
   children?: JSX.Element;
   styles?: Record<string, string>;
 }
-export declare const GridItem: (props: GridItemProps) => JSX.Element;
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
+export declare const GridItem: ((props: GridItemProps) => JSX.Element);
 export default GridItem;

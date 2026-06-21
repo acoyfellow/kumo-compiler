@@ -8,5 +8,6 @@ export interface LinkProps {
   children?: JSX.Element;
   styles?: Record<string, string>;
 }
-export declare const Link: (props: LinkProps) => JSX.Element;
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
+export declare const Link: ((props: LinkProps) => JSX.Element);
 export default Link;

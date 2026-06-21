@@ -6,5 +6,9 @@ export interface BreadcrumbsProps {
   children?: JSX.Element;
   styles?: Record<string, string>;
 }
-export declare const Breadcrumbs: (props: BreadcrumbsProps) => JSX.Element;
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
+export declare const BreadcrumbsCurrent: (props: CompoundPartProps) => JSX.Element;
+export declare const BreadcrumbsLink: (props: CompoundPartProps) => JSX.Element;
+export declare const BreadcrumbsSeparator: (props: CompoundPartProps) => JSX.Element;
+export declare const Breadcrumbs: ((props: BreadcrumbsProps) => JSX.Element) & { "Current": typeof BreadcrumbsCurrent; "Link": typeof BreadcrumbsLink; "Separator": typeof BreadcrumbsSeparator };
 export default Breadcrumbs;

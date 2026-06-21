@@ -7,5 +7,6 @@ export interface BadgeProps {
   children?: JSX.Element;
   styles?: Record<string, string>;
 }
-export declare const Badge: (props: BadgeProps) => JSX.Element;
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
+export declare const Badge: ((props: BadgeProps) => JSX.Element);
 export default Badge;

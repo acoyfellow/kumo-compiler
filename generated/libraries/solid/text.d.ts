@@ -13,5 +13,6 @@ export interface TextProps {
   children?: JSX.Element;
   styles?: Record<string, string>;
 }
-export declare const Text: (props: TextProps) => JSX.Element;
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
+export declare const Text: ((props: TextProps) => JSX.Element);
 export default Text;

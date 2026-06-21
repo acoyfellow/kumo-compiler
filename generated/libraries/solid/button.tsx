@@ -2,6 +2,7 @@ import { splitProps } from "solid-js";
 import type { JSX } from "solid-js";
 
 export interface ButtonProps extends Record<string, unknown> { children?: JSX.Element; styles?: Record<string, string>; }
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
 export const modelDigest = "48798c8ab5bf8d756056311749cd7d344b6c82b50134d057656d5f6e4cad48aa";
 const styles: Record<string, string> = {"root":"root","group":"group","flex":"flex","w-max":"w-max","h-5":"h-5","h-6.5":"h-6.5","h-9":"h-9","h-10":"h-10","bg-kumo-brand":"bg-kumo-brand","bg-kumo-base":"bg-kumo-base","bg-transparent":"bg-transparent","rounded-full":"rounded-full"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");

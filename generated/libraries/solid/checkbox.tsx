@@ -2,6 +2,7 @@ import { splitProps } from "solid-js";
 import type { JSX } from "solid-js";
 
 export interface CheckboxProps extends Record<string, unknown> { children?: JSX.Element; styles?: Record<string, string>; }
+export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
 export const modelDigest = "fe575b56fa0db80a1e83a5b6976f0303f63a8f6ab45de9ba8f5abfb19d9a935f";
 const styles: Record<string, string> = {"root":"root","data-[checked]":"data-[checked]","data-[indeterminate]":"data-[indeterminate]"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");
