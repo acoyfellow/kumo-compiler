@@ -1,0 +1,13 @@
+import type { JSX } from "solid-js";
+export interface SwitchProps {
+  "checked"?: unknown;
+  "disabled"?: unknown;
+  "group"?: unknown;
+  "label"?: unknown;
+  "onCheckedChange"?: (...args: unknown[]) => void;
+  "size"?: unknown;
+  children?: JSX.Element;
+  styles?: Record<string, string>;
+}
+export declare const Switch: (props: SwitchProps) => JSX.Element;
+export default Switch;

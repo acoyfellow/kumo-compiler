@@ -1,0 +1,17 @@
+import type { JSX } from "solid-js";
+export interface TabsProps {
+  "activateOnFocus"?: unknown;
+  "className"?: unknown;
+  "indicatorClassName"?: unknown;
+  "listClassName"?: unknown;
+  "onValueChange"?: (...args: unknown[]) => void;
+  "selectedValue"?: unknown;
+  "size"?: unknown;
+  "tabs"?: unknown;
+  "value"?: unknown;
+  "variant"?: unknown;
+  children?: JSX.Element;
+  styles?: Record<string, string>;
+}
+export declare const Tabs: (props: TabsProps) => JSX.Element;
+export default Tabs;
