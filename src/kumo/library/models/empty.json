@@ -269,13 +269,6 @@
                   }
                 }
               ]
-            },
-            {
-              "kind": "text",
-              "value": {
-                "kind": "prop",
-                "name": "title"
-              }
             }
           ]
         },
@@ -285,91 +278,6 @@
           "contractDigest": "cbcbfdf0208594b31ebda18d022e2ab58d90c860592bee81f979bd247949e054"
         },
         "expectationDigest": "fac6cc210e864da2dd8e1aefab71c1261c24df86ace2fe3bc85a3cac59f2cce4"
-      },
-      {
-        "id": "small-description",
-        "when": [
-          {
-            "kind": "prop-equals",
-            "name": "description",
-            "value": "Try again"
-          },
-          {
-            "kind": "prop-equals",
-            "name": "size",
-            "value": "sm"
-          },
-          {
-            "kind": "prop-equals",
-            "name": "title",
-            "value": "Empty"
-          }
-        ],
-        "tree": {
-          "kind": "semantic-element",
-          "tag": {
-            "kind": "literal",
-            "value": "div"
-          },
-          "attributes": {},
-          "classes": [
-            {
-              "kind": "literal",
-              "value": "px-6"
-            },
-            {
-              "kind": "literal",
-              "value": "py-8"
-            },
-            {
-              "kind": "literal",
-              "value": "gap-4"
-            }
-          ],
-          "children": [
-            {
-              "kind": "semantic-element",
-              "tag": {
-                "kind": "literal",
-                "value": "h2"
-              },
-              "attributes": {},
-              "classes": [],
-              "children": []
-            },
-            {
-              "kind": "semantic-element",
-              "tag": {
-                "kind": "literal",
-                "value": "p"
-              },
-              "attributes": {},
-              "classes": [],
-              "children": [
-                {
-                  "kind": "text",
-                  "value": {
-                    "kind": "prop",
-                    "name": "description"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "text",
-              "value": {
-                "kind": "literal",
-                "value": "EmptyTry again"
-              }
-            }
-          ]
-        },
-        "provenance": {
-          "contractPath": "contracts/kumo.observable/v1/components/empty.json",
-          "vectorId": "small-description",
-          "contractDigest": "cbcbfdf0208594b31ebda18d022e2ab58d90c860592bee81f979bd247949e054"
-        },
-        "expectationDigest": "92b78bc5b2f43a8a6d864b961e5d72647a9c82691e3a4fdd71fed52cb41be36a"
       }
     ]
   },
@@ -381,6 +289,16 @@
       "small-description"
     ]
   },
-  "unresolvedSemanticOperations": [],
-  "modelDigest": "cb3b959bcf399a3e9598caa9429fa89fdfccb8c883f01626146b7641eef6ce5a"
+  "unresolvedSemanticOperations": [
+    {
+      "vectorId": "small-description",
+      "reason": "root and descendant text constraints have ambiguous or contradictory allocation",
+      "provenance": {
+        "contractPath": "contracts/kumo.observable/v1/components/empty.json",
+        "vectorId": "small-description",
+        "contractDigest": "cbcbfdf0208594b31ebda18d022e2ab58d90c860592bee81f979bd247949e054"
+      }
+    }
+  ],
+  "modelDigest": "3eb165ee4cd0c36a4801de0d3b7033b2b1e38093487faf0063ab0ae16fd257f2"
 }
