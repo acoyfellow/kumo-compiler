@@ -1,0 +1,13 @@
+---
+import DocsLayout from '../../../../layouts/DocsLayout.astro';
+---
+<DocsLayout title="Install Kumo from GitHub"><p class="eyebrow">How-to guide</p><h1>Install from one GitHub repository</h1><p class="lede">The monorepo publishes the exact proven npm tarballs as assets on one GitHub Release. No separate framework repositories are required.</p>
+<h2>Install a release asset</h2><pre><code>{`npm install https://github.com/<owner>/kumo-compiler/releases/download/libraries-v0.0.1/kumo-vue-0.0.1.tgz
+npm install https://github.com/<owner>/kumo-compiler/releases/download/libraries-v0.0.1/kumo-svelte-0.0.1.tgz
+npm install https://github.com/<owner>/kumo-compiler/releases/download/libraries-v0.0.1/kumo-solid-0.0.1.tgz`}</code></pre><p>Replace <code>&lt;owner&gt;</code> after the repository remote exists. The release includes <code>SHA256SUMS</code> and a machine-readable manifest.</p>
+<h2>Why a release asset?</h2><p>npm Git dependencies install the package at the repository root. This monorepo contains three package roots below <code>dx/packages/</code>, so <code>github:owner/kumo-compiler#tag</code> would install the compiler repository—not one framework package. Release tarballs keep one repository and preserve the exact packed bytes already tested.</p>
+<h2>Prepare the release</h2><pre><code>{`npm run libraries:build
+KUMO_GITHUB_OWNER=<owner> KUMO_GITHUB_REPO=kumo-compiler npm run release:github
+npm run release:github:verify`}</code></pre><p>The generated bundle lives at <code>release/github/libraries-v0.0.1/</code>. GitHub Actions repeats this preparation and uploads it as a workflow artifact; creating the public GitHub Release remains an authorized human action.</p>
+<div class="note"><strong>Current local status:</strong> all three release tarballs and npm publication dry-runs pass. The absent GitHub remote is the only blocker to real GitHub URLs.</div>
+</DocsLayout><style>.eyebrow{margin:0 0 10px;color:#b45309;font-size:13px;font-weight:850;text-transform:uppercase;letter-spacing:.09em}</style>
