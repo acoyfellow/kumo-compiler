@@ -1,0 +1,10 @@
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {resolve} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {loadContracts} from './observable-contracts.mjs';
+const root=resolve(fileURLToPath(new URL('..',import.meta.url))),out=resolve(root,'proof/observable-contracts/status.json');
+const catalog=JSON.parse(await readFile(resolve(root,'benchmarks/catalog.json'),'utf8')),contracts=loadContracts(),byId=new Map(contracts.map(c=>[c.component,c]));
+const components=catalog.components.map(item=>{const contract=byId.get(item.id),vectors=contract?.vectors.length??0,interactive=contract?.vectors.filter(v=>v.actions?.length||v.fixture||v.setup).length??0;return{id:item.id,family:item.family,status:contract?'contracted':'pending',contract:contract?`contracts/kumo.observable/v1/components/${item.id}.json`:null,vectors,interactiveVectors:interactive,unknowns:contract?.unknowns??[]}});
+const unknownContracts=contracts.filter(c=>!components.some(x=>x.id===c.component)).map(c=>c.component);if(components.length!==41)throw Error(`expected 41 executable components, got ${components.length}`);if(unknownContracts.length)throw Error(`contracts outside executable catalog: ${unknownContracts.join(', ')}`);
+const counts=components.reduce((all,x)=>(all[x.status]++,all),{contracted:0,pending:0});const report={schemaVersion:1,status:counts.pending?'pending':'contracted',canonical:'@cloudflare/kumo@2.5.2',scope:{classified:45,executable:41,upstreamBlocked:['page-header','resource-list-page'],supplemental:['chart','flow']},counts,vectorCount:components.reduce((n,x)=>n+x.vectors,0),interactiveVectorCount:components.reduce((n,x)=>n+x.interactiveVectors,0),components};report.digest=createHash('sha256').update(JSON.stringify(report)).digest('hex');await mkdir(resolve(root,'proof/observable-contracts'),{recursive:true});await writeFile(out,JSON.stringify(report,null,2)+'\n');console.log(`Observable status: ${counts.contracted}/41 contracted, ${report.vectorCount} vectors (${report.interactiveVectorCount} interactive)`);

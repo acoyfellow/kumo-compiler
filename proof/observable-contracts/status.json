@@ -1,0 +1,406 @@
+{
+  "schemaVersion": 1,
+  "status": "pending",
+  "canonical": "@cloudflare/kumo@2.5.2",
+  "scope": {
+    "classified": 45,
+    "executable": 41,
+    "upstreamBlocked": [
+      "page-header",
+      "resource-list-page"
+    ],
+    "supplemental": [
+      "chart",
+      "flow"
+    ]
+  },
+  "counts": {
+    "contracted": 7,
+    "pending": 34
+  },
+  "vectorCount": 25,
+  "interactiveVectorCount": 14,
+  "components": [
+    {
+      "id": "select",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "button",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "dialog",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "popover",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "checkbox",
+      "family": "native-control",
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/checkbox.json",
+      "vectors": 5,
+      "interactiveVectors": 5,
+      "unknowns": [
+        {
+          "field": "inheritedBaseUIEventDetails",
+          "status": "unknown",
+          "reason": "Callback detail object and browser/platform edge behavior are inherited from Base UI and are intentionally not guessed."
+        }
+      ]
+    },
+    {
+      "id": "switch",
+      "family": "native-control",
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/switch.json",
+      "vectors": 5,
+      "interactiveVectors": 4,
+      "unknowns": [
+        {
+          "field": "inheritedBaseUIFormSemantics",
+          "status": "unknown",
+          "reason": "Reset/autofill and platform activation details inherited from Base UI are outside the canonical Kumo declaration and are not guessed."
+        }
+      ]
+    },
+    {
+      "id": "field",
+      "family": "form",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "input",
+      "family": "form",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "input-group",
+      "family": "form",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "input-area",
+      "family": "form",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "sensitive-input",
+      "family": "form",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "clipboard-text",
+      "family": "form",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "tabs",
+      "family": "navigation",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "menu-bar",
+      "family": "navigation",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "sidebar",
+      "family": "navigation",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "breadcrumbs",
+      "family": "navigation",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "table-of-contents",
+      "family": "navigation",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "badge",
+      "family": "data-presentational",
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/badge.json",
+      "vectors": 2,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "banner",
+      "family": "data-presentational",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "surface",
+      "family": "data-presentational",
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/surface.json",
+      "vectors": 2,
+      "interactiveVectors": 0,
+      "unknowns": [
+        {
+          "field": "semantics.rootWhenRenderProvided",
+          "status": "unknown",
+          "reason": "The caller-provided React element controls the root."
+        }
+      ]
+    },
+    {
+      "id": "layer-card",
+      "family": "data-presentational",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "grid",
+      "family": "data-presentational",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "grid-item",
+      "family": "data-presentational",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "loader",
+      "family": "data-presentational",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "meter",
+      "family": "data-presentational",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "empty",
+      "family": "data-presentational",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "label",
+      "family": "data-presentational",
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/label.json",
+      "vectors": 3,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "link",
+      "family": "data-presentational",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "text",
+      "family": "data-presentational",
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/text.json",
+      "vectors": 3,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "cloudflare-logo",
+      "family": "data-presentational",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "code",
+      "family": "data-presentational",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "table",
+      "family": "data-presentational",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "radio",
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/radio.json",
+      "vectors": 5,
+      "interactiveVectors": 5,
+      "unknowns": [
+        {
+          "field": "inheritedBaseUIRovingFocus",
+          "status": "unknown",
+          "reason": "RTL wrapping, Home/End, and browser-specific roving-focus edge behavior inherited from Base UI are not declared by Kumo and are not guessed."
+        }
+      ]
+    },
+    {
+      "id": "autocomplete",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "combobox",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "command-palette",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "date-picker",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "date-range-picker",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "dropdown-menu",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "toasty",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    },
+    {
+      "id": "pagination",
+      "status": "pending",
+      "contract": null,
+      "vectors": 0,
+      "interactiveVectors": 0,
+      "unknowns": []
+    }
+  ],
+  "digest": "47b12bdd00dab1a6d8aa5a44d2d69ae457baebe32f2a840d7ad269163c70689c"
+}
