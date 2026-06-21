@@ -1,0 +1,1123 @@
+{
+  "schemaVersion": 1,
+  "status": "pending",
+  "canonical": "@cloudflare/kumo@2.5.2",
+  "counts": {
+    "pending": 55,
+    "passed": 66
+  },
+  "components": [
+    {
+      "id": "autocomplete",
+      "status": "pending",
+      "vectors": 1,
+      "passed": 0,
+      "pending": 1,
+      "unknowns": 2
+    },
+    {
+      "id": "badge",
+      "status": "passed",
+      "vectors": 2,
+      "passed": 2,
+      "pending": 0,
+      "unknowns": 0
+    },
+    {
+      "id": "banner",
+      "status": "passed",
+      "vectors": 2,
+      "passed": 2,
+      "pending": 0,
+      "unknowns": 0
+    },
+    {
+      "id": "breadcrumbs",
+      "status": "passed",
+      "vectors": 2,
+      "passed": 2,
+      "pending": 0,
+      "unknowns": 0
+    },
+    {
+      "id": "button",
+      "status": "pending",
+      "vectors": 8,
+      "passed": 0,
+      "pending": 8,
+      "unknowns": 1
+    },
+    {
+      "id": "checkbox",
+      "status": "passed",
+      "vectors": 5,
+      "passed": 5,
+      "pending": 0,
+      "unknowns": 1
+    },
+    {
+      "id": "clipboard-text",
+      "status": "passed",
+      "vectors": 3,
+      "passed": 3,
+      "pending": 0,
+      "unknowns": 1
+    },
+    {
+      "id": "cloudflare-logo",
+      "status": "passed",
+      "vectors": 2,
+      "passed": 2,
+      "pending": 0,
+      "unknowns": 0
+    },
+    {
+      "id": "code",
+      "status": "passed",
+      "vectors": 2,
+      "passed": 2,
+      "pending": 0,
+      "unknowns": 0
+    },
+    {
+      "id": "combobox",
+      "status": "pending",
+      "vectors": 1,
+      "passed": 0,
+      "pending": 1,
+      "unknowns": 2
+    },
+    {
+      "id": "command-palette",
+      "status": "pending",
+      "vectors": 2,
+      "passed": 0,
+      "pending": 2,
+      "unknowns": 3
+    },
+    {
+      "id": "date-picker",
+      "status": "pending",
+      "vectors": 3,
+      "passed": 0,
+      "pending": 3,
+      "unknowns": 1
+    },
+    {
+      "id": "date-range-picker",
+      "status": "pending",
+      "vectors": 3,
+      "passed": 0,
+      "pending": 3,
+      "unknowns": 1
+    },
+    {
+      "id": "dialog",
+      "status": "pending",
+      "vectors": 2,
+      "passed": 0,
+      "pending": 2,
+      "unknowns": 3
+    },
+    {
+      "id": "dropdown-menu",
+      "status": "pending",
+      "vectors": 3,
+      "passed": 0,
+      "pending": 3,
+      "unknowns": 5
+    },
+    {
+      "id": "empty",
+      "status": "passed",
+      "vectors": 2,
+      "passed": 2,
+      "pending": 0,
+      "unknowns": 0
+    },
+    {
+      "id": "field",
+      "status": "passed",
+      "vectors": 1,
+      "passed": 1,
+      "pending": 0,
+      "unknowns": 1
+    },
+    {
+      "id": "grid-item",
+      "status": "passed",
+      "vectors": 2,
+      "passed": 2,
+      "pending": 0,
+      "unknowns": 0
+    },
+    {
+      "id": "grid",
+      "status": "passed",
+      "vectors": 2,
+      "passed": 2,
+      "pending": 0,
+      "unknowns": 0
+    },
+    {
+      "id": "input-area",
+      "status": "passed",
+      "vectors": 3,
+      "passed": 3,
+      "pending": 0,
+      "unknowns": 1
+    },
+    {
+      "id": "input-group",
+      "status": "passed",
+      "vectors": 3,
+      "passed": 3,
+      "pending": 0,
+      "unknowns": 1
+    },
+    {
+      "id": "input",
+      "status": "passed",
+      "vectors": 3,
+      "passed": 3,
+      "pending": 0,
+      "unknowns": 1
+    },
+    {
+      "id": "label",
+      "status": "passed",
+      "vectors": 3,
+      "passed": 3,
+      "pending": 0,
+      "unknowns": 0
+    },
+    {
+      "id": "layer-card",
+      "status": "passed",
+      "vectors": 2,
+      "passed": 2,
+      "pending": 0,
+      "unknowns": 1
+    },
+    {
+      "id": "link",
+      "status": "passed",
+      "vectors": 2,
+      "passed": 2,
+      "pending": 0,
+      "unknowns": 1
+    },
+    {
+      "id": "loader",
+      "status": "passed",
+      "vectors": 2,
+      "passed": 2,
+      "pending": 0,
+      "unknowns": 0
+    },
+    {
+      "id": "menu-bar",
+      "status": "pending",
+      "vectors": 3,
+      "passed": 0,
+      "pending": 3,
+      "unknowns": 5
+    },
+    {
+      "id": "meter",
+      "status": "passed",
+      "vectors": 3,
+      "passed": 3,
+      "pending": 0,
+      "unknowns": 0
+    },
+    {
+      "id": "pagination",
+      "status": "pending",
+      "vectors": 8,
+      "passed": 0,
+      "pending": 8,
+      "unknowns": 1
+    },
+    {
+      "id": "popover",
+      "status": "pending",
+      "vectors": 3,
+      "passed": 0,
+      "pending": 3,
+      "unknowns": 5
+    },
+    {
+      "id": "radio",
+      "status": "passed",
+      "vectors": 5,
+      "passed": 5,
+      "pending": 0,
+      "unknowns": 1
+    },
+    {
+      "id": "select",
+      "status": "pending",
+      "vectors": 5,
+      "passed": 0,
+      "pending": 5,
+      "unknowns": 10
+    },
+    {
+      "id": "sensitive-input",
+      "status": "passed",
+      "vectors": 3,
+      "passed": 3,
+      "pending": 0,
+      "unknowns": 1
+    },
+    {
+      "id": "sidebar",
+      "status": "pending",
+      "vectors": 4,
+      "passed": 0,
+      "pending": 4,
+      "unknowns": 5
+    },
+    {
+      "id": "surface",
+      "status": "passed",
+      "vectors": 2,
+      "passed": 2,
+      "pending": 0,
+      "unknowns": 1
+    },
+    {
+      "id": "switch",
+      "status": "passed",
+      "vectors": 5,
+      "passed": 5,
+      "pending": 0,
+      "unknowns": 1
+    },
+    {
+      "id": "table-of-contents",
+      "status": "pending",
+      "vectors": 2,
+      "passed": 0,
+      "pending": 2,
+      "unknowns": 2
+    },
+    {
+      "id": "table",
+      "status": "passed",
+      "vectors": 2,
+      "passed": 2,
+      "pending": 0,
+      "unknowns": 0
+    },
+    {
+      "id": "tabs",
+      "status": "pending",
+      "vectors": 4,
+      "passed": 0,
+      "pending": 4,
+      "unknowns": 3
+    },
+    {
+      "id": "text",
+      "status": "passed",
+      "vectors": 3,
+      "passed": 3,
+      "pending": 0,
+      "unknowns": 0
+    },
+    {
+      "id": "toasty",
+      "status": "pending",
+      "vectors": 3,
+      "passed": 0,
+      "pending": 3,
+      "unknowns": 1
+    }
+  ],
+  "cells": [
+    {
+      "component": "autocomplete",
+      "vector": "filter-and-select",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "badge",
+      "vector": "default",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "badge",
+      "vector": "success-dot",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "banner",
+      "vector": "structured",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "banner",
+      "vector": "alert-simple",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "breadcrumbs",
+      "vector": "trail",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "breadcrumbs",
+      "vector": "small-current",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "button",
+      "vector": "default-native",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "button",
+      "vector": "primary-xs",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "button",
+      "vector": "destructive-lg",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "button",
+      "vector": "circle-label",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "button",
+      "vector": "disabled-click",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "button",
+      "vector": "loading-click",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "button",
+      "vector": "enabled-click",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "button",
+      "vector": "submit-form",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "checkbox",
+      "vector": "unchecked-click",
+      "mode": "browser",
+      "status": "passed"
+    },
+    {
+      "component": "checkbox",
+      "vector": "checked-controlled-click",
+      "mode": "browser",
+      "status": "passed"
+    },
+    {
+      "component": "checkbox",
+      "vector": "indeterminate-space",
+      "mode": "browser",
+      "status": "passed"
+    },
+    {
+      "component": "checkbox",
+      "vector": "disabled",
+      "mode": "browser",
+      "status": "passed"
+    },
+    {
+      "component": "checkbox",
+      "vector": "group-default",
+      "mode": "browser",
+      "status": "passed"
+    },
+    {
+      "component": "clipboard-text",
+      "vector": "ssr",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "clipboard-text",
+      "vector": "click-copy",
+      "mode": "browser",
+      "status": "passed"
+    },
+    {
+      "component": "clipboard-text",
+      "vector": "keyboard",
+      "mode": "browser",
+      "status": "passed"
+    },
+    {
+      "component": "cloudflare-logo",
+      "vector": "full-color",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "cloudflare-logo",
+      "vector": "glyph-white",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "code",
+      "vector": "default",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "code",
+      "vector": "bash",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "combobox",
+      "vector": "single-select",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "command-palette",
+      "vector": "highlighted-text",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "command-palette",
+      "vector": "open-search-close",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "date-picker",
+      "vector": "single-selected",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "date-picker",
+      "vector": "single-change",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "date-picker",
+      "vector": "bounded-day",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "date-range-picker",
+      "vector": "default-layout",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "date-range-picker",
+      "vector": "small-subtle-timezone",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "date-range-picker",
+      "vector": "select-range-reset",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "dialog",
+      "vector": "closed-trigger",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "dialog",
+      "vector": "open-and-close",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "dropdown-menu",
+      "vector": "closed-trigger-ssr",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "dropdown-menu",
+      "vector": "pointer-item-selection",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "dropdown-menu",
+      "vector": "keyboard-typeahead-submenu-dismissal",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "empty",
+      "vector": "minimal",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "empty",
+      "vector": "small-description",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "field",
+      "vector": "optional",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "grid-item",
+      "vector": "default",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "grid-item",
+      "vector": "custom-class",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "grid",
+      "vector": "three-up",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "grid",
+      "vector": "side-none",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "input-area",
+      "vector": "bare",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "input-area",
+      "vector": "type",
+      "mode": "browser",
+      "status": "passed"
+    },
+    {
+      "component": "input-area",
+      "vector": "field-error",
+      "mode": "browser",
+      "status": "passed"
+    },
+    {
+      "component": "input-group",
+      "vector": "composition",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "input-group",
+      "vector": "field-focus",
+      "mode": "browser",
+      "status": "passed"
+    },
+    {
+      "component": "input-group",
+      "vector": "disabled-error",
+      "mode": "browser",
+      "status": "passed"
+    },
+    {
+      "component": "input",
+      "vector": "bare-disabled",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "input",
+      "vector": "type",
+      "mode": "browser",
+      "status": "passed"
+    },
+    {
+      "component": "input",
+      "vector": "field-label",
+      "mode": "browser",
+      "status": "passed"
+    },
+    {
+      "component": "label",
+      "vector": "default",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "label",
+      "vector": "optional",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "label",
+      "vector": "as-content",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "layer-card",
+      "vector": "simple",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "layer-card",
+      "vector": "layered",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "link",
+      "vector": "internal",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "link",
+      "vector": "plain-external",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "loader",
+      "vector": "default",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "loader",
+      "vector": "large-labelled",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "menu-bar",
+      "vector": "empty-nav-ssr",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "menu-bar",
+      "vector": "buttons-active-index",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "menu-bar",
+      "vector": "active-by-id",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "meter",
+      "vector": "percentage",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "meter",
+      "vector": "custom-value",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "meter",
+      "vector": "custom-range-hidden",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "pagination",
+      "vector": "legacy-page-one",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "pagination",
+      "vector": "legacy-page-three-ssr",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "pagination",
+      "vector": "next-controlled",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "pagination",
+      "vector": "boundaries",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "pagination",
+      "vector": "input-enter-clamp",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "pagination",
+      "vector": "input-blur-clamp",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "pagination",
+      "vector": "compound-simple-labels",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "pagination",
+      "vector": "compound-dropdown-size",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "popover",
+      "vector": "closed-trigger-ssr",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "popover",
+      "vector": "pointer-open-close-outside",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "popover",
+      "vector": "controlled-open",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "radio",
+      "vector": "default-click",
+      "mode": "browser",
+      "status": "passed"
+    },
+    {
+      "component": "radio",
+      "vector": "controlled-click",
+      "mode": "browser",
+      "status": "passed"
+    },
+    {
+      "component": "radio",
+      "vector": "arrow",
+      "mode": "browser",
+      "status": "passed"
+    },
+    {
+      "component": "radio",
+      "vector": "disabled-item",
+      "mode": "browser",
+      "status": "passed"
+    },
+    {
+      "component": "radio",
+      "vector": "disabled-group",
+      "mode": "browser",
+      "status": "passed"
+    },
+    {
+      "component": "select",
+      "vector": "closed-placeholder-ssr",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "select",
+      "vector": "pointer-open-select-disabled",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "select",
+      "vector": "keyboard-navigation-typeahead",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "select",
+      "vector": "controlled-value-open-order",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "select",
+      "vector": "multiple-object-selection",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "sensitive-input",
+      "vector": "masked",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "sensitive-input",
+      "vector": "reveal-edit-escape",
+      "mode": "browser",
+      "status": "passed"
+    },
+    {
+      "component": "sensitive-input",
+      "vector": "copy",
+      "mode": "browser",
+      "status": "passed"
+    },
+    {
+      "component": "sidebar",
+      "vector": "desktop-expanded-compound",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "sidebar",
+      "vector": "desktop-collapsed-sliding-inert-intent",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "sidebar",
+      "vector": "collapsible-closed-mounted",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "sidebar",
+      "vector": "resize-keyboard-expand",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "surface",
+      "vector": "default",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "surface",
+      "vector": "as-section",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "switch",
+      "vector": "unchecked-click",
+      "mode": "browser",
+      "status": "passed"
+    },
+    {
+      "component": "switch",
+      "vector": "checked-controlled-space",
+      "mode": "browser",
+      "status": "passed"
+    },
+    {
+      "component": "switch",
+      "vector": "small",
+      "mode": "browser",
+      "status": "passed"
+    },
+    {
+      "component": "switch",
+      "vector": "large-disabled",
+      "mode": "browser",
+      "status": "passed"
+    },
+    {
+      "component": "switch",
+      "vector": "group",
+      "mode": "browser",
+      "status": "passed"
+    },
+    {
+      "component": "table-of-contents",
+      "vector": "static-title-items",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "table-of-contents",
+      "vector": "nested-linked-group",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "table",
+      "vector": "semantic-selected",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "table",
+      "vector": "fixed-sticky",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "tabs",
+      "vector": "segmented-uncontrolled-first",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "tabs",
+      "vector": "underline-selected-value",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "tabs",
+      "vector": "manual-arrow-then-enter",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "tabs",
+      "vector": "automatic-arrow",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "text",
+      "vector": "body-default",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "text",
+      "vector": "mono-default",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "text",
+      "vector": "heading-element",
+      "mode": "ssr",
+      "status": "passed"
+    },
+    {
+      "component": "toasty",
+      "vector": "provider-ssr",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "toasty",
+      "vector": "notify-default",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    },
+    {
+      "component": "toasty",
+      "vector": "action-click-close",
+      "mode": "browser",
+      "status": "pending",
+      "reason": "no accepted shared-runner receipt"
+    }
+  ],
+  "digest": "f64879df7a4023c19a777d231a182b7b8b2b8077d71c9bbd9e3429a7d892a12a"
+}

@@ -47,6 +47,7 @@
     "libraries:build": "node scripts/libraries/build.mjs",
     "libraries:gallery": "node scripts/libraries/build-gallery.mjs",
     "examples:build": "node scripts/build-examples.mjs",
+    "observable:conformance": "node scripts/observable-conformance.mjs",
     "release:github": "node scripts/github-release.mjs",
     "release:github:verify": "node scripts/verify-github-release.mjs",
     "release:npm:preflight": "node scripts/npm-publish-preflight.mjs",
