@@ -8,6 +8,7 @@ import { once } from 'node:events';
 
 const root = new URL('../', import.meta.url);
 const kinds = ['checkbox', 'switch'];
+import { normalizeInlineStyleResources } from '../scripts/build-canonical-react-runtimes.mjs';
 
 async function command(executable, args, options = {}) {
   const child = spawn(executable, args, { cwd: root, stdio: ['ignore', 'pipe', 'pipe'], ...options });
@@ -16,6 +17,14 @@ async function command(executable, args, options = {}) {
   const [code] = await once(child, 'exit');
   assert.equal(code, 0, stderr);
 }
+
+test('canonical React SSR hoists inline style resources without URL-like hrefs', () => {
+  const markup='<style data-precedence="base-ui:low" data-href="base-ui-disable-scrollbar">.base-ui-disable-scrollbar{scrollbar-width:none}</style><main><p>hydrated</p></main>';
+  const normalized=normalizeInlineStyleResources(markup);
+  assert.equal(normalized.body,'<main><p>hydrated</p></main>');
+  assert.deepEqual(normalized.styles,['<style>.base-ui-disable-scrollbar{scrollbar-width:none}</style>']);
+  assert.doesNotMatch(normalized.styles[0], /href=/);
+});
 
 test('standalone React builds emit their runtime HTML and all referenced assets are served', { timeout: 30_000 }, async () => {
   const canonicalRoot = await mkdtemp(join(tmpdir(), 'native-react-'));
