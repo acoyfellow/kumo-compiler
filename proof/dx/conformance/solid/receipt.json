@@ -4,12 +4,12 @@
   "framework": "solid",
   "package": "@acoyfellow/kumo-solid@0.0.1",
   "artifact": "library-artifacts/kumo-solid-0.0.1.tgz",
-  "packageSha256": "3bc9385d021bd8b55b6d963e0523c48412be0f6bf4d38a9c3c62d53f97c1611a",
+  "packageSha256": "386e966a9609b7d07ebfefd85d79fbc6b28474cbd62ea33a5fd96a98702ad8d4",
   "contract": {
     "schemaVersion": "kumo.observable/v1",
     "hash": "a7fe3efce7677deb02df5635e1c9541b8e618d67763a5ef8ca11f6ef950aeebf"
   },
-  "modelHash": "da5df3d63c509bc95ab8740d9f21ae259881d162e1e0c0101a41949e1659559a",
+  "modelHash": "d8e43dc475d0df1af121aa08a953a923482bcbe3d3987d4b0716c0dd94e4e8aa",
   "node": {
     "version": "v24.17.0",
     "platform": "darwin",
@@ -23,8 +23,8 @@
     "hiddenVectors": false
   },
   "counts": {
-    "blocked": 120,
-    "failed": 4
+    "blocked": 77,
+    "failed": 47
   },
   "totalVectors": 124,
   "diagnostics": [],
@@ -34,7 +34,7 @@
       "vector": "filter-and-select",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -43,53 +43,73 @@
     {
       "component": "badge",
       "vector": "default",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/badge.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/badge.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "badge",
       "vector": "success-dot",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/badge.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/badge.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "banner",
       "vector": "structured",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/banner.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/banner.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "banner",
       "vector": "alert-simple",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/banner.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/banner.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "breadcrumbs",
       "vector": "trail",
       "status": "blocked",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -100,7 +120,7 @@
       "vector": "small-current",
       "status": "blocked",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -111,11 +131,11 @@
       "vector": "default-native",
       "status": "failed",
       "mode": "ssr",
-      "reason": "Unknown file extension \".jsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-o8nDju/consumer/node_modules/@acoyfellow/kumo-solid/package/button.jsx",
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/button.tsx",
       "diagnostics": [
         {
           "phase": "ssr",
-          "message": "Unknown file extension \".jsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-o8nDju/consumer/node_modules/@acoyfellow/kumo-solid/package/button.jsx"
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/button.tsx"
         }
       ],
       "nodeIdentity": "not-run",
@@ -127,11 +147,11 @@
       "vector": "primary-xs",
       "status": "failed",
       "mode": "ssr",
-      "reason": "Unknown file extension \".jsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-o8nDju/consumer/node_modules/@acoyfellow/kumo-solid/package/button.jsx",
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/button.tsx",
       "diagnostics": [
         {
           "phase": "ssr",
-          "message": "Unknown file extension \".jsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-o8nDju/consumer/node_modules/@acoyfellow/kumo-solid/package/button.jsx"
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/button.tsx"
         }
       ],
       "nodeIdentity": "not-run",
@@ -143,11 +163,11 @@
       "vector": "destructive-lg",
       "status": "failed",
       "mode": "ssr",
-      "reason": "Unknown file extension \".jsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-o8nDju/consumer/node_modules/@acoyfellow/kumo-solid/package/button.jsx",
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/button.tsx",
       "diagnostics": [
         {
           "phase": "ssr",
-          "message": "Unknown file extension \".jsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-o8nDju/consumer/node_modules/@acoyfellow/kumo-solid/package/button.jsx"
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/button.tsx"
         }
       ],
       "nodeIdentity": "not-run",
@@ -159,11 +179,11 @@
       "vector": "circle-label",
       "status": "failed",
       "mode": "ssr",
-      "reason": "Unknown file extension \".jsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-o8nDju/consumer/node_modules/@acoyfellow/kumo-solid/package/button.jsx",
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/button.tsx",
       "diagnostics": [
         {
           "phase": "ssr",
-          "message": "Unknown file extension \".jsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-o8nDju/consumer/node_modules/@acoyfellow/kumo-solid/package/button.jsx"
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/button.tsx"
         }
       ],
       "nodeIdentity": "not-run",
@@ -219,7 +239,7 @@
       "vector": "unchecked-click",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -230,7 +250,7 @@
       "vector": "checked-controlled-click",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -241,7 +261,7 @@
       "vector": "indeterminate-space",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -252,7 +272,7 @@
       "vector": "disabled",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -263,7 +283,7 @@
       "vector": "group-default",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: native checkbox-group",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -272,20 +292,25 @@
     {
       "component": "clipboard-text",
       "vector": "ssr",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/clipboard-text.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/clipboard-text.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "clipboard-text",
       "vector": "click-copy",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -296,7 +321,7 @@
       "vector": "keyboard",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -305,53 +330,73 @@
     {
       "component": "cloudflare-logo",
       "vector": "full-color",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/cloudflare-logo.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/cloudflare-logo.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "cloudflare-logo",
       "vector": "glyph-white",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/cloudflare-logo.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/cloudflare-logo.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "code",
       "vector": "default",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/code.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/code.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "code",
       "vector": "bash",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/code.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/code.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "combobox",
       "vector": "single-select",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -362,7 +407,7 @@
       "vector": "highlighted-text",
       "status": "blocked",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -373,7 +418,7 @@
       "vector": "open-search-close",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -382,20 +427,25 @@
     {
       "component": "date-picker",
       "vector": "single-selected",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/date-picker.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/date-picker.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "date-picker",
       "vector": "single-change",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -406,7 +456,7 @@
       "vector": "bounded-day",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -415,31 +465,41 @@
     {
       "component": "date-range-picker",
       "vector": "default-layout",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/date-range-picker.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/date-range-picker.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "date-range-picker",
       "vector": "small-subtle-timezone",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/date-range-picker.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/date-range-picker.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "date-range-picker",
       "vector": "select-range-reset",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -450,7 +510,7 @@
       "vector": "closed-trigger",
       "status": "blocked",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -461,7 +521,7 @@
       "vector": "open-and-close",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -472,7 +532,7 @@
       "vector": "closed-trigger-ssr",
       "status": "blocked",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -483,7 +543,7 @@
       "vector": "pointer-item-selection",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -494,7 +554,7 @@
       "vector": "keyboard-typeahead-submenu-dismissal",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -503,24 +563,34 @@
     {
       "component": "empty",
       "vector": "minimal",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/empty.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/empty.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "empty",
       "vector": "small-description",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/empty.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/empty.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "field",
@@ -536,64 +606,89 @@
     {
       "component": "grid-item",
       "vector": "default",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/grid-item.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/grid-item.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "grid-item",
       "vector": "custom-class",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/grid-item.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/grid-item.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "grid",
       "vector": "three-up",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/grid.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/grid.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "grid",
       "vector": "side-none",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/grid.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/grid.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "input-area",
       "vector": "bare",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/input-area.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/input-area.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "input-area",
       "vector": "type",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -604,7 +699,7 @@
       "vector": "field-error",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -615,7 +710,7 @@
       "vector": "composition",
       "status": "blocked",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -626,7 +721,7 @@
       "vector": "field-focus",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -637,7 +732,7 @@
       "vector": "disabled-error",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -646,20 +741,25 @@
     {
       "component": "input",
       "vector": "bare-disabled",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/input.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/input.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "input",
       "vector": "type",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -670,7 +770,7 @@
       "vector": "field-label",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -679,53 +779,73 @@
     {
       "component": "label",
       "vector": "default",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/label.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/label.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "label",
       "vector": "optional",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/label.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/label.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "label",
       "vector": "as-content",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/label.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/label.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "layer-card",
       "vector": "simple",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/layer-card.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/layer-card.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "layer-card",
       "vector": "layered",
       "status": "blocked",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -734,64 +854,89 @@
     {
       "component": "link",
       "vector": "internal",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/link.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/link.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "link",
       "vector": "plain-external",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/link.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/link.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "loader",
       "vector": "default",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/loader.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/loader.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "loader",
       "vector": "large-labelled",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/loader.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/loader.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "menu-bar",
       "vector": "empty-nav-ssr",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/menu-bar.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/menu-bar.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "unknown"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "menu-bar",
       "vector": "buttons-active-index",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -802,7 +947,7 @@
       "vector": "active-by-id",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -811,53 +956,73 @@
     {
       "component": "meter",
       "vector": "percentage",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/meter.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/meter.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "meter",
       "vector": "custom-value",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/meter.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/meter.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "meter",
       "vector": "custom-range-hidden",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/meter.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/meter.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "pagination",
       "vector": "legacy-page-one",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/pagination.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/pagination.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "pagination",
       "vector": "legacy-page-three-ssr",
       "status": "blocked",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -868,7 +1033,7 @@
       "vector": "next-controlled",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -879,7 +1044,7 @@
       "vector": "boundaries",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -890,7 +1055,7 @@
       "vector": "input-enter-clamp",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -901,7 +1066,7 @@
       "vector": "input-blur-clamp",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -910,31 +1075,41 @@
     {
       "component": "pagination",
       "vector": "compound-simple-labels",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/pagination.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/pagination.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "pagination",
       "vector": "compound-dropdown-size",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/pagination.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/pagination.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "popover",
       "vector": "closed-trigger-ssr",
       "status": "blocked",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -945,7 +1120,7 @@
       "vector": "pointer-open-close-outside",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -956,7 +1131,7 @@
       "vector": "controlled-open",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -967,7 +1142,7 @@
       "vector": "default-click",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: native radio-group",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -978,7 +1153,7 @@
       "vector": "controlled-click",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: native radio-group",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -989,7 +1164,7 @@
       "vector": "arrow",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: native radio-group",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1000,7 +1175,7 @@
       "vector": "disabled-item",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: native radio-group",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1011,7 +1186,7 @@
       "vector": "disabled-group",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: native radio-group",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1020,20 +1195,25 @@
     {
       "component": "select",
       "vector": "closed-placeholder-ssr",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/select.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/select.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "unknown"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "select",
       "vector": "pointer-open-select-disabled",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1044,7 +1224,7 @@
       "vector": "keyboard-end-dismissal",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1055,7 +1235,7 @@
       "vector": "keyboard-home-dismissal",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1066,7 +1246,7 @@
       "vector": "keyboard-typeahead-dismissal",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1077,7 +1257,7 @@
       "vector": "controlled-value-open-order",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1088,7 +1268,7 @@
       "vector": "multiple-object-selection",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1097,20 +1277,25 @@
     {
       "component": "sensitive-input",
       "vector": "masked",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/sensitive-input.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/sensitive-input.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "sensitive-input",
       "vector": "reveal-edit-escape",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1121,7 +1306,7 @@
       "vector": "copy",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1132,7 +1317,7 @@
       "vector": "desktop-expanded-compound",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1143,7 +1328,7 @@
       "vector": "desktop-collapsed-sliding-inert-intent",
       "status": "blocked",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1154,7 +1339,7 @@
       "vector": "collapsible-closed-mounted",
       "status": "blocked",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1165,7 +1350,7 @@
       "vector": "resize-keyboard-expand",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1174,31 +1359,41 @@
     {
       "component": "surface",
       "vector": "default",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/surface.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/surface.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "surface",
       "vector": "as-section",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/surface.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/surface.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "switch",
       "vector": "unchecked-click",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1209,7 +1404,7 @@
       "vector": "checked-controlled-space",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1220,7 +1415,7 @@
       "vector": "small",
       "status": "blocked",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1231,7 +1426,7 @@
       "vector": "large-disabled",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1242,7 +1437,7 @@
       "vector": "group",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: native switch-group",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1253,7 +1448,7 @@
       "vector": "static-title-items",
       "status": "blocked",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1264,7 +1459,7 @@
       "vector": "nested-linked-group",
       "status": "blocked",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1275,7 +1470,7 @@
       "vector": "semantic-selected",
       "status": "blocked",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1286,7 +1481,7 @@
       "vector": "fixed-sticky",
       "status": "blocked",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1297,7 +1492,7 @@
       "vector": "segmented-uncontrolled-first",
       "status": "blocked",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1308,7 +1503,7 @@
       "vector": "underline-selected-value",
       "status": "blocked",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing fixture algebra capability: compound export composition",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1319,7 +1514,7 @@
       "vector": "manual-arrow-then-enter",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1330,7 +1525,7 @@
       "vector": "automatic-arrow",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1339,53 +1534,73 @@
     {
       "component": "text",
       "vector": "body-default",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/text.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/text.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "text",
       "vector": "mono-default",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/text.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/text.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "text",
       "vector": "heading-element",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/text.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/text.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "toasty",
       "vector": "provider-ssr",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
-      "diagnostics": [],
+      "reason": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/toasty.tsx",
+      "diagnostics": [
+        {
+          "phase": "ssr",
+          "message": "Unknown file extension \".tsx\" for /private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-AYTpPr/consumer/node_modules/@acoyfellow/kumo-solid/package/components/toasty.tsx"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical"
+      "ssr": "failed",
+      "hydration": "not-run"
     },
     {
       "component": "toasty",
       "vector": "notify-default",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1396,7 +1611,7 @@
       "vector": "action-remains-visible",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
@@ -1407,12 +1622,12 @@
       "vector": "close-dismiss",
       "status": "blocked",
       "mode": "browser",
-      "reason": "missing package mapping capability: packed package manifest has no component export",
+      "reason": "missing browser model algebra capability: callback state/event/focus harness",
       "diagnostics": [],
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical"
     }
   ],
-  "receiptHash": "cdbdc16d53526f18c07e4e4034db383fd18576f6cb076020692a0971016d92f7"
+  "receiptHash": "dc5e3dd6797b0085da54ce750b3b02f2c1b61a2870b2031d2f6d51f95056796f"
 }
