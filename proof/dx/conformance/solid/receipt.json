@@ -4,12 +4,12 @@
   "framework": "solid",
   "package": "@acoyfellow/kumo-solid@0.0.1",
   "artifact": "library-artifacts/kumo-solid-0.0.1.tgz",
-  "packageSha256": "3bc9385d021bd8b55b6d963e0523c48412be0f6bf4d38a9c3c62d53f97c1611a",
+  "packageSha256": "386e966a9609b7d07ebfefd85d79fbc6b28474cbd62ea33a5fd96a98702ad8d4",
   "contract": {
     "schemaVersion": "kumo.observable/v1",
     "hash": "a7fe3efce7677deb02df5635e1c9541b8e618d67763a5ef8ca11f6ef950aeebf"
   },
-  "modelHash": "cefb4accc4aef7af2b90d4f8f9a0fe5332788d66aceea038e6d3f625be357ce3",
+  "modelHash": "3d74d663d89d6c5e7aa8147f044b948d930227cde0e550b81038b54f26dca2d1",
   "node": {
     "version": "v24.17.0",
     "platform": "darwin",
@@ -24,8 +24,9 @@
     "ssrLoader": "vite+vite-plugin-solid"
   },
   "counts": {
-    "blocked": 119,
-    "passed": 5
+    "blocked": 73,
+    "passed": 50,
+    "failed": 1
   },
   "totalVectors": 124,
   "diagnostics": [],
@@ -39,51 +40,59 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "badge",
       "vector": "default",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "9b09e1a3ee8221f793f2fba9b1d9911e2bed1f8c605fe4e394ed379c96882124"
+      }
     },
     {
       "component": "badge",
       "vector": "success-dot",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "f2e332f48b8f175314e3c4a1aef971fed0da5766040bfbcd3bba380f78348fd4"
+      }
     },
     {
       "component": "banner",
       "vector": "structured",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "588d350078e5404f1fb4057cc238291f59291b849d1ee524afb9fc30984c2d36"
+      }
     },
     {
       "component": "banner",
       "vector": "alert-simple",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "82d7931e6d7c91265ff146224b2d41a98bc60c40d3143a39dd1e70aea01286e0"
+      }
     },
     {
       "component": "breadcrumbs",
@@ -94,7 +103,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "unsupported fixture object capability"
     },
     {
       "component": "breadcrumbs",
@@ -105,7 +114,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "unsupported fixture object capability"
     },
     {
       "component": "button",
@@ -212,7 +221,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "checkbox",
@@ -223,7 +232,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "checkbox",
@@ -234,7 +243,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "checkbox",
@@ -245,7 +254,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "checkbox",
@@ -256,18 +265,20 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "clipboard-text",
       "vector": "ssr",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "353152e71eea9dee98b6fe9ee0ac5d2e6741058f5b656c16acba3a8fe9b94075"
+      }
     },
     {
       "component": "clipboard-text",
@@ -278,7 +289,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "clipboard-text",
@@ -289,51 +300,59 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "cloudflare-logo",
       "vector": "full-color",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "4f475ec861e1f8e465fce2d06002555e0472530f135072eed7c052e83e845bc2"
+      }
     },
     {
       "component": "cloudflare-logo",
       "vector": "glyph-white",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "4f475ec861e1f8e465fce2d06002555e0472530f135072eed7c052e83e845bc2"
+      }
     },
     {
       "component": "code",
       "vector": "default",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "8efb1af9f85e2cfe9db3b8acd9fefdf11e89987e30dd2eaab8c5aa32de4efb7a"
+      }
     },
     {
       "component": "code",
       "vector": "bash",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "62fef5f11079152d1d165210d5f2afdf838b9faadce6e633638c4e05d669d2b3"
+      }
     },
     {
       "component": "combobox",
@@ -344,18 +363,23 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "command-palette",
       "vector": "highlighted-text",
-      "status": "blocked",
+      "status": "failed",
       "mode": "ssr",
-      "diagnostics": [],
+      "diagnostics": [
+        {
+          "phase": "vite-ssr",
+          "message": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-tedJJo/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-tedJJo/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-tedJJo/consumer/dist/vector.mjs:17:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-tedJJo/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-tedJJo/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-tedJJo/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-tedJJo/consumer/dist/vector.mjs:17:38\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:633:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.17.0\n"
+        }
+      ],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "failed",
+      "hydration": "not-run",
+      "reason": "packed-consumer SSR execution failed: file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-tedJJo/consumer/node_modules/solid-js/dist/server.js:402\n    const r = Comp(props || {});\n              ^\n\nTypeError: Comp is not a function\n    at createComponent (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-tedJJo/consumer/node_modules/solid-js/dist/server.js:402:15)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-tedJJo/consumer/dist/vector.mjs:17:59\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-tedJJo/consumer/node_modules/solid-js/web/dist/server.js:201:34\n    at createRoot (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-tedJJo/consumer/node_modules/solid-js/dist/server.js:54:14)\n    at renderToString (file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-tedJJo/consumer/node_modules/solid-js/web/dist/server.js:199:14)\n    at file:///private/var/folders/hb/wd2swkhx50s18xh_3fw0gprw0000gn/T/kumo-solid-conformance-tedJJo/consumer/dist/vector.mjs:17:38\n    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)\n    at async node:internal/modules/esm/loader:633:26\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\n\nNode.js v24.17.0\n"
     },
     {
       "component": "command-palette",
@@ -366,18 +390,20 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "date-picker",
       "vector": "single-selected",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
     },
     {
       "component": "date-picker",
@@ -388,7 +414,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "date-picker",
@@ -399,29 +425,33 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "date-range-picker",
       "vector": "default-layout",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
     },
     {
       "component": "date-range-picker",
       "vector": "small-subtle-timezone",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
     },
     {
       "component": "date-range-picker",
@@ -432,7 +462,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "dialog",
@@ -443,7 +473,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "unsupported fixture object capability"
     },
     {
       "component": "dialog",
@@ -454,7 +484,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "dropdown-menu",
@@ -465,7 +495,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "unknown",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "unsupported fixture object capability"
     },
     {
       "component": "dropdown-menu",
@@ -476,7 +506,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "unknown",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "dropdown-menu",
@@ -487,29 +517,33 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "unknown",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "empty",
       "vector": "minimal",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "6641459c86f0356e0458cd139ece83fd4346c2c63d263da36cf57134b28eebc7"
+      }
     },
     {
       "component": "empty",
       "vector": "small-description",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "a6e48db1ca5af65da2fc5cb52a178dfd4367b7e871e8489c75a72b1765e9ec24"
+      }
     },
     {
       "component": "field",
@@ -527,57 +561,67 @@
     {
       "component": "grid-item",
       "vector": "default",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "242e48fc433a7edf896ef946862b1c9f2456e8959a4a7a47050f1c5398a39132"
+      }
     },
     {
       "component": "grid-item",
       "vector": "custom-class",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "242e48fc433a7edf896ef946862b1c9f2456e8959a4a7a47050f1c5398a39132"
+      }
     },
     {
       "component": "grid",
       "vector": "three-up",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "0b56b607d58aaa26d4b3aeaf891c02914f11f9fed3bc8718bbb41807f836aee8"
+      }
     },
     {
       "component": "grid",
       "vector": "side-none",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "a3a6e860177a4b0f705bc96196257e36a255c8f480f20671a9c177fe7e598798"
+      }
     },
     {
       "component": "input-area",
       "vector": "bare",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "a46276398781e81b83fcb871a02c51c76e8efdadb8aafba29e0575e1eb027999"
+      }
     },
     {
       "component": "input-area",
@@ -588,7 +632,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "input-area",
@@ -599,7 +643,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "input-group",
@@ -610,7 +654,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "unsupported fixture object capability"
     },
     {
       "component": "input-group",
@@ -621,7 +665,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "input-group",
@@ -632,18 +676,20 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "input",
       "vector": "bare-disabled",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "346687b0a4526da51ccc554bcc77c260a43b62947a24cc29144493efe0163535"
+      }
     },
     {
       "component": "input",
@@ -654,7 +700,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "input",
@@ -665,51 +711,59 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "label",
       "vector": "default",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "d0f9a9a9543a66b806c5c3570f479ff197f3ede4a358f36cc1de43e5aeba3107"
+      }
     },
     {
       "component": "label",
       "vector": "optional",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "88111dc681c9d12f757707b3df2a2fb9b2e1f5e541bdd147da292ca31857fe29"
+      }
     },
     {
       "component": "label",
       "vector": "as-content",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "d0f9a9a9543a66b806c5c3570f479ff197f3ede4a358f36cc1de43e5aeba3107"
+      }
     },
     {
       "component": "layer-card",
       "vector": "simple",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "2f0042af598bf678b9b005be64e96b6e39336243dbff80bd7c4f22cbe824b022"
+      }
     },
     {
       "component": "layer-card",
@@ -720,62 +774,72 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "unsupported fixture object capability"
     },
     {
       "component": "link",
       "vector": "internal",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "3ffac0070123418317a7bff86064c5947140fb5b81cf2d7799ed194f4e4041fe"
+      }
     },
     {
       "component": "link",
       "vector": "plain-external",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "05e752114470eeeb73f1fef95b61dc14faf1fbfcc611169650860e4d99411dd5"
+      }
     },
     {
       "component": "loader",
       "vector": "default",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "78b4622bcd24a29856c35fdd731d5e16324cff863bd300d80daedbca99bdf96d"
+      }
     },
     {
       "component": "loader",
       "vector": "large-labelled",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "501c8417d0ca0ad5e38bfa8a8325fed0da750b914b1f4b085a4b99bbe235fa62"
+      }
     },
     {
       "component": "menu-bar",
       "vector": "empty-nav-ssr",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "unknown",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "bb14c79af553209c9e4a020f3a5098f98dcd915be2f860a832437ac8dec2f0e4"
+      }
     },
     {
       "component": "menu-bar",
@@ -786,7 +850,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "unknown",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "menu-bar",
@@ -797,51 +861,59 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "unknown",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "meter",
       "vector": "percentage",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "4b0f74d5d1d9e828f84060d7f94f01e44c31802329fb9a518f3cee1bc95c93a0"
+      }
     },
     {
       "component": "meter",
       "vector": "custom-value",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "c58c637d5d8d7f307d4b0aca7ddee3a25d558218d3ba80b4a1dabe68ebc5e485"
+      }
     },
     {
       "component": "meter",
       "vector": "custom-range-hidden",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "38edbba0fc45df15de1c3133e84fa440d32422f4881a7d3945a2f710bef371cc"
+      }
     },
     {
       "component": "pagination",
       "vector": "legacy-page-one",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "8c9acb938f968b22eb2ae4719f8f717d881fae74ed3473a6c8def8fc7859e2c0"
+      }
     },
     {
       "component": "pagination",
@@ -852,7 +924,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "pagination",
@@ -863,7 +935,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "pagination",
@@ -874,7 +946,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "pagination",
@@ -885,7 +957,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "pagination",
@@ -896,29 +968,33 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "pagination",
       "vector": "compound-simple-labels",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "8c9acb938f968b22eb2ae4719f8f717d881fae74ed3473a6c8def8fc7859e2c0"
+      }
     },
     {
       "component": "pagination",
       "vector": "compound-dropdown-size",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "8c9acb938f968b22eb2ae4719f8f717d881fae74ed3473a6c8def8fc7859e2c0"
+      }
     },
     {
       "component": "popover",
@@ -929,7 +1005,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "unknown",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "unsupported fixture object capability"
     },
     {
       "component": "popover",
@@ -940,7 +1016,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "unknown",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "popover",
@@ -951,7 +1027,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "unknown",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "radio",
@@ -962,7 +1038,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "radio",
@@ -973,7 +1049,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "radio",
@@ -984,7 +1060,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "radio",
@@ -995,7 +1071,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "radio",
@@ -1006,18 +1082,20 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "select",
       "vector": "closed-placeholder-ssr",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "unknown",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "41ddf195153a7b67c34528b51be4f7f682e29b1d02f5dffad6361dc3ba331e18"
+      }
     },
     {
       "component": "select",
@@ -1028,7 +1106,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "unknown",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "select",
@@ -1039,7 +1117,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "unknown",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "select",
@@ -1050,7 +1128,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "unknown",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "select",
@@ -1061,7 +1139,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "unknown",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "select",
@@ -1072,7 +1150,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "unknown",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "select",
@@ -1083,18 +1161,20 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "unknown",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "sensitive-input",
       "vector": "masked",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "346687b0a4526da51ccc554bcc77c260a43b62947a24cc29144493efe0163535"
+      }
     },
     {
       "component": "sensitive-input",
@@ -1105,7 +1185,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "sensitive-input",
@@ -1116,7 +1196,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "sidebar",
@@ -1127,7 +1207,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "unknown",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "sidebar",
@@ -1138,7 +1218,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "unknown",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "unsupported fixture object capability"
     },
     {
       "component": "sidebar",
@@ -1149,7 +1229,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "unknown",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "unsupported fixture object capability"
     },
     {
       "component": "sidebar",
@@ -1160,29 +1240,33 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "unknown",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "surface",
       "vector": "default",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "2f0042af598bf678b9b005be64e96b6e39336243dbff80bd7c4f22cbe824b022"
+      }
     },
     {
       "component": "surface",
       "vector": "as-section",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "2f0042af598bf678b9b005be64e96b6e39336243dbff80bd7c4f22cbe824b022"
+      }
     },
     {
       "component": "switch",
@@ -1193,7 +1277,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "switch",
@@ -1204,7 +1288,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "switch",
@@ -1215,7 +1299,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "switch",
@@ -1226,7 +1310,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "switch",
@@ -1237,7 +1321,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "table-of-contents",
@@ -1248,7 +1332,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "unsupported fixture object capability"
     },
     {
       "component": "table-of-contents",
@@ -1259,7 +1343,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "unsupported fixture object capability"
     },
     {
       "component": "table",
@@ -1270,7 +1354,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "unsupported fixture object capability"
     },
     {
       "component": "table",
@@ -1281,29 +1365,33 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "unsupported fixture object capability"
     },
     {
       "component": "tabs",
       "vector": "segmented-uncontrolled-first",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "8d6f17f603f37c1e37a6d69f9550b338fd3069cbc81e711416850820a9a03db8"
+      }
     },
     {
       "component": "tabs",
       "vector": "underline-selected-value",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "8d6f17f603f37c1e37a6d69f9550b338fd3069cbc81e711416850820a9a03db8"
+      }
     },
     {
       "component": "tabs",
@@ -1314,7 +1402,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "tabs",
@@ -1325,51 +1413,59 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "text",
       "vector": "body-default",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "3b0be6ba1d8faa12404b2389f454da924ee60cc593f9251114ff31fb7c071276"
+      }
     },
     {
       "component": "text",
       "vector": "mono-default",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "cb27a1a4a88bf9e3d4d74d6a24dcb71471e6ecab019c5fbbbb2fe7ad5a0be25a"
+      }
     },
     {
       "component": "text",
       "vector": "heading-element",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "b61c72777b34bc94e61bfc8d725c406e3d8e2f6dd4ee5ef6d5ea46ac3a390079"
+      }
     },
     {
       "component": "toasty",
       "vector": "provider-ssr",
-      "status": "blocked",
+      "status": "passed",
       "mode": "ssr",
       "diagnostics": [],
       "nodeIdentity": "not-run",
-      "ssr": "supported",
-      "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "ssr": "passed",
+      "hydration": "not-run",
+      "observation": {
+        "markupSha256": "794bdfc389a18a550cc43f62d2f41153391269e920d29c5e8d4f541463d3e258"
+      }
     },
     {
       "component": "toasty",
@@ -1380,7 +1476,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "toasty",
@@ -1391,7 +1487,7 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     },
     {
       "component": "toasty",
@@ -1402,8 +1498,8 @@
       "nodeIdentity": "not-run",
       "ssr": "supported",
       "hydration": "identical",
-      "reason": "missing package mapping capability: packed package manifest has no component export"
+      "reason": "missing browser model capability: vector requires scripts/observable-browser-runner.mjs lifecycle/trusted actions"
     }
   ],
-  "receiptHash": "dee1d7bd6738edcefa9044ee6bdff27a7d58d925d5d99bab004dc195f00240e1"
+  "receiptHash": "62372d7a0f2e33233fc521b89cc108930e3386183ee9731240773a4c7b8106bc"
 }
