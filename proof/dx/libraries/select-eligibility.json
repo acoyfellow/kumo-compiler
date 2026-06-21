@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "component": "Select",
+  "packageVersion": "0.0.1",
+  "evaluatedRevision": "c1b38ee",
+  "policy": {
+    "decisionRule": "include only when every critical product and packed-consumer gate is passed; blocked, failed, partial, and not-run fail closed",
+    "sourceInferenceIsPass": false,
+    "criticalGates": [
+      "api",
+      "keyboard-a11y",
+      "controlled-uncontrolled",
+      "client-build",
+      "ssr",
+      "hydration-warnings",
+      "node-preservation",
+      "types-exports-styles",
+      "packed-consumer-install-build-ssr-hydration-tree-shaking"
+    ]
+  },
+  "packageBoundary": {
+    "status": "passed",
+    "components": ["Button", "Field"],
+    "selectExported": false,
+    "statement": "Installable 0.0.1 remains Button+Field; Select is not included.",
+    "evidence": {
+      "path": "library-artifacts/manifest.json",
+      "sha256": "89c4370c790be6a2fac8c097a2378cbf3476598887e4836bec3429fc3de6f9c4"
+    }
+  },
+  "sharedEvidence": [
+    {
+      "kind": "native-select-strict-run",
+      "path": "proof/select/summary.json",
+      "sha256": "da4e028b24a3439be036d88b240d1d8c0ead67cd0040b52422060c9fa7eff417",
+      "verdict": "failed",
+      "statusCounts": {"passed": 24, "failed": 10, "blocked": 22, "not-run": 0},
+      "evidenceDigest": "sha256:b345619b3c2973b6adb2eece5c784e4b8cef14003060fe38e22adbfa26e38262"
+    },
+    {
+      "kind": "older-shared-core-strict-run",
+      "path": "proof/bakeoff/shared-core/select/summary.json",
+      "sha256": "0d194b8aa7eaedf61a9085342993bea2167724889659be41347e1c9e7f43d590",
+      "verdict": "failed",
+      "statusCounts": {"passed": 14, "failed": 42, "blocked": 0, "not-run": 0},
+      "evidenceDigest": "sha256:30c4bbb08fee97b638d4ef0b6e280c149053e378ccbd375209b9ace4e58a65bb"
+    },
+    {
+      "kind": "contract-schema-only",
+      "path": "proof/select-contract/receipt.json",
+      "sha256": "fd42d96a42c3ca7ea5fd5f6d451fddee389382c5e997bd1fa5b57141daa001ce",
+      "status": "passed",
+      "scope": "contract vectors; not product or package eligibility"
+    }
+  ],
+  "frameworks": {
+    "vue": {
+      "decision": "defer",
+      "eligible": false,
+      "strictNativeStatus": "blocked",
+      "strictNativeStatusCounts": {"passed": 3, "failed": 0, "blocked": 11, "not-run": 0},
+      "criticalGates": {
+        "api": "blocked",
+        "keyboard-a11y": "blocked",
+        "controlled-uncontrolled": "blocked",
+        "client-build": "passed",
+        "ssr": "passed",
+        "hydration-warnings": "blocked",
+        "node-preservation": "blocked",
+        "types-exports-styles": "passed",
+        "packed-consumer-install-build-ssr-hydration-tree-shaking": "blocked"
+      },
+      "reasons": [
+        "Native strict execution blocked all browser behavior/a11y, hydration, warning, preservation, and focus gates.",
+        "Shared-core receipt is partial with public API, SSR, hydration warnings, node preservation, native ergonomics, and package/tree-shaking not run.",
+        "Mitosis receipt is partial and has no build, runtime, behavior, SSR, hydration, types, styles, or package proof.",
+        "The passing 0.0.1 consumer receipt covers Button and Field only and cannot establish Select package capability."
+      ],
+      "evidence": [
+        {"path": "proof/select/receipts.json", "sha256": "de39a19616e47d499f81a0d34bad23d1fc0ed7d12d442661b65f3ebe8f7fd681", "targetDigest": "sha256:e582a4885898d1b3eaa354868b6f36c791e14a00a0276428407cd50ce36ec489"},
+        {"path": "proof/bakeoff/shared-core/receipts/select.vue.json", "sha256": "b19ccbc275cd6431ee524c3fb35529e19838899c615a086458ce2ead8adc5640"},
+        {"path": "proof/bakeoff/mitosis/receipts/select.vue.json", "sha256": "731ac6b84db308c6be04491528481cf857569ba8dd9c3f1bfd3650ba2826a16f"},
+        {"path": "proof/dx/vue-library/receipt.json", "sha256": "dc50796d5e4439ff6bf32d9aec3aa868af546443902257670c1fb064ad361026"},
+        {"path": "dx/packages/kumo-vue/package.json", "sha256": "03a4f40bfad08f1366563d08221e31bc991c96b47faaca7068a1d460a6c9cb6b"}
+      ]
+    },
+    "svelte": {
+      "decision": "defer",
+      "eligible": false,
+      "strictNativeStatus": "failed",
+      "strictNativeStatusCounts": {"passed": 10, "failed": 4, "blocked": 0, "not-run": 0},
+      "criticalGates": {
+        "api": "failed",
+        "keyboard-a11y": "failed",
+        "controlled-uncontrolled": "failed",
+        "client-build": "passed",
+        "ssr": "passed",
+        "hydration-warnings": "passed",
+        "node-preservation": "passed",
+        "types-exports-styles": "passed",
+        "packed-consumer-install-build-ssr-hydration-tree-shaking": "blocked"
+      },
+      "reasons": [
+        "Native strict execution failed pointer selection, typeahead, controlled state, and callback ordering.",
+        "Shared-core receipt is partial with critical public API, SSR/hydration/preservation, and package gates not run.",
+        "Mitosis receipt is partial with product and package gates not run.",
+        "The passing 0.0.1 consumer receipt covers Button and Field only; the package has no Select export."
+      ],
+      "evidence": [
+        {"path": "proof/select/receipts.json", "sha256": "de39a19616e47d499f81a0d34bad23d1fc0ed7d12d442661b65f3ebe8f7fd681", "targetDigest": "sha256:bafd317f73b89cca51a068512d2a697cf12a886b6889f14239faa989f149b67d"},
+        {"path": "proof/bakeoff/shared-core/receipts/select.svelte.json", "sha256": "995c3b4323fea2b430f69f4b016ff8b00c09401cc5847e10a49ce1b598f5b114"},
+        {"path": "proof/bakeoff/mitosis/receipts/select.svelte.json", "sha256": "14b4dc8019d7bbd1d658013bd94d6720238100b20d3cf5552f19c89028dbe427"},
+        {"path": "proof/dx/svelte-library/receipt.json", "sha256": "2d3050237a66324ab53c84918a902017d3343900b568842c0e04d6557da31e72"},
+        {"path": "dx/packages/kumo-svelte/package.json", "sha256": "3ee649032874547625fd245b761c63b710b347f5e2ad4d34bd54e7b47a7fba49"}
+      ]
+    },
+    "solid": {
+      "decision": "defer",
+      "eligible": false,
+      "strictNativeStatus": "failed",
+      "strictNativeStatusCounts": {"passed": 7, "failed": 7, "blocked": 0, "not-run": 0},
+      "criticalGates": {
+        "api": "failed",
+        "keyboard-a11y": "failed",
+        "controlled-uncontrolled": "failed",
+        "client-build": "passed",
+        "ssr": "passed",
+        "hydration-warnings": "failed",
+        "node-preservation": "passed",
+        "types-exports-styles": "passed",
+        "packed-consumer-install-build-ssr-hydration-tree-shaking": "blocked"
+      },
+      "reasons": [
+        "Native strict execution failed pointer behavior, typeahead, controlled state, callback ordering, hydration, and focus/scroll.",
+        "Shared-core receipt is partial with critical public API, SSR/hydration/preservation, and package gates not run.",
+        "Mitosis receipt is partial with product and package gates not run.",
+        "The passing 0.0.1 consumer receipt covers Button and Field only; the package has no Select export."
+      ],
+      "evidence": [
+        {"path": "proof/select/receipts.json", "sha256": "de39a19616e47d499f81a0d34bad23d1fc0ed7d12d442661b65f3ebe8f7fd681", "targetDigest": "sha256:f30216963fb2dca706daa18d20e1dc9219a6a5dfdf7c3728e98786664cf54be7"},
+        {"path": "proof/bakeoff/shared-core/receipts/select.solid.json", "sha256": "1e5c01706f825b6dbc1ddb3b36a7420a579483c573ed4399af932ab51fc8a6a2"},
+        {"path": "proof/bakeoff/mitosis/receipts/select.solid.json", "sha256": "066114da8b4fcb215f8176aa8fd787f99d678d69c6805e7d9891a0bb1fd93e04"},
+        {"path": "proof/dx/solid-library/receipt.json", "sha256": "f4441287929d69630a6e69f71c871065b05f44637a60c8dc4cb307f27d55929e"},
+        {"path": "dx/packages/kumo-solid/package.json", "sha256": "13a9b4e670290deab7878856eaff98e3b68cf7e9a370267274139383ad4768ae"}
+      ]
+    }
+  },
+  "decisionCounts": {"include": 0, "defer": 3},
+  "overallDecision": "defer-all"
+}
