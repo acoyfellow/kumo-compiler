@@ -73,7 +73,28 @@
       "id": "layered",
       "props": {},
       "fixture": {
-        "kind": "layer-card"
+        "export": "root",
+        "props": {},
+        "children": [
+          {
+            "export": ".Secondary",
+            "props": {},
+            "children": [
+              {
+                "text": "Top"
+              }
+            ]
+          },
+          {
+            "export": ".Primary",
+            "props": {},
+            "children": [
+              {
+                "text": "Main"
+              }
+            ]
+          }
+        ]
       },
       "expected": {
         "root": {

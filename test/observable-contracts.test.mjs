@@ -1,8 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {loadContracts,validateContract,validateExpectation,verifyCanonical} from '../scripts/observable-contracts.mjs';
-import {compareMarkup,runCanonicalVectors} from '../scripts/observable-runner.mjs';
+import {loadContracts,validateContract,validateExpectation,validateFixtureNode,verifyCanonical} from '../scripts/observable-contracts.mjs';
+import {compareMarkup,fixtureElement,runCanonicalVectors} from '../scripts/observable-runner.mjs';
 const contracts=loadContracts();
 const presentationalNames=['badge','banner','breadcrumbs','cloudflare-logo','code','empty','grid-item','grid','label','layer-card','link','loader','meter','surface','table','text'];
 const presentational=contracts.filter(x=>presentationalNames.includes(x.component));
@@ -10,5 +10,7 @@ test('presentational inventory is exactly sixteen contracts and thirty-five vect
 test('validator fails closed for version, omissions, additions and operators',()=>{for(const mutate of[x=>delete x.semantics,x=>x.schemaVersion='kumo.observable/v2',x=>x.surprise=true]){const copy=structuredClone(contracts[0]);mutate(copy);assert.throws(()=>validateContract(copy));}for(const bad of[{root:{tag:'DIV'}},{root:{},wat:true},{root:{classes:{contains:['x']}}},{root:{},descendants:[{selector:'div > span',count:1}]},{root:{},descendants:[{selector:'span',count:-1}]},{root:{},focus:'div > input'}])assert.throws(()=>validateExpectation(bad));});
 test('contracts bind canonical package provenance and installed bytes',()=>contracts.forEach(verifyCanonical));
 test('canonical React rendering executes and passes all presentational vectors',async()=>assert.equal((await runCanonicalVectors(presentational)).length,35));
+test('generic composition DSL is recursive and fail-closed',()=>{const arbitrary={export:'root',props:{tone:'quiet',nested:{ok:true}},children:[{export:'.Arbitrary',props:{count:2},children:[{text:'content'}]}]};assert.deepEqual(validateFixtureNode(arbitrary),arbitrary);for(const bad of[{kind:'arbitrary'},{export:'root',props:{},children:[],wat:true},{export:'Link',props:{},children:[]},{export:'.Link.',props:{},children:[]},{export:'root',props:{bad:undefined},children:[]},{export:'root',props:{},children:'bad'},{text:2}])assert.throws(()=>validateFixtureNode(bad));});
+test('missing compound exports fail before rendering',()=>assert.throws(()=>fixtureElement({export:'root',props:{},children:[{export:'.Missing',props:{},children:[]}]},()=>null),/compound export missing \.Missing/));
 test('deliberately wrong expectation fails',()=>assert.throws(()=>compareMarkup('<span>right</span>',{root:{tag:'span',text:'wrong'}}),/text expected/));
 test('loading and serialization are repeatable',()=>{const one=JSON.stringify(loadContracts());const two=JSON.stringify(loadContracts());assert.equal(one,two);for(const c of contracts){const disk=JSON.parse(fs.readFileSync(`contracts/kumo.observable/v1/components/${c.component}.json`));assert.deepEqual(c,disk);}});

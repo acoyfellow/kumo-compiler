@@ -62,7 +62,54 @@
       "id": "semantic-selected",
       "props": {},
       "fixture": {
-        "kind": "table"
+        "export": "root",
+        "props": {},
+        "children": [
+          {
+            "export": ".Header",
+            "props": {},
+            "children": [
+              {
+                "export": ".Row",
+                "props": {},
+                "children": [
+                  {
+                    "export": ".Head",
+                    "props": {},
+                    "children": [
+                      {
+                        "text": "Name"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "export": ".Body",
+            "props": {},
+            "children": [
+              {
+                "export": ".Row",
+                "props": {},
+                "children": [
+                  {
+                    "export": ".Cell",
+                    "props": {
+                      "className": "bg-kumo-tint"
+                    },
+                    "children": [
+                      {
+                        "text": "Kumo"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       },
       "expected": {
         "root": {
@@ -112,7 +159,33 @@
         "layout": "fixed"
       },
       "fixture": {
-        "kind": "table"
+        "export": "root",
+        "props": {},
+        "children": [
+          {
+            "export": ".Body",
+            "props": {},
+            "children": [
+              {
+                "export": ".Row",
+                "props": {},
+                "children": [
+                  {
+                    "export": ".Cell",
+                    "props": {
+                      "sticky": "left"
+                    },
+                    "children": [
+                      {
+                        "text": "Pinned"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       },
       "expected": {
         "root": {
