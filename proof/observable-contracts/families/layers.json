@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "family": "layers",
+  "canonical": "@cloudflare/kumo@2.5.2",
+  "counts": {
+    "passed": 8,
+    "failed": 0,
+    "blocked": 0
+  },
+  "components": [
+    "dialog",
+    "dropdown-menu",
+    "popover"
+  ],
+  "cells": [
+    {
+      "component": "dialog",
+      "vector": "closed-trigger",
+      "status": "passed"
+    },
+    {
+      "component": "dialog",
+      "vector": "open-and-close",
+      "status": "passed"
+    },
+    {
+      "component": "dropdown-menu",
+      "vector": "closed-trigger-ssr",
+      "status": "passed"
+    },
+    {
+      "component": "dropdown-menu",
+      "vector": "pointer-item-selection",
+      "status": "passed"
+    },
+    {
+      "component": "dropdown-menu",
+      "vector": "keyboard-typeahead-submenu-dismissal",
+      "status": "passed"
+    },
+    {
+      "component": "popover",
+      "vector": "closed-trigger-ssr",
+      "status": "passed"
+    },
+    {
+      "component": "popover",
+      "vector": "pointer-open-close-outside",
+      "status": "passed"
+    },
+    {
+      "component": "popover",
+      "vector": "controlled-open",
+      "status": "passed"
+    }
+  ],
+  "digest": "a10c9d0262b725d85ceb5b53b853e6063bef1d6046d010ad4e36681c9fe3a0e9"
+}
