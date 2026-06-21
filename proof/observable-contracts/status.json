@@ -15,11 +15,11 @@
     ]
   },
   "counts": {
-    "contracted": 25,
-    "pending": 16
+    "contracted": 30,
+    "pending": 11
   },
-  "vectorCount": 66,
-  "interactiveVectorCount": 31,
+  "vectorCount": 91,
+  "interactiveVectorCount": 44,
   "components": [
     {
       "id": "select",
@@ -31,11 +31,17 @@
     },
     {
       "id": "button",
-      "status": "pending",
-      "contract": null,
-      "vectors": 0,
-      "interactiveVectors": 0,
-      "unknowns": []
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/button.json",
+      "vectors": 8,
+      "interactiveVectors": 4,
+      "unknowns": [
+        {
+          "field": "tooltipTimingAndIconIdentity",
+          "status": "unknown",
+          "reason": "Tooltip timing and arbitrary icon component rendering are delegated to Tooltip and React and are not guessed by this contract."
+        }
+      ]
     },
     {
       "id": "dialog",
@@ -411,19 +417,31 @@
     },
     {
       "id": "date-picker",
-      "status": "pending",
-      "contract": null,
-      "vectors": 0,
-      "interactiveVectors": 0,
-      "unknowns": []
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/date-picker.json",
+      "vectors": 3,
+      "interactiveVectors": 2,
+      "unknowns": [
+        {
+          "field": "localizedLabelsAndCalendarText",
+          "status": "unknown",
+          "reason": "Calendar strings, week layout, and locale-specific formatting are owned by react-day-picker and Intl/browser locale; this contract intentionally does not invent locale behavior."
+        }
+      ]
     },
     {
       "id": "date-range-picker",
-      "status": "pending",
-      "contract": null,
-      "vectors": 0,
-      "interactiveVectors": 0,
-      "unknowns": []
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/date-range-picker.json",
+      "vectors": 3,
+      "interactiveVectors": 1,
+      "unknowns": [
+        {
+          "field": "calendarMonthAndLocalizedDayLabels",
+          "status": "unknown",
+          "reason": "The component initializes from the current local month and generates labels with browser locale APIs; exact dates and strings are deliberately not frozen or invented."
+        }
+      ]
     },
     {
       "id": "dropdown-menu",
@@ -435,20 +453,32 @@
     },
     {
       "id": "toasty",
-      "status": "pending",
-      "contract": null,
-      "vectors": 0,
-      "interactiveVectors": 0,
-      "unknowns": []
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/toasty.json",
+      "vectors": 3,
+      "interactiveVectors": 2,
+      "unknowns": [
+        {
+          "field": "announcementTimingAndRemovalDelay",
+          "status": "unknown",
+          "reason": "Assistive technology announcement timing and animation-completion removal timing are inherited from Base UI, CSS, and the user agent; exact wall-clock timing is not guessed."
+        }
+      ]
     },
     {
       "id": "pagination",
-      "status": "pending",
-      "contract": null,
-      "vectors": 0,
-      "interactiveVectors": 0,
-      "unknowns": []
+      "status": "contracted",
+      "contract": "contracts/kumo.observable/v1/components/pagination.json",
+      "vectors": 8,
+      "interactiveVectors": 4,
+      "unknowns": [
+        {
+          "field": "selectPopupPlatformPresentation",
+          "status": "unknown",
+          "reason": "Dropdown popup geometry, native accessibility projection, and keyboard details are inherited from the Kumo Select/Base UI implementation and browser; they are not guessed here."
+        }
+      ]
     }
   ],
-  "digest": "ad2776b92634fc1a5a5b84f08077862ca1dc9b2b85d6fa72f93dc2ed24ebb2fe"
+  "digest": "e24f8d9ee8a46f359b90411224acaf264c40005cec1849e37b3506d39e5af832"
 }
