@@ -4,9 +4,10 @@ import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { execFileSync } from 'node:child_process';
 import { PACKAGE,FRAMEWORKS,contained,diffInventories,extractTarball,fetchVersion,inventory,inventorySummary,sha,stable,writeImmutable } from './upstream/lib.mjs';
+import { proveGeneratedBrowser } from './upstream-browser-proof.mjs';
 
 const ROOT=path.resolve(new URL('..',import.meta.url).pathname);
-const PROVENANCE_PATHS=['workflow.json','src/kumo','scripts/compiler-protocol'];
+const PROVENANCE_PATHS=['workflow.json','src/kumo','scripts/compiler-protocol','scripts/upstream-browser-proof.mjs'];
 export function parseArgs(argv){const o={scenario:'real',calibrationComponent:'button'};for(let i=0;i<argv.length;i++){const k=argv[i];if(!['--from','--to','--scenario','--out','--calibration-component'].includes(k))throw new Error(`unknown argument: ${k}`);if(!argv[i+1]||argv[i+1].startsWith('--'))throw new Error(`missing value: ${k}`);o[k.slice(2).replace(/-([a-z])/g,(_,x)=>x.toUpperCase())]=argv[++i];}if(!o.from||!o.to)throw new Error('--from and --to are required');if(!['real','synthetic-export-break'].includes(o.scenario))throw new Error(`unknown scenario: ${o.scenario}`);return o;}
 export async function run(opts){
  const workspace=await mkdtemp(path.join(tmpdir(),'kumo-upstream-check-')); const requested=opts.out?path.resolve(process.cwd(),opts.out):path.join(workspace,'result');
@@ -21,7 +22,7 @@ export async function run(opts){
   const affected=[...mapped].sort(),globalReview=unknown.length>0;
   if(!mapping.has(opts.calibrationComponent))throw new Error(`unknown calibration component: ${opts.calibrationComponent}`);
   let generation={componentId:opts.calibrationComponent,status:'not-run',reason:'global review blocks calibration',cells:[]};
-  if(!globalReview)generation=await generateCells(workspace,opts.calibrationComponent);
+  if(!globalReview){generation=await generateCells(workspace,opts.calibrationComponent);generation.browser=await proveGeneratedBrowser(path.join(workspace,'compiler/output'));}
   const cells=[];for(const componentId of affected)for(const framework of FRAMEWORKS){const generated=generation.cells.find(x=>x.componentId===componentId&&x.framework===framework);cells.push({componentId,framework,status:generated?.status??'blocked',reason:generated?.reason??'affected non-calibration component was not attempted',attempted:Boolean(generated),outputManifest:generated?.outputManifest??[]});}
   if(globalReview)for(const framework of FRAMEWORKS)cells.push({componentId:null,framework,status:'blocked',reason:'unknown public API change requires global review',attempted:false,outputManifest:[]});
   const sourceTree=gitSourceTree(),source={revision:gitRevision(),sourceTree,provenancePaths:PROVENANCE_PATHS};

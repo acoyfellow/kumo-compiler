@@ -4,12 +4,13 @@
   "scenario": "synthetic-export-break",
   "status": "blocked",
   "source": {
-    "revision": "2d95363810b5b8523c734097be3c08a3a3b52829",
+    "revision": "902a3e9e2380bea8a609e3c68ec53eb3acb9cbbf",
     "sourceTree": "7fb758762eb0fc7fafb970258009c31ec124fce838972ed7c110aa0bb604a61f",
     "provenancePaths": [
       "workflow.json",
       "src/kumo",
-      "scripts/compiler-protocol"
+      "scripts/compiler-protocol",
+      "scripts/upstream-browser-proof.mjs"
     ]
   },
   "clean": {
@@ -327,7 +328,139 @@
           }
         ]
       }
-    ]
+    ],
+    "browser": {
+      "status": "passed",
+      "passedCount": 1,
+      "blockedCount": 2,
+      "failedCount": 1,
+      "cells": [
+        {
+          "framework": "react",
+          "status": "blocked",
+          "generatedRoot": "button/react",
+          "generatedImportPaths": [
+            "client.jsx",
+            "server.jsx"
+          ],
+          "clientDist": "<EPHEMERAL>/client-dist",
+          "ssrDist": "<EPHEMERAL>/ssr-dist",
+          "diagnostics": [
+            "Build failed with 1 error:\n\n\u001b[31m[UNLOADABLE_DEPENDENCY] \u001b[0mCould not load node_modules/@cloudflare/kumo/components/button\n   \u001b[38;5;246m╭\u001b[0m\u001b[38;5;246m─\u001b[0m\u001b[38;5;246m[\u001b[0m ../..<OUTPUT>/button/react/entry.jsx:2:46 \u001b[38;5;246m]\u001b[0m\n   \u001b[38;5;246m│\u001b[0m\n \u001b[38;5;246m2 │\u001b[0m \u001b[38;5;249mi\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249mp\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249m{\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mB\u001b[0m\u001b[38;5;249mu\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249ma\u001b[0m\u001b[38;5;249ms\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mC\u001b[0m\u001b[38;5;249ma\u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249mi\u001b[0m\u001b[38;5;249mc\u001b[0m\u001b[38;5;249ma\u001b[0m\u001b[38;5;249ml\u001b[0m\u001b[38;5;249mC\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249mp\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249me\u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249m}\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mf\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249m \u001b[0m\"@cloudflare/kumo/components/button\"\u001b[38;5;249m;\u001b[0m\n \u001b[38;5;240m  │\u001b[0m                                              ──────────────────┬─────────────────  \n \u001b[38;5;240m  │\u001b[0m                                                                ╰─────────────────── No such file or directory (os error 2)\n\u001b[38;5;246m───╯\u001b[0m\n\n    at aggregateBindingErrorsIntoJsError (file://<ROOT>/node_modules/rolldown/dist/shared/error-BuvQYXuZ.mjs:48:18)\n    at unwrapBindingResult (file://<ROOT>/node_modules/rolldown/dist/shared/error-BuvQYXuZ.mjs:18:128)\n    at #build (file://<ROOT>/node_modules/rolldown/dist/shared/rolldown-build-CrPk_lZe.mjs:3246:34)\n    at async buildEnvironment (file://<ROOT>/node_modules/vite/dist/node/chunks/node.js:33253:64)\n    at async Object.build (file://<ROOT>/node_modules/vite/dist/node/chunks/node.js:33675:19)\n    at async proveGeneratedBrowser (file://<ROOT>/scripts/upstream-browser-proof.mjs:24:1196)\n    at async run (file://<ROOT>/scripts/upstream-check.mjs:25:108)\n    at async file://<ROOT>/scripts/upstream-check.mjs:45:77\nBuild failed with 1 error:\n\n\u001b[31m[UNLOADABLE_DEPENDENCY] \u001b[0mCould not load node_modules/@cloudflare/kumo/components/button\n   \u001b[38;5;246m╭\u001b[0m\u001b[38;5;246m─\u001b[0m\u001b[38;5;246m[\u001b[0m ../..<OUTPUT>/button/react/entry.jsx:2:46 \u001b[38;5;246m]\u001b[0m\n   \u001b[38;5;246m│\u001b[0m\n \u001b[38;5;246m2 │\u001b[0m \u001b[38;5;249mi\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249mp\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249m{\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mB\u001b[0m\u001b[38;5;249mu\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249ma\u001b[0m\u001b[38;5;249ms\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mC\u001b[0m\u001b[38;5;249ma\u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249mi\u001b[0m\u001b[38;5;249mc\u001b[0m\u001b[38;5;249ma\u001b[0m\u001b[38;5;249ml\u001b[0m\u001b[38;5;249mC\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249mp\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249me\u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249m}\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mf\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249m \u001b[0m\"@cloudflare/kumo/components/button\"\u001b[38;5;249m;\u001b[0m\n \u001b[38;5;240m  │\u001b[0m                                              ──────────────────┬─────────────────  \n \u001b[38;5;240m  │\u001b[0m                                                                ╰─────────────────── No such file or directory (os error 2)\n\u001b[38;5;246m───╯\u001b[0m\n"
+          ]
+        },
+        {
+          "framework": "solid",
+          "status": "failed",
+          "generatedRoot": "button/solid",
+          "generatedImportPaths": [
+            "src/client.tsx",
+            "src/server.tsx"
+          ],
+          "clientDist": "<EPHEMERAL>/client-dist",
+          "ssrDist": "<EPHEMERAL>/ssr-dist",
+          "diagnostics": [
+            "browser assertions failed: {\"before\":{\"button\":true,\"text\":\"+primary\",\"nodePreserved\":true,\"html\":\"<main data-hk=\\\"00\\\" class=\\\"form-shell\\\" data-server-node=\\\"preserved\\\"><h1>Button</h1><section class=\\\"button-matrix\\\"><!--$--><button data-hk=\\\"0100\\\" type=\\\"button\\\" class=\\\"kumo-button primary base  \\\"><span data-hk=\\\"01010\\\" aria-hidden=\\\"true\\\">+</span>primary</button><button data-hk=\\\"0110\\\" type=\\\"button\\\" class=\\\"kumo-button secondary base  \\\"><span data-hk=\\\"01110\\\" aria-hidden=\\\"true\\\">+</span>secondary</button><button data-hk=\\\"0120\\\" type=\\\"button\\\" class=\\\"kumo-button outline base  \\\"><span data-hk=\\\"01210\\\" aria-hidden=\\\"true\\\">+</span>outline</button><button data-hk=\\\"0130\\\" type=\\\"button\\\" class=\\\"kumo-button danger base  \\\"><span data-hk=\\\"01310\\\" aria-hidden=\\\"true\\\">+</span>danger</button><button data-hk=\\\"0140\\\" type=\\\"button\\\" class=\\\"kumo-button ghost base  \\\"><span data-hk=\\\"01410\\\" aria-hidden=\\\"true\\\">+</span>ghost</button><!--/--><!--$--><button data-hk=\\\"0200\\\" type=\\\"button\\\" class=\\\"kumo-button primary xs  \\\">xs</button><button data-hk=\\\"0210\\\" type=\\\"button\\\" class=\\\"kumo-button primary sm  \\\">sm</button><button data-hk=\\\"0220\\\" type=\\\"button\\\" class=\\\"kumo-button primary base  \\\">base</button><button data-hk=\\\"0230\\\" type=\\\"button\\\" class=\\\"kumo-button primary lg  \\\">lg</button><!--/--><!--$--><button data-hk=\\\"030\\\" type=\\\"button\\\" class=\\\"kumo-button primary base  \\\" disabled=\\\"\\\" aria-busy=\\\"true\\\" aria-disabled=\\\"true\\\"><span data-hk=\\\"0310\\\" class=\\\"spinner\\\" aria-hidden=\\\"true\\\"></span> Loading</button><!--/--><!--$--><button data-hk=\\\"040\\\" type=\\\"button\\\" class=\\\"kumo-button primary base  \\\" disabled=\\\"\\\" aria-disabled=\\\"true\\\">Disabled</button><!--/--><!--$--><button data-hk=\\\"050\\\" aria-label=\\\"Icon action\\\" type=\\\"button\\\" class=\\\"kumo-button primary base  \\\">â˜…</button><!--/--><p role=\\\"status\\\">Activations: <!--$-->0<!--/--></p></section></main>\"},\"after\":\"+primary\",\"behaviorChanged\":false,\"nodePreserved\":true,\"consoleErrors\":[\"Uncaught\"],\"networkFailures\":[],\"requests\":[\"/\",\"/client.js\",\"/favicon.ico\"]}"
+          ],
+          "ssr": {
+            "built": true,
+            "module": "server.js",
+            "containsButton": true,
+            "sha256": "1a8fa38f61dc916fd02ed726ade1e813eb08ff2fea77cff22834dab11eb82b60"
+          },
+          "client": {
+            "built": true,
+            "module": "client.js",
+            "sha256": "b46bca472977c33af6a351b8a4d8d63c33e28c9999ac8e1e8264f418bdd4f75d"
+          },
+          "browser": {
+            "product": "system Chrome",
+            "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+            "protocol": "CDP",
+            "observations": {
+              "before": {
+                "button": true,
+                "text": "+primary",
+                "nodePreserved": true,
+                "html": "<main data-hk=\"00\" class=\"form-shell\" data-server-node=\"preserved\"><h1>Button</h1><section class=\"button-matrix\"><!--$--><button data-hk=\"0100\" type=\"button\" class=\"kumo-button primary base  \"><span data-hk=\"01010\" aria-hidden=\"true\">+</span>primary</button><button data-hk=\"0110\" type=\"button\" class=\"kumo-button secondary base  \"><span data-hk=\"01110\" aria-hidden=\"true\">+</span>secondary</button><button data-hk=\"0120\" type=\"button\" class=\"kumo-button outline base  \"><span data-hk=\"01210\" aria-hidden=\"true\">+</span>outline</button><button data-hk=\"0130\" type=\"button\" class=\"kumo-button danger base  \"><span data-hk=\"01310\" aria-hidden=\"true\">+</span>danger</button><button data-hk=\"0140\" type=\"button\" class=\"kumo-button ghost base  \"><span data-hk=\"01410\" aria-hidden=\"true\">+</span>ghost</button><!--/--><!--$--><button data-hk=\"0200\" type=\"button\" class=\"kumo-button primary xs  \">xs</button><button data-hk=\"0210\" type=\"button\" class=\"kumo-button primary sm  \">sm</button><button data-hk=\"0220\" type=\"button\" class=\"kumo-button primary base  \">base</button><button data-hk=\"0230\" type=\"button\" class=\"kumo-button primary lg  \">lg</button><!--/--><!--$--><button data-hk=\"030\" type=\"button\" class=\"kumo-button primary base  \" disabled=\"\" aria-busy=\"true\" aria-disabled=\"true\"><span data-hk=\"0310\" class=\"spinner\" aria-hidden=\"true\"></span> Loading</button><!--/--><!--$--><button data-hk=\"040\" type=\"button\" class=\"kumo-button primary base  \" disabled=\"\" aria-disabled=\"true\">Disabled</button><!--/--><!--$--><button data-hk=\"050\" aria-label=\"Icon action\" type=\"button\" class=\"kumo-button primary base  \">â˜…</button><!--/--><p role=\"status\">Activations: <!--$-->0<!--/--></p></section></main>"
+              },
+              "after": "+primary",
+              "behaviorChanged": false,
+              "nodePreserved": true,
+              "consoleErrors": [
+                "Uncaught"
+              ],
+              "networkFailures": [],
+              "requests": [
+                "/",
+                "/client.js",
+                "/favicon.ico"
+              ]
+            }
+          }
+        },
+        {
+          "framework": "svelte",
+          "status": "blocked",
+          "generatedRoot": "button/svelte",
+          "generatedImportPaths": [
+            "src/main.js",
+            "src/ssr-entry.js"
+          ],
+          "clientDist": "<EPHEMERAL>/client-dist",
+          "ssrDist": "<EPHEMERAL>/ssr-dist",
+          "diagnostics": [
+            "Build failed with 2 errors:\n\n\u001b[31m[UNLOADABLE_DEPENDENCY] \u001b[0mCould not load node_modules/svelte/internal/client\n   \u001b[38;5;246m╭\u001b[0m\u001b[38;5;246m─\u001b[0m\u001b[38;5;246m[\u001b[0m node_modules/svelte/src/attachments/index.js:3:37 \u001b[38;5;246m]\u001b[0m\n   \u001b[38;5;246m│\u001b[0m\n \u001b[38;5;246m3 │\u001b[0m \u001b[38;5;249mi\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249mp\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249m{\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mp\u001b[0m\u001b[38;5;249m,\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249me\u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249md\u001b[0m\u001b[38;5;249me\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249m_\u001b[0m\u001b[38;5;249me\u001b[0m\u001b[38;5;249mf\u001b[0m\u001b[38;5;249mf\u001b[0m\u001b[38;5;249me\u001b[0m\u001b[38;5;249mc\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249m}\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mf\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249m \u001b[0m'svelte/internal/client'\u001b[38;5;249m;\u001b[0m\n \u001b[38;5;240m  │\u001b[0m                                     ────────────┬───────────  \n \u001b[38;5;240m  │\u001b[0m                                                 ╰───────────── No such file or directory (os error 2)\n\u001b[38;5;246m───╯\u001b[0m\n\n\u001b[31m[UNLOADABLE_DEPENDENCY] \u001b[0mCould not load node_modules/svelte/internal/disclose-version\n   \u001b[38;5;246m╭\u001b[0m\u001b[38;5;246m─\u001b[0m\u001b[38;5;246m[\u001b[0m ../..<OUTPUT>/button/svelte/src/App.svelte:1:8 \u001b[38;5;246m]\u001b[0m\n   \u001b[38;5;246m│\u001b[0m\n \u001b[38;5;246m1 │\u001b[0m \u001b[38;5;249mi\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249mp\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249m \u001b[0m'svelte/internal/disclose-version'\u001b[38;5;249m;\u001b[0m\n \u001b[38;5;240m  │\u001b[0m        ─────────────────┬────────────────  \n \u001b[38;5;240m  │\u001b[0m                         ╰────────────────── No such file or directory (os error 2)\n\u001b[38;5;246m───╯\u001b[0m\n\n    at aggregateBindingErrorsIntoJsError (file://<ROOT>/node_modules/rolldown/dist/shared/error-BuvQYXuZ.mjs:48:18)\n    at unwrapBindingResult (file://<ROOT>/node_modules/rolldown/dist/shared/error-BuvQYXuZ.mjs:18:128)\n    at #build (file://<ROOT>/node_modules/rolldown/dist/shared/rolldown-build-CrPk_lZe.mjs:3246:34)\n    at async buildEnvironment (file://<ROOT>/node_modules/vite/dist/node/chunks/node.js:33253:64)\n    at async Object.build (file://<ROOT>/node_modules/vite/dist/node/chunks/node.js:33675:19)\n    at async proveGeneratedBrowser (file://<ROOT>/scripts/upstream-browser-proof.mjs:24:1196)\n    at async run (file://<ROOT>/scripts/upstream-check.mjs:25:108)\n    at async file://<ROOT>/scripts/upstream-check.mjs:45:77\nBuild failed with 2 errors:\n\n\u001b[31m[UNLOADABLE_DEPENDENCY] \u001b[0mCould not load node_modules/svelte/internal/client\n   \u001b[38;5;246m╭\u001b[0m\u001b[38;5;246m─\u001b[0m\u001b[38;5;246m[\u001b[0m node_modules/svelte/src/attachments/index.js:3:37 \u001b[38;5;246m]\u001b[0m\n   \u001b[38;5;246m│\u001b[0m\n \u001b[38;5;246m3 │\u001b[0m \u001b[38;5;249mi\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249mp\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249m{\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mp\u001b[0m\u001b[38;5;249m,\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249me\u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249md\u001b[0m\u001b[38;5;249me\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249m_\u001b[0m\u001b[38;5;249me\u001b[0m\u001b[38;5;249mf\u001b[0m\u001b[38;5;249mf\u001b[0m\u001b[38;5;249me\u001b[0m\u001b[38;5;249mc\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249m}\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mf\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249m \u001b[0m'svelte/internal/client'\u001b[38;5;249m;\u001b[0m\n \u001b[38;5;240m  │\u001b[0m                                     ────────────┬───────────  \n \u001b[38;5;240m  │\u001b[0m                                                 ╰───────────── No such file or directory (os error 2)\n\u001b[38;5;246m───╯\u001b[0m\n\n\u001b[31m[UNLOADABLE_DEPENDENCY] \u001b[0mCould not load node_modules/svelte/internal/disclose-version\n   \u001b[38;5;246m╭\u001b[0m\u001b[38;5;246m─\u001b[0m\u001b[38;5;246m[\u001b[0m ../..<OUTPUT>/button/svelte/src/App.svelte:1:8 \u001b[38;5;246m]\u001b[0m\n   \u001b[38;5;246m│\u001b[0m\n \u001b[38;5;246m1 │\u001b[0m \u001b[38;5;249mi\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249mp\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249m \u001b[0m'svelte/internal/disclose-version'\u001b[38;5;249m;\u001b[0m\n \u001b[38;5;240m  │\u001b[0m        ─────────────────┬────────────────  \n \u001b[38;5;240m  │\u001b[0m                         ╰────────────────── No such file or directory (os error 2)\n\u001b[38;5;246m───╯\u001b[0m\n"
+          ]
+        },
+        {
+          "framework": "vue",
+          "status": "passed",
+          "generatedRoot": "button/vue",
+          "generatedImportPaths": [
+            "src/main.ts",
+            "src/ssr-entry.ts"
+          ],
+          "clientDist": "<EPHEMERAL>/client-dist",
+          "ssrDist": "<EPHEMERAL>/ssr-dist",
+          "diagnostics": [],
+          "ssr": {
+            "built": true,
+            "module": "server.js",
+            "containsButton": true,
+            "sha256": "2ac7686b2e899ed204feebf67eb4fab45dafe0a0166df9a6f7e9cd6ba9ffcd8e"
+          },
+          "client": {
+            "built": true,
+            "module": "client.js",
+            "sha256": "1105d5079b396d2660191db012568fc2a2e938108e8e0be65baf6097b187a0c0"
+          },
+          "browser": {
+            "product": "system Chrome",
+            "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+            "protocol": "CDP",
+            "observations": {
+              "before": {
+                "button": true,
+                "text": "Primary",
+                "nodePreserved": true,
+                "html": "<main class=\"button-shell\" data-server-node=\"preserved\"><h1>Button</h1><section class=\"button-matrix\"><button type=\"button\" class=\"kumo-button primary base\"><!---->Primary<!----></button><!--[--><button type=\"button\" class=\"kumo-button secondary\">secondary</button><button type=\"button\" class=\"kumo-button outline\">outline</button><button type=\"button\" class=\"kumo-button danger\">danger</button><button type=\"button\" class=\"kumo-button ghost\">ghost</button><!--]--></section></main>"
+              },
+              "after": "Primary1",
+              "behaviorChanged": true,
+              "nodePreserved": true,
+              "consoleErrors": [],
+              "networkFailures": [],
+              "requests": [
+                "/",
+                "/client.js",
+                "/favicon.ico"
+              ]
+            }
+          }
+        }
+      ]
+    }
   },
   "behavior": {
     "status": "not-run",
@@ -340,5 +473,5 @@
   "commands": [
     "node scripts/upstream-check.mjs --from 2.5.1 --to 2.5.2 --scenario synthetic-export-break"
   ],
-  "receiptSha256": "ababf779aff04c970a544e0cf059d7b2a0ff8c222f83cb5fb52e1cdccec775ab"
+  "receiptSha256": "42cf042571e569719f1ab79a12d9575fa9b60fce003fda6f042aebef036f8594"
 }
