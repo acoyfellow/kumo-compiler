@@ -667,26 +667,6 @@
   ],
   "unknowns": [
     {
-      "field": "vectors.pointer-open-select-disabled",
-      "status": "blocked",
-      "reason": "Required pointer, disabled-option, callback-order, dismissal, and focus vector is pending shared browser execution; no pass is claimed."
-    },
-    {
-      "field": "vectors.keyboard-navigation-typeahead",
-      "status": "blocked",
-      "reason": "Full Arrow/Home/End/Page/Escape/typeahead/scroll behavior is required but pending shared browser execution."
-    },
-    {
-      "field": "vectors.controlled-value-open-order",
-      "status": "blocked",
-      "reason": "Controlled ownership, Tab closure, and exact callback ordering are pending shared browser execution."
-    },
-    {
-      "field": "vectors.multiple-object-selection",
-      "status": "blocked",
-      "reason": "Object identity and multiple selection require executable browser fixtures and are not inferred from declarations."
-    },
-    {
       "field": "existingSelectPilot.react-vue",
       "status": "blocked",
       "reason": "proof/select/receipts.json records React and Vue blocked before meaningful interaction because harness queries returned null; their interaction gates remain blocked."
@@ -700,11 +680,6 @@
       "field": "existingSelectPilot.solid",
       "status": "blocked",
       "reason": "Existing receipt records failed pointer open/select, typeahead, controlled state, callback ordering, hydration, and focus/scroll. These failures remain visible and unresolved."
-    },
-    {
-      "field": "canonicalBrowserEvidence",
-      "status": "unknown",
-      "reason": "No focused canonical @cloudflare/kumo@2.5.2 browser execution establishes exact event order, focus/scroll, outside dismissal, typeahead timeout/normalization, or object comparator behavior."
     },
     {
       "field": "portalPositioningHydration",
