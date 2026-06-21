@@ -31,4 +31,23 @@ test('generic Vue emitter creates deterministic, native, tree-shakeable candidat
     assert.deepEqual(first.exports[`./components/${entry.component}`], {vue:`./${entry.file}`,types:`./components/${entry.component}.d.ts`,canonicalSubpath:entry.subpath});
   }
   assert.deepEqual(first.exports['.'], {vue:'./index.ts',types:'./index.d.ts'});
+  const index = fs.readFileSync(path.join(output,'index.ts'),'utf8');
+  assert.equal(first.compoundPaths.length > 0, true);
+  for (const part of first.compoundPaths) {
+    assert.match(part.binding, /^[A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*)+$/);
+    assert.equal(fs.existsSync(path.join(output,part.file)), true);
+    assert.equal(fs.existsSync(path.join(output,part.types)), true);
+    const source = fs.readFileSync(path.join(output,part.file),'utf8');
+    assert.equal(hash(source), part.sha256);
+    assert.match(source, new RegExp(`data-kumo-part="${part.path}"`));
+    assert.match(source, /v-bind="\$attrs"/);
+    assert.match(source, /<slot \/>/);
+    assert.doesNotMatch(source, /(?:react|innerHTML|<script[^>]*src=|demo)/i);
+    const parsed = parse(source, {filename:part.file});
+    assert.deepEqual(parsed.errors, []);
+    assert.doesNotThrow(() => compileScript(parsed.descriptor,{id:part.binding}));
+    assert.deepEqual(compileTemplate({source:parsed.descriptor.template.content,filename:part.file,id:part.binding}).errors, []);
+    assert.deepEqual(first.exports[`./${part.file.slice(0,-4)}`], {vue:`./${part.file}`,types:`./${part.types}`,binding:part.binding});
+    assert.match(index, new RegExp(`export const ${part.root} = Object\\.assign`));
+  }
 });

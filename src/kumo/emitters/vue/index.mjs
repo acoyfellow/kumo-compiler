@@ -55,6 +55,30 @@ function vueType(type) {
   if (/string|base\||sm\||xs\||lg\||primary\||dialog\|/i.test(type)) return 'string';
   return 'unknown';
 }
+function compoundPartSource(partPath) {
+  return `<script setup lang="ts">
+defineOptions({ inheritAttrs: false })
+</script>
+
+<template>
+  <span v-bind="$attrs" data-kumo-part="${esc(partPath)}"><slot /></span>
+</template>
+`;
+}
+function compoundBindingSource(graph, imports) {
+  const root = {};
+  for (const item of graph.paths) {
+    const segments = item.path.split('.');
+    let cursor = root;
+    for (let index = 0; index < segments.length; index++) {
+      const segment = segments[index];
+      cursor[segment] ??= index === segments.length - 1 ? imports.get(item.path) : {};
+      cursor = cursor[segment];
+    }
+  }
+  const literal = value => typeof value === 'string' ? value : `{ ${Object.entries(value).map(([key, child]) => `${JSON.stringify(key)}: ${literal(child)}`).join(', ')} }`;
+  return `export const ${id(graph.canonicalRoot)} = Object.assign(RootComponent, ${literal(root)})`;
+}
 function emitComponent(model) {
   const implementation = validateImplementation(model.draftImplementation);
   const states = new Map(model.states.map(s => [s.name, s]));
@@ -78,18 +102,53 @@ export function generateVueLibrary(output = path.join(root, 'generated/libraries
   for (const kind of [...NODE_KINDS, ...EXPRESSION_KINDS, ...OPERATION_KINDS]) if (!kind) throw new Error('invalid algebra kind');
   fs.rmSync(output, {recursive:true, force:true}); fs.mkdirSync(path.join(output,'components'), {recursive:true});
   const entries = [];
+  const compoundPaths = [];
   for (const model of models) {
     const source = emitComponent(model); const file = `components/${model.component}.vue`;
     fs.writeFileSync(path.join(output,file), source);
+    const graph = model.composition?.compoundExports;
+    const partImports = new Map();
+    for (const item of graph?.paths ?? []) {
+      const partName = `${model.component}.${item.path.split('.').map(segment => segment.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()).join('.')}`;
+      const partFile = `components/${partName}.vue`;
+      const partDeclaration = `components/${partName}.d.ts`;
+      const symbol = `${id(graph.canonicalRoot)}${item.path.split('.').map(pascal).join('')}`;
+      const partSource = compoundPartSource(item.path);
+      fs.writeFileSync(path.join(output,partFile), partSource);
+      fs.writeFileSync(path.join(output,partDeclaration), `import type { DefineComponent } from 'vue';\ndeclare const component: DefineComponent<Record<string, unknown>>;\nexport default component;\n`);
+      partImports.set(item.path, symbol);
+      compoundPaths.push({root:graph.canonicalRoot,path:item.path,binding:`${graph.canonicalRoot}.${item.path}`,symbol,file:partFile,types:partDeclaration,sha256:sha(partSource),vectorIds:item.vectorIds});
+    }
     const declaration = `import type { DefineComponent } from 'vue';\nexport interface ${model.public.symbol}Props { [key: string]: unknown }\ndeclare const component: DefineComponent<${model.public.symbol}Props>;\nexport default component;\nexport declare const modelDigest: ${JSON.stringify(model.modelDigest)};\n`;
     fs.writeFileSync(path.join(output,`components/${model.component}.d.ts`), declaration);
-    entries.push({component:model.component,symbol:model.public.symbol,subpath:model.public.subpath,file,modelDigest:model.modelDigest,sha256:sha(source),exports:model.public.exports});
+    entries.push({component:model.component,symbol:model.public.symbol,subpath:model.public.subpath,file,modelDigest:model.modelDigest,sha256:sha(source),exports:model.public.exports,compoundExports:graph ? {canonicalRoot:graph.canonicalRoot,tree:graph.tree,paths:graph.paths.map(item => item.path)} : undefined,partImports});
   }
-  const index = entries.map(e => `export { default as ${id(e.symbol)} } from './${e.file}'`).join('\n')+'\n';
-  fs.writeFileSync(path.join(output,'index.ts'),index);
-  fs.writeFileSync(path.join(output,'index.d.ts'),index);
+  const indexLines = [];
+  const declarationLines = [];
+  for (const entry of entries) {
+    if (!entry.compoundExports) {
+      indexLines.push(`export { default as ${id(entry.symbol)} } from './${entry.file}'`);
+      declarationLines.push(`export { default as ${id(entry.symbol)} } from './${entry.file}'`);
+      continue;
+    }
+    indexLines.push(`import Root${id(entry.symbol)} from './${entry.file}'`);
+    declarationLines.push(`import Root${id(entry.symbol)} from './${entry.file}'`);
+    for (const [partPath, symbol] of entry.partImports) {
+      const part = compoundPaths.find(item => item.root === entry.compoundExports.canonicalRoot && item.path === partPath);
+      indexLines.push(`import ${symbol} from './${part.file}'`);
+      declarationLines.push(`import ${symbol} from './${part.file}'`);
+    }
+    const bindingGraph = {...entry.compoundExports, paths:entry.compoundExports.paths.map(path => ({path}))};
+    const binding = compoundBindingSource(bindingGraph, entry.partImports).replace('RootComponent', `Root${id(entry.symbol)}`);
+    indexLines.push(binding);
+    declarationLines.push(binding);
+  }
+  fs.writeFileSync(path.join(output,'index.ts'),indexLines.join('\n')+'\n');
+  fs.writeFileSync(path.join(output,'index.d.ts'),declarationLines.join('\n')+'\n');
   const exports = Object.fromEntries(entries.map(e => [`./components/${e.component}`,{vue:`./${e.file}`,types:`./components/${e.component}.d.ts`,canonicalSubpath:e.subpath}])) ;
-  const manifest = {schemaVersion:'kumo.vue-library/v1',algebraVersion:'kumo.component-algebra/v1',candidate:true,count:entries.length,components:entries,exports:{'.':{vue:'./index.ts',types:'./index.d.ts'},...exports}};
+  for (const part of compoundPaths) exports[`./${part.file.slice(0,-4)}`] = {vue:`./${part.file}`,types:`./${part.types}`,binding:part.binding};
+  const components = entries.map(({partImports,compoundExports,...entry}) => ({...entry,...(compoundExports ? {compoundExports} : {})}));
+  const manifest = {schemaVersion:'kumo.vue-library/v1',algebraVersion:'kumo.component-algebra/v1',candidate:true,count:entries.length,components,compoundPaths,exports:{'.':{vue:'./index.ts',types:'./index.d.ts'},...exports}};
   fs.writeFileSync(path.join(output,'manifest.json'),JSON.stringify(manifest,null,2)+'\n');
   return manifest;
 }
