@@ -7,6 +7,8 @@ Machine receipt: `proof/progress/latest.json`
   `████████████████████`
 - ✓ **Canonical browser vectors** — 124/124  
   `████████████████████`
+- ✓ **Framework-neutral library models** — 41/41  
+  `████████████████████`
 - → **Components in all three packages** — 2/41  
   `█░░░░░░░░░░░░░░░░░░░`
 - ○ **Four-framework package conformance** — 0/41  
