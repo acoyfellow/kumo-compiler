@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import app from '../worker.mjs';
+import manifest from '../deploy-manifest.json' with { type: 'json' };
 
 const env = { WORKER_VERSION: 'test-version', GIT_COMMIT: 'a'.repeat(40), ASSETS: { fetch: async () => new Response('asset') } };
 
@@ -50,8 +51,10 @@ test('package routes override static asset types without changing bytes or statu
   assert.equal(friendly.headers.get('x-content-type-options'), 'nosniff');
   assert.equal(friendly.headers.get('x-asset'), 'preserved');
 
-  const hash = '630c5eecc427e07c0dd6a0959c0afb92c9167b252270ba63df8ab5177301e51c.tgz';
+  const hash = manifest.routes.find(route => route.id === 'library-packages').artifacts.find(name => /^[a-f0-9]{64}\.tgz$/.test(name));
+  assert.ok(hash);
   const addressed = await app.request(`https://example.test/packages/${hash}`, {}, packageEnv);
+  assert.equal(addressed.status, 206);
   assert.equal(addressed.headers.get('cache-control'), 'public, max-age=31536000, immutable');
   assert.equal(addressed.headers.get('content-disposition'), `attachment; filename="${hash}"`);
   assert.deepEqual(requested, ['/packages/kumo-vue-0.0.1.tgz', `/packages/${hash}`]);
