@@ -294,12 +294,15 @@
           "tag": "button"
         },
         "state": {
-          "open": true,
+          "open": false,
           "submenuOpen": false,
           "disabledSkipped": true
         },
-        "events": [],
-        "focus": "[role=menuitem]"
+        "events": [
+          "open-change:true",
+          "open-change:false"
+        ],
+        "focus": "button"
       }
     }
   ],
