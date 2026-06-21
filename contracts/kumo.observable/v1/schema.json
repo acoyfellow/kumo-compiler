@@ -1,0 +1,16 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","$id":"kumo.observable/v1","title":"Kumo observable component contract v1","type":"object","additionalProperties":false,
+  "required":["schemaVersion","component","canonical","publicApi","semantics","initialState","transitions","keyboardFocus","ssrHydration","stylingAssets","vectors","unknowns"],
+  "properties":{
+    "schemaVersion":{"const":"kumo.observable/v1"},"component":{"type":"string","pattern":"^[a-z][a-z-]*$"},
+    "canonical":{"type":"object","additionalProperties":false,"required":["package","version","exportPath","typesPath","runtimePath","typesSha256","runtimeSha256","irSchemaVersion"],"properties":{"package":{"const":"@cloudflare/kumo"},"version":{"const":"2.5.2"},"exportPath":{"type":"string"},"typesPath":{"type":"string"},"runtimePath":{"type":"string"},"typesSha256":{"$ref":"#/$defs/hash"},"runtimeSha256":{"$ref":"#/$defs/hash"},"irSchemaVersion":{"const":"kumo.ir/v1"}}},
+    "publicApi":{"type":"object","additionalProperties":false,"required":["exports","props","defaults"],"properties":{"exports":{"type":"array","minItems":1,"items":{"type":"string"}},"props":{"type":"object"},"defaults":{"type":"object"}}},
+    "semantics":{"type":"object","additionalProperties":false,"required":["root","aria"],"properties":{"root":{"type":"string"},"aria":{"type":"array","items":{"type":"string"}}}},
+    "initialState":{"type":"object"},"transitions":{"type":"array","items":{"type":"object","required":["action","effect"],"properties":{"action":{"type":"string"},"effect":{"type":"string"}},"additionalProperties":false}},
+    "keyboardFocus":{"type":"object","additionalProperties":false,"required":["focusable","keys"],"properties":{"focusable":{"type":"boolean"},"keys":{"type":"array","items":{"type":"string"}}}},
+    "ssrHydration":{"type":"object","additionalProperties":false,"required":["ssr","hydration"],"properties":{"ssr":{"enum":["supported","unknown","blocked"]},"hydration":{"enum":["identical","unknown","blocked"]}}},
+    "stylingAssets":{"type":"object","additionalProperties":false,"required":["classes","assets"],"properties":{"classes":{"type":"array","items":{"type":"string"}},"assets":{"type":"array","items":{"type":"string"}}}},
+    "vectors":{"type":"array","minItems":1,"items":{"type":"object","additionalProperties":false,"required":["id","props","expected"],"properties":{"id":{"type":"string","pattern":"^[a-z0-9-]+$"},"props":{"type":"object"},"expected":{"type":"object","additionalProperties":false,"required":["root","attributes","text"],"properties":{"root":{"type":"string"},"attributes":{"type":"object"},"text":{"type":"string"}}}}},
+    "unknowns":{"type":"array","items":{"type":"object","additionalProperties":false,"required":["field","status","reason"],"properties":{"field":{"type":"string"},"status":{"enum":["unknown","blocked"]},"reason":{"type":"string","minLength":1}}}}
+  },"$defs":{"hash":{"type":"string","pattern":"^[a-f0-9]{64}$"}}
+}

@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "kumo.observable/v1",
+  "component": "label",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "exportPath": "./components/label",
+    "typesPath": "dist/src/components/label/label.d.ts",
+    "runtimePath": "dist/chunks/label-kib2hn4pkbn28c31.js",
+    "typesSha256": "106f239ac8bc22129172b54edc1aba6c55d980f4330e0ba493b6a015d150c3f8",
+    "runtimeSha256": "bd8946b9b272850be200b2cf76dded6e71eba0db123acc4247d6ed13a33e95fd",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "Label",
+      "LabelProps",
+      "labelVariants",
+      "labelContentVariants",
+      "KUMO_LABEL_VARIANTS",
+      "KUMO_LABEL_DEFAULT_VARIANTS"
+    ],
+    "props": {
+      "children": {
+        "required": true
+      },
+      "showOptional": {
+        "type": "boolean"
+      },
+      "tooltip": {
+        "type": "ReactNode"
+      },
+      "className": {
+        "type": "string"
+      },
+      "htmlFor": {
+        "type": "string"
+      },
+      "asContent": {
+        "type": "boolean"
+      }
+    },
+    "defaults": {
+      "showOptional": false,
+      "asContent": false
+    }
+  },
+  "semantics": {
+    "root": "label",
+    "aria": []
+  },
+  "initialState": {},
+  "transitions": [],
+  "keyboardFocus": {
+    "focusable": false,
+    "keys": []
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "identical"
+  },
+  "stylingAssets": {
+    "classes": [
+      "m-0",
+      "text-base",
+      "font-medium",
+      "text-kumo-default",
+      "inline-flex",
+      "items-center",
+      "gap-1"
+    ],
+    "assets": []
+  },
+  "vectors": [
+    {
+      "id": "default",
+      "props": {
+        "children": "Email"
+      },
+      "expected": {
+        "root": "label",
+        "attributes": {},
+        "text": "Email"
+      }
+    },
+    {
+      "id": "optional",
+      "props": {
+        "children": "Middle Name",
+        "showOptional": true
+      },
+      "expected": {
+        "root": "label",
+        "attributes": {
+          "optionalClass": "font-normal text-kumo-subtle"
+        },
+        "text": "Middle Name(optional)"
+      }
+    },
+    {
+      "id": "as-content",
+      "props": {
+        "children": "Email",
+        "asContent": true
+      },
+      "expected": {
+        "root": "span",
+        "attributes": {},
+        "text": "Email"
+      }
+    }
+  ],
+  "unknowns": []
+}

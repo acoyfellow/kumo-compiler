@@ -1,0 +1,120 @@
+{
+  "schemaVersion": "kumo.observable/v1",
+  "component": "badge",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "exportPath": "./components/badge",
+    "typesPath": "dist/src/components/badge/badge.d.ts",
+    "runtimePath": "dist/chunks/badge-c1th6h6ahz7eu49q.js",
+    "typesSha256": "db7be99e6fb7eb3ea0a177d517f2c124e692be3083538ba295ffb8b40fc231d7",
+    "runtimeSha256": "71013d6edfdae6c5d442708a12df1037986d0c5c41da0539eb05dcc1c5e6f5d7",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "Badge",
+      "KUMO_BADGE_BASE_STYLES",
+      "BadgeVariant"
+    ],
+    "props": {
+      "children": {
+        "required": true
+      },
+      "variant": {
+        "enum": [
+          "primary",
+          "secondary",
+          "error",
+          "warning",
+          "success",
+          "destructive",
+          "info",
+          "beta",
+          "outline",
+          "red",
+          "green",
+          "neutral",
+          "orange",
+          "purple",
+          "teal",
+          "teal-subtle",
+          "blue"
+        ]
+      },
+      "appearance": {
+        "enum": [
+          "filled",
+          "dot"
+        ]
+      },
+      "className": {
+        "type": "string"
+      }
+    },
+    "defaults": {
+      "variant": "primary",
+      "appearance": "filled"
+    }
+  },
+  "semantics": {
+    "root": "span",
+    "aria": []
+  },
+  "initialState": {},
+  "transitions": [],
+  "keyboardFocus": {
+    "focusable": false,
+    "keys": []
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "identical"
+  },
+  "stylingAssets": {
+    "classes": [
+      "inline-flex",
+      "rounded-full",
+      "px-2",
+      "py-0.5",
+      "text-xs",
+      "font-medium"
+    ],
+    "assets": []
+  },
+  "vectors": [
+    {
+      "id": "default",
+      "props": {
+        "children": "PRO"
+      },
+      "expected": {
+        "root": "span",
+        "attributes": {
+          "classIncludes": [
+            "inline-flex",
+            "bg-kumo-badge-inverted"
+          ]
+        },
+        "text": "PRO"
+      }
+    },
+    {
+      "id": "success-dot",
+      "props": {
+        "children": "Healthy",
+        "variant": "success",
+        "appearance": "dot"
+      },
+      "expected": {
+        "root": "span",
+        "attributes": {
+          "childAriaHidden": "true",
+          "childClassIncludes": "bg-kumo-success"
+        },
+        "text": "Healthy"
+      }
+    }
+  ],
+  "unknowns": []
+}

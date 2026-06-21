@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {loadContracts,validateContract,verifyCanonical} from '../scripts/observable-contracts.mjs';
+const contracts=loadContracts();
+test('inventory is exactly the presentational batch',()=>assert.deepEqual(contracts.map(x=>x.component),['badge','label','surface','text']));
+test('validator fails closed for version, omissions, and additions',()=>{for(const mutate of [x=>delete x.semantics,x=>x.schemaVersion='kumo.observable/v2',x=>x.surprise=true]){const copy=structuredClone(contracts[0]);mutate(copy);assert.throws(()=>validateContract(copy));}});
+test('contracts bind canonical package provenance and installed bytes',()=>contracts.forEach(verifyCanonical));
+test('vectors have deterministic unique identities and complete expectations',()=>{for(const c of contracts){assert.ok(c.vectors.length);assert.equal(new Set(c.vectors.map(v=>v.id)).size,c.vectors.length);for(const v of c.vectors)assert.deepEqual(Object.keys(v.expected).sort(),['attributes','root','text']);}});
+test('loading and serialization are repeatable',()=>{const one=JSON.stringify(loadContracts());const two=JSON.stringify(loadContracts());assert.equal(one,two);for(const c of contracts){const disk=JSON.parse(fs.readFileSync(`contracts/kumo.observable/v1/components/${c.component}.json`));assert.deepEqual(c,disk);}});

@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "kumo.observable/v1",
+  "component": "surface",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "exportPath": "./components/surface",
+    "typesPath": "dist/src/components/surface/surface.d.ts",
+    "runtimePath": "dist/chunks/surface-iyejjbqogjbo7ise.js",
+    "typesSha256": "59e27a14cc713536ce5fcf118e27edb9238892b85457563a49264fc3dd9318c6",
+    "runtimeSha256": "30d7fc2b8e0b4a5ed1961cc4cfa57081d46f4074217e3af81413630fa87d533d",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "Surface"
+    ],
+    "props": {
+      "color": {
+        "enum": [
+          "primary",
+          "secondary"
+        ]
+      },
+      "className": {
+        "type": "string"
+      },
+      "render": {
+        "type": "ReactElement"
+      },
+      "as": {
+        "type": "ElementType",
+        "deprecated": true
+      },
+      "children": {
+        "required": false
+      }
+    },
+    "defaults": {
+      "color": "primary"
+    }
+  },
+  "semantics": {
+    "root": "div",
+    "aria": []
+  },
+  "initialState": {},
+  "transitions": [],
+  "keyboardFocus": {
+    "focusable": false,
+    "keys": []
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "identical"
+  },
+  "stylingAssets": {
+    "classes": [
+      "overflow-visible",
+      "rounded-none"
+    ],
+    "assets": []
+  },
+  "vectors": [
+    {
+      "id": "default",
+      "props": {
+        "children": "Card"
+      },
+      "expected": {
+        "root": "div",
+        "attributes": {
+          "data-surface-color": "primary",
+          "data-deprecated": "surface"
+        },
+        "text": "Card"
+      }
+    },
+    {
+      "id": "as-section",
+      "props": {
+        "children": "Card",
+        "as": "section",
+        "color": "secondary"
+      },
+      "expected": {
+        "root": "section",
+        "attributes": {
+          "data-surface-color": "secondary",
+          "data-deprecated": "surface"
+        },
+        "text": "Card"
+      }
+    }
+  ],
+  "unknowns": [
+    {
+      "field": "semantics.rootWhenRenderProvided",
+      "status": "unknown",
+      "reason": "The caller-provided React element controls the root."
+    }
+  ]
+}

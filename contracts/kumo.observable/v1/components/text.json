@@ -1,0 +1,141 @@
+{
+  "schemaVersion": "kumo.observable/v1",
+  "component": "text",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "exportPath": "./components/text",
+    "typesPath": "dist/src/components/text/text.d.ts",
+    "runtimePath": "dist/chunks/text-be7ehenoyldhyjma.js",
+    "typesSha256": "11379b4746caaa99a61e3cad42410a2967b01eaed6117e790d750687fd1e42a1",
+    "runtimeSha256": "923b39ab4746a208e86728f931d272e24d71ace849e226d7e3543678569984c9",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "Text"
+    ],
+    "props": {
+      "children": {
+        "required": false
+      },
+      "variant": {
+        "enum": [
+          "heading1",
+          "heading2",
+          "heading3",
+          "body",
+          "secondary",
+          "success",
+          "error",
+          "mono",
+          "mono-secondary"
+        ]
+      },
+      "size": {
+        "enum": [
+          "xs",
+          "sm",
+          "base",
+          "lg"
+        ]
+      },
+      "bold": {
+        "type": "boolean"
+      },
+      "truncate": {
+        "type": "boolean"
+      },
+      "as": {
+        "type": "TextElement"
+      },
+      "DANGEROUS_className": {
+        "type": "string"
+      },
+      "DANGEROUS_style": {
+        "type": "CSSProperties"
+      }
+    },
+    "defaults": {
+      "variant": "body",
+      "size": "base",
+      "bold": false,
+      "truncate": false
+    }
+  },
+  "semantics": {
+    "root": "p",
+    "aria": []
+  },
+  "initialState": {},
+  "transitions": [],
+  "keyboardFocus": {
+    "focusable": false,
+    "keys": []
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "identical"
+  },
+  "stylingAssets": {
+    "classes": [
+      "text-kumo-default",
+      "text-base"
+    ],
+    "assets": []
+  },
+  "vectors": [
+    {
+      "id": "body-default",
+      "props": {
+        "children": "Body"
+      },
+      "expected": {
+        "root": "p",
+        "attributes": {
+          "classIncludes": [
+            "text-kumo-default",
+            "text-base"
+          ]
+        },
+        "text": "Body"
+      }
+    },
+    {
+      "id": "mono-default",
+      "props": {
+        "children": "code",
+        "variant": "mono"
+      },
+      "expected": {
+        "root": "span",
+        "attributes": {
+          "classIncludes": [
+            "font-mono",
+            "text-sm"
+          ]
+        },
+        "text": "code"
+      }
+    },
+    {
+      "id": "heading-element",
+      "props": {
+        "children": "Title",
+        "variant": "heading1",
+        "as": "h1"
+      },
+      "expected": {
+        "root": "h1",
+        "attributes": {
+          "classIncludes": [
+            "text-3xl",
+            "font-semibold"
+          ]
+        },
+        "text": "Title"
+      }
+    }
+  ],
+  "unknowns": []
+}
