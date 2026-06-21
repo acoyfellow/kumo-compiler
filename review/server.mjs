@@ -67,6 +67,18 @@ app.get('/runtime/:component/compare/',c=>c.redirect(`/components/${c.req.param(
 app.get('/:component/compare',c=>c.redirect(`/components/${c.req.param('component')}/`,302));
 app.get('/:component/compare/',c=>c.redirect(`/components/${c.req.param('component')}/`,302));
 app.get('/components/:component/',c=>{const file=resolve(root,'astro/dist/components',c.req.param('component'),'index.html');return existsSync(file)?c.html(readFileSync(file,'utf8')):c.notFound()});
+// Current package-backed gallery artifacts for local Astro development.
+app.get('/library-gallery/:framework/*',c=>{
+ const {framework}=c.req.param();if(!['vue','svelte','solid'].includes(framework))return c.notFound();
+ const suffix=new URL(c.req.url).pathname.split(`/library-gallery/${framework}/`)[1]||'index.html';if(suffix.includes('..'))return c.notFound();
+ const base=resolve(root,'library-gallery',framework),file=resolve(base,suffix);if(!file.startsWith(base+'/')||!existsSync(file)||!statSync(file).isFile())return c.notFound();
+ const ext=file.split('.').pop(),contentType={html:'text/html; charset=utf-8',css:'text/css; charset=utf-8',js:'text/javascript; charset=utf-8'}[ext]||'application/octet-stream';return c.body(readFileSync(file),200,{'Content-Type':contentType});
+});
+app.get('/packages/:artifact',c=>{
+ const artifact=c.req.param('artifact');if(!/^(?:manifest\.json|kumo-(?:vue|svelte|solid)-0\.0\.1\.tgz|[a-f0-9]{64}\.tgz)$/.test(artifact))return c.notFound();
+ const file=resolve(root,'library-artifacts',artifact);if(!existsSync(file)||!statSync(file).isFile())return c.notFound();
+ return c.body(readFileSync(file),200,{'Content-Type':artifact.endsWith('.json')?'application/json; charset=utf-8':'application/gzip'});
+});
 // Catalog-wide proof route: always serves the actual Vite build, never a fixture.
 const builtRuntime=c=>{
  const {component,framework}=c.req.param();if(!frameworks.has(framework)||!/^[-\w]+$/.test(component))return c.notFound();

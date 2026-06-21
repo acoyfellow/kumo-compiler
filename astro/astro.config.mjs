@@ -4,7 +4,11 @@ export default defineConfig({
   vite: {
     server: {
       proxy: {
-        '^/(?!components/|receipts/|_astro/|kumo\\.css$)([^/]+)/(react|vue|svelte|solid)(/.*)?$': {
+        '^/(?!components/|receipts/|libraries/|_astro/|kumo\\.css$)([^/]+)/(react|vue|svelte|solid)(/.*)?$': {
+          target: 'http://127.0.0.1:4301',
+          changeOrigin: true,
+        },
+        '^/packages/': {
           target: 'http://127.0.0.1:4301',
           changeOrigin: true,
         },
