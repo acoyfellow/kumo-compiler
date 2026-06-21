@@ -1,11 +1,11 @@
 {
   "schemaVersion": "kumo.upstream.receipt/v3",
-  "runId": "ff24edd56479188c11b70890e326dd4dc23332ef940997aeb98f9d4faf7ab1f4",
+  "runId": "765abdb617ca78622e1f22dbd1d36b1db8a846efb618d7bbab20609cbeb3cb17",
   "scenario": "synthetic-export-break",
   "status": "blocked",
   "source": {
-    "revision": "902a3e9e2380bea8a609e3c68ec53eb3acb9cbbf",
-    "sourceTree": "7fb758762eb0fc7fafb970258009c31ec124fce838972ed7c110aa0bb604a61f",
+    "revision": "b87c0f56f055014b73bb5bdd3c1cc26b5d94dc24",
+    "sourceTree": "01c787bbd71c4036df2ed79e6e08d716bc5254a06400302705812fca97d4e9d2",
     "provenancePaths": [
       "workflow.json",
       "src/kumo",
@@ -330,7 +330,7 @@
       }
     ],
     "browser": {
-      "status": "passed",
+      "status": "failed",
       "passedCount": 1,
       "blockedCount": 2,
       "failedCount": 1,
@@ -346,7 +346,7 @@
           "clientDist": "<EPHEMERAL>/client-dist",
           "ssrDist": "<EPHEMERAL>/ssr-dist",
           "diagnostics": [
-            "Build failed with 1 error:\n\n\u001b[31m[UNLOADABLE_DEPENDENCY] \u001b[0mCould not load node_modules/@cloudflare/kumo/components/button\n   \u001b[38;5;246m╭\u001b[0m\u001b[38;5;246m─\u001b[0m\u001b[38;5;246m[\u001b[0m ../..<OUTPUT>/button/react/entry.jsx:2:46 \u001b[38;5;246m]\u001b[0m\n   \u001b[38;5;246m│\u001b[0m\n \u001b[38;5;246m2 │\u001b[0m \u001b[38;5;249mi\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249mp\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249m{\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mB\u001b[0m\u001b[38;5;249mu\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249ma\u001b[0m\u001b[38;5;249ms\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mC\u001b[0m\u001b[38;5;249ma\u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249mi\u001b[0m\u001b[38;5;249mc\u001b[0m\u001b[38;5;249ma\u001b[0m\u001b[38;5;249ml\u001b[0m\u001b[38;5;249mC\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249mp\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249me\u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249m}\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mf\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249m \u001b[0m\"@cloudflare/kumo/components/button\"\u001b[38;5;249m;\u001b[0m\n \u001b[38;5;240m  │\u001b[0m                                              ──────────────────┬─────────────────  \n \u001b[38;5;240m  │\u001b[0m                                                                ╰─────────────────── No such file or directory (os error 2)\n\u001b[38;5;246m───╯\u001b[0m\n\n    at aggregateBindingErrorsIntoJsError (file://<ROOT>/node_modules/rolldown/dist/shared/error-BuvQYXuZ.mjs:48:18)\n    at unwrapBindingResult (file://<ROOT>/node_modules/rolldown/dist/shared/error-BuvQYXuZ.mjs:18:128)\n    at #build (file://<ROOT>/node_modules/rolldown/dist/shared/rolldown-build-CrPk_lZe.mjs:3246:34)\n    at async buildEnvironment (file://<ROOT>/node_modules/vite/dist/node/chunks/node.js:33253:64)\n    at async Object.build (file://<ROOT>/node_modules/vite/dist/node/chunks/node.js:33675:19)\n    at async proveGeneratedBrowser (file://<ROOT>/scripts/upstream-browser-proof.mjs:24:1196)\n    at async run (file://<ROOT>/scripts/upstream-check.mjs:25:108)\n    at async file://<ROOT>/scripts/upstream-check.mjs:45:77\nBuild failed with 1 error:\n\n\u001b[31m[UNLOADABLE_DEPENDENCY] \u001b[0mCould not load node_modules/@cloudflare/kumo/components/button\n   \u001b[38;5;246m╭\u001b[0m\u001b[38;5;246m─\u001b[0m\u001b[38;5;246m[\u001b[0m ../..<OUTPUT>/button/react/entry.jsx:2:46 \u001b[38;5;246m]\u001b[0m\n   \u001b[38;5;246m│\u001b[0m\n \u001b[38;5;246m2 │\u001b[0m \u001b[38;5;249mi\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249mp\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249m{\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mB\u001b[0m\u001b[38;5;249mu\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249ma\u001b[0m\u001b[38;5;249ms\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mC\u001b[0m\u001b[38;5;249ma\u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249mi\u001b[0m\u001b[38;5;249mc\u001b[0m\u001b[38;5;249ma\u001b[0m\u001b[38;5;249ml\u001b[0m\u001b[38;5;249mC\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249mp\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249me\u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249m}\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mf\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249m \u001b[0m\"@cloudflare/kumo/components/button\"\u001b[38;5;249m;\u001b[0m\n \u001b[38;5;240m  │\u001b[0m                                              ──────────────────┬─────────────────  \n \u001b[38;5;240m  │\u001b[0m                                                                ╰─────────────────── No such file or directory (os error 2)\n\u001b[38;5;246m───╯\u001b[0m\n"
+            "BUILD_FAILED: Build failed with 1 error:; generatedRoot=compiler/output"
           ]
         },
         {
@@ -370,8 +370,7 @@
           },
           "client": {
             "built": true,
-            "module": "client.js",
-            "sha256": "b46bca472977c33af6a351b8a4d8d63c33e28c9999ac8e1e8264f418bdd4f75d"
+            "module": "client.js"
           },
           "browser": {
             "product": "system Chrome",
@@ -410,7 +409,7 @@
           "clientDist": "<EPHEMERAL>/client-dist",
           "ssrDist": "<EPHEMERAL>/ssr-dist",
           "diagnostics": [
-            "Build failed with 2 errors:\n\n\u001b[31m[UNLOADABLE_DEPENDENCY] \u001b[0mCould not load node_modules/svelte/internal/client\n   \u001b[38;5;246m╭\u001b[0m\u001b[38;5;246m─\u001b[0m\u001b[38;5;246m[\u001b[0m node_modules/svelte/src/attachments/index.js:3:37 \u001b[38;5;246m]\u001b[0m\n   \u001b[38;5;246m│\u001b[0m\n \u001b[38;5;246m3 │\u001b[0m \u001b[38;5;249mi\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249mp\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249m{\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mp\u001b[0m\u001b[38;5;249m,\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249me\u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249md\u001b[0m\u001b[38;5;249me\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249m_\u001b[0m\u001b[38;5;249me\u001b[0m\u001b[38;5;249mf\u001b[0m\u001b[38;5;249mf\u001b[0m\u001b[38;5;249me\u001b[0m\u001b[38;5;249mc\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249m}\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mf\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249m \u001b[0m'svelte/internal/client'\u001b[38;5;249m;\u001b[0m\n \u001b[38;5;240m  │\u001b[0m                                     ────────────┬───────────  \n \u001b[38;5;240m  │\u001b[0m                                                 ╰───────────── No such file or directory (os error 2)\n\u001b[38;5;246m───╯\u001b[0m\n\n\u001b[31m[UNLOADABLE_DEPENDENCY] \u001b[0mCould not load node_modules/svelte/internal/disclose-version\n   \u001b[38;5;246m╭\u001b[0m\u001b[38;5;246m─\u001b[0m\u001b[38;5;246m[\u001b[0m ../..<OUTPUT>/button/svelte/src/App.svelte:1:8 \u001b[38;5;246m]\u001b[0m\n   \u001b[38;5;246m│\u001b[0m\n \u001b[38;5;246m1 │\u001b[0m \u001b[38;5;249mi\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249mp\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249m \u001b[0m'svelte/internal/disclose-version'\u001b[38;5;249m;\u001b[0m\n \u001b[38;5;240m  │\u001b[0m        ─────────────────┬────────────────  \n \u001b[38;5;240m  │\u001b[0m                         ╰────────────────── No such file or directory (os error 2)\n\u001b[38;5;246m───╯\u001b[0m\n\n    at aggregateBindingErrorsIntoJsError (file://<ROOT>/node_modules/rolldown/dist/shared/error-BuvQYXuZ.mjs:48:18)\n    at unwrapBindingResult (file://<ROOT>/node_modules/rolldown/dist/shared/error-BuvQYXuZ.mjs:18:128)\n    at #build (file://<ROOT>/node_modules/rolldown/dist/shared/rolldown-build-CrPk_lZe.mjs:3246:34)\n    at async buildEnvironment (file://<ROOT>/node_modules/vite/dist/node/chunks/node.js:33253:64)\n    at async Object.build (file://<ROOT>/node_modules/vite/dist/node/chunks/node.js:33675:19)\n    at async proveGeneratedBrowser (file://<ROOT>/scripts/upstream-browser-proof.mjs:24:1196)\n    at async run (file://<ROOT>/scripts/upstream-check.mjs:25:108)\n    at async file://<ROOT>/scripts/upstream-check.mjs:45:77\nBuild failed with 2 errors:\n\n\u001b[31m[UNLOADABLE_DEPENDENCY] \u001b[0mCould not load node_modules/svelte/internal/client\n   \u001b[38;5;246m╭\u001b[0m\u001b[38;5;246m─\u001b[0m\u001b[38;5;246m[\u001b[0m node_modules/svelte/src/attachments/index.js:3:37 \u001b[38;5;246m]\u001b[0m\n   \u001b[38;5;246m│\u001b[0m\n \u001b[38;5;246m3 │\u001b[0m \u001b[38;5;249mi\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249mp\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249m{\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mp\u001b[0m\u001b[38;5;249m,\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249me\u001b[0m\u001b[38;5;249mn\u001b[0m\u001b[38;5;249md\u001b[0m\u001b[38;5;249me\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249m_\u001b[0m\u001b[38;5;249me\u001b[0m\u001b[38;5;249mf\u001b[0m\u001b[38;5;249mf\u001b[0m\u001b[38;5;249me\u001b[0m\u001b[38;5;249mc\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249m}\u001b[0m\u001b[38;5;249m \u001b[0m\u001b[38;5;249mf\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249m \u001b[0m'svelte/internal/client'\u001b[38;5;249m;\u001b[0m\n \u001b[38;5;240m  │\u001b[0m                                     ────────────┬───────────  \n \u001b[38;5;240m  │\u001b[0m                                                 ╰───────────── No such file or directory (os error 2)\n\u001b[38;5;246m───╯\u001b[0m\n\n\u001b[31m[UNLOADABLE_DEPENDENCY] \u001b[0mCould not load node_modules/svelte/internal/disclose-version\n   \u001b[38;5;246m╭\u001b[0m\u001b[38;5;246m─\u001b[0m\u001b[38;5;246m[\u001b[0m ../..<OUTPUT>/button/svelte/src/App.svelte:1:8 \u001b[38;5;246m]\u001b[0m\n   \u001b[38;5;246m│\u001b[0m\n \u001b[38;5;246m1 │\u001b[0m \u001b[38;5;249mi\u001b[0m\u001b[38;5;249mm\u001b[0m\u001b[38;5;249mp\u001b[0m\u001b[38;5;249mo\u001b[0m\u001b[38;5;249mr\u001b[0m\u001b[38;5;249mt\u001b[0m\u001b[38;5;249m \u001b[0m'svelte/internal/disclose-version'\u001b[38;5;249m;\u001b[0m\n \u001b[38;5;240m  │\u001b[0m        ─────────────────┬────────────────  \n \u001b[38;5;240m  │\u001b[0m                         ╰────────────────── No such file or directory (os error 2)\n\u001b[38;5;246m───╯\u001b[0m\n"
+            "BUILD_FAILED: Build failed with 2 errors:; generatedRoot=compiler/output"
           ]
         },
         {
@@ -432,8 +431,7 @@
           },
           "client": {
             "built": true,
-            "module": "client.js",
-            "sha256": "1105d5079b396d2660191db012568fc2a2e938108e8e0be65baf6097b187a0c0"
+            "module": "client.js"
           },
           "browser": {
             "product": "system Chrome",
@@ -463,15 +461,15 @@
     }
   },
   "behavior": {
-    "status": "not-run",
-    "reason": "no explicit behavior vector selected"
+    "status": "failed",
+    "reason": "Generated browser cells: react=blocked, solid=failed, svelte=blocked, vue=passed."
   },
   "dom": {
-    "status": "not-run",
-    "reason": "no explicit DOM vector selected"
+    "status": "failed",
+    "reason": "Generated browser cells: react=blocked, solid=failed, svelte=blocked, vue=passed."
   },
   "commands": [
     "node scripts/upstream-check.mjs --from 2.5.1 --to 2.5.2 --scenario synthetic-export-break"
   ],
-  "receiptSha256": "42cf042571e569719f1ab79a12d9575fa9b60fce003fda6f042aebef036f8594"
+  "receiptSha256": "22e0a408ba04a1174f9dfac1c66e85534bf46d47d680b004c231aa12d676e9b8"
 }
