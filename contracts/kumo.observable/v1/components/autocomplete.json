@@ -163,7 +163,8 @@
         {
           "type": "type",
           "selector": "input",
-          "text": "Ban", "editMode": "append"
+          "text": "Ban",
+          "editMode": "append"
         },
         {
           "type": "key",
@@ -181,12 +182,16 @@
           "tag": "input"
         },
         "state": {
-          "value": "Banana",
+          "value": "Apple",
           "open": false
         },
         "events": [
+          "value:B",
+          "open:true",
+          "value:Ba",
           "value:Ban",
-          "value:Banana"
+          "value:Apple",
+          "open:false"
         ],
         "focus": "input"
       }
@@ -202,6 +207,11 @@
       "field": "ssr.popup",
       "status": "unknown",
       "reason": "Closed action-free SSR is supported; open portal markup and generated ids depend on Base UI and were not frozen as exact strings."
+    },
+    {
+      "field": "defaultFiltering",
+      "status": "unknown",
+      "reason": "Canonical composition with explicit items does not filter automatically in this fixture; ArrowDown selects Apple after typing Ban."
     }
   ]
 }
