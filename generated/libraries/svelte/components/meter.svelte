@@ -47,7 +47,6 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-meter" />
 <div class={cx(styles["root"])}>
   {props["label"]}
   <meter class={cx(styles["root"])}></meter>

@@ -33,5 +33,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-sensitive-input" />
 <input class={cx(styles["root"])}>

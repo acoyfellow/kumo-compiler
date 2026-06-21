@@ -4,12 +4,12 @@
 
   export const modelDigest = "b69b28139a711d8e96dd6ddf236811e0a1c5d9510c961808f6912e09a2d48997";
   export type Props = {
-  Close?: unknown;
-  Description?: unknown;
-  Dialog?: unknown;
-  Root?: unknown;
-  Title?: unknown;
-  Trigger?: unknown;
+  Close?: Snippet;
+  Description?: Snippet;
+  Dialog?: Snippet;
+  Root?: Snippet;
+  Title?: Snippet;
+  Trigger?: Snippet;
   dialog?: Snippet;
   children?: Snippet;
   styles?: Record<string, string>;
@@ -51,7 +51,6 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-dialog" />
 {#if browser}
   <div data-kumo-portal-target={"document-body"} data-kumo-layer="dialog">
     <section data-kumo-part="dialog">

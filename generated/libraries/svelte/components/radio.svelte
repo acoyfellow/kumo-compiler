@@ -51,7 +51,6 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-radio" />
 <section data-kumo-part="root">
   {#if root}{@render root()}{/if}
 </section>

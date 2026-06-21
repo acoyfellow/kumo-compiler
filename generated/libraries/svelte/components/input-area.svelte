@@ -33,5 +33,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-input-area" />
 <textarea class={cx(styles["root"])}></textarea>

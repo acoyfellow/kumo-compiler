@@ -4,10 +4,9 @@
 
   export const modelDigest = "1cb602a165516ca01de95379b40403eb61ab498fa6557f44ddeb0f0f5d0d9e4f";
   export type Props = {
-  children?: unknown;
+  children?: Snippet;
   className?: unknown;
   size?: unknown;
-  children?: Snippet;
   styles?: Record<string, string>;
   [key: string]: unknown;
 };
@@ -34,7 +33,6 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-breadcrumbs" />
 <nav aria-label={"Breadcrumbs"} class={cx(styles["root"])}>
   {#if children}{@render children()}{/if}
 </nav>

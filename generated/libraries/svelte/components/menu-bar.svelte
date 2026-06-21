@@ -46,7 +46,6 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-menu-bar" />
 <section data-kumo-part="root">
   {#if root}{@render root()}{/if}
 </section>

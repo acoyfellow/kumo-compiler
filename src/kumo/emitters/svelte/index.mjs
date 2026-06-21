@@ -67,18 +67,19 @@ function operation(op){
 }
 function component(model){
  const impl=validateImplementation(model.draftImplementation);if(impl.algebraVersion!==ALGEBRA_VERSION)throw new Error('unsupported algebra');
- const propLines=model.props.items.map(p=>`  ${identifier(p.name)}${p.required?'':'?'}: ${typeOf(p.type)};`).join('\n');
- const slots=[...new Set([...model.composition.slots,...collectSlots(impl.componentRoot)])].sort();
- const slotTypes=slots.filter(x=>!new Set(model.props.items.map(p=>p.name)).has(x)).map(x=>`  ${identifier(x)}?: Snippet;`).join('\n');
- const callbackTypes=(model.emissions.callbacks??[]).map(x=>`  ${identifier(typeof x==='string'?x:x.name)}?: (value: unknown) => void;`).join('\n');
  const propNames=new Set(model.props.items.map(p=>p.name));
+ const slots=[...new Set([...model.composition.slots,...collectSlots(impl.componentRoot)])].sort();
+ const snippetNames=new Set(['children',...slots]);
+ const propLines=model.props.items.map(p=>`  ${identifier(p.name)}${p.required?'':'?'}: ${snippetNames.has(p.name)?'Snippet':typeOf(p.type)};`).join('\n');
+ const slotTypes=slots.filter(x=>!propNames.has(x)).map(x=>`  ${identifier(x)}?: Snippet;`).join('\n');
+ const callbackTypes=(model.emissions.callbacks??[]).map(x=>`  ${identifier(typeof x==='string'?x:x.name)}?: (value: unknown) => void;`).join('\n');
  const declarations=model.props.items.filter(p=>p.name!=='children').map(p=>`${safeName(p.name)} = ${defaultValue(p)}`).concat(slots.filter(x=>!propNames.has(x)&&x!=='children').map(x=>`${safeName(x)} = undefined`)).join(',\n    ');
  const destructure=declarations?`let {\n    ${declarations},\n    children,\n    styles = {},\n    ...rest\n  }: Props = $props();`:`let { children, styles = {}, ...rest }: Props = $props();`;
  const propObject=model.props.items.map(p=>`${q(p.name)}: ${safeName(p.name)}`).join(', ');
  const stateObject=model.states.map(s=>`${q(s.name)}: ${safeName(`state_${s.name}`)}`).join(', ');
  const stateDecl=model.states.map(s=>`let ${safeName(`state_${s.name}`)} = $state(${q(s.initial)});`).join('\n  ');
  const ops=impl.operations.map(operation).join('\n  ');
- return `<script lang="ts">\n  import type { Snippet } from 'svelte';\n   const browser = typeof document !== 'undefined';\n\n  export const modelDigest = ${q(model.modelDigest)};\n  export type Props = {\n${propLines}${propLines&&slotTypes?'\n':''}${slotTypes}${callbackTypes?'\n'+callbackTypes:''}\n  children?: Snippet;\n  styles?: Record<string, string>;\n  [key: string]: unknown;\n};\n\n  ${destructure}\n  ${stateDecl}\n  const props: Record<string, unknown> = { ${propObject} };\n  const state: Record<string, unknown> = { ${stateObject} };\n  const refs: Record<string, HTMLElement | undefined> = {};\n  const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];\n  const focusTargets = new Set<string>();\n  const lifecycles: Array<{id:string,phase:string}> = [];\n  const services = new Set<string>();\n  const layers = new Set<string>();\n  const styleOperations: unknown[][] = [];\n  const cx = (...values: unknown[]) => values.filter(Boolean).join(' ');\n  ${ops}\n</script>\n\n<svelte:options customElement=${q(`kumo-${model.component}`)} />\n${node(impl.componentRoot)}\n`;
+ return `<script lang="ts">\n  import type { Snippet } from 'svelte';\n   const browser = typeof document !== 'undefined';\n\n  export const modelDigest = ${q(model.modelDigest)};\n  export type Props = {\n${propLines}${propLines&&slotTypes?'\n':''}${slotTypes}${callbackTypes?'\n'+callbackTypes:''}${propNames.has('children')?'':'\n  children?: Snippet;'}\n  styles?: Record<string, string>;\n  [key: string]: unknown;\n};\n\n  ${destructure}\n  ${stateDecl}\n  const props: Record<string, unknown> = { ${propObject} };\n  const state: Record<string, unknown> = { ${stateObject} };\n  const refs: Record<string, HTMLElement | undefined> = {};\n  const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];\n  const focusTargets = new Set<string>();\n  const lifecycles: Array<{id:string,phase:string}> = [];\n  const services = new Set<string>();\n  const layers = new Set<string>();\n  const styleOperations: unknown[][] = [];\n  const cx = (...values: unknown[]) => values.filter(Boolean).join(' ');\n  ${ops}\n</script>\n\n${node(impl.componentRoot)}\n`;
 }
 function collectSlots(root,out=[]){if(Array.isArray(root))root.forEach(x=>collectSlots(x,out));else if(root&&typeof root==='object'){if(root.kind==='slot')out.push(root.name);Object.values(root).forEach(x=>collectSlots(x,out));}return out;}
 export function emitSvelteLibrary({output=path.join(projectRoot,'generated/libraries/svelte')}={}){

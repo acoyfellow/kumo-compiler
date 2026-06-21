@@ -5,7 +5,7 @@
   export const modelDigest = "12a3eb7f1d84d603ca914b803a794e948b5b62e88a1981d4ebb270f13b6bf69c";
   export type Props = {
   "aria-label/aria-labelledby"?: unknown;
-  children?: unknown;
+  children?: Snippet;
   container?: unknown;
   hideLabel?: boolean;
   items?: unknown;
@@ -13,11 +13,10 @@
   "labelTooltip/description/error"?: unknown;
   "placeholder/loading/disabled/required"?: unknown;
   renderValue?: unknown;
-  Root?: unknown;
+  Root?: Snippet;
   size?: unknown;
   collection?: Snippet;
   root?: Snippet;
-  children?: Snippet;
   styles?: Record<string, string>;
   [key: string]: unknown;
 };
@@ -63,7 +62,6 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-select" />
 <section data-kumo-part="root">
   {#if root}{@render root()}{/if}
 </section>

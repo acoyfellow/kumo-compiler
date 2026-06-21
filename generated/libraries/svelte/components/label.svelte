@@ -5,12 +5,11 @@
   export const modelDigest = "a14b8ca4ef389e6247d422e71305289cda06eeb21a5ec5a1f49f196a6cca012f";
   export type Props = {
   asContent?: boolean;
-  children: unknown;
+  children: Snippet;
   className?: unknown;
   htmlFor?: unknown;
   showOptional?: boolean;
   tooltip?: unknown;
-  children?: Snippet;
   styles?: Record<string, string>;
   [key: string]: unknown;
 };
@@ -41,7 +40,6 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-label" />
 <label class={cx(styles["root"])}>
   {#if children}{@render children()}{/if}
 </label>

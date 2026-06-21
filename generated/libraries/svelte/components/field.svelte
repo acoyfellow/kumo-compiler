@@ -33,5 +33,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-field" />
 <field class={cx(styles["root"])}></field>

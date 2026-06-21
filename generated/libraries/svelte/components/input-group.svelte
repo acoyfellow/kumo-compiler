@@ -33,5 +33,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-input-group" />
 <input-group class={cx(styles["root"])}></input-group>

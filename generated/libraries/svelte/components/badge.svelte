@@ -5,10 +5,9 @@
   export const modelDigest = "67f224503fcce1b354d3848ac5a55b55587789af9fe0688a4849fef4ad5c8ec5";
   export type Props = {
   appearance?: unknown;
-  children: unknown;
+  children: Snippet;
   className?: unknown;
   variant?: unknown;
-  children?: Snippet;
   styles?: Record<string, string>;
   [key: string]: unknown;
 };
@@ -36,7 +35,6 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-badge" />
 <span class={cx(styles["root"])}>
   {#if children}{@render children()}{/if}
 </span>

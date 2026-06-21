@@ -35,5 +35,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-loader" />
 <span role={"status"} aria-label={props["aria-label"]} class={cx(styles["root"])}></span>

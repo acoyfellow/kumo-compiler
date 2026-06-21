@@ -46,5 +46,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-checkbox" />
 <input class={cx(styles["root"])}>

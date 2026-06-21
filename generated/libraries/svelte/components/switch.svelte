@@ -45,5 +45,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-switch" />
 <button class={cx(styles["root"])}></button>

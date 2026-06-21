@@ -4,13 +4,12 @@
 
   export const modelDigest = "96819ff5ff77c94bea48a81f92da6a4857acc3495fbbd3f4eb7703e24db317d6";
   export type Props = {
-  children?: unknown;
+  children?: Snippet;
   container?: unknown;
   toastManager?: unknown;
   variant?: unknown;
   collection?: Snippet;
   root?: Snippet;
-  children?: Snippet;
   styles?: Record<string, string>;
   [key: string]: unknown;
 };
@@ -46,7 +45,6 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-toasty" />
 <section data-kumo-part="root">
   {#if root}{@render root()}{/if}
 </section>

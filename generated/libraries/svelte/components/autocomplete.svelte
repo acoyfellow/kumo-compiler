@@ -4,10 +4,10 @@
 
   export const modelDigest = "fba8232e14f886639f5b9cf04c6dd04fc1c8b09852cd5feefd379fda9ded0e30";
   export type Props = {
-  compound?: unknown;
-  Content?: unknown;
-  InputGroup?: unknown;
-  root?: unknown;
+  compound?: Snippet;
+  Content?: Snippet;
+  InputGroup?: Snippet;
+  root?: Snippet;
   collection?: Snippet;
   children?: Snippet;
   styles?: Record<string, string>;
@@ -46,7 +46,6 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-autocomplete" />
 <section data-kumo-part="root">
   {#if root}{@render root()}{/if}
 </section>

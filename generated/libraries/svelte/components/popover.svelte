@@ -4,11 +4,11 @@
 
   export const modelDigest = "7ba76baf0b210a7f5fcc8c192377afd244248598bb69b0a67e5d03b53c7fb59a";
   export type Props = {
-  Close?: unknown;
-  Content?: unknown;
-  Root?: unknown;
-  "Title/Description"?: unknown;
-  Trigger?: unknown;
+  Close?: Snippet;
+  Content?: Snippet;
+  Root?: Snippet;
+  "Title/Description"?: Snippet;
+  Trigger?: Snippet;
   popover?: Snippet;
   children?: Snippet;
   styles?: Record<string, string>;
@@ -48,7 +48,6 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-popover" />
 {#if browser}
   <div data-kumo-portal-target={"document-body"} data-kumo-layer="popover">
     <section data-kumo-part="popover">

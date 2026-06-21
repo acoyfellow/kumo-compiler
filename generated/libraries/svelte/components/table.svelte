@@ -4,10 +4,9 @@
 
   export const modelDigest = "9d4b8d811da622ddf7ca92cd6b3f7e4f76e0d35094bab50ce0d03c2e4bde88ba";
   export type Props = {
-  children?: unknown;
+  children?: Snippet;
   className?: unknown;
   layout?: unknown;
-  children?: Snippet;
   styles?: Record<string, string>;
   [key: string]: unknown;
 };
@@ -34,7 +33,6 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-table" />
 <table class={cx(styles["root"])}>
   {#if children}{@render children()}{/if}
 </table>

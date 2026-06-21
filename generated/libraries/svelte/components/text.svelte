@@ -6,13 +6,12 @@
   export type Props = {
   as?: unknown;
   bold?: boolean;
-  children?: unknown;
-  DANGEROUS_className?: unknown;
-  DANGEROUS_style?: unknown;
+  children?: Snippet;
+  DANGEROUS_className?: Snippet;
+  DANGEROUS_style?: Snippet;
   size?: unknown;
   truncate?: boolean;
   variant?: unknown;
-  children?: Snippet;
   styles?: Record<string, string>;
   [key: string]: unknown;
 };
@@ -44,7 +43,6 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-text" />
 <span class={cx(styles["root"])}>
   {#if children}{@render children()}{/if}
 </span>

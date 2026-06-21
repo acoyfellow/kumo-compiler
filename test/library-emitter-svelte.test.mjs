@@ -20,8 +20,9 @@ test('emits exactly 41 sorted deterministic native Svelte components',()=>{
   const source=fs.readFileSync(path.join(output,entry.file));
   assert.deepEqual(source,bytes.get(entry.file));
   assert.equal(hash(source),entry.sha256);
-  assert.doesNotMatch(source.toString(),/\bReact\b|react-dom|@html|innerHTML|runtime wrapper|demo content/i);
-  compile(source.toString(),{filename:entry.file,generate:false});
+  assert.doesNotMatch(source.toString(),/\bReact\b|react-dom|@html|innerHTML|customElement|<svelte:options|runtime wrapper|demo content/i);
+  const compiled=compile(source.toString(),{filename:entry.file,generate:'client'});
+  assert.match(compiled.js.code,/svelte\/internal\/client/);
  }
 });
 

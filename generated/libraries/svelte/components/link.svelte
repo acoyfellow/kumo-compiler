@@ -4,12 +4,11 @@
 
   export const modelDigest = "c6f0fbd6318e25df8755e6c0053fe1d74c23861e6bcc3f9256588ac62b9fa195";
   export type Props = {
-  children?: unknown;
+  children?: Snippet;
   className?: unknown;
   href?: unknown;
   render?: unknown;
   variant?: unknown;
-  children?: Snippet;
   styles?: Record<string, string>;
   [key: string]: unknown;
 };
@@ -38,7 +37,6 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-link" />
 <a href={props["href"]} class={cx(styles["root"])}>
   {#if children}{@render children()}{/if}
 </a>

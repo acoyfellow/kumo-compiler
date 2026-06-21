@@ -4,11 +4,11 @@
 
   export const modelDigest = "e48b4239cfca5e769df53ef328dfaf3f910bf892b503c032b84e02002bb57789";
   export type Props = {
-  Group?: unknown;
-  Item?: boolean;
-  List?: unknown;
-  root?: unknown;
-  Title?: unknown;
+  Group?: Snippet;
+  Item?: Snippet;
+  List?: Snippet;
+  root?: Snippet;
+  Title?: Snippet;
   collection?: Snippet;
   children?: Snippet;
   styles?: Record<string, string>;
@@ -43,7 +43,6 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-table-of-contents" />
 <section data-kumo-part="root">
   {#if root}{@render root()}{/if}
 </section>

@@ -34,5 +34,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-clipboard-text" />
 <clipboard-text class={cx(styles["root"])}></clipboard-text>

@@ -5,11 +5,10 @@
   export const modelDigest = "ce6505b3ce28964f1d8bb565e8a04a6c23ab186f8a5afc3a83dc631e65c3914e";
   export type Props = {
   as?: unknown;
-  children?: unknown;
+  children?: Snippet;
   className?: unknown;
   color?: unknown;
   render?: unknown;
-  children?: Snippet;
   styles?: Record<string, string>;
   [key: string]: unknown;
 };
@@ -38,7 +37,6 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-surface" />
 <div class={cx(styles["root"])}>
   {#if children}{@render children()}{/if}
 </div>

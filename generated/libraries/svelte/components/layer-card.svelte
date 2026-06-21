@@ -4,10 +4,9 @@
 
   export const modelDigest = "c9dad696330b10c952f02f411171c962c2770f5c4b53cf81713d0397ef61abf8";
   export type Props = {
-  children?: unknown;
+  children?: Snippet;
   className?: unknown;
   render?: unknown;
-  children?: Snippet;
   styles?: Record<string, string>;
   [key: string]: unknown;
 };
@@ -34,7 +33,6 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-layer-card" />
 <div class={cx(styles["root"])}>
   {#if children}{@render children()}{/if}
 </div>

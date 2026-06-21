@@ -4,7 +4,7 @@
 
   export const modelDigest = "8a03b02a4e86e5ee4971e869b775b7efd73bc7e61116c5e794612f2402b7dd2d";
   export type Props = {
-  compound?: unknown;
+  compound?: Snippet;
   controls?: unknown;
   labels?: unknown;
   page?: number;
@@ -54,7 +54,6 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-pagination" />
 <section data-kumo-part="root">
   {#if root}{@render root()}{/if}
 </section>

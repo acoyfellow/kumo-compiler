@@ -4,9 +4,8 @@
 
   export const modelDigest = "914b6bbf31750fa0d8ea618a40c6abab812fc940fed7557bc9b8630e58fe76d7";
   export type Props = {
-  children?: unknown;
-  className?: unknown;
   children?: Snippet;
+  className?: unknown;
   styles?: Record<string, string>;
   [key: string]: unknown;
 };
@@ -32,7 +31,6 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-grid-item" />
 <div class={cx(styles["root"])}>
   {#if children}{@render children()}{/if}
 </div>

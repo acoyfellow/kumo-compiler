@@ -4,15 +4,14 @@
 
   export const modelDigest = "c5e7d6281fea509e18399d83a7768d4533db188cdb59ddc8cbf2f1bd99e0dec1";
   export type Props = {
-  action?: unknown;
-  children?: unknown;
+  action?: Snippet;
+  children?: Snippet;
   className?: unknown;
-  description?: unknown;
-  icon?: unknown;
+  description?: Snippet;
+  icon?: Snippet;
   text?: unknown;
   title?: unknown;
   variant?: unknown;
-  children?: Snippet;
   styles?: Record<string, string>;
   [key: string]: unknown;
 };
@@ -44,7 +43,6 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-banner" />
 <section class={cx(styles["root"])}>
   {#if icon}{@render icon()}{/if}
   {props["title"]}

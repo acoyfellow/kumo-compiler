@@ -39,7 +39,6 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-code" />
 <code class={cx(styles["root"])}>
   {props["code"]}
 </code>

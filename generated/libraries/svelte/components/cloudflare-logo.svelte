@@ -35,5 +35,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-cloudflare-logo" />
 <svg role={"img"} aria-label={"Cloudflare"} class={cx(styles["root"])}></svg>

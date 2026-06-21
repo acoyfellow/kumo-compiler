@@ -4,15 +4,15 @@
 
   export const modelDigest = "067c8530a8b7c49b56d39fe9649b03d5a722ce64bb0b9bc7226a6296da3b6f18";
   export type Props = {
-  CheckboxItem?: unknown;
-  "Content/SubContent"?: unknown;
-  Item?: unknown;
-  "Label/Separator/Shortcut/Group"?: unknown;
-  LinkItem?: unknown;
-  "RadioGroup/RadioItem/RadioItemIndicator"?: unknown;
-  Root?: unknown;
-  "Sub/SubTrigger"?: unknown;
-  Trigger?: unknown;
+  CheckboxItem?: Snippet;
+  "Content/SubContent"?: Snippet;
+  Item?: Snippet;
+  "Label/Separator/Shortcut/Group"?: Snippet;
+  LinkItem?: Snippet;
+  "RadioGroup/RadioItem/RadioItemIndicator"?: Snippet;
+  Root?: Snippet;
+  "Sub/SubTrigger"?: Snippet;
+  Trigger?: Snippet;
   collection?: Snippet;
   root?: Snippet;
   children?: Snippet;
@@ -60,7 +60,6 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-dropdown-menu" />
 <section data-kumo-part="root">
   {#if root}{@render root()}{/if}
 </section>

@@ -4,11 +4,11 @@
 
   export const modelDigest = "b431b499c0e47a951de0104395b33980461e37f3410131f5ddf2fc8c2223070f";
   export type Props = {
-  compound?: unknown;
-  Content?: unknown;
-  root?: unknown;
-  TriggerInput?: unknown;
-  TriggerMultipleWithInput?: unknown;
+  compound?: Snippet;
+  Content?: Snippet;
+  root?: Snippet;
+  TriggerInput?: Snippet;
+  TriggerMultipleWithInput?: Snippet;
   variants?: unknown;
   collection?: Snippet;
   children?: Snippet;
@@ -50,7 +50,6 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-combobox" />
 <section data-kumo-part="root">
   {#if root}{@render root()}{/if}
 </section>

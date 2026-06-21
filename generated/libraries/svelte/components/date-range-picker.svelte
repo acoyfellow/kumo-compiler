@@ -49,7 +49,6 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-date-range-picker" />
 {#if browser}
   <div data-kumo-portal-target={"document-body"} data-kumo-layer="date-range-picker">
     <section data-kumo-part="date-range-picker">

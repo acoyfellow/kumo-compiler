@@ -6,9 +6,9 @@
   export type Props = {
   className?: unknown;
   commandLine?: unknown;
-  contents?: unknown;
-  description?: unknown;
-  icon?: unknown;
+  contents?: Snippet;
+  description?: Snippet;
+  icon?: Snippet;
   size?: unknown;
   title: unknown;
   children?: Snippet;
@@ -43,7 +43,6 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-empty" />
 <section class={cx(styles["root"])}>
   {#if icon}{@render icon()}{/if}
   {props["title"]}

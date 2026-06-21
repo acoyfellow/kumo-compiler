@@ -4,11 +4,11 @@
 
   export const modelDigest = "534bd5b5c6c38761249fe7fb50b9cc0cc672c5a25c4b72ab4e1808bb92d2dd29";
   export type Props = {
-  compound?: unknown;
-  Dialog?: unknown;
-  Input?: unknown;
-  Panel?: unknown;
-  Root?: unknown;
+  compound?: Snippet;
+  Dialog?: Snippet;
+  Input?: Snippet;
+  Panel?: Snippet;
+  Root?: Snippet;
   collection?: Snippet;
   root?: Snippet;
   children?: Snippet;
@@ -52,7 +52,6 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<svelte:options customElement="kumo-command-palette" />
 <section data-kumo-part="root">
   {#if root}{@render root()}{/if}
 </section>
