@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "family": "collections",
+  "canonical": "@cloudflare/kumo@2.5.2",
+  "counts": {
+    "passed": 11,
+    "failed": 0,
+    "blocked": 0
+  },
+  "components": [
+    "autocomplete",
+    "combobox",
+    "command-palette",
+    "select"
+  ],
+  "cells": [
+    {
+      "component": "autocomplete",
+      "vector": "filter-and-select",
+      "status": "passed"
+    },
+    {
+      "component": "combobox",
+      "vector": "single-select",
+      "status": "passed"
+    },
+    {
+      "component": "command-palette",
+      "vector": "highlighted-text",
+      "status": "passed"
+    },
+    {
+      "component": "command-palette",
+      "vector": "open-search-close",
+      "status": "passed"
+    },
+    {
+      "component": "select",
+      "vector": "closed-placeholder-ssr",
+      "status": "passed"
+    },
+    {
+      "component": "select",
+      "vector": "pointer-open-select-disabled",
+      "status": "passed"
+    },
+    {
+      "component": "select",
+      "vector": "keyboard-end-dismissal",
+      "status": "passed"
+    },
+    {
+      "component": "select",
+      "vector": "keyboard-home-dismissal",
+      "status": "passed"
+    },
+    {
+      "component": "select",
+      "vector": "keyboard-typeahead-dismissal",
+      "status": "passed"
+    },
+    {
+      "component": "select",
+      "vector": "controlled-value-open-order",
+      "status": "passed"
+    },
+    {
+      "component": "select",
+      "vector": "multiple-object-selection",
+      "status": "passed"
+    }
+  ],
+  "digest": "c01bc65e3d360336a754586f58adddf4f962b7050cbfdbfb13b36def8bba89fe"
+}
