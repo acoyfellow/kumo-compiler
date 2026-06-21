@@ -29,9 +29,24 @@ Retain immutable deploy artifacts, manifest identity, receipts, production proof
 
 A receipt supports only its named claim and revision. Screenshots or successful builds alone do not establish parity. See [evidence authority](docs/explanation/evidence-authority.md), [deployment](docs/runbooks/deployment.md), and [evidence reproduction](docs/how-to/reproduce-evidence.md).
 
-## Upstream change rehearsals
+## Check a Kumo upstream update
 
-Deterministic, non-browser rehearsals cover additive components and props, behavior changes, CSS token changes, and export renames. Run `npm run upstream:rehearse` from any working directory, then `npm run upstream:rehearse:validate`. Receipts in `rehearsals/upstream/receipts/` are immutable and exclude machine-specific temporary paths; browser evidence intentionally remains `not-run`.
+Requires Node 22, npm 11, system Chrome, npm-registry network access, and a clean worktree. The isolated operator path is:
+
+```sh
+npm ci
+OUT=".upstream-check-$$"
+node scripts/upstream-check.mjs --from 2.5.1 --to 2.5.2 --scenario real --out "$OUT/real"
+node scripts/upstream-check.mjs --from 2.5.1 --to 2.5.2 --scenario synthetic-export-break --out "$OUT/synthetic" || test $? -eq 2
+node scripts/upstream-rollback.mjs --out "$OUT/rollback"
+rm -rf "$OUT"
+```
+
+The current real package diff passed with 0 changes. Button generation passed all 4 framework cells; in the browser Vue passed, Solid failed, and React/Svelte were blocked. The synthetic export break correctly blocked all 4 authority cells. Isolated rollback passed, including real `npm ci`, byte-identical restoration, and a deterministic rerun.
+
+A passed receipt does **not** edit the package pin or promote browser authority, and none of these commands deploy or publish. Apply a reviewed pin/lockfile change separately on main. Read the [seven-minute update procedure](docs/how-to/update-kumo.md) and [receipt/status reference](docs/reference/upstream.md) before interpreting blocked cells or stale authority.
+
+Deterministic, non-browser fixture rehearsals additionally cover additive components and props, behavior changes, CSS token changes, and export renames. Run `npm run upstream:rehearse`, then `npm run upstream:rehearse:validate`.
 
 ## Roadmap
 
@@ -41,5 +56,5 @@ The current implementation is the immutable comparison baseline. The active arch
 
 - [Add a component](docs/how-to/add-component.md) · [first proof](docs/tutorials/first-proof.md)
 - [Deploy](docs/how-to/deploy.md) · [rollback](docs/how-to/rollback.md) · [incident response](docs/runbooks/incident-response.md)
-- [IR](docs/reference/ir.md) · [manifests and receipts](docs/reference/manifests.md)
+- [IR](docs/reference/ir.md) · [manifests and receipts](docs/reference/manifests.md) · [upstream receipts](docs/reference/upstream.md)
 - [Security](SECURITY.md) · [deletion](DELETION.md)
