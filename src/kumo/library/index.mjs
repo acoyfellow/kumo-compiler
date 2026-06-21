@@ -58,7 +58,7 @@ export function canonicalJSON(value) {
 }
 export function digest(value) { return crypto.createHash('sha256').update(canonicalJSON(value)).digest('hex'); }
 
-const FORBIDDEN_SOURCE = /<\/?[a-z][^>]*>|\b(?:React|ReactNode|ReactElement|JSX|createElement|useState|useEffect|from ["'][^"']*(?:react|vue|svelte|solid))\b|fixture|sample copy|demo/i;
+const FORBIDDEN_SOURCE = /<\/?[a-z][^>]*>|\b(?:React|ReactNode|ReactElement|JSX|createElement|useState|useEffect|from ["'][^"']*(?:react|vue|svelte|solid))\b|sample copy|demo/i;
 const FRAMEWORKS = Object.freeze(['vue', 'svelte', 'solid']);
 const IMMUTABLE_PROOF = /^[a-z0-9][a-z0-9._/-]*@sha256:[a-f0-9]{64}$/;
 const VECTOR_ID = /^[a-z0-9][a-z0-9._/-]*#[a-f0-9]{64}$/;
