@@ -1,0 +1,16 @@
+{
+  "schemaVersion":"kumo.observable/v1","component":"switch",
+  "canonical":{"package":"@cloudflare/kumo","version":"2.5.2","exportPath":"./components/switch","typesPath":"dist/src/components/switch/index.d.ts","runtimePath":"dist/components/switch.js","typesSha256":"bf21c4b9a6d2c6ce48f2cce327eccad83fb5e66ea5e1e5fac06687703aab515e","runtimeSha256":"736abdb6fe71c107d44483cb5355f6f4117f52b6936a20e446a2df4c2ed77852","irSchemaVersion":"kumo.ir/v1"},
+  "publicApi":{"exports":["Switch"],"props":{"checked":"boolean","disabled":"boolean","size":"sm|base|lg","label":"ReactNode","onCheckedChange":"callback","group":"Switch.Group/Item"},"defaults":{"checked":false,"disabled":false,"size":"base","variant":"default","controlFirst":true}},
+  "semantics":{"root":"button","aria":["role=switch","aria-checked=false|true"]},"initialState":{"controlled":"checked","uncontrolled":"absence of checked"},
+  "transitions":[{"action":"click|Space","effect":"toggle and invoke callback unless disabled"}],"keyboardFocus":{"focusable":true,"keys":["Space"]},
+  "ssrHydration":{"ssr":"supported","hydration":"identical"},"stylingAssets":{"classes":["h-4 w-8","h-4.5 w-9","h-5 w-10"],"assets":[]},
+  "vectors":[
+    {"id":"unchecked-click","props":{"aria-label":"Power"},"actions":[{"type":"click"}],"expected":{"root":{"tag":"button","attributes":{"includes":{"role":"switch","aria-checked":"true","aria-label":"Power"}}},"state":{"checked":true},"events":["checked:true"],"focus":"root"}},
+    {"id":"checked-controlled-space","props":{"aria-label":"Power","checked":true},"setup":{"mode":"controlled","callback":"checked"},"actions":[{"type":"key","key":"Space"}],"expected":{"root":{"tag":"button","attributes":{"includes":{"role":"switch","aria-checked":"false"}}},"state":{"checked":false},"events":["checked:false"],"focus":"root"}},
+    {"id":"small","props":{"aria-label":"Small","size":"sm"},"actions":[],"expected":{"root":{"tag":"button","attributes":{"includes":{"role":"switch","aria-checked":"false"}},"classes":{"includes":["h-4","w-8"]}},"state":{"checked":false},"events":[],"focus":"none"}},
+    {"id":"large-disabled","props":{"aria-label":"Large","size":"lg","disabled":true},"actions":[{"type":"click"}],"expected":{"root":{"tag":"button","attributes":{"includes":{"role":"switch","aria-checked":"false","disabled":""}},"classes":{"includes":["h-5","w-10"]}},"state":{"checked":false},"events":[],"focus":"none"}},
+    {"id":"group","fixture":{"kind":"switch-group","legend":"Alerts","items":[{"label":"Email"},{"label":"SMS","disabled":true}]},"props":{},"actions":[{"type":"click","target":0}],"expected":{"root":{"tag":"fieldset"},"state":{"checked":[true,false]},"events":["item0:true"],"focus":"root"}}
+  ],
+  "unknowns":[{"field":"inheritedBaseUIFormSemantics","status":"unknown","reason":"Reset/autofill and platform activation details inherited from Base UI are outside the canonical Kumo declaration and are not guessed."}]
+}

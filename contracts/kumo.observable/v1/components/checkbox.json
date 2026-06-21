@@ -1,0 +1,18 @@
+{
+  "schemaVersion":"kumo.observable/v1","component":"checkbox",
+  "canonical":{"package":"@cloudflare/kumo","version":"2.5.2","exportPath":"./components/checkbox","typesPath":"dist/src/components/checkbox/index.d.ts","runtimePath":"dist/components/checkbox.js","typesSha256":"b5d863b87e52d04e85f5d704359fa724fa7bbe99847e3f866fcf8e258eb1be1d","runtimeSha256":"990c3b30fcadac24cbcf9624332d3fa43ea65264a649e8e8a8a897c071227f33","irSchemaVersion":"kumo.ir/v1"},
+  "publicApi":{"exports":["Checkbox"],"props":{"checked":"boolean","indeterminate":"boolean","disabled":"boolean","label":"ReactNode","onCheckedChange":"callback","group":"Checkbox.Group/Item"},"defaults":{"checked":false,"indeterminate":false,"disabled":false,"controlFirst":true}},
+  "semantics":{"root":"span","aria":["role=checkbox","aria-checked=false|true|mixed","accessible name required"]},
+  "initialState":{"controlled":"checked","uncontrolled":"absence of checked","group":"defaultValue/value"},
+  "transitions":[{"action":"click|Space","effect":"toggle and invoke callback unless disabled"}],
+  "keyboardFocus":{"focusable":true,"keys":["Space"]},"ssrHydration":{"ssr":"supported","hydration":"identical"},
+  "stylingAssets":{"classes":["data-[checked]","data-[indeterminate]"],"assets":[]},
+  "vectors":[
+    {"id":"unchecked-click","props":{"aria-label":"Accept"},"actions":[{"type":"click"}],"expected":{"root":{"tag":"span","attributes":{"includes":{"role":"checkbox","aria-checked":"true","aria-label":"Accept"}}},"state":{"checked":true},"events":["checked:true"],"focus":"root"}},
+    {"id":"checked-controlled-click","props":{"aria-label":"Accept","checked":true},"setup":{"mode":"controlled","callback":"checked"},"actions":[{"type":"click"}],"expected":{"root":{"tag":"span","attributes":{"includes":{"role":"checkbox","aria-checked":"false"}}},"state":{"checked":false},"events":["checked:false"],"focus":"root"}},
+    {"id":"indeterminate-space","props":{"aria-label":"Mixed","indeterminate":true},"actions":[{"type":"key","key":"Space"}],"expected":{"root":{"tag":"span","attributes":{"includes":{"role":"checkbox","aria-checked":"true"}}},"state":{"checked":true},"events":["checked:true"],"focus":"root"}},
+    {"id":"disabled","props":{"aria-label":"Locked","disabled":true},"actions":[{"type":"click"}],"expected":{"root":{"tag":"span","attributes":{"includes":{"role":"checkbox","aria-checked":"false","aria-disabled":"true"}}},"state":{"checked":false},"events":[],"focus":"none"}},
+    {"id":"group-default","fixture":{"kind":"checkbox-group","legend":"Channels","items":[{"label":"Email","value":"email"},{"label":"SMS","value":"sms"}],"defaultValue":["email"]},"props":{},"actions":[{"type":"click","target":1}],"expected":{"root":{"tag":"div","attributes":{"includes":{"role":"group"}}},"state":{"checked":[true,true]},"events":["value:email,sms"],"focus":"root"}}
+  ],
+  "unknowns":[{"field":"inheritedBaseUIEventDetails","status":"unknown","reason":"Callback detail object and browser/platform edge behavior are inherited from Base UI and are intentionally not guessed."}]
+}

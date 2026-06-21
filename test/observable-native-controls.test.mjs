@@ -1,0 +1,5 @@
+import test from'node:test';import assert from'node:assert/strict';import{loadContracts,validateContract,verifyCanonical}from'../scripts/observable-contracts.mjs';import{runNativeBrowserContracts}from'../scripts/observable-browser-adapter.mjs';const native=loadContracts().filter(x=>['checkbox','radio','switch'].includes(x.component));
+test('native inventory is exactly three contracts and fifteen vectors',()=>{assert.deepEqual(native.map(x=>x.component),['checkbox','radio','switch']);assert.equal(native.reduce((n,c)=>n+c.vectors.length,0),15)});
+test('native provenance is canonical',()=>native.forEach(verifyCanonical));
+test('extended DSL fails closed',()=>{for(const mutate of[x=>x.vectors[0].actions[0].wat=true,x=>x.vectors[0].actions[0].type='hover',x=>x.vectors[0].setup={mode:'magic',callback:'checked'}]){const c=structuredClone(native[0]);mutate(c);assert.throws(()=>validateContract(c))}});
+test('canonical Chrome executes every native browser cell',async()=>{const r=await runNativeBrowserContracts(native);assert.equal(r.browserCells,15);assert.deepEqual(r.diagnostics,[])});
