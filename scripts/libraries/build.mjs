@@ -29,12 +29,18 @@ for (const framework of frameworks) {
     fail(`${framework}: unexpected package identity`);
   if (canonicalReceiptDigest(receipt) !== receipt.receiptHash)
     fail(`${framework}: receipt digest is invalid; rerun/update the individual library runner`);
-  for (const [check, result] of Object.entries(receipt.checks)) {
+  for (const [check, result] of Object.entries(receipt.checks ?? {})) {
     if (result !== 'passed' && result !== 'not-run') fail(`${framework}: receipt check ${check}=${result}`);
   }
+  const packageManifest = JSON.parse(await readFile(resolve(source, 'kumo.manifest.json'), 'utf8'));
+  const components = packageManifest.components.map((component) => typeof component === 'string' ? component : component.component ?? component.name);
+  if (components.length !== 41 || new Set(components).size !== 41) fail(`${framework}: package manifest must contain 41 unique components`);
   const exportNames = Object.keys(pkg.exports);
-  if (!exportNames.includes('./button') || !exportNames.includes('./field') || exportNames.some((x) => /select|tabs/i.test(x)))
-    fail(`${framework}: package must expose Button and Field only`);
+  const componentIds = components.map((component) => component.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase());
+  const missingSubpaths = componentIds.filter((component) => !exportNames.includes(`./${component}`));
+  if (missingSubpaths.length) fail(`${framework}: missing unique component subpaths: ${missingSubpaths.join(', ')}`);
+  const receiptCount = receipt.exportSurface?.componentCount;
+  if (receiptCount !== 41) fail(`${framework}: receipt export surface must prove 41 components`);
 
   const temp = await mkdtemp(resolve(tmpdir(), 'kumo-library-'));
   const hashes = [];
@@ -59,7 +65,7 @@ for (const framework of frameworks) {
   entries.push({
     package: pkg.name, version: pkg.version, framework, sha256: hashes[0],
     integrity: `sha512-${createHash('sha512').update(bytes).digest('base64')}`,
-    bytes: bytes.length, components: ['Button', 'Field'],
+    bytes: bytes.length, components,
     installUrl: `/packages/${friendlyName}`, artifact: contentName, friendlyName,
     receiptDigest: receipt.receiptHash, sourceTree: receipt.sourceTree,
     sourceTreeDigest: receipt.sourceTreeDigest

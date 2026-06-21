@@ -9,8 +9,8 @@ Machine receipt: `proof/progress/latest.json`
   `████████████████████`
 - → **Implementation-ready library models** — 0/41  
   `░░░░░░░░░░░░░░░░░░░░`
-- → **Components in all three packages** — 2/41  
-  `█░░░░░░░░░░░░░░░░░░░`
+- ✓ **Components in all three packages** — 41/41  
+  `████████████████████`
 - ○ **Four-framework package conformance** — 0/41  
   `░░░░░░░░░░░░░░░░░░░░`
 - → **Complete component examples and docs** — 2/41  
@@ -26,7 +26,46 @@ Machine receipt: `proof/progress/latest.json`
 
 ## Current package surface
 
-- Button
-- Field
+- autocomplete
+- badge
+- banner
+- breadcrumbs
+- button
+- checkbox
+- clipboard-text
+- cloudflare-logo
+- code
+- combobox
+- command-palette
+- date-picker
+- date-range-picker
+- dialog
+- dropdown-menu
+- empty
+- field
+- grid
+- grid-item
+- input
+- input-area
+- input-group
+- label
+- layer-card
+- link
+- loader
+- menu-bar
+- meter
+- pagination
+- popover
+- radio
+- select
+- sensitive-input
+- sidebar
+- surface
+- switch
+- table
+- table-of-contents
+- tabs
+- text
+- toasty
 
 This file is generated from receipts. Do not edit it manually.
