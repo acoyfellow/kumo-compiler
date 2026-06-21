@@ -1,37 +1,16 @@
 {
   "name": "@cloudflare/kumo-svelte",
-  "version": "0.0.0-consumer-dx-pilot",
-  "private": true,
+  "version": "0.0.1",
   "type": "module",
-  "sideEffects": [
-    "*.css",
-    "./dist/*.css"
-  ],
+  "peerDependencies": { "svelte": "^5.0.0" },
+  "sideEffects": ["./package/styles.css", "./package/tokens.css"],
   "exports": {
-    ".": {
-      "types": "./package/index.d.ts",
-      "import": "./package/index.js"
-    },
-    "./button": {
-      "types": "./package/index.d.ts",
-      "import": "./package/index.js"
-    },
-    "./field": {
-      "types": "./package/index.d.ts",
-      "import": "./package/index.js"
-    },
-    "./tabs": {
-      "types": "./package/index.d.ts",
-      "import": "./package/index.js"
-    },
+    ".": { "types": "./package/index.d.ts", "svelte": "./package/index.js", "import": "./package/index.js" },
+    "./button": { "types": "./package/button.d.ts", "svelte": "./package/button.js", "import": "./package/button.js" },
+    "./field": { "types": "./package/field.d.ts", "svelte": "./package/field.js", "import": "./package/field.js" },
     "./styles.css": "./package/styles.css",
     "./tokens.css": "./package/tokens.css",
     "./manifest": "./kumo.manifest.json"
   },
-  "files": [
-    "package",
-    "kumo.manifest.json"
-  ],
-  "main": "./package/index.js",
-  "types": "./package/index.d.ts"
+  "files": ["package", "kumo.manifest.json"]
 }

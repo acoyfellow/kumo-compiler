@@ -3,26 +3,13 @@
   "name": "@cloudflare/kumo-svelte",
   "framework": "svelte",
   "exports": {
-    ".": "./dist/index.js",
-    "./styles.css": "./dist/styles.css",
-    "./tokens.css": "./dist/tokens.css",
+    ".": "./package/index.js",
+    "./button": "./package/button.js",
+    "./field": "./package/field.js",
+    "./styles.css": "./package/styles.css",
+    "./tokens.css": "./package/tokens.css",
     "./manifest": "./kumo.manifest.json"
   },
-  "files": [
-    "dist/index.js",
-    "dist/index.d.ts",
-    "dist/styles.css",
-    "dist/tokens.css",
-    "kumo.manifest.json"
-  ],
-  "ownership": {
-    "authority": "candidates/shared-core",
-    "scope": [
-      "Button",
-      "Field",
-      "Tabs"
-    ],
-    "pilot": true,
-    "publishReady": false
-  }
+  "components": ["Button", "Field"],
+  "ownership": { "authority": "dx/packages/kumo-svelte", "publishReady": true }
 }
