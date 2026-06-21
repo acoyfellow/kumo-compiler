@@ -1,0 +1,226 @@
+{
+  "schemaVersion": "kumo.observable/v1",
+  "component": "table-of-contents",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "exportPath": "./components/table-of-contents",
+    "typesPath": "dist/src/components/table-of-contents/index.d.ts",
+    "runtimePath": "dist/components/table-of-contents.js",
+    "typesSha256": "928b64d2e6d6a12f0266eeff9e5c73c37d6c7a578a2c09c65d0eb66dcce05f78",
+    "runtimeSha256": "80d50618b4c7ace6c7c9be3da286e9134d7563b0f85b022b5ea4850bb53d7a12",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "TableOfContents",
+      "KUMO_TABLE_OF_CONTENTS_VARIANTS",
+      "KUMO_TABLE_OF_CONTENTS_DEFAULT_VARIANTS"
+    ],
+    "props": {
+      "root": "HTMLAttributes<HTMLElement>; aria-label defaults to Table of contents",
+      "Title": "HTMLAttributes<HTMLParagraphElement>",
+      "List": "HTMLAttributes<HTMLUListElement>",
+      "Item": "AnchorHTMLAttributes<HTMLAnchorElement> plus active?: boolean and render?: ReactElement",
+      "Group": "HTMLAttributes<HTMLLIElement> minus title, plus required label, optional href and active"
+    },
+    "defaults": {
+      "root.aria-label": "Table of contents",
+      "Item.active": false,
+      "Group.active": false
+    }
+  },
+  "semantics": {
+    "root": "nav containing consumer-composed title/list/items/groups",
+    "aria": [
+      "root is a navigation landmark with default aria-label Table of contents",
+      "active Item emits aria-current=true; inactive Item omits aria-current",
+      "Group emits aria-current=true only when href is present and active is true",
+      "component is controlled/presentational: consumer owns scroll tracking and active state",
+      "Group always nests its children in a ul; label is an anchor when href exists and otherwise a paragraph"
+    ]
+  },
+  "initialState": {
+    "active": "exactly as supplied per Item or linked Group; no internal selection state"
+  },
+  "transitions": [],
+  "keyboardFocus": {
+    "focusable": true,
+    "keys": [
+      "native anchor navigation only; no component-managed keys"
+    ]
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "identical"
+  },
+  "stylingAssets": {
+    "classes": [
+      "flex flex-col gap-2 border-l-2 border-kumo-hairline",
+      "block w-full truncate border-l-2 border-transparent py-0.5 pl-4 text-sm text-left no-underline",
+      "border-kumo-brand font-medium text-kumo-default"
+    ],
+    "assets": []
+  },
+  "vectors": [
+    {
+      "id": "static-title-items",
+      "props": {},
+      "fixture": {
+        "export": "root",
+        "props": {
+          "aria-label": "Article sections"
+        },
+        "children": [
+          {
+            "export": ".Title",
+            "props": {},
+            "children": [
+              {
+                "text": "On this page"
+              }
+            ]
+          },
+          {
+            "export": ".List",
+            "props": {},
+            "children": [
+              {
+                "export": ".Item",
+                "props": {
+                  "href": "#intro",
+                  "active": true
+                },
+                "children": [
+                  {
+                    "text": "Introduction"
+                  }
+                ]
+              },
+              {
+                "export": ".Item",
+                "props": {
+                  "href": "#install"
+                },
+                "children": [
+                  {
+                    "text": "Installation"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "root": {
+          "tag": "nav",
+          "attributes": {
+            "includes": {
+              "aria-label": "Article sections"
+            }
+          }
+        },
+        "descendants": [
+          {
+            "selector": "p",
+            "count": 1,
+            "text": "On this page"
+          },
+          {
+            "selector": "ul",
+            "count": 1
+          },
+          {
+            "selector": "a",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "nested-linked-group",
+      "props": {},
+      "fixture": {
+        "export": "root",
+        "props": {},
+        "children": [
+          {
+            "export": ".List",
+            "props": {},
+            "children": [
+              {
+                "export": ".Group",
+                "props": {
+                  "label": "Getting started",
+                  "href": "#getting-started",
+                  "active": true
+                },
+                "children": [
+                  {
+                    "export": ".Item",
+                    "props": {
+                      "href": "#install"
+                    },
+                    "children": [
+                      {
+                        "text": "Install"
+                      }
+                    ]
+                  },
+                  {
+                    "export": ".Item",
+                    "props": {
+                      "href": "#setup"
+                    },
+                    "children": [
+                      {
+                        "text": "Setup"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "root": {
+          "tag": "nav",
+          "attributes": {
+            "includes": {
+              "aria-label": "Table of contents"
+            }
+          }
+        },
+        "descendants": [
+          {
+            "selector": "ul",
+            "count": 1
+          },
+          {
+            "selector": "li",
+            "count": 2
+          },
+          {
+            "selector": "a",
+            "count": 3
+          }
+        ]
+      }
+    }
+  ],
+  "unknowns": [
+    {
+      "field": "render.customElementSemantics",
+      "status": "unknown",
+      "reason": "Item render clones a consumer element with anchor-like props; its resulting tag, router behavior, and focus semantics depend on that supplied element and are not invented."
+    },
+    {
+      "field": "consumer.activeStatePolicy",
+      "status": "unknown",
+      "reason": "Canonical TableOfContents performs no observation or scroll tracking; which item is active and whether multiple active flags are supplied is wholly consumer-controlled."
+    }
+  ]
+}

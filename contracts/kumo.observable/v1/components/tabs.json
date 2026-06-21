@@ -1,0 +1,274 @@
+{
+  "schemaVersion": "kumo.observable/v1",
+  "component": "tabs",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "exportPath": "./components/tabs",
+    "typesPath": "dist/src/components/tabs/index.d.ts",
+    "runtimePath": "dist/components/tabs.js",
+    "typesSha256": "f9a3e4fcd644ba711c86df0d9c0cd3ce0a5b3e4f0a3d621aa919eb11fb26fda9",
+    "runtimeSha256": "8d38d3d8d39deb8ca8929df308c1811e123b50b6599f058b7c9f2aacd0e51419",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "Tabs",
+      "KUMO_TABS_VARIANTS",
+      "KUMO_TABS_DEFAULT_VARIANTS",
+      "KUMO_TABS_STYLING"
+    ],
+    "props": {
+      "tabs": "TabsItem[]; each item has value, label, optional className and Base UI render override",
+      "value": "controlled string value",
+      "selectedValue": "uncontrolled initial string value; ignored when value is supplied",
+      "onValueChange": "callback receiving selected value as string",
+      "activateOnFocus": "boolean passed to Base UI Tabs.List",
+      "variant": "segmented|underline",
+      "size": "base|sm",
+      "className": "root classes",
+      "listClassName": "tablist classes",
+      "indicatorClassName": "indicator classes"
+    },
+    "defaults": {
+      "tabs": [],
+      "selectedValue": "first tab value when uncontrolled and selectedValue omitted",
+      "activateOnFocus": false,
+      "variant": "segmented",
+      "size": "base"
+    }
+  },
+  "semantics": {
+    "root": "div",
+    "aria": [
+      "list uses tablist semantics and each item is a tab trigger",
+      "selected trigger has aria-selected=true and roving tabIndex 0; unselected triggers have aria-selected=false and tabIndex -1",
+      "this API renders navigation triggers only: it has no panel/content prop and must not synthesize tabpanel elements",
+      "empty or omitted tabs returns null",
+      "controlled value takes precedence over selectedValue",
+      "segmented list measures horizontal overflow; mouse drag scroll starts only after greater than 3px movement and suppresses the resulting click",
+      "click scrolls its trigger into nearest visible position"
+    ]
+  },
+  "initialState": {
+    "controlled": "value prop",
+    "uncontrolled": "selectedValue or first tab value",
+    "activation": "manual unless activateOnFocus is true",
+    "overflowing": false
+  },
+  "transitions": [
+    {
+      "action": "click a trigger",
+      "effect": "selects it (or requests controlled change), invokes onValueChange, and scrolls trigger into view"
+    },
+    {
+      "action": "ArrowLeft/ArrowRight focus navigation in manual mode",
+      "effect": "moves roving focus without selection until Enter or Space"
+    },
+    {
+      "action": "ArrowLeft/ArrowRight focus navigation with activateOnFocus=true",
+      "effect": "moves focus and activates focused trigger"
+    },
+    {
+      "action": "mouse pointer drag on overflowing segmented list beyond 3px",
+      "effect": "scrolls horizontally and suppresses click selection"
+    },
+    {
+      "action": "ResizeObserver detects segmented scrollWidth greater than clientWidth",
+      "effect": "sets data-overflowing and enables grab/drag behavior"
+    }
+  ],
+  "keyboardFocus": {
+    "focusable": true,
+    "keys": [
+      "ArrowLeft",
+      "ArrowRight",
+      "Home",
+      "End",
+      "Enter",
+      "Space"
+    ]
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "identical"
+  },
+  "stylingAssets": {
+    "classes": [
+      "relative isolate min-w-0 font-medium",
+      "kumo-tabs-list overflow-x-auto rounded-lg bg-kumo-recessed",
+      "focus-visible:ring-2 focus-visible:ring-kumo-brand"
+    ],
+    "assets": []
+  },
+  "vectors": [
+    {
+      "id": "segmented-uncontrolled-first",
+      "props": {
+        "tabs": [
+          {
+            "value": "overview",
+            "label": "Overview"
+          },
+          {
+            "value": "settings",
+            "label": "Settings"
+          }
+        ]
+      },
+      "fixture": {
+        "export": "root",
+        "props": {},
+        "children": []
+      },
+      "expected": {
+        "root": {
+          "tag": "div"
+        },
+        "descendants": [
+          {
+            "selector": "button",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "underline-selected-value",
+      "props": {
+        "variant": "underline",
+        "size": "sm",
+        "selectedValue": "settings",
+        "tabs": [
+          {
+            "value": "overview",
+            "label": "Overview"
+          },
+          {
+            "value": "settings",
+            "label": "Settings"
+          }
+        ]
+      },
+      "fixture": {
+        "export": "root",
+        "props": {},
+        "children": []
+      },
+      "expected": {
+        "root": {
+          "tag": "div"
+        },
+        "descendants": [
+          {
+            "selector": "button",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "manual-arrow-then-enter",
+      "props": {
+        "selectedValue": "overview",
+        "tabs": [
+          {
+            "value": "overview",
+            "label": "Overview"
+          },
+          {
+            "value": "settings",
+            "label": "Settings"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "focus",
+          "selector": "[aria-selected=true]"
+        },
+        {
+          "type": "key",
+          "selector": "[aria-selected=true]",
+          "key": "ArrowRight"
+        },
+        {
+          "type": "key",
+          "selector": "[role=tab]",
+          "key": "Enter"
+        }
+      ],
+      "expected": {
+        "root": {
+          "tag": "div"
+        },
+        "state": {
+          "value": "settings",
+          "activation": "manual"
+        },
+        "events": [
+          "value:settings"
+        ],
+        "focus": "[aria-selected=true]"
+      }
+    },
+    {
+      "id": "automatic-arrow",
+      "props": {
+        "activateOnFocus": true,
+        "selectedValue": "overview",
+        "tabs": [
+          {
+            "value": "overview",
+            "label": "Overview"
+          },
+          {
+            "value": "settings",
+            "label": "Settings"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "focus",
+          "selector": "[aria-selected=true]"
+        },
+        {
+          "type": "key",
+          "selector": "[aria-selected=true]",
+          "key": "ArrowRight"
+        }
+      ],
+      "expected": {
+        "root": {
+          "tag": "div"
+        },
+        "state": {
+          "value": "settings",
+          "activation": "automatic"
+        },
+        "events": [
+          "value:settings"
+        ],
+        "focus": "[aria-selected=true]"
+      }
+    }
+  ],
+  "unknowns": [
+    {
+      "field": "overflow.pointerGeometry",
+      "status": "unknown",
+      "reason": "Whether a given label set overflows and exact scrollLeft changes depend on measured browser layout, fonts, and viewport; no browser pass is claimed."
+    },
+    {
+      "field": "baseUi.generatedIds",
+      "status": "unknown",
+      "reason": "Base UI may emit generated identifiers and additional state attributes; their exact values are implementation-managed and are intentionally not frozen."
+    },
+    {
+      "field": "panels",
+      "status": "blocked",
+      "reason": "Canonical Tabs 2.5.2 has no panel API and renders no tabpanel; panel lifecycle, aria-controls linkage to consumer content, and content visibility must not be invented."
+    }
+  ]
+}

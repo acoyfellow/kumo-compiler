@@ -1,0 +1,469 @@
+{
+  "schemaVersion": "kumo.observable/v1",
+  "component": "sidebar",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "exportPath": "./components/sidebar",
+    "typesPath": "dist/src/components/sidebar/index.d.ts",
+    "runtimePath": "dist/components/sidebar.js",
+    "typesSha256": "691bffa215b2514121a2382f6825a564b175cfbd39c481bda5c59c81abf2b416",
+    "runtimeSha256": "a5a9062c02532f9b0a4463a223541db1d9ab285ad89ed1bbd5acd0a99302e606",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "Sidebar",
+      "SidebarProvider",
+      "SidebarRoot",
+      "SidebarHeader",
+      "SidebarContent",
+      "SidebarFooter",
+      "SidebarGroup",
+      "SidebarGroupLabel",
+      "SidebarMenu",
+      "SidebarMenuItem",
+      "SidebarMenuButton",
+      "SidebarMenuBadge",
+      "SidebarMenuSub",
+      "SidebarMenuSubItem",
+      "SidebarMenuSubButton",
+      "SidebarSeparator",
+      "SidebarTrigger",
+      "SidebarRail",
+      "SidebarResizeHandle",
+      "SidebarMenuChevron",
+      "SidebarCollapsible",
+      "SidebarCollapsibleTrigger",
+      "SidebarCollapsibleContent",
+      "SidebarSlidingViews",
+      "SidebarSlidingView",
+      "useSidebar",
+      "KUMO_SIDEBAR_VARIANTS",
+      "KUMO_SIDEBAR_DEFAULT_VARIANTS",
+      "KUMO_SIDEBAR_STYLING"
+    ],
+    "props": {
+      "Provider": "required children; controlled open/onOpenChange or defaultOpen; variant, side, collapsible, resizable, widths, contained, peekable, animationDuration, mobileBreakpoint, className/style",
+      "root": "aside HTML props plus required children and contentClassName",
+      "MenuButton": "button props plus icon, active, size, href, target, tooltip",
+      "MenuSubButton": "button props plus active and href",
+      "Collapsible": "div props plus controlled open/onOpenChange or defaultOpen and autoScrollOnOpen",
+      "CollapsibleTrigger": "required render ReactElement",
+      "SlidingViews": "div props plus activeKey and direction",
+      "SlidingView": "div props plus required value"
+    },
+    "defaults": {
+      "defaultOpen": true,
+      "variant": "sidebar",
+      "side": "left",
+      "collapsible": "icon",
+      "resizable": false,
+      "defaultWidth": 256,
+      "minWidth": 200,
+      "maxWidth": 480,
+      "contained": false,
+      "peekable": false,
+      "animationDuration": 250,
+      "mobileBreakpoint": 768,
+      "Collapsible.defaultOpen": false,
+      "Collapsible.autoScrollOnOpen": false,
+      "SlidingViews.direction": "left"
+    }
+  },
+  "semantics": {
+    "root": "Provider wrapper div; desktop Sidebar root is aside, mobile root is portaled backdrop plus nav",
+    "aria": [
+      "all Sidebar descendants require Provider; useSidebar outside it throws",
+      "desktop collapse modes are icon, offcanvas, or none; none always renders expanded aside",
+      "viewport below mobileBreakpoint renders a modal-like nav sheet labelled Navigation instead of aside",
+      "closed mobile nav has aria-hidden=true and is made inert by ref effect; open focuses first focusable descendant or nav",
+      "Escape closes mobile sheet and restores prior focus; focus leaving open sheet closes it",
+      "Trigger exposes aria-expanded and Collapse sidebar/Expand sidebar label; Rail is tabIndex -1; ResizeHandle is keyboard focusable",
+      "Collapsible trigger receives aria-expanded and aria-controls; content stays mounted as role=region and closed content has aria-hidden=true plus inert after ref effect",
+      "inactive SlidingView stays mounted with aria-hidden=true, pointer-events-none and inert after ref effect",
+      "MenuButton/MenuSubButton auto-wrap in li when not already inside corresponding item"
+    ]
+  },
+  "initialState": {
+    "state": "expanded when defaultOpen true, otherwise collapsed; peeking while transient peek is active",
+    "openMobile": false,
+    "width": "defaultWidth, clamped only when setWidth is called",
+    "isMobile": "false during SSR because window is absent",
+    "isResizing": false,
+    "isPeeking": false
+  },
+  "transitions": [
+    {
+      "action": "Trigger or Rail click",
+      "effect": "toggles desktop open, or mobile openMobile; desktop toggle stops peeking"
+    },
+    {
+      "action": "hover/focus enters collapsed desktop peek zone when peekable",
+      "effect": "state becomes peeking until pointer/focus leaves"
+    },
+    {
+      "action": "ResizeHandle drag or directional arrow",
+      "effect": "width is clamped to minWidth/maxWidth; crossing inward below minWidth collapses, dragging outward to minWidth expands"
+    },
+    {
+      "action": "ResizeHandle Home/End",
+      "effect": "Home collapses; End expands at maxWidth"
+    },
+    {
+      "action": "CollapsibleTrigger click",
+      "effect": "toggles controlled callback and internal open state"
+    },
+    {
+      "action": "focus-visible enters closed Collapsible",
+      "effect": "temporarily opens; blur closes unless explicitly opened or descendant has data-active"
+    },
+    {
+      "action": "SlidingViews activeKey changes",
+      "effect": "track translates to active child index; inactive children become hidden/inert"
+    }
+  ],
+  "keyboardFocus": {
+    "focusable": true,
+    "keys": [
+      "Escape",
+      "ArrowLeft",
+      "ArrowRight",
+      "Home",
+      "End",
+      "Tab"
+    ]
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "unknown"
+  },
+  "stylingAssets": {
+    "classes": [
+      "group/sidebar-wrapper relative isolate flex w-full",
+      "group/sidebar relative h-full shrink-0 grow-0",
+      "transition-[width] duration-(--sidebar-animation-duration)",
+      "motion-reduce:transition-none"
+    ],
+    "assets": []
+  },
+  "vectors": [
+    {
+      "id": "desktop-expanded-compound",
+      "props": {},
+      "fixture": {
+        "export": ".Provider",
+        "props": {},
+        "children": [
+          {
+            "export": "root",
+            "props": {},
+            "children": [
+              {
+                "export": ".Header",
+                "props": {},
+                "children": [
+                  {
+                    "text": "Product"
+                  }
+                ]
+              },
+              {
+                "export": ".Content",
+                "props": {},
+                "children": [
+                  {
+                    "export": ".Group",
+                    "props": {},
+                    "children": [
+                      {
+                        "export": ".GroupLabel",
+                        "props": {},
+                        "children": [
+                          {
+                            "text": "Build"
+                          }
+                        ]
+                      },
+                      {
+                        "export": ".Menu",
+                        "props": {},
+                        "children": [
+                          {
+                            "export": ".MenuButton",
+                            "props": {
+                              "active": true
+                            },
+                            "children": [
+                              {
+                                "text": "Home"
+                              }
+                            ]
+                          },
+                          {
+                            "export": ".MenuButton",
+                            "props": {},
+                            "children": [
+                              {
+                                "text": "Domains"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "export": ".Footer",
+                "props": {},
+                "children": [
+                  {
+                    "export": ".Trigger",
+                    "props": {},
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "root": {
+          "attributes": {
+            "includes": {
+              "data-sidebar-wrapper": "",
+              "data-state": "expanded",
+              "data-side": "left"
+            }
+          }
+        },
+        "descendants": [
+          {
+            "selector": "aside",
+            "count": 1,
+            "attributes": {
+              "includes": {
+                "data-state": "expanded",
+                "data-side": "left",
+                "data-collapsible": "icon"
+              }
+            }
+          },
+          {
+            "selector": "ul",
+            "count": 1
+          },
+          {
+            "selector": "li",
+            "count": 2
+          },
+          {
+            "selector": "button",
+            "count": 3
+          },
+          {
+            "selector": "[aria-expanded=true]",
+            "count": 1,
+            "attributes": {
+              "includes": {
+                "aria-label": "Collapse sidebar"
+              }
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "focus",
+          "selector": "button"
+        }
+      ]
+    },
+    {
+      "id": "desktop-collapsed-sliding-inert-intent",
+      "props": {},
+      "fixture": {
+        "export": ".Provider",
+        "props": {
+          "defaultOpen": false
+        },
+        "children": [
+          {
+            "export": "root",
+            "props": {},
+            "children": [
+              {
+                "export": ".SlidingViews",
+                "props": {
+                  "activeKey": "account"
+                },
+                "children": [
+                  {
+                    "export": ".SlidingView",
+                    "props": {
+                      "value": "account"
+                    },
+                    "children": [
+                      {
+                        "text": "Account nav"
+                      }
+                    ]
+                  },
+                  {
+                    "export": ".SlidingView",
+                    "props": {
+                      "value": "zone"
+                    },
+                    "children": [
+                      {
+                        "text": "Zone nav"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "export": ".Trigger",
+                "props": {},
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "root": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-state": "collapsed"
+            }
+          }
+        },
+        "descendants": [
+          {
+            "selector": "aside",
+            "count": 1,
+            "attributes": {
+              "includes": {
+                "data-state": "collapsed"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "collapsible-closed-mounted",
+      "props": {},
+      "fixture": {
+        "export": ".Provider",
+        "props": {},
+        "children": [
+          {
+            "export": "root",
+            "props": {},
+            "children": [
+              {
+                "export": ".Collapsible",
+                "props": {},
+                "children": [
+                  {
+                    "export": ".CollapsibleContent",
+                    "props": {},
+                    "children": [
+                      {
+                        "text": "Nested navigation"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "expected": {
+        "root": {
+          "tag": "div"
+        },
+        "descendants": []
+      }
+    },
+    {
+      "id": "resize-keyboard-expand",
+      "props": {},
+      "fixture": {
+        "export": ".Provider",
+        "props": {
+          "defaultOpen": false,
+          "resizable": true,
+          "defaultWidth": 256,
+          "minWidth": 200,
+          "maxWidth": 480
+        },
+        "children": [
+          {
+            "export": "root",
+            "props": {},
+            "children": [
+              {
+                "export": ".ResizeHandle",
+                "props": {},
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      "actions": [
+        {
+          "type": "key",
+          "selector": "[aria-label=Resize_sidebar]",
+          "key": "End"
+        }
+      ],
+      "expected": {
+        "root": {
+          "tag": "div"
+        },
+        "state": {
+          "open": true,
+          "width": 480
+        },
+        "events": [],
+        "focus": "[aria-label=Resize_sidebar]"
+      }
+    }
+  ],
+  "unknowns": [
+    {
+      "field": "ssrHydration.responsiveBranch",
+      "status": "unknown",
+      "reason": "SSR always evaluates isMobile=false, while the first client render reads matchMedia synchronously. A narrow viewport can therefore choose desktop aside on the server and mobile portal/nav on hydration; no identical-hydration or browser-pass claim is made."
+    },
+    {
+      "field": "inert.ssrSerialization",
+      "status": "unknown",
+      "reason": "Mobile, CollapsibleContent, and SlidingView apply/remove inert imperatively in ref callbacks. aria-hidden is SSR-observable, but inert presence before/through hydration must be browser-observed and is not asserted action-free."
+    },
+    {
+      "field": "mobile.portalAndFocus",
+      "status": "unknown",
+      "reason": "Exact portal placement, focus restoration ordering, and focusout interactions require a browser; behavior is documented from canonical runtime but no browser pass is claimed."
+    },
+    {
+      "field": "CollapsibleTrigger.fixture",
+      "status": "blocked",
+      "reason": "CollapsibleTrigger requires a render ReactElement. The generic JSON composition DSL cannot encode a ReactElement-valued prop, so trigger linkage is not fabricated in the action-free vector."
+    },
+    {
+      "field": "SlidingViews.direction",
+      "status": "unknown",
+      "reason": "The public direction prop is declared and defaults left, but canonical runtime computes translation solely from active child index; no direction-dependent observable effect is invented."
+    }
+  ]
+}
