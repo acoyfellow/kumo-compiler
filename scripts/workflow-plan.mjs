@@ -1,0 +1,4 @@
+import {readFile,mkdir,rename,writeFile} from 'node:fs/promises';import {resolve} from 'node:path';import {plan} from '../workflow/planner/index.mjs';
+const args=process.argv.slice(2),write=args.includes('--write'),inputPath=resolve(args.find(x=>!x.startsWith('--'))??'.workflow/planner/input.json');
+const input=JSON.parse(await readFile(inputPath,'utf8'));const result=plan(input);console.log(JSON.stringify(result,null,2));
+if(write){const dir=resolve('.workflow/planner'),stamp=`${process.pid}-${Date.now()}`;await mkdir(dir,{recursive:true});for(const [name,value] of [['checkpoint.json',{inputDigest:result.inputDigest,planDigest:result.planDigest}],['plan.json',result]]){const tmp=resolve(dir,`.${name}.${stamp}.tmp`);await writeFile(tmp,JSON.stringify(value,null,2)+'\n');await rename(tmp,resolve(dir,name))}}
