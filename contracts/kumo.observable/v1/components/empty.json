@@ -1,0 +1,141 @@
+{
+  "schemaVersion": "kumo.observable/v1",
+  "component": "empty",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "exportPath": "./components/empty",
+    "typesPath": "dist/src/components/empty/empty.d.ts",
+    "runtimePath": "dist/chunks/empty-frsjvok4w6i0fyex.js",
+    "typesSha256": "5c59ba6b4ad9d6c88fb54bf3a75b4b7b58704c875688e94df138eab2511f821c",
+    "runtimeSha256": "6c2e8cf09f589ce6c4442a14f0600686b4a6ce6adc817e0ff70636d345353ffb",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "Empty",
+      "emptyVariants",
+      "KUMO_EMPTY_VARIANTS",
+      "KUMO_EMPTY_DEFAULT_VARIANTS"
+    ],
+    "props": {
+      "icon": {
+        "type": "ReactNode"
+      },
+      "title": {
+        "type": "string",
+        "required": true
+      },
+      "description": {
+        "type": "string"
+      },
+      "commandLine": {
+        "type": "string"
+      },
+      "contents": {
+        "type": "ReactNode"
+      },
+      "size": {
+        "enum": [
+          "sm",
+          "base",
+          "lg"
+        ]
+      },
+      "className": {
+        "type": "string"
+      }
+    },
+    "defaults": {
+      "size": "base"
+    }
+  },
+  "semantics": {
+    "root": "div",
+    "aria": []
+  },
+  "initialState": {},
+  "transitions": [],
+  "keyboardFocus": {
+    "focusable": false,
+    "keys": []
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "identical"
+  },
+  "stylingAssets": {
+    "classes": [
+      "flex",
+      "w-full",
+      "flex-col",
+      "items-center"
+    ],
+    "assets": []
+  },
+  "vectors": [
+    {
+      "id": "minimal",
+      "props": {
+        "title": "No results"
+      },
+      "expected": {
+        "root": {
+          "tag": "div",
+          "classes": {
+            "includes": [
+              "px-10",
+              "py-16",
+              "gap-6"
+            ]
+          },
+          "text": "No results"
+        },
+        "descendants": [
+          {
+            "selector": "h2",
+            "count": 1,
+            "text": "No results"
+          },
+          {
+            "selector": "p",
+            "count": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "small-description",
+      "props": {
+        "title": "Empty",
+        "description": "Try again",
+        "size": "sm"
+      },
+      "expected": {
+        "root": {
+          "tag": "div",
+          "classes": {
+            "includes": [
+              "px-6",
+              "py-8",
+              "gap-4"
+            ]
+          },
+          "text": "EmptyTry again"
+        },
+        "descendants": [
+          {
+            "selector": "h2",
+            "count": 1
+          },
+          {
+            "selector": "p",
+            "count": 1,
+            "text": "Try again"
+          }
+        ]
+      }
+    }
+  ],
+  "unknowns": []
+}

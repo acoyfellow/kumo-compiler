@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "kumo.observable/v1",
+  "component": "layer-card",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "exportPath": "./components/layer-card",
+    "typesPath": "dist/src/components/layer-card/layer-card.d.ts",
+    "runtimePath": "dist/chunks/layer-card-er4flkcxmzfug8jw.js",
+    "typesSha256": "5ac4b8b3e885a30896bd20817872f1f6beb93d5ee82dd2d218c5f1d3c27f939d",
+    "runtimeSha256": "054cad0a47af90571350f833c7e814894b08b6ce2914ff645afe889fdbe7f666",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "LayerCard"
+    ],
+    "props": {
+      "children": {
+        "type": "ReactNode"
+      },
+      "className": {
+        "type": "string"
+      },
+      "render": {
+        "type": "ReactElement"
+      }
+    },
+    "defaults": {}
+  },
+  "semantics": {
+    "root": "div",
+    "aria": []
+  },
+  "initialState": {},
+  "transitions": [],
+  "keyboardFocus": {
+    "focusable": false,
+    "keys": []
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "identical"
+  },
+  "stylingAssets": {
+    "classes": [
+      "overflow-hidden",
+      "rounded-lg"
+    ],
+    "assets": []
+  },
+  "vectors": [
+    {
+      "id": "simple",
+      "props": {
+        "children": "Card"
+      },
+      "expected": {
+        "root": {
+          "tag": "div",
+          "classes": {
+            "includes": [
+              "bg-kumo-base",
+              "shadow-xs",
+              "ring-kumo-line"
+            ]
+          },
+          "text": "Card"
+        }
+      }
+    },
+    {
+      "id": "layered",
+      "props": {},
+      "fixture": {
+        "kind": "layer-card"
+      },
+      "expected": {
+        "root": {
+          "tag": "div",
+          "classes": {
+            "includes": [
+              "bg-kumo-elevated",
+              "ring-kumo-hairline"
+            ]
+          },
+          "text": "TopMain"
+        },
+        "descendants": [
+          {
+            "selector": "div",
+            "count": 2
+          }
+        ]
+      }
+    }
+  ],
+  "unknowns": [
+    {
+      "field": "semantics.rootWhenRenderProvided",
+      "status": "unknown",
+      "reason": "The caller-provided React element controls the polymorphic root."
+    }
+  ]
+}

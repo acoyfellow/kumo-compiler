@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "kumo.observable/v1",
+  "component": "cloudflare-logo",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "exportPath": "./components/cloudflare-logo",
+    "typesPath": "dist/src/components/cloudflare-logo/cloudflare-logo.d.ts",
+    "runtimePath": "dist/chunks/cloudflare-logo-fya2cd2ljozkzjh8.js",
+    "typesSha256": "8b166a90ba62e7eb76fdfe42eff046ebfd95db73fa1f502ce4c6efe1eb6e28a0",
+    "runtimeSha256": "3122a65733a2eeeea6ac00c701a75016e3b9f666bbd797561140dda386712d8e",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "CloudflareLogo",
+      "PoweredByCloudflare",
+      "generateCloudflareLogoSvg",
+      "KUMO_CLOUDFLARE_LOGO_VARIANTS",
+      "KUMO_CLOUDFLARE_LOGO_DEFAULT_VARIANTS"
+    ],
+    "props": {
+      "variant": {
+        "enum": [
+          "glyph",
+          "full"
+        ]
+      },
+      "color": {
+        "enum": [
+          "color",
+          "black",
+          "white"
+        ]
+      },
+      "className": {
+        "type": "string"
+      }
+    },
+    "defaults": {
+      "variant": "full",
+      "color": "color"
+    }
+  },
+  "semantics": {
+    "root": "svg",
+    "aria": [
+      "role=\"img\"",
+      "aria-label=\"Cloudflare logo\""
+    ]
+  },
+  "initialState": {},
+  "transitions": [],
+  "keyboardFocus": {
+    "focusable": false,
+    "keys": []
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "identical"
+  },
+  "stylingAssets": {
+    "classes": [],
+    "assets": [
+      "inline Cloudflare SVG paths"
+    ]
+  },
+  "vectors": [
+    {
+      "id": "full-color",
+      "props": {},
+      "expected": {
+        "root": {
+          "tag": "svg",
+          "attributes": {
+            "includes": {
+              "role": "img",
+              "aria-label": "Cloudflare logo",
+              "viewBox": "0 0 425.6 143.63"
+            }
+          },
+          "classes": {
+            "includes": [
+              "text-kumo-default"
+            ]
+          }
+        },
+        "descendants": [
+          {
+            "selector": "path",
+            "count": 12
+          }
+        ]
+      }
+    },
+    {
+      "id": "glyph-white",
+      "props": {
+        "variant": "glyph",
+        "color": "white"
+      },
+      "expected": {
+        "root": {
+          "tag": "svg",
+          "attributes": {
+            "includes": {
+              "role": "img",
+              "aria-label": "Cloudflare logo",
+              "viewBox": "0 0 49 22"
+            }
+          },
+          "classes": {
+            "includes": [
+              "text-white"
+            ]
+          }
+        },
+        "descendants": [
+          {
+            "selector": "path",
+            "count": 2
+          }
+        ]
+      }
+    }
+  ],
+  "unknowns": []
+}

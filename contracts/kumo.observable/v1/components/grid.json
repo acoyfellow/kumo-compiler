@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "kumo.observable/v1",
+  "component": "grid",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "exportPath": "./components/grid",
+    "typesPath": "dist/src/components/grid/grid.d.ts",
+    "runtimePath": "dist/chunks/grid-do93dv1rjggqxx7p.js",
+    "typesSha256": "63f3a671bf4fb0ee3108fce5b797805cad30633874b9ebea1fb9bebab2d6f43b",
+    "runtimeSha256": "b9e6c204a13e32163f3b56a4a3d9705403c13ecfa130c49afe8642e04ec875be",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "Grid",
+      "GridItem",
+      "gridVariants",
+      "gridItemVariants",
+      "KUMO_GRID_VARIANTS",
+      "KUMO_GRID_DEFAULT_VARIANTS"
+    ],
+    "props": {
+      "children": {
+        "type": "ReactNode"
+      },
+      "className": {
+        "type": "string"
+      },
+      "mobileDivider": {
+        "type": "boolean"
+      },
+      "gap": {
+        "enum": [
+          "none",
+          "sm",
+          "base",
+          "lg"
+        ]
+      },
+      "variant": {
+        "enum": [
+          "2up",
+          "side-by-side",
+          "2-1",
+          "1-2",
+          "1-3up",
+          "3up",
+          "4up",
+          "6up",
+          "1-2-4up"
+        ]
+      }
+    },
+    "defaults": {
+      "gap": "base"
+    }
+  },
+  "semantics": {
+    "root": "div",
+    "aria": []
+  },
+  "initialState": {},
+  "transitions": [],
+  "keyboardFocus": {
+    "focusable": false,
+    "keys": []
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "identical"
+  },
+  "stylingAssets": {
+    "classes": [
+      "grid"
+    ],
+    "assets": []
+  },
+  "vectors": [
+    {
+      "id": "three-up",
+      "props": {
+        "variant": "3up",
+        "children": "Cells"
+      },
+      "expected": {
+        "root": {
+          "tag": "div",
+          "classes": {
+            "includes": [
+              "grid",
+              "grid-cols-1",
+              "md:grid-cols-2",
+              "lg:grid-cols-3",
+              "gap-2"
+            ]
+          },
+          "text": "Cells"
+        }
+      }
+    },
+    {
+      "id": "side-none",
+      "props": {
+        "variant": "side-by-side",
+        "gap": "none",
+        "children": "Two"
+      },
+      "expected": {
+        "root": {
+          "tag": "div",
+          "classes": {
+            "includes": [
+              "grid-cols-2",
+              "gap-0"
+            ]
+          },
+          "text": "Two"
+        }
+      }
+    }
+  ],
+  "unknowns": []
+}

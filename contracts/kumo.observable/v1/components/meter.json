@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "kumo.observable/v1",
+  "component": "meter",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "exportPath": "./components/meter",
+    "typesPath": "dist/src/components/meter/meter.d.ts",
+    "runtimePath": "dist/chunks/meter-d5igshkjqttl1fdj.js",
+    "typesSha256": "91ecd7d060e494f823f89fab4f6b6f87aa128b56ba1f52cddf09545ef0106d81",
+    "runtimeSha256": "7f9f0cfca3ce64f253f509e89632568a86e462383ec0cbfe09a731301f1a3545",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "Meter"
+    ],
+    "props": {
+      "label": {
+        "type": "string",
+        "required": true
+      },
+      "value": {
+        "type": "number"
+      },
+      "min": {
+        "type": "number"
+      },
+      "max": {
+        "type": "number"
+      },
+      "customValue": {
+        "type": "string"
+      },
+      "showValue": {
+        "type": "boolean"
+      },
+      "className": {
+        "type": "string"
+      },
+      "trackClassName": {
+        "type": "string"
+      },
+      "indicatorClassName": {
+        "type": "string"
+      }
+    },
+    "defaults": {
+      "min": 0,
+      "max": 100,
+      "showValue": true
+    }
+  },
+  "semantics": {
+    "root": "div",
+    "aria": [
+      "role=\"meter\"",
+      "aria-valuemin",
+      "aria-valuemax",
+      "aria-valuenow",
+      "aria-valuetext"
+    ]
+  },
+  "initialState": {},
+  "transitions": [],
+  "keyboardFocus": {
+    "focusable": false,
+    "keys": []
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "identical"
+  },
+  "stylingAssets": {
+    "classes": [
+      "flex",
+      "w-full",
+      "flex-col",
+      "gap-2"
+    ],
+    "assets": []
+  },
+  "vectors": [
+    {
+      "id": "percentage",
+      "props": {
+        "label": "Storage",
+        "value": 65
+      },
+      "expected": {
+        "root": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "role": "meter",
+              "aria-valuemin": "0",
+              "aria-valuemax": "100",
+              "aria-valuenow": "65",
+              "aria-valuetext": "65%"
+            }
+          },
+          "text": "Storage65%x"
+        },
+        "descendants": [
+          {
+            "selector": "span",
+            "count": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "custom-value",
+      "props": {
+        "label": "Requests",
+        "value": 75,
+        "customValue": "750 / 1,000"
+      },
+      "expected": {
+        "root": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "role": "meter",
+              "aria-valuenow": "75"
+            }
+          },
+          "text": "Requests750 / 1,000x"
+        },
+        "descendants": [
+          {
+            "selector": "span",
+            "count": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "custom-range-hidden",
+      "props": {
+        "label": "Hidden",
+        "value": 20,
+        "min": 0,
+        "max": 200,
+        "showValue": false
+      },
+      "expected": {
+        "root": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "role": "meter",
+              "aria-valuemax": "200",
+              "aria-valuenow": "20"
+            }
+          },
+          "text": "Hiddenx"
+        },
+        "descendants": [
+          {
+            "selector": "span",
+            "count": 2
+          }
+        ]
+      }
+    }
+  ],
+  "unknowns": []
+}

@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "kumo.observable/v1",
+  "component": "grid-item",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "exportPath": "./components/grid",
+    "typesPath": "dist/src/components/grid/grid.d.ts",
+    "runtimePath": "dist/chunks/grid-do93dv1rjggqxx7p.js",
+    "typesSha256": "63f3a671bf4fb0ee3108fce5b797805cad30633874b9ebea1fb9bebab2d6f43b",
+    "runtimeSha256": "b9e6c204a13e32163f3b56a4a3d9705403c13ecfa130c49afe8642e04ec875be",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "GridItem"
+    ],
+    "props": {
+      "children": {
+        "type": "ReactNode"
+      },
+      "className": {
+        "type": "string"
+      }
+    },
+    "defaults": {}
+  },
+  "semantics": {
+    "root": "div",
+    "aria": []
+  },
+  "initialState": {},
+  "transitions": [],
+  "keyboardFocus": {
+    "focusable": false,
+    "keys": []
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "identical"
+  },
+  "stylingAssets": {
+    "classes": [],
+    "assets": []
+  },
+  "vectors": [
+    {
+      "id": "default",
+      "props": {
+        "children": "Cell"
+      },
+      "expected": {
+        "root": {
+          "tag": "div",
+          "text": "Cell"
+        }
+      }
+    },
+    {
+      "id": "custom-class",
+      "props": {
+        "children": "Cell",
+        "className": "p-4"
+      },
+      "expected": {
+        "root": {
+          "tag": "div",
+          "classes": {
+            "includes": [
+              "p-4"
+            ]
+          },
+          "text": "Cell"
+        }
+      }
+    }
+  ],
+  "unknowns": []
+}

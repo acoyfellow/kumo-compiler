@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "kumo.observable/v1",
+  "component": "code",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "exportPath": "./components/code",
+    "typesPath": "dist/src/components/code/code.d.ts",
+    "runtimePath": "dist/chunks/code-bbnjm8vk9hxl129r.js",
+    "typesSha256": "7fb065c80d8bac3bd91fb6e45a5bf2b275349fa5a881e169f9c85bd6c1cec89e",
+    "runtimeSha256": "1675f902b6560cfec9e495578e2491986cf9cc1c7d7f7bd7d8e7f1eb1cb286ad",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "Code",
+      "CodeBlock"
+    ],
+    "props": {
+      "code": {
+        "type": "string",
+        "required": true
+      },
+      "lang": {
+        "enum": [
+          "ts",
+          "tsx",
+          "jsonc",
+          "bash",
+          "css"
+        ]
+      },
+      "values": {
+        "type": "record"
+      },
+      "className": {
+        "type": "string"
+      },
+      "style": {
+        "type": "CSSProperties"
+      }
+    },
+    "defaults": {
+      "lang": "ts"
+    }
+  },
+  "semantics": {
+    "root": "pre",
+    "aria": []
+  },
+  "initialState": {},
+  "transitions": [],
+  "keyboardFocus": {
+    "focusable": false,
+    "keys": []
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "identical"
+  },
+  "stylingAssets": {
+    "classes": [
+      "font-mono",
+      "text-sm",
+      "text-kumo-subtle"
+    ],
+    "assets": []
+  },
+  "vectors": [
+    {
+      "id": "default",
+      "props": {
+        "code": "const x = 1;"
+      },
+      "expected": {
+        "root": {
+          "tag": "pre",
+          "classes": {
+            "includes": [
+              "font-mono",
+              "text-sm",
+              "text-kumo-subtle"
+            ]
+          },
+          "text": "const x = 1;"
+        }
+      }
+    },
+    {
+      "id": "bash",
+      "props": {
+        "code": "echo kumo",
+        "lang": "bash",
+        "className": "custom"
+      },
+      "expected": {
+        "root": {
+          "tag": "pre",
+          "classes": {
+            "includes": [
+              "custom",
+              "font-mono"
+            ]
+          },
+          "text": "echo kumo"
+        }
+      }
+    }
+  ],
+  "unknowns": []
+}

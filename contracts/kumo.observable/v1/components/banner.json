@@ -1,0 +1,133 @@
+{
+  "schemaVersion": "kumo.observable/v1",
+  "component": "banner",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "exportPath": "./components/banner",
+    "typesPath": "dist/src/components/banner/banner.d.ts",
+    "runtimePath": "dist/chunks/banner-es5iwuk4pf25e29e.js",
+    "typesSha256": "2717bbfa59e514c2921a9a199c0a2a250cabe366a3616e25b61e9d2d68715ff3",
+    "runtimeSha256": "585e461806809e258959dab0ef266503dbbf23e2f415332217ededbdfafb66e5",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "Banner",
+      "BannerVariant"
+    ],
+    "props": {
+      "icon": {
+        "type": "ReactNode"
+      },
+      "title": {
+        "type": "string"
+      },
+      "description": {
+        "type": "ReactNode"
+      },
+      "action": {
+        "type": "ReactNode"
+      },
+      "text": {
+        "type": "string",
+        "deprecated": true
+      },
+      "children": {
+        "type": "ReactNode",
+        "deprecated": true
+      },
+      "variant": {
+        "enum": [
+          "default",
+          "alert",
+          "error",
+          "secondary"
+        ]
+      },
+      "className": {
+        "type": "string"
+      }
+    },
+    "defaults": {
+      "variant": "default"
+    }
+  },
+  "semantics": {
+    "root": "div",
+    "aria": []
+  },
+  "initialState": {},
+  "transitions": [],
+  "keyboardFocus": {
+    "focusable": false,
+    "keys": []
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "identical"
+  },
+  "stylingAssets": {
+    "classes": [
+      "flex",
+      "w-full",
+      "items-start",
+      "gap-3",
+      "rounded-lg"
+    ],
+    "assets": []
+  },
+  "vectors": [
+    {
+      "id": "structured",
+      "props": {
+        "title": "Notice",
+        "description": "Details"
+      },
+      "expected": {
+        "root": {
+          "tag": "div",
+          "classes": {
+            "includes": [
+              "bg-kumo-banner-info"
+            ]
+          },
+          "text": "NoticeDetails"
+        },
+        "descendants": [
+          {
+            "selector": "p",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "alert-simple",
+      "props": {
+        "variant": "alert",
+        "children": "Careful"
+      },
+      "expected": {
+        "root": {
+          "tag": "div",
+          "classes": {
+            "includes": [
+              "bg-kumo-banner-warning",
+              "text-kumo-warning"
+            ]
+          },
+          "text": "Careful"
+        },
+        "descendants": [
+          {
+            "selector": "p",
+            "count": 1,
+            "text": "Careful"
+          }
+        ]
+      }
+    }
+  ],
+  "unknowns": []
+}

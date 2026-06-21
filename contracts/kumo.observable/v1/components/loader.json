@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "kumo.observable/v1",
+  "component": "loader",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "exportPath": "./components/loader",
+    "typesPath": "dist/src/components/loader/loader.d.ts",
+    "runtimePath": "dist/chunks/loader-g8a6j76ue5nq0lr8.js",
+    "typesSha256": "af4022dcf98d94f891b67d88c757cedf48c2a169b81b20c1727f1e47510e2905",
+    "runtimeSha256": "d17ec4f5625ec4e254c02ecd7e5026136f89e2a2a2b175f0794a34dac7431196",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "Loader",
+      "SkeletonLine"
+    ],
+    "props": {
+      "className": {
+        "type": "string"
+      },
+      "size": {
+        "enum": [
+          "sm",
+          "base",
+          "lg",
+          "number"
+        ]
+      },
+      "aria-label": {
+        "type": "string"
+      }
+    },
+    "defaults": {
+      "size": "base",
+      "aria-label": "Loading"
+    }
+  },
+  "semantics": {
+    "root": "svg",
+    "aria": [
+      "role=\"status\"",
+      "aria-label"
+    ]
+  },
+  "initialState": {},
+  "transitions": [],
+  "keyboardFocus": {
+    "focusable": false,
+    "keys": []
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "identical"
+  },
+  "stylingAssets": {
+    "classes": [],
+    "assets": [
+      "inline animated SVG circles"
+    ]
+  },
+  "vectors": [
+    {
+      "id": "default",
+      "props": {},
+      "expected": {
+        "root": {
+          "tag": "svg",
+          "attributes": {
+            "includes": {
+              "role": "status",
+              "aria-label": "Loading",
+              "width": "24",
+              "height": "24"
+            }
+          }
+        },
+        "descendants": [
+          {
+            "selector": "circle",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "large-labelled",
+      "props": {
+        "size": "lg",
+        "aria-label": "Working"
+      },
+      "expected": {
+        "root": {
+          "tag": "svg",
+          "attributes": {
+            "includes": {
+              "role": "status",
+              "aria-label": "Working"
+            }
+          },
+          "text": ""
+        },
+        "descendants": [
+          {
+            "selector": "circle",
+            "count": 2
+          }
+        ]
+      }
+    }
+  ],
+  "unknowns": []
+}

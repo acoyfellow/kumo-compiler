@@ -1,0 +1,149 @@
+{
+  "schemaVersion": "kumo.observable/v1",
+  "component": "table",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "exportPath": "./components/table",
+    "typesPath": "dist/src/components/table/table.d.ts",
+    "runtimePath": "dist/chunks/table-l64wm81r9t67mtzm.js",
+    "typesSha256": "f9a1d6cd05dffc43469dfb4a17bc9cecd978b433db89b58c7387c121f962dccc",
+    "runtimeSha256": "531edb322dfc8d82e2b8105dc75ab97b079af653ce181e2364ff9ab0cd5de610",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "Table",
+      "KUMO_TABLE_DEFAULT_VARIANTS",
+      "KUMO_TABLE_VARIANTS"
+    ],
+    "props": {
+      "children": {
+        "type": "ReactNode"
+      },
+      "layout": {
+        "enum": [
+          "auto",
+          "fixed"
+        ]
+      },
+      "className": {
+        "type": "string"
+      }
+    },
+    "defaults": {
+      "layout": "auto"
+    }
+  },
+  "semantics": {
+    "root": "table",
+    "aria": []
+  },
+  "initialState": {},
+  "transitions": [],
+  "keyboardFocus": {
+    "focusable": false,
+    "keys": []
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "identical"
+  },
+  "stylingAssets": {
+    "classes": [
+      "isolate",
+      "w-full",
+      "text-left"
+    ],
+    "assets": []
+  },
+  "vectors": [
+    {
+      "id": "semantic-selected",
+      "props": {},
+      "fixture": {
+        "kind": "table"
+      },
+      "expected": {
+        "root": {
+          "tag": "table",
+          "classes": {
+            "includes": [
+              "isolate",
+              "w-full"
+            ]
+          },
+          "text": "NameKumo"
+        },
+        "descendants": [
+          {
+            "selector": "thead",
+            "count": 1
+          },
+          {
+            "selector": "tbody",
+            "count": 1
+          },
+          {
+            "selector": "tr",
+            "count": 2
+          },
+          {
+            "selector": "th",
+            "count": 1,
+            "text": "Name"
+          },
+          {
+            "selector": "td",
+            "count": 1,
+            "text": "Kumo",
+            "classes": {
+              "includes": [
+                "bg-kumo-tint"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "fixed-sticky",
+      "props": {
+        "layout": "fixed"
+      },
+      "fixture": {
+        "kind": "table"
+      },
+      "expected": {
+        "root": {
+          "tag": "table",
+          "classes": {
+            "includes": [
+              "table-fixed"
+            ]
+          },
+          "text": "Pinned"
+        },
+        "descendants": [
+          {
+            "selector": "tbody",
+            "count": 1
+          },
+          {
+            "selector": "td",
+            "count": 1,
+            "classes": {
+              "includes": [
+                "sticky",
+                "left-0",
+                "z-1"
+              ]
+            },
+            "text": "Pinned"
+          }
+        ]
+      }
+    }
+  ],
+  "unknowns": []
+}

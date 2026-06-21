@@ -1,0 +1,139 @@
+{
+  "schemaVersion": "kumo.observable/v1",
+  "component": "breadcrumbs",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "exportPath": "./components/breadcrumbs",
+    "typesPath": "dist/src/components/breadcrumbs/breadcrumbs.d.ts",
+    "runtimePath": "dist/chunks/breadcrumbs-bfuf7g8hh36rg7h8.js",
+    "typesSha256": "4fe035d9a9935e256e2fb0db1dfc29ffd1827e767b6b103785299ed01dab35b6",
+    "runtimeSha256": "cb38827bb780254d51fdff965d8b2481fa4a654bfd9f174bdb0968ff363364e9",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "Breadcrumbs",
+      "breadcrumbsVariants",
+      "KUMO_BREADCRUMBS_VARIANTS",
+      "KUMO_BREADCRUMBS_DEFAULT_VARIANTS"
+    ],
+    "props": {
+      "children": {
+        "type": "ReactNode"
+      },
+      "size": {
+        "enum": [
+          "sm",
+          "base"
+        ]
+      },
+      "className": {
+        "type": "string"
+      }
+    },
+    "defaults": {
+      "size": "base"
+    }
+  },
+  "semantics": {
+    "root": "nav",
+    "aria": [
+      "aria-label=\"breadcrumb\""
+    ]
+  },
+  "initialState": {},
+  "transitions": [],
+  "keyboardFocus": {
+    "focusable": false,
+    "keys": []
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "identical"
+  },
+  "stylingAssets": {
+    "classes": [
+      "group",
+      "mr-4",
+      "flex",
+      "items-center"
+    ],
+    "assets": []
+  },
+  "vectors": [
+    {
+      "id": "trail",
+      "props": {},
+      "fixture": {
+        "kind": "breadcrumbs"
+      },
+      "expected": {
+        "root": {
+          "tag": "nav",
+          "attributes": {
+            "includes": {
+              "aria-label": "breadcrumb"
+            }
+          },
+          "classes": {
+            "includes": [
+              "text-base",
+              "h-12"
+            ]
+          },
+          "text": "HomeHereHomeHere"
+        },
+        "descendants": [
+          {
+            "selector": "a",
+            "count": 2,
+            "attributes": {
+              "includes": {
+                "href": "/home",
+                "data-kumo-component": "Breadcrumbs",
+                "data-kumo-part": "link"
+              }
+            }
+          },
+          {
+            "selector": "span",
+            "count": 6
+          }
+        ]
+      }
+    },
+    {
+      "id": "small-current",
+      "props": {
+        "size": "sm"
+      },
+      "fixture": {
+        "kind": "breadcrumbs"
+      },
+      "expected": {
+        "root": {
+          "tag": "nav",
+          "classes": {
+            "includes": [
+              "text-sm",
+              "h-10"
+            ]
+          },
+          "text": "HomeHereHomeHere"
+        },
+        "descendants": [
+          {
+            "selector": "a",
+            "count": 2
+          },
+          {
+            "selector": "span",
+            "count": 6
+          }
+        ]
+      }
+    }
+  ],
+  "unknowns": []
+}
