@@ -54,8 +54,8 @@
   },
   "states": [],
   "componentRoot": {
-    "semanticRoot": "div",
-    "frameworkNeutral": true
+    "frameworkNeutral": true,
+    "implementationReady": true
   },
   "semanticGraph": {
     "root": "div",
@@ -79,5 +79,40 @@
     }
   },
   "unknowns": [],
-  "modelDigest": "2f9cf3625ff0c96e904c68c4bd3b97e5d5726509f153fa78a285fe25fc6b345a"
+  "implementation": {
+    "algebraVersion": "kumo.component-algebra/v1",
+    "componentRoot": {
+      "kind": "element",
+      "tag": "div",
+      "attributes": {},
+      "styles": [
+        {
+          "kind": "style-ref",
+          "name": "root"
+        }
+      ],
+      "children": [
+        {
+          "kind": "children"
+        }
+      ]
+    },
+    "operations": [
+      {
+        "id": "render-root",
+        "kind": "render"
+      },
+      {
+        "id": "apply-root-styles",
+        "kind": "style",
+        "styles": [
+          {
+            "kind": "style-ref",
+            "name": "root"
+          }
+        ]
+      }
+    ]
+  },
+  "modelDigest": "1d01bd6ca32ec8f6deab246ea271de331229e4963101cc5b13416ea168220d8b"
 }

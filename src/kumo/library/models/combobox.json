@@ -111,8 +111,8 @@
     }
   ],
   "componentRoot": {
-    "semanticRoot": "input",
-    "frameworkNeutral": true
+    "frameworkNeutral": true,
+    "implementationReady": false
   },
   "semanticGraph": {
     "root": "input",
@@ -200,5 +200,27 @@
       "reason": "Exact nested chip/input DOM depends on renderItem and controlled value; behavior is specified without inventing a universal fixture shape."
     }
   ],
-  "modelDigest": "7e5d6dafb536fd635649252a92bfd04f413a48bf6b7d2fbc1c17d9693f358749"
+  "missingOperations": [
+    {
+      "kind": "emit",
+      "reason": "canonical emit operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "focus",
+      "reason": "canonical focus operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "ref",
+      "reason": "canonical ref operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "render",
+      "reason": "canonical render operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "state",
+      "reason": "canonical state operation is not yet represented by the implementation algebra"
+    }
+  ],
+  "modelDigest": "ecb42b0138c17ecb3ef274cd09cafc8ae46ed4e722f370530e6d5e60e750ae1e"
 }

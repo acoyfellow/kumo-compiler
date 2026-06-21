@@ -70,8 +70,8 @@
   },
   "states": [],
   "componentRoot": {
-    "semanticRoot": "nav",
-    "frameworkNeutral": true
+    "frameworkNeutral": true,
+    "implementationReady": true
   },
   "semanticGraph": {
     "root": "nav",
@@ -103,5 +103,45 @@
     }
   },
   "unknowns": [],
-  "modelDigest": "b0031f788c00296e845149c8b1c6cd0a6b249acd859be6185496bde5c74a2aea"
+  "implementation": {
+    "algebraVersion": "kumo.component-algebra/v1",
+    "componentRoot": {
+      "kind": "element",
+      "tag": "nav",
+      "attributes": {
+        "aria-label": {
+          "kind": "literal",
+          "value": "Breadcrumbs"
+        }
+      },
+      "styles": [
+        {
+          "kind": "style-ref",
+          "name": "root"
+        }
+      ],
+      "children": [
+        {
+          "kind": "children"
+        }
+      ]
+    },
+    "operations": [
+      {
+        "id": "render-root",
+        "kind": "render"
+      },
+      {
+        "id": "apply-root-styles",
+        "kind": "style",
+        "styles": [
+          {
+            "kind": "style-ref",
+            "name": "root"
+          }
+        ]
+      }
+    ]
+  },
+  "modelDigest": "a54e1508e112a0446e39b23275397c42a14183e148535b3bf86f8ed704e5a296"
 }

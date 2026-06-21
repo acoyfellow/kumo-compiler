@@ -125,8 +125,8 @@
   },
   "states": [],
   "componentRoot": {
-    "semanticRoot": "div",
-    "frameworkNeutral": true
+    "frameworkNeutral": true,
+    "implementationReady": true
   },
   "semanticGraph": {
     "root": "div",
@@ -161,5 +161,92 @@
     }
   },
   "unknowns": [],
-  "modelDigest": "02256066ec10f16ff1d14c2e7a1a8996ae3eee427a0951321c11cf98521d2753"
+  "implementation": {
+    "algebraVersion": "kumo.component-algebra/v1",
+    "componentRoot": {
+      "kind": "element",
+      "tag": "div",
+      "attributes": {},
+      "styles": [
+        {
+          "kind": "style-ref",
+          "name": "root"
+        }
+      ],
+      "children": [
+        {
+          "kind": "text",
+          "value": {
+            "kind": "prop",
+            "name": "label"
+          }
+        },
+        {
+          "kind": "element",
+          "tag": "meter",
+          "properties": {
+            "value": {
+              "kind": "prop",
+              "name": "value"
+            },
+            "min": {
+              "kind": "prop",
+              "name": "min"
+            },
+            "max": {
+              "kind": "prop",
+              "name": "max"
+            }
+          },
+          "styles": [
+            {
+              "kind": "style-ref",
+              "name": "track"
+            }
+          ],
+          "children": []
+        },
+        {
+          "kind": "condition",
+          "when": {
+            "kind": "prop",
+            "name": "showValue"
+          },
+          "then": {
+            "kind": "text",
+            "value": {
+              "kind": "coalesce",
+              "values": [
+                {
+                  "kind": "prop",
+                  "name": "customValue"
+                },
+                {
+                  "kind": "prop",
+                  "name": "value"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "operations": [
+      {
+        "id": "render-root",
+        "kind": "render"
+      },
+      {
+        "id": "apply-root-styles",
+        "kind": "style",
+        "styles": [
+          {
+            "kind": "style-ref",
+            "name": "root"
+          }
+        ]
+      }
+    ]
+  },
+  "modelDigest": "9d7c990f32bb6ed6c46466fed236b4eddb53e7a098bf38ef76e5dfdb67e9e31f"
 }

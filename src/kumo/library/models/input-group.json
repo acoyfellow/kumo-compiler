@@ -48,8 +48,8 @@
     }
   ],
   "componentRoot": {
-    "semanticRoot": "div",
-    "frameworkNeutral": true
+    "frameworkNeutral": true,
+    "implementationReady": false
   },
   "semanticGraph": {
     "root": "div",
@@ -91,5 +91,19 @@
       "reason": "Base UI event details, autofill/password managers, IME, RTL, selection ranges, clipboard rejection, and platform accessibility-tree differences remain inherited/vendor unknowns."
     }
   ],
-  "modelDigest": "2f4770dbdb01275d3953cc9eecdeae7e6a0a184fa731936822cb8428f624583f"
+  "missingOperations": [
+    {
+      "kind": "emit",
+      "reason": "canonical emit operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "ref",
+      "reason": "canonical ref operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "render",
+      "reason": "canonical render operation is not yet represented by the implementation algebra"
+    }
+  ],
+  "modelDigest": "7a488336ce472ed3127741fa3c39c67933394371f09f799acc7db2565d121db6"
 }

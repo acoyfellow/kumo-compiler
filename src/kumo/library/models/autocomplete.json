@@ -98,8 +98,8 @@
     }
   ],
   "componentRoot": {
-    "semanticRoot": "input",
-    "frameworkNeutral": true
+    "frameworkNeutral": true,
+    "implementationReady": false
   },
   "semanticGraph": {
     "root": "input",
@@ -188,5 +188,27 @@
       "reason": "Canonical composition with explicit items does not filter automatically in this fixture; ArrowDown selects Apple after typing Ban."
     }
   ],
-  "modelDigest": "ee229accc7a8e057b052c42e88551e19ed0fbbb7c71ee0882abe27a912e105fb"
+  "missingOperations": [
+    {
+      "kind": "emit",
+      "reason": "canonical emit operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "focus",
+      "reason": "canonical focus operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "ref",
+      "reason": "canonical ref operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "render",
+      "reason": "canonical render operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "state",
+      "reason": "canonical state operation is not yet represented by the implementation algebra"
+    }
+  ],
+  "modelDigest": "92ec0a9a2279dba2e67218d37c4dbd2178ee02df660fc9d628ecfe3034200edf"
 }

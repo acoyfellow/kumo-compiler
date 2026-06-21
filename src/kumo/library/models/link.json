@@ -91,8 +91,8 @@
   },
   "states": [],
   "componentRoot": {
-    "semanticRoot": "a",
-    "frameworkNeutral": true
+    "frameworkNeutral": true,
+    "implementationReady": true
   },
   "semanticGraph": {
     "root": "a",
@@ -127,5 +127,45 @@
       "reason": "The render prop or LinkProvider controls the framework-specific root."
     }
   ],
-  "modelDigest": "e0ebf962ef757e02149e75157aea5c7ff78dfd4bd9ee3939e50d0d191d313001"
+  "implementation": {
+    "algebraVersion": "kumo.component-algebra/v1",
+    "componentRoot": {
+      "kind": "element",
+      "tag": "a",
+      "attributes": {
+        "href": {
+          "kind": "prop",
+          "name": "href"
+        }
+      },
+      "styles": [
+        {
+          "kind": "style-ref",
+          "name": "root"
+        }
+      ],
+      "children": [
+        {
+          "kind": "children"
+        }
+      ]
+    },
+    "operations": [
+      {
+        "id": "render-root",
+        "kind": "render"
+      },
+      {
+        "id": "apply-root-styles",
+        "kind": "style",
+        "styles": [
+          {
+            "kind": "style-ref",
+            "name": "root"
+          }
+        ]
+      }
+    ]
+  },
+  "modelDigest": "ec4115e9145f306c888eabc02418dcc68d27653e73002147abca4568a03bd6e7"
 }

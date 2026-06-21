@@ -81,8 +81,8 @@
     }
   ],
   "componentRoot": {
-    "semanticRoot": "div",
-    "frameworkNeutral": true
+    "frameworkNeutral": true,
+    "implementationReady": false
   },
   "semanticGraph": {
     "root": "div",
@@ -138,5 +138,31 @@
       "reason": "Assistive technology announcement timing and animation-completion removal timing are inherited from Base UI, CSS, and the user agent; exact wall-clock timing is not guessed."
     }
   ],
-  "modelDigest": "abfff686b10167352f2160786d51b0c73995e352d0e5cdfc8640f28883598e8f"
+  "missingOperations": [
+    {
+      "kind": "browser-service",
+      "reason": "canonical browser-service operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "emit",
+      "reason": "canonical emit operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "lifecycle",
+      "reason": "canonical lifecycle operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "portal",
+      "reason": "canonical portal operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "render",
+      "reason": "canonical render operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "state",
+      "reason": "canonical state operation is not yet represented by the implementation algebra"
+    }
+  ],
+  "modelDigest": "d27c3e535270005ffa89d691533e08bc60dab12e9e194d5ccc17598482935674"
 }

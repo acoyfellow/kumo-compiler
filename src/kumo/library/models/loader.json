@@ -70,8 +70,8 @@
   },
   "states": [],
   "componentRoot": {
-    "semanticRoot": "svg",
-    "frameworkNeutral": true
+    "frameworkNeutral": true,
+    "implementationReady": true
   },
   "semanticGraph": {
     "root": "svg",
@@ -100,5 +100,45 @@
     }
   },
   "unknowns": [],
-  "modelDigest": "2856901366f5b67fe771dcbe5dc3df7816d853ce2cf1b4eddbe28477acecf38e"
+  "implementation": {
+    "algebraVersion": "kumo.component-algebra/v1",
+    "componentRoot": {
+      "kind": "element",
+      "tag": "span",
+      "attributes": {
+        "role": {
+          "kind": "literal",
+          "value": "status"
+        },
+        "aria-label": {
+          "kind": "prop",
+          "name": "aria-label"
+        }
+      },
+      "styles": [
+        {
+          "kind": "style-ref",
+          "name": "root"
+        }
+      ],
+      "children": []
+    },
+    "operations": [
+      {
+        "id": "render-root",
+        "kind": "render"
+      },
+      {
+        "id": "apply-root-styles",
+        "kind": "style",
+        "styles": [
+          {
+            "kind": "style-ref",
+            "name": "root"
+          }
+        ]
+      }
+    ]
+  },
+  "modelDigest": "062f93b54123857748b0366fff3b86cb30abba461e5dcbc54d7d3b7a2e338273"
 }

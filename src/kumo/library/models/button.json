@@ -104,8 +104,8 @@
     }
   ],
   "componentRoot": {
-    "semanticRoot": "button",
-    "frameworkNeutral": true
+    "frameworkNeutral": true,
+    "implementationReady": false
   },
   "semanticGraph": {
     "root": "button",
@@ -166,5 +166,15 @@
       "reason": "Tooltip timing and arbitrary icon component rendering are delegated to Tooltip and React and are not guessed by this contract."
     }
   ],
-  "modelDigest": "440e59b513cb31386ada77fa9890d2ea8f652be3aeec2bb0fdddbc5fa6f333d7"
+  "missingOperations": [
+    {
+      "kind": "emit",
+      "reason": "canonical emit operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "render",
+      "reason": "canonical render operation is not yet represented by the implementation algebra"
+    }
+  ],
+  "modelDigest": "bcf08dd55132b7920bbadb216b05bc654afbd689586dc18aa3b085e36655be47"
 }

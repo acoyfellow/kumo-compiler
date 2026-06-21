@@ -88,8 +88,8 @@
   },
   "states": [],
   "componentRoot": {
-    "semanticRoot": "div",
-    "frameworkNeutral": true
+    "frameworkNeutral": true,
+    "implementationReady": true
   },
   "semanticGraph": {
     "root": "div",
@@ -123,5 +123,40 @@
       "reason": "The caller-provided React element controls the root."
     }
   ],
-  "modelDigest": "5d3dac35b4dc97a50c01a3014c1ecac2e1e29d1883279fa7a0ed34ac8343e992"
+  "implementation": {
+    "algebraVersion": "kumo.component-algebra/v1",
+    "componentRoot": {
+      "kind": "element",
+      "tag": "div",
+      "attributes": {},
+      "styles": [
+        {
+          "kind": "style-ref",
+          "name": "root"
+        }
+      ],
+      "children": [
+        {
+          "kind": "children"
+        }
+      ]
+    },
+    "operations": [
+      {
+        "id": "render-root",
+        "kind": "render"
+      },
+      {
+        "id": "apply-root-styles",
+        "kind": "style",
+        "styles": [
+          {
+            "kind": "style-ref",
+            "name": "root"
+          }
+        ]
+      }
+    ]
+  },
+  "modelDigest": "2bff0f3b48c360545e400d2bd5ae7893965142b65766a71426cdb91b75cb75da"
 }

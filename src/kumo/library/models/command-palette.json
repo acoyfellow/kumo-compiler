@@ -105,8 +105,8 @@
     }
   ],
   "componentRoot": {
-    "semanticRoot": "div",
-    "frameworkNeutral": true
+    "frameworkNeutral": true,
+    "implementationReady": false
   },
   "semanticGraph": {
     "root": "div",
@@ -203,5 +203,35 @@
       "reason": "Action-free closed SSR is supported; exact open portal output and generated ids are Base UI implementation details."
     }
   ],
-  "modelDigest": "d5ad219bd9f1eba36384b4889962acb8158a86ec360f9110fd9178dd91ebfa1b"
+  "missingOperations": [
+    {
+      "kind": "emit",
+      "reason": "canonical emit operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "focus",
+      "reason": "canonical focus operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "lifecycle",
+      "reason": "canonical lifecycle operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "portal",
+      "reason": "canonical portal operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "ref",
+      "reason": "canonical ref operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "render",
+      "reason": "canonical render operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "state",
+      "reason": "canonical state operation is not yet represented by the implementation algebra"
+    }
+  ],
+  "modelDigest": "f3ea61f5ecefc22ec94f1dbf057fd7a9f565182b2997965b3aff9f828036aa1f"
 }

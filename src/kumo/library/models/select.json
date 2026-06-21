@@ -148,8 +148,8 @@
     }
   ],
   "componentRoot": {
-    "semanticRoot": "div",
-    "frameworkNeutral": true
+    "frameworkNeutral": true,
+    "implementationReady": false
   },
   "semanticGraph": {
     "root": "div",
@@ -267,5 +267,35 @@
       "reason": "Locale and diacritic normalization are inherited from Base UI; the executable vector uses deterministic ASCII typeahead."
     }
   ],
-  "modelDigest": "03c956d954848c7b521cc86f53aeef47b8956b4b4d5d743038b7161159f4d923"
+  "missingOperations": [
+    {
+      "kind": "emit",
+      "reason": "canonical emit operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "focus",
+      "reason": "canonical focus operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "lifecycle",
+      "reason": "canonical lifecycle operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "portal",
+      "reason": "canonical portal operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "ref",
+      "reason": "canonical ref operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "render",
+      "reason": "canonical render operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "state",
+      "reason": "canonical state operation is not yet represented by the implementation algebra"
+    }
+  ],
+  "modelDigest": "2aa239ecf5636ddf1335fdc0fdcedaaa96ab3d83981db6bbd20c2e03acad3594"
 }

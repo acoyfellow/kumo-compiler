@@ -112,8 +112,8 @@
     }
   ],
   "componentRoot": {
-    "semanticRoot": "button",
-    "frameworkNeutral": true
+    "frameworkNeutral": true,
+    "implementationReady": false
   },
   "semanticGraph": {
     "root": "button",
@@ -198,5 +198,35 @@
       "reason": "Open content is portaled and the shared runner's root selection convention may require adapting the alertdialog vector without changing canonical semantics."
     }
   ],
-  "modelDigest": "8b3c0e3a8e50457a8d9f1c361b7796d9d837380f76754689b763aeecdf7fcd12"
+  "missingOperations": [
+    {
+      "kind": "emit",
+      "reason": "canonical emit operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "focus",
+      "reason": "canonical focus operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "lifecycle",
+      "reason": "canonical lifecycle operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "portal",
+      "reason": "canonical portal operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "ref",
+      "reason": "canonical ref operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "render",
+      "reason": "canonical render operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "state",
+      "reason": "canonical state operation is not yet represented by the implementation algebra"
+    }
+  ],
+  "modelDigest": "2761d79bc0116d3ae2785e3fc03898683b18833eef77c23dd4ae10c7d5a77665"
 }

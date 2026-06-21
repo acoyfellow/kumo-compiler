@@ -166,8 +166,8 @@
     }
   ],
   "componentRoot": {
-    "semanticRoot": "Provider wrapper div; desktop Sidebar root is aside, mobile root is portaled backdrop plus nav",
-    "frameworkNeutral": true
+    "frameworkNeutral": true,
+    "implementationReady": false
   },
   "semanticGraph": {
     "root": "Provider wrapper div; desktop Sidebar root is aside, mobile root is portaled backdrop plus nav",
@@ -273,5 +273,39 @@
       "reason": "The public direction prop is declared and defaults left, but canonical runtime computes translation solely from active child index; no direction-dependent observable effect is invented."
     }
   ],
-  "modelDigest": "bacfdbd7dad26f323e2331ddddf269409cc9208304b93dac47626d890f76d28c"
+  "missingOperations": [
+    {
+      "kind": "browser-service",
+      "reason": "canonical browser-service operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "emit",
+      "reason": "canonical emit operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "focus",
+      "reason": "canonical focus operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "lifecycle",
+      "reason": "canonical lifecycle operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "portal",
+      "reason": "canonical portal operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "ref",
+      "reason": "canonical ref operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "render",
+      "reason": "canonical render operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "state",
+      "reason": "canonical state operation is not yet represented by the implementation algebra"
+    }
+  ],
+  "modelDigest": "119180a9bd9acff94ef92716b1e5911ea864f8a14da9bdc941e30e9df01db190"
 }

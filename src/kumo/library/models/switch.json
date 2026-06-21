@@ -95,8 +95,8 @@
     }
   ],
   "componentRoot": {
-    "semanticRoot": "button",
-    "frameworkNeutral": true
+    "frameworkNeutral": true,
+    "implementationReady": false
   },
   "semanticGraph": {
     "root": "button",
@@ -141,5 +141,19 @@
       "reason": "Reset/autofill and platform activation details inherited from Base UI are outside the canonical Kumo declaration and are not guessed."
     }
   ],
-  "modelDigest": "dae346d17dc2dfec5d6224c842b918217466d877bb52f5506767fbe9c43adc6a"
+  "missingOperations": [
+    {
+      "kind": "emit",
+      "reason": "canonical emit operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "render",
+      "reason": "canonical render operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "state",
+      "reason": "canonical state operation is not yet represented by the implementation algebra"
+    }
+  ],
+  "modelDigest": "670d1fd719fb7fc25e12a5ce1b4123b5149cbf4c99e2f61a4d2c9f179a83faf9"
 }

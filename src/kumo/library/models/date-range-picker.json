@@ -104,8 +104,8 @@
     }
   ],
   "componentRoot": {
-    "semanticRoot": "div",
-    "frameworkNeutral": true
+    "frameworkNeutral": true,
+    "implementationReady": false
   },
   "semanticGraph": {
     "root": "div",
@@ -164,5 +164,15 @@
       "reason": "The component initializes from the current local month and generates labels with browser locale APIs; exact dates and strings are deliberately not frozen or invented."
     }
   ],
-  "modelDigest": "f41dde3fe8cc4b472c03f3a189bb8d573cbe8385a24c2fc605d242a104440f4e"
+  "missingOperations": [
+    {
+      "kind": "emit",
+      "reason": "canonical emit operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "state",
+      "reason": "canonical state operation is not yet represented by the implementation algebra"
+    }
+  ],
+  "modelDigest": "c2c1e32a707ea9833a027f3b0c2a43210b6622eaf5df946dbd2f7681d7457e47"
 }

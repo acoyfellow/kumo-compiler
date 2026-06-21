@@ -105,8 +105,8 @@
     }
   ],
   "componentRoot": {
-    "semanticRoot": "div",
-    "frameworkNeutral": true
+    "frameworkNeutral": true,
+    "implementationReady": false
   },
   "semanticGraph": {
     "root": "div",
@@ -157,5 +157,15 @@
       "reason": "Calendar strings, week layout, and locale-specific formatting are owned by react-day-picker and Intl/browser locale; this contract intentionally does not invent locale behavior."
     }
   ],
-  "modelDigest": "30cb044d29c3863110ff14c907843294348a10f4673e85140e4f5d3ec8da6dba"
+  "missingOperations": [
+    {
+      "kind": "emit",
+      "reason": "canonical emit operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "state",
+      "reason": "canonical state operation is not yet represented by the implementation algebra"
+    }
+  ],
+  "modelDigest": "d4613dd16123df4d647f1b67f6f2a1e5111de7725f24530cb2abddbb11326de9"
 }

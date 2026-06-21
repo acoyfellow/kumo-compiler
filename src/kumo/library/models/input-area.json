@@ -48,8 +48,8 @@
     }
   ],
   "componentRoot": {
-    "semanticRoot": "textarea",
-    "frameworkNeutral": true
+    "frameworkNeutral": true,
+    "implementationReady": false
   },
   "semanticGraph": {
     "root": "textarea",
@@ -91,5 +91,19 @@
       "reason": "Base UI event details, autofill/password managers, IME, RTL, selection ranges, clipboard rejection, and platform accessibility-tree differences remain inherited/vendor unknowns."
     }
   ],
-  "modelDigest": "bcffb6c0d8eee0d2f7363db69295f9145a37663be78e900f078312cfb0fea6da"
+  "missingOperations": [
+    {
+      "kind": "emit",
+      "reason": "canonical emit operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "ref",
+      "reason": "canonical ref operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "render",
+      "reason": "canonical render operation is not yet represented by the implementation algebra"
+    }
+  ],
+  "modelDigest": "fb458012a2156b76cb3210bed71031913e2fd1e408eb1056a3f16d02ed5b9aa5"
 }

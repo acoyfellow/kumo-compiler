@@ -139,8 +139,8 @@
     }
   ],
   "componentRoot": {
-    "semanticRoot": "button",
-    "frameworkNeutral": true
+    "frameworkNeutral": true,
+    "implementationReady": false
   },
   "semanticGraph": {
     "root": "button",
@@ -240,5 +240,35 @@
       "reason": "Matching normalization and timeout are Base UI behavior and were not directly observed."
     }
   ],
-  "modelDigest": "67e1f0d0c866f8893ef1448ab1746990807d757e0186055d017ed2b3fe815db5"
+  "missingOperations": [
+    {
+      "kind": "emit",
+      "reason": "canonical emit operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "focus",
+      "reason": "canonical focus operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "lifecycle",
+      "reason": "canonical lifecycle operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "portal",
+      "reason": "canonical portal operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "ref",
+      "reason": "canonical ref operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "render",
+      "reason": "canonical render operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "state",
+      "reason": "canonical state operation is not yet represented by the implementation algebra"
+    }
+  ],
+  "modelDigest": "ab4bef7a12a48eae6e0ca0d5b5c62239b240f26fe12b6cebd5f666d6e7c097c3"
 }

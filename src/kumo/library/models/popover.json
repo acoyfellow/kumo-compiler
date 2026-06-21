@@ -106,8 +106,8 @@
     }
   ],
   "componentRoot": {
-    "semanticRoot": "button",
-    "frameworkNeutral": true
+    "frameworkNeutral": true,
+    "implementationReady": false
   },
   "semanticGraph": {
     "root": "button",
@@ -200,5 +200,31 @@
       "reason": "Base UI may flip the requested side at viewport boundaries; this Chrome fixture observes bottom when top collides."
     }
   ],
-  "modelDigest": "9a5b30327e2d29e3cd4ad2a84c8c227d1f975448c6352b839c6758fea19781c5"
+  "missingOperations": [
+    {
+      "kind": "browser-service",
+      "reason": "canonical browser-service operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "emit",
+      "reason": "canonical emit operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "lifecycle",
+      "reason": "canonical lifecycle operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "portal",
+      "reason": "canonical portal operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "render",
+      "reason": "canonical render operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "state",
+      "reason": "canonical state operation is not yet represented by the implementation algebra"
+    }
+  ],
+  "modelDigest": "9360343a16cf3a915f8e49e12f34b1abef7fe23d359738288137128bbb354239"
 }

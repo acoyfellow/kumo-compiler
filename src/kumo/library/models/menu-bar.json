@@ -78,8 +78,8 @@
     }
   ],
   "componentRoot": {
-    "semanticRoot": "nav",
-    "frameworkNeutral": true
+    "frameworkNeutral": true,
+    "implementationReady": false
   },
   "semanticGraph": {
     "root": "nav",
@@ -168,5 +168,23 @@
       "reason": "MenuBar has no responsive, portal, positioning, selection typeahead, or dismissal API of its own; only nested Tooltip may portal/dismiss."
     }
   ],
-  "modelDigest": "19cffdcf12843992b2c2cb4143517cf3beba00600ddc56ea436cac1986e95aae"
+  "missingOperations": [
+    {
+      "kind": "emit",
+      "reason": "canonical emit operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "focus",
+      "reason": "canonical focus operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "ref",
+      "reason": "canonical ref operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "state",
+      "reason": "canonical state operation is not yet represented by the implementation algebra"
+    }
+  ],
+  "modelDigest": "08f7752ea2a2d0834794d8c48a09634585b91764b183153d1785d42d4ea0d6fc"
 }

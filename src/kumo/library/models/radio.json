@@ -95,8 +95,8 @@
     }
   ],
   "componentRoot": {
-    "semanticRoot": "div",
-    "frameworkNeutral": true
+    "frameworkNeutral": true,
+    "implementationReady": false
   },
   "semanticGraph": {
     "root": "div",
@@ -145,5 +145,27 @@
       "reason": "RTL wrapping, Home/End, and browser-specific roving-focus edge behavior inherited from Base UI are not declared by Kumo and are not guessed."
     }
   ],
-  "modelDigest": "9b25bd10dccd6c7bed49b02958b945ec7d515f13e67a7983008caba1da9fae9d"
+  "missingOperations": [
+    {
+      "kind": "emit",
+      "reason": "canonical emit operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "focus",
+      "reason": "canonical focus operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "ref",
+      "reason": "canonical ref operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "render",
+      "reason": "canonical render operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "state",
+      "reason": "canonical state operation is not yet represented by the implementation algebra"
+    }
+  ],
+  "modelDigest": "27ada60b2ef292cf3d78c450867a86dd47b556582ccddbaa8934aa4efea0133f"
 }

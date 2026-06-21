@@ -100,8 +100,8 @@
     }
   ],
   "componentRoot": {
-    "semanticRoot": "span",
-    "frameworkNeutral": true
+    "frameworkNeutral": true,
+    "implementationReady": false
   },
   "semanticGraph": {
     "root": "span",
@@ -146,5 +146,19 @@
       "reason": "Callback detail object and browser/platform edge behavior are inherited from Base UI and are intentionally not guessed."
     }
   ],
-  "modelDigest": "6046a14df76a2a16925016692975eb723d93ecc7707fe7c4851276c66930c125"
+  "missingOperations": [
+    {
+      "kind": "emit",
+      "reason": "canonical emit operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "render",
+      "reason": "canonical render operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "state",
+      "reason": "canonical state operation is not yet represented by the implementation algebra"
+    }
+  ],
+  "modelDigest": "219060a2feeef9bfb31e1d648785b74d0634e4a1ad7bd565a1e2ecdefda3a957"
 }

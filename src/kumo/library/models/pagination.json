@@ -118,8 +118,8 @@
     }
   ],
   "componentRoot": {
-    "semanticRoot": "div",
-    "frameworkNeutral": true
+    "frameworkNeutral": true,
+    "implementationReady": false
   },
   "semanticGraph": {
     "root": "div",
@@ -184,5 +184,23 @@
       "reason": "Dropdown popup geometry, native accessibility projection, and keyboard details are inherited from the Kumo Select/Base UI implementation and browser; they are not guessed here."
     }
   ],
-  "modelDigest": "3b4961243c025fbce57b240aae0fbead7b1e9bdc3d076397ff7c922dd2757624"
+  "missingOperations": [
+    {
+      "kind": "browser-service",
+      "reason": "canonical browser-service operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "emit",
+      "reason": "canonical emit operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "render",
+      "reason": "canonical render operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "state",
+      "reason": "canonical state operation is not yet represented by the implementation algebra"
+    }
+  ],
+  "modelDigest": "7b6b25c672d0ad1436b6e9d01ccdabf8e4e7c996dfa81d1f6f4ef923a1c79538"
 }

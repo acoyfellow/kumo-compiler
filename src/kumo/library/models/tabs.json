@@ -140,8 +140,8 @@
     }
   ],
   "componentRoot": {
-    "semanticRoot": "div",
-    "frameworkNeutral": true
+    "frameworkNeutral": true,
+    "implementationReady": false
   },
   "semanticGraph": {
     "root": "div",
@@ -225,5 +225,23 @@
       "reason": "Canonical Tabs 2.5.2 has no panel API and renders no tabpanel; panel lifecycle, aria-controls linkage to consumer content, and content visibility must not be invented."
     }
   ],
-  "modelDigest": "32d8df5ff98b66be79a5f4debe00202265b0683f95f35d83f7ebccf7c2630559"
+  "missingOperations": [
+    {
+      "kind": "emit",
+      "reason": "canonical emit operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "focus",
+      "reason": "canonical focus operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "ref",
+      "reason": "canonical ref operation is not yet represented by the implementation algebra"
+    },
+    {
+      "kind": "state",
+      "reason": "canonical state operation is not yet represented by the implementation algebra"
+    }
+  ],
+  "modelDigest": "5c8d39d161fff2faf47e6846c09bc57cc4a84f33ed8fbe822166876a1b819b83"
 }
