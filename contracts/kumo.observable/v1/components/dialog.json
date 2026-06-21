@@ -224,7 +224,8 @@
         },
         {
           "type": "click",
-          "target": 1
+          "selector": "[data-kumo-part=close]",
+          "scope": "document"
         }
       ],
       "expected": {
