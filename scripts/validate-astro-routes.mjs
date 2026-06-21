@@ -22,8 +22,13 @@ async function resolvesToOutput(pathname){
 const htmlFiles=(await files(dist)).filter(file=>file.endsWith('.html'));
 const failures=[];
 const rootHtml=await readFile(resolve(dist,'index.html'),'utf8');
-for(const disclosure of ['Which implementation should compile Kumo?','TypeScript reference compiler','Benchmark compiler planners','Run the full emitter bake-off','Planner benchmark complete','Mitosis','Shared core'])
- if(!rootHtml.includes(disclosure))failures.push(`root compiler roadmap missing: ${disclosure}`);
+for(const disclosure of ['Compiler results at a glance','Axis A · Engine language','Compiler engines','Axis B · Output architecture','Output architectures','Framework libraries'])
+ if(!rootHtml.includes(disclosure))failures.push(`root receipt-derived results missing: ${disclosure}`);
+for(const result of languageResults())
+ if(!rootHtml.includes(`Full ${result} results`))failures.push(`root engine result card missing: ${result}`);
+for(const result of ['Internal compiler','Mitosis','Shared core + native','Minimal hybrid'])
+ if(!rootHtml.includes(`Full ${result} results`))failures.push(`root architecture result card missing: ${result}`);
+function languageResults(){return ['TypeScript','Go','Rust','Zig']}
 const typeScriptHtml=await readFile(resolve(dist,'typescript/index.html'),'utf8');
 for(const disclosure of ['>41</strong>','>164</strong>','browser-verified surfaces','@cloudflare/kumo@2.5.2'])
  if(!typeScriptHtml.includes(disclosure))failures.push(`TypeScript compiler disclosure missing: ${disclosure}`);
