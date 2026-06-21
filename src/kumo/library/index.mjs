@@ -3,6 +3,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {validateImplementation} from './algebra.mjs';
+import {validateSemanticRender} from './semantic-render.mjs';
 
 export const LIBRARY_SCHEMA_VERSION = 'kumo.library/v1';
 export const CAPABILITIES = Object.freeze([
@@ -52,7 +53,7 @@ function validateReferences(model) {
 
 export function canonicalJSON(value) {
   if (Array.isArray(value)) return `[${value.map(canonicalJSON).join(',')}]`;
-  if (value && typeof value === 'object') return `{${Object.keys(value).sort().map(k => `${JSON.stringify(k)}:${canonicalJSON(value[k])}`).join(',')}}`;
+  if (value && typeof value === 'object') return `{${Object.keys(value).filter(k => value[k] !== undefined).sort().map(k => `${JSON.stringify(k)}:${canonicalJSON(value[k])}`).join(',')}}`;
   return JSON.stringify(value);
 }
 export function digest(value) { return crypto.createHash('sha256').update(canonicalJSON(value)).digest('hex'); }
@@ -105,6 +106,7 @@ export function validateModel(model) {
 }
 
 export function loadLibrary(base = here) {
+  const semanticRender = validateSemanticRender(JSON.parse(fs.readFileSync(path.join(base, 'capabilities/semantic-render.json'), 'utf8')));
   const manifest = JSON.parse(fs.readFileSync(path.join(base, 'manifest.json'), 'utf8'));
   if (manifest.count !== 41 || manifest.components.length !== 41) throw new Error('library inventory must contain exactly 41 models');
   if (!Number.isInteger(manifest.implementationReadyCount)) throw new Error('manifest must count implementation-ready models');
@@ -118,5 +120,10 @@ export function loadLibrary(base = here) {
   });
   if (models.filter(model => model.componentRoot.implementationReady).length !== manifest.implementationReadyCount) throw new Error('implementation-ready count mismatch');
   if (models.filter(model => model.componentRoot.candidateDefinition).length !== manifest.candidateDefinitionCount) throw new Error('candidate-definition count mismatch');
-  return {manifest, models};
+  const semanticComponents = new Map(semanticRender.components.map(component => [component.component, component]));
+  for (const model of models) if (model.semanticRender) {
+    const semantic = semanticComponents.get(model.component);
+    if (!semantic || model.semanticRender.capabilityDigest !== semanticRender.capabilityDigest || model.semanticRender.vectorIds.join('\0') !== semantic.vectors.map(vector => vector.id).join('\0')) throw new Error(`${model.component}: semantic render binding mismatch`);
+  }
+  return {manifest, models, semanticRender};
 }

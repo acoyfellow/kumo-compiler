@@ -1,0 +1,3369 @@
+{
+  "schemaVersion": "kumo.semantic-render/v1",
+  "components": [
+    {
+      "component": "badge",
+      "vectors": [
+        {
+          "id": "default",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "children",
+              "value": "PRO"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "span",
+                "classes": {
+                  "includes": [
+                    "inline-flex",
+                    "bg-kumo-badge-inverted"
+                  ]
+                },
+                "text": "PRO"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/badge.json",
+            "vectorId": "default",
+            "contractDigest": "254ed3d98bc51fa5772a3c5dc71fae18f7b0b9959cfffdc1ae3246cfc1a457b5"
+          }
+        },
+        {
+          "id": "success-dot",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "appearance",
+              "value": "dot"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "children",
+              "value": "Healthy"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "variant",
+              "value": "success"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "span",
+                "text": "Healthy"
+              }
+            },
+            {
+              "selector": "span",
+              "require": {
+                "count": 1,
+                "attributes": {
+                  "includes": {
+                    "aria-hidden": "true"
+                  }
+                },
+                "classes": {
+                  "includes": [
+                    "bg-kumo-success"
+                  ]
+                }
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/badge.json",
+            "vectorId": "success-dot",
+            "contractDigest": "254ed3d98bc51fa5772a3c5dc71fae18f7b0b9959cfffdc1ae3246cfc1a457b5"
+          }
+        }
+      ]
+    },
+    {
+      "component": "banner",
+      "vectors": [
+        {
+          "id": "structured",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "description",
+              "value": "Details"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "title",
+              "value": "Notice"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div",
+                "classes": {
+                  "includes": [
+                    "bg-kumo-banner-info"
+                  ]
+                },
+                "text": "NoticeDetails"
+              }
+            },
+            {
+              "selector": "p",
+              "require": {
+                "count": 2
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/banner.json",
+            "vectorId": "structured",
+            "contractDigest": "f4855027feabf5bbd38750fa44001d7e705ed7d8871f6ee74b4d0fa1e4f6edf1"
+          }
+        },
+        {
+          "id": "alert-simple",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "children",
+              "value": "Careful"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "variant",
+              "value": "alert"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div",
+                "classes": {
+                  "includes": [
+                    "bg-kumo-banner-warning",
+                    "text-kumo-warning"
+                  ]
+                },
+                "text": "Careful"
+              }
+            },
+            {
+              "selector": "p",
+              "require": {
+                "count": 1,
+                "text": "Careful"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/banner.json",
+            "vectorId": "alert-simple",
+            "contractDigest": "f4855027feabf5bbd38750fa44001d7e705ed7d8871f6ee74b4d0fa1e4f6edf1"
+          }
+        }
+      ]
+    },
+    {
+      "component": "breadcrumbs",
+      "vectors": [
+        {
+          "id": "trail",
+          "when": [
+            {
+              "kind": "fixture-equals",
+              "value": {
+                "export": "root",
+                "props": {},
+                "children": [
+                  {
+                    "export": ".Link",
+                    "props": {
+                      "href": "/home"
+                    },
+                    "children": [
+                      {
+                        "text": "Home"
+                      }
+                    ]
+                  },
+                  {
+                    "export": ".Separator",
+                    "props": {},
+                    "children": []
+                  },
+                  {
+                    "export": ".Current",
+                    "props": {},
+                    "children": [
+                      {
+                        "text": "Here"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "fixtureRef": {},
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "nav",
+                "attributes": {
+                  "includes": {
+                    "aria-label": "breadcrumb"
+                  }
+                },
+                "classes": {
+                  "includes": [
+                    "text-base",
+                    "h-12"
+                  ]
+                },
+                "text": "HomeHereHomeHere"
+              }
+            },
+            {
+              "selector": "a",
+              "require": {
+                "count": 2,
+                "attributes": {
+                  "includes": {
+                    "href": "/home",
+                    "data-kumo-component": "Breadcrumbs",
+                    "data-kumo-part": "link"
+                  }
+                }
+              }
+            },
+            {
+              "selector": "span",
+              "require": {
+                "count": 6
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/breadcrumbs.json",
+            "vectorId": "trail",
+            "contractDigest": "1e5f3ced5834ddfb1b51201ba68b62c8d599d2263855f990b1b2247112e9f255"
+          }
+        },
+        {
+          "id": "small-current",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "size",
+              "value": "sm"
+            },
+            {
+              "kind": "fixture-equals",
+              "value": {
+                "export": "root",
+                "props": {},
+                "children": [
+                  {
+                    "export": ".Link",
+                    "props": {
+                      "href": "/home"
+                    },
+                    "children": [
+                      {
+                        "text": "Home"
+                      }
+                    ]
+                  },
+                  {
+                    "export": ".Separator",
+                    "props": {},
+                    "children": []
+                  },
+                  {
+                    "export": ".Current",
+                    "props": {},
+                    "children": [
+                      {
+                        "text": "Here"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "fixtureRef": {},
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "nav",
+                "classes": {
+                  "includes": [
+                    "text-sm",
+                    "h-10"
+                  ]
+                },
+                "text": "HomeHereHomeHere"
+              }
+            },
+            {
+              "selector": "a",
+              "require": {
+                "count": 2
+              }
+            },
+            {
+              "selector": "span",
+              "require": {
+                "count": 6
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/breadcrumbs.json",
+            "vectorId": "small-current",
+            "contractDigest": "1e5f3ced5834ddfb1b51201ba68b62c8d599d2263855f990b1b2247112e9f255"
+          }
+        }
+      ]
+    },
+    {
+      "component": "button",
+      "vectors": [
+        {
+          "id": "default-native",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "children",
+              "value": "Save"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "data-probe",
+              "value": "native"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "name",
+              "value": "intent"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "value",
+              "value": "save"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "button",
+                "attributes": {
+                  "includes": {
+                    "type": "button",
+                    "name": "intent",
+                    "value": "save",
+                    "data-probe": "native",
+                    "data-kumo-component": "Button"
+                  }
+                },
+                "text": "Save"
+              }
+            },
+            {
+              "selector": "span",
+              "require": {
+                "count": 1,
+                "text": "Save"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/button.json",
+            "vectorId": "default-native",
+            "contractDigest": "b0a24e6a0b736fb73b4d6da386c0410be1d2ca0264ea6edc2adc32785110909d"
+          }
+        },
+        {
+          "id": "primary-xs",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "children",
+              "value": "Create"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "size",
+              "value": "xs"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "variant",
+              "value": "primary"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "button",
+                "classes": {
+                  "includes": [
+                    "bg-kumo-brand",
+                    "h-5",
+                    "text-xs"
+                  ]
+                },
+                "text": "Create"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/button.json",
+            "vectorId": "primary-xs",
+            "contractDigest": "b0a24e6a0b736fb73b4d6da386c0410be1d2ca0264ea6edc2adc32785110909d"
+          }
+        },
+        {
+          "id": "destructive-lg",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "children",
+              "value": "Delete"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "size",
+              "value": "lg"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "variant",
+              "value": "destructive"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "button",
+                "classes": {
+                  "includes": [
+                    "bg-kumo-danger",
+                    "h-10",
+                    "text-base"
+                  ]
+                },
+                "text": "Delete"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/button.json",
+            "vectorId": "destructive-lg",
+            "contractDigest": "b0a24e6a0b736fb73b4d6da386c0410be1d2ca0264ea6edc2adc32785110909d"
+          }
+        },
+        {
+          "id": "circle-label",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "aria-label",
+              "value": "Add item"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "shape",
+              "value": "circle"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "size",
+              "value": "sm"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "button",
+                "attributes": {
+                  "includes": {
+                    "aria-label": "Add item"
+                  }
+                },
+                "classes": {
+                  "includes": [
+                    "rounded-full",
+                    "size-6.5"
+                  ]
+                }
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/button.json",
+            "vectorId": "circle-label",
+            "contractDigest": "b0a24e6a0b736fb73b4d6da386c0410be1d2ca0264ea6edc2adc32785110909d"
+          }
+        }
+      ]
+    },
+    {
+      "component": "clipboard-text",
+      "vectors": [
+        {
+          "id": "ssr",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "text",
+              "value": "visible"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "textToCopy",
+              "value": "payload"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/clipboard-text.json",
+            "vectorId": "ssr",
+            "contractDigest": "1a9749b6c0399605bf4030786d13ff98de3082204a6f73a4157477efe585f838"
+          }
+        }
+      ]
+    },
+    {
+      "component": "cloudflare-logo",
+      "vectors": [
+        {
+          "id": "full-color",
+          "when": [],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "svg",
+                "attributes": {
+                  "includes": {
+                    "role": "img",
+                    "aria-label": "Cloudflare logo",
+                    "viewBox": "0 0 425.6 143.63"
+                  }
+                },
+                "classes": {
+                  "includes": [
+                    "text-kumo-default"
+                  ]
+                }
+              }
+            },
+            {
+              "selector": "path",
+              "require": {
+                "count": 12
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/cloudflare-logo.json",
+            "vectorId": "full-color",
+            "contractDigest": "b561e386f8396b4a23dc8e6837b5ca89341ccb3a9f1903578cbe75f65771f695"
+          }
+        },
+        {
+          "id": "glyph-white",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "color",
+              "value": "white"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "variant",
+              "value": "glyph"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "svg",
+                "attributes": {
+                  "includes": {
+                    "role": "img",
+                    "aria-label": "Cloudflare logo",
+                    "viewBox": "0 0 49 22"
+                  }
+                },
+                "classes": {
+                  "includes": [
+                    "text-white"
+                  ]
+                }
+              }
+            },
+            {
+              "selector": "path",
+              "require": {
+                "count": 2
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/cloudflare-logo.json",
+            "vectorId": "glyph-white",
+            "contractDigest": "b561e386f8396b4a23dc8e6837b5ca89341ccb3a9f1903578cbe75f65771f695"
+          }
+        }
+      ]
+    },
+    {
+      "component": "code",
+      "vectors": [
+        {
+          "id": "default",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "code",
+              "value": "const x = 1;"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "pre",
+                "classes": {
+                  "includes": [
+                    "font-mono",
+                    "text-sm",
+                    "text-kumo-subtle"
+                  ]
+                },
+                "text": "const x = 1;"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/code.json",
+            "vectorId": "default",
+            "contractDigest": "2fa80b7d19c26c450eb6ff2615d1a4943cefcc32e7092d729505a2c75f70151f"
+          }
+        },
+        {
+          "id": "bash",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "className",
+              "value": "custom"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "code",
+              "value": "echo kumo"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "lang",
+              "value": "bash"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "pre",
+                "classes": {
+                  "includes": [
+                    "custom",
+                    "font-mono"
+                  ]
+                },
+                "text": "echo kumo"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/code.json",
+            "vectorId": "bash",
+            "contractDigest": "2fa80b7d19c26c450eb6ff2615d1a4943cefcc32e7092d729505a2c75f70151f"
+          }
+        }
+      ]
+    },
+    {
+      "component": "command-palette",
+      "vectors": [
+        {
+          "id": "highlighted-text",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "highlights",
+              "value": [
+                [
+                  0,
+                  4
+                ]
+              ]
+            },
+            {
+              "kind": "prop-equals",
+              "name": "text",
+              "value": "Cloudflare"
+            },
+            {
+              "kind": "fixture-equals",
+              "value": {
+                "export": ".HighlightedText",
+                "props": {
+                  "text": "Cloudflare",
+                  "highlights": [
+                    [
+                      0,
+                      4
+                    ]
+                  ]
+                },
+                "children": []
+              }
+            }
+          ],
+          "fixtureRef": {},
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "span"
+              }
+            },
+            {
+              "selector": "mark",
+              "require": {
+                "count": 1,
+                "text": "Cloud"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/command-palette.json",
+            "vectorId": "highlighted-text",
+            "contractDigest": "002e8d68fdb91b46f3b9081d6cba7c0eb4dffcff4ae5c02d18abf9c830bf1320"
+          }
+        }
+      ]
+    },
+    {
+      "component": "date-picker",
+      "vectors": [
+        {
+          "id": "single-selected",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "aria-label",
+              "value": "Choose date"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "defaultMonthDate",
+              "value": "2025-01-01"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "mode",
+              "value": "single"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "selectedDate",
+              "value": "2025-01-15"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div",
+                "attributes": {
+                  "includes": {
+                    "aria-label": "Choose date"
+                  }
+                }
+              }
+            },
+            {
+              "selector": "table",
+              "require": {
+                "count": 1,
+                "attributes": {
+                  "includes": {
+                    "role": "grid"
+                  }
+                }
+              }
+            },
+            {
+              "selector": "button",
+              "require": {
+                "count": 37
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/date-picker.json",
+            "vectorId": "single-selected",
+            "contractDigest": "f303d136d3831ff34dfcc30045081b8df8c6026a733e5da0924efbe2e36c0576"
+          }
+        }
+      ]
+    },
+    {
+      "component": "date-range-picker",
+      "vectors": [
+        {
+          "id": "default-layout",
+          "when": [],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div",
+                "classes": {
+                  "includes": [
+                    "p-4",
+                    "bg-kumo-overlay"
+                  ]
+                }
+              }
+            },
+            {
+              "selector": "button",
+              "require": {
+                "count": 87
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/date-range-picker.json",
+            "vectorId": "default-layout",
+            "contractDigest": "9a43f2cb758e4a6678efd135e2926c53ad20d981c6c569e8721e1f463e07c0c6"
+          }
+        },
+        {
+          "id": "small-subtle-timezone",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "size",
+              "value": "sm"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "timezone",
+              "value": "UTC"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "variant",
+              "value": "subtle"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div",
+                "classes": {
+                  "includes": [
+                    "p-3",
+                    "bg-kumo-base"
+                  ]
+                }
+              }
+            },
+            {
+              "selector": "button",
+              "require": {
+                "count": 87
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/date-range-picker.json",
+            "vectorId": "small-subtle-timezone",
+            "contractDigest": "9a43f2cb758e4a6678efd135e2926c53ad20d981c6c569e8721e1f463e07c0c6"
+          }
+        }
+      ]
+    },
+    {
+      "component": "dialog",
+      "vectors": [
+        {
+          "id": "closed-trigger",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "role",
+              "value": "dialog"
+            },
+            {
+              "kind": "fixture-equals",
+              "value": {
+                "export": ".Root",
+                "props": {},
+                "children": [
+                  {
+                    "export": ".Trigger",
+                    "props": {},
+                    "children": [
+                      {
+                        "text": "Open settings"
+                      }
+                    ]
+                  },
+                  {
+                    "export": "root",
+                    "props": {},
+                    "children": [
+                      {
+                        "export": ".Title",
+                        "props": {},
+                        "children": [
+                          {
+                            "text": "Settings"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "fixtureRef": {},
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "button",
+                "attributes": {
+                  "includes": {
+                    "data-kumo-component": "Dialog",
+                    "data-kumo-part": "trigger"
+                  }
+                },
+                "text": "Open settings"
+              }
+            },
+            {
+              "selector": "[role=dialog]",
+              "require": {
+                "count": 0
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/dialog.json",
+            "vectorId": "closed-trigger",
+            "contractDigest": "15bdd0b64f302b4a64929843f7958278d13b196cc80702033dbf526db845a5e3"
+          }
+        }
+      ]
+    },
+    {
+      "component": "dropdown-menu",
+      "vectors": [
+        {
+          "id": "closed-trigger-ssr",
+          "when": [
+            {
+              "kind": "fixture-equals",
+              "value": {
+                "export": "root",
+                "props": {},
+                "children": [
+                  {
+                    "export": ".Trigger",
+                    "props": {},
+                    "children": [
+                      {
+                        "text": "Actions"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "fixtureRef": {},
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "button",
+                "attributes": {
+                  "includes": {
+                    "type": "button",
+                    "tabindex": "0",
+                    "aria-haspopup": "menu"
+                  }
+                },
+                "text": "Actions"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/dropdown-menu.json",
+            "vectorId": "closed-trigger-ssr",
+            "contractDigest": "21bf29e0898604231db71d5016c69c94b69a55ee8696e7f7de611e17818e2de5"
+          }
+        }
+      ]
+    },
+    {
+      "component": "empty",
+      "vectors": [
+        {
+          "id": "minimal",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "title",
+              "value": "No results"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div",
+                "classes": {
+                  "includes": [
+                    "px-10",
+                    "py-16",
+                    "gap-6"
+                  ]
+                },
+                "text": "No results"
+              }
+            },
+            {
+              "selector": "h2",
+              "require": {
+                "count": 1,
+                "text": "No results"
+              }
+            },
+            {
+              "selector": "p",
+              "require": {
+                "count": 0
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/empty.json",
+            "vectorId": "minimal",
+            "contractDigest": "cbcbfdf0208594b31ebda18d022e2ab58d90c860592bee81f979bd247949e054"
+          }
+        },
+        {
+          "id": "small-description",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "description",
+              "value": "Try again"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "size",
+              "value": "sm"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "title",
+              "value": "Empty"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div",
+                "classes": {
+                  "includes": [
+                    "px-6",
+                    "py-8",
+                    "gap-4"
+                  ]
+                },
+                "text": "EmptyTry again"
+              }
+            },
+            {
+              "selector": "h2",
+              "require": {
+                "count": 1
+              }
+            },
+            {
+              "selector": "p",
+              "require": {
+                "count": 1,
+                "text": "Try again"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/empty.json",
+            "vectorId": "small-description",
+            "contractDigest": "cbcbfdf0208594b31ebda18d022e2ab58d90c860592bee81f979bd247949e054"
+          }
+        }
+      ]
+    },
+    {
+      "component": "field",
+      "vectors": [
+        {
+          "id": "optional",
+          "when": [
+            {
+              "kind": "fixture-equals",
+              "value": {
+                "export": "root",
+                "props": {
+                  "label": "Name",
+                  "description": "Help",
+                  "required": false
+                },
+                "children": [
+                  {
+                    "export": ".NativeInput",
+                    "props": {
+                      "id": "field-control"
+                    },
+                    "children": []
+                  }
+                ]
+              }
+            }
+          ],
+          "fixtureRef": {},
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/field.json",
+            "vectorId": "optional",
+            "contractDigest": "9dd6d0bc3ab0683f1671958dccbfea163a3658c715de96df67b650a8add6ea55"
+          }
+        }
+      ]
+    },
+    {
+      "component": "grid-item",
+      "vectors": [
+        {
+          "id": "default",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "children",
+              "value": "Cell"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div",
+                "text": "Cell"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/grid-item.json",
+            "vectorId": "default",
+            "contractDigest": "14de81c791eb3817ea08ea2dd1a4b7f242dd7041fda7e174ea1f46d932ccee9c"
+          }
+        },
+        {
+          "id": "custom-class",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "children",
+              "value": "Cell"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "className",
+              "value": "p-4"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div",
+                "classes": {
+                  "includes": [
+                    "p-4"
+                  ]
+                },
+                "text": "Cell"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/grid-item.json",
+            "vectorId": "custom-class",
+            "contractDigest": "14de81c791eb3817ea08ea2dd1a4b7f242dd7041fda7e174ea1f46d932ccee9c"
+          }
+        }
+      ]
+    },
+    {
+      "component": "grid",
+      "vectors": [
+        {
+          "id": "three-up",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "children",
+              "value": "Cells"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "variant",
+              "value": "3up"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div",
+                "classes": {
+                  "includes": [
+                    "grid",
+                    "grid-cols-1",
+                    "md:grid-cols-2",
+                    "lg:grid-cols-3",
+                    "gap-2"
+                  ]
+                },
+                "text": "Cells"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/grid.json",
+            "vectorId": "three-up",
+            "contractDigest": "483b41dd142b82b4b018a53ec6bdf1b431efa5cb7e9d809e6f4ed8289ab05c52"
+          }
+        },
+        {
+          "id": "side-none",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "children",
+              "value": "Two"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "gap",
+              "value": "none"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "variant",
+              "value": "side-by-side"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div",
+                "classes": {
+                  "includes": [
+                    "grid-cols-2",
+                    "gap-0"
+                  ]
+                },
+                "text": "Two"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/grid.json",
+            "vectorId": "side-none",
+            "contractDigest": "483b41dd142b82b4b018a53ec6bdf1b431efa5cb7e9d809e6f4ed8289ab05c52"
+          }
+        }
+      ]
+    },
+    {
+      "component": "input-area",
+      "vectors": [
+        {
+          "id": "bare",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "aria-label",
+              "value": "Notes"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "defaultValue",
+              "value": "hello"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "textarea"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/input-area.json",
+            "vectorId": "bare",
+            "contractDigest": "4d013786afa0089d44e6e40dc041b4b9b3de7dc5a9403384e70f3a8d55cfcd2b"
+          }
+        }
+      ]
+    },
+    {
+      "component": "input-group",
+      "vectors": [
+        {
+          "id": "composition",
+          "when": [
+            {
+              "kind": "fixture-equals",
+              "value": {
+                "export": "root",
+                "props": {
+                  "label": "Search",
+                  "description": "Help",
+                  "required": true
+                },
+                "children": [
+                  {
+                    "export": ".Addon",
+                    "props": {},
+                    "children": [
+                      {
+                        "text": "$"
+                      }
+                    ]
+                  },
+                  {
+                    "export": ".Input",
+                    "props": {
+                      "aria-label": "Search"
+                    },
+                    "children": []
+                  },
+                  {
+                    "export": ".Button",
+                    "props": {
+                      "variant": "secondary"
+                    },
+                    "children": [
+                      {
+                        "text": "Go"
+                      }
+                    ]
+                  },
+                  {
+                    "export": ".Suffix",
+                    "props": {},
+                    "children": [
+                      {
+                        "text": "USD"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "fixtureRef": {},
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/input-group.json",
+            "vectorId": "composition",
+            "contractDigest": "8132f95d8159f27a104585a5a781a9230d374b8e0d3f08010a506237ec2b2d69"
+          }
+        }
+      ]
+    },
+    {
+      "component": "input",
+      "vectors": [
+        {
+          "id": "bare-disabled",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "aria-label",
+              "value": "Email"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "defaultValue",
+              "value": "x"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "disabled",
+              "value": true
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "input"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/input.json",
+            "vectorId": "bare-disabled",
+            "contractDigest": "8ab290a7d671042434090c4d0e6c8fa30dbb47934480b7b7cabe834ad35553c4"
+          }
+        }
+      ]
+    },
+    {
+      "component": "label",
+      "vectors": [
+        {
+          "id": "default",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "children",
+              "value": "Email"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "label",
+                "text": "Email"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/label.json",
+            "vectorId": "default",
+            "contractDigest": "0f0582f732f16d3bd97c8cecf516b5a371980c2704888ed8d6b71f174cb53596"
+          }
+        },
+        {
+          "id": "optional",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "children",
+              "value": "Middle Name"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "showOptional",
+              "value": true
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "label",
+                "text": "Middle Name(optional)"
+              }
+            },
+            {
+              "selector": "span",
+              "require": {
+                "count": 1,
+                "classes": {
+                  "includes": [
+                    "font-normal",
+                    "text-kumo-subtle"
+                  ]
+                }
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/label.json",
+            "vectorId": "optional",
+            "contractDigest": "0f0582f732f16d3bd97c8cecf516b5a371980c2704888ed8d6b71f174cb53596"
+          }
+        },
+        {
+          "id": "as-content",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "asContent",
+              "value": true
+            },
+            {
+              "kind": "prop-equals",
+              "name": "children",
+              "value": "Email"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "span",
+                "text": "Email"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/label.json",
+            "vectorId": "as-content",
+            "contractDigest": "0f0582f732f16d3bd97c8cecf516b5a371980c2704888ed8d6b71f174cb53596"
+          }
+        }
+      ]
+    },
+    {
+      "component": "layer-card",
+      "vectors": [
+        {
+          "id": "simple",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "children",
+              "value": "Card"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div",
+                "classes": {
+                  "includes": [
+                    "bg-kumo-base",
+                    "shadow-xs",
+                    "ring-kumo-line"
+                  ]
+                },
+                "text": "Card"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/layer-card.json",
+            "vectorId": "simple",
+            "contractDigest": "b4d1d4adae01fa79bd1597a8df1b893526767d44cace26acca1b0521886df031"
+          }
+        },
+        {
+          "id": "layered",
+          "when": [
+            {
+              "kind": "fixture-equals",
+              "value": {
+                "export": "root",
+                "props": {},
+                "children": [
+                  {
+                    "export": ".Secondary",
+                    "props": {},
+                    "children": [
+                      {
+                        "text": "Top"
+                      }
+                    ]
+                  },
+                  {
+                    "export": ".Primary",
+                    "props": {},
+                    "children": [
+                      {
+                        "text": "Main"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "fixtureRef": {},
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div",
+                "classes": {
+                  "includes": [
+                    "bg-kumo-elevated",
+                    "ring-kumo-hairline"
+                  ]
+                },
+                "text": "TopMain"
+              }
+            },
+            {
+              "selector": "div",
+              "require": {
+                "count": 2
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/layer-card.json",
+            "vectorId": "layered",
+            "contractDigest": "b4d1d4adae01fa79bd1597a8df1b893526767d44cace26acca1b0521886df031"
+          }
+        }
+      ]
+    },
+    {
+      "component": "link",
+      "vectors": [
+        {
+          "id": "internal",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "children",
+              "value": "Docs"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "href",
+              "value": "/docs"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "a",
+                "attributes": {
+                  "includes": {
+                    "href": "/docs",
+                    "data-kumo-component": "Link"
+                  }
+                },
+                "classes": {
+                  "includes": [
+                    "text-kumo-link",
+                    "underline"
+                  ]
+                },
+                "text": "Docs"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/link.json",
+            "vectorId": "internal",
+            "contractDigest": "6789b7665f193b8d00d518ff84cee040de14d3aeed5dfe9f54c1e771236a954a"
+          }
+        },
+        {
+          "id": "plain-external",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "children",
+              "value": "External"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "href",
+              "value": "https://example.com"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "variant",
+              "value": "plain"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "a",
+                "attributes": {
+                  "includes": {
+                    "href": "https://example.com"
+                  }
+                },
+                "classes": {
+                  "includes": [
+                    "hover:text-kumo-link/70"
+                  ]
+                },
+                "text": "External"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/link.json",
+            "vectorId": "plain-external",
+            "contractDigest": "6789b7665f193b8d00d518ff84cee040de14d3aeed5dfe9f54c1e771236a954a"
+          }
+        }
+      ]
+    },
+    {
+      "component": "loader",
+      "vectors": [
+        {
+          "id": "default",
+          "when": [],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "svg",
+                "attributes": {
+                  "includes": {
+                    "role": "status",
+                    "aria-label": "Loading",
+                    "width": "24",
+                    "height": "24"
+                  }
+                }
+              }
+            },
+            {
+              "selector": "circle",
+              "require": {
+                "count": 2
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/loader.json",
+            "vectorId": "default",
+            "contractDigest": "f072c4894de40bf1ba588b29a61c4680564d706f0c2dfc745a94bec4cad4fecd"
+          }
+        },
+        {
+          "id": "large-labelled",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "aria-label",
+              "value": "Working"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "size",
+              "value": "lg"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "svg",
+                "attributes": {
+                  "includes": {
+                    "role": "status",
+                    "aria-label": "Working"
+                  }
+                },
+                "text": ""
+              }
+            },
+            {
+              "selector": "circle",
+              "require": {
+                "count": 2
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/loader.json",
+            "vectorId": "large-labelled",
+            "contractDigest": "f072c4894de40bf1ba588b29a61c4680564d706f0c2dfc745a94bec4cad4fecd"
+          }
+        }
+      ]
+    },
+    {
+      "component": "menu-bar",
+      "vectors": [
+        {
+          "id": "empty-nav-ssr",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "isActive",
+              "value": 0
+            },
+            {
+              "kind": "prop-equals",
+              "name": "options",
+              "value": []
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "nav",
+                "classes": {
+                  "includes": [
+                    "isolate",
+                    "flex",
+                    "rounded-lg",
+                    "ring-kumo-line",
+                    "bg-kumo-recessed"
+                  ]
+                },
+                "text": ""
+              }
+            },
+            {
+              "selector": "button",
+              "require": {
+                "count": 0
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/menu-bar.json",
+            "vectorId": "empty-nav-ssr",
+            "contractDigest": "f045535d57d8458b042cab9857f4cd31970c38e58506a55a5da9bc7717da4339"
+          }
+        }
+      ]
+    },
+    {
+      "component": "meter",
+      "vectors": [
+        {
+          "id": "percentage",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "label",
+              "value": "Storage"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "value",
+              "value": 65
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div",
+                "attributes": {
+                  "includes": {
+                    "role": "meter",
+                    "aria-valuemin": "0",
+                    "aria-valuemax": "100",
+                    "aria-valuenow": "65",
+                    "aria-valuetext": "65%"
+                  }
+                },
+                "text": "Storage65%x"
+              }
+            },
+            {
+              "selector": "span",
+              "require": {
+                "count": 3
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/meter.json",
+            "vectorId": "percentage",
+            "contractDigest": "5eea2b1b77008d0fc0b8de31c8ecfd08b920ac8d2c8f315efb72b5148355adbc"
+          }
+        },
+        {
+          "id": "custom-value",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "customValue",
+              "value": "750 / 1,000"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "label",
+              "value": "Requests"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "value",
+              "value": 75
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div",
+                "attributes": {
+                  "includes": {
+                    "role": "meter",
+                    "aria-valuenow": "75"
+                  }
+                },
+                "text": "Requests750 / 1,000x"
+              }
+            },
+            {
+              "selector": "span",
+              "require": {
+                "count": 3
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/meter.json",
+            "vectorId": "custom-value",
+            "contractDigest": "5eea2b1b77008d0fc0b8de31c8ecfd08b920ac8d2c8f315efb72b5148355adbc"
+          }
+        },
+        {
+          "id": "custom-range-hidden",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "label",
+              "value": "Hidden"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "max",
+              "value": 200
+            },
+            {
+              "kind": "prop-equals",
+              "name": "min",
+              "value": 0
+            },
+            {
+              "kind": "prop-equals",
+              "name": "showValue",
+              "value": false
+            },
+            {
+              "kind": "prop-equals",
+              "name": "value",
+              "value": 20
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div",
+                "attributes": {
+                  "includes": {
+                    "role": "meter",
+                    "aria-valuemax": "200",
+                    "aria-valuenow": "20"
+                  }
+                },
+                "text": "Hiddenx"
+              }
+            },
+            {
+              "selector": "span",
+              "require": {
+                "count": 2
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/meter.json",
+            "vectorId": "custom-range-hidden",
+            "contractDigest": "5eea2b1b77008d0fc0b8de31c8ecfd08b920ac8d2c8f315efb72b5148355adbc"
+          }
+        }
+      ]
+    },
+    {
+      "component": "pagination",
+      "vectors": [
+        {
+          "id": "legacy-page-one",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "page",
+              "value": 1
+            },
+            {
+              "kind": "prop-equals",
+              "name": "perPage",
+              "value": 10
+            },
+            {
+              "kind": "prop-equals",
+              "name": "totalCount",
+              "value": 35
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div",
+                "attributes": {
+                  "includes": {
+                    "data-slot": "pagination"
+                  }
+                }
+              }
+            },
+            {
+              "selector": "nav",
+              "require": {
+                "count": 1,
+                "attributes": {
+                  "includes": {
+                    "aria-label": "Pagination"
+                  }
+                }
+              }
+            },
+            {
+              "selector": "button",
+              "require": {
+                "count": 4
+              }
+            },
+            {
+              "selector": "input",
+              "require": {
+                "count": 1,
+                "attributes": {
+                  "includes": {
+                    "aria-label": "Page number",
+                    "value": "1"
+                  }
+                }
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/pagination.json",
+            "vectorId": "legacy-page-one",
+            "contractDigest": "51a1c22d61a7d01fb284cec181585b4d3133e0fcb5cbc39a1439c64130ef8587"
+          }
+        },
+        {
+          "id": "legacy-page-three-ssr",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "page",
+              "value": 3
+            },
+            {
+              "kind": "prop-equals",
+              "name": "perPage",
+              "value": 10
+            },
+            {
+              "kind": "prop-equals",
+              "name": "totalCount",
+              "value": 35
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div"
+              }
+            },
+            {
+              "selector": "input",
+              "require": {
+                "count": 1,
+                "attributes": {
+                  "includes": {
+                    "value": "1"
+                  }
+                }
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/pagination.json",
+            "vectorId": "legacy-page-three-ssr",
+            "contractDigest": "51a1c22d61a7d01fb284cec181585b4d3133e0fcb5cbc39a1439c64130ef8587"
+          }
+        },
+        {
+          "id": "compound-simple-labels",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "fixtureMode",
+              "value": "simple"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "labels",
+              "value": {
+                "navigation": "Results pages",
+                "previousPage": "Back",
+                "nextPage": "Forward"
+              }
+            },
+            {
+              "kind": "prop-equals",
+              "name": "page",
+              "value": 2
+            },
+            {
+              "kind": "prop-equals",
+              "name": "perPage",
+              "value": 10
+            },
+            {
+              "kind": "prop-equals",
+              "name": "totalCount",
+              "value": 35
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div"
+              }
+            },
+            {
+              "selector": "nav",
+              "require": {
+                "count": 1,
+                "attributes": {
+                  "includes": {
+                    "aria-label": "Results pages"
+                  }
+                }
+              }
+            },
+            {
+              "selector": "button",
+              "require": {
+                "count": 2
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/pagination.json",
+            "vectorId": "compound-simple-labels",
+            "contractDigest": "51a1c22d61a7d01fb284cec181585b4d3133e0fcb5cbc39a1439c64130ef8587"
+          }
+        },
+        {
+          "id": "compound-dropdown-size",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "fixtureMode",
+              "value": "dropdown"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "page",
+              "value": 2
+            },
+            {
+              "kind": "prop-equals",
+              "name": "perPage",
+              "value": 25
+            },
+            {
+              "kind": "prop-equals",
+              "name": "totalCount",
+              "value": 100
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div"
+              }
+            },
+            {
+              "selector": "button",
+              "require": {
+                "count": 6
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/pagination.json",
+            "vectorId": "compound-dropdown-size",
+            "contractDigest": "51a1c22d61a7d01fb284cec181585b4d3133e0fcb5cbc39a1439c64130ef8587"
+          }
+        }
+      ]
+    },
+    {
+      "component": "popover",
+      "vectors": [
+        {
+          "id": "closed-trigger-ssr",
+          "when": [
+            {
+              "kind": "fixture-equals",
+              "value": {
+                "export": "root",
+                "props": {},
+                "children": [
+                  {
+                    "export": ".Trigger",
+                    "props": {},
+                    "children": [
+                      {
+                        "text": "Open"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "fixtureRef": {},
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "button",
+                "attributes": {
+                  "includes": {
+                    "type": "button",
+                    "tabindex": "0",
+                    "aria-haspopup": "dialog",
+                    "aria-expanded": "false",
+                    "data-kumo-component": "Popover",
+                    "data-kumo-part": "trigger"
+                  }
+                },
+                "text": "Open"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/popover.json",
+            "vectorId": "closed-trigger-ssr",
+            "contractDigest": "4ed87b192b9060dd60e8e86efa01860761dbc5714e39b1778be23b79a25f8e22"
+          }
+        }
+      ]
+    },
+    {
+      "component": "select",
+      "vectors": [
+        {
+          "id": "closed-placeholder-ssr",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "aria-label",
+              "value": "Fruit"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "placeholder",
+              "value": "Choose"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div"
+              }
+            },
+            {
+              "selector": "button",
+              "require": {
+                "tag": "button",
+                "count": 1,
+                "attributes": {
+                  "includes": {
+                    "type": "button",
+                    "tabindex": "0",
+                    "role": "combobox",
+                    "aria-expanded": "false",
+                    "aria-haspopup": "listbox",
+                    "aria-label": "Fruit",
+                    "data-kumo-component": "Select",
+                    "data-kumo-part": "trigger"
+                  }
+                }
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/select.json",
+            "vectorId": "closed-placeholder-ssr",
+            "contractDigest": "409c6d9e38a6840dff897aebaef8d8864b433ac1336831d74494d04ec8f020f6"
+          }
+        }
+      ]
+    },
+    {
+      "component": "sensitive-input",
+      "vectors": [
+        {
+          "id": "masked",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "defaultValue",
+              "value": "alpha"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "label",
+              "value": "Secret"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/sensitive-input.json",
+            "vectorId": "masked",
+            "contractDigest": "1be275166efac270e45a2672b8313927fe15d0409fcc9ba113c7fc5a6c46a8f0"
+          }
+        }
+      ]
+    },
+    {
+      "component": "sidebar",
+      "vectors": [
+        {
+          "id": "desktop-collapsed-sliding-inert-intent",
+          "when": [
+            {
+              "kind": "fixture-equals",
+              "value": {
+                "export": ".Provider",
+                "props": {
+                  "defaultOpen": false
+                },
+                "children": [
+                  {
+                    "export": "root",
+                    "props": {},
+                    "children": [
+                      {
+                        "export": ".SlidingViews",
+                        "props": {
+                          "activeKey": "account"
+                        },
+                        "children": [
+                          {
+                            "export": ".SlidingView",
+                            "props": {
+                              "value": "account"
+                            },
+                            "children": [
+                              {
+                                "text": "Account nav"
+                              }
+                            ]
+                          },
+                          {
+                            "export": ".SlidingView",
+                            "props": {
+                              "value": "zone"
+                            },
+                            "children": [
+                              {
+                                "text": "Zone nav"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "export": ".Trigger",
+                        "props": {},
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "fixtureRef": {},
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div",
+                "attributes": {
+                  "includes": {
+                    "data-state": "collapsed"
+                  }
+                }
+              }
+            },
+            {
+              "selector": "aside",
+              "require": {
+                "count": 1,
+                "attributes": {
+                  "includes": {
+                    "data-state": "collapsed"
+                  }
+                }
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/sidebar.json",
+            "vectorId": "desktop-collapsed-sliding-inert-intent",
+            "contractDigest": "dcad61e88e48af06516b0fdfba3f33cad06ab66e770be9b9a5ced7c9755c1dd1"
+          }
+        },
+        {
+          "id": "collapsible-closed-mounted",
+          "when": [
+            {
+              "kind": "fixture-equals",
+              "value": {
+                "export": ".Provider",
+                "props": {},
+                "children": [
+                  {
+                    "export": "root",
+                    "props": {},
+                    "children": [
+                      {
+                        "export": ".Collapsible",
+                        "props": {},
+                        "children": [
+                          {
+                            "export": ".CollapsibleContent",
+                            "props": {},
+                            "children": [
+                              {
+                                "text": "Nested navigation"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "fixtureRef": {},
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/sidebar.json",
+            "vectorId": "collapsible-closed-mounted",
+            "contractDigest": "dcad61e88e48af06516b0fdfba3f33cad06ab66e770be9b9a5ced7c9755c1dd1"
+          }
+        }
+      ]
+    },
+    {
+      "component": "surface",
+      "vectors": [
+        {
+          "id": "default",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "children",
+              "value": "Card"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div",
+                "attributes": {
+                  "includes": {
+                    "data-surface-color": "primary",
+                    "data-deprecated": "surface"
+                  }
+                },
+                "text": "Card"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/surface.json",
+            "vectorId": "default",
+            "contractDigest": "27580550c2b679cf47529c4bed3092c60406d59b9b7d2602ee2b9a8570b711e0"
+          }
+        },
+        {
+          "id": "as-section",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "as",
+              "value": "section"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "children",
+              "value": "Card"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "color",
+              "value": "secondary"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "section",
+                "attributes": {
+                  "includes": {
+                    "data-surface-color": "secondary",
+                    "data-deprecated": "surface"
+                  }
+                },
+                "text": "Card"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/surface.json",
+            "vectorId": "as-section",
+            "contractDigest": "27580550c2b679cf47529c4bed3092c60406d59b9b7d2602ee2b9a8570b711e0"
+          }
+        }
+      ]
+    },
+    {
+      "component": "switch",
+      "vectors": [
+        {
+          "id": "small",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "aria-label",
+              "value": "Small"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "size",
+              "value": "sm"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "button",
+                "attributes": {
+                  "includes": {
+                    "role": "switch",
+                    "aria-checked": "false"
+                  }
+                },
+                "classes": {
+                  "includes": [
+                    "h-4",
+                    "w-8"
+                  ]
+                }
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/switch.json",
+            "vectorId": "small",
+            "contractDigest": "a21654b67149440d975ad94adce6162a28f87b911334a974938067200f76f6b0"
+          }
+        }
+      ]
+    },
+    {
+      "component": "table-of-contents",
+      "vectors": [
+        {
+          "id": "static-title-items",
+          "when": [
+            {
+              "kind": "fixture-equals",
+              "value": {
+                "export": "root",
+                "props": {
+                  "aria-label": "Article sections"
+                },
+                "children": [
+                  {
+                    "export": ".Title",
+                    "props": {},
+                    "children": [
+                      {
+                        "text": "On this page"
+                      }
+                    ]
+                  },
+                  {
+                    "export": ".List",
+                    "props": {},
+                    "children": [
+                      {
+                        "export": ".Item",
+                        "props": {
+                          "href": "#intro",
+                          "active": true
+                        },
+                        "children": [
+                          {
+                            "text": "Introduction"
+                          }
+                        ]
+                      },
+                      {
+                        "export": ".Item",
+                        "props": {
+                          "href": "#install"
+                        },
+                        "children": [
+                          {
+                            "text": "Installation"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "fixtureRef": {},
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "nav",
+                "attributes": {
+                  "includes": {
+                    "aria-label": "Article sections"
+                  }
+                }
+              }
+            },
+            {
+              "selector": "p",
+              "require": {
+                "count": 1,
+                "text": "On this page"
+              }
+            },
+            {
+              "selector": "ul",
+              "require": {
+                "count": 1
+              }
+            },
+            {
+              "selector": "a",
+              "require": {
+                "count": 2
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/table-of-contents.json",
+            "vectorId": "static-title-items",
+            "contractDigest": "71979902dad3ae9c2285b106715845d05a2c14a42144ea5f71024fff62e79a8f"
+          }
+        },
+        {
+          "id": "nested-linked-group",
+          "when": [
+            {
+              "kind": "fixture-equals",
+              "value": {
+                "export": "root",
+                "props": {},
+                "children": [
+                  {
+                    "export": ".List",
+                    "props": {},
+                    "children": [
+                      {
+                        "export": ".Group",
+                        "props": {
+                          "label": "Getting started",
+                          "href": "#getting-started",
+                          "active": true
+                        },
+                        "children": [
+                          {
+                            "export": ".Item",
+                            "props": {
+                              "href": "#install"
+                            },
+                            "children": [
+                              {
+                                "text": "Install"
+                              }
+                            ]
+                          },
+                          {
+                            "export": ".Item",
+                            "props": {
+                              "href": "#setup"
+                            },
+                            "children": [
+                              {
+                                "text": "Setup"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "fixtureRef": {},
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "nav",
+                "attributes": {
+                  "includes": {
+                    "aria-label": "Table of contents"
+                  }
+                }
+              }
+            },
+            {
+              "selector": "ul",
+              "require": {
+                "count": 1
+              }
+            },
+            {
+              "selector": "li",
+              "require": {
+                "count": 2
+              }
+            },
+            {
+              "selector": "a",
+              "require": {
+                "count": 3
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/table-of-contents.json",
+            "vectorId": "nested-linked-group",
+            "contractDigest": "71979902dad3ae9c2285b106715845d05a2c14a42144ea5f71024fff62e79a8f"
+          }
+        }
+      ]
+    },
+    {
+      "component": "table",
+      "vectors": [
+        {
+          "id": "semantic-selected",
+          "when": [
+            {
+              "kind": "fixture-equals",
+              "value": {
+                "export": "root",
+                "props": {},
+                "children": [
+                  {
+                    "export": ".Header",
+                    "props": {},
+                    "children": [
+                      {
+                        "export": ".Row",
+                        "props": {},
+                        "children": [
+                          {
+                            "export": ".Head",
+                            "props": {},
+                            "children": [
+                              {
+                                "text": "Name"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "export": ".Body",
+                    "props": {},
+                    "children": [
+                      {
+                        "export": ".Row",
+                        "props": {},
+                        "children": [
+                          {
+                            "export": ".Cell",
+                            "props": {
+                              "className": "bg-kumo-tint"
+                            },
+                            "children": [
+                              {
+                                "text": "Kumo"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "fixtureRef": {},
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "table",
+                "classes": {
+                  "includes": [
+                    "isolate",
+                    "w-full"
+                  ]
+                },
+                "text": "NameKumo"
+              }
+            },
+            {
+              "selector": "thead",
+              "require": {
+                "count": 1
+              }
+            },
+            {
+              "selector": "tbody",
+              "require": {
+                "count": 1
+              }
+            },
+            {
+              "selector": "tr",
+              "require": {
+                "count": 2
+              }
+            },
+            {
+              "selector": "th",
+              "require": {
+                "count": 1,
+                "text": "Name"
+              }
+            },
+            {
+              "selector": "td",
+              "require": {
+                "count": 1,
+                "classes": {
+                  "includes": [
+                    "bg-kumo-tint"
+                  ]
+                },
+                "text": "Kumo"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/table.json",
+            "vectorId": "semantic-selected",
+            "contractDigest": "72a95a5166669a3cdd63a67f52de3db9d74f2725a12008b38d2332256b2518b4"
+          }
+        },
+        {
+          "id": "fixed-sticky",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "layout",
+              "value": "fixed"
+            },
+            {
+              "kind": "fixture-equals",
+              "value": {
+                "export": "root",
+                "props": {},
+                "children": [
+                  {
+                    "export": ".Body",
+                    "props": {},
+                    "children": [
+                      {
+                        "export": ".Row",
+                        "props": {},
+                        "children": [
+                          {
+                            "export": ".Cell",
+                            "props": {
+                              "sticky": "left"
+                            },
+                            "children": [
+                              {
+                                "text": "Pinned"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "fixtureRef": {},
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "table",
+                "classes": {
+                  "includes": [
+                    "table-fixed"
+                  ]
+                },
+                "text": "Pinned"
+              }
+            },
+            {
+              "selector": "tbody",
+              "require": {
+                "count": 1
+              }
+            },
+            {
+              "selector": "td",
+              "require": {
+                "count": 1,
+                "classes": {
+                  "includes": [
+                    "sticky",
+                    "left-0",
+                    "z-1"
+                  ]
+                },
+                "text": "Pinned"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/table.json",
+            "vectorId": "fixed-sticky",
+            "contractDigest": "72a95a5166669a3cdd63a67f52de3db9d74f2725a12008b38d2332256b2518b4"
+          }
+        }
+      ]
+    },
+    {
+      "component": "tabs",
+      "vectors": [
+        {
+          "id": "segmented-uncontrolled-first",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "tabs",
+              "value": [
+                {
+                  "value": "overview",
+                  "label": "Overview"
+                },
+                {
+                  "value": "settings",
+                  "label": "Settings"
+                }
+              ]
+            },
+            {
+              "kind": "fixture-equals",
+              "value": {
+                "export": "root",
+                "props": {},
+                "children": []
+              }
+            }
+          ],
+          "fixtureRef": {},
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div"
+              }
+            },
+            {
+              "selector": "button",
+              "require": {
+                "count": 2
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/tabs.json",
+            "vectorId": "segmented-uncontrolled-first",
+            "contractDigest": "fbbb0d671907280d2ae6c38247506d3d7bbfde18604896102b97e066c24f890f"
+          }
+        },
+        {
+          "id": "underline-selected-value",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "selectedValue",
+              "value": "settings"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "size",
+              "value": "sm"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "tabs",
+              "value": [
+                {
+                  "value": "overview",
+                  "label": "Overview"
+                },
+                {
+                  "value": "settings",
+                  "label": "Settings"
+                }
+              ]
+            },
+            {
+              "kind": "prop-equals",
+              "name": "variant",
+              "value": "underline"
+            },
+            {
+              "kind": "fixture-equals",
+              "value": {
+                "export": "root",
+                "props": {},
+                "children": []
+              }
+            }
+          ],
+          "fixtureRef": {},
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div"
+              }
+            },
+            {
+              "selector": "button",
+              "require": {
+                "count": 2
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/tabs.json",
+            "vectorId": "underline-selected-value",
+            "contractDigest": "fbbb0d671907280d2ae6c38247506d3d7bbfde18604896102b97e066c24f890f"
+          }
+        }
+      ]
+    },
+    {
+      "component": "text",
+      "vectors": [
+        {
+          "id": "body-default",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "children",
+              "value": "Body"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "p",
+                "classes": {
+                  "includes": [
+                    "text-kumo-default",
+                    "text-base"
+                  ]
+                },
+                "text": "Body"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/text.json",
+            "vectorId": "body-default",
+            "contractDigest": "c4e86fbf176fd1c5bdabe81c1e77150b9730a0dda1f37e75adc5b4f58f8180fc"
+          }
+        },
+        {
+          "id": "mono-default",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "children",
+              "value": "code"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "variant",
+              "value": "mono"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "span",
+                "classes": {
+                  "includes": [
+                    "font-mono",
+                    "text-sm"
+                  ]
+                },
+                "text": "code"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/text.json",
+            "vectorId": "mono-default",
+            "contractDigest": "c4e86fbf176fd1c5bdabe81c1e77150b9730a0dda1f37e75adc5b4f58f8180fc"
+          }
+        },
+        {
+          "id": "heading-element",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "as",
+              "value": "h1"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "children",
+              "value": "Title"
+            },
+            {
+              "kind": "prop-equals",
+              "name": "variant",
+              "value": "heading1"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "h1",
+                "classes": {
+                  "includes": [
+                    "text-3xl",
+                    "font-semibold"
+                  ]
+                },
+                "text": "Title"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/text.json",
+            "vectorId": "heading-element",
+            "contractDigest": "c4e86fbf176fd1c5bdabe81c1e77150b9730a0dda1f37e75adc5b4f58f8180fc"
+          }
+        }
+      ]
+    },
+    {
+      "component": "toasty",
+      "vectors": [
+        {
+          "id": "provider-ssr",
+          "when": [
+            {
+              "kind": "prop-equals",
+              "name": "children",
+              "value": "Application"
+            }
+          ],
+          "fixtureRef": null,
+          "nodes": [
+            {
+              "selector": ":root",
+              "require": {
+                "tag": "div",
+                "text": "Application"
+              }
+            }
+          ],
+          "provenance": {
+            "contractPath": "contracts/kumo.observable/v1/components/toasty.json",
+            "vectorId": "provider-ssr",
+            "contractDigest": "35460d33f6056c8b070637ba6ed0fc22d0e3ddd9f7a907602154399466c045f5"
+          }
+        }
+      ]
+    }
+  ],
+  "capabilityDigest": "73c0b560f0044223b0d38e8784c248012889a753ccf4e76caed824e4ea0fea72"
+}
