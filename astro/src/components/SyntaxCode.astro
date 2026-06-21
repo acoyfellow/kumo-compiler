@@ -1,0 +1,6 @@
+---
+import { Code } from 'astro:components';
+const { code, lang = 'text', label = lang } = Astro.props;
+---
+<figure class="syntax"><figcaption>{label}</figcaption><Code code={code} lang={lang} theme="github-dark-default" wrap={false} /></figure>
+<style>.syntax{max-width:100%;margin:18px 0;border:1px solid #263245;border-radius:10px;overflow:hidden;background:#0d1117}.syntax figcaption{padding:8px 14px;border-bottom:1px solid #263245;color:#94a3b8;background:#111827;font:700 11px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase}.syntax :global(pre){max-width:100%;margin:0!important;padding:18px!important;border-radius:0!important;overflow:auto!important;background:#0d1117!important;font-size:13px!important;line-height:1.6!important}.syntax :global(code){font-family:ui-monospace,SFMono-Regular,Menlo,monospace}.syntax:focus-within{outline:3px solid #2563eb;outline-offset:2px}</style>

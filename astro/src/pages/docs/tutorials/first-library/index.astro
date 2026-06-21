@@ -1,21 +1,22 @@
 ---
 import DocsLayout from '../../../../layouts/DocsLayout.astro';
+import SyntaxCode from '../../../../components/SyntaxCode.astro';
 ---
 <DocsLayout title="Tutorial: your first Kumo library" description="Build a Button and Field with a Kumo framework package.">
 <p class="eyebrow">Tutorial</p><h1>Your first Kumo library</h1>
 <p class="lede">Build the same small interaction in Vue, Svelte, or Solid. This tutorial uses the exact production artifacts exercised by the package receipts.</p>
 <h2>1 — Choose a package</h2>
-<pre><code>{`# Vue
+<SyntaxCode lang="shell" label="Terminal" code={`# Vue
 npm install https://kumo-compiler.coey.dev/packages/kumo-vue-0.0.1.tgz
 
 # Svelte
 npm install https://kumo-compiler.coey.dev/packages/kumo-svelte-0.0.1.tgz
 
 # Solid
-npm install https://kumo-compiler.coey.dev/packages/kumo-solid-0.0.1.tgz`}</code></pre>
+npm install https://kumo-compiler.coey.dev/packages/kumo-solid-0.0.1.tgz`} />
 <p>Use only one command in your project. npm installs the matching framework peer dependency if your app does not already provide it.</p>
 <h2>2 — Import the library and its styles</h2>
-<h3>Svelte</h3><pre><code>{`<script>
+<h3>Svelte</h3><SyntaxCode lang="svelte" label="App.svelte" code={`<script>
   import { Button, Field } from '@cloudflare/kumo-svelte';
   import '@cloudflare/kumo-svelte/styles.css';
 
@@ -32,8 +33,8 @@ npm install https://kumo-compiler.coey.dev/packages/kumo-solid-0.0.1.tgz`}</code
   bind:value={project}
 />
 
-<p>Model: {project}</p>`}</code></pre>
-<h3>Vue</h3><pre><code>{`<script setup>
+<p>Model: {project}</p>`} />
+<h3>Vue</h3><SyntaxCode lang="vue" label="App.vue" code={`<script setup>
 import { ref } from 'vue';
 import { Button, Field } from '@cloudflare/kumo-vue';
 import '@cloudflare/kumo-vue/styles.css';
@@ -46,8 +47,8 @@ const project = ref('Workers');
   <Button @click="clicks++">Clicked {{ clicks }}</Button>
   <Field id="project" label="Project" description="A production project name." required v-model="project" />
   <p>Model: {{ project }}</p>
-</template>`}</code></pre>
-<h3>Solid</h3><pre><code>{`import { createSignal } from 'solid-js';
+</template>`} />
+<h3>Solid</h3><SyntaxCode lang="tsx" label="App.tsx" code={`import { createSignal } from 'solid-js';
 import { Button, Field } from '@cloudflare/kumo-solid';
 import '@cloudflare/kumo-solid/styles.css';
 
@@ -59,7 +60,7 @@ export default function App() {
     <Field id="project" label="Project" description="A production project name." required value={project()} onInput={event => setProject(event.currentTarget.value)} />
     <p>Model: {project()}</p>
   </>;
-}`}</code></pre>
+}`} />
 <h2>3 — Check the contract</h2>
 <ul><li>The button starts at <code>Clicked 0</code> and increments.</li><li>The label targets the input ID.</li><li>Description and error IDs are composed into <code>aria-describedby</code>.</li><li><code>required</code>, <code>disabled</code>, and <code>aria-invalid</code> reach native controls.</li><li>The package stylesheet supplies visible focus, state, spacing, and minimum 44px control height.</li></ul>
 <h2>4 — Run the complete project</h2>

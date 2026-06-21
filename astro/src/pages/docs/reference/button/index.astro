@@ -1,5 +1,6 @@
 ---
 import DocsLayout from '../../../../layouts/DocsLayout.astro';
+import SyntaxCode from '../../../../components/SyntaxCode.astro';
 ---
 <DocsLayout title="Button reference"><p class="eyebrow">Reference</p><h1>Button</h1><p class="lede">A framework-native button with Kumo variants, sizes, loading text, disabled behavior, and forwarded native attributes.</p>
 <h2>Props</h2><div class="table-scroll" tabindex="0" role="region" aria-label="Button properties"><table><thead><tr><th>Prop</th><th>Type</th><th>Default</th><th>Behavior</th></tr></thead><tbody>
@@ -7,7 +8,7 @@ import DocsLayout from '../../../../layouts/DocsLayout.astro';
 </tbody></table></div>
 <h2>Events</h2><p>Use the framework’s native event syntax: <code>onclick</code> in Svelte, <code>@click</code> in Vue, and <code>onClick</code> in Solid.</p>
 <h2>Accessibility</h2><ul><li>Renders a native <code>&lt;button&gt;</code>.</li><li>Has a minimum 44px control height.</li><li>Preserves native keyboard activation and disabled semantics.</li><li>Requires a meaningful accessible name from its child content.</li></ul>
-<h2>Example</h2><pre><code>{`<Button variant="primary" onclick={() => count += 1}>
+<h2>Example</h2><SyntaxCode lang="svelte" label="App.svelte" code={`<Button variant="primary" onclick={() => count += 1}>
   Clicked {count}
 </Button>
-<Button disabled>Disabled</Button>`}</code></pre></DocsLayout><style>.eyebrow{margin:0 0 10px;color:#b45309;font-size:13px;font-weight:850;text-transform:uppercase;letter-spacing:.09em}</style>
+<Button disabled>Disabled</Button>`} /></DocsLayout><style>.eyebrow{margin:0 0 10px;color:#b45309;font-size:13px;font-weight:850;text-transform:uppercase;letter-spacing:.09em}</style>

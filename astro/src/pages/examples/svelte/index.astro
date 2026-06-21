@@ -1,8 +1,9 @@
 ---
 import ExampleLayout from '../../../layouts/ExampleLayout.astro';
+import SyntaxCode from '../../../components/SyntaxCode.astro';
 const install='npm install https://kumo-compiler.coey.dev/packages/kumo-svelte-0.0.1.tgz';
 ---
-<ExampleLayout title="Svelte Button and Field" framework="svelte" install={install} download="/examples/downloads/kumo-svelte-example.zip" library="/libraries/svelte/"><h2>App.svelte</h2><pre><code>{`<script>
+<ExampleLayout title="Svelte Button and Field" framework="svelte" install={install} download="/examples/downloads/kumo-svelte-example.zip" library="/libraries/svelte/"><h2>App.svelte</h2><SyntaxCode lang="svelte" label="App.svelte" code={`<script>
   import { Button, Field } from '@cloudflare/kumo-svelte';
   import '@cloudflare/kumo-svelte/styles.css';
   let clicks = $state(0);
@@ -12,4 +13,4 @@ const install='npm install https://kumo-compiler.coey.dev/packages/kumo-svelte-0
 <Button onclick={() => clicks += 1}>Clicked {clicks}</Button>
 <Button disabled>Disabled</Button>
 <Field id="project" label="Project" description="Rendered by Kumo" required bind:value={project} />
-<p>Model: {project}</p>`}</code></pre><p>The archive includes a Svelte 5 Vite app and the production tarball URL. For the registry-only result, see <a href="/docs/how-to/svelte-playground/">Svelte playground validation</a>.</p></ExampleLayout>
+<p>Model: {project}</p>`} /><p>The archive includes a Svelte 5 Vite app and the production tarball URL. For the registry-only result, see <a href="/docs/how-to/svelte-playground/">Svelte playground validation</a>.</p></ExampleLayout>

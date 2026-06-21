@@ -1,8 +1,9 @@
 ---
 import ExampleLayout from '../../../layouts/ExampleLayout.astro';
+import SyntaxCode from '../../../components/SyntaxCode.astro';
 const install='npm install https://kumo-compiler.coey.dev/packages/kumo-solid-0.0.1.tgz';
 ---
-<ExampleLayout title="Solid Button and Field" framework="solid" install={install} download="/examples/downloads/kumo-solid-example.zip" library="/libraries/solid/"><h2>App.jsx</h2><pre><code>{`import { createSignal } from 'solid-js';
+<ExampleLayout title="Solid Button and Field" framework="solid" install={install} download="/examples/downloads/kumo-solid-example.zip" library="/libraries/solid/"><h2>App.jsx</h2><SyntaxCode lang="jsx" label="App.jsx" code={`import { createSignal } from 'solid-js';
 import { Button, Field } from '@cloudflare/kumo-solid';
 import '@cloudflare/kumo-solid/styles.css';
 
@@ -15,4 +16,4 @@ export default function App() {
     <Field id="project" label="Project" description="Rendered by Kumo" required value={project()} onInput={e => setProject(e.currentTarget.value)} />
     <p>Model: {project()}</p>
   </>;
-}`}</code></pre><p>The archive includes Solid’s Vite plugin and a production tarball dependency.</p></ExampleLayout>
+}`} /><p>The archive includes Solid’s Vite plugin and a production tarball dependency.</p></ExampleLayout>

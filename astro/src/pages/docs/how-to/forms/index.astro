@@ -1,17 +1,18 @@
 ---
 import DocsLayout from '../../../../layouts/DocsLayout.astro';
+import SyntaxCode from '../../../../components/SyntaxCode.astro';
 ---
 <DocsLayout title="Build an accessible form with Field">
 <p class="eyebrow">How-to guide</p><h1>Build a form with Field</h1><p class="lede">Give every Field a stable ID, a visible label, and the state that belongs on its native input.</p>
-<h2>Provide an ID and label</h2><pre><code>{`<Field id="email" label="Email address" bind:value={email} />`}</code></pre><p>The label’s <code>for</code> points to the generated native input.</p>
-<h2>Add description and error text</h2><pre><code>{`<Field
+<h2>Provide an ID and label</h2><SyntaxCode lang="svelte" label="App.svelte" code={`<Field id="email" label="Email address" bind:value={email} />`} /><p>The label’s <code>for</code> points to the generated native input.</p>
+<h2>Add description and error text</h2><SyntaxCode lang="svelte" label="App.svelte" code={`<Field
   id="email"
   label="Email address"
   description="We only use this for account notices."
   error={email.includes('@') ? undefined : 'Enter a valid email.'}
   required
   bind:value={email}
-/>`}</code></pre><p>Field creates <code>email-description</code> and <code>email-error</code>, joins them in <code>aria-describedby</code>, sets <code>aria-invalid="true"</code> while an error exists, and gives the error <code>role="alert"</code>.</p>
+/>`} /><p>Field creates <code>email-description</code> and <code>email-error</code>, joins them in <code>aria-describedby</code>, sets <code>aria-invalid="true"</code> while an error exists, and gives the error <code>role="alert"</code>.</p>
 <h2>Use native form behavior</h2><p><code>required</code>, <code>disabled</code>, name, autocomplete, input type, and other native attributes are forwarded. Use the framework’s normal model or input event:</p><ul><li>Svelte: <code>bind:value</code></li><li>Vue: <code>v-model</code></li><li>Solid: <code>value</code> plus <code>onInput</code></li></ul>
 <div class="note">Field does not own validation policy or form submission. It renders state and accessibility relationships supplied by your application.</div>
 </DocsLayout><style>.eyebrow{margin:0 0 10px;color:#b45309;font-size:13px;font-weight:850;text-transform:uppercase;letter-spacing:.09em}</style>
