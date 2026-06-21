@@ -42,8 +42,8 @@ test('receipt separates export proof from partial browser conformance', async ()
   assert.equal(r.framework, 'svelte');
   assert.equal(r.exportSurface.componentCount, 41);
   assert.equal(new Set(r.exportSurface.slugExports).size, 41);
-  assert.equal(new Set(r.exportSurface.rootSymbols).size, 41);
-  assert.equal(new Set(r.exportSurface.declarationSymbols).size, 41);
+  assert.equal(new Set(r.exportSurface.rootSymbols).size, 104);
+  assert.equal(new Set(r.exportSurface.declarationSymbols).size, 104);
   assert.deepEqual(r.browserConformance.passed, ['button', 'field']);
   assert.equal(r.browserConformance.pending.length, 39);
   assert.equal(r.checks.buttonFieldBrowserBehavior, 'passed');

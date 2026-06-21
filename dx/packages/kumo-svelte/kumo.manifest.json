@@ -3,6 +3,697 @@
   "name": "@acoyfellow/kumo-svelte",
   "version": "0.0.1",
   "framework": "svelte",
+  "components": [
+    {
+      "component": "autocomplete",
+      "symbol": "Autocomplete",
+      "subpath": "./autocomplete",
+      "modelDigest": "1f41380c0300c6ab1aa370e5a96ed529bb1bdfb6d60bfcaaa9df23cd23dd8b07"
+    },
+    {
+      "component": "badge",
+      "symbol": "Badge",
+      "subpath": "./badge",
+      "modelDigest": "67f224503fcce1b354d3848ac5a55b55587789af9fe0688a4849fef4ad5c8ec5"
+    },
+    {
+      "component": "banner",
+      "symbol": "Banner",
+      "subpath": "./banner",
+      "modelDigest": "c5e7d6281fea509e18399d83a7768d4533db188cdb59ddc8cbf2f1bd99e0dec1"
+    },
+    {
+      "component": "breadcrumbs",
+      "symbol": "Breadcrumbs",
+      "subpath": "./breadcrumbs",
+      "modelDigest": "7a7f2d6ea60be21b23d218781fadea8b534345fab15d5b0896600e503857eb65"
+    },
+    {
+      "component": "button",
+      "symbol": "Button",
+      "subpath": "./button",
+      "modelDigest": "48798c8ab5bf8d756056311749cd7d344b6c82b50134d057656d5f6e4cad48aa"
+    },
+    {
+      "component": "checkbox",
+      "symbol": "Checkbox",
+      "subpath": "./checkbox",
+      "modelDigest": "fe575b56fa0db80a1e83a5b6976f0303f63a8f6ab45de9ba8f5abfb19d9a935f"
+    },
+    {
+      "component": "clipboard-text",
+      "symbol": "ClipboardText",
+      "subpath": "./clipboard-text",
+      "modelDigest": "2519ce9397d7b2de6138a9f8fe7461e138cd766c9a39f7f25d1d4c84345f0d10"
+    },
+    {
+      "component": "cloudflare-logo",
+      "symbol": "CloudflareLogo",
+      "subpath": "./cloudflare-logo",
+      "modelDigest": "50b2371be89b11ae83917c42fdb9b67c42df8467c98e2668e0540afd07dc8c58"
+    },
+    {
+      "component": "code",
+      "symbol": "Code",
+      "subpath": "./code",
+      "modelDigest": "5e7c1a6e6d7b7973979fc806a00d8999299a443db7eda7b9234417bc397a0fba"
+    },
+    {
+      "component": "combobox",
+      "symbol": "Combobox",
+      "subpath": "./combobox",
+      "modelDigest": "e632de38d37be35b83ed3e093ba4e52fbd67247aa10eff83bf2ac59fb1398a41"
+    },
+    {
+      "component": "command-palette",
+      "symbol": "CommandPalette",
+      "subpath": "./command-palette",
+      "modelDigest": "7e72307448756ba3dce186fdd6d001623e82bf54634bcb1dd046b6ec82f31bf6"
+    },
+    {
+      "component": "date-picker",
+      "symbol": "DatePicker",
+      "subpath": "./date-picker",
+      "modelDigest": "efe6ee1704bcfdd921aefd2a33601d5193d45c82454eadc21af9261b848e1bc6"
+    },
+    {
+      "component": "date-range-picker",
+      "symbol": "DateRangePicker",
+      "subpath": "./date-range-picker",
+      "modelDigest": "24c51f801cb83e8ae05a575e5e3e012c1f46065f0d1fda618759efe36487bc38"
+    },
+    {
+      "component": "dialog",
+      "symbol": "Dialog",
+      "subpath": "./dialog",
+      "modelDigest": "7f6bdd127570c71956f3e4a345c1dbc0fa7bbc62e2a653d6239a37b232cbf01f"
+    },
+    {
+      "component": "dropdown-menu",
+      "symbol": "DropdownMenu",
+      "subpath": "./dropdown-menu",
+      "modelDigest": "4af0c8a7d7b8b60e856eaff59dc37b9cf13972ebeb4a5efd3e6776a353898221"
+    },
+    {
+      "component": "empty",
+      "symbol": "Empty",
+      "subpath": "./empty",
+      "modelDigest": "807df579a4b5811636f6c8ae3fbc56d8907ba572d3a57cf9b47ea9f266a81eca"
+    },
+    {
+      "component": "field",
+      "symbol": "Field",
+      "subpath": "./field",
+      "modelDigest": "c8c1c62130c1f34d0061c3ea6adadfe4728a10920f9906960684ff48e50325c7"
+    },
+    {
+      "component": "grid",
+      "symbol": "Grid",
+      "subpath": "./grid",
+      "modelDigest": "9dbbb8c1edc23a0a1b2ed65add8ac4c1a675b5b9f0afbdb9eae72871c290ace3"
+    },
+    {
+      "component": "grid-item",
+      "symbol": "GridItem",
+      "subpath": "./grid-item",
+      "modelDigest": "914b6bbf31750fa0d8ea618a40c6abab812fc940fed7557bc9b8630e58fe76d7"
+    },
+    {
+      "component": "input",
+      "symbol": "Input",
+      "subpath": "./input",
+      "modelDigest": "5425763a958aaba88a608179f3dd53d1f9651a0bb15a6c4d82190bf83c5f9512"
+    },
+    {
+      "component": "input-area",
+      "symbol": "InputArea",
+      "subpath": "./input-area",
+      "modelDigest": "59711469ba9cb63d7177a2ef83d87ae8fdd8835dab30e06846284b0d7497f1c1"
+    },
+    {
+      "component": "input-group",
+      "symbol": "InputGroup",
+      "subpath": "./input-group",
+      "modelDigest": "723d817c6c81e88062ee871968eac6318dc1176c7b9e92c407d7f7a29445d8c3"
+    },
+    {
+      "component": "label",
+      "symbol": "Label",
+      "subpath": "./label",
+      "modelDigest": "a14b8ca4ef389e6247d422e71305289cda06eeb21a5ec5a1f49f196a6cca012f"
+    },
+    {
+      "component": "layer-card",
+      "symbol": "LayerCard",
+      "subpath": "./layer-card",
+      "modelDigest": "0863b724219652fb6b34a5c3bc5564e8fc766a990f62178c6a66e5f17aa8ae1f"
+    },
+    {
+      "component": "link",
+      "symbol": "Link",
+      "subpath": "./link",
+      "modelDigest": "c6f0fbd6318e25df8755e6c0053fe1d74c23861e6bcc3f9256588ac62b9fa195"
+    },
+    {
+      "component": "loader",
+      "symbol": "Loader",
+      "subpath": "./loader",
+      "modelDigest": "8c761d6a326088b816393ffb81fd67e64ad97a3299d323ad3078a93acebc0730"
+    },
+    {
+      "component": "menu-bar",
+      "symbol": "MenuBar",
+      "subpath": "./menu-bar",
+      "modelDigest": "40c08fc1e03b3a7d723ec35135cb4cf3a2605d12368398588dcda6818ce453ea"
+    },
+    {
+      "component": "meter",
+      "symbol": "Meter",
+      "subpath": "./meter",
+      "modelDigest": "2201de1a1ed8a66d0925c6dae8b6b3197097ad332ed86e9b694f8d7383c8c284"
+    },
+    {
+      "component": "pagination",
+      "symbol": "Pagination",
+      "subpath": "./pagination",
+      "modelDigest": "8a03b02a4e86e5ee4971e869b775b7efd73bc7e61116c5e794612f2402b7dd2d"
+    },
+    {
+      "component": "popover",
+      "symbol": "Popover",
+      "subpath": "./popover",
+      "modelDigest": "ad3f10680d31c621c1bc54e0a910834f60fbc9d5776de398d94abac24dc0d45d"
+    },
+    {
+      "component": "radio",
+      "symbol": "Radio",
+      "subpath": "./radio",
+      "modelDigest": "0f71542a2bd3b8e5809f5dbb979a7fe2448e19e4f007cced41a22cbc5ef4cba9"
+    },
+    {
+      "component": "select",
+      "symbol": "Select",
+      "subpath": "./select",
+      "modelDigest": "3f2897eb8908155ffa6e7d283e13a1cb3e8fc78e30a7b8fe0b1e7bd26f839f11"
+    },
+    {
+      "component": "sensitive-input",
+      "symbol": "SensitiveInput",
+      "subpath": "./sensitive-input",
+      "modelDigest": "9f0862f5064e4584c2616703c9f1cd80330b5ef71dee9361752cc32841164461"
+    },
+    {
+      "component": "sidebar",
+      "symbol": "Sidebar",
+      "subpath": "./sidebar",
+      "modelDigest": "4c801e32de9aeeb481f09910a3cf18fe74e2893bb998ef9d4abdf950ffda4b13"
+    },
+    {
+      "component": "surface",
+      "symbol": "Surface",
+      "subpath": "./surface",
+      "modelDigest": "ce6505b3ce28964f1d8bb565e8a04a6c23ab186f8a5afc3a83dc631e65c3914e"
+    },
+    {
+      "component": "switch",
+      "symbol": "Switch",
+      "subpath": "./switch",
+      "modelDigest": "ed2dc968d94168f193e43c4ace0c4c5a0eef92e88c8bbe1a3e168bf1f2b424b9"
+    },
+    {
+      "component": "table",
+      "symbol": "Table",
+      "subpath": "./table",
+      "modelDigest": "2a86761805e0e78f84a2b578b9b43656181ffd9f47ad91f4c17c81f6977c99c7"
+    },
+    {
+      "component": "table-of-contents",
+      "symbol": "TableOfContents",
+      "subpath": "./table-of-contents",
+      "modelDigest": "7070aecae3ff837a6f60e90d4080694b57defbff08207b8fa4e0e8a96b892b94"
+    },
+    {
+      "component": "tabs",
+      "symbol": "Tabs",
+      "subpath": "./tabs",
+      "modelDigest": "480d0ca0dc8311b3321bb1c078c9277118ed399fcc4ececa5b561d5b695a3336"
+    },
+    {
+      "component": "text",
+      "symbol": "Text",
+      "subpath": "./text",
+      "modelDigest": "60219ad3fa185b8a9db3e82cc4fc77b1b0683b2881bcf6b0460646bb320e67c2"
+    },
+    {
+      "component": "toasty",
+      "symbol": "Toasty",
+      "subpath": "./toasty",
+      "modelDigest": "96819ff5ff77c94bea48a81f92da6a4857acc3495fbbd3f4eb7703e24db317d6"
+    }
+  ],
+  "compoundExports": [
+    {
+      "component": "autocomplete",
+      "path": "Content",
+      "binding": "AutocompleteContent",
+      "subpath": "./autocomplete/Content",
+      "modelDigest": "1f41380c0300c6ab1aa370e5a96ed529bb1bdfb6d60bfcaaa9df23cd23dd8b07"
+    },
+    {
+      "component": "autocomplete",
+      "path": "InputGroup",
+      "binding": "AutocompleteInputGroup",
+      "subpath": "./autocomplete/InputGroup",
+      "modelDigest": "1f41380c0300c6ab1aa370e5a96ed529bb1bdfb6d60bfcaaa9df23cd23dd8b07"
+    },
+    {
+      "component": "autocomplete",
+      "path": "Item",
+      "binding": "AutocompleteItem",
+      "subpath": "./autocomplete/Item",
+      "modelDigest": "1f41380c0300c6ab1aa370e5a96ed529bb1bdfb6d60bfcaaa9df23cd23dd8b07"
+    },
+    {
+      "component": "autocomplete",
+      "path": "List",
+      "binding": "AutocompleteList",
+      "subpath": "./autocomplete/List",
+      "modelDigest": "1f41380c0300c6ab1aa370e5a96ed529bb1bdfb6d60bfcaaa9df23cd23dd8b07"
+    },
+    {
+      "component": "breadcrumbs",
+      "path": "Current",
+      "binding": "BreadcrumbsCurrent",
+      "subpath": "./breadcrumbs/Current",
+      "modelDigest": "7a7f2d6ea60be21b23d218781fadea8b534345fab15d5b0896600e503857eb65"
+    },
+    {
+      "component": "breadcrumbs",
+      "path": "Link",
+      "binding": "BreadcrumbsLink",
+      "subpath": "./breadcrumbs/Link",
+      "modelDigest": "7a7f2d6ea60be21b23d218781fadea8b534345fab15d5b0896600e503857eb65"
+    },
+    {
+      "component": "breadcrumbs",
+      "path": "Separator",
+      "binding": "BreadcrumbsSeparator",
+      "subpath": "./breadcrumbs/Separator",
+      "modelDigest": "7a7f2d6ea60be21b23d218781fadea8b534345fab15d5b0896600e503857eb65"
+    },
+    {
+      "component": "combobox",
+      "path": "Content",
+      "binding": "ComboboxContent",
+      "subpath": "./combobox/Content",
+      "modelDigest": "e632de38d37be35b83ed3e093ba4e52fbd67247aa10eff83bf2ac59fb1398a41"
+    },
+    {
+      "component": "combobox",
+      "path": "Item",
+      "binding": "ComboboxItem",
+      "subpath": "./combobox/Item",
+      "modelDigest": "e632de38d37be35b83ed3e093ba4e52fbd67247aa10eff83bf2ac59fb1398a41"
+    },
+    {
+      "component": "combobox",
+      "path": "List",
+      "binding": "ComboboxList",
+      "subpath": "./combobox/List",
+      "modelDigest": "e632de38d37be35b83ed3e093ba4e52fbd67247aa10eff83bf2ac59fb1398a41"
+    },
+    {
+      "component": "combobox",
+      "path": "TriggerInput",
+      "binding": "ComboboxTriggerInput",
+      "subpath": "./combobox/TriggerInput",
+      "modelDigest": "e632de38d37be35b83ed3e093ba4e52fbd67247aa10eff83bf2ac59fb1398a41"
+    },
+    {
+      "component": "command-palette",
+      "path": "HighlightedText",
+      "binding": "CommandPaletteHighlightedText",
+      "subpath": "./command-palette/HighlightedText",
+      "modelDigest": "7e72307448756ba3dce186fdd6d001623e82bf54634bcb1dd046b6ec82f31bf6"
+    },
+    {
+      "component": "command-palette",
+      "path": "Input",
+      "binding": "CommandPaletteInput",
+      "subpath": "./command-palette/Input",
+      "modelDigest": "7e72307448756ba3dce186fdd6d001623e82bf54634bcb1dd046b6ec82f31bf6"
+    },
+    {
+      "component": "command-palette",
+      "path": "Item",
+      "binding": "CommandPaletteItem",
+      "subpath": "./command-palette/Item",
+      "modelDigest": "7e72307448756ba3dce186fdd6d001623e82bf54634bcb1dd046b6ec82f31bf6"
+    },
+    {
+      "component": "command-palette",
+      "path": "List",
+      "binding": "CommandPaletteList",
+      "subpath": "./command-palette/List",
+      "modelDigest": "7e72307448756ba3dce186fdd6d001623e82bf54634bcb1dd046b6ec82f31bf6"
+    },
+    {
+      "component": "command-palette",
+      "path": "Root",
+      "binding": "CommandPaletteRoot",
+      "subpath": "./command-palette/Root",
+      "modelDigest": "7e72307448756ba3dce186fdd6d001623e82bf54634bcb1dd046b6ec82f31bf6"
+    },
+    {
+      "component": "dialog",
+      "path": "Close",
+      "binding": "DialogClose",
+      "subpath": "./dialog/Close",
+      "modelDigest": "7f6bdd127570c71956f3e4a345c1dbc0fa7bbc62e2a653d6239a37b232cbf01f"
+    },
+    {
+      "component": "dialog",
+      "path": "Description",
+      "binding": "DialogDescription",
+      "subpath": "./dialog/Description",
+      "modelDigest": "7f6bdd127570c71956f3e4a345c1dbc0fa7bbc62e2a653d6239a37b232cbf01f"
+    },
+    {
+      "component": "dialog",
+      "path": "Root",
+      "binding": "DialogRoot",
+      "subpath": "./dialog/Root",
+      "modelDigest": "7f6bdd127570c71956f3e4a345c1dbc0fa7bbc62e2a653d6239a37b232cbf01f"
+    },
+    {
+      "component": "dialog",
+      "path": "Title",
+      "binding": "DialogTitle",
+      "subpath": "./dialog/Title",
+      "modelDigest": "7f6bdd127570c71956f3e4a345c1dbc0fa7bbc62e2a653d6239a37b232cbf01f"
+    },
+    {
+      "component": "dialog",
+      "path": "Trigger",
+      "binding": "DialogTrigger",
+      "subpath": "./dialog/Trigger",
+      "modelDigest": "7f6bdd127570c71956f3e4a345c1dbc0fa7bbc62e2a653d6239a37b232cbf01f"
+    },
+    {
+      "component": "dropdown-menu",
+      "path": "Content",
+      "binding": "DropdownMenuContent",
+      "subpath": "./dropdown-menu/Content",
+      "modelDigest": "4af0c8a7d7b8b60e856eaff59dc37b9cf13972ebeb4a5efd3e6776a353898221"
+    },
+    {
+      "component": "dropdown-menu",
+      "path": "Item",
+      "binding": "DropdownMenuItem",
+      "subpath": "./dropdown-menu/Item",
+      "modelDigest": "4af0c8a7d7b8b60e856eaff59dc37b9cf13972ebeb4a5efd3e6776a353898221"
+    },
+    {
+      "component": "dropdown-menu",
+      "path": "Sub",
+      "binding": "DropdownMenuSub",
+      "subpath": "./dropdown-menu/Sub",
+      "modelDigest": "4af0c8a7d7b8b60e856eaff59dc37b9cf13972ebeb4a5efd3e6776a353898221"
+    },
+    {
+      "component": "dropdown-menu",
+      "path": "SubContent",
+      "binding": "DropdownMenuSubContent",
+      "subpath": "./dropdown-menu/SubContent",
+      "modelDigest": "4af0c8a7d7b8b60e856eaff59dc37b9cf13972ebeb4a5efd3e6776a353898221"
+    },
+    {
+      "component": "dropdown-menu",
+      "path": "SubTrigger",
+      "binding": "DropdownMenuSubTrigger",
+      "subpath": "./dropdown-menu/SubTrigger",
+      "modelDigest": "4af0c8a7d7b8b60e856eaff59dc37b9cf13972ebeb4a5efd3e6776a353898221"
+    },
+    {
+      "component": "dropdown-menu",
+      "path": "Trigger",
+      "binding": "DropdownMenuTrigger",
+      "subpath": "./dropdown-menu/Trigger",
+      "modelDigest": "4af0c8a7d7b8b60e856eaff59dc37b9cf13972ebeb4a5efd3e6776a353898221"
+    },
+    {
+      "component": "field",
+      "path": "NativeInput",
+      "binding": "FieldNativeInput",
+      "subpath": "./field/NativeInput",
+      "modelDigest": "c8c1c62130c1f34d0061c3ea6adadfe4728a10920f9906960684ff48e50325c7"
+    },
+    {
+      "component": "input-group",
+      "path": "Addon",
+      "binding": "InputGroupAddon",
+      "subpath": "./input-group/Addon",
+      "modelDigest": "723d817c6c81e88062ee871968eac6318dc1176c7b9e92c407d7f7a29445d8c3"
+    },
+    {
+      "component": "input-group",
+      "path": "Button",
+      "binding": "InputGroupButton",
+      "subpath": "./input-group/Button",
+      "modelDigest": "723d817c6c81e88062ee871968eac6318dc1176c7b9e92c407d7f7a29445d8c3"
+    },
+    {
+      "component": "input-group",
+      "path": "Input",
+      "binding": "InputGroupInput",
+      "subpath": "./input-group/Input",
+      "modelDigest": "723d817c6c81e88062ee871968eac6318dc1176c7b9e92c407d7f7a29445d8c3"
+    },
+    {
+      "component": "input-group",
+      "path": "Suffix",
+      "binding": "InputGroupSuffix",
+      "subpath": "./input-group/Suffix",
+      "modelDigest": "723d817c6c81e88062ee871968eac6318dc1176c7b9e92c407d7f7a29445d8c3"
+    },
+    {
+      "component": "layer-card",
+      "path": "Primary",
+      "binding": "LayerCardPrimary",
+      "subpath": "./layer-card/Primary",
+      "modelDigest": "0863b724219652fb6b34a5c3bc5564e8fc766a990f62178c6a66e5f17aa8ae1f"
+    },
+    {
+      "component": "layer-card",
+      "path": "Secondary",
+      "binding": "LayerCardSecondary",
+      "subpath": "./layer-card/Secondary",
+      "modelDigest": "0863b724219652fb6b34a5c3bc5564e8fc766a990f62178c6a66e5f17aa8ae1f"
+    },
+    {
+      "component": "popover",
+      "path": "Close",
+      "binding": "PopoverClose",
+      "subpath": "./popover/Close",
+      "modelDigest": "ad3f10680d31c621c1bc54e0a910834f60fbc9d5776de398d94abac24dc0d45d"
+    },
+    {
+      "component": "popover",
+      "path": "Content",
+      "binding": "PopoverContent",
+      "subpath": "./popover/Content",
+      "modelDigest": "ad3f10680d31c621c1bc54e0a910834f60fbc9d5776de398d94abac24dc0d45d"
+    },
+    {
+      "component": "popover",
+      "path": "Description",
+      "binding": "PopoverDescription",
+      "subpath": "./popover/Description",
+      "modelDigest": "ad3f10680d31c621c1bc54e0a910834f60fbc9d5776de398d94abac24dc0d45d"
+    },
+    {
+      "component": "popover",
+      "path": "Title",
+      "binding": "PopoverTitle",
+      "subpath": "./popover/Title",
+      "modelDigest": "ad3f10680d31c621c1bc54e0a910834f60fbc9d5776de398d94abac24dc0d45d"
+    },
+    {
+      "component": "popover",
+      "path": "Trigger",
+      "binding": "PopoverTrigger",
+      "subpath": "./popover/Trigger",
+      "modelDigest": "ad3f10680d31c621c1bc54e0a910834f60fbc9d5776de398d94abac24dc0d45d"
+    },
+    {
+      "component": "select",
+      "path": "Option",
+      "binding": "SelectOption",
+      "subpath": "./select/Option",
+      "modelDigest": "3f2897eb8908155ffa6e7d283e13a1cb3e8fc78e30a7b8fe0b1e7bd26f839f11"
+    },
+    {
+      "component": "sidebar",
+      "path": "Collapsible",
+      "binding": "SidebarCollapsible",
+      "subpath": "./sidebar/Collapsible",
+      "modelDigest": "4c801e32de9aeeb481f09910a3cf18fe74e2893bb998ef9d4abdf950ffda4b13"
+    },
+    {
+      "component": "sidebar",
+      "path": "CollapsibleContent",
+      "binding": "SidebarCollapsibleContent",
+      "subpath": "./sidebar/CollapsibleContent",
+      "modelDigest": "4c801e32de9aeeb481f09910a3cf18fe74e2893bb998ef9d4abdf950ffda4b13"
+    },
+    {
+      "component": "sidebar",
+      "path": "Content",
+      "binding": "SidebarContent",
+      "subpath": "./sidebar/Content",
+      "modelDigest": "4c801e32de9aeeb481f09910a3cf18fe74e2893bb998ef9d4abdf950ffda4b13"
+    },
+    {
+      "component": "sidebar",
+      "path": "Footer",
+      "binding": "SidebarFooter",
+      "subpath": "./sidebar/Footer",
+      "modelDigest": "4c801e32de9aeeb481f09910a3cf18fe74e2893bb998ef9d4abdf950ffda4b13"
+    },
+    {
+      "component": "sidebar",
+      "path": "Group",
+      "binding": "SidebarGroup",
+      "subpath": "./sidebar/Group",
+      "modelDigest": "4c801e32de9aeeb481f09910a3cf18fe74e2893bb998ef9d4abdf950ffda4b13"
+    },
+    {
+      "component": "sidebar",
+      "path": "GroupLabel",
+      "binding": "SidebarGroupLabel",
+      "subpath": "./sidebar/GroupLabel",
+      "modelDigest": "4c801e32de9aeeb481f09910a3cf18fe74e2893bb998ef9d4abdf950ffda4b13"
+    },
+    {
+      "component": "sidebar",
+      "path": "Header",
+      "binding": "SidebarHeader",
+      "subpath": "./sidebar/Header",
+      "modelDigest": "4c801e32de9aeeb481f09910a3cf18fe74e2893bb998ef9d4abdf950ffda4b13"
+    },
+    {
+      "component": "sidebar",
+      "path": "Menu",
+      "binding": "SidebarMenu",
+      "subpath": "./sidebar/Menu",
+      "modelDigest": "4c801e32de9aeeb481f09910a3cf18fe74e2893bb998ef9d4abdf950ffda4b13"
+    },
+    {
+      "component": "sidebar",
+      "path": "MenuButton",
+      "binding": "SidebarMenuButton",
+      "subpath": "./sidebar/MenuButton",
+      "modelDigest": "4c801e32de9aeeb481f09910a3cf18fe74e2893bb998ef9d4abdf950ffda4b13"
+    },
+    {
+      "component": "sidebar",
+      "path": "Provider",
+      "binding": "SidebarProvider",
+      "subpath": "./sidebar/Provider",
+      "modelDigest": "4c801e32de9aeeb481f09910a3cf18fe74e2893bb998ef9d4abdf950ffda4b13"
+    },
+    {
+      "component": "sidebar",
+      "path": "ResizeHandle",
+      "binding": "SidebarResizeHandle",
+      "subpath": "./sidebar/ResizeHandle",
+      "modelDigest": "4c801e32de9aeeb481f09910a3cf18fe74e2893bb998ef9d4abdf950ffda4b13"
+    },
+    {
+      "component": "sidebar",
+      "path": "SlidingView",
+      "binding": "SidebarSlidingView",
+      "subpath": "./sidebar/SlidingView",
+      "modelDigest": "4c801e32de9aeeb481f09910a3cf18fe74e2893bb998ef9d4abdf950ffda4b13"
+    },
+    {
+      "component": "sidebar",
+      "path": "SlidingViews",
+      "binding": "SidebarSlidingViews",
+      "subpath": "./sidebar/SlidingViews",
+      "modelDigest": "4c801e32de9aeeb481f09910a3cf18fe74e2893bb998ef9d4abdf950ffda4b13"
+    },
+    {
+      "component": "sidebar",
+      "path": "Trigger",
+      "binding": "SidebarTrigger",
+      "subpath": "./sidebar/Trigger",
+      "modelDigest": "4c801e32de9aeeb481f09910a3cf18fe74e2893bb998ef9d4abdf950ffda4b13"
+    },
+    {
+      "component": "table",
+      "path": "Body",
+      "binding": "TableBody",
+      "subpath": "./table/Body",
+      "modelDigest": "2a86761805e0e78f84a2b578b9b43656181ffd9f47ad91f4c17c81f6977c99c7"
+    },
+    {
+      "component": "table",
+      "path": "Cell",
+      "binding": "TableCell",
+      "subpath": "./table/Cell",
+      "modelDigest": "2a86761805e0e78f84a2b578b9b43656181ffd9f47ad91f4c17c81f6977c99c7"
+    },
+    {
+      "component": "table",
+      "path": "Head",
+      "binding": "TableHead",
+      "subpath": "./table/Head",
+      "modelDigest": "2a86761805e0e78f84a2b578b9b43656181ffd9f47ad91f4c17c81f6977c99c7"
+    },
+    {
+      "component": "table",
+      "path": "Header",
+      "binding": "TableHeader",
+      "subpath": "./table/Header",
+      "modelDigest": "2a86761805e0e78f84a2b578b9b43656181ffd9f47ad91f4c17c81f6977c99c7"
+    },
+    {
+      "component": "table",
+      "path": "Row",
+      "binding": "TableRow",
+      "subpath": "./table/Row",
+      "modelDigest": "2a86761805e0e78f84a2b578b9b43656181ffd9f47ad91f4c17c81f6977c99c7"
+    },
+    {
+      "component": "table-of-contents",
+      "path": "Group",
+      "binding": "TableOfContentsGroup",
+      "subpath": "./table-of-contents/Group",
+      "modelDigest": "7070aecae3ff837a6f60e90d4080694b57defbff08207b8fa4e0e8a96b892b94"
+    },
+    {
+      "component": "table-of-contents",
+      "path": "Item",
+      "binding": "TableOfContentsItem",
+      "subpath": "./table-of-contents/Item",
+      "modelDigest": "7070aecae3ff837a6f60e90d4080694b57defbff08207b8fa4e0e8a96b892b94"
+    },
+    {
+      "component": "table-of-contents",
+      "path": "List",
+      "binding": "TableOfContentsList",
+      "subpath": "./table-of-contents/List",
+      "modelDigest": "7070aecae3ff837a6f60e90d4080694b57defbff08207b8fa4e0e8a96b892b94"
+    },
+    {
+      "component": "table-of-contents",
+      "path": "Title",
+      "binding": "TableOfContentsTitle",
+      "subpath": "./table-of-contents/Title",
+      "modelDigest": "7070aecae3ff837a6f60e90d4080694b57defbff08207b8fa4e0e8a96b892b94"
+    }
+  ],
   "exports": {
     ".": "./package/index.js",
     "./autocomplete": "./package/autocomplete.js",
@@ -46,105 +737,71 @@
     "./tabs": "./package/tabs.js",
     "./text": "./package/text.js",
     "./toasty": "./package/toasty.js",
+    "./autocomplete/Content": "./package/autocomplete/Content.js",
+    "./autocomplete/InputGroup": "./package/autocomplete/InputGroup.js",
+    "./autocomplete/Item": "./package/autocomplete/Item.js",
+    "./autocomplete/List": "./package/autocomplete/List.js",
+    "./breadcrumbs/Current": "./package/breadcrumbs/Current.js",
+    "./breadcrumbs/Link": "./package/breadcrumbs/Link.js",
+    "./breadcrumbs/Separator": "./package/breadcrumbs/Separator.js",
+    "./combobox/Content": "./package/combobox/Content.js",
+    "./combobox/Item": "./package/combobox/Item.js",
+    "./combobox/List": "./package/combobox/List.js",
+    "./combobox/TriggerInput": "./package/combobox/TriggerInput.js",
+    "./command-palette/HighlightedText": "./package/command-palette/HighlightedText.js",
+    "./command-palette/Input": "./package/command-palette/Input.js",
+    "./command-palette/Item": "./package/command-palette/Item.js",
+    "./command-palette/List": "./package/command-palette/List.js",
+    "./command-palette/Root": "./package/command-palette/Root.js",
+    "./dialog/Close": "./package/dialog/Close.js",
+    "./dialog/Description": "./package/dialog/Description.js",
+    "./dialog/Root": "./package/dialog/Root.js",
+    "./dialog/Title": "./package/dialog/Title.js",
+    "./dialog/Trigger": "./package/dialog/Trigger.js",
+    "./dropdown-menu/Content": "./package/dropdown-menu/Content.js",
+    "./dropdown-menu/Item": "./package/dropdown-menu/Item.js",
+    "./dropdown-menu/Sub": "./package/dropdown-menu/Sub.js",
+    "./dropdown-menu/SubContent": "./package/dropdown-menu/SubContent.js",
+    "./dropdown-menu/SubTrigger": "./package/dropdown-menu/SubTrigger.js",
+    "./dropdown-menu/Trigger": "./package/dropdown-menu/Trigger.js",
+    "./field/NativeInput": "./package/field/NativeInput.js",
+    "./input-group/Addon": "./package/input-group/Addon.js",
+    "./input-group/Button": "./package/input-group/Button.js",
+    "./input-group/Input": "./package/input-group/Input.js",
+    "./input-group/Suffix": "./package/input-group/Suffix.js",
+    "./layer-card/Primary": "./package/layer-card/Primary.js",
+    "./layer-card/Secondary": "./package/layer-card/Secondary.js",
+    "./popover/Close": "./package/popover/Close.js",
+    "./popover/Content": "./package/popover/Content.js",
+    "./popover/Description": "./package/popover/Description.js",
+    "./popover/Title": "./package/popover/Title.js",
+    "./popover/Trigger": "./package/popover/Trigger.js",
+    "./select/Option": "./package/select/Option.js",
+    "./sidebar/Collapsible": "./package/sidebar/Collapsible.js",
+    "./sidebar/CollapsibleContent": "./package/sidebar/CollapsibleContent.js",
+    "./sidebar/Content": "./package/sidebar/Content.js",
+    "./sidebar/Footer": "./package/sidebar/Footer.js",
+    "./sidebar/Group": "./package/sidebar/Group.js",
+    "./sidebar/GroupLabel": "./package/sidebar/GroupLabel.js",
+    "./sidebar/Header": "./package/sidebar/Header.js",
+    "./sidebar/Menu": "./package/sidebar/Menu.js",
+    "./sidebar/MenuButton": "./package/sidebar/MenuButton.js",
+    "./sidebar/Provider": "./package/sidebar/Provider.js",
+    "./sidebar/ResizeHandle": "./package/sidebar/ResizeHandle.js",
+    "./sidebar/SlidingView": "./package/sidebar/SlidingView.js",
+    "./sidebar/SlidingViews": "./package/sidebar/SlidingViews.js",
+    "./sidebar/Trigger": "./package/sidebar/Trigger.js",
+    "./table/Body": "./package/table/Body.js",
+    "./table/Cell": "./package/table/Cell.js",
+    "./table/Head": "./package/table/Head.js",
+    "./table/Header": "./package/table/Header.js",
+    "./table/Row": "./package/table/Row.js",
+    "./table-of-contents/Group": "./package/table-of-contents/Group.js",
+    "./table-of-contents/Item": "./package/table-of-contents/Item.js",
+    "./table-of-contents/List": "./package/table-of-contents/List.js",
+    "./table-of-contents/Title": "./package/table-of-contents/Title.js",
     "./styles.css": "./package/styles.css",
     "./tokens.css": "./package/tokens.css",
     "./manifest": "./kumo.manifest.json"
-  },
-  "components": [
-    "Autocomplete",
-    "Badge",
-    "Banner",
-    "Breadcrumbs",
-    "Button",
-    "Checkbox",
-    "ClipboardText",
-    "CloudflareLogo",
-    "Code",
-    "Combobox",
-    "CommandPalette",
-    "DatePicker",
-    "DateRangePicker",
-    "Dialog",
-    "DropdownMenu",
-    "Empty",
-    "Field",
-    "Grid",
-    "GridItem",
-    "Input",
-    "InputArea",
-    "InputGroup",
-    "Label",
-    "LayerCard",
-    "Link",
-    "Loader",
-    "MenuBar",
-    "Meter",
-    "Pagination",
-    "Popover",
-    "Radio",
-    "Select",
-    "SensitiveInput",
-    "Sidebar",
-    "Surface",
-    "Switch",
-    "Table",
-    "TableOfContents",
-    "Tabs",
-    "Text",
-    "Toasty"
-  ],
-  "ownership": {
-    "authority": "dx/packages/kumo-svelte",
-    "publishReady": true
-  },
-  "conformance": {
-    "exportSurface": "verified",
-    "browserBehavior": {
-      "verified": [
-        "Button",
-        "Field"
-      ],
-      "pending": [
-        "Autocomplete",
-        "Badge",
-        "Banner",
-        "Breadcrumbs",
-        "Checkbox",
-        "ClipboardText",
-        "CloudflareLogo",
-        "Code",
-        "Combobox",
-        "CommandPalette",
-        "DatePicker",
-        "DateRangePicker",
-        "Dialog",
-        "DropdownMenu",
-        "Empty",
-        "Grid",
-        "GridItem",
-        "Input",
-        "InputArea",
-        "InputGroup",
-        "Label",
-        "LayerCard",
-        "Link",
-        "Loader",
-        "MenuBar",
-        "Meter",
-        "Pagination",
-        "Popover",
-        "Radio",
-        "Select",
-        "SensitiveInput",
-        "Sidebar",
-        "Surface",
-        "Switch",
-        "Table",
-        "TableOfContents",
-        "Tabs",
-        "Text",
-        "Toasty"
-      ]
-    }
   }
 }
