@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import { readFile, readdir } from 'node:fs/promises';
 
 const root = 'dx/packages/kumo-svelte';
@@ -39,6 +40,14 @@ test('Button and Field retain proven native behavior implementation', async () =
 test('receipt separates export proof from partial browser conformance', async () => {
   const r = JSON.parse(await readFile('proof/dx/svelte-library/receipt.json', 'utf8'));
   assert.equal(r.framework, 'svelte');
-  assert.equal(r.exportSurface?.componentCount ?? 41, 41);
-  assert.ok(r.browserConformance?.pending?.length ?? 39);
+  assert.equal(r.exportSurface.componentCount, 41);
+  assert.equal(new Set(r.exportSurface.slugExports).size, 41);
+  assert.equal(new Set(r.exportSurface.rootSymbols).size, 41);
+  assert.equal(new Set(r.exportSurface.declarationSymbols).size, 41);
+  assert.deepEqual(r.browserConformance.passed, ['button', 'field']);
+  assert.equal(r.browserConformance.pending.length, 39);
+  assert.equal(r.checks.buttonFieldBrowserBehavior, 'passed');
+  assert.equal(r.checks.browserBehavior, undefined);
+  const { receiptHash, ...canonical } = r;
+  assert.equal(receiptHash, createHash('sha256').update(JSON.stringify(canonical)).digest('hex'));
 });
