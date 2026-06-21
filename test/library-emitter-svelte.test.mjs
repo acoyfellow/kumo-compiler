@@ -40,3 +40,24 @@ test('binds model digests and publishes root and per-component metadata',()=>{
  assert.ok(fs.existsSync(path.join(output,'index.d.ts')));
  assert.doesNotMatch(fs.readFileSync(path.join(output,'index.js'),'utf8'),/generated\/libraries\/svelte\/components/);
 });
+
+test('emits every canonical compound path as a native resolvable Svelte binding',()=>{
+ const {models}=loadLibrary();
+ const manifest=JSON.parse(fs.readFileSync(path.join(output,'manifest.json'),'utf8'));
+ const expected=models.flatMap(model=>(model.composition?.compoundExports?.paths??[]).map(item=>({component:model.component,path:item.path,binding:`${model.composition.compoundExports.canonicalRoot}${item.path.split('.').join('')}`})));
+ assert.deepEqual(manifest.compoundExports.map(({component,path,binding})=>({component,path,binding})),expected);
+ const root=fs.readFileSync(path.join(output,'index.js'),'utf8');
+ for(const entry of manifest.compoundExports){
+  const target=manifest.exports[entry.subpath];
+  assert.ok(target,entry.subpath);
+  assert.equal(target.svelte,entry.file);
+  assert.match(root,new RegExp(`default as ${entry.binding}\\b`));
+  const source=fs.readFileSync(path.join(output,entry.file),'utf8');
+  assert.match(source,new RegExp(`data-kumo-part=${JSON.stringify(entry.path)}`));
+  assert.match(source,/\{@render children\(\)\}/);
+  assert.match(source,/\{\.\.\.rest\}/);
+  assert.doesNotMatch(source,/\bReact\b|@html|customElement|<svelte:options/i);
+  compile(source,{filename:entry.file,generate:'client'});
+  assert.ok(fs.existsSync(path.join(output,target.types)));
+ }
+});

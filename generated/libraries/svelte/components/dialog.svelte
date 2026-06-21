@@ -2,7 +2,7 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "b69b28139a711d8e96dd6ddf236811e0a1c5d9510c961808f6912e09a2d48997";
+  export const modelDigest = "7f6bdd127570c71956f3e4a345c1dbc0fa7bbc62e2a653d6239a37b232cbf01f";
   export type Props = {
   Close?: Snippet;
   Description?: Snippet;
