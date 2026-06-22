@@ -117,6 +117,42 @@ test('Vue native-button capability compiles and SSR renders four interactive ini
   }
 });
 
+test('Vue supported toggle-control capabilities lower generically to canonical native roots and initial states', async t => {
+  const build=fs.mkdtempSync(path.resolve('.kumo-vue-toggle-')); t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+  const manifest=generateVueLibrary(output), library=loadLibrary();
+  const supported=library.behaviorCapabilities.bindings.filter(binding=>binding.id==='toggle-control'&&binding.support==='supported');
+  assert.equal(supported.length,2);
+  for(const binding of supported){
+    const state=library.controlledState.specs.find(spec=>spec.component===binding.component);
+    const native=library.nativeControls.specs.find(spec=>spec.component===binding.component);
+    const model=library.models.find(model=>model.component===binding.component);
+    const entry=manifest.components.find(entry=>entry.modelDigest===model.modelDigest);
+    const source=fs.readFileSync(path.join(output,entry.file),'utf8');
+    assert.match(source,/const controlled = Object\.prototype\.hasOwnProperty\.call\(instance\?\.vnode\.props/);
+    assert.match(source,/props\.onCheckedChange\?\.\(next, event\)/);
+    assert.doesNotMatch(source,/model\.component\s*===|React|SyntheticEvent|dispatchEvent|new Event/);
+    assert.match(source,new RegExp(`<${native.root}[^>]+role="${native.root==='span'?'checkbox':'switch'}"`));
+    const Component=await compileSSRComponent(entry,build);
+    const cases=[
+      [{},state.initial],
+      [{defaultChecked:true},true],
+      [{checked:false,defaultChecked:true},false],
+      [{checked:true,disabled:true},true],
+      ...(state.indeterminate?[[{indeterminate:true},'mixed']]:[]),
+    ];
+    for(const [props,expected] of cases){
+      const html=await renderToString(createSSRApp({setup:()=>()=>h(Component,props)}));
+      assert.match(html,new RegExp(`aria-checked="${expected}"`));
+      if(props.disabled) assert.match(html,/disabled/);
+    }
+  }
+  for(const binding of library.behaviorCapabilities.bindings.filter(binding=>binding.id==='radio-group'||binding.id.endsWith('field'))){
+    const entry=manifest.components.find(entry=>entry.component===binding.component);
+    const source=fs.readFileSync(path.join(output,entry.file),'utf8');
+    assert.doesNotMatch(source,/const controlled = Object\.prototype\.hasOwnProperty\.call/);
+  }
+});
+
 test('resolution receipt canonically binds capability and generated manifest hashes',()=>{
   const receipt=JSON.parse(fs.readFileSync('proof/dx/conformance/diagnostics/semantic-emitter-vue-resolution.json','utf8'));
   const contentBindings=JSON.parse(fs.readFileSync('src/kumo/library/capabilities/content-bindings.json','utf8'));
