@@ -61,6 +61,27 @@ test('Svelte SSR renders all 66 semantic variants through canonical root and des
  assert.equal(manifest.components.flatMap(x=>x.unresolvedSemanticOperations).length,0);
 });
 
+test('native-button capability emits four interactive initial DOM states',async t=>{
+ const build=fs.mkdtempSync(path.join(os.tmpdir(),'kumo-svelte-button-'));
+ t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+ fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
+ emitSvelteLibrary({output});
+ const source=fs.readFileSync(path.join(output,'components/button.svelte'),'utf8');
+ assert.doesNotMatch(source,/component\s*===?\s*["']button/i);
+ assert.match(source,/<button \{\.\.\.rest\} type=\{type\} disabled=\{Boolean\(disabled \|\| loading\)\}/);
+ const compiled=compile(source,{filename:'button.svelte',generate:'server'});
+ const target=path.join(build,'button.mjs');fs.writeFileSync(target,compiled.js.code);
+ const Button=(await import(pathToFileURL(target)+`?${Date.now()}`)).default;
+ const child=()=>({out:{push(value){this.value=(this.value??'')+value;}}});
+ const vectors=[
+  [{children:child},/<button[^>]* type="button"[^>]*>.*<\/button>/],
+  [{children:child,disabled:true},/<button[^>]* disabled[^>]*>/],
+  [{children:child,loading:true},/<button[^>]* disabled[^>]*>.*<svg aria-hidden="true"><\/svg>/],
+  [{children:child,type:'submit','data-native':'yes'},/<button[^>]*data-native="yes"[^>]*type="submit"[^>]*>/]
+ ];
+ for(const [props,expected] of vectors)assert.match(render(Button,{props}).body.replace(/<!--[\s\S]*?-->/g,''),expected);
+});
+
 test('resolution receipt canonically binds capability and generated manifest hashes',()=>{
  const receiptPath=path.resolve('proof/dx/conformance/diagnostics/semantic-emitter-svelte-resolution.json');
  const receipt=JSON.parse(fs.readFileSync(receiptPath,'utf8'));

@@ -3,7 +3,7 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "fb89a6c7da3d24b06ce460e02d60941a1dc33621cc70df51098d707e9255e776";
+  export const modelDigest = "3614020190406e3bafd01ba171c5adfb78201450b686e1a54f441c5f554a5d4e";
   export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   disabled?: boolean;
@@ -14,6 +14,8 @@
   size?: unknown;
   variant?: unknown;
   children?: Snippet;
+  type?: "button" | "submit" | "reset";
+  onclick?: (event: MouseEvent) => void;
   styles?: Record<string, string>;
   fixture?: unknown;
   [key: string]: unknown;
@@ -28,6 +30,8 @@
     shape = "base",
     size = "base",
     variant = "secondary",
+    type = "button",
+    onclick = undefined,
     children,
     fixture = undefined,
     __consumerContent = undefined,
@@ -72,5 +76,8 @@
 {:else if Object.prototype.hasOwnProperty.call(semanticValues, "aria-label") && semanticEqual(semanticValues["aria-label"], "Add item") && Object.prototype.hasOwnProperty.call(semanticValues, "shape") && semanticEqual(semanticValues.shape, "circle") && Object.prototype.hasOwnProperty.call(semanticValues, "size") && semanticEqual(semanticValues.size, "sm")}
   <button aria-label={"Add item"} class="rounded-full size-6.5"></button>
 {:else}
-<button class={cx(styles["root"])}></button>
+<button {...rest} type={type} disabled={Boolean(disabled || loading)} {onclick}>
+  {#if loading}<svg aria-hidden="true"></svg>{/if}
+  {#if children}{@render children()}{/if}
+</button>
 {/if}
