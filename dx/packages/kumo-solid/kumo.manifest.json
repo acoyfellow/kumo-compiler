@@ -3,7 +3,7 @@
   "algebraVersion": "kumo.component-algebra/v1",
   "candidate": true,
   "count": 41,
-  "libraryManifestDigest": "1df5f8aac6d712862dc24a37f26f122ce267a094c8ecb176a57782f03ea7cb2a",
+  "libraryManifestDigest": "48af3528df21736b20199921cada2b664743bc224e696dc97bfecdeee08ce054",
   "components": [
     {
       "component": "autocomplete",
@@ -77,29 +77,19 @@
       "component": "breadcrumbs",
       "symbol": "Breadcrumbs",
       "subpath": "./components/breadcrumbs",
-      "modelDigest": "b6e5e0d42071bc3fa59e912c2fa0d704cc3acc039749d4c109e804bab44b4b15",
+      "modelDigest": "eba5829a500fbcf08243716c059636b3da146dba33d31b0340db71d035587a01",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
-      "semanticVariants": [],
-      "unresolvedSemanticOperations": [
+      "semanticVariants": [
         {
-          "vectorId": "trail",
-          "reason": "fixture text does not uniquely explain root text",
-          "provenance": {
-            "contractPath": "contracts/kumo.observable/v1/components/breadcrumbs.json",
-            "vectorId": "trail",
-            "contractDigest": "1e5f3ced5834ddfb1b51201ba68b62c8d599d2263855f990b1b2247112e9f255"
-          }
+          "id": "trail",
+          "expectationDigest": "988fbe9b9467e3a7ec328520e34a5ea0ee2fd2c84014465d6304c4b2bc2b5427"
         },
         {
-          "vectorId": "small-current",
-          "reason": "fixture text does not uniquely explain root text",
-          "provenance": {
-            "contractPath": "contracts/kumo.observable/v1/components/breadcrumbs.json",
-            "vectorId": "small-current",
-            "contractDigest": "1e5f3ced5834ddfb1b51201ba68b62c8d599d2263855f990b1b2247112e9f255"
-          }
+          "id": "small-current",
+          "expectationDigest": "9362e5bf743e1dcf8b15a2ba2db9cc9664b02f59456f37291fcab081ce99c5fe"
         }
       ],
+      "unresolvedSemanticOperations": [],
       "compoundPaths": [
         "Current",
         "Link",
@@ -107,8 +97,8 @@
       ],
       "source": "breadcrumbs.tsx",
       "declaration": "breadcrumbs.d.ts",
-      "sha256": "c53acbd083b74d314e5c8fb0f7cc23ec9ecbf8e70a9fc8f71e37432959a62b68",
-      "sourceSha256": "c53acbd083b74d314e5c8fb0f7cc23ec9ecbf8e70a9fc8f71e37432959a62b68",
+      "sha256": "9286d6aeb1201d768f452eaae12d3b5065d3f06e702b2694824930c255985898",
+      "sourceSha256": "9286d6aeb1201d768f452eaae12d3b5065d3f06e702b2694824930c255985898",
       "declarationSha256": "47fa9d0d7d337f0d5dd25e9e9cf60f146413675fc00b5f199a368ae8901e71db"
     },
     {
@@ -320,20 +310,15 @@
       "component": "dialog",
       "symbol": "Dialog",
       "subpath": "./components/dialog",
-      "modelDigest": "f9517f6c346751f7fb38e9984e7e08637053542c11e623d7b71778e55bf138cb",
+      "modelDigest": "bbb9a5923924fd49391fbcee50197c821eda77610c050fb355e378e852397b0d",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
-      "semanticVariants": [],
-      "unresolvedSemanticOperations": [
+      "semanticVariants": [
         {
-          "vectorId": "closed-trigger",
-          "reason": "attribute selector [role=dialog] cannot determine an element tag",
-          "provenance": {
-            "contractPath": "contracts/kumo.observable/v1/components/dialog.json",
-            "vectorId": "closed-trigger",
-            "contractDigest": "15bdd0b64f302b4a64929843f7958278d13b196cc80702033dbf526db845a5e3"
-          }
+          "id": "closed-trigger",
+          "expectationDigest": "b96e3604ff637e62f8a623de4b4a5d2be662c130f4a195f5e33636566b2126e2"
         }
       ],
+      "unresolvedSemanticOperations": [],
       "compoundPaths": [
         "Close",
         "Description",
@@ -343,15 +328,15 @@
       ],
       "source": "dialog.tsx",
       "declaration": "dialog.d.ts",
-      "sha256": "3a82c53a1333cb3adefe8a27f178e07e3ff5b5d9f36f3b610136d5d9e0583647",
-      "sourceSha256": "3a82c53a1333cb3adefe8a27f178e07e3ff5b5d9f36f3b610136d5d9e0583647",
+      "sha256": "e52dc5a1dad0d5c8580d73168f374232ad64d88caeaa988ac027f20c4eda54c9",
+      "sourceSha256": "e52dc5a1dad0d5c8580d73168f374232ad64d88caeaa988ac027f20c4eda54c9",
       "declarationSha256": "db510faa65b8149c0898d55d157a97074ba989601dd5174a7298f0a453264816"
     },
     {
       "component": "dropdown-menu",
       "symbol": "DropdownMenu",
       "subpath": "./components/dropdown",
-      "modelDigest": "78a6f126416a72db817c63a86e5de4242629bacce8a6329ec88f16a0c671f447",
+      "modelDigest": "b7a7a7552e372c2e1ea240ec06c7dce7aef9118128e29322f995167f2f63016d",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
       "semanticVariants": [
         {
@@ -370,38 +355,32 @@
       ],
       "source": "dropdown-menu.tsx",
       "declaration": "dropdown-menu.d.ts",
-      "sha256": "62fb48b9b544d68ee62f8e1fb3d22a177adc14ebefd64143d3ac7dd3101a56d1",
-      "sourceSha256": "62fb48b9b544d68ee62f8e1fb3d22a177adc14ebefd64143d3ac7dd3101a56d1",
+      "sha256": "9894d65275ce9d241e655089b62cbfde03f1bdc9d7476a1b7feacbedd8b18f1f",
+      "sourceSha256": "9894d65275ce9d241e655089b62cbfde03f1bdc9d7476a1b7feacbedd8b18f1f",
       "declarationSha256": "1955825329600020bcd1717d7e50898e306931d9fec1494a2c858ac58daaa095"
     },
     {
       "component": "empty",
       "symbol": "Empty",
       "subpath": "./components/empty",
-      "modelDigest": "09c586d6894b365150e81a5fba8032a98695d8f6cd14bf4ea0f0466bda52b194",
+      "modelDigest": "7c44f85a5193723c0aa68789e6ac8207071d68aca9e4b9d56bc93a57b3ecf50e",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
       "semanticVariants": [
         {
           "id": "minimal",
           "expectationDigest": "fac6cc210e864da2dd8e1aefab71c1261c24df86ace2fe3bc85a3cac59f2cce4"
-        }
-      ],
-      "unresolvedSemanticOperations": [
+        },
         {
-          "vectorId": "small-description",
-          "reason": "root and descendant text constraints have ambiguous or contradictory allocation",
-          "provenance": {
-            "contractPath": "contracts/kumo.observable/v1/components/empty.json",
-            "vectorId": "small-description",
-            "contractDigest": "cbcbfdf0208594b31ebda18d022e2ab58d90c860592bee81f979bd247949e054"
-          }
+          "id": "small-description",
+          "expectationDigest": "92b78bc5b2f43a8a6d864b961e5d72647a9c82691e3a4fdd71fed52cb41be36a"
         }
       ],
+      "unresolvedSemanticOperations": [],
       "compoundPaths": [],
       "source": "empty.tsx",
       "declaration": "empty.d.ts",
-      "sha256": "f84c35963194dd09e26b834335df8e27ddc2608bd4a44f6900e007307cc97fcf",
-      "sourceSha256": "f84c35963194dd09e26b834335df8e27ddc2608bd4a44f6900e007307cc97fcf",
+      "sha256": "2c8cc18810794d2ad7aff82b1fe6e404fd2e8ba5a05010bc4c14a60b415b9f41",
+      "sourceSha256": "2c8cc18810794d2ad7aff82b1fe6e404fd2e8ba5a05010bc4c14a60b415b9f41",
       "declarationSha256": "6b9ee343b3dd4646c9d3fac32c51d57446e53555566487f6d3648cb225784d34"
     },
     {
@@ -571,7 +550,7 @@
       "component": "layer-card",
       "symbol": "LayerCard",
       "subpath": "./components/layer-card",
-      "modelDigest": "4776632c394a536ecd5477ef13e2a89249e69a1b3208a445b782496b317647f1",
+      "modelDigest": "18db983088868d26659f87134e6b676f4803d0cdb1e56652f53a7b3203005d2e",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
       "semanticVariants": [
         {
@@ -590,8 +569,8 @@
       ],
       "source": "layer-card.tsx",
       "declaration": "layer-card.d.ts",
-      "sha256": "ccdc090842e3d64fb1cbd564c9f5af91370406d8c516e9b533ec5c63213443d2",
-      "sourceSha256": "ccdc090842e3d64fb1cbd564c9f5af91370406d8c516e9b533ec5c63213443d2",
+      "sha256": "bcd1e06bb4fc842193991737ba1fab3f94ffc654a84016e96b79990e79c98d7e",
+      "sourceSha256": "bcd1e06bb4fc842193991737ba1fab3f94ffc654a84016e96b79990e79c98d7e",
       "declarationSha256": "9019958427d3702183484c5eb7cc2f4428a86f488bc3f297f38d54c4bd41e9e9"
     },
     {
@@ -726,7 +705,7 @@
       "component": "popover",
       "symbol": "Popover",
       "subpath": "./components/popover",
-      "modelDigest": "34d7ee992f8f6e187cd36b1471f571733ec206033242ce3ffd4aab7a353a5f8b",
+      "modelDigest": "cc912e264b579e2ed770a09131e4874ada9d948fefc9f1dc9be0b0a9d038de4d",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
       "semanticVariants": [
         {
@@ -744,8 +723,8 @@
       ],
       "source": "popover.tsx",
       "declaration": "popover.d.ts",
-      "sha256": "4efef7795ab5f483fd8afd7700d30a651899dc057a478f9cdccc60bcb422825a",
-      "sourceSha256": "4efef7795ab5f483fd8afd7700d30a651899dc057a478f9cdccc60bcb422825a",
+      "sha256": "ee5c0358fbd18e5ed4a1f1c4745ddde211ccf6a4c4f7d342bf929c952e7ec529",
+      "sourceSha256": "ee5c0358fbd18e5ed4a1f1c4745ddde211ccf6a4c4f7d342bf929c952e7ec529",
       "declarationSha256": "71a2439acd6257d46f9c880c3aff6521acc327d6925f1d0f0ce5f7a970cfc26d"
     },
     {

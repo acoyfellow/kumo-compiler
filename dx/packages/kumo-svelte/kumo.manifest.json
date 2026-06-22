@@ -72,30 +72,20 @@
       "component": "breadcrumbs",
       "symbol": "Breadcrumbs",
       "subpath": "./breadcrumbs",
-      "modelDigest": "b6e5e0d42071bc3fa59e912c2fa0d704cc3acc039749d4c109e804bab44b4b15",
+      "modelDigest": "eba5829a500fbcf08243716c059636b3da146dba33d31b0340db71d035587a01",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
-      "semanticVariants": [],
-      "unresolvedSemanticOperations": [
+      "semanticVariants": [
         {
-          "vectorId": "trail",
-          "reason": "fixture text does not uniquely explain root text",
-          "provenance": {
-            "contractPath": "contracts/kumo.observable/v1/components/breadcrumbs.json",
-            "vectorId": "trail",
-            "contractDigest": "1e5f3ced5834ddfb1b51201ba68b62c8d599d2263855f990b1b2247112e9f255"
-          }
+          "id": "trail",
+          "expectationDigest": "988fbe9b9467e3a7ec328520e34a5ea0ee2fd2c84014465d6304c4b2bc2b5427"
         },
         {
-          "vectorId": "small-current",
-          "reason": "fixture text does not uniquely explain root text",
-          "provenance": {
-            "contractPath": "contracts/kumo.observable/v1/components/breadcrumbs.json",
-            "vectorId": "small-current",
-            "contractDigest": "1e5f3ced5834ddfb1b51201ba68b62c8d599d2263855f990b1b2247112e9f255"
-          }
+          "id": "small-current",
+          "expectationDigest": "9362e5bf743e1dcf8b15a2ba2db9cc9664b02f59456f37291fcab081ce99c5fe"
         }
       ],
-      "sha256": "176d1b04d6bd560ddbf0b6eea325b95458f90e5b182d017cd9a18a3ad12726f5",
+      "unresolvedSemanticOperations": [],
+      "sha256": "faebda3e45f6a0846dea9e15236cfdbb512ffd284ea1a57cd7c0f6f2e7f2d8a0",
       "exports": [
         "Breadcrumbs",
         "breadcrumbsVariants",
@@ -293,21 +283,16 @@
       "component": "dialog",
       "symbol": "Dialog",
       "subpath": "./dialog",
-      "modelDigest": "f9517f6c346751f7fb38e9984e7e08637053542c11e623d7b71778e55bf138cb",
+      "modelDigest": "bbb9a5923924fd49391fbcee50197c821eda77610c050fb355e378e852397b0d",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
-      "semanticVariants": [],
-      "unresolvedSemanticOperations": [
+      "semanticVariants": [
         {
-          "vectorId": "closed-trigger",
-          "reason": "attribute selector [role=dialog] cannot determine an element tag",
-          "provenance": {
-            "contractPath": "contracts/kumo.observable/v1/components/dialog.json",
-            "vectorId": "closed-trigger",
-            "contractDigest": "15bdd0b64f302b4a64929843f7958278d13b196cc80702033dbf526db845a5e3"
-          }
+          "id": "closed-trigger",
+          "expectationDigest": "b96e3604ff637e62f8a623de4b4a5d2be662c130f4a195f5e33636566b2126e2"
         }
       ],
-      "sha256": "0465bd56c282a6efe9b56f41a6f5b92c769a2f61fa32e9811026a1a2dd8be68d",
+      "unresolvedSemanticOperations": [],
+      "sha256": "954eafcbb68100aeaa6307d89cf49eefe2cf8faa5bf3a79020f0bff1b43791a5",
       "exports": [
         "Dialog",
         "DialogRoot",
@@ -321,7 +306,7 @@
       "component": "dropdown-menu",
       "symbol": "DropdownMenu",
       "subpath": "./dropdown-menu",
-      "modelDigest": "78a6f126416a72db817c63a86e5de4242629bacce8a6329ec88f16a0c671f447",
+      "modelDigest": "b7a7a7552e372c2e1ea240ec06c7dce7aef9118128e29322f995167f2f63016d",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
       "semanticVariants": [
         {
@@ -330,7 +315,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "29d52b6a727f1924ab7c74c6ebc6a49b8d4f05eedbcdab0160caefea7714e0e1",
+      "sha256": "1629679231e10dc0febc562ab347609b3bf09cffb9afc05ccb7c3223964e8317",
       "exports": [
         "DropdownMenu"
       ]
@@ -339,26 +324,20 @@
       "component": "empty",
       "symbol": "Empty",
       "subpath": "./empty",
-      "modelDigest": "09c586d6894b365150e81a5fba8032a98695d8f6cd14bf4ea0f0466bda52b194",
+      "modelDigest": "7c44f85a5193723c0aa68789e6ac8207071d68aca9e4b9d56bc93a57b3ecf50e",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
       "semanticVariants": [
         {
           "id": "minimal",
           "expectationDigest": "fac6cc210e864da2dd8e1aefab71c1261c24df86ace2fe3bc85a3cac59f2cce4"
-        }
-      ],
-      "unresolvedSemanticOperations": [
+        },
         {
-          "vectorId": "small-description",
-          "reason": "root and descendant text constraints have ambiguous or contradictory allocation",
-          "provenance": {
-            "contractPath": "contracts/kumo.observable/v1/components/empty.json",
-            "vectorId": "small-description",
-            "contractDigest": "cbcbfdf0208594b31ebda18d022e2ab58d90c860592bee81f979bd247949e054"
-          }
+          "id": "small-description",
+          "expectationDigest": "92b78bc5b2f43a8a6d864b961e5d72647a9c82691e3a4fdd71fed52cb41be36a"
         }
       ],
-      "sha256": "f089b14f8c8412880189fd0d42cf70c7262151ddcffc449919ee0b77a3ce16b5",
+      "unresolvedSemanticOperations": [],
+      "sha256": "e248ed020cb4d94721213cef87bb0e348c0089e78b103f4aa86dcc7d7a0d8803",
       "exports": [
         "Empty",
         "emptyVariants",
@@ -522,7 +501,7 @@
       "component": "layer-card",
       "symbol": "LayerCard",
       "subpath": "./layer-card",
-      "modelDigest": "4776632c394a536ecd5477ef13e2a89249e69a1b3208a445b782496b317647f1",
+      "modelDigest": "18db983088868d26659f87134e6b676f4803d0cdb1e56652f53a7b3203005d2e",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
       "semanticVariants": [
         {
@@ -535,7 +514,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "54fb661c0d12ad5ecd5d53877f5a8afb3b4934f5a1d4c98955171a8bf9fa623d",
+      "sha256": "4359d90a91d40d8b226b8f8f3927dcde7a1d3e44f222cd039bff43e337d95af5",
       "exports": [
         "LayerCard"
       ]
@@ -667,7 +646,7 @@
       "component": "popover",
       "symbol": "Popover",
       "subpath": "./popover",
-      "modelDigest": "34d7ee992f8f6e187cd36b1471f571733ec206033242ce3ffd4aab7a353a5f8b",
+      "modelDigest": "cc912e264b579e2ed770a09131e4874ada9d948fefc9f1dc9be0b0a9d038de4d",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
       "semanticVariants": [
         {
@@ -676,7 +655,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "cc8f4772032a5446e5f75e61116380bf4599696256574033958a51e560b2de3e",
+      "sha256": "49be74a7788427d0aa849133d42eda5675025d0e5caa13b00b4e374c09049c0e",
       "exports": [
         "Popover",
         "PopoverRoot",
@@ -993,8 +972,8 @@
       "binding": "BreadcrumbsCurrent",
       "file": "./components/breadcrumbs/current.svelte",
       "subpath": "./breadcrumbs/Current",
-      "modelDigest": "b6e5e0d42071bc3fa59e912c2fa0d704cc3acc039749d4c109e804bab44b4b15",
-      "sha256": "7c8eaf0667d978a16c4f832a2bb164a1513c2d7a463a63f43eca8d9ce3425df9"
+      "modelDigest": "eba5829a500fbcf08243716c059636b3da146dba33d31b0340db71d035587a01",
+      "sha256": "b78f0fe1267af3bf42aeea6aed689b1076b4f3d4aeb00f02c61f6018ea0174a4"
     },
     {
       "component": "breadcrumbs",
@@ -1002,8 +981,8 @@
       "binding": "BreadcrumbsLink",
       "file": "./components/breadcrumbs/link.svelte",
       "subpath": "./breadcrumbs/Link",
-      "modelDigest": "b6e5e0d42071bc3fa59e912c2fa0d704cc3acc039749d4c109e804bab44b4b15",
-      "sha256": "2fd05ecd0a4d26e28f79ba903902b3c1134ed18117bdb8928d3b0b375e650a5b"
+      "modelDigest": "eba5829a500fbcf08243716c059636b3da146dba33d31b0340db71d035587a01",
+      "sha256": "2f027c64d74b0bb17b91654004343e7c40672238a3cee5035402f79a07fce09e"
     },
     {
       "component": "breadcrumbs",
@@ -1011,8 +990,8 @@
       "binding": "BreadcrumbsSeparator",
       "file": "./components/breadcrumbs/separator.svelte",
       "subpath": "./breadcrumbs/Separator",
-      "modelDigest": "b6e5e0d42071bc3fa59e912c2fa0d704cc3acc039749d4c109e804bab44b4b15",
-      "sha256": "603b22f01dc9693d6c1caa294a487c83fb6c762ac0141a5717b8314106f12258"
+      "modelDigest": "eba5829a500fbcf08243716c059636b3da146dba33d31b0340db71d035587a01",
+      "sha256": "e27640c996f1f59c9a34591d014277016985626709548e71f23d8eb44cf01399"
     },
     {
       "component": "combobox",
@@ -1101,8 +1080,8 @@
       "binding": "DialogClose",
       "file": "./components/dialog/close.svelte",
       "subpath": "./dialog/Close",
-      "modelDigest": "f9517f6c346751f7fb38e9984e7e08637053542c11e623d7b71778e55bf138cb",
-      "sha256": "8c7a434511a517643975e2820246430e171c3ca733d93ce9be293550dd040ade"
+      "modelDigest": "bbb9a5923924fd49391fbcee50197c821eda77610c050fb355e378e852397b0d",
+      "sha256": "932630a5583f8d9e5f4356040853a0bcf90994dd13992f606c511d0c41ed3302"
     },
     {
       "component": "dialog",
@@ -1110,8 +1089,8 @@
       "binding": "DialogDescription",
       "file": "./components/dialog/description.svelte",
       "subpath": "./dialog/Description",
-      "modelDigest": "f9517f6c346751f7fb38e9984e7e08637053542c11e623d7b71778e55bf138cb",
-      "sha256": "ebe8401d0ceef82c521d75936246bf1ae971c6b3ab26914fee4ccc304e350405"
+      "modelDigest": "bbb9a5923924fd49391fbcee50197c821eda77610c050fb355e378e852397b0d",
+      "sha256": "48600f29ade97d5b2a84c2616c1e3744067774a643a25ad8815c5adfa81e27ed"
     },
     {
       "component": "dialog",
@@ -1119,8 +1098,8 @@
       "binding": "DialogRoot",
       "file": "./components/dialog/root.svelte",
       "subpath": "./dialog/Root",
-      "modelDigest": "f9517f6c346751f7fb38e9984e7e08637053542c11e623d7b71778e55bf138cb",
-      "sha256": "d24ba31206f0f59bc76646876b6e3fcb615ae64defd02a053895150361ac5adb"
+      "modelDigest": "bbb9a5923924fd49391fbcee50197c821eda77610c050fb355e378e852397b0d",
+      "sha256": "fa20497d6fcd98a618bfd5324fb314c164a55c62d1bb3d2cbce279ba0ab1d4a1"
     },
     {
       "component": "dialog",
@@ -1128,8 +1107,8 @@
       "binding": "DialogTitle",
       "file": "./components/dialog/title.svelte",
       "subpath": "./dialog/Title",
-      "modelDigest": "f9517f6c346751f7fb38e9984e7e08637053542c11e623d7b71778e55bf138cb",
-      "sha256": "ae42732cef7d045221045b46967c4f1bd9efaf9ab5f2e2435306ddf7100b614e"
+      "modelDigest": "bbb9a5923924fd49391fbcee50197c821eda77610c050fb355e378e852397b0d",
+      "sha256": "7c587597c5a5852f26b347d07586157399bf4e85545a2838c9fe3e1e1bca65f2"
     },
     {
       "component": "dialog",
@@ -1137,8 +1116,8 @@
       "binding": "DialogTrigger",
       "file": "./components/dialog/trigger.svelte",
       "subpath": "./dialog/Trigger",
-      "modelDigest": "f9517f6c346751f7fb38e9984e7e08637053542c11e623d7b71778e55bf138cb",
-      "sha256": "67faf6c066cead31bb5beb588b2666e46580c38f95c3d6acc4de6305aecb835c"
+      "modelDigest": "bbb9a5923924fd49391fbcee50197c821eda77610c050fb355e378e852397b0d",
+      "sha256": "1aba4cd20e1325b515b2f02a9b4f96ef7cbc68e0a7294c260d2e4bad66abcc9e"
     },
     {
       "component": "dropdown-menu",
@@ -1146,8 +1125,8 @@
       "binding": "DropdownMenuContent",
       "file": "./components/dropdown-menu/content.svelte",
       "subpath": "./dropdown-menu/Content",
-      "modelDigest": "78a6f126416a72db817c63a86e5de4242629bacce8a6329ec88f16a0c671f447",
-      "sha256": "68c847addbba5a2ba470bec72b4343df0725e66e02733f0c79be3b548d488250"
+      "modelDigest": "b7a7a7552e372c2e1ea240ec06c7dce7aef9118128e29322f995167f2f63016d",
+      "sha256": "e6a649408f7f6fede4de92904f2711904722fc4ab4383f5e351616a4a7a15803"
     },
     {
       "component": "dropdown-menu",
@@ -1155,8 +1134,8 @@
       "binding": "DropdownMenuItem",
       "file": "./components/dropdown-menu/item.svelte",
       "subpath": "./dropdown-menu/Item",
-      "modelDigest": "78a6f126416a72db817c63a86e5de4242629bacce8a6329ec88f16a0c671f447",
-      "sha256": "d1f5c5653e2b4f23364c10a4ef965ddeb0641a8e18baf751feb30f59c8981c73"
+      "modelDigest": "b7a7a7552e372c2e1ea240ec06c7dce7aef9118128e29322f995167f2f63016d",
+      "sha256": "b536570d93da52ab1e27911d5fe54476a4d82d67d16a68ed7f7d5af2bd77c2e5"
     },
     {
       "component": "dropdown-menu",
@@ -1164,8 +1143,8 @@
       "binding": "DropdownMenuSub",
       "file": "./components/dropdown-menu/sub.svelte",
       "subpath": "./dropdown-menu/Sub",
-      "modelDigest": "78a6f126416a72db817c63a86e5de4242629bacce8a6329ec88f16a0c671f447",
-      "sha256": "e309bf45a9dcf967f453003078599a386d5526858eec558bb5af8edc82390d27"
+      "modelDigest": "b7a7a7552e372c2e1ea240ec06c7dce7aef9118128e29322f995167f2f63016d",
+      "sha256": "bc244136c685daf767892c16ab4bae8b3f54d5d070ad4a49e30b103d24e29249"
     },
     {
       "component": "dropdown-menu",
@@ -1173,8 +1152,8 @@
       "binding": "DropdownMenuSubContent",
       "file": "./components/dropdown-menu/sub-content.svelte",
       "subpath": "./dropdown-menu/SubContent",
-      "modelDigest": "78a6f126416a72db817c63a86e5de4242629bacce8a6329ec88f16a0c671f447",
-      "sha256": "a111a949e51f3b1ee3eab761341e5c68885fe3be86a498923af7158bbfafbc41"
+      "modelDigest": "b7a7a7552e372c2e1ea240ec06c7dce7aef9118128e29322f995167f2f63016d",
+      "sha256": "4bd865f621bd13883c71a71e0c8ce903747cd29b0a10c47c7ae26982b50a94d8"
     },
     {
       "component": "dropdown-menu",
@@ -1182,8 +1161,8 @@
       "binding": "DropdownMenuSubTrigger",
       "file": "./components/dropdown-menu/sub-trigger.svelte",
       "subpath": "./dropdown-menu/SubTrigger",
-      "modelDigest": "78a6f126416a72db817c63a86e5de4242629bacce8a6329ec88f16a0c671f447",
-      "sha256": "7da3e7828fff20fccee6f81d8d3657c34b9c0d3f724b6d71306d38fd24caeee8"
+      "modelDigest": "b7a7a7552e372c2e1ea240ec06c7dce7aef9118128e29322f995167f2f63016d",
+      "sha256": "d55eda98a3eb5b8fc7f467a191176414b54a369d66349040a539bf33c247fe42"
     },
     {
       "component": "dropdown-menu",
@@ -1191,8 +1170,8 @@
       "binding": "DropdownMenuTrigger",
       "file": "./components/dropdown-menu/trigger.svelte",
       "subpath": "./dropdown-menu/Trigger",
-      "modelDigest": "78a6f126416a72db817c63a86e5de4242629bacce8a6329ec88f16a0c671f447",
-      "sha256": "c32d5253011e3b9092549f47239900c158723b1f0502545b99db195203b3b287"
+      "modelDigest": "b7a7a7552e372c2e1ea240ec06c7dce7aef9118128e29322f995167f2f63016d",
+      "sha256": "ae926e7fe4d5f180803855b92acaae13c8f0d393b1f17d7ef890652994fda9dc"
     },
     {
       "component": "field",
@@ -1245,8 +1224,8 @@
       "binding": "LayerCardPrimary",
       "file": "./components/layer-card/primary.svelte",
       "subpath": "./layer-card/Primary",
-      "modelDigest": "4776632c394a536ecd5477ef13e2a89249e69a1b3208a445b782496b317647f1",
-      "sha256": "a9befa373e7030e705f58815304828a7e0baa952c518a577f9298f6e84ad8221"
+      "modelDigest": "18db983088868d26659f87134e6b676f4803d0cdb1e56652f53a7b3203005d2e",
+      "sha256": "7638533f9682ad0edee007d4b3ff01fa1e94434fa45913d24c6c81f47e2b5804"
     },
     {
       "component": "layer-card",
@@ -1254,8 +1233,8 @@
       "binding": "LayerCardSecondary",
       "file": "./components/layer-card/secondary.svelte",
       "subpath": "./layer-card/Secondary",
-      "modelDigest": "4776632c394a536ecd5477ef13e2a89249e69a1b3208a445b782496b317647f1",
-      "sha256": "15982acc0c384d00f3280164339cdd4000c792a36538e9fc9fa0d34a013ba0f6"
+      "modelDigest": "18db983088868d26659f87134e6b676f4803d0cdb1e56652f53a7b3203005d2e",
+      "sha256": "858ff15c170da7dd7480f16654a774b9d626df1834287fb4634de07f0ed893d4"
     },
     {
       "component": "popover",
@@ -1263,8 +1242,8 @@
       "binding": "PopoverClose",
       "file": "./components/popover/close.svelte",
       "subpath": "./popover/Close",
-      "modelDigest": "34d7ee992f8f6e187cd36b1471f571733ec206033242ce3ffd4aab7a353a5f8b",
-      "sha256": "3c1b12f08755833632f2b6f95f6ff03fe856c739819c87413212bec6a5ef3cae"
+      "modelDigest": "cc912e264b579e2ed770a09131e4874ada9d948fefc9f1dc9be0b0a9d038de4d",
+      "sha256": "de8e599c46921a87de0eb1e4038adf7f58384bbb5f0818e7dafb9deb1fd7856f"
     },
     {
       "component": "popover",
@@ -1272,8 +1251,8 @@
       "binding": "PopoverContent",
       "file": "./components/popover/content.svelte",
       "subpath": "./popover/Content",
-      "modelDigest": "34d7ee992f8f6e187cd36b1471f571733ec206033242ce3ffd4aab7a353a5f8b",
-      "sha256": "e24e182701bfa1483d27e8990c6c16f11dbf01ff88c91bdb0df0c2e8cdc8f2ae"
+      "modelDigest": "cc912e264b579e2ed770a09131e4874ada9d948fefc9f1dc9be0b0a9d038de4d",
+      "sha256": "8ce4e5eb301ff51d84557d56b87bf6b4c6575af0ce0d80f19abac637e99d2576"
     },
     {
       "component": "popover",
@@ -1281,8 +1260,8 @@
       "binding": "PopoverDescription",
       "file": "./components/popover/description.svelte",
       "subpath": "./popover/Description",
-      "modelDigest": "34d7ee992f8f6e187cd36b1471f571733ec206033242ce3ffd4aab7a353a5f8b",
-      "sha256": "54c13805c2a40d07a9be43463022d79c0fc7dc2b1879161682558dc7d8e96f6a"
+      "modelDigest": "cc912e264b579e2ed770a09131e4874ada9d948fefc9f1dc9be0b0a9d038de4d",
+      "sha256": "d2e5bf30fedf86f11cc9cbdd40e0f40bd3ecedacb321f75f5014a51983c2198b"
     },
     {
       "component": "popover",
@@ -1290,8 +1269,8 @@
       "binding": "PopoverTitle",
       "file": "./components/popover/title.svelte",
       "subpath": "./popover/Title",
-      "modelDigest": "34d7ee992f8f6e187cd36b1471f571733ec206033242ce3ffd4aab7a353a5f8b",
-      "sha256": "68b46d0ad2d74da6803cf5921530a3512e1c8162e7b1bbc55ac3a9d307e90987"
+      "modelDigest": "cc912e264b579e2ed770a09131e4874ada9d948fefc9f1dc9be0b0a9d038de4d",
+      "sha256": "992c866075927eb90fe7fa43c188b78ce560094434a31f5c0d208fc41a59a221"
     },
     {
       "component": "popover",
@@ -1299,8 +1278,8 @@
       "binding": "PopoverTrigger",
       "file": "./components/popover/trigger.svelte",
       "subpath": "./popover/Trigger",
-      "modelDigest": "34d7ee992f8f6e187cd36b1471f571733ec206033242ce3ffd4aab7a353a5f8b",
-      "sha256": "dbff62ca2aae2a739b99dcda5c65c99b1d24dcf087f71c96c35b10c0011faafb"
+      "modelDigest": "cc912e264b579e2ed770a09131e4874ada9d948fefc9f1dc9be0b0a9d038de4d",
+      "sha256": "900046d5fd4af6c4340365c745ac27084bda01c76d38e271e9d7a7502b2e6150"
     },
     {
       "component": "select",
