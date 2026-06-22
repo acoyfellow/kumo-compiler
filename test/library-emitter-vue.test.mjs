@@ -77,7 +77,6 @@ test('Vue SSR renders all 62 semantic variants through canonical root and descen
     for(const variant of model.draftImplementation.semanticVariants??[]){
       const props=Object.fromEntries(variant.when.filter(x=>x.kind==='prop-equals'&&x.name!=='children').map(x=>[x.name,x.value]));
       const content=variant.when.find(x=>x.kind==='prop-equals'&&x.name==='children')?.value;
-      if(content!==undefined) props.semanticContent=content;
       const fixture=variant.when.find(x=>x.kind==='fixture-equals')?.value;if(fixture!==undefined)props.fixture=fixture;
       const html=(await renderToString(createSSRApp({setup:()=>()=>h(Component,props,content===undefined?{}:{default:()=>content})}))).replace(/<(area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr)([^>]*)>/g,'<$1$2></$1>');
       const vector=library.semanticRender.components.find(x=>x.component===model.component).vectors.find(x=>x.id===variant.id);

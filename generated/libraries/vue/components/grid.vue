@@ -17,7 +17,8 @@ interface GridProps {
 const props = withDefaults(defineProps<GridProps>(), {"gap":"base"})
 const slots = useSlots()
 const styles: Record<string,string> = {}
-const renderContent = () => props.semanticContent
+const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
+const renderContent = () => props.semanticContent ?? normalizeSlotContent(slots.default?.())
 const fixture = computed(() => props.fixture)
 const semanticValues = Object.assign({}, useAttrs(), props) as Record<string, unknown>
 const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right)
