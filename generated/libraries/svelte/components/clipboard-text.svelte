@@ -23,6 +23,7 @@
     ...rest
   }: Props = componentInput;
   let state_source = $state("props/native state");
+
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "observable": observable, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;

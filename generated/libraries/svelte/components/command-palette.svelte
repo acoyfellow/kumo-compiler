@@ -38,6 +38,7 @@
   let state_modal = $state(true);
   let state_open = $state("required controlled boolean");
   let state_query = $state("controlled value or empty");
+
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "compound": compound, "Dialog": Dialog, "Input": Input, "Panel": Panel, "Root": Root, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;

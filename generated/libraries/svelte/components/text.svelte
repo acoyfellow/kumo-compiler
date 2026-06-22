@@ -35,6 +35,7 @@
     ...rest
   }: Props = componentInput;
   
+
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "as": as, "bold": bold, "DANGEROUS_className": DANGEROUS_className, "DANGEROUS_style": DANGEROUS_style, "size": size, "truncate": truncate, "variant": variant, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;

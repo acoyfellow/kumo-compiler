@@ -39,6 +39,7 @@
   }: Props = componentInput;
   let state_displayMonth = $state("from selected/defaultMonth/current date");
   let state_selected = $state("from selected prop");
+
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "aria-label": aria_label, "fromDate": fromDate, "mode": mode, "onChange": onChange, "reactDayPickerProps": reactDayPickerProps, "selected": selected, "toDate": toDate, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;

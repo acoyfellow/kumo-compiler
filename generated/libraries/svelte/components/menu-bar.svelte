@@ -34,6 +34,7 @@
   }: Props = componentInput;
   let state_active = $state("isActive prop compared to index, or option id when optionIds=true");
   let state_focus = $state("native tab order; every option button is tabbable");
+
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "className": className, "isActive": isActive, "optionIds": optionIds, "options": options, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;

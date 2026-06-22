@@ -33,6 +33,7 @@
     ...rest
   }: Props = componentInput;
   let state_active = $state("exactly as supplied per Item or linked Group; no internal selection state");
+
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "Group": Group, "Item": Item, "List": List, "root": root, "Title": Title, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;

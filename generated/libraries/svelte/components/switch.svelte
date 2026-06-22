@@ -14,6 +14,7 @@
   size?: unknown;
   onCheckedChange?: (value: unknown) => void;
   children?: Snippet;
+  defaultChecked?: boolean;
   styles?: Record<string, string>;
   fixture?: unknown;
   [key: string]: unknown;
@@ -27,6 +28,7 @@
     label = undefined,
     onCheckedChange = undefined,
     size = "base",
+    defaultChecked = false,
     children,
     fixture = undefined,
     __consumerContent = undefined,
@@ -35,6 +37,15 @@
   }: Props = componentInput;
   let state_controlled = $state("checked");
   let state_uncontrolled = $state("absence of checked");
+  const controlledToggle = Object.prototype.hasOwnProperty.call(componentInput, "checked");
+  let uncontrolledChecked = $state(Boolean(defaultChecked));
+  const currentChecked = $derived(controlledToggle ? Boolean(checked) : uncontrolledChecked);
+  function activateToggle() {
+    if (disabled) return;
+    const next = !currentChecked;
+    if (!controlledToggle) uncontrolledChecked = next;
+    onCheckedChange?.(next);
+  }
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "checked": checked, "disabled": disabled, "group": group, "label": label, "onCheckedChange": onCheckedChange, "size": size, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;
@@ -58,5 +69,5 @@
 {#if Object.prototype.hasOwnProperty.call(semanticValues, "aria-label") && semanticEqual(semanticValues["aria-label"], "Small") && Object.prototype.hasOwnProperty.call(semanticValues, "size") && semanticEqual(semanticValues.size, "sm")}
   <button role={"switch"} aria-checked={"false"} class="h-4 w-8"></button>
 {:else}
-<button class={cx(styles["root"])}></button>
+<button {...rest} type="button" role="switch" aria-checked={false ? "mixed" : currentChecked} disabled={disabled} onclick={activateToggle}>{#if label}{label}{/if}</button>
 {/if}

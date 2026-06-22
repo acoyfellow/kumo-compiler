@@ -48,6 +48,7 @@
   let state_highlightedOption = $state(null);
   let state_open = $state("controlled open, else defaultOpen, else false");
   let state_value = $state("controlled value, else defaultValue, else null or [] in multiple mode");
+
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "aria-label/aria-labelledby": aria_label_aria_labelledby, "container": container, "hideLabel": hideLabel, "items": items, "label": label, "labelTooltip/description/error": labelTooltip_description_error, "placeholder/loading/disabled/required": placeholder_loading_disabled_required, "renderValue": renderValue, "Root": Root, "size": size, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;

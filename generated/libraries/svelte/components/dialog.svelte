@@ -37,6 +37,7 @@
   let state_open = $state("Base UI controlled/defaultOpen; default closed");
   let state_role = $state("dialog");
   let state_size = $state("base");
+
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "Close": Close, "Description": Description, "Dialog": Dialog, "Root": Root, "Title": Title, "Trigger": Trigger, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;

@@ -39,6 +39,7 @@
     ...rest
   }: Props = componentInput;
   
+
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "className": className, "customValue": customValue, "indicatorClassName": indicatorClassName, "label": label, "max": max, "min": min, "showValue": showValue, "trackClassName": trackClassName, "value": value, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;

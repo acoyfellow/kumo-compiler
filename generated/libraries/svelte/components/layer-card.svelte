@@ -25,6 +25,7 @@
     ...rest
   }: Props = componentInput;
   
+
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "className": className, "render": render, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;

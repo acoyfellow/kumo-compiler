@@ -39,6 +39,7 @@
   let state_endDate = $state(null);
   let state_months = $state("current and next month");
   let state_startDate = $state(null);
+
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "className": className, "onEndDateChange": onEndDateChange, "onStartDateChange": onStartDateChange, "size": size, "timezone": timezone, "variant": variant, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;

@@ -32,6 +32,7 @@
   }: Props = componentInput;
   let state_toasts = $state("manager state");
   let state_viewport = $state("portaled after hydration");
+
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "container": container, "toastManager": toastManager, "variant": variant, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;

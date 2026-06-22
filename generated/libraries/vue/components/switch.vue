@@ -5,7 +5,8 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 </script>
 
 <script setup lang="ts">
-import { computed, useAttrs, useSlots } from 'vue'
+defineOptions({ inheritAttrs: false })
+import { computed, getCurrentInstance, ref, useAttrs, useSlots } from 'vue'
 interface SwitchProps {
   "checked"?: boolean
   "disabled"?: boolean
@@ -13,11 +14,24 @@ interface SwitchProps {
   "label"?: unknown
   "onCheckedChange"?: unknown
   "size"?: string
+  "defaultChecked"?: boolean
   "aria-label"?: unknown
   fixture?: unknown
   semanticContent?: unknown
 }
-const props = withDefaults(defineProps<SwitchProps>(), {"checked":false,"disabled":false,"size":"base"})
+const props = withDefaults(defineProps<SwitchProps>(), {"disabled":false,"size":"base"})
+const emit = defineEmits<{ checkedChange: [checked: boolean] }>()
+const instance = getCurrentInstance()
+const controlled = Object.prototype.hasOwnProperty.call(instance?.vnode.props ?? {}, "checked")
+const internalChecked = ref(props.defaultChecked ?? false)
+const currentChecked = computed(() => controlled ? props.checked : internalChecked.value)
+function activate(event: Event) {
+  if (props.disabled) return
+  const next = !currentChecked.value
+  if (!controlled) internalChecked.value = next
+  props.onCheckedChange?.(next, event)
+  emit('checkedChange', next)
+}
 const slots = useSlots()
 const styles: Record<string,string> = {}
 const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
@@ -29,5 +43,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;ariaLabel&quot;) &amp;&amp; semanticEqual(semanticValues.ariaLabel, &quot;Small&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;size&quot;) &amp;&amp; semanticEqual(semanticValues.size, &quot;sm&quot;)"><button role="switch" aria-checked="false" class="h-4 w-8"></button></template><template v-else><button :class="[styles[&quot;root&quot;]]"></button></template>
+  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;ariaLabel&quot;) &amp;&amp; semanticEqual(semanticValues.ariaLabel, &quot;Small&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;size&quot;) &amp;&amp; semanticEqual(semanticValues.size, &quot;sm&quot;)"><button role="switch" aria-checked="false" class="h-4 w-8"></button></template><template v-else><button v-bind="$attrs" type="button" role="switch" :aria-checked="currentChecked" :aria-disabled="props.disabled || undefined" :disabled="props.disabled || undefined" @click="activate"><slot />{{ props.label }}</button></template>
 </template>

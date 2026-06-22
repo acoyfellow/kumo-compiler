@@ -38,6 +38,7 @@
   let state_multiple = $state("false unless set");
   let state_open = $state("closed unless controlled/default-open");
   let state_selection = $state("value/defaultValue according to Base UI controlled mode");
+
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "compound": compound, "Content": Content, "root": root, "TriggerInput": TriggerInput, "TriggerMultipleWithInput": TriggerMultipleWithInput, "variants": variants, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;

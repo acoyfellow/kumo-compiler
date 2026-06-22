@@ -40,6 +40,7 @@
   }: Props = componentInput;
   let state_disabled = $state("false");
   let state_loading = $state("false");
+
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "disabled": disabled, "icon": icon, "loading": loading, "native": native, "shape": shape, "size": size, "variant": variant, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;

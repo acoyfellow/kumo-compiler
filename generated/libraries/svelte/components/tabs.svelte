@@ -49,6 +49,7 @@
   let state_controlled = $state("value prop");
   let state_overflowing = $state(false);
   let state_uncontrolled = $state("selectedValue or first tab value");
+
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "activateOnFocus": activateOnFocus, "className": className, "indicatorClassName": indicatorClassName, "listClassName": listClassName, "onValueChange": onValueChange, "selectedValue": selectedValue, "size": size, "tabs": tabs, "value": value, "variant": variant, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;

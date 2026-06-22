@@ -43,6 +43,7 @@
   let state_editingPage = $state(1);
   let state_maxPage = $state("ceil(totalCount/perPage)");
   let state_page = $state("controlled prop");
+
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "compound": compound, "controls": controls, "labels": labels, "page": page, "pageSelector": pageSelector, "perPage": perPage, "setPage": setPage, "totalCount": totalCount, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;

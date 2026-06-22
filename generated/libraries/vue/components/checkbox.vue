@@ -5,7 +5,8 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 </script>
 
 <script setup lang="ts">
-import { computed, useAttrs, useSlots } from 'vue'
+defineOptions({ inheritAttrs: false })
+import { computed, getCurrentInstance, ref, useAttrs, useSlots } from 'vue'
 interface CheckboxProps {
   "checked"?: boolean
   "disabled"?: boolean
@@ -13,10 +14,23 @@ interface CheckboxProps {
   "indeterminate"?: boolean
   "label"?: unknown
   "onCheckedChange"?: unknown
+  "defaultChecked"?: boolean
   fixture?: unknown
   semanticContent?: unknown
 }
-const props = withDefaults(defineProps<CheckboxProps>(), {"checked":false,"disabled":false,"indeterminate":false})
+const props = withDefaults(defineProps<CheckboxProps>(), {"disabled":false,"indeterminate":false})
+const emit = defineEmits<{ checkedChange: [checked: boolean] }>()
+const instance = getCurrentInstance()
+const controlled = Object.prototype.hasOwnProperty.call(instance?.vnode.props ?? {}, "checked")
+const internalChecked = ref(props.defaultChecked ?? false)
+const currentChecked = computed(() => controlled ? props.checked : internalChecked.value)
+function activate(event: Event) {
+  if (props.disabled) return
+  const next = props.indeterminate ? true : !currentChecked.value
+  if (!controlled) internalChecked.value = next
+  props.onCheckedChange?.(next, event)
+  emit('checkedChange', next)
+}
 const slots = useSlots()
 const styles: Record<string,string> = {}
 const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
@@ -28,5 +42,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template ><input :class="[styles[&quot;root&quot;]]"></input></template>
+  <template ><span v-bind="$attrs" tabindex="0" role="checkbox" :aria-checked="(props.indeterminate ? 'mixed' : currentChecked)" :aria-disabled="props.disabled || undefined" :disabled="props.disabled || undefined" @click="activate" @keydown.space.prevent="activate"><slot />{{ props.label }}</span></template>
 </template>

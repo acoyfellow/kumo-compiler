@@ -46,6 +46,7 @@
   let state_highlightedItem = $state(null);
   let state_open = $state("controlled/uncontrolled Base UI root state");
   let state_submenuOpen = $state("controlled/uncontrolled Base UI state");
+
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "CheckboxItem": CheckboxItem, "Content/SubContent": Content_SubContent, "Item": Item, "Label/Separator/Shortcut/Group": Label_Separator_Shortcut_Group, "LinkItem": LinkItem, "RadioGroup/RadioItem/RadioItemIndicator": RadioGroup_RadioItem_RadioItemIndicator, "Root": Root, "Sub/SubTrigger": Sub_SubTrigger, "Trigger": Trigger, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;

@@ -39,6 +39,7 @@
   }: Props = componentInput;
   let state_controlled = $state("value");
   let state_uncontrolled = $state("defaultValue");
+
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "defaultValue": defaultValue, "disabled": disabled, "items": items, "onValueChange": onValueChange, "orientation": orientation, "value": value, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;

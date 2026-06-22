@@ -34,6 +34,7 @@
   let state_highlight = $state("none until navigation");
   let state_open = $state("controlled open or Base UI default closed");
   let state_value = $state("value, otherwise defaultValue");
+
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "compound": compound, "Content": Content, "InputGroup": InputGroup, "root": root, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;

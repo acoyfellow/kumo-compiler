@@ -35,6 +35,7 @@
   let state_anchor = $state("trigger unless explicit element/ref/virtual element/resolver");
   let state_focus = $state("trigger remains focusable");
   let state_open = $state("defaultOpen or controlled open; otherwise false");
+
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "Close": Close, "Content": Content, "Root": Root, "Title/Description": Title_Description, "Trigger": Trigger, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;

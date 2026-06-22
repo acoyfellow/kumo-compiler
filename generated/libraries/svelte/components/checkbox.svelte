@@ -14,6 +14,7 @@
   onCheckedChange?: unknown;
   onCheckedChange?: (value: unknown) => void;
   children?: Snippet;
+  defaultChecked?: boolean;
   styles?: Record<string, string>;
   fixture?: unknown;
   [key: string]: unknown;
@@ -27,6 +28,7 @@
     indeterminate = false,
     label = undefined,
     onCheckedChange = undefined,
+    defaultChecked = false,
     children,
     fixture = undefined,
     __consumerContent = undefined,
@@ -36,6 +38,15 @@
   let state_controlled = $state("checked");
   let state_group = $state("defaultValue/value");
   let state_uncontrolled = $state("absence of checked");
+  const controlledToggle = Object.prototype.hasOwnProperty.call(componentInput, "checked");
+  let uncontrolledChecked = $state(Boolean(defaultChecked));
+  const currentChecked = $derived(controlledToggle ? Boolean(checked) : uncontrolledChecked);
+  function activateToggle() {
+    if (disabled) return;
+    const next = indeterminate ? true : !currentChecked;
+    if (!controlledToggle) uncontrolledChecked = next;
+    onCheckedChange?.(next);
+  }
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "checked": checked, "disabled": disabled, "group": group, "indeterminate": indeterminate, "label": label, "onCheckedChange": onCheckedChange, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;
@@ -56,4 +67,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<input class={cx(styles["root"])}>
+<button {...rest} type="button" role="checkbox" aria-checked={indeterminate ? "mixed" : currentChecked} disabled={disabled} onclick={activateToggle}>{#if label}{label}{/if}</button>

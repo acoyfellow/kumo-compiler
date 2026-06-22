@@ -44,6 +44,7 @@
   let state_openMobile = $state(false);
   let state_state = $state("expanded when defaultOpen true, otherwise collapsed; peeking while transient peek is active");
   let state_width = $state("defaultWidth, clamped only when setWidth is called");
+
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "Collapsible": Collapsible, "CollapsibleTrigger": CollapsibleTrigger, "MenuButton": MenuButton, "MenuSubButton": MenuSubButton, "Provider": Provider, "root": root, "SlidingView": SlidingView, "SlidingViews": SlidingViews, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;
