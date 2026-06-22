@@ -23,9 +23,11 @@ const rewriteImports=text=>text.replace(/from "\.\//g,'from "./components/')
 await writeFile(resolve(output,'index.tsx'),rewriteImports(await readFile(resolve(source,'index.ts'),'utf8')))
 await writeFile(resolve(output,'index.d.ts'),rewriteImports(await readFile(resolve(source,'index.d.ts'),'utf8')))
 
-const migrations=(await readdir(legacy)).filter(file=>file.endsWith('.tsx')).map(file=>file.slice(0,-4)).sort()
+const migrations=(await readdir(legacy)).filter(file=>file.endsWith('.tsx')).map(file=>file.slice(0,-4)).sort(),appliedMigrations=[]
 for(const component of migrations){
   const model=JSON.parse(await readFile(resolve(root,'src/kumo/library/models',`${component}.json`),'utf8'))
+  if(model.interactions?.nativeButton)continue
+  appliedMigrations.push(component)
   const variants=(model.draftImplementation.semanticVariants??[]).map(({id,when})=>({id,when}))
   await cp(resolve(output,'components',`${component}.tsx`),resolve(output,'components',`${component}.semantic.tsx`))
   await cp(resolve(legacy,`${component}.tsx`),resolve(output,'components',`${component}.legacy.tsx`))
@@ -40,6 +42,6 @@ for(const component of generated.components){
   component.sourceSha256=sha256(await readFile(resolve(output,'components',component.source)))
   component.declarationSha256=sha256(await readFile(resolve(output,'components',component.declaration)))
 }
-const manifest={...generated,migrationBridges:migrations}
+const manifest={...generated,migrationBridges:appliedMigrations}
 await writeFile(resolve(here,'kumo.manifest.json'),json(manifest))
 console.log(`built ${manifest.components.length} Solid components and ${manifest.components.reduce((n,item)=>n+(item.compoundPaths?.length??0),0)} compounds`)

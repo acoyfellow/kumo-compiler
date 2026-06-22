@@ -30,7 +30,7 @@ test('installable Svelte package exports all canonical components', async () => 
 test('Button and Field retain proven native behavior implementation', async () => {
   const button = await readFile(`${root}/package/components/button.svelte`, 'utf8');
   const field = await readFile(`${root}/package/components/field.svelte`, 'utf8');
-  assert.match(button, /disabled=\{disabled \|\| loading\}/);
+  assert.match(button, /disabled=\{(?:Boolean\()?disabled \|\| loading\)?\}/);
   assert.match(field, /\$bindable/);
   assert.match(field, /aria-describedby=\{describedBy\}/);
   const styles = await readFile(`${root}/package/styles.css`, 'utf8');

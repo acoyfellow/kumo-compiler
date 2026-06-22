@@ -55,6 +55,7 @@ for (const file of (await readdir(legacy)).filter(file => file.endsWith('.js')).
   const entry = canonical.components.find(item => item.component === component)
   if (!entry) throw new Error(`${component}: legacy bridge lacks canonical model`)
   const model = JSON.parse(await readFile(resolve(root,'src/kumo/library/models',`${component}.json`),'utf8'))
+  if(model.interactions?.nativeButton)continue
   const variants = (model.draftImplementation.semanticVariants ?? []).map(({id,when}) => ({id,when}))
   await cp(resolve(output,'components',`${component}.js`),resolve(output,'components',`${component}.semantic.js`))
   await cp(resolve(legacy,file),resolve(output,'components',`${component}.legacy.js`))
