@@ -2,6 +2,7 @@ import crypto from'node:crypto';
 export const FIXTURE_PLAN_VERSION='kumo.fixture-plan/v1';
 const sha=/^[a-f0-9]{64}$/;
 const allowed=new Set(['schemaVersion','component','vector','contract','fixture','setup','actions','probes','assertions','capabilities','bundle']);
+const setupKinds=new Set(['controlled-state','uncontrolled-state','event-recorder','clipboard','date-environment','portal-target','viewport']);
 const actionTypes=new Set(['click','outside-pointer','focus','blur','key','type','type-replace','select','scroll','viewport','wait']);
 const nodeKinds=new Set(['element','component','text','fragment','portal']);
 const assertKinds=new Set(['equals','includes','absent','sequence','identity']);
@@ -16,7 +17,7 @@ export function validateFixturePlan(plan){
  if(plan.schemaVersion!==FIXTURE_PLAN_VERSION)fail('schemaVersion');if(typeof plan.component!=='string'||!plan.component||typeof plan.vector!=='string'||!plan.vector)fail('component/vector');
  if(plan.contract?.schemaVersion!=='kumo.observable/v1'||!sha.test(plan.contract?.sha256??'')||typeof plan.contract?.path!=='string')fail('contract provenance');
  validateNode(plan.fixture);if(!Array.isArray(plan.setup)||!Array.isArray(plan.actions)||!Array.isArray(plan.probes)||!Array.isArray(plan.assertions)||!Array.isArray(plan.capabilities))fail('operation arrays required');
- for(const item of plan.setup)if(!item?.kind||typeof item.kind!=='string')fail('setup operation');
+ for(const item of plan.setup)if(!setupKinds.has(item?.kind))fail(`unsupported setup ${item?.kind}`);
  for(const item of plan.actions)if(!actionTypes.has(item?.type))fail(`unsupported action ${item?.type}`);
  for(const item of plan.probes)if(!probeKinds.has(item?.kind))fail(`unsupported probe ${item?.kind}`);
  for(const item of plan.assertions)if(!assertKinds.has(item?.kind))fail(`unsupported assertion ${item?.kind}`);
