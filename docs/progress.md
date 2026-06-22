@@ -3,19 +3,19 @@
 Current phase: **library-ir**  
 Machine receipt: `proof/progress/latest.json`
 
-- ✓ **Canonical contracts** — 41/41  
+- ✓ **Canonical contracts** — 41/41
   `████████████████████`
-- ✓ **Canonical browser vectors** — 124/124  
+- ✓ **Canonical browser vectors** — 124/124
   `████████████████████`
-- → **Implementation-ready library models** — 0/41  
+- → **Implementation-ready library models** — 0/41
   `░░░░░░░░░░░░░░░░░░░░`
-- ✓ **Components in all three packages** — 41/41  
+- ✓ **Components in all three packages** — 41/41
   `████████████████████`
-- → **Four-framework package conformance** — 19/41  
-  `█████████░░░░░░░░░░░`
-- → **Complete component examples and docs** — 2/41  
+- → **Four-framework package conformance** — 21/41
+  `██████████░░░░░░░░░░`
+- → **Complete component examples and docs** — 2/41
   `█░░░░░░░░░░░░░░░░░░░`
-- ○ **Final production proof** — 0/1  
+- ○ **Final production proof** — 0/1
   `░░░░░░░░░░░░░░░░░░░░`
 
 ## Scope
@@ -30,6 +30,7 @@ Machine receipt: `proof/progress/latest.json`
 - banner
 - breadcrumbs
 - button
+- checkbox
 - cloudflare-logo
 - code
 - empty
@@ -42,6 +43,7 @@ Machine receipt: `proof/progress/latest.json`
 - loader
 - meter
 - surface
+- switch
 - table
 - table-of-contents
 - text
