@@ -1,0 +1,184 @@
+{
+  "schemaVersion": "kumo.native-field/v1",
+  "controls": [
+    {
+      "component": "input",
+      "root": "input",
+      "support": "supported",
+      "value": {
+        "owner": "native-uncontrolled",
+        "initialProp": "defaultValue",
+        "transition": {
+          "trigger": "trusted native typing",
+          "domProperty": "value",
+          "callbackValue": "current native value"
+        }
+      },
+      "disabled": {
+        "nativeAttribute": true,
+        "observedDefaultValue": "x"
+      },
+      "vectors": [
+        "bare-disabled",
+        "type",
+        "field-label"
+      ]
+    },
+    {
+      "component": "input-area",
+      "root": "textarea",
+      "support": "supported",
+      "value": {
+        "owner": "native-uncontrolled",
+        "initialProp": "defaultValue",
+        "transition": {
+          "trigger": "trusted native typing",
+          "domProperty": "value",
+          "callbackValue": "current native value"
+        }
+      },
+      "disabled": {
+        "observed": false,
+        "reason": "No canonical input-area disabled vector."
+      },
+      "vectors": [
+        "bare",
+        "type",
+        "field-error"
+      ]
+    },
+    {
+      "component": "sensitive-input",
+      "root": "div",
+      "nativeControl": "input",
+      "support": "requirements-only",
+      "value": {
+        "owner": "native-uncontrolled",
+        "initialProp": "defaultValue",
+        "transition": {
+          "trigger": "trusted native typing",
+          "domProperty": "value",
+          "callbackValue": "current native value"
+        }
+      },
+      "sensitive": {
+        "initialVisibility": "masked",
+        "escapeVisibility": "masked",
+        "copy": {
+          "trigger": "trusted copy-button activation",
+          "value": "current native value",
+          "callback": "copy",
+          "announcement": "Value hiddenCopied to clipboard"
+        },
+        "boundaries": [
+          "clipboard write success is observed",
+          "rejection and permission behavior are unknown",
+          "reveal control semantics and intermediate type are unknown"
+        ]
+      },
+      "vectors": [
+        "masked",
+        "reveal-edit-escape",
+        "copy"
+      ]
+    }
+  ],
+  "wiring": {
+    "support": "requirements-only",
+    "container": "div",
+    "label": {
+      "activates": "native control",
+      "mechanism": "id/for association required"
+    },
+    "required": {
+      "prop": true
+    },
+    "describedBy": {
+      "description": "control aria-describedby target",
+      "error": "control aria-describedby target"
+    },
+    "vectors": [
+      "optional",
+      "field-label",
+      "field-error"
+    ]
+  },
+  "blockers": [
+    {
+      "field": "controlledValueOwnership",
+      "status": "unknown",
+      "reason": "Canonical contracts observe native edits and callbacks but do not establish a controlled value prop, prop-to-DOM synchronization, or conflict policy."
+    },
+    {
+      "field": "fieldGeneratedIds",
+      "status": "unknown",
+      "reason": "Canonical vectors establish label focus and an explicit field-control id fixture, but do not expose generated id values, precedence, uniqueness, or exact for/aria-describedby serialization."
+    },
+    {
+      "field": "requiredSerialization",
+      "status": "unknown",
+      "reason": "Required composition is observed, but exact native required and aria-required serialization is not captured."
+    },
+    {
+      "field": "descriptionErrorCombination",
+      "status": "unknown",
+      "reason": "Description and error are observed separately; ordering, simultaneous IDs, and error precedence are not established."
+    },
+    {
+      "field": "sensitiveRevealSemantics",
+      "status": "unknown",
+      "reason": "Reveal activation is observed only as part of a sequence ending masked; reveal button naming, intermediate input type, and focus behavior are not established."
+    },
+    {
+      "field": "sensitiveClipboardFailure",
+      "status": "unknown",
+      "reason": "Clipboard permission, rejection, failure callbacks, and announcement lifecycle are not established."
+    },
+    {
+      "field": "inheritedVendorBehavior",
+      "status": "unknown",
+      "reason": "Base UI event details, autofill/password managers, IME, RTL, selection ranges, clipboard rejection, and platform accessibility-tree differences remain inherited/vendor unknowns."
+    }
+  ],
+  "provenance": [
+    {
+      "component": "field",
+      "contractPath": "contracts/kumo.observable/v1/components/field.json",
+      "contractDigest": "9dd6d0bc3ab0683f1671958dccbfea163a3658c715de96df67b650a8add6ea55",
+      "vectorIds": [
+        "optional"
+      ]
+    },
+    {
+      "component": "input",
+      "contractPath": "contracts/kumo.observable/v1/components/input.json",
+      "contractDigest": "8ab290a7d671042434090c4d0e6c8fa30dbb47934480b7b7cabe834ad35553c4",
+      "vectorIds": [
+        "bare-disabled",
+        "type",
+        "field-label"
+      ]
+    },
+    {
+      "component": "input-area",
+      "contractPath": "contracts/kumo.observable/v1/components/input-area.json",
+      "contractDigest": "4d013786afa0089d44e6e40dc041b4b9b3de7dc5a9403384e70f3a8d55cfcd2b",
+      "vectorIds": [
+        "bare",
+        "type",
+        "field-error"
+      ]
+    },
+    {
+      "component": "sensitive-input",
+      "contractPath": "contracts/kumo.observable/v1/components/sensitive-input.json",
+      "contractDigest": "1be275166efac270e45a2672b8313927fe15d0409fcc9ba113c7fc5a6c46a8f0",
+      "vectorIds": [
+        "masked",
+        "reveal-edit-escape",
+        "copy"
+      ]
+    }
+  ],
+  "capabilityDigest": "3a54a24c40ae19d2e3d0aad899b7ef97de9847e8cb7c65c87670f74c0d49ea1c"
+}

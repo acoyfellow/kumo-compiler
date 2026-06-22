@@ -11,6 +11,7 @@ import {deriveNativeButton} from './native-button.mjs';
 import {deriveBehaviorCapabilities} from './behavior-capabilities.mjs';
 import {deriveControlledState} from './controlled-state.mjs';
 import {deriveNativeControls} from './native-controls.mjs';
+import {deriveNativeField} from './native-field.mjs';
 import {deriveClipboardLiveRegion} from './clipboard-live-region.mjs';
 import {deriveFocusNavigation, FOCUS_COMPONENTS} from './focus-navigation.mjs';
 import {deriveCollectionListbox, COLLECTION_COMPONENTS} from './collection-listbox.mjs';
@@ -112,6 +113,7 @@ const layerLifecycle = deriveLayerLifecycle(canonicalContracts.filter(contract =
 const nativeControlContracts = canonicalContracts.filter(contract => ['checkbox','switch','radio','input','input-area','sensitive-input'].includes(contract.component));
 const controlledState = deriveControlledState(nativeControlContracts.filter(contract => ['checkbox','switch','radio'].includes(contract.component)));
 const nativeControls = deriveNativeControls(nativeControlContracts);
+const nativeField = deriveNativeField(canonicalContracts.filter(contract => ['field','input','input-area','sensitive-input'].includes(contract.component)));
 const entries = [];
 for (const file of contractFiles) {
   const name = file.slice(0,-5); const contractPath = `contracts/kumo.observable/v1/components/${file}`;
@@ -152,4 +154,5 @@ fs.writeFileSync(path.join(here, 'capabilities/collection-listbox.json'), `${JSO
 fs.writeFileSync(path.join(here, 'capabilities/layer-lifecycle.json'), `${JSON.stringify(layerLifecycle,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/controlled-state.json'), `${JSON.stringify(controlledState,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/native-controls.json'), `${JSON.stringify(nativeControls,null,2)}\n`);
+fs.writeFileSync(path.join(here, 'capabilities/native-field.json'), `${JSON.stringify(nativeField,null,2)}\n`);
 process.stdout.write(`${canonicalJSON({candidateDefinitionCount:41,count:entries.length,implementationReadyCount:0})}\n`);

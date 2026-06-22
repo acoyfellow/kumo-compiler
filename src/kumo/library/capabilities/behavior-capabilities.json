@@ -748,7 +748,7 @@
     },
     {
       "id": "native-field",
-      "support": "requirements-only",
+      "support": "supported",
       "component": "input",
       "contractDigest": "8ab290a7d671042434090c4d0e6c8fa30dbb47934480b7b7cabe834ad35553c4",
       "requirements": {
@@ -762,7 +762,7 @@
           }
         ],
         "events": [
-          "native value change"
+          "trusted native input updates DOM value and callback receives current value"
         ],
         "focus": [
           {
@@ -788,31 +788,19 @@
       },
       "uncontrolled": {
         "supported": true,
-        "prop": "defaultValue"
+        "prop": "defaultValue",
+        "owner": "native control"
       },
       "vectorIds": [
         "bare-disabled",
         "type",
         "field-label"
       ],
-      "missingOperations": [
-        {
-          "kind": "controlled-semantics",
-          "reason": "canonical contract does not establish a controlled value prop"
-        },
-        {
-          "kind": "vendor-behavior",
-          "reason": "Base UI event details, autofill/password managers, IME, RTL, selection ranges, clipboard rejection, and platform accessibility-tree differences remain inherited/vendor unknowns."
-        },
-        {
-          "kind": "implementation",
-          "reason": "native forwarding and field wiring operations are not proven"
-        }
-      ]
+      "missingOperations": []
     },
     {
       "id": "native-field",
-      "support": "requirements-only",
+      "support": "supported",
       "component": "input-area",
       "contractDigest": "4d013786afa0089d44e6e40dc041b4b9b3de7dc5a9403384e70f3a8d55cfcd2b",
       "requirements": {
@@ -826,7 +814,7 @@
           }
         ],
         "events": [
-          "native value change"
+          "trusted native input updates DOM value and callback receives current value"
         ],
         "focus": [
           {
@@ -852,27 +840,15 @@
       },
       "uncontrolled": {
         "supported": true,
-        "prop": "defaultValue"
+        "prop": "defaultValue",
+        "owner": "native control"
       },
       "vectorIds": [
         "bare",
         "type",
         "field-error"
       ],
-      "missingOperations": [
-        {
-          "kind": "controlled-semantics",
-          "reason": "canonical contract does not establish a controlled value prop"
-        },
-        {
-          "kind": "vendor-behavior",
-          "reason": "Base UI event details, autofill/password managers, IME, RTL, selection ranges, clipboard rejection, and platform accessibility-tree differences remain inherited/vendor unknowns."
-        },
-        {
-          "kind": "implementation",
-          "reason": "native forwarding and field wiring operations are not proven"
-        }
-      ]
+      "missingOperations": []
     },
     {
       "id": "focus-navigation",
@@ -1384,7 +1360,7 @@
           }
         ],
         "events": [
-          "native value change"
+          "trusted native input updates DOM value and callback receives current value"
         ],
         "focus": [
           {
@@ -1397,14 +1373,15 @@
           }
         ],
         "dom": [
-          "div"
+          "div",
+          "input"
         ],
         "aria": [
           "native and Field semantics observed in canonical Chrome"
         ],
         "browserServices": [
-          "clipboard",
-          "live region"
+          "clipboard write after trusted copy-button activation",
+          "live announcement"
         ]
       },
       "controlled": {
@@ -1413,7 +1390,8 @@
       },
       "uncontrolled": {
         "supported": true,
-        "prop": "defaultValue"
+        "prop": "defaultValue",
+        "owner": "native control"
       },
       "vectorIds": [
         "masked",
@@ -1422,16 +1400,16 @@
       ],
       "missingOperations": [
         {
-          "kind": "controlled-semantics",
-          "reason": "canonical contract does not establish a controlled value prop"
+          "kind": "reveal-boundary",
+          "reason": "canonical sequence ends masked but does not establish reveal control semantics, intermediate input type, or focus behavior"
         },
         {
-          "kind": "vendor-behavior",
-          "reason": "Base UI event details, autofill/password managers, IME, RTL, selection ranges, clipboard rejection, and platform accessibility-tree differences remain inherited/vendor unknowns."
+          "kind": "clipboard-failure",
+          "reason": "clipboard permission, rejection, failure callbacks, and announcement lifecycle are not established"
         },
         {
-          "kind": "implementation",
-          "reason": "native forwarding and field wiring operations are not proven"
+          "kind": "field-wiring",
+          "reason": "label focus is established, but generated IDs and exact for/aria-describedby/required serialization are not exposed"
         }
       ]
     },
@@ -1622,5 +1600,5 @@
       ]
     }
   ],
-  "capabilityDigest": "cfc875514ef423d3f6e45fb48038ad1178cd112d7e4ad539a3cd477346e7c199"
+  "capabilityDigest": "b1aa849d24d94febe2287cf143abdd6c5baab0a5c26fef3c4e93d402ab136985"
 }

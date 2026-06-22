@@ -26,9 +26,15 @@ test('registry promotes only complete executable state algebra', () => {
     assert.equal(binding.support, 'supported');
     assert.deepEqual(binding.missingOperations, []);
   }
-  for (const binding of registry.bindings.filter(binding => binding.id!=='native-button'&&binding.id!=='toggle-control')) {
+  for (const binding of registry.bindings.filter(binding => !['native-button','toggle-control'].includes(binding.id) && !(binding.id==='native-field'&&['input','input-area'].includes(binding.component)))) {
     assert.equal(binding.support, 'requirements-only');
     assert.ok(binding.missingOperations.every(item => item.kind && item.reason));
+  }
+  for (const component of ['input','input-area']) {
+    const binding=registry.bindings.find(item=>item.id==='native-field'&&item.component===component);
+    assert.equal(binding.support,'supported');
+    assert.deepEqual(binding.missingOperations,[]);
+    assert.equal(binding.uncontrolled.owner,'native control');
   }
   assert.deepEqual(new Set(registry.bindings.filter(binding=>binding.id==='focus-navigation').map(binding=>binding.component)),new Set(['radio','menu-bar','tabs','pagination','command-palette','table-of-contents']));
   assert.deepEqual(new Set(registry.bindings.filter(binding=>binding.id==='collection-listbox').map(binding=>binding.component)),new Set(['autocomplete','combobox','select','dropdown-menu','radio','command-palette']));
@@ -41,6 +47,8 @@ test('registry promotes only complete executable state algebra', () => {
   assert.ok(clipboard.missingOperations.some(item => item.kind === 'announcement-lifecycle'));
   const input = registry.bindings.find(binding => binding.component === 'input');
   assert.equal(input.controlled.supported, false);
+  const sensitive=registry.bindings.find(binding=>binding.component==='sensitive-input');
+  assert.deepEqual(sensitive.missingOperations.map(x=>x.kind),['reveal-boundary','clipboard-failure','field-wiring']);
 });
 
 test('validation rejects optimistic unresolved support and digest mutation', () => {
