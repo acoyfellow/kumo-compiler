@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "baselineRevision": "4384ebf19a7961df6647a573da560ee1aac5c67a",
-  "resultRevision": "b76c459",
+  "resultRevision": "e2bb8b0",
   "measurement": {
     "method": "git ls-tree -rl for tracked files/bytes; newline count over tracked js,mjs,ts,tsx,vue,svelte,astro,md excluding generated, proof, runtime, deploy, release, benchmark-site, and artifact zones",
     "before": {
@@ -10,15 +10,15 @@
       "authoredLoc": 22253
     },
     "after": {
-      "trackedFiles": 4310,
-      "trackedBytes": 16538699,
-      "authoredLoc": 10362
+      "trackedFiles": 3804,
+      "trackedBytes": 13048166,
+      "authoredLoc": 10370
     }
   },
   "reductions": {
-    "trackedFiles": 1645,
-    "trackedBytes": 46044086,
-    "authoredLoc": 11891
+    "trackedFiles": 2151,
+    "trackedBytes": 49534619,
+    "authoredLoc": 11883
   },
   "preserved": {
     "canonicalPackage": "@cloudflare/kumo@2.5.2",
@@ -29,5 +29,12 @@
       "runtime/switch/react/public-runtime/assets/react-switch.js"
     ]
   },
-  "canonicalSha256": "e007db7ce6f3fe21f1f41d553c280fcd01d571e36edcfd8ffc7d6b24d8e4ae08"
+  "verification": {
+    "unitTests": "236 passed, 0 failed, 2 skipped",
+    "astroPages": 74,
+    "validatedRoutes": 81,
+    "validatedLocalLinks": 1609,
+    "releaseCheck": "passed through deploy payload preparation; no deploy or publish performed"
+  },
+  "canonicalSha256": "05b00fc388a227a0ef6a24e419c1c109eb5ae47ed9c82f4956e0e0120f57a999"
 }
