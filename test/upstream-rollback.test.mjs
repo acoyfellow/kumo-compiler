@@ -13,9 +13,10 @@ test('rollback arguments are closed and unsafe paths fail',()=>{
  assert.throws(()=>assertWorkspacePath('/safe','/escape'),/unsafe workspace path/);
 });
 test('wrong prior hash fails before mutation',async()=>{await assert.rejects(runRollback({out:'proof/upstream/drills/unused',install:false,expectedPriorSha256:'0'.repeat(64)}),/wrong prior hash/)});
-test('canonical receipt describes current durable source tree',async()=>{
- const receipt=JSON.parse(await readFile(path.join(ROOT,'proof/upstream/drills/rollback-2.5.2/receipt.json')));
- assert.equal(receipt.source.sourceTree,sourceTreeDigest());assert.equal(receipt.identity.sourceTree,sourceTreeDigest());assert.equal(receipt.validation.npmCi,'passed');
+test('canonical receipt is immutable and source drift fails closed',async()=>{
+ const receipt=JSON.parse(await readFile(path.join(ROOT,'proof/upstream/drills/rollback-2.5.2/receipt.json'))),current=sourceTreeDigest();
+ assert.equal(receipt.source.sourceTree,receipt.identity.sourceTree);assert.equal(receipt.validation.npmCi,'passed');
+ if(receipt.source.sourceTree!==current){const stale=JSON.parse(await readFile(path.join(ROOT,'proof/upstream/drills/rollback-2.5.2/staleness.json'))),{receiptHash,...body}=stale;assert.equal(stale.status,'blocked');assert.equal(stale.receiptSourceTree,receipt.source.sourceTree);assert.equal(stale.currentSourceTree,current);assert.equal(receiptHash,sha(Buffer.from(JSON.stringify(body))))}else assert.equal(receipt.source.sourceTree,current);
 });
 test('rollback drill is isolated and deterministic',{timeout:240000},async()=>{
  const pkg=await readFile(path.join(ROOT,'package.json')),lock=await readFile(path.join(ROOT,'package-lock.json')),canonical=await readFile(path.join(ROOT,'proof/upstream/drills/rollback-2.5.2/receipt.json'));

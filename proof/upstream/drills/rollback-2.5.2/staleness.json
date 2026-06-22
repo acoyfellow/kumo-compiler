@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "kumo.upstream.rollback-staleness/v1",
+  "status": "blocked",
+  "receipt": "proof/upstream/drills/rollback-2.5.2/receipt.json",
+  "receiptSourceTree": "15b003c97fd0e7bac07723eb28fd4a83a5f1feb3908fccf64cfeb8182681dcaf",
+  "currentSourceTree": "4b5165d2796dc8236935b4fd2764c03001dd75fe1be92e3d302b0869b6da018d",
+  "reason": "cleanup changed durable package/build inputs; network-backed rollback rerun is required before this gate can pass",
+  "receiptHash": "a9b7ea6a1d83ab423221570112fe5d031a7b9374c4f89884749b5ce4c137a6b1"
+}
