@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "kumo.date-range/v1",
+  "calendar": {
+    "dateSyntax": "YYYY-MM-DD",
+    "arithmetic": "proleptic-gregorian-utc-epoch-day",
+    "grid": {
+      "cells": 42,
+      "rows": 6,
+      "columns": 7,
+      "weekStartsOn": "explicit-0-through-6"
+    }
+  },
+  "boundaries": {
+    "min": "inclusive",
+    "max": "inclusive",
+    "disabled": "exact-ISO-date",
+    "blockedEffect": "no-proposal-no-commit"
+  },
+  "selection": {
+    "single": "replace",
+    "range": [
+      "start",
+      "end",
+      "restart-when-before-start",
+      "reset"
+    ],
+    "ownership": "controlled-proposes-uncontrolled-commits"
+  },
+  "keyboard": {
+    "date-picker": [
+      "ArrowLeft",
+      "ArrowRight",
+      "ArrowUp",
+      "ArrowDown",
+      "Enter",
+      "Space"
+    ],
+    "date-range-picker": [
+      "Enter",
+      "Space"
+    ]
+  },
+  "unknowns": [
+    {
+      "field": "localizedLabelsAndCalendarText",
+      "status": "unknown",
+      "reason": "Calendar strings, week layout, and locale-specific formatting are owned by react-day-picker and Intl/browser locale; this contract intentionally does not invent locale behavior."
+    },
+    {
+      "field": "calendarMonthAndLocalizedDayLabels",
+      "status": "unknown",
+      "reason": "The component initializes from the current local month and generates labels with browser locale APIs; exact dates and strings are deliberately not frozen or invented."
+    },
+    {
+      "field": "timezoneConversion",
+      "status": "unknown",
+      "reason": "Canonical contracts do not define conversion of ISO calendar dates through the timezone prop."
+    },
+    {
+      "field": "vendorCalendarInternals",
+      "status": "unknown",
+      "reason": "react-day-picker/browser behavior beyond observed vectors remains vendor-owned."
+    }
+  ],
+  "provenance": [
+    {
+      "component": "date-picker",
+      "contractPath": "contracts/kumo.observable/v1/components/date-picker.json",
+      "contractSchema": "kumo.observable/v1",
+      "canonical": {
+        "package": "@cloudflare/kumo",
+        "version": "2.5.2",
+        "exportPath": "./components/date-picker",
+        "typesPath": "dist/src/components/date-picker/index.d.ts",
+        "runtimePath": "dist/components/date-picker.js",
+        "typesSha256": "22c18052a57ef37754806d78e64e725fd1565b1d5cd28790be90dbbecd511e80",
+        "runtimeSha256": "ae0c108a22932ef83b2ce4812659673367ca401dc21cbc9d69a54a40d156a8bf",
+        "irSchemaVersion": "kumo.ir/v1"
+      },
+      "vectorIds": [
+        "single-selected",
+        "single-change",
+        "bounded-day"
+      ],
+      "contractDigest": "d81d58312da19831ac11e50c81398c6edf3b4b4d4f11b6540bc67468b569f61c"
+    },
+    {
+      "component": "date-range-picker",
+      "contractPath": "contracts/kumo.observable/v1/components/date-range-picker.json",
+      "contractSchema": "kumo.observable/v1",
+      "canonical": {
+        "package": "@cloudflare/kumo",
+        "version": "2.5.2",
+        "exportPath": "./components/date-range-picker",
+        "typesPath": "dist/src/components/date-range-picker/index.d.ts",
+        "runtimePath": "dist/components/date-range-picker.js",
+        "typesSha256": "ecadf4888736c886ec7aaa4e665a9d1d681e3b1efa1b65a946fdb48b18ac08dd",
+        "runtimeSha256": "7e7668e28b93553f8d09364940e60c085e6d503d5255c4f8ec29b155a7b0a662",
+        "irSchemaVersion": "kumo.ir/v1"
+      },
+      "vectorIds": [
+        "default-layout",
+        "small-subtle-timezone",
+        "select-range-reset"
+      ],
+      "contractDigest": "8bf64900e34b9202e3faac509ab5f10e270940ec56849078cade3f07f4b192c7"
+    }
+  ],
+  "capabilityDigest": "1e5a01863b2e7431c3d750bca031e3627d383d0cbb0d394f9f91c45453afa7d9"
+}
