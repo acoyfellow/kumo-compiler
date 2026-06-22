@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { mkdir, open, readFile, rename, rm } from 'node:fs/promises';
+import { link, mkdir, open, readFile, rm } from 'node:fs/promises';
 import path from 'node:path';
 
 export const IMMUTABLE_RECEIPT_SCHEMA_VERSION = 'kumo.immutable-receipt/v1';
@@ -88,10 +88,13 @@ export async function writeImmutableBytes(root, relativePath, bytes) {
     await handle.close();
     handle = undefined;
     try {
-      await rename(temporary, destination);
+      // A hard link publishes the fully synced temporary inode only when the
+      // destination does not exist. Unlike rename(), this cannot overwrite a
+      // receipt won by a concurrent writer on POSIX.
+      await link(temporary, destination);
       return { path: destination, created: true, sha256: sha256Bytes(content), bytes: content.length };
     } catch (error) {
-      if (error.code !== 'EEXIST' && error.code !== 'ENOTEMPTY') throw error;
+      if (error.code !== 'EEXIST') throw error;
       const existing = await readFile(destination);
       if (!existing.equals(content)) throw new Error(`immutable receipt collision at ${relativePath}`);
       return { path: destination, created: false, sha256: sha256Bytes(content), bytes: content.length };

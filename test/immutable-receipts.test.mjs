@@ -35,6 +35,29 @@ test('immutable writes create once, retry idempotently, and fail closed on colli
   }
 });
 
+test('concurrent immutable writers cannot overwrite the winning receipt', async () => {
+  const root = await mkdtemp(path.join(tmpdir(), 'immutable-receipt-race-'));
+  try {
+    const different = await Promise.allSettled([
+      writeImmutableBytes(root, 'receipts/race.json', Buffer.from('alpha')),
+      writeImmutableBytes(root, 'receipts/race.json', Buffer.from('beta')),
+    ]);
+    assert.equal(different.filter(result => result.status === 'fulfilled').length, 1);
+    assert.equal(different.filter(result => result.status === 'rejected').length, 1);
+    assert.match(different.find(result => result.status === 'rejected').reason.message, /collision/);
+    assert.ok(['alpha', 'beta'].includes(await readFile(path.join(root, 'receipts/race.json'), 'utf8')));
+
+    const same = await Promise.all([
+      writeImmutableBytes(root, 'receipts/same.json', Buffer.from('same')),
+      writeImmutableBytes(root, 'receipts/same.json', Buffer.from('same')),
+    ]);
+    assert.equal(same.filter(result => result.created).length, 1);
+    assert.equal(await readFile(path.join(root, 'receipts/same.json'), 'utf8'), 'same');
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
+
 test('receipt validation binds raw bytes and prerequisite digests without promotion', async () => {
   const root = await mkdtemp(path.join(tmpdir(), 'immutable-receipt-'));
   const payload = Buffer.from('raw\r\nbytes');
