@@ -29,13 +29,13 @@ export function Button(incoming: ButtonProps): JSX.Element {
   const normalizedFixture = normalizeFixture(fixture);
   const state: Record<string, () => unknown> = {};
   const refs: Record<string, HTMLElement | undefined> = {};
-  const [, native] = splitProps(props as ButtonProps & Record<string, unknown>, ["disabled","icon","loading","shape","size","variant","children","fixture","styles"]);
+  const [, native] = splitProps(props as ButtonProps & Record<string, unknown>, ["disabled","icon","loading","shape","size","variant","children","fixture","styles","onClick"]);
   void native; void state; void refs;
   if (semanticEqual(renderContent, "Save") && Object.prototype.hasOwnProperty.call(props, "data-probe") && semanticEqual(props["data-probe"], "native") && Object.prototype.hasOwnProperty.call(props, "name") && semanticEqual(props.name, "intent") && Object.prototype.hasOwnProperty.call(props, "value") && semanticEqual(props.value, "save")) return (<button type={"button"} name={"intent"} value={"save"} data-probe={"native"} data-kumo-component={"Button"}><span>{props.children}</span></button>);
   if (semanticEqual(renderContent, "Create") && Object.prototype.hasOwnProperty.call(props, "size") && semanticEqual(props.size, "xs") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "primary")) return (<button class="bg-kumo-brand h-5 text-xs">{props.children}</button>);
   if (semanticEqual(renderContent, "Delete") && Object.prototype.hasOwnProperty.call(props, "size") && semanticEqual(props.size, "lg") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "destructive")) return (<button class="bg-kumo-danger h-10 text-base">{props.children}</button>);
   if (Object.prototype.hasOwnProperty.call(props, "aria-label") && semanticEqual(props["aria-label"], "Add item") && Object.prototype.hasOwnProperty.call(props, "shape") && semanticEqual(props.shape, "circle") && Object.prototype.hasOwnProperty.call(props, "size") && semanticEqual(props.size, "sm")) return (<button aria-label={"Add item"} class="rounded-full size-6.5"></button>);
-  return (<button {...native} type={(props.type as JSX.ButtonHTMLAttributes<HTMLButtonElement>["type"]) ?? "button"} disabled={Boolean(props.disabled || props.loading)}>{props.loading ? <svg aria-hidden="true" /> : undefined}{props.children}</button>);
+  return (<button {...native} type={(props.type as JSX.ButtonHTMLAttributes<HTMLButtonElement>["type"]) ?? "button"} disabled={Boolean(props.disabled || props.loading)} onClick={props.onClick as JSX.EventHandlerUnion<HTMLButtonElement, MouseEvent>}>{props.loading ? <svg aria-hidden="true" /> : undefined}{props.children}</button>);
 }
 
 export default Button;
