@@ -61,6 +61,20 @@ test('Svelte SSR renders all 62 semantic variants through canonical root and des
  assert.equal(manifest.components.flatMap(x=>x.unresolvedSemanticOperations).length,4);
 });
 
+test('resolution receipt canonically binds capability and generated manifest hashes',()=>{
+ const receiptPath=path.resolve('proof/dx/conformance/diagnostics/semantic-emitter-svelte-resolution.json');
+ const receipt=JSON.parse(fs.readFileSync(receiptPath,'utf8'));
+ const {receiptHash,...canonical}=receipt;
+ const {contentBindings}=loadLibrary();
+ assert.equal(receipt.status,'passed');
+ assert.equal(receipt.semanticVariants,62);
+ assert.equal(receipt.unresolvedSemanticOperations,4);
+ assert.match(receiptHash,/^[a-f0-9]{64}$/);
+ assert.equal(receiptHash,hash(JSON.stringify(canonical)));
+ assert.equal(receipt.contentBindingsCapabilityDigest,contentBindings.capabilityDigest);
+ assert.equal(receipt.svelteManifestSha256,hash(fs.readFileSync(path.join(output,'manifest.json'))));
+});
+
 test('binds model digests and publishes root and per-component metadata',()=>{
  const {models}=loadLibrary();
  const manifest=JSON.parse(fs.readFileSync(path.join(output,'manifest.json'),'utf8'));
