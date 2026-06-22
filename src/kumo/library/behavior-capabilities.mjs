@@ -44,11 +44,14 @@ export function deriveBehaviorCapabilities(contracts) {
     }));
   }
   const radio = byName.get('radio');
-  if (radio) bindings.push(requirement('radio-group', radio, 'supported', {
+  if (radio) bindings.push(requirement('radio-group', radio, 'requirements-only', {
     states:Object.keys(radio.initialState), transitions:radio.transitions, events:['value-change'], focus:radio.keyboardFocus,
     dom:['div','radio items'], aria:radio.semantics.aria,
     controlled:{supported:true, prop:'value'}, uncontrolled:{supported:true, prop:'defaultValue'},
-    missingOperations:[]
+    missingOperations:[
+      {kind:'collection',reason:'radio item registration and disabled-item ordering are not yet implemented'},
+      {kind:'roving-focus',reason:radio.unknowns[0].reason}
+    ]
   }));
   for (const name of ['input','input-area','sensitive-input']) {
     const contract = byName.get(name); if (!contract) continue;

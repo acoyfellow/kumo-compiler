@@ -252,7 +252,7 @@
     },
     {
       "id": "radio-group",
-      "support": "supported",
+      "support": "requirements-only",
       "component": "radio",
       "contractDigest": "1efdf13299ecfadca60575431a14a175f081174974420aa56bb6a785dd548ed8",
       "requirements": {
@@ -306,7 +306,16 @@
         "disabled-item",
         "disabled-group"
       ],
-      "missingOperations": []
+      "missingOperations": [
+        {
+          "kind": "collection",
+          "reason": "radio item registration and disabled-item ordering are not yet implemented"
+        },
+        {
+          "kind": "roving-focus",
+          "reason": "RTL wrapping, Home/End, and browser-specific roving-focus edge behavior inherited from Base UI are not declared by Kumo and are not guessed."
+        }
+      ]
     },
     {
       "id": "sensitive-field",
@@ -429,5 +438,5 @@
       "missingOperations": []
     }
   ],
-  "capabilityDigest": "e2e1ad54569f9fbe276ba7d0f6219675e65bc5c6f079705aaaf8fc3e08f914c9"
+  "capabilityDigest": "3a1289f0910ec7cc8031a221c14cec260e40fda4c95431abbfc837b50eec7cc5"
 }

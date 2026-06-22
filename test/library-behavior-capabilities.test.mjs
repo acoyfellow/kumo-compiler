@@ -22,11 +22,11 @@ test('registry is canonical and contract-derived', () => {
 test('registry promotes only complete executable state algebra', () => {
   const registry = loadBehaviorCapabilities();
   for (const binding of registry.bindings) assert.ok(binding.vectorIds.length);
-  for (const binding of registry.bindings.filter(binding => ['checkbox','switch','radio'].includes(binding.component))) {
+  for (const binding of registry.bindings.filter(binding => ['checkbox','switch'].includes(binding.component))) {
     assert.equal(binding.support, 'supported');
     assert.deepEqual(binding.missingOperations, []);
   }
-  for (const binding of registry.bindings.filter(binding => ['input','input-area','sensitive-input'].includes(binding.component))) {
+  for (const binding of registry.bindings.filter(binding => ['radio','input','input-area','sensitive-input'].includes(binding.component))) {
     assert.equal(binding.support, 'requirements-only');
     assert.ok(binding.missingOperations.every(item => item.kind && item.reason));
   }
