@@ -1,0 +1,194 @@
+{
+  "schemaVersion": "kumo.responsive-sidebar/v1",
+  "component": "sidebar",
+  "contractDigest": "dcad61e88e48af06516b0fdfba3f33cad06ab66e770be9b9a5ced7c9755c1dd1",
+  "vectorIds": [
+    "desktop-expanded-compound",
+    "desktop-collapsed-sliding-inert-intent",
+    "collapsible-closed-mounted",
+    "resize-keyboard-expand"
+  ],
+  "viewport": {
+    "breakpoint": {
+      "supported": true,
+      "value": 768,
+      "evidence": "canonical Provider mobileBreakpoint default"
+    },
+    "desktop": {
+      "supported": true,
+      "value": {
+        "condition": "width >= mobileBreakpoint",
+        "root": "aside",
+        "openState": "open"
+      },
+      "evidence": "canonical responsive root and initial state"
+    },
+    "mobile": {
+      "supported": true,
+      "value": {
+        "condition": "width < mobileBreakpoint",
+        "root": "portaled backdrop plus nav",
+        "openState": "openMobile"
+      },
+      "evidence": "canonical responsive semantics and transitions"
+    },
+    "transition": {
+      "supported": true,
+      "value": "matchMedia change switches the rendered desktop/mobile branch without transferring disclosure state",
+      "evidence": "canonical runtime separates open and openMobile"
+    }
+  },
+  "disclosure": {
+    "desktopInitial": {
+      "supported": true,
+      "value": true,
+      "evidence": "canonical defaultOpen"
+    },
+    "mobileInitial": {
+      "supported": true,
+      "value": false,
+      "evidence": "canonical initialState.openMobile"
+    },
+    "toggle": {
+      "supported": true,
+      "value": "Trigger/Rail toggles open on desktop and openMobile on mobile",
+      "evidence": "canonical trigger transition"
+    },
+    "controlledOwnership": {
+      "supported": true,
+      "value": {
+        "prop": "open",
+        "defaultProp": "defaultOpen",
+        "event": "onOpenChange",
+        "rule": "controlled prop remains authoritative; requests call onOpenChange",
+        "mobile": "openMobile remains internal and independent"
+      },
+      "evidence": "canonical Provider API and separate runtime states"
+    }
+  },
+  "visibility": {
+    "mobileClosed": {
+      "supported": true,
+      "value": {
+        "mounted": true,
+        "aria-hidden": true,
+        "inert": "imperative ref effect"
+      },
+      "evidence": "canonical mobile semantics"
+    },
+    "collapsibleClosed": {
+      "supported": true,
+      "value": {
+        "mounted": true,
+        "role": "region",
+        "aria-hidden": true,
+        "inert": "imperative ref effect"
+      },
+      "evidence": "canonical Collapsible semantics"
+    },
+    "inactiveSlidingView": {
+      "supported": true,
+      "value": {
+        "mounted": true,
+        "aria-hidden": true,
+        "pointerEvents": "none",
+        "inert": "imperative ref effect"
+      },
+      "evidence": "canonical SlidingView semantics"
+    },
+    "inertSerialization": {
+      "supported": false,
+      "reason": "inert is applied imperatively; SSR and hydration timing require browser observation"
+    }
+  },
+  "focus": {
+    "mobileOpen": {
+      "supported": true,
+      "value": "focus first focusable descendant, otherwise nav",
+      "evidence": "canonical mobile semantics"
+    },
+    "escape": {
+      "supported": true,
+      "value": "close mobile sheet and restore prior focus",
+      "evidence": "canonical mobile semantics"
+    },
+    "focusLeaves": {
+      "supported": true,
+      "value": "close an open mobile sheet",
+      "evidence": "canonical mobile semantics"
+    },
+    "exactOrdering": {
+      "supported": false,
+      "reason": "portal focus, focusout, and restoration ordering require canonical browser execution"
+    }
+  },
+  "browserServices": {
+    "matchMedia": {
+      "supported": true,
+      "value": {
+        "query": "(max-width: mobileBreakpoint - 1px)",
+        "initialClientRead": "synchronous",
+        "subscription": "change listener"
+      },
+      "evidence": "canonical runtime responsive service boundary"
+    },
+    "resize": {
+      "supported": true,
+      "value": {
+        "scope": "sidebar width drag only",
+        "source": "window pointermove/pointerup",
+        "viewportMode": "not derived from resize events directly"
+      },
+      "evidence": "canonical resize and matchMedia boundaries"
+    },
+    "portal": {
+      "supported": true,
+      "value": "mobile branch requires a document portal target",
+      "evidence": "canonical mobile root semantics"
+    },
+    "focus": {
+      "supported": true,
+      "value": "document activeElement and focus/focusout services",
+      "evidence": "canonical focus semantics"
+    }
+  },
+  "ssr": {
+    "initialViewport": {
+      "supported": true,
+      "value": "desktop (isMobile=false when window is absent)",
+      "evidence": "canonical initial state"
+    },
+    "hydration": {
+      "supported": false,
+      "reason": "narrow clients synchronously select mobile while SSR emits desktop; identical hydration is not established"
+    }
+  },
+  "blockers": [
+    {
+      "field": "ssrHydration.responsiveBranch",
+      "status": "unknown",
+      "reason": "SSR always evaluates isMobile=false, while the first client render reads matchMedia synchronously. A narrow viewport can therefore choose desktop aside on the server and mobile portal/nav on hydration; no identical-hydration or browser-pass claim is made."
+    },
+    {
+      "field": "inert.ssrSerialization",
+      "status": "unknown",
+      "reason": "Mobile, CollapsibleContent, and SlidingView apply/remove inert imperatively in ref callbacks. aria-hidden is SSR-observable, but inert presence before/through hydration must be browser-observed and is not asserted action-free."
+    },
+    {
+      "field": "mobile.portalAndFocus",
+      "status": "unknown",
+      "reason": "Exact portal placement, focus restoration ordering, and focusout interactions require a browser; behavior is documented from canonical runtime but no browser pass is claimed."
+    },
+    {
+      "field": "CollapsibleTrigger.fixture",
+      "status": "blocked",
+      "reason": "CollapsibleTrigger requires a render ReactElement. The generic JSON composition DSL cannot encode a ReactElement-valued prop, so trigger linkage is not fabricated in the action-free vector."
+    },
+    {
+      "field": "SlidingViews.direction",
+      "status": "unknown",
+      "reason": "The public direction prop is declared and defaults left, but canonical runtime computes translation solely from active child index; no direction-dependent observable effect is invented."
+    }
+  ],
+  "capabilityDigest": "532b7bf12a22848a5dc90c2dbace9de9b3014cd9ddf00d979acd3115eb426580"
+}
