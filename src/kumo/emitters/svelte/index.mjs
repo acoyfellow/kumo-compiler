@@ -4,6 +4,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {ALGEBRA_VERSION, validateImplementation} from '../../library/algebra.mjs';
 import {loadLibrary} from '../../library/index.mjs';
+import {requireContentBindings} from '../shared/content-adapter.mjs';
 
 const here=path.dirname(fileURLToPath(import.meta.url));
 const projectRoot=path.resolve(here,'../../../..');
@@ -66,7 +67,7 @@ function operation(op){
  }
 }
 function component(model){
- const impl=validateImplementation(model.draftImplementation);if(impl.algebraVersion!==ALGEBRA_VERSION)throw new Error('unsupported algebra');
+ const impl=validateImplementation(model.draftImplementation);requireContentBindings(model);if(impl.algebraVersion!==ALGEBRA_VERSION)throw new Error('unsupported algebra');
  const propNames=new Set(model.props.items.map(p=>p.name));
  const slots=[...new Set([...model.composition.slots,...collectSlots(impl.componentRoot)])].sort();
  const snippetNames=new Set(['children',...slots]);
@@ -79,7 +80,8 @@ function component(model){
  const stateObject=model.states.map(s=>`${q(s.name)}: ${safeName(`state_${s.name}`)}`).join(', ');
  const stateDecl=model.states.map(s=>`let ${safeName(`state_${s.name}`)} = $state(${q(s.initial)});`).join('\n  ');
  const ops=impl.operations.map(operation).join('\n  ');
- return `<script lang="ts">\n  import type { Snippet } from 'svelte';\n   const browser = typeof document !== 'undefined';\n\n  export const modelDigest = ${q(model.modelDigest)};\n  export type Props = {\n${propLines}${propLines&&slotTypes?'\n':''}${slotTypes}${callbackTypes?'\n'+callbackTypes:''}${propNames.has('children')?'':'\n  children?: Snippet;'}\n  styles?: Record<string, string>;\n  [key: string]: unknown;\n};\n\n  ${destructure}\n  ${stateDecl}\n  const props: Record<string, unknown> = { ${propObject} };\n  const state: Record<string, unknown> = { ${stateObject} };\n  const refs: Record<string, HTMLElement | undefined> = {};\n  const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];\n  const focusTargets = new Set<string>();\n  const lifecycles: Array<{id:string,phase:string}> = [];\n  const services = new Set<string>();\n  const layers = new Set<string>();\n  const styleOperations: unknown[][] = [];\n  const cx = (...values: unknown[]) => values.filter(Boolean).join(' ');\n  ${ops}\n</script>\n\n${node(impl.componentRoot)}\n`;
+ return `<script lang="ts">\n  import type { Snippet } from 'svelte';\n   const browser = typeof document !== 'undefined';\n\n  export const modelDigest = ${q(model.modelDigest)};
+  export const contentBindingDigest = ${q(model.contentBindings.capabilityDigest)};\n  export type Props = {\n${propLines}${propLines&&slotTypes?'\n':''}${slotTypes}${callbackTypes?'\n'+callbackTypes:''}${propNames.has('children')?'':'\n  children?: Snippet;'}\n  styles?: Record<string, string>;\n  [key: string]: unknown;\n};\n\n  ${destructure}\n  ${stateDecl}\n  const props: Record<string, unknown> = { ${propObject} };\n  const state: Record<string, unknown> = { ${stateObject} };\n  const refs: Record<string, HTMLElement | undefined> = {};\n  const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];\n  const focusTargets = new Set<string>();\n  const lifecycles: Array<{id:string,phase:string}> = [];\n  const services = new Set<string>();\n  const layers = new Set<string>();\n  const styleOperations: unknown[][] = [];\n  const cx = (...values: unknown[]) => values.filter(Boolean).join(' ');\n  ${ops}\n</script>\n\n${node(impl.componentRoot)}\n`;
 }
 function collectSlots(root,out=[]){if(Array.isArray(root))root.forEach(x=>collectSlots(x,out));else if(root&&typeof root==='object'){if(root.kind==='slot')out.push(root.name);Object.values(root).forEach(x=>collectSlots(x,out));}return out;}
 const compoundBinding=(root,partPath)=>`${root}${partPath.split('.').join('')}`;
@@ -90,7 +92,7 @@ export function emitSvelteLibrary({output=path.join(projectRoot,'generated/libra
  const {models}=loadLibrary(path.join(projectRoot,'src/kumo/library'));fs.rmSync(output,{recursive:true,force:true});fs.mkdirSync(path.join(output,'components'),{recursive:true});
  const files=[],compoundExports=[];
  for(const model of models){
-  const file=`components/${model.component}.svelte`,source=component(model);fs.writeFileSync(path.join(output,file),source);files.push({component:model.component,file:`./${file}`,subpath:model.public.subpath,modelDigest:model.modelDigest,sha256:crypto.createHash('sha256').update(source).digest('hex'),exports:model.public.exports});
+  const file=`components/${model.component}.svelte`,source=component(model);fs.writeFileSync(path.join(output,file),source);files.push({component:model.component,file:`./${file}`,subpath:model.public.subpath,modelDigest:model.modelDigest,contentBindingDigest:model.contentBindings.capabilityDigest,semanticVariants:(model.draftImplementation.semanticVariants??[]).map(({id,expectationDigest})=>({id,expectationDigest})),unresolvedSemanticOperations:model.unresolvedSemanticOperations??[],sha256:crypto.createHash('sha256').update(source).digest('hex'),exports:model.public.exports});
   for(const item of model.composition?.compoundExports?.paths??[]){
    const binding=compoundBinding(model.composition.compoundExports.canonicalRoot,item.path),partFile=compoundFile(model.component,item.path),partSource=compoundSource(item.path,model.modelDigest),subpath=`./${model.component}/${item.path.split('.').join('/')}`;
    fs.mkdirSync(path.dirname(path.join(output,partFile)),{recursive:true});fs.writeFileSync(path.join(output,partFile),partSource);fs.writeFileSync(path.join(output,`${partFile}.d.ts`),declaration(`./${path.basename(partFile)}`,model.modelDigest));

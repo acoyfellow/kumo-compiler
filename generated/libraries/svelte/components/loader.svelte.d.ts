@@ -2,4 +2,4 @@ import type { Component } from 'svelte';
 import type { Props } from './loader.svelte';
 declare const component: Component<Props>;
 export default component;
-export const modelDigest: "8c761d6a326088b816393ffb81fd67e64ad97a3299d323ad3078a93acebc0730";
+export const modelDigest: "d7a0bf207268a5aec0eb6f604d50f666d06e022e0d21891ef527bc11a76785b3";

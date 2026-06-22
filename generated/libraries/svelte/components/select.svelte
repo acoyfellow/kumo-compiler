@@ -2,7 +2,8 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "3f2897eb8908155ffa6e7d283e13a1cb3e8fc78e30a7b8fe0b1e7bd26f839f11";
+  export const modelDigest = "0c3f889199eb1006a83fb3d1f7315e54f420dbb14327c8661decd4eb1b7a3215";
+  export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   "aria-label/aria-labelledby"?: unknown;
   children?: Snippet;

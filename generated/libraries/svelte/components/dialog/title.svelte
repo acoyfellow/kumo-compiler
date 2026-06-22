@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Snippet } from 'svelte';
 
-  export const modelDigest = "7f6bdd127570c71956f3e4a345c1dbc0fa7bbc62e2a653d6239a37b232cbf01f";
+  export const modelDigest = "f9517f6c346751f7fb38e9984e7e08637053542c11e623d7b71778e55bf138cb";
   export type Props = { children?: Snippet; [key: string]: unknown };
   let { children, ...rest }: Props = $props();
 </script>

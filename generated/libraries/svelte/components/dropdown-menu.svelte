@@ -2,7 +2,8 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "4af0c8a7d7b8b60e856eaff59dc37b9cf13972ebeb4a5efd3e6776a353898221";
+  export const modelDigest = "78a6f126416a72db817c63a86e5de4242629bacce8a6329ec88f16a0c671f447";
+  export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   CheckboxItem?: Snippet;
   "Content/SubContent"?: Snippet;
