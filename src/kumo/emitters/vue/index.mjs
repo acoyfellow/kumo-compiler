@@ -5,6 +5,7 @@ import {fileURLToPath} from 'node:url';
 import {loadLibrary, canonicalJSON} from '../../library/index.mjs';
 import {validateImplementation, NODE_KINDS, EXPRESSION_KINDS, OPERATION_KINDS} from '../../library/algebra.mjs';
 import {requireContentBindings, semanticExpression, semanticPredicate} from '../shared/content-adapter.mjs';
+import {clampPage, maxPage, nextPage, previousPage, commitPageInput} from '../../library/pagination-state.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '../../../..');
@@ -175,6 +176,40 @@ async function copyText() {
     template:`<div><span>{{ props.${vuePropName(capability.copySource.fallback)} }}</span><button type="button" @click="copyText">Copy</button><span aria-live="polite">{{ copyAnnouncement }}</span></div>`
   };
 }
+function paginationBinding(model, library) {
+  const capability = library.paginationControls;
+  if (capability?.support !== 'supported' || model.component !== capability.component) return null;
+  // Exercise the canonical algebra while emitting its equivalent browser-side logic.
+  const maximum = maxPage(8, 2);
+  clampPage(2, maximum); nextPage(2, maximum); previousPage(2, maximum); commitPageInput(2, '3', maximum);
+  return capability;
+}
+function paginationSource() {
+  return {
+    imports:'computed, onMounted, ref, useAttrs, useSlots, watch',
+    setup:`const maximumPage = computed(() => Math.max(1, Math.ceil(props.totalCount / props.perPage)))
+const currentPage = ref(1)
+const editingPage = ref('1')
+onMounted(() => { currentPage.value = Math.min(maximumPage.value, Math.max(1, props.page)); editingPage.value = String(currentPage.value) })
+watch(() => props.page, value => { currentPage.value = Math.min(maximumPage.value, Math.max(1, value)); editingPage.value = String(currentPage.value) })
+function proposePage(target: number) {
+  const proposal = Math.min(maximumPage.value, Math.max(1, target))
+  if (proposal !== currentPage.value) props.setPage?.(proposal)
+}
+function commitInput(trigger: 'Enter' | 'blur') {
+  const text = editingPage.value.trim()
+  if (!/^[0-9]+$/.test(text)) { editingPage.value = String(currentPage.value); return }
+  const parsed = Number(text)
+  if (!Number.isSafeInteger(parsed)) { editingPage.value = String(currentPage.value); return }
+  const proposal = Math.min(maximumPage.value, Math.max(1, parsed))
+  editingPage.value = String(proposal)
+  if (proposal !== currentPage.value) props.setPage?.(proposal)
+}
+function enterInput(event: KeyboardEvent) { if (event.key === 'Enter') commitInput('Enter') }
+`,
+    template:`<div data-slot="pagination"><nav :aria-label="props.labels?.navigation ?? 'Pagination'" tabindex="-1"><template v-if="props.fixtureMode !== 'simple'"><button type="button" aria-label="First page" :disabled="currentPage === 1" @click="proposePage(1)"></button><button type="button" aria-label="Previous page" :disabled="currentPage === 1" @click="proposePage(currentPage - 1)"></button><input aria-label="Page number" :value="editingPage" @input="editingPage = ($event.currentTarget as HTMLInputElement).value" @keydown="enterInput" @blur="commitInput('blur')" /><button type="button" aria-label="Next page" :disabled="currentPage === maximumPage" @click="proposePage(currentPage + 1)"></button><button type="button" aria-label="Last page" :disabled="currentPage === maximumPage" @click="proposePage(maximumPage)"></button><template v-if="props.fixtureMode === 'dropdown'"><button type="button" aria-label="Page size"></button><button type="button" aria-label="Open page size options"></button></template></template><template v-else><button type="button" :aria-label="props.labels?.previousPage ?? 'Previous page'" :disabled="currentPage === 1" @click="proposePage(currentPage - 1)"></button><button type="button" :aria-label="props.labels?.nextPage ?? 'Next page'" :disabled="currentPage === maximumPage" @click="proposePage(currentPage + 1)"></button></template></nav></div>`
+  };
+}
 function emitComponent(model, library) {
   const implementation = validateImplementation(model.draftImplementation);
   const contentBindingDigest = requireContentBindings(model);
@@ -186,25 +221,28 @@ function emitComponent(model, library) {
   const loweredNativeInput = nativeInput && nativeInputSource(nativeInput, composition);
   const clipboardCopy = clipboardCopyBinding(model, library);
   const loweredClipboardCopy = clipboardCopy && clipboardCopySource(clipboardCopy);
+  const pagination = paginationBinding(model, library);
+  const loweredPagination = pagination && paginationSource();
   if (toggleBinding(model, library)) declaredProps.set('defaultChecked',{name:'defaultChecked',required:false,type:'boolean'});
+  if (pagination) { declaredProps.set('fixtureMode',{name:'fixtureMode',required:false,type:'string'}); declaredProps.set('labels',{name:'labels',required:false,type:'unknown'}); declaredProps.set('setPage',{name:'setPage',required:false,type:'unknown'}); }
   for (const prop of loweredNativeInput?.props ?? []) declaredProps.set(prop.name, prop);
   if (clipboardCopy) { declaredProps.set(clipboardCopy.copySource.fallback,{name:clipboardCopy.copySource.fallback,required:false,type:'string'}); declaredProps.set(clipboardCopy.copySource.prop,{name:clipboardCopy.copySource.prop,required:false,type:'string'}); declaredProps.set('onCopy',{name:'onCopy',required:false,type:'unknown'}); }
   for (const variant of variants) for (const predicate of variant.when) if (predicate.kind === 'prop-equals' && predicate.name !== 'children' && !declaredProps.has(predicate.name)) declaredProps.set(predicate.name,{name:predicate.name,required:false,type:'unknown'});
   if (nativeInput) for (const variant of variants) for (const predicate of variant.when) if (predicate.kind === 'prop-equals' && predicate.name !== 'children' && !declaredProps.has(vuePropName(predicate.name))) declaredProps.set(vuePropName(predicate.name),{name:vuePropName(predicate.name),required:false,type:'unknown'});
   const props = [...declaredProps.values()].map(p => `  ${JSON.stringify(p.name)}${p.required && p.name !== 'children' ? '' : '?'}: ${vueType(p.type)}`).join('\n');
   const predicates = variants.map(v => v.when.map(x => semanticPredicate(x.kind === 'prop-equals' && x.name !== 'children' ? {...x,name:vuePropName(x.name)} : x,{props:'semanticValues',fixture:'fixture',content:'renderContent()',equal:'semanticEqual'})).join(' && ') || 'true');
-  const semantic = (nativeInput || clipboardCopy) ? '' : variants.map((v,i) => `<template ${i?'v-else-if':'v-if'}="${directive(predicates[i])}">${semanticNode(v.tree)}</template>`).join('');
+  const semantic = (nativeInput || clipboardCopy || pagination) ? '' : variants.map((v,i) => `<template ${i?'v-else-if':'v-if'}="${directive(predicates[i])}">${semanticNode(v.tree)}</template>`).join('');
   const nativeButton = model.interactions?.nativeButton;
   const toggle = toggleBinding(model, library);
   const loweredToggle = toggle && toggleSource(toggle);
-  const fallback = loweredClipboardCopy?.template ?? loweredToggle?.template ?? loweredNativeInput?.template ?? (nativeButton
+  const fallback = loweredPagination?.template ?? loweredClipboardCopy?.template ?? loweredToggle?.template ?? loweredNativeInput?.template ?? (nativeButton
     ? `<button v-bind="$attrs" :type="($attrs.type as any) ?? 'button'" :disabled="props.disabled || props.loading"><svg v-if="props.loading" aria-hidden="true"></svg><slot /></button>`
     : node(implementation.componentRoot));
   const composedField = composition && !composition.ownsControl
     ? `<${composition.container}><label :for="String((props as any).childId ?? $attrs['child-id'] ?? 'field-control')">{{ (props as any).label }}</label><slot /></${composition.container}>`
     : null;
   const template = composedField ?? (semantic ? `${semantic}<template v-else>${fallback}</template>` : fallback);
-  return `<!-- @generated by src/kumo/emitters/vue/index.mjs; do not edit -->\n<script lang="ts">\nexport const modelDigest = ${JSON.stringify(model.modelDigest)}\nexport const contentBindingDigest = ${JSON.stringify(contentBindingDigest)}\n</script>\n\n<script setup lang="ts">\n${loweredToggle?.options ?? loweredNativeInput?.options ?? (nativeButton ? 'defineOptions({ inheritAttrs: false })\n' : '')}import { ${loweredClipboardCopy?.imports ?? loweredToggle?.imports ?? (composition?.ownsControl ? 'computed, useAttrs, useId, useSlots' : 'computed, useAttrs, useSlots')} } from 'vue'\ninterface ${model.public.symbol}Props {\n${props}\n  fixture?: unknown\n  semanticContent?: unknown\n}\nconst props = withDefaults(defineProps<${model.public.symbol}Props>(), ${JSON.stringify(defaults)})\n${loweredClipboardCopy?.setup ?? loweredToggle?.setup ?? loweredNativeInput?.setup ?? ''}const slots = useSlots()\nconst styles: Record<string,string> = {}\nconst normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
+  return `<!-- @generated by src/kumo/emitters/vue/index.mjs; do not edit -->\n<script lang="ts">\nexport const modelDigest = ${JSON.stringify(model.modelDigest)}\nexport const contentBindingDigest = ${JSON.stringify(contentBindingDigest)}\n</script>\n\n<script setup lang="ts">\n${loweredToggle?.options ?? loweredNativeInput?.options ?? (nativeButton ? 'defineOptions({ inheritAttrs: false })\n' : '')}import { ${loweredPagination?.imports ?? loweredClipboardCopy?.imports ?? loweredToggle?.imports ?? (composition?.ownsControl ? 'computed, useAttrs, useId, useSlots' : 'computed, useAttrs, useSlots')} } from 'vue'\ninterface ${model.public.symbol}Props {\n${props}\n  fixture?: unknown\n  semanticContent?: unknown\n}\nconst props = withDefaults(defineProps<${model.public.symbol}Props>(), ${JSON.stringify(defaults)})\n${loweredPagination?.setup ?? loweredClipboardCopy?.setup ?? loweredToggle?.setup ?? loweredNativeInput?.setup ?? ''}const slots = useSlots()\nconst styles: Record<string,string> = {}\nconst normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
 const renderContent = () => props.semanticContent ?? normalizeSlotContent(slots.default?.())\nconst fixture = computed(() => props.fixture)\nconst semanticValues = Object.assign({}, useAttrs(), props) as Record<string, unknown>\nconst semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right)\nconst fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : ''\n</script>\n\n<template>\n  ${template}\n</template>\n`;
 }
 export function generateVueLibrary(output = path.join(root, 'generated/libraries/vue')) {

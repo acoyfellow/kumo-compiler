@@ -17,6 +17,7 @@
   collection?: Snippet;
   root?: Snippet;
   children?: Snippet;
+  fixtureMode?: "simple" | "dropdown";
   styles?: Record<string, string>;
   fixture?: unknown;
   [key: string]: unknown;
@@ -33,6 +34,7 @@
     totalCount = undefined,
     collection = undefined,
     root = undefined,
+    fixtureMode = undefined,
     children,
     fixture = undefined,
     __consumerContent = undefined,
@@ -43,6 +45,11 @@
   let state_maxPage = $state("ceil(totalCount/perPage)");
   let state_page = $state("controlled prop");
 
+  let currentPage = $state(Number(page ?? 1));
+  const maxPage = $derived(Math.max(1, Math.ceil(Number(totalCount ?? 0) / Number(perPage ?? 1))));
+  function proposePage(value: number) { const proposal = Math.min(maxPage, Math.max(1, value)); if (proposal !== currentPage) { currentPage = proposal; setPage?.(proposal); } }
+  function commitPageInput(event: Event) { const input = event.currentTarget as HTMLInputElement; const raw = input.value.trim(); if (!/^\d+$/.test(raw)) { input.value = String(currentPage); return; } proposePage(Number.parseInt(raw, 10)); input.value = String(currentPage); }
+  function commitPageOnEnter(event: KeyboardEvent) { if (event.key === 'Enter') commitPageInput(event); }
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "compound": compound, "controls": controls, "labels": labels, "page": page, "pageSelector": pageSelector, "perPage": perPage, "setPage": setPage, "totalCount": totalCount, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;
@@ -64,39 +71,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if Object.prototype.hasOwnProperty.call(semanticValues, "fixtureMode") && semanticEqual(semanticValues.fixtureMode, "simple") && Object.prototype.hasOwnProperty.call(semanticValues, "labels") && semanticEqual(semanticValues.labels, {"navigation":"Results pages","previousPage":"Back","nextPage":"Forward"}) && Object.prototype.hasOwnProperty.call(semanticValues, "page") && semanticEqual(semanticValues.page, 2) && Object.prototype.hasOwnProperty.call(semanticValues, "perPage") && semanticEqual(semanticValues.perPage, 10) && Object.prototype.hasOwnProperty.call(semanticValues, "totalCount") && semanticEqual(semanticValues.totalCount, 35)}
-  <div>
-    <nav aria-label={"Results pages"}></nav>
-    <button></button>
-    <button></button>
-  </div>
-{:else if Object.prototype.hasOwnProperty.call(semanticValues, "fixtureMode") && semanticEqual(semanticValues.fixtureMode, "dropdown") && Object.prototype.hasOwnProperty.call(semanticValues, "page") && semanticEqual(semanticValues.page, 2) && Object.prototype.hasOwnProperty.call(semanticValues, "perPage") && semanticEqual(semanticValues.perPage, 25) && Object.prototype.hasOwnProperty.call(semanticValues, "totalCount") && semanticEqual(semanticValues.totalCount, 100)}
-  <div>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-  </div>
-{:else if Object.prototype.hasOwnProperty.call(semanticValues, "page") && semanticEqual(semanticValues.page, 1) && Object.prototype.hasOwnProperty.call(semanticValues, "perPage") && semanticEqual(semanticValues.perPage, 10) && Object.prototype.hasOwnProperty.call(semanticValues, "totalCount") && semanticEqual(semanticValues.totalCount, 35)}
-  <div data-slot={"pagination"}>
-    <nav aria-label={"Pagination"}></nav>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <input aria-label={"Page number"} value={"1"}>
-  </div>
-{:else if Object.prototype.hasOwnProperty.call(semanticValues, "page") && semanticEqual(semanticValues.page, 3) && Object.prototype.hasOwnProperty.call(semanticValues, "perPage") && semanticEqual(semanticValues.perPage, 10) && Object.prototype.hasOwnProperty.call(semanticValues, "totalCount") && semanticEqual(semanticValues.totalCount, 35)}
-  <div>
-    <input value={"1"}>
-  </div>
-{:else}
-<section data-kumo-part="root">
-  {#if root}{@render root()}{/if}
-</section>
-<section data-kumo-part="collection">
-  {#if collection}{@render collection()}{/if}
-</section>
-{/if}
+<div data-slot="pagination"><nav aria-label={labels?.navigation ?? 'Pagination'}>{#if fixtureMode !== 'simple'}<button type="button" aria-label="First page" disabled={currentPage === 1} onclickcapture={() => proposePage(1)}>First</button>{/if}<button type="button" aria-label={labels?.previousPage ?? 'Previous page'} disabled={currentPage === 1} onclickcapture={() => proposePage(currentPage - 1)}>Previous</button>{#if fixtureMode !== 'simple'}<input aria-label="Page number" value={browser ? String(currentPage) : '1'} onkeydowncapture={commitPageOnEnter} onblurcapture={commitPageInput}>{#if fixtureMode === 'dropdown'}<button type="button" aria-label="Page size">{perPage}</button><button type="button" aria-label="Page size options">Options</button>{/if}{/if}<button type="button" aria-label={labels?.nextPage ?? 'Next page'} disabled={currentPage === maxPage} onclickcapture={() => proposePage(currentPage + 1)}>Next</button>{#if fixtureMode !== 'simple'}<button type="button" aria-label="Last page" disabled={currentPage === maxPage} onclickcapture={() => proposePage(maxPage)}>Last</button>{/if}</nav></div>

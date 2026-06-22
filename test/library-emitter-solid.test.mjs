@@ -112,6 +112,13 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   assert.match(clipboardDeclaration, /"text"\?: string;/);
   assert.match(clipboardDeclaration, /"onCopy"\?: \(\) => void;/);
 
+  const paginationSource = fs.readFileSync(path.join(first, 'pagination.tsx'), 'utf8');
+  assert.match(paginationSource, /<div data-slot="pagination"><nav aria-label=/);
+  assert.match(paginationSource, /props\.fixtureMode !== "simple"/);
+  assert.match(paginationSource, /props\.fixtureMode === "dropdown"/);
+  assert.equal((paginationSource.match(/<button/g) ?? []).length, 6);
+  assert.match(paginationSource, /<input aria-label="Page number" value=\{inputValue\(\)\}/);
+
   const buttonSource = fs.readFileSync(path.join(first, 'button.tsx'), 'utf8');
   const buttonDeclaration = fs.readFileSync(path.join(first, 'button.d.ts'), 'utf8');
   assert.match(buttonSource, /<button id=\{props\.id as string\}[^>]*type=\{\(props\.type/);
@@ -146,6 +153,15 @@ test('Solid SSR renders every compiled semantic predicate through canonical mark
   const buttonItem = result.components.find(item => item.component === 'button');
   const buttonModule = await import(path.join(build, buttonItem.source.replace(/tsx$/, 'js')) + `?interactive=${Date.now()}`);
   const {renderToString} = await import('solid-js/web');
+  const paginationItem = result.components.find(item => item.component === 'pagination');
+  const paginationModule = await import(path.join(build, paginationItem.source.replace(/tsx$/, 'js')) + `?pagination=${Date.now()}`);
+  for (const [fixtureMode, count, hasInput] of [[undefined, 4, true], ['simple', 2, false], ['dropdown', 6, true]]) {
+    const html = renderToString(() => paginationModule.Pagination({page:3, perPage:10, totalCount:40, fixtureMode}));
+    assert.match(html, /<div data-slot="pagination"><nav aria-label="Pagination">/);
+    assert.equal((html.match(/<button/g) ?? []).length, count);
+    assert.equal(html.includes('aria-label="Page number"'), hasInput);
+  }
+
   const interactive = [
     [{children:'Enabled', id:'enabled', onClick:() => {}}, /<button[^>]*id="enabled"[^>]*type="button"[^>]*>Enabled<\/button>/],
     [{children:'Disabled', disabled:true}, /<button[^>]*disabled[^>]*>Disabled<\/button>/],

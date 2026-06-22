@@ -5,7 +5,7 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 </script>
 
 <script setup lang="ts">
-import { computed, useAttrs, useSlots } from 'vue'
+import { computed, onMounted, ref, useAttrs, useSlots, watch } from 'vue'
 interface PaginationProps {
   "compound"?: unknown
   "controls"?: unknown
@@ -15,11 +15,30 @@ interface PaginationProps {
   "perPage"?: number
   "setPage"?: unknown
   "totalCount"?: number
-  "fixtureMode"?: unknown
+  "fixtureMode"?: string
   fixture?: unknown
   semanticContent?: unknown
 }
 const props = withDefaults(defineProps<PaginationProps>(), {"controls":"full","labels":"English canonical labels","page":1,"pageSelector":"input"})
+const maximumPage = computed(() => Math.max(1, Math.ceil(props.totalCount / props.perPage)))
+const currentPage = ref(1)
+const editingPage = ref('1')
+onMounted(() => { currentPage.value = Math.min(maximumPage.value, Math.max(1, props.page)); editingPage.value = String(currentPage.value) })
+watch(() => props.page, value => { currentPage.value = Math.min(maximumPage.value, Math.max(1, value)); editingPage.value = String(currentPage.value) })
+function proposePage(target: number) {
+  const proposal = Math.min(maximumPage.value, Math.max(1, target))
+  if (proposal !== currentPage.value) props.setPage?.(proposal)
+}
+function commitInput(trigger: 'Enter' | 'blur') {
+  const text = editingPage.value.trim()
+  if (!/^[0-9]+$/.test(text)) { editingPage.value = String(currentPage.value); return }
+  const parsed = Number(text)
+  if (!Number.isSafeInteger(parsed)) { editingPage.value = String(currentPage.value); return }
+  const proposal = Math.min(maximumPage.value, Math.max(1, parsed))
+  editingPage.value = String(proposal)
+  if (proposal !== currentPage.value) props.setPage?.(proposal)
+}
+function enterInput(event: KeyboardEvent) { if (event.key === 'Enter') commitInput('Enter') }
 const slots = useSlots()
 const styles: Record<string,string> = {}
 const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
@@ -31,5 +50,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;fixtureMode&quot;) &amp;&amp; semanticEqual(semanticValues.fixtureMode, &quot;simple&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;labels&quot;) &amp;&amp; semanticEqual(semanticValues.labels, {&quot;navigation&quot;:&quot;Results pages&quot;,&quot;previousPage&quot;:&quot;Back&quot;,&quot;nextPage&quot;:&quot;Forward&quot;}) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;page&quot;) &amp;&amp; semanticEqual(semanticValues.page, 2) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;perPage&quot;) &amp;&amp; semanticEqual(semanticValues.perPage, 10) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;totalCount&quot;) &amp;&amp; semanticEqual(semanticValues.totalCount, 35)"><div><nav aria-label="Results pages"></nav><button></button><button></button></div></template><template v-else-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;fixtureMode&quot;) &amp;&amp; semanticEqual(semanticValues.fixtureMode, &quot;dropdown&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;page&quot;) &amp;&amp; semanticEqual(semanticValues.page, 2) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;perPage&quot;) &amp;&amp; semanticEqual(semanticValues.perPage, 25) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;totalCount&quot;) &amp;&amp; semanticEqual(semanticValues.totalCount, 100)"><div><button></button><button></button><button></button><button></button><button></button><button></button></div></template><template v-else-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;page&quot;) &amp;&amp; semanticEqual(semanticValues.page, 1) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;perPage&quot;) &amp;&amp; semanticEqual(semanticValues.perPage, 10) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;totalCount&quot;) &amp;&amp; semanticEqual(semanticValues.totalCount, 35)"><div data-slot="pagination"><nav aria-label="Pagination"></nav><button></button><button></button><button></button><button></button><input aria-label="Page number" value="1"></input></div></template><template v-else-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;page&quot;) &amp;&amp; semanticEqual(semanticValues.page, 3) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;perPage&quot;) &amp;&amp; semanticEqual(semanticValues.perPage, 10) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;totalCount&quot;) &amp;&amp; semanticEqual(semanticValues.totalCount, 35)"><div><input value="1"></input></div></template><template v-else><div data-kumo-compound="pagination" :class="styles.root"><section data-kumo-part="root"><slot name="root"></slot></section><section data-kumo-part="collection"><slot name="collection"></slot></section></div></template>
+  <div data-slot="pagination"><nav :aria-label="props.labels?.navigation ?? 'Pagination'" tabindex="-1"><template v-if="props.fixtureMode !== 'simple'"><button type="button" aria-label="First page" :disabled="currentPage === 1" @click="proposePage(1)"></button><button type="button" aria-label="Previous page" :disabled="currentPage === 1" @click="proposePage(currentPage - 1)"></button><input aria-label="Page number" :value="editingPage" @input="editingPage = ($event.currentTarget as HTMLInputElement).value" @keydown="enterInput" @blur="commitInput('blur')" /><button type="button" aria-label="Next page" :disabled="currentPage === maximumPage" @click="proposePage(currentPage + 1)"></button><button type="button" aria-label="Last page" :disabled="currentPage === maximumPage" @click="proposePage(maximumPage)"></button><template v-if="props.fixtureMode === 'dropdown'"><button type="button" aria-label="Page size"></button><button type="button" aria-label="Open page size options"></button></template></template><template v-else><button type="button" :aria-label="props.labels?.previousPage ?? 'Previous page'" :disabled="currentPage === 1" @click="proposePage(currentPage - 1)"></button><button type="button" :aria-label="props.labels?.nextPage ?? 'Next page'" :disabled="currentPage === maximumPage" @click="proposePage(currentPage + 1)"></button></template></nav></div>
 </template>

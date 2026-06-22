@@ -94,6 +94,31 @@ test('Vue SSR renders all 66 semantic variants through canonical root and descen
   assert.equal(rendered,66); assert.equal(manifest.components.flatMap(x=>x.unresolvedSemanticOperations).length,0);
 });
 
+test('Vue pagination-controls capability lowers full, simple, and dropdown button counts deterministically', async t => {
+  const library=loadLibrary(), capability=library.paginationControls;
+  assert.equal(capability.support,'supported');
+  const emissions=[];
+  for(let run=0;run<2;run++){
+    const build=fs.mkdtempSync(path.resolve(`.kumo-vue-pagination-${run}-`)); t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+    const manifest=generateVueLibrary(output), model=library.models.find(model=>model.component===capability.component);
+    const entry=manifest.components.find(entry=>entry.modelDigest===model.modelDigest);
+    const source=fs.readFileSync(path.join(output,entry.file),'utf8');
+    assert.match(source,/<div data-slot="pagination"><nav :aria-label=/);
+    assert.doesNotMatch(source,/innerHTML|@html|dispatchEvent|new Event|\.blur\(/);
+    const Component=await compileSSRComponent(entry,build), markup=[];
+    for(const [fixtureMode,count] of [[undefined,4],['simple',2],['dropdown',6]]){
+      const html=await renderToString(createSSRApp({setup:()=>()=>h(Component,{page:3,perPage:10,totalCount:100,fixtureMode})}));
+      assert.match(html,/^<div data-slot="pagination"><nav aria-label="Pagination"/);
+      assert.equal((html.match(/<button/g)??[]).length,count);
+      if(fixtureMode!=='simple') assert.match(html,/aria-label="Page number" value="1"/);
+      else assert.doesNotMatch(html,/aria-label="Page number"/);
+      markup.push(html);
+    }
+    emissions.push({source,markup});
+  }
+  assert.deepEqual(emissions[1],emissions[0]);
+});
+
 test('Vue clipboard-copy capability lowers to deterministic hydration-stable native markup', async t => {
   const library=loadLibrary(), capability=library.clipboardCopy;
   assert.equal(capability.support,'supported');

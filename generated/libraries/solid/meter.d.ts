@@ -5,11 +5,11 @@ export interface MeterProps {
   "customValue"?: unknown;
   "indicatorClassName"?: unknown;
   "label": unknown;
-  "max"?: unknown;
-  "min"?: unknown;
+  "max"?: number;
+  "min"?: number;
   "showValue"?: unknown;
   "trackClassName"?: unknown;
-  "value"?: unknown;
+  "value"?: number;
   children?: JSX.Element;
   fixture?: unknown;
   styles?: Record<string, string>;

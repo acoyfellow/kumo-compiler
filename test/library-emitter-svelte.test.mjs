@@ -201,6 +201,33 @@ test('supported clipboard-copy lowers generically with stable SSR and determinis
  assert.match(html,/^<div>visible<button type="button">Copy<\/button><span aria-live="polite"><\/span><\/div>$/);
 });
 
+test('supported pagination controls lower generically with deterministic fixture button counts',async t=>{
+ const build=fs.mkdtempSync(path.join(os.tmpdir(),'kumo-svelte-pagination-'));
+ t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+ fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
+ const {paginationControls}=loadLibrary();
+ const first=emitSvelteLibrary({output});
+ assert.equal(first.components.flatMap(x=>x.semanticVariants).length,66);
+ const source=fs.readFileSync(path.join(output,`components/${paginationControls.component}.svelte`),'utf8');
+ const second=emitSvelteLibrary({output});
+ assert.equal(fs.readFileSync(path.join(output,`components/${paginationControls.component}.svelte`),'utf8'),source);
+ const emitter=fs.readFileSync(path.resolve('src/kumo/emitters/svelte/index.mjs'),'utf8');
+ assert.match(emitter,/paginationControls\.support==='supported'&&model\.component===paginationControls\.component/);
+ assert.match(source,/onclickcapture=\{\(\) => proposePage\(currentPage \+ 1\)\}/);
+ assert.match(source,/onkeydowncapture=\{commitPageOnEnter\} onblurcapture=\{commitPageInput\}/);
+ assert.doesNotMatch(source,/dispatchEvent|@html|innerHTML/);
+ const compiled=compile(source,{filename:'pagination.svelte',generate:'server'});
+ const target=path.join(build,'pagination.mjs');fs.writeFileSync(target,compiled.js.code);
+ const Pagination=(await import(pathToFileURL(target)+`?${Date.now()}`)).default;
+ const clean=props=>render(Pagination,{props}).body.replace(/<!--[\s\S]*?-->/g,'');
+ const full=clean({page:3,perPage:10,totalCount:40});
+ assert.match(full,/^<div data-slot="pagination"><nav aria-label="Pagination">/);
+ assert.equal((full.match(/<button\b/g)??[]).length,4);
+ assert.match(full,/<input aria-label="Page number" value="1"/);
+ assert.equal((clean({fixtureMode:'simple',page:1,perPage:10,totalCount:40}).match(/<button\b/g)??[]).length,2);
+ assert.equal((clean({fixtureMode:'dropdown',page:1,perPage:10,totalCount:40}).match(/<button\b/g)??[]).length,6);
+});
+
 test('resolution receipt canonically binds capability and generated manifest hashes',()=>{
  const receiptPath=path.resolve('proof/dx/conformance/diagnostics/semantic-emitter-svelte-resolution.json');
  const receipt=JSON.parse(fs.readFileSync(receiptPath,'utf8'));

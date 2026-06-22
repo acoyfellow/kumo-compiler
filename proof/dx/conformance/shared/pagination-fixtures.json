@@ -1,0 +1,843 @@
+{
+  "schemaVersion": "kumo.pagination-fixtures/v1",
+  "plans": [
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "pagination",
+      "vector": "legacy-page-one",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/pagination.json",
+        "sha256": "68baab4ad00ba1874680715bff460c86cca293181f67b578184c83904427071c",
+        "vectorSha256": "12494740bed4b5ce8e0093a6c3d597c4b991b1e7f45a1d91c747c5d8fc8cc727"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Pagination",
+        "props": {
+          "page": 1,
+          "perPage": 10,
+          "totalCount": 35
+        },
+        "children": []
+      },
+      "setup": [],
+      "actions": [],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "descendants",
+          "path": "descendants"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div",
+            "attributes": {
+              "includes": {
+                "data-slot": "pagination"
+              }
+            }
+          }
+        },
+        {
+          "kind": "includes",
+          "probe": "descendants",
+          "expected": [
+            {
+              "selector": "nav",
+              "count": 1,
+              "attributes": {
+                "includes": {
+                  "aria-label": "Pagination"
+                }
+              }
+            },
+            {
+              "selector": "button",
+              "count": 4
+            },
+            {
+              "selector": "input",
+              "count": 1,
+              "attributes": {
+                "includes": {
+                  "aria-label": "Page number",
+                  "value": "1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "pagination-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "descendant-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "450404569b987769d2dd110ca9bc3181cd709eac055e0a80f01ed48e77e1b57a"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "pagination",
+      "vector": "next-controlled",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/pagination.json",
+        "sha256": "68baab4ad00ba1874680715bff460c86cca293181f67b578184c83904427071c",
+        "vectorSha256": "a8ef2b5d903347f1d131a478dc8ae099c78ab9dcc948ad9db3ceba0e3411947b"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Pagination",
+        "props": {
+          "page": 2,
+          "perPage": 10,
+          "totalCount": 35
+        },
+        "children": []
+      },
+      "setup": [
+        {
+          "kind": "event-recorder"
+        }
+      ],
+      "actions": [
+        {
+          "type": "click",
+          "selector": "[aria-label=\"Next page\"]"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "page": 3
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "page:3"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "[aria-label=\"Next page\"]"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "pagination-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "descendant-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "8720aef6bda4ca0f635a5341aab66fa9b9314e5ee6ce05736233c9d3a605c9d1"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "pagination",
+      "vector": "boundaries",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/pagination.json",
+        "sha256": "68baab4ad00ba1874680715bff460c86cca293181f67b578184c83904427071c",
+        "vectorSha256": "208dc7a67936b0aff68b3ecce2160a5882a9f27d0a448c6607ffbcc9baebff41"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Pagination",
+        "props": {
+          "page": 4,
+          "perPage": 10,
+          "totalCount": 35
+        },
+        "children": []
+      },
+      "setup": [
+        {
+          "kind": "event-recorder"
+        }
+      ],
+      "actions": [
+        {
+          "type": "click",
+          "selector": "[aria-label=\"Next page\"]"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "page": 4,
+            "nextDisabled": true,
+            "lastDisabled": true
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": []
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "none"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "pagination-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "descendant-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "d0d1eed6f49c1c0df59d70b29b5cd02f4b8549ddaa99aa214098db10628fa7b9"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "pagination",
+      "vector": "input-enter-clamp",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/pagination.json",
+        "sha256": "68baab4ad00ba1874680715bff460c86cca293181f67b578184c83904427071c",
+        "vectorSha256": "c6317bd33aaad4b3a5c4cdaab18e3804954fddc15f819008060bdf9652a84628"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Pagination",
+        "props": {
+          "page": 2,
+          "perPage": 10,
+          "totalCount": 35
+        },
+        "children": []
+      },
+      "setup": [
+        {
+          "kind": "event-recorder"
+        }
+      ],
+      "actions": [
+        {
+          "type": "focus",
+          "selector": "input"
+        },
+        {
+          "type": "type",
+          "selector": "input",
+          "text": "99",
+          "editMode": "replace"
+        },
+        {
+          "type": "key",
+          "selector": "input",
+          "key": "Enter"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "page": 4,
+            "input": "4"
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "page:4"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "input"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "pagination-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "descendant-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "906d360e363ade198e18809144be6df0f5412a3fd8ec205d2eb408c7ad786ee0"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "pagination",
+      "vector": "input-blur-clamp",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/pagination.json",
+        "sha256": "68baab4ad00ba1874680715bff460c86cca293181f67b578184c83904427071c",
+        "vectorSha256": "45c272ba0aec5ec68df0523d5ed2f96765800b6fa52a18ac0087631c6b2a4df6"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Pagination",
+        "props": {
+          "page": 2,
+          "perPage": 10,
+          "totalCount": 35
+        },
+        "children": []
+      },
+      "setup": [
+        {
+          "kind": "event-recorder"
+        }
+      ],
+      "actions": [
+        {
+          "type": "focus",
+          "selector": "input"
+        },
+        {
+          "type": "type",
+          "selector": "input",
+          "text": "0",
+          "editMode": "replace"
+        },
+        {
+          "type": "blur",
+          "selector": "input"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "page": 1,
+            "input": "1"
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "page:1"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "nav"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "pagination-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "descendant-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "872124449a19c2d8c37c4cfebe69208e40330b5f4db1f1792260cb688fc10dd1"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "pagination",
+      "vector": "legacy-page-three-ssr",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/pagination.json",
+        "sha256": "68baab4ad00ba1874680715bff460c86cca293181f67b578184c83904427071c",
+        "vectorSha256": "3e9bd0d688161ffe1910ce6939720b7f5e0a594a6f5ed4531e3db4aeecfa5a8f"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Pagination",
+        "props": {
+          "page": 3,
+          "perPage": 10,
+          "totalCount": 35
+        },
+        "children": []
+      },
+      "setup": [
+        {
+          "kind": "event-recorder"
+        }
+      ],
+      "actions": [],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "descendants",
+          "path": "descendants"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "includes",
+          "probe": "descendants",
+          "expected": [
+            {
+              "selector": "input",
+              "count": 1,
+              "attributes": {
+                "includes": {
+                  "value": "1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "hydratedValue": "3",
+            "nodeIdentity": true
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": []
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "pagination-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "descendant-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "3eabc45efde4bf6561e9541711f05ba00ddfa2d5419b61c5af7ff88e6ab46092"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "pagination",
+      "vector": "compound-simple-labels",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/pagination.json",
+        "sha256": "68baab4ad00ba1874680715bff460c86cca293181f67b578184c83904427071c",
+        "vectorSha256": "1f4217341132c114863bbfc22e390f3b9d54e8c7bde90a0f6d9f56d3617ddc11"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Pagination",
+        "props": {
+          "page": 2,
+          "perPage": 10,
+          "totalCount": 35,
+          "fixtureMode": "simple",
+          "labels": {
+            "navigation": "Results pages",
+            "previousPage": "Back",
+            "nextPage": "Forward"
+          }
+        },
+        "children": []
+      },
+      "setup": [],
+      "actions": [],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "descendants",
+          "path": "descendants"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "includes",
+          "probe": "descendants",
+          "expected": [
+            {
+              "selector": "nav",
+              "count": 1,
+              "attributes": {
+                "includes": {
+                  "aria-label": "Results pages"
+                }
+              }
+            },
+            {
+              "selector": "button",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "pagination-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "descendant-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "4de6b8c0fde427e0824f070fe498e5a6d57877d112835c802971ec25eefa8535"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "pagination",
+      "vector": "compound-dropdown-size",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/pagination.json",
+        "sha256": "68baab4ad00ba1874680715bff460c86cca293181f67b578184c83904427071c",
+        "vectorSha256": "6f0c6b1af303f753003d1c960f1e3c8582b809a53d1bea533cbc0770959ec7be"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Pagination",
+        "props": {
+          "page": 2,
+          "perPage": 25,
+          "totalCount": 100,
+          "fixtureMode": "dropdown"
+        },
+        "children": []
+      },
+      "setup": [],
+      "actions": [],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "descendants",
+          "path": "descendants"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "includes",
+          "probe": "descendants",
+          "expected": [
+            {
+              "selector": "button",
+              "count": 6
+            }
+          ]
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "pagination-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "descendant-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "a8e89a4939587be29f74de72dac2b6094e222cf3fa689a9cc583da21736b19b6"
+    }
+  ],
+  "digest": "e695dba638317b86ed3d6a678f101f069abfaa254a01e1994432c180a2000e36"
+}
