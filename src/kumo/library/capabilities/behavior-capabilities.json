@@ -871,8 +871,55 @@
       ]
     },
     {
-      "id": "native-field",
+      "id": "field-wiring",
       "support": "requirements-only",
+      "component": "input",
+      "contractDigest": "8ab290a7d671042434090c4d0e6c8fa30dbb47934480b7b7cabe834ad35553c4",
+      "requirements": {
+        "states": [],
+        "transitions": [],
+        "events": [],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "Tab",
+              "Enter",
+              "Escape"
+            ]
+          }
+        ],
+        "dom": [
+          "div",
+          "input",
+          "label"
+        ],
+        "aria": [
+          "native and Field semantics observed in canonical Chrome"
+        ],
+        "browserServices": []
+      },
+      "controlled": {
+        "supported": false,
+        "reason": "canonical contract does not establish controlled semantics"
+      },
+      "uncontrolled": {
+        "supported": false,
+        "reason": "canonical contract does not establish uncontrolled semantics"
+      },
+      "vectorIds": [
+        "field-label"
+      ],
+      "missingOperations": [
+        {
+          "kind": "field-wiring",
+          "reason": "generated IDs and exact label/description/error/required serialization are not established"
+        }
+      ]
+    },
+    {
+      "id": "native-input-control",
+      "support": "supported",
       "component": "input",
       "contractDigest": "8ab290a7d671042434090c4d0e6c8fa30dbb47934480b7b7cabe834ad35553c4",
       "requirements": {
@@ -917,19 +964,60 @@
       },
       "vectorIds": [
         "bare-disabled",
-        "type",
-        "field-label"
+        "type"
+      ],
+      "missingOperations": []
+    },
+    {
+      "id": "field-wiring",
+      "support": "requirements-only",
+      "component": "input-area",
+      "contractDigest": "4d013786afa0089d44e6e40dc041b4b9b3de7dc5a9403384e70f3a8d55cfcd2b",
+      "requirements": {
+        "states": [],
+        "transitions": [],
+        "events": [],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "Tab",
+              "Enter",
+              "Escape"
+            ]
+          }
+        ],
+        "dom": [
+          "div",
+          "textarea",
+          "label"
+        ],
+        "aria": [
+          "native and Field semantics observed in canonical Chrome"
+        ],
+        "browserServices": []
+      },
+      "controlled": {
+        "supported": false,
+        "reason": "canonical contract does not establish controlled semantics"
+      },
+      "uncontrolled": {
+        "supported": false,
+        "reason": "canonical contract does not establish uncontrolled semantics"
+      },
+      "vectorIds": [
+        "field-error"
       ],
       "missingOperations": [
         {
           "kind": "field-wiring",
-          "reason": "input includes a Field composition vector, but generated IDs and exact label/description/error/required serialization are not established"
+          "reason": "generated IDs and exact label/description/error/required serialization are not established"
         }
       ]
     },
     {
-      "id": "native-field",
-      "support": "requirements-only",
+      "id": "native-input-control",
+      "support": "supported",
       "component": "input-area",
       "contractDigest": "4d013786afa0089d44e6e40dc041b4b9b3de7dc5a9403384e70f3a8d55cfcd2b",
       "requirements": {
@@ -974,15 +1062,9 @@
       },
       "vectorIds": [
         "bare",
-        "type",
-        "field-error"
+        "type"
       ],
-      "missingOperations": [
-        {
-          "kind": "field-wiring",
-          "reason": "input-area includes a Field composition vector, but generated IDs and exact label/description/error/required serialization are not established"
-        }
-      ]
+      "missingOperations": []
     },
     {
       "id": "focus-navigation",
@@ -1571,7 +1653,7 @@
           }
         ],
         "events": [
-          "trusted native input updates DOM value and callback receives current value"
+          "trusted native input and copy callbacks"
         ],
         "focus": [
           {
@@ -1612,7 +1694,7 @@
       "missingOperations": [
         {
           "kind": "reveal-boundary",
-          "reason": "canonical sequence ends masked but does not establish reveal control semantics, intermediate input type, or focus behavior"
+          "reason": "canonical sequence does not establish reveal control semantics, intermediate input type, or focus behavior"
         },
         {
           "kind": "clipboard-failure",
@@ -1620,7 +1702,7 @@
         },
         {
           "kind": "field-wiring",
-          "reason": "label focus is established, but generated IDs and exact for/aria-describedby/required serialization are not exposed"
+          "reason": "generated IDs and exact field serialization are not established"
         }
       ]
     },
@@ -1968,5 +2050,5 @@
       ]
     }
   ],
-  "capabilityDigest": "71a4b96050a75d1ad48c207a4b354645069a8601b3b34aec957794191e690430"
+  "capabilityDigest": "cb5679b8301d3b45b68d4a8e352361a9acb3d59a4bd300c4563a9c279b580167"
 }

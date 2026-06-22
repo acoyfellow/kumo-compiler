@@ -11,7 +11,7 @@ const contracts = names.map(name => JSON.parse(fs.readFileSync(path.join(contrac
 test('registry is canonical and contract-derived', () => {
   const registry = loadBehaviorCapabilities();
   assert.deepEqual(registry, deriveBehaviorCapabilities(contracts));
-  assert.equal(registry.bindings.length, 28);
+  assert.equal(registry.bindings.length, 30);
   const button = registry.bindings.find(binding => binding.component === 'button');
   assert.equal(button.id, 'native-button');
   assert.equal(button.support, 'supported');
@@ -26,15 +26,19 @@ test('registry promotes only complete executable state algebra', () => {
     assert.equal(binding.support, 'supported');
     assert.deepEqual(binding.missingOperations, []);
   }
-  for (const binding of registry.bindings.filter(binding => !['native-button','toggle-control'].includes(binding.id))) {
+  for (const binding of registry.bindings.filter(binding => !['native-button','toggle-control','native-input-control'].includes(binding.id))) {
     assert.equal(binding.support, 'requirements-only');
     assert.ok(binding.missingOperations.every(item => item.kind && item.reason));
   }
   for (const component of ['input','input-area']) {
-    const binding=registry.bindings.find(item=>item.id==='native-field'&&item.component===component);
-    assert.equal(binding.support,'requirements-only');
-    assert.deepEqual(binding.missingOperations.map(item=>item.kind),['field-wiring']);
-    assert.equal(binding.uncontrolled.owner,'native control');
+    const nativeBinding=registry.bindings.find(item=>item.id==='native-input-control'&&item.component===component);
+    const fieldBinding=registry.bindings.find(item=>item.id==='field-wiring'&&item.component===component);
+    assert.equal(nativeBinding.support,'supported');
+    assert.deepEqual(nativeBinding.missingOperations,[]);
+    assert.equal(nativeBinding.uncontrolled.owner,'native control');
+    assert.equal(fieldBinding.support,'requirements-only');
+    assert.deepEqual(fieldBinding.missingOperations.map(item=>item.kind),['field-wiring']);
+    assert.equal(new Set([...nativeBinding.vectorIds,...fieldBinding.vectorIds]).size,3);
   }
   assert.deepEqual(new Set(registry.bindings.filter(binding=>binding.id==='focus-navigation').map(binding=>binding.component)),new Set(['radio','menu-bar','tabs','pagination','command-palette','table-of-contents']));
   assert.deepEqual(new Set(registry.bindings.filter(binding=>binding.id==='collection-listbox').map(binding=>binding.component)),new Set(['autocomplete','combobox','select','dropdown-menu','radio','command-palette']));
@@ -47,7 +51,7 @@ test('registry promotes only complete executable state algebra', () => {
   const clipboard = registry.bindings.find(binding => binding.component === 'clipboard-text');
   assert.equal(clipboard.id, 'clipboard-live-region');
   assert.ok(clipboard.missingOperations.some(item => item.kind === 'announcement-lifecycle'));
-  const input = registry.bindings.find(binding => binding.component === 'input');
+  const input = registry.bindings.find(binding => binding.component === 'input'&&binding.id==='native-input-control');
   assert.equal(input.controlled.supported, false);
   const sensitive=registry.bindings.find(binding=>binding.component==='sensitive-input');
   assert.deepEqual(sensitive.missingOperations.map(x=>x.kind),['reveal-boundary','clipboard-failure','field-wiring']);

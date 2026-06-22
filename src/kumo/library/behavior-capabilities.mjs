@@ -18,7 +18,7 @@ function requirement(id, contract, support, semantics = {}) {
     requirements: Object.fromEntries(REQUIREMENT_KEYS.map(key => [key, Array.isArray(semantics[key]) ? semantics[key] : semantics[key] == null ? [] : [semantics[key]]])),
     controlled: semantics.controlled ?? {supported:false, reason:'canonical contract does not establish controlled semantics'},
     uncontrolled: semantics.uncontrolled ?? {supported:false, reason:'canonical contract does not establish uncontrolled semantics'},
-    vectorIds: vectorIds(contract),
+    vectorIds: semantics.vectorIds ?? vectorIds(contract),
     missingOperations: semantics.missingOperations ?? []
   };
 }
@@ -66,23 +66,26 @@ export function deriveBehaviorCapabilities(contracts) {
       {kind:'roving-focus',reason:radio.unknowns[0].reason}
     ]
   }));
-  for (const name of ['input','input-area','sensitive-input']) {
+  for (const name of ['input','input-area']) {
     const contract = byName.get(name); if (!contract) continue;
-    const sensitive = name === 'sensitive-input';
-    bindings.push(requirement(sensitive ? 'sensitive-field' : 'native-field', contract, 'requirements-only', {
-      states:Object.keys(contract.initialState), transitions:contract.transitions, events:['trusted native input updates DOM value and callback receives current value'], focus:contract.keyboardFocus,
-      dom:sensitive ? ['div','input'] : [name === 'input-area' ? 'textarea' : 'input'], aria:contract.semantics.aria,
-      uncontrolled:{supported:true, prop:'defaultValue', owner:'native control'},
-      browserServices:sensitive ? ['clipboard write after trusted copy-button activation','live announcement'] : [],
-      missingOperations:sensitive ? [
-        {kind:'reveal-boundary',reason:'canonical sequence ends masked but does not establish reveal control semantics, intermediate input type, or focus behavior'},
-        {kind:'clipboard-failure',reason:'clipboard permission, rejection, failure callbacks, and announcement lifecycle are not established'},
-        {kind:'field-wiring',reason:'label focus is established, but generated IDs and exact for/aria-describedby/required serialization are not exposed'}
-      ] : [
-        {kind:'field-wiring',reason:`${contract.component} includes a Field composition vector, but generated IDs and exact label/description/error/required serialization are not established`}
-      ]
+    const nativeVectors=contract.vectors.filter(vector=>!vector.id.startsWith('field-')).map(vector=>vector.id);
+    const fieldVectors=contract.vectors.filter(vector=>vector.id.startsWith('field-')).map(vector=>vector.id);
+    bindings.push(requirement('native-input-control', contract, 'supported', {
+      vectorIds:nativeVectors, states:Object.keys(contract.initialState), transitions:contract.transitions, events:['trusted native input updates DOM value and callback receives current value'], focus:contract.keyboardFocus,
+      dom:[name === 'input-area' ? 'textarea' : 'input'], aria:contract.semantics.aria,
+      uncontrolled:{supported:true, prop:'defaultValue', owner:'native control'}, missingOperations:[]
+    }));
+    bindings.push(requirement('field-wiring', contract, 'requirements-only', {
+      vectorIds:fieldVectors,focus:contract.keyboardFocus,dom:['div',name === 'input-area' ? 'textarea' : 'input','label'],aria:contract.semantics.aria,
+      missingOperations:[{kind:'field-wiring',reason:'generated IDs and exact label/description/error/required serialization are not established'}]
     }));
   }
+  const sensitive=byName.get('sensitive-input');
+  if(sensitive)bindings.push(requirement('sensitive-field',sensitive,'requirements-only',{
+    states:Object.keys(sensitive.initialState),transitions:sensitive.transitions,events:['trusted native input and copy callbacks'],focus:sensitive.keyboardFocus,dom:['div','input'],aria:sensitive.semantics.aria,
+    uncontrolled:{supported:true,prop:'defaultValue',owner:'native control'},browserServices:['clipboard write after trusted copy-button activation','live announcement'],
+    missingOperations:[{kind:'reveal-boundary',reason:'canonical sequence does not establish reveal control semantics, intermediate input type, or focus behavior'},{kind:'clipboard-failure',reason:'clipboard permission, rejection, failure callbacks, and announcement lifecycle are not established'},{kind:'field-wiring',reason:'generated IDs and exact field serialization are not established'}]
+  }));
   for (const name of ['radio','menu-bar','tabs','pagination','command-palette','table-of-contents']) {
     const contract=byName.get(name); if(!contract) continue;
     bindings.push(requirement('focus-navigation',contract,'requirements-only',{
