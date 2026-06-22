@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {deriveFocusNavigation,FOCUS_COMPONENTS,loadFocusNavigation,validateFocusNavigation} from '../src/kumo/library/focus-navigation.mjs';
+const contracts=FOCUS_COMPONENTS.map(name=>JSON.parse(fs.readFileSync(`contracts/kumo.observable/v1/components/${name}.json`)));
+test('focus navigation is deterministic, canonical, and digest bound',()=>{assert.deepEqual(loadFocusNavigation(),deriveFocusNavigation(contracts));assert.deepEqual(deriveFocusNavigation(contracts),deriveFocusNavigation(contracts))});
+test('only canonical focus semantics are supported',()=>{const byName=new Map(loadFocusNavigation().specs.map(x=>[x.component,x]));assert.deepEqual(byName.get('tabs').rovingTabindex,{selected:0,unselected:-1});assert.equal(byName.get('menu-bar').navigation.tab,'native-tab-order');assert.equal(byName.get('command-palette').navigation.escape,'close-dialog');assert.deepEqual(byName.get('radio').disabledExclusion.suppresses,['selection','event','focus']);assert.equal(byName.get('table-of-contents').focusTargetIds,'href-fragment')});
+test('gaps fail explicit with reasons',()=>{for(const spec of loadFocusNavigation().specs) for(const value of Object.values(spec)) if(value?.supported===false) assert.ok(value.reason)});
+test('digest mutation fails closed',()=>{const value=structuredClone(loadFocusNavigation());value.specs[0].target='invented';assert.throws(()=>validateFocusNavigation(value),/digest mismatch/)});
+test('derivation requires the complete canonical family',()=>assert.throws(()=>deriveFocusNavigation(contracts.slice(1)),/radio contract required/));

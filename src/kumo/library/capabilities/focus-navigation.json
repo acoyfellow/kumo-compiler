@@ -1,0 +1,326 @@
+{
+  "schemaVersion": "kumo.focus-navigation/v1",
+  "specs": [
+    {
+      "component": "radio",
+      "focusable": true,
+      "keys": [
+        "ArrowDown",
+        "ArrowUp",
+        "ArrowLeft",
+        "ArrowRight"
+      ],
+      "vectorIds": [
+        "default-click",
+        "controlled-click",
+        "arrow",
+        "disabled-item",
+        "disabled-group"
+      ],
+      "target": "root",
+      "focusTargetIds": {
+        "supported": false,
+        "reason": "Canonical vectors identify radio targets by item index, not stable DOM ids."
+      },
+      "rovingTabindex": {
+        "supported": false,
+        "reason": "Canonical vectors establish arrow selection and root focus only; tabindex values are not asserted."
+      },
+      "navigation": {
+        "arrows": [
+          "ArrowDown",
+          "ArrowUp",
+          "ArrowLeft",
+          "ArrowRight"
+        ],
+        "homeEnd": {
+          "supported": false,
+          "reason": "RTL wrapping, Home/End, and browser-specific roving-focus edge behavior inherited from Base UI are not declared by Kumo and are not guessed."
+        },
+        "tab": {
+          "supported": false,
+          "reason": "Tab behavior is not present in canonical vectors."
+        },
+        "escape": {
+          "supported": false,
+          "reason": "Escape behavior is not present in canonical vectors."
+        }
+      },
+      "activeKey": "value",
+      "disabledExclusion": {
+        "item": true,
+        "group": true,
+        "suppresses": [
+          "selection",
+          "event",
+          "focus"
+        ]
+      },
+      "labelFocus": {
+        "supported": false,
+        "reason": "Legend/label activation is not asserted."
+      },
+      "restoration": {
+        "supported": false,
+        "reason": "No open/close lifecycle exists in the canonical contract."
+      }
+    },
+    {
+      "component": "menu-bar",
+      "focusable": true,
+      "keys": [
+        "Tab",
+        "Shift+Tab",
+        "ArrowLeft",
+        "ArrowRight",
+        "Enter",
+        "Space"
+      ],
+      "vectorIds": [
+        "empty-nav-ssr",
+        "buttons-active-index",
+        "active-by-id"
+      ],
+      "target": "button",
+      "focusTargetIds": {
+        "supported": false,
+        "reason": "Canonical options may have ids for active matching, but no focus target DOM id is asserted."
+      },
+      "rovingTabindex": {
+        "supported": false,
+        "reason": "Every option button is natively tabbable; canonical MenuBar does not use roving tabindex."
+      },
+      "navigation": {
+        "arrows": [
+          "ArrowLeft",
+          "ArrowRight"
+        ],
+        "homeEnd": {
+          "supported": false,
+          "reason": "Home and End are not declared."
+        },
+        "tab": "native-tab-order",
+        "escape": {
+          "supported": false,
+          "reason": "Escape is not declared."
+        }
+      },
+      "activeKey": "isActive:index|option-id",
+      "disabledExclusion": {
+        "supported": false,
+        "reason": "Disabled descendant behavior is explicitly unobserved."
+      },
+      "labelFocus": "native-button aria-label=tooltip",
+      "restoration": {
+        "supported": false,
+        "reason": "MenuBar has no dismissal lifecycle."
+      }
+    },
+    {
+      "component": "tabs",
+      "focusable": true,
+      "keys": [
+        "ArrowLeft",
+        "ArrowRight",
+        "Home",
+        "End",
+        "Enter",
+        "Space"
+      ],
+      "vectorIds": [
+        "segmented-uncontrolled-first",
+        "underline-selected-value",
+        "manual-arrow-then-enter",
+        "automatic-arrow"
+      ],
+      "target": "[role=tab]",
+      "focusTargetIds": {
+        "supported": false,
+        "reason": "Generated ids are implementation-managed and intentionally not frozen."
+      },
+      "rovingTabindex": {
+        "selected": 0,
+        "unselected": -1
+      },
+      "navigation": {
+        "arrows": [
+          "ArrowLeft",
+          "ArrowRight"
+        ],
+        "homeEnd": [
+          "Home",
+          "End"
+        ],
+        "tab": {
+          "supported": false,
+          "reason": "Tab traversal is not asserted."
+        },
+        "escape": {
+          "supported": false,
+          "reason": "Escape is not declared."
+        }
+      },
+      "activeKey": "value",
+      "disabledExclusion": {
+        "supported": false,
+        "reason": "The canonical Tabs item API does not establish disabled items."
+      },
+      "labelFocus": "trigger label content",
+      "restoration": {
+        "supported": false,
+        "reason": "Canonical Tabs has no panel or dismissal lifecycle."
+      }
+    },
+    {
+      "component": "pagination",
+      "focusable": true,
+      "keys": [
+        "Enter",
+        "Tab",
+        "ArrowUp",
+        "ArrowDown"
+      ],
+      "vectorIds": [
+        "legacy-page-one",
+        "legacy-page-three-ssr",
+        "next-controlled",
+        "boundaries",
+        "input-enter-clamp",
+        "input-blur-clamp",
+        "compound-simple-labels",
+        "compound-dropdown-size"
+      ],
+      "target": "native-control",
+      "focusTargetIds": {
+        "supported": false,
+        "reason": "Controls are addressed by accessible labels, not stable ids."
+      },
+      "rovingTabindex": {
+        "supported": false,
+        "reason": "Pagination uses native tab order."
+      },
+      "navigation": {
+        "arrows": [
+          "ArrowUp",
+          "ArrowDown"
+        ],
+        "homeEnd": {
+          "supported": false,
+          "reason": "Home and End are not declared."
+        },
+        "tab": "native-tab-order",
+        "escape": {
+          "supported": false,
+          "reason": "Escape is not declared."
+        }
+      },
+      "activeKey": "page",
+      "disabledExclusion": {
+        "boundaryControls": true,
+        "suppresses": [
+          "transition",
+          "event",
+          "focus"
+        ]
+      },
+      "labelFocus": "native controls use configurable aria-labels",
+      "restoration": {
+        "supported": false,
+        "reason": "Pagination has no dismissal lifecycle."
+      }
+    },
+    {
+      "component": "command-palette",
+      "focusable": true,
+      "keys": [
+        "ArrowDown",
+        "ArrowUp",
+        "Enter",
+        "Meta+Enter",
+        "Control+Enter",
+        "Escape"
+      ],
+      "vectorIds": [
+        "highlighted-text",
+        "open-search-close"
+      ],
+      "target": "input",
+      "focusTargetIds": {
+        "supported": false,
+        "reason": "Generated dialog/combobox ids are implementation details."
+      },
+      "rovingTabindex": {
+        "supported": false,
+        "reason": "Canonical behavior keeps DOM focus on the input while highlight moves."
+      },
+      "navigation": {
+        "arrows": [
+          "ArrowDown",
+          "ArrowUp"
+        ],
+        "homeEnd": {
+          "supported": false,
+          "reason": "Home and End are not declared."
+        },
+        "tab": {
+          "supported": false,
+          "reason": "Tab behavior is delegated to the modal dialog and not asserted by vectors."
+        },
+        "escape": "close-dialog"
+      },
+      "activeKey": "highlighted-item",
+      "disabledExclusion": "items expose disabled state",
+      "labelFocus": {
+        "supported": false,
+        "reason": "No label activation vector is present."
+      },
+      "restoration": {
+        "supported": false,
+        "reason": "The contract states Base UI traps/restores focus, but canonical vectors only assert none after close and do not establish a restoration target."
+      }
+    },
+    {
+      "component": "table-of-contents",
+      "focusable": true,
+      "keys": [
+        "native anchor navigation only; no component-managed keys"
+      ],
+      "vectorIds": [
+        "static-title-items",
+        "nested-linked-group"
+      ],
+      "target": "native-anchor",
+      "focusTargetIds": "href-fragment",
+      "rovingTabindex": {
+        "supported": false,
+        "reason": "TableOfContents uses native anchor navigation only."
+      },
+      "navigation": {
+        "arrows": {
+          "supported": false,
+          "reason": "No component-managed keys."
+        },
+        "homeEnd": {
+          "supported": false,
+          "reason": "No component-managed keys."
+        },
+        "tab": "native-anchor-order",
+        "escape": {
+          "supported": false,
+          "reason": "No component-managed keys."
+        }
+      },
+      "activeKey": "consumer-supplied active",
+      "disabledExclusion": {
+        "supported": false,
+        "reason": "No disabled API is established."
+      },
+      "labelFocus": "native anchor text",
+      "restoration": {
+        "supported": false,
+        "reason": "No component-managed lifecycle."
+      }
+    }
+  ],
+  "capabilityDigest": "e9ba99c1b78c899549f00f0fc87ebb83b7c125f573d93849bc2d053d221bd71e"
+}
