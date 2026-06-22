@@ -110,3 +110,38 @@ Never discard or overwrite unrelated changes in:
 - `runtime/switch/react/public-runtime/assets/react-switch.js`
 
 Any additional protected paths reported by machine state receive the same treatment.
+
+## Known framework blockers (escalated, not weakened)
+
+### Solid native-input hydration node identity
+
+Native `input`/`input-area` lowering is browser-proven for Vue and Svelte (each
+`80 passed / 44 blocked / 124 vectors`, the four `native-input-fixtures.json`
+vectors `input/bare-disabled`, `input/type`, `input-area/bare`, `input-area/type`
+passing with `node-identity: preserved`). Solid is not yet promoted for these
+vectors.
+
+Observed, reproduced through `scripts/observable-browser-runner.mjs`:
+
+- The `bare-disabled` static semantic branch renders `<input>` with no Solid
+  hydration key; under `hydrate()` the server node is discarded and recreated
+  (`node-identity: replaced`), while Vue and Svelte adopt it.
+- Adding a Solid hydration marker to the static element (`ref={hydrationRoot}`,
+  inline `ref`, or a no-op dynamic attribute) makes `renderToString` emit
+  `data-hk` on the `<input>`, but `hydrate()` still recreates the element. The
+  same recreation is observed for the dynamic-fallback `type` vector.
+- This is specific to `<input>`/`<textarea>` form controls in this harness;
+  `<button>` (Button) and `<span role>`/`<button role>` (Checkbox/Switch) roots
+  hydrate with preserved identity in the same Solid adapter.
+
+This is a genuine Solid SSR/hydration behavior, not a fixture, harness, package,
+or receipt defect, and was not masked. Until it is resolved at the emitter or
+harness layer with real browser proof, Solid stays at its prior native-input
+status and the four-framework `packed-conformance` intersection legitimately
+excludes `input`/`input-area`. The gate is not weakened: no skip, allowlist,
+filtered diagnostic, or fabricated identity result is used.
+
+Next attempt should isolate whether Solid's `hydrate` adopts a form-control
+element that carries a real reconciled property binding (e.g. a controlled
+`value` signal with byte-identical SSR/client serialization and no trailing-space
+class), proven through the shared runner before any promotion.
