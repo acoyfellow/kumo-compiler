@@ -1,6 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import {execFileSync} from 'node:child_process'
+import {createHash} from 'node:crypto'
 import {readFile,readdir} from 'node:fs/promises'
 import {resolve} from 'node:path'
 const root=resolve(import.meta.dirname,'..')
@@ -23,6 +24,12 @@ test('generated source files declare their boundary',async()=>{
   const base=resolve(root,'generated/libraries',framework),queue=[base];
   while(queue.length){const dir=queue.pop();for(const entry of await readdir(dir,{withFileTypes:true})){const file=resolve(dir,entry.name);if(entry.isDirectory())queue.push(file);else if(/\.(?:vue|svelte|tsx|ts|js)$/.test(entry.name)){const source=await readFile(file,'utf8');assert.match(source,/^(?:<!--|\/\/) @generated /,file)}}}
  }
+})
+test('cleanup receipt is content-addressed and records a real reduction',async()=>{
+ const receipt=JSON.parse(await readFile(resolve(root,'docs/archive/cleanup-receipt.json'),'utf8')),hash=receipt.canonicalSha256;delete receipt.canonicalSha256;
+ const stable=value=>Array.isArray(value)?value.map(stable):value&&typeof value==='object'?Object.fromEntries(Object.keys(value).sort().map(key=>[key,stable(value[key])])):value;
+ assert.equal(hash,createHash('sha256').update(JSON.stringify(stable(receipt))).digest('hex'));
+ for(const metric of ['trackedFiles','trackedBytes','authoredLoc'])assert.ok(receipt.measurement.after[metric]<receipt.measurement.before[metric],metric);
 })
 test('active documentation does not treat archive as authority',async()=>{
  const map=JSON.parse(await readFile(resolve(root,'repository-map.json'),'utf8'))

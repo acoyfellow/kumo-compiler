@@ -1,25 +1,33 @@
 {
   "schemaVersion": 1,
-  "canonicalModel": "kindle-alpha-api",
+  "baselineRevision": "4384ebf19a7961df6647a573da560ee1aac5c67a",
+  "resultRevision": "b76c459",
   "measurement": {
+    "method": "git ls-tree -rl for tracked files/bytes; newline count over tracked js,mjs,ts,tsx,vue,svelte,astro,md excluding generated, proof, runtime, deploy, release, benchmark-site, and artifact zones",
     "before": {
       "trackedFiles": 5955,
-      "trackedBytes": 7282371,
-      "authoredLoc": 35059
+      "trackedBytes": 62582785,
+      "authoredLoc": 22253
     },
     "after": {
-      "trackedFiles": 4293,
-      "trackedBytes": 16201154,
-      "authoredLoc": 21681
+      "trackedFiles": 4310,
+      "trackedBytes": 16538699,
+      "authoredLoc": 10362
     }
   },
+  "reductions": {
+    "trackedFiles": 1645,
+    "trackedBytes": 46044086,
+    "authoredLoc": 11891
+  },
   "preserved": {
-    "authority": "164/164",
-    "receipts": "immutable",
+    "canonicalPackage": "@cloudflare/kumo@2.5.2",
+    "browserAuthority": "164/164 immutable control",
+    "receipts": "canonical paths preserved",
     "behaviorGates": [
       "runtime/checkbox/react/public-runtime/assets/react-checkbox.js",
       "runtime/switch/react/public-runtime/assets/react-switch.js"
     ]
   },
-  "canonicalSha256": "4d7c6098dddd54506e82563fcc9cd072258cb43f2cc42a22b8019d9e4477d881"
+  "canonicalSha256": "e007db7ce6f3fe21f1f41d553c280fcd01d571e36edcfd8ffc7d6b24d8e4ae08"
 }
