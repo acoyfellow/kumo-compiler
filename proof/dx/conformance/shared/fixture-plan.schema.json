@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kumo.fixture-plan/v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "component", "vector", "contract", "fixture", "setup", "actions", "probes", "assertions", "capabilities", "bundle"],
+  "properties": {
+    "schemaVersion": {"const": "kumo.fixture-plan/v1"},
+    "component": {"type": "string", "minLength": 1},
+    "vector": {"type": "string", "minLength": 1},
+    "contract": {"type": "object", "required": ["schemaVersion", "path", "sha256"], "properties": {"schemaVersion": {"const": "kumo.observable/v1"}, "path": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "additionalProperties": false},
+    "fixture": {"$ref": "#/$defs/node"},
+    "setup": {"type": "array", "items": {"type": "object", "required": ["kind"]}},
+    "actions": {"type": "array", "items": {"type": "object", "required": ["type"]}},
+    "probes": {"type": "array", "items": {"type": "object", "required": ["kind"]}},
+    "assertions": {"type": "array", "items": {"type": "object", "required": ["kind"]}},
+    "capabilities": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "bundle": {"type": "object", "additionalProperties": false, "required": ["entry", "viteConfig", "files", "headHtml", "beforeAppHtml", "buildEnv"], "properties": {"entry": {"type": "string"}, "viteConfig": {"type": "string"}, "files": {"type": "object", "additionalProperties": {"type": "string"}}, "headHtml": {"type": "string"}, "beforeAppHtml": {"type": "string"}, "buildEnv": {"type": "object", "additionalProperties": {"type": "string"}}}}
+  },
+  "$defs": {"node": {"type": "object", "required": ["kind"], "properties": {"kind": {"enum": ["element", "component", "text", "fragment", "portal"]}, "children": {"type": "array", "items": {"$ref": "#/$defs/node"}}}}}
+}
