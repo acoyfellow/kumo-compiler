@@ -1,0 +1,460 @@
+{
+  "schemaVersion": "kumo.behavior-capabilities/v1",
+  "bindings": [
+    {
+      "id": "native-button",
+      "support": "supported",
+      "component": "button",
+      "contractDigest": "b0a24e6a0b736fb73b4d6da386c0410be1d2ca0264ea6edc2adc32785110909d",
+      "requirements": {
+        "states": [
+          "disabled",
+          "loading"
+        ],
+        "transitions": [
+          {
+            "action": "trusted click",
+            "effect": "invokes native onClick unless disabled or loading"
+          },
+          {
+            "action": "form activation",
+            "effect": "submits only when type=submit"
+          }
+        ],
+        "events": [
+          "click",
+          "submit"
+        ],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "Enter",
+              "Space"
+            ]
+          }
+        ],
+        "dom": [
+          "button",
+          "native attributes",
+          "loading svg before consumer content"
+        ],
+        "aria": [
+          "native button semantics",
+          "square/circle require aria-label"
+        ],
+        "browserServices": [
+          "native form submission"
+        ]
+      },
+      "controlled": {
+        "supported": false,
+        "reason": "canonical contract does not establish controlled semantics"
+      },
+      "uncontrolled": {
+        "supported": false,
+        "reason": "canonical contract does not establish uncontrolled semantics"
+      },
+      "vectorIds": [
+        "default-native",
+        "primary-xs",
+        "destructive-lg",
+        "circle-label",
+        "disabled-click",
+        "loading-click",
+        "enabled-click",
+        "submit-form"
+      ],
+      "missingOperations": []
+    },
+    {
+      "id": "toggle-control",
+      "support": "requirements-only",
+      "component": "checkbox",
+      "contractDigest": "6566d99491aae98eb7e0128e8ec05f0ddb04e388aebe4d877b4115904a906872",
+      "requirements": {
+        "states": [
+          "controlled",
+          "uncontrolled",
+          "group"
+        ],
+        "transitions": [
+          {
+            "action": "click|Space",
+            "effect": "toggle and invoke callback unless disabled"
+          }
+        ],
+        "events": [
+          "checked-change"
+        ],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "Space"
+            ]
+          }
+        ],
+        "dom": [
+          "span"
+        ],
+        "aria": [
+          "role=checkbox",
+          "aria-checked=false|true|mixed",
+          "accessible name required"
+        ],
+        "browserServices": []
+      },
+      "controlled": {
+        "supported": true,
+        "prop": "checked"
+      },
+      "uncontrolled": {
+        "supported": true,
+        "source": "absence of checked"
+      },
+      "vectorIds": [
+        "unchecked-click",
+        "checked-controlled-click",
+        "indeterminate-space",
+        "disabled",
+        "group-default"
+      ],
+      "missingOperations": [
+        {
+          "kind": "vendor-event-details",
+          "reason": "Callback detail object and browser/platform edge behavior are inherited from Base UI and are intentionally not guessed."
+        },
+        {
+          "kind": "implementation",
+          "reason": "requirements are canonical but no framework-neutral toggle operation is proven"
+        }
+      ]
+    },
+    {
+      "id": "native-field",
+      "support": "requirements-only",
+      "component": "input",
+      "contractDigest": "8ab290a7d671042434090c4d0e6c8fa30dbb47934480b7b7cabe834ad35553c4",
+      "requirements": {
+        "states": [
+          "source"
+        ],
+        "transitions": [
+          {
+            "action": "native user action",
+            "effect": "callback/state transition"
+          }
+        ],
+        "events": [
+          "native value change"
+        ],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "Tab",
+              "Enter",
+              "Escape"
+            ]
+          }
+        ],
+        "dom": [
+          "input"
+        ],
+        "aria": [
+          "native and Field semantics observed in canonical Chrome"
+        ],
+        "browserServices": []
+      },
+      "controlled": {
+        "supported": false,
+        "reason": "canonical contract does not establish controlled semantics"
+      },
+      "uncontrolled": {
+        "supported": true,
+        "prop": "defaultValue"
+      },
+      "vectorIds": [
+        "bare-disabled",
+        "type",
+        "field-label"
+      ],
+      "missingOperations": [
+        {
+          "kind": "controlled-semantics",
+          "reason": "canonical contract does not establish a controlled value prop"
+        },
+        {
+          "kind": "vendor-behavior",
+          "reason": "Base UI event details, autofill/password managers, IME, RTL, selection ranges, clipboard rejection, and platform accessibility-tree differences remain inherited/vendor unknowns."
+        },
+        {
+          "kind": "implementation",
+          "reason": "native forwarding and field wiring operations are not proven"
+        }
+      ]
+    },
+    {
+      "id": "native-field",
+      "support": "requirements-only",
+      "component": "input-area",
+      "contractDigest": "4d013786afa0089d44e6e40dc041b4b9b3de7dc5a9403384e70f3a8d55cfcd2b",
+      "requirements": {
+        "states": [
+          "source"
+        ],
+        "transitions": [
+          {
+            "action": "native user action",
+            "effect": "callback/state transition"
+          }
+        ],
+        "events": [
+          "native value change"
+        ],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "Tab",
+              "Enter",
+              "Escape"
+            ]
+          }
+        ],
+        "dom": [
+          "textarea"
+        ],
+        "aria": [
+          "native and Field semantics observed in canonical Chrome"
+        ],
+        "browserServices": []
+      },
+      "controlled": {
+        "supported": false,
+        "reason": "canonical contract does not establish controlled semantics"
+      },
+      "uncontrolled": {
+        "supported": true,
+        "prop": "defaultValue"
+      },
+      "vectorIds": [
+        "bare",
+        "type",
+        "field-error"
+      ],
+      "missingOperations": [
+        {
+          "kind": "controlled-semantics",
+          "reason": "canonical contract does not establish a controlled value prop"
+        },
+        {
+          "kind": "vendor-behavior",
+          "reason": "Base UI event details, autofill/password managers, IME, RTL, selection ranges, clipboard rejection, and platform accessibility-tree differences remain inherited/vendor unknowns."
+        },
+        {
+          "kind": "implementation",
+          "reason": "native forwarding and field wiring operations are not proven"
+        }
+      ]
+    },
+    {
+      "id": "radio-group",
+      "support": "requirements-only",
+      "component": "radio",
+      "contractDigest": "1efdf13299ecfadca60575431a14a175f081174974420aa56bb6a785dd548ed8",
+      "requirements": {
+        "states": [
+          "uncontrolled",
+          "controlled"
+        ],
+        "transitions": [
+          {
+            "action": "click|ArrowDown|ArrowUp|ArrowLeft|ArrowRight",
+            "effect": "select enabled item and invoke onValueChange"
+          }
+        ],
+        "events": [
+          "value-change"
+        ],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "ArrowDown",
+              "ArrowUp",
+              "ArrowLeft",
+              "ArrowRight"
+            ]
+          }
+        ],
+        "dom": [
+          "div",
+          "radio items"
+        ],
+        "aria": [
+          "role=radiogroup",
+          "items role=radio",
+          "aria-checked=false|true"
+        ],
+        "browserServices": []
+      },
+      "controlled": {
+        "supported": true,
+        "prop": "value"
+      },
+      "uncontrolled": {
+        "supported": true,
+        "prop": "defaultValue"
+      },
+      "vectorIds": [
+        "default-click",
+        "controlled-click",
+        "arrow",
+        "disabled-item",
+        "disabled-group"
+      ],
+      "missingOperations": [
+        {
+          "kind": "roving-focus-edge-cases",
+          "reason": "RTL wrapping, Home/End, and browser-specific roving-focus edge behavior inherited from Base UI are not declared by Kumo and are not guessed."
+        },
+        {
+          "kind": "implementation",
+          "reason": "group collection and focus operations are not proven"
+        }
+      ]
+    },
+    {
+      "id": "sensitive-field",
+      "support": "requirements-only",
+      "component": "sensitive-input",
+      "contractDigest": "1be275166efac270e45a2672b8313927fe15d0409fcc9ba113c7fc5a6c46a8f0",
+      "requirements": {
+        "states": [
+          "source"
+        ],
+        "transitions": [
+          {
+            "action": "native user action",
+            "effect": "callback/state transition"
+          }
+        ],
+        "events": [
+          "native value change"
+        ],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "Tab",
+              "Enter",
+              "Escape"
+            ]
+          }
+        ],
+        "dom": [
+          "div"
+        ],
+        "aria": [
+          "native and Field semantics observed in canonical Chrome"
+        ],
+        "browserServices": [
+          "clipboard",
+          "live region"
+        ]
+      },
+      "controlled": {
+        "supported": false,
+        "reason": "canonical contract does not establish controlled semantics"
+      },
+      "uncontrolled": {
+        "supported": true,
+        "prop": "defaultValue"
+      },
+      "vectorIds": [
+        "masked",
+        "reveal-edit-escape",
+        "copy"
+      ],
+      "missingOperations": [
+        {
+          "kind": "controlled-semantics",
+          "reason": "canonical contract does not establish a controlled value prop"
+        },
+        {
+          "kind": "vendor-behavior",
+          "reason": "Base UI event details, autofill/password managers, IME, RTL, selection ranges, clipboard rejection, and platform accessibility-tree differences remain inherited/vendor unknowns."
+        },
+        {
+          "kind": "implementation",
+          "reason": "native forwarding and field wiring operations are not proven"
+        }
+      ]
+    },
+    {
+      "id": "toggle-control",
+      "support": "requirements-only",
+      "component": "switch",
+      "contractDigest": "a21654b67149440d975ad94adce6162a28f87b911334a974938067200f76f6b0",
+      "requirements": {
+        "states": [
+          "controlled",
+          "uncontrolled"
+        ],
+        "transitions": [
+          {
+            "action": "click|Space",
+            "effect": "toggle and invoke callback unless disabled"
+          }
+        ],
+        "events": [
+          "checked-change"
+        ],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "Space"
+            ]
+          }
+        ],
+        "dom": [
+          "button"
+        ],
+        "aria": [
+          "role=switch",
+          "aria-checked=false|true"
+        ],
+        "browserServices": []
+      },
+      "controlled": {
+        "supported": true,
+        "prop": "checked"
+      },
+      "uncontrolled": {
+        "supported": true,
+        "source": "absence of checked"
+      },
+      "vectorIds": [
+        "unchecked-click",
+        "checked-controlled-space",
+        "small",
+        "large-disabled",
+        "group"
+      ],
+      "missingOperations": [
+        {
+          "kind": "vendor-event-details",
+          "reason": "Reset/autofill and platform activation details inherited from Base UI are outside the canonical Kumo declaration and are not guessed."
+        },
+        {
+          "kind": "implementation",
+          "reason": "requirements are canonical but no framework-neutral toggle operation is proven"
+        }
+      ]
+    }
+  ],
+  "capabilityDigest": "3eca93791d420c1b0628af86abb7425e28fbadd76eb8335a923e0fb77fca1b41"
+}

@@ -8,6 +8,7 @@ import {deriveSemanticRender} from './semantic-render.mjs';
 import {compileSemanticVariants} from './semantic-implementation.mjs';
 import {deriveContentBindings} from './content-bindings.mjs';
 import {deriveNativeButton} from './native-button.mjs';
+import {deriveBehaviorCapabilities} from './behavior-capabilities.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '../../..');
@@ -95,8 +96,10 @@ const buttonContract = JSON.parse(fs.readFileSync(path.join(contracts,'button.js
 const nativeButton = deriveNativeButton(buttonContract);
 const semanticByComponent = new Map(semanticRender.components.map(entry => [entry.component, entry]));
 const compoundByComponent = new Map(compoundExports.roots.map(entry => [entry.component, entry]));
+const contractFiles = fs.readdirSync(contracts).filter(file => file.endsWith('.json')).sort((a,b) => a.slice(0,-5).localeCompare(b.slice(0,-5)));
+const behaviorCapabilities = deriveBehaviorCapabilities(contractFiles.map(file => JSON.parse(fs.readFileSync(path.join(contracts,file),'utf8'))));
 const entries = [];
-for (const file of fs.readdirSync(contracts).filter(file => file.endsWith('.json')).sort((a,b) => a.slice(0,-5).localeCompare(b.slice(0,-5)))) {
+for (const file of contractFiles) {
   const name = file.slice(0,-5); const contractPath = `contracts/kumo.observable/v1/components/${file}`;
   const contract = JSON.parse(fs.readFileSync(path.join(root, contractPath), 'utf8'));
   const previous = JSON.parse(fs.readFileSync(path.join(models, file), 'utf8'));
@@ -128,4 +131,5 @@ fs.writeFileSync(path.join(here, 'capabilities/compound-exports.json'), `${JSON.
 fs.writeFileSync(path.join(here, 'capabilities/semantic-render.json'), `${JSON.stringify(semanticRender,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/content-bindings.json'), `${JSON.stringify(contentBindings,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/native-button.json'), `${JSON.stringify(nativeButton,null,2)}\n`);
+fs.writeFileSync(path.join(here, 'capabilities/behavior-capabilities.json'), `${JSON.stringify(behaviorCapabilities,null,2)}\n`);
 process.stdout.write(`${canonicalJSON({candidateDefinitionCount:41,count:entries.length,implementationReadyCount:0})}\n`);
