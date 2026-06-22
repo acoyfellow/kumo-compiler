@@ -4,7 +4,7 @@
   "framework": "svelte",
   "package": "@acoyfellow/kumo-svelte@0.0.1",
   "artifact": "library-artifacts/kumo-svelte-0.0.1.tgz",
-  "packageSha256": "c22fa3a91ab6a6b6916ec17e19ccdf73f538607a572693a61631e1e59dcc606c",
+  "packageSha256": "453633c7ef3d0fcafca0755123ce5afc69c9306b39da8f9245a659f369462673",
   "contract": {
     "schemaVersion": "kumo.observable/v1",
     "provenanceDigest": "a7fe3efce7677deb02df5635e1c9541b8e618d67763a5ef8ca11f6ef950aeebf"
@@ -14,7 +14,7 @@
     "digest": "e8d7f17985b6ca2c3abf69b69c482d9efcbc63f18ae35760e3673df9aecc2f77",
     "sha256": "3153cc2e780cd7b7de2262f53dbac6886ae3ac61179ffe58ac52ec419dc3efe7"
   },
-  "modelHash": "b61c49827d2c823fe968ac06bd60c7addd17837105abdae06a80be56d7f59e49",
+  "modelHash": "2318466eec835642987ca09aa87274cfb3a013782e63fc8337b6ea5794fed04c",
   "runner": "scripts/observable-browser-runner.mjs",
   "browser": {
     "results": [
@@ -26,7 +26,7 @@
         "hydration": "passed",
         "nodeIdentity": "preserved",
         "observation": {
-          "html": "<button type=\"button\" disabled=\"\"><!--[-1--><!--]--><!--[0--><!---->Locked<!--]--></button>",
+          "html": "<button type=\"button\" disabled=\"\"><!--[-1--><!--]--><!--[0--><!---->Locked<!----><!--]--></button>",
           "clicks": 0,
           "submits": 0,
           "events": [],
@@ -43,7 +43,7 @@
         "hydration": "passed",
         "nodeIdentity": "preserved",
         "observation": {
-          "html": "<button type=\"button\" disabled=\"\"><!--[0--><svg aria-hidden=\"true\"></svg><!--]--><!--[0--><!---->Saving<!--]--></button>",
+          "html": "<button type=\"button\" disabled=\"\"><!--[0--><svg aria-hidden=\"true\"></svg><!--]--><!--[0--><!---->Saving<!----><!--]--></button>",
           "clicks": 0,
           "submits": 0,
           "events": [],
@@ -60,7 +60,7 @@
         "hydration": "passed",
         "nodeIdentity": "preserved",
         "observation": {
-          "html": "<button type=\"button\"><!--[-1--><!--]--><!--[0--><!---->Run<!--]--></button>",
+          "html": "<button type=\"button\"><!--[-1--><!--]--><!--[0--><!---->Run<!----><!--]--></button>",
           "clicks": 1,
           "submits": 0,
           "events": [
@@ -79,7 +79,7 @@
         "hydration": "passed",
         "nodeIdentity": "preserved",
         "observation": {
-          "html": "<button type=\"submit\"><!--[-1--><!--]--><!--[0--><!---->Submit<!--]--></button>",
+          "html": "<button type=\"submit\"><!--[-1--><!--]--><!--[0--><!---->Submit<!----><!--]--></button>",
           "clicks": 1,
           "submits": 1,
           "events": [
@@ -90,68 +90,599 @@
           "svg": 0,
           "nodePreserved": true
         }
+      },
+      {
+        "component": "checkbox",
+        "id": "unchecked-click",
+        "passed": true,
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodeIdentity": "preserved",
+        "observation": {
+          "dom": {
+            "tag": "span",
+            "attributes": {
+              "includes": {
+                "aria-label": "Accept",
+                "role": "checkbox",
+                "aria-checked": "true",
+                "tabindex": "0"
+              }
+            },
+            "classes": {
+              "includes": []
+            }
+          },
+          "aria": {
+            "includes": {
+              "aria-label": "Accept",
+              "role": "checkbox",
+              "aria-checked": "true"
+            }
+          },
+          "state": {
+            "checked": true
+          },
+          "events": [
+            "checked:true"
+          ],
+          "focus": "root",
+          "node-identity": "preserved"
+        }
+      },
+      {
+        "component": "checkbox",
+        "id": "checked-controlled-click",
+        "passed": true,
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodeIdentity": "preserved",
+        "observation": {
+          "dom": {
+            "tag": "span",
+            "attributes": {
+              "includes": {
+                "aria-label": "Accept",
+                "role": "checkbox",
+                "aria-checked": "false",
+                "tabindex": "0"
+              }
+            },
+            "classes": {
+              "includes": []
+            }
+          },
+          "aria": {
+            "includes": {
+              "aria-label": "Accept",
+              "role": "checkbox",
+              "aria-checked": "false"
+            }
+          },
+          "state": {
+            "checked": false
+          },
+          "events": [
+            "checked:false"
+          ],
+          "focus": "root",
+          "node-identity": "preserved"
+        }
+      },
+      {
+        "component": "checkbox",
+        "id": "indeterminate-space",
+        "passed": true,
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodeIdentity": "preserved",
+        "observation": {
+          "dom": {
+            "tag": "span",
+            "attributes": {
+              "includes": {
+                "aria-label": "Mixed",
+                "role": "checkbox",
+                "aria-checked": "true",
+                "tabindex": "0"
+              }
+            },
+            "classes": {
+              "includes": []
+            }
+          },
+          "aria": {
+            "includes": {
+              "aria-label": "Mixed",
+              "role": "checkbox",
+              "aria-checked": "true"
+            }
+          },
+          "state": {
+            "checked": true
+          },
+          "events": [
+            "checked:true"
+          ],
+          "focus": "root",
+          "node-identity": "preserved"
+        }
+      },
+      {
+        "component": "checkbox",
+        "id": "disabled",
+        "passed": true,
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodeIdentity": "preserved",
+        "observation": {
+          "dom": {
+            "tag": "span",
+            "attributes": {
+              "includes": {
+                "aria-label": "Locked",
+                "role": "checkbox",
+                "aria-checked": "false",
+                "aria-disabled": "true"
+              }
+            },
+            "classes": {
+              "includes": []
+            }
+          },
+          "aria": {
+            "includes": {
+              "aria-label": "Locked",
+              "role": "checkbox",
+              "aria-checked": "false",
+              "aria-disabled": "true"
+            }
+          },
+          "state": {
+            "checked": false
+          },
+          "events": [],
+          "focus": "none",
+          "node-identity": "preserved"
+        }
+      },
+      {
+        "component": "checkbox",
+        "id": "group-default",
+        "passed": true,
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodeIdentity": "preserved",
+        "observation": {
+          "dom": {
+            "tag": "div",
+            "attributes": {
+              "includes": {
+                "role": "group",
+                "aria-label": "Channels"
+              }
+            },
+            "classes": {
+              "includes": []
+            }
+          },
+          "aria": {
+            "includes": {
+              "role": "group",
+              "aria-label": "Channels"
+            }
+          },
+          "state": {
+            "checked": [
+              true,
+              true
+            ]
+          },
+          "events": [
+            "value:email,sms"
+          ],
+          "focus": "root",
+          "node-identity": "preserved"
+        }
+      },
+      {
+        "component": "switch",
+        "id": "unchecked-click",
+        "passed": true,
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodeIdentity": "preserved",
+        "observation": {
+          "dom": {
+            "tag": "button",
+            "attributes": {
+              "includes": {
+                "class": "h-5 w-10",
+                "aria-label": "Power",
+                "type": "button",
+                "role": "switch",
+                "aria-checked": "true"
+              }
+            },
+            "classes": {
+              "includes": [
+                "h-5",
+                "w-10"
+              ]
+            }
+          },
+          "aria": {
+            "includes": {
+              "aria-label": "Power",
+              "role": "switch",
+              "aria-checked": "true"
+            }
+          },
+          "state": {
+            "checked": true
+          },
+          "events": [
+            "checked:true"
+          ],
+          "focus": "root",
+          "node-identity": "preserved"
+        }
+      },
+      {
+        "component": "switch",
+        "id": "checked-controlled-space",
+        "passed": true,
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodeIdentity": "preserved",
+        "observation": {
+          "dom": {
+            "tag": "button",
+            "attributes": {
+              "includes": {
+                "class": "h-5 w-10",
+                "aria-label": "Power",
+                "type": "button",
+                "role": "switch",
+                "aria-checked": "false"
+              }
+            },
+            "classes": {
+              "includes": [
+                "h-5",
+                "w-10"
+              ]
+            }
+          },
+          "aria": {
+            "includes": {
+              "aria-label": "Power",
+              "role": "switch",
+              "aria-checked": "false"
+            }
+          },
+          "state": {
+            "checked": false
+          },
+          "events": [
+            "checked:false"
+          ],
+          "focus": "root",
+          "node-identity": "preserved"
+        }
+      },
+      {
+        "component": "switch",
+        "id": "small",
+        "passed": true,
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodeIdentity": "preserved",
+        "observation": {
+          "dom": {
+            "tag": "button",
+            "attributes": {
+              "includes": {
+                "role": "switch",
+                "aria-checked": "false",
+                "class": "h-4 w-8"
+              }
+            },
+            "classes": {
+              "includes": [
+                "h-4",
+                "w-8"
+              ]
+            }
+          },
+          "aria": {
+            "includes": {
+              "role": "switch",
+              "aria-checked": "false"
+            }
+          },
+          "state": {
+            "checked": false
+          },
+          "events": [],
+          "focus": "none",
+          "node-identity": "preserved"
+        }
+      },
+      {
+        "component": "switch",
+        "id": "large-disabled",
+        "passed": true,
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodeIdentity": "preserved",
+        "observation": {
+          "dom": {
+            "tag": "button",
+            "attributes": {
+              "includes": {
+                "class": "h-5 w-10",
+                "aria-label": "Large",
+                "type": "button",
+                "role": "switch",
+                "aria-checked": "false",
+                "disabled": ""
+              }
+            },
+            "classes": {
+              "includes": [
+                "h-5",
+                "w-10"
+              ]
+            }
+          },
+          "aria": {
+            "includes": {
+              "aria-label": "Large",
+              "role": "switch",
+              "aria-checked": "false",
+              "disabled": ""
+            }
+          },
+          "state": {
+            "checked": false
+          },
+          "events": [],
+          "focus": "none",
+          "node-identity": "preserved"
+        }
+      },
+      {
+        "component": "switch",
+        "id": "group",
+        "passed": true,
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodeIdentity": "preserved",
+        "observation": {
+          "dom": {
+            "tag": "fieldset",
+            "attributes": {
+              "includes": {}
+            },
+            "classes": {
+              "includes": []
+            }
+          },
+          "state": {
+            "checked": [
+              true,
+              false
+            ]
+          },
+          "events": [
+            "item0:true"
+          ],
+          "focus": "root",
+          "node-identity": "preserved"
+        }
       }
     ],
-    "browserCells": 4,
+    "browserCells": 14,
     "diagnostics": [],
     "telemetry": [
       {
         "id": "disabled-click",
         "phases": {
-          "build": 240.541207998991,
-          "serve": 2.9300839975476265,
-          "chrome": 563.025208003819
+          "build": 660.6455419957638,
+          "serve": 3.3417920023202896,
+          "chrome": 764.3077079951763
         },
         "vectors": [
           {
             "component": "button",
             "id": "disabled-click",
-            "ms": 89.86445900052786
+            "ms": 89.57299999892712
           }
         ]
       },
       {
         "id": "loading-click",
         "phases": {
-          "build": 235.92683400213718,
-          "serve": 1.3329590037465096,
-          "chrome": 579.3605419993401
+          "build": 667.8240419924259,
+          "serve": 1.4341659992933273,
+          "chrome": 680.5731250047684
         },
         "vectors": [
           {
             "component": "button",
             "id": "loading-click",
-            "ms": 89.27800000458956
+            "ms": 89.62974999845028
           }
         ]
       },
       {
         "id": "enabled-click",
         "phases": {
-          "build": 244.69375000149012,
-          "serve": 0.1231670007109642,
-          "chrome": 671.7714169993997
+          "build": 676.5532090067863,
+          "serve": 0.1729159951210022,
+          "chrome": 735.4299580007792
         },
         "vectors": [
           {
             "component": "button",
             "id": "enabled-click",
-            "ms": 88.78237500041723
+            "ms": 88.20237499475479
           }
         ]
       },
       {
         "id": "submit-form",
         "phases": {
-          "build": 244.5775830000639,
-          "serve": 0.13004200160503387,
-          "chrome": 599.0260419994593
+          "build": 333.59437499940395,
+          "serve": 0.20250000059604645,
+          "chrome": 566.6919170022011
         },
         "vectors": [
           {
             "component": "button",
             "id": "submit-form",
-            "ms": 90.37433400005102
+            "ms": 89.86625000834465
+          }
+        ]
+      },
+      {
+        "id": "checkbox/unchecked-click",
+        "phases": {
+          "build": 366.70212499797344,
+          "serve": 0.260916993021965,
+          "chrome": 681.1343750059605
+        },
+        "vectors": [
+          {
+            "component": "checkbox",
+            "ms": 89.38687500357628
+          }
+        ]
+      },
+      {
+        "id": "checkbox/checked-controlled-click",
+        "phases": {
+          "build": 673.1331250071526,
+          "serve": 0.13975000381469727,
+          "chrome": 727.8707500100136
+        },
+        "vectors": [
+          {
+            "component": "checkbox",
+            "ms": 91.91158299148083
+          }
+        ]
+      },
+      {
+        "id": "checkbox/indeterminate-space",
+        "phases": {
+          "build": 681.9836660027504,
+          "serve": 0.13850000500679016,
+          "chrome": 709.3022499978542
+        },
+        "vectors": [
+          {
+            "component": "checkbox",
+            "ms": 86.91654199361801
+          }
+        ]
+      },
+      {
+        "id": "checkbox/disabled",
+        "phases": {
+          "build": 381.93574999272823,
+          "serve": 0.16279101371765137,
+          "chrome": 751.946708008647
+        },
+        "vectors": [
+          {
+            "component": "checkbox",
+            "ms": 88.16929100453854
+          }
+        ]
+      },
+      {
+        "id": "checkbox/group-default",
+        "phases": {
+          "build": 664.6681669950485,
+          "serve": 0.15245799720287323,
+          "chrome": 747.203749999404
+        },
+        "vectors": [
+          {
+            "component": "checkbox",
+            "ms": 92.39462500810623
+          }
+        ]
+      },
+      {
+        "id": "switch/unchecked-click",
+        "phases": {
+          "build": 678.822457998991,
+          "serve": 0.1811250001192093,
+          "chrome": 694.8707920014858
+        },
+        "vectors": [
+          {
+            "component": "switch",
+            "ms": 89.76833300292492
+          }
+        ]
+      },
+      {
+        "id": "switch/checked-controlled-space",
+        "phases": {
+          "build": 412.48450000584126,
+          "serve": 0.12733401358127594,
+          "chrome": 733.2279579937458
+        },
+        "vectors": [
+          {
+            "component": "switch",
+            "ms": 95.78187499940395
+          }
+        ]
+      },
+      {
+        "id": "switch/small",
+        "phases": {
+          "build": 649.168708011508,
+          "serve": 0.12775000929832458,
+          "chrome": 719.0064589977264
+        },
+        "vectors": [
+          {
+            "component": "switch",
+            "ms": 2.638833001255989
+          }
+        ]
+      },
+      {
+        "id": "switch/large-disabled",
+        "phases": {
+          "build": 656.1971669942141,
+          "serve": 0.13495799899101257,
+          "chrome": 750.3317919969559
+        },
+        "vectors": [
+          {
+            "component": "switch",
+            "ms": 93.02791699767113
+          }
+        ]
+      },
+      {
+        "id": "switch/group",
+        "phases": {
+          "build": 668.500624999404,
+          "serve": 0.1407500058412552,
+          "chrome": 732.5115410089493
+        },
+        "vectors": [
+          {
+            "component": "switch",
+            "ms": 90.07091701030731
           }
         ]
       }
@@ -160,7 +691,10 @@
       "trusted-cdp",
       "native-focus",
       "hydration",
-      "isolated-vector-batches"
+      "isolated-vector-batches",
+      "shared-toggle-plans",
+      "direct-root-identity",
+      "no-warning-filtering"
     ]
   },
   "policy": {
@@ -170,11 +704,11 @@
     "fixtureSource": "proof/dx/conformance/shared/packed-fixtures.json"
   },
   "counts": {
-    "passed": 68,
-    "blocked": 56
+    "passed": 78,
+    "blocked": 46
   },
   "staticPassed": 64,
-  "browserPassed": 4,
+  "browserPassed": 14,
   "totalVectors": 124,
   "diagnostics": [],
   "cells": [
@@ -373,7 +907,7 @@
         "digest": "23a05574e40630f0e64406ef3ee81e2e2806254c552e80b4b773663e51d2b118"
       },
       "observation": {
-        "html": "<button type=\"button\" disabled=\"\"><!--[-1--><!--]--><!--[0--><!---->Locked<!--]--></button>",
+        "html": "<button type=\"button\" disabled=\"\"><!--[-1--><!--]--><!--[0--><!---->Locked<!----><!--]--></button>",
         "clicks": 0,
         "submits": 0,
         "events": [],
@@ -396,7 +930,7 @@
         "digest": "e02f8d7d8e79a9435e67bb6d867083559916edb5be6b4b065d9848c39854b1c8"
       },
       "observation": {
-        "html": "<button type=\"button\" disabled=\"\"><!--[0--><svg aria-hidden=\"true\"></svg><!--]--><!--[0--><!---->Saving<!--]--></button>",
+        "html": "<button type=\"button\" disabled=\"\"><!--[0--><svg aria-hidden=\"true\"></svg><!--]--><!--[0--><!---->Saving<!----><!--]--></button>",
         "clicks": 0,
         "submits": 0,
         "events": [],
@@ -419,7 +953,7 @@
         "digest": "9280377b0baac9ddacd244de51fe7bf60619cbd8872af40f6d596e744e482bd4"
       },
       "observation": {
-        "html": "<button type=\"button\"><!--[-1--><!--]--><!--[0--><!---->Run<!--]--></button>",
+        "html": "<button type=\"button\"><!--[-1--><!--]--><!--[0--><!---->Run<!----><!--]--></button>",
         "clicks": 1,
         "submits": 0,
         "events": [
@@ -444,7 +978,7 @@
         "digest": "9905cecf11e578eb08b54cb0faae167f3397becbc9542647e06d89fb578c9342"
       },
       "observation": {
-        "html": "<button type=\"submit\"><!--[-1--><!--]--><!--[0--><!---->Submit<!--]--></button>",
+        "html": "<button type=\"submit\"><!--[-1--><!--]--><!--[0--><!---->Submit<!----><!--]--></button>",
         "clicks": 1,
         "submits": 1,
         "events": [
@@ -459,57 +993,226 @@
     {
       "component": "checkbox",
       "vector": "unchecked-click",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "d0dd3b5c1438769872a45d93bb073f66ca3f01e029f8125a3ed84c0523e04096"
+      },
+      "observation": {
+        "dom": {
+          "tag": "span",
+          "attributes": {
+            "includes": {
+              "aria-label": "Accept",
+              "role": "checkbox",
+              "aria-checked": "true",
+              "tabindex": "0"
+            }
+          },
+          "classes": {
+            "includes": []
+          }
+        },
+        "aria": {
+          "includes": {
+            "aria-label": "Accept",
+            "role": "checkbox",
+            "aria-checked": "true"
+          }
+        },
+        "state": {
+          "checked": true
+        },
+        "events": [
+          "checked:true"
+        ],
+        "focus": "root",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "checkbox",
       "vector": "checked-controlled-click",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "4ea608f94ae606d729d42c971b404118e7d418c2e1badc62b48dd37c28f39db6"
+      },
+      "observation": {
+        "dom": {
+          "tag": "span",
+          "attributes": {
+            "includes": {
+              "aria-label": "Accept",
+              "role": "checkbox",
+              "aria-checked": "false",
+              "tabindex": "0"
+            }
+          },
+          "classes": {
+            "includes": []
+          }
+        },
+        "aria": {
+          "includes": {
+            "aria-label": "Accept",
+            "role": "checkbox",
+            "aria-checked": "false"
+          }
+        },
+        "state": {
+          "checked": false
+        },
+        "events": [
+          "checked:false"
+        ],
+        "focus": "root",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "checkbox",
       "vector": "indeterminate-space",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "bc8176212b735ebc2385bb2933dde83f3d6a9898c56ab641d7e4a4b8768e462c"
+      },
+      "observation": {
+        "dom": {
+          "tag": "span",
+          "attributes": {
+            "includes": {
+              "aria-label": "Mixed",
+              "role": "checkbox",
+              "aria-checked": "true",
+              "tabindex": "0"
+            }
+          },
+          "classes": {
+            "includes": []
+          }
+        },
+        "aria": {
+          "includes": {
+            "aria-label": "Mixed",
+            "role": "checkbox",
+            "aria-checked": "true"
+          }
+        },
+        "state": {
+          "checked": true
+        },
+        "events": [
+          "checked:true"
+        ],
+        "focus": "root",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "checkbox",
       "vector": "disabled",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "b664d7b486d53275b07a0a0ca780ef435f6a5ac92c17db1acaec6bf804443e01"
+      },
+      "observation": {
+        "dom": {
+          "tag": "span",
+          "attributes": {
+            "includes": {
+              "aria-label": "Locked",
+              "role": "checkbox",
+              "aria-checked": "false",
+              "aria-disabled": "true"
+            }
+          },
+          "classes": {
+            "includes": []
+          }
+        },
+        "aria": {
+          "includes": {
+            "aria-label": "Locked",
+            "role": "checkbox",
+            "aria-checked": "false",
+            "aria-disabled": "true"
+          }
+        },
+        "state": {
+          "checked": false
+        },
+        "events": [],
+        "focus": "none",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "checkbox",
       "vector": "group-default",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "0e7eaa031ba00d6e5145e9436ffc3f8279efe1acba9b7c2675eec5f5b7c38d17"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "role": "group",
+              "aria-label": "Channels"
+            }
+          },
+          "classes": {
+            "includes": []
+          }
+        },
+        "aria": {
+          "includes": {
+            "role": "group",
+            "aria-label": "Channels"
+          }
+        },
+        "state": {
+          "checked": [
+            true,
+            true
+          ]
+        },
+        "events": [
+          "value:email,sms"
+        ],
+        "focus": "root",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "clipboard-text",
@@ -1708,63 +2411,229 @@
     {
       "component": "switch",
       "vector": "unchecked-click",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "58534b6c3125c3b1ba394316c5c45efba3813063865b821966e4dd63e091d328"
+      },
+      "observation": {
+        "dom": {
+          "tag": "button",
+          "attributes": {
+            "includes": {
+              "class": "h-5 w-10",
+              "aria-label": "Power",
+              "type": "button",
+              "role": "switch",
+              "aria-checked": "true"
+            }
+          },
+          "classes": {
+            "includes": [
+              "h-5",
+              "w-10"
+            ]
+          }
+        },
+        "aria": {
+          "includes": {
+            "aria-label": "Power",
+            "role": "switch",
+            "aria-checked": "true"
+          }
+        },
+        "state": {
+          "checked": true
+        },
+        "events": [
+          "checked:true"
+        ],
+        "focus": "root",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "switch",
       "vector": "checked-controlled-space",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "396d57f991c3824e60e4f558b1a8c9692a82f1e471fb3a761fe5bce10dfbacea"
+      },
+      "observation": {
+        "dom": {
+          "tag": "button",
+          "attributes": {
+            "includes": {
+              "class": "h-5 w-10",
+              "aria-label": "Power",
+              "type": "button",
+              "role": "switch",
+              "aria-checked": "false"
+            }
+          },
+          "classes": {
+            "includes": [
+              "h-5",
+              "w-10"
+            ]
+          }
+        },
+        "aria": {
+          "includes": {
+            "aria-label": "Power",
+            "role": "switch",
+            "aria-checked": "false"
+          }
+        },
+        "state": {
+          "checked": false
+        },
+        "events": [
+          "checked:false"
+        ],
+        "focus": "root",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "switch",
       "vector": "small",
-      "status": "blocked",
-      "mode": "ssr",
+      "status": "passed",
+      "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
+      "hydration": "passed",
       "assertion": {
         "status": "passed",
         "digest": "2fcb9fb181fdadeae22f64a1b5cbe7d926e2b0a368034e7d4c65e1ffb2e90627"
       },
       "observation": {
-        "markupSha256": "bcaae2e8b10578430fdbbc91f44b77a8591a80f59bdef549dd5b71ff818bf196"
+        "dom": {
+          "tag": "button",
+          "attributes": {
+            "includes": {
+              "role": "switch",
+              "aria-checked": "false",
+              "class": "h-4 w-8"
+            }
+          },
+          "classes": {
+            "includes": [
+              "h-4",
+              "w-8"
+            ]
+          }
+        },
+        "aria": {
+          "includes": {
+            "role": "switch",
+            "aria-checked": "false"
+          }
+        },
+        "state": {
+          "checked": false
+        },
+        "events": [],
+        "focus": "none",
+        "node-identity": "preserved"
       }
     },
     {
       "component": "switch",
       "vector": "large-disabled",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "99432a2d350c90a0179fc7b2deda397cedfa16a2ebcb86ef9f24bd828bfc7555"
+      },
+      "observation": {
+        "dom": {
+          "tag": "button",
+          "attributes": {
+            "includes": {
+              "class": "h-5 w-10",
+              "aria-label": "Large",
+              "type": "button",
+              "role": "switch",
+              "aria-checked": "false",
+              "disabled": ""
+            }
+          },
+          "classes": {
+            "includes": [
+              "h-5",
+              "w-10"
+            ]
+          }
+        },
+        "aria": {
+          "includes": {
+            "aria-label": "Large",
+            "role": "switch",
+            "aria-checked": "false",
+            "disabled": ""
+          }
+        },
+        "state": {
+          "checked": false
+        },
+        "events": [],
+        "focus": "none",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "switch",
       "vector": "group",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "3d709b960c00d7ae044a7c879c4af88ef6127e640371940f012d696e3b4b26d7"
+      },
+      "observation": {
+        "dom": {
+          "tag": "fieldset",
+          "attributes": {
+            "includes": {}
+          },
+          "classes": {
+            "includes": []
+          }
+        },
+        "state": {
+          "checked": [
+            true,
+            false
+          ]
+        },
+        "events": [
+          "item0:true"
+        ],
+        "focus": "root",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "table-of-contents",
@@ -1992,5 +2861,5 @@
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     }
   ],
-  "receiptHash": "3352ce313a8107a83889f201e8f91ec23b33625e5c29d7102a35b73cd0151872"
+  "receiptHash": "e315af6919d4a7b0b1e83b440c725b427302b3d72b5e57ac7d656e2909397d1f"
 }

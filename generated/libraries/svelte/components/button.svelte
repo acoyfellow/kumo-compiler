@@ -21,7 +21,6 @@
   [key: string]: unknown;
 };
 
-  let componentInput = $props();
   let {
     disabled = undefined,
     icon = undefined,
@@ -37,7 +36,7 @@
     __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = componentInput;
+  }: Props = $props();
   let state_disabled = $state("false");
   let state_loading = $state("false");
 

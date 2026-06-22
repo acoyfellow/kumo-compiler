@@ -19,7 +19,6 @@
   [key: string]: unknown;
 };
 
-  let componentInput = $props();
   let {
     compound = undefined,
     Dialog = undefined,
@@ -33,7 +32,7 @@
     __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = componentInput;
+  }: Props = $props();
   let state_highlight = $state("first result auto-highlighted always and kept as results change");
   let state_modal = $state(true);
   let state_open = $state("required controlled boolean");

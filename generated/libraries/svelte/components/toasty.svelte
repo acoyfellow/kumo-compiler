@@ -17,7 +17,6 @@
   [key: string]: unknown;
 };
 
-  let componentInput = $props();
   let {
     container = "provider container or document.body",
     toastManager = undefined,
@@ -29,7 +28,7 @@
     __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = componentInput;
+  }: Props = $props();
   let state_toasts = $state("manager state");
   let state_viewport = $state("portaled after hydration");
 

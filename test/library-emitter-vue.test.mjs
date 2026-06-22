@@ -129,7 +129,7 @@ test('Vue supported toggle-control capabilities lower generically to canonical n
     const entry=manifest.components.find(entry=>entry.modelDigest===model.modelDigest);
     const source=fs.readFileSync(path.join(output,entry.file),'utf8');
     assert.match(source,/const controlled = Object\.prototype\.hasOwnProperty\.call\(instance\?\.vnode\.props/);
-    assert.match(source,/props\.onCheckedChange\?\.\(next, event\)/);
+    assert.match(source,/props\.onCheckedChange\?\.\(next\)/);
     assert.doesNotMatch(source,/model\.component\s*===|React|SyntheticEvent|dispatchEvent|new Event/);
     assert.match(source,new RegExp(`<${native.root}[^>]+role="${native.root==='span'?'checkbox':'switch'}"`));
     const Component=await compileSSRComponent(entry,build);

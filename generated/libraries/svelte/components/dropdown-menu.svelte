@@ -23,7 +23,6 @@
   [key: string]: unknown;
 };
 
-  let componentInput = $props();
   let {
     CheckboxItem = undefined,
     Content_SubContent = undefined,
@@ -41,7 +40,7 @@
     __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = componentInput;
+  }: Props = $props();
   let state_checkboxAndRadioValue = $state("from item/group props");
   let state_highlightedItem = $state(null);
   let state_open = $state("controlled/uncontrolled Base UI root state");

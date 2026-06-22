@@ -24,7 +24,6 @@
   [key: string]: unknown;
 };
 
-  let componentInput = $props();
   let {
     aria_label_aria_labelledby = undefined,
     container = undefined,
@@ -43,7 +42,7 @@
     __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = componentInput;
+  }: Props = $props();
   let state_disabled = $state("from root and item descriptor/Option props");
   let state_highlightedOption = $state(null);
   let state_open = $state("controlled open, else defaultOpen, else false");

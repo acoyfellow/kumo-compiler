@@ -21,7 +21,6 @@
   [key: string]: unknown;
 };
 
-  let componentInput = $props();
   let {
     Collapsible = undefined,
     CollapsibleTrigger = undefined,
@@ -37,7 +36,7 @@
     __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = componentInput;
+  }: Props = $props();
   let state_isMobile = $state("false during SSR because window is absent");
   let state_isPeeking = $state(false);
   let state_isResizing = $state(false);

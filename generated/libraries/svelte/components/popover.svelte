@@ -18,7 +18,6 @@
   [key: string]: unknown;
 };
 
-  let componentInput = $props();
   let {
     Close = undefined,
     Content = undefined,
@@ -31,7 +30,7 @@
     __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = componentInput;
+  }: Props = $props();
   let state_anchor = $state("trigger unless explicit element/ref/virtual element/resolver");
   let state_focus = $state("trigger remains focusable");
   let state_open = $state("defaultOpen or controlled open; otherwise false");

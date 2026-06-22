@@ -20,9 +20,8 @@
   [key: string]: unknown;
 };
 
-  let componentInput = $props();
   let {
-    checked = false,
+    checked = undefined,
     disabled = false,
     group = undefined,
     label = undefined,
@@ -34,10 +33,10 @@
     __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = componentInput;
+  }: Props = $props();
   let state_controlled = $state("checked");
   let state_uncontrolled = $state("absence of checked");
-  const controlledToggle = Object.prototype.hasOwnProperty.call(componentInput, "checked");
+  const controlledToggle = checked !== undefined;
   let uncontrolledChecked = $state(Boolean(defaultChecked));
   const currentChecked = $derived(controlledToggle ? Boolean(checked) : uncontrolledChecked);
   function activateToggle() {
@@ -46,6 +45,7 @@
     if (!controlledToggle) uncontrolledChecked = next;
     onCheckedChange?.(next);
   }
+  function activateToggleOnSpace(event: KeyboardEvent) { if (event.code === 'Space' || event.key === ' ') { event.preventDefault(); activateToggle(); } }
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "checked": checked, "disabled": disabled, "group": group, "label": label, "onCheckedChange": onCheckedChange, "size": size, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;
@@ -69,5 +69,5 @@
 {#if Object.prototype.hasOwnProperty.call(semanticValues, "aria-label") && semanticEqual(semanticValues["aria-label"], "Small") && Object.prototype.hasOwnProperty.call(semanticValues, "size") && semanticEqual(semanticValues.size, "sm")}
   <button role={"switch"} aria-checked={"false"} class="h-4 w-8"></button>
 {:else}
-<button {...rest} type="button" role="switch" aria-checked={false ? "mixed" : currentChecked} disabled={disabled} onclick={activateToggle}>{#if label}{label}{/if}</button>
+<button class={(size === "sm") ? "h-4 w-8" : '' + " " + (size === "lg") ? "h-5 w-10" : ''} aria-label={rest["aria-label"] as string | undefined} type="button" role="switch" aria-checked={false ? "mixed" : currentChecked} disabled={disabled} onclickcapture={activateToggle}>{#if label}{label}{/if}</button>
 {/if}

@@ -25,7 +25,6 @@
   [key: string]: unknown;
 };
 
-  let componentInput = $props();
   let {
     activateOnFocus = false,
     className = undefined,
@@ -44,7 +43,7 @@
     __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = componentInput;
+  }: Props = $props();
   let state_activation = $state("manual unless activateOnFocus is true");
   let state_controlled = $state("value prop");
   let state_overflowing = $state(false);

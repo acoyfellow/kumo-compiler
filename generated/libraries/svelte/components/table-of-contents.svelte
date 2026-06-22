@@ -18,7 +18,6 @@
   [key: string]: unknown;
 };
 
-  let componentInput = $props();
   let {
     Group = undefined,
     Item = undefined,
@@ -31,7 +30,7 @@
     __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = componentInput;
+  }: Props = $props();
   let state_active = $state("exactly as supplied per Item or linked Group; no internal selection state");
 
   const renderContent = __consumerContent;

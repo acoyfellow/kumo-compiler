@@ -20,7 +20,6 @@ interface SwitchProps {
   semanticContent?: unknown
 }
 const props = withDefaults(defineProps<SwitchProps>(), {"disabled":false,"size":"base"})
-const emit = defineEmits<{ checkedChange: [checked: boolean] }>()
 const instance = getCurrentInstance()
 const controlled = Object.prototype.hasOwnProperty.call(instance?.vnode.props ?? {}, "checked")
 const internalChecked = ref(props.defaultChecked ?? false)
@@ -29,8 +28,7 @@ function activate(event: Event) {
   if (props.disabled) return
   const next = !currentChecked.value
   if (!controlled) internalChecked.value = next
-  props.onCheckedChange?.(next, event)
-  emit('checkedChange', next)
+  props.onCheckedChange?.(next)
 }
 const slots = useSlots()
 const styles: Record<string,string> = {}
@@ -43,5 +41,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;ariaLabel&quot;) &amp;&amp; semanticEqual(semanticValues.ariaLabel, &quot;Small&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;size&quot;) &amp;&amp; semanticEqual(semanticValues.size, &quot;sm&quot;)"><button role="switch" aria-checked="false" class="h-4 w-8"></button></template><template v-else><button v-bind="$attrs" type="button" role="switch" :aria-checked="currentChecked" :aria-disabled="props.disabled || undefined" :disabled="props.disabled || undefined" @click="activate"><slot />{{ props.label }}</button></template>
+  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;ariaLabel&quot;) &amp;&amp; semanticEqual(semanticValues.ariaLabel, &quot;Small&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;size&quot;) &amp;&amp; semanticEqual(semanticValues.size, &quot;sm&quot;)"><button role="switch" aria-checked="false" class="h-4 w-8"></button></template><template v-else><button v-bind="$attrs" type="button" role="switch" :class="[(props.size === &quot;sm&quot;) ? &quot;h-4 w-8&quot; : '', (props.size === &quot;lg&quot;) ? &quot;h-5 w-10&quot; : '']" :aria-label="((props as any).ariaLabel ?? $attrs['aria-label'])" :aria-checked="currentChecked" :aria-disabled="props.disabled || undefined" :disabled="props.disabled || undefined" @click="activate"><slot />{{ props.label }}</button></template>
 </template>

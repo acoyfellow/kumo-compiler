@@ -19,7 +19,6 @@
   [key: string]: unknown;
 };
 
-  let componentInput = $props();
   let {
     Close = undefined,
     Description = undefined,
@@ -33,7 +32,7 @@
     __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = componentInput;
+  }: Props = $props();
   let state_open = $state("Base UI controlled/defaultOpen; default closed");
   let state_role = $state("dialog");
   let state_size = $state("base");

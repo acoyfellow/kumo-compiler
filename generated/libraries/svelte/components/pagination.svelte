@@ -22,7 +22,6 @@
   [key: string]: unknown;
 };
 
-  let componentInput = $props();
   let {
     compound = undefined,
     controls = "full",
@@ -39,7 +38,7 @@
     __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = componentInput;
+  }: Props = $props();
   let state_editingPage = $state(1);
   let state_maxPage = $state("ceil(totalCount/perPage)");
   let state_page = $state("controlled prop");

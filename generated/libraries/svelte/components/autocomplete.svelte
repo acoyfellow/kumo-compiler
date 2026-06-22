@@ -17,7 +17,6 @@
   [key: string]: unknown;
 };
 
-  let componentInput = $props();
   let {
     compound = undefined,
     Content = undefined,
@@ -29,7 +28,7 @@
     __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = componentInput;
+  }: Props = $props();
   let state_filter = $state("Base UI autocomplete filtering");
   let state_highlight = $state("none until navigation");
   let state_open = $state("controlled open or Base UI default closed");

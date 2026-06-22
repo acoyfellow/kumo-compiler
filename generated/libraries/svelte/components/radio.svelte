@@ -21,7 +21,6 @@
   [key: string]: unknown;
 };
 
-  let componentInput = $props();
   let {
     defaultValue = undefined,
     disabled = undefined,
@@ -36,7 +35,7 @@
     __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = componentInput;
+  }: Props = $props();
   let state_controlled = $state("value");
   let state_uncontrolled = $state("defaultValue");
 

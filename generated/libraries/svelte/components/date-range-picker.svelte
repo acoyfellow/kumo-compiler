@@ -21,7 +21,6 @@
   [key: string]: unknown;
 };
 
-  let componentInput = $props();
   let {
     className = undefined,
     onEndDateChange = undefined,
@@ -35,7 +34,7 @@
     __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = componentInput;
+  }: Props = $props();
   let state_endDate = $state(null);
   let state_months = $state("current and next month");
   let state_startDate = $state(null);

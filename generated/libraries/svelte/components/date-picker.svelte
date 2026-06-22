@@ -21,7 +21,6 @@
   [key: string]: unknown;
 };
 
-  let componentInput = $props();
   let {
     aria_label = undefined,
     fromDate = undefined,
@@ -36,7 +35,7 @@
     __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = componentInput;
+  }: Props = $props();
   let state_displayMonth = $state("from selected/defaultMonth/current date");
   let state_selected = $state("from selected prop");
 

@@ -42,6 +42,7 @@
         "supported": false,
         "reason": "canonical contract does not establish Field composition"
       },
+      "styleVariants": [],
       "operations": {
         "autofill": {
           "supported": false,
@@ -109,6 +110,7 @@
         "error": "describedby",
         "nativeAttributes": true
       },
+      "styleVariants": [],
       "operations": {
         "autofill": {
           "supported": false,
@@ -174,6 +176,7 @@
         "error": "describedby",
         "nativeAttributes": true
       },
+      "styleVariants": [],
       "operations": {
         "autofill": {
           "supported": false,
@@ -241,6 +244,7 @@
         "supported": false,
         "reason": "canonical contract does not establish Field composition"
       },
+      "styleVariants": [],
       "operations": {
         "autofill": {
           "supported": false,
@@ -308,6 +312,7 @@
         "error": "describedby",
         "nativeAttributes": true
       },
+      "styleVariants": [],
       "operations": {
         "autofill": {
           "supported": false,
@@ -371,6 +376,26 @@
         "supported": false,
         "reason": "canonical contract does not establish Field composition"
       },
+      "styleVariants": [
+        {
+          "when": {
+            "size": "sm"
+          },
+          "classes": [
+            "h-4",
+            "w-8"
+          ]
+        },
+        {
+          "when": {
+            "size": "lg"
+          },
+          "classes": [
+            "h-5",
+            "w-10"
+          ]
+        }
+      ],
       "operations": {
         "autofill": {
           "supported": false,
@@ -398,5 +423,5 @@
       ]
     }
   ],
-  "capabilityDigest": "b6a85c01264a0881652c30dbc91c72b78f2227f12b8a69047b15b39a9eb53f00"
+  "capabilityDigest": "33fefcd8efecc7192811dac34962f800e82a9cb6ab35895804fe757e732b0059"
 }

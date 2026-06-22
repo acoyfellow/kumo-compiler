@@ -19,17 +19,20 @@ interface CheckboxProps {
   semanticContent?: unknown
 }
 const props = withDefaults(defineProps<CheckboxProps>(), {"disabled":false,"indeterminate":false})
-const emit = defineEmits<{ checkedChange: [checked: boolean] }>()
 const instance = getCurrentInstance()
 const controlled = Object.prototype.hasOwnProperty.call(instance?.vnode.props ?? {}, "checked")
 const internalChecked = ref(props.defaultChecked ?? false)
 const currentChecked = computed(() => controlled ? props.checked : internalChecked.value)
+const currentIndeterminate = ref(Boolean(props.indeterminate))
 function activate(event: Event) {
   if (props.disabled) return
-  const next = props.indeterminate ? true : !currentChecked.value
+  const next = currentIndeterminate.value ? true : !currentChecked.value
+  currentIndeterminate.value = false
   if (!controlled) internalChecked.value = next
-  props.onCheckedChange?.(next, event)
-  emit('checkedChange', next)
+  props.onCheckedChange?.(next)
+}
+function activateOnSpace(event: KeyboardEvent) {
+  if (event.code === 'Space' || event.key === ' ') { event.preventDefault(); activate(event) }
 }
 const slots = useSlots()
 const styles: Record<string,string> = {}
@@ -42,5 +45,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template ><span v-bind="$attrs" tabindex="0" role="checkbox" :aria-checked="(props.indeterminate ? 'mixed' : currentChecked)" :aria-disabled="props.disabled || undefined" :disabled="props.disabled || undefined" @click="activate" @keydown.space.prevent="activate"><slot />{{ props.label }}</span></template>
+  <span v-bind="$attrs" :tabindex="props.disabled ? undefined : 0" role="checkbox" :aria-label="((props as any).ariaLabel ?? $attrs['aria-label'])" :aria-checked="(currentIndeterminate ? 'mixed' : currentChecked)" :aria-disabled="props.disabled || undefined" :disabled="props.disabled || undefined" @click="activate" @keydown="activateOnSpace"><slot />{{ props.label }}</span>
 </template>

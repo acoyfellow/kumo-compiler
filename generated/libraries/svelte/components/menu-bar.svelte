@@ -18,7 +18,6 @@
   [key: string]: unknown;
 };
 
-  let componentInput = $props();
   let {
     className = undefined,
     isActive = undefined,
@@ -31,7 +30,7 @@
     __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = componentInput;
+  }: Props = $props();
   let state_active = $state("isActive prop compared to index, or option id when optionIds=true");
   let state_focus = $state("native tab order; every option button is tabbable");
 

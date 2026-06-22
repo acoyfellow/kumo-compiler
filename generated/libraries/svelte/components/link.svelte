@@ -16,7 +16,6 @@
   [key: string]: unknown;
 };
 
-  let componentInput = $props();
   let {
     className = undefined,
     href = undefined,
@@ -27,7 +26,7 @@
     __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = componentInput;
+  }: Props = $props();
   
 
   const renderContent = __consumerContent;

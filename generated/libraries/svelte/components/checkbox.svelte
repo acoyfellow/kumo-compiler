@@ -20,9 +20,8 @@
   [key: string]: unknown;
 };
 
-  let componentInput = $props();
   let {
-    checked = false,
+    checked = undefined,
     disabled = false,
     group = undefined,
     indeterminate = false,
@@ -34,19 +33,22 @@
     __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = componentInput;
+  }: Props = $props();
   let state_controlled = $state("checked");
   let state_group = $state("defaultValue/value");
   let state_uncontrolled = $state("absence of checked");
-  const controlledToggle = Object.prototype.hasOwnProperty.call(componentInput, "checked");
+  const controlledToggle = checked !== undefined;
   let uncontrolledChecked = $state(Boolean(defaultChecked));
   const currentChecked = $derived(controlledToggle ? Boolean(checked) : uncontrolledChecked);
+  let currentIndeterminate = $state(Boolean(indeterminate));
   function activateToggle() {
     if (disabled) return;
-    const next = indeterminate ? true : !currentChecked;
+    const next = currentIndeterminate ? true : !currentChecked;
+    currentIndeterminate = false;
     if (!controlledToggle) uncontrolledChecked = next;
     onCheckedChange?.(next);
   }
+  function activateToggleOnSpace(event: KeyboardEvent) { if (event.code === 'Space' || event.key === ' ') { event.preventDefault(); activateToggle(); } }
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "checked": checked, "disabled": disabled, "group": group, "indeterminate": indeterminate, "label": label, "onCheckedChange": onCheckedChange, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;
@@ -67,4 +69,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<button {...rest} type="button" role="checkbox" aria-checked={indeterminate ? "mixed" : currentChecked} disabled={disabled} onclick={activateToggle}>{#if label}{label}{/if}</button>
+<span aria-label={rest["aria-label"] as string | undefined} role="checkbox" aria-checked={currentIndeterminate ? "mixed" : currentChecked} aria-disabled={disabled || undefined} tabindex={disabled ? undefined : 0} onclickcapture={activateToggle} onkeydowncapture={activateToggleOnSpace}>{#if label}{label}{/if}</span>

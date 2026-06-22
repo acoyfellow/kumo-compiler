@@ -19,7 +19,6 @@
   [key: string]: unknown;
 };
 
-  let componentInput = $props();
   let {
     compound = undefined,
     Content = undefined,
@@ -33,7 +32,7 @@
     __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = componentInput;
+  }: Props = $props();
   let state_inputSide = $state("right");
   let state_multiple = $state("false unless set");
   let state_open = $state("closed unless controlled/default-open");

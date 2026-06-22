@@ -13,7 +13,6 @@
   [key: string]: unknown;
 };
 
-  let componentInput = $props();
   let {
     observable = undefined,
     children,
@@ -21,7 +20,7 @@
     __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = componentInput;
+  }: Props = $props();
   let state_source = $state("props/native state");
 
   const renderContent = __consumerContent;

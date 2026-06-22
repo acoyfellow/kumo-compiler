@@ -68,10 +68,10 @@ test('supported toggle-control bindings lower to native Svelte 5 state and initi
  emitSvelteLibrary({output});
  for(const [name,role] of [['checkbox','checkbox'],['switch','switch']]){
   const source=fs.readFileSync(path.join(output,`components/${name}.svelte`),'utf8');
-  assert.match(source,/Object\.prototype\.hasOwnProperty\.call\(componentInput, "checked"\)/);
+  assert.match(source,/const controlledToggle = checked !== undefined/);
   assert.match(source,/\$state\(Boolean\(defaultChecked\)\)/);
   assert.match(source,/\$derived\(controlledToggle \? Boolean\(checked\) : uncontrolledChecked\)/);
-  assert.match(source,/onclick=\{activateToggle\}/);
+  assert.match(source,/onclickcapture=\{activateToggle\}/);
   assert.doesNotMatch(source,new RegExp(`component\\s*===?\\s*["']${name}`,'i'));
   const compiled=compile(source,{filename:`${name}.svelte`,generate:'server'});
   const target=path.join(build,`${name}.mjs`);fs.writeFileSync(target,compiled.js.code);
@@ -84,7 +84,7 @@ test('supported toggle-control bindings lower to native Svelte 5 state and initi
  assert.match(render((await import(pathToFileURL(path.join(build,'checkbox.mjs'))+`?indeterminate`)).default,{props:{indeterminate:true}}).body,/aria-checked="mixed"/);
  for(const name of ['radio','field']){
   const source=fs.readFileSync(path.join(output,`components/${name}.svelte`),'utf8');
-  assert.doesNotMatch(source,/controlledToggle|activateToggle|onclick=\{activateToggle\}/);
+  assert.doesNotMatch(source,/controlledToggle|activateToggle|onclickcapture=\{activateToggle\}/);
  }
 });
 
