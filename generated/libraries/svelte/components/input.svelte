@@ -8,6 +8,10 @@
   export type Props = {
   observable?: unknown;
   children?: Snippet;
+  defaultValue?: string;
+  disabled?: boolean;
+  onInput?: (value: string) => void;
+  onFocus?: (event: FocusEvent) => void;
   styles?: Record<string, string>;
   fixture?: unknown;
   [key: string]: unknown;
@@ -15,6 +19,10 @@
 
   let {
     observable = undefined,
+    defaultValue = undefined,
+    disabled = false,
+    onInput = undefined,
+    onFocus = undefined,
     children,
     fixture = undefined,
     __consumerContent = undefined,
@@ -23,6 +31,8 @@
   }: Props = $props();
   let state_source = $state("props/native state");
 
+  function handleNativeInput(event: Event) { onInput?.((event.currentTarget as HTMLInputElement | HTMLTextAreaElement).value); }
+  function handleNativeFocus(event: FocusEvent) { onFocus?.(event); }
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "observable": observable, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;
@@ -46,5 +56,5 @@
 {#if Object.prototype.hasOwnProperty.call(semanticValues, "aria-label") && semanticEqual(semanticValues["aria-label"], "Email") && Object.prototype.hasOwnProperty.call(semanticValues, "defaultValue") && semanticEqual(semanticValues.defaultValue, "x") && Object.prototype.hasOwnProperty.call(semanticValues, "disabled") && semanticEqual(semanticValues.disabled, true)}
   <input>
 {:else}
-<input class={cx(styles["root"])}>
+<input {...rest} value={defaultValue} disabled={Boolean(disabled)} oninput={handleNativeInput} onfocus={handleNativeFocus}>
 {/if}

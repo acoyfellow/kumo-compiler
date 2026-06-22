@@ -28,11 +28,14 @@ export function Input(incoming: InputProps): JSX.Element {
   const renderContent = normalizeRenderContent(props.children, true);
   const normalizedFixture = normalizeFixture(fixture);
   const state: Record<string, () => unknown> = {};
+  const nativeInputHandler: JSX.EventHandlerUnion<HTMLInputElement, InputEvent> = event => {
+    (props.onInput as ((value: string) => void) | undefined)?.(event.currentTarget.value);
+  };
   const refs: Record<string, HTMLElement | undefined> = {};
-  const [, native] = splitProps(props as InputProps & Record<string, unknown>, ["observable"]);
+  const [, native] = splitProps(props as InputProps & Record<string, unknown>, ["class","defaultValue","disabled","onInput","children","fixture","styles"]);
   void native; void state; void refs;
   if (Object.prototype.hasOwnProperty.call(props, "aria-label") && semanticEqual(props["aria-label"], "Email") && Object.prototype.hasOwnProperty.call(props, "defaultValue") && semanticEqual(props.defaultValue, "x") && Object.prototype.hasOwnProperty.call(props, "disabled") && semanticEqual(props.disabled, true)) return (<input></input>);
-  return (<input class={mergeStyles(styles.root)}></input>);
+  return (<input {...native} class={mergeStyles(styles.root, props.class)} value={props.defaultValue as string | number | string[] | undefined} disabled={Boolean(props.disabled)} onInput={nativeInputHandler}></input>);
 }
 
 export default Input;

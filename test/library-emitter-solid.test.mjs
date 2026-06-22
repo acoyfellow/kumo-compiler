@@ -87,6 +87,15 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   assert.match(fs.readFileSync(path.join(first, 'switch.tsx'), 'utf8'), /<button[^>]*type="button"[^>]*role="switch"[^>]*aria-checked=\{checked\(\)\}[^>]*onClick=\{toggleChecked\}/);
   for (const name of ['radio', 'field']) assert.doesNotMatch(fs.readFileSync(path.join(first, `${name}.tsx`), 'utf8'), /toggleChecked|defaultChecked/);
 
+  for (const [name, tag, element] of [['input', 'input', 'HTMLInputElement'], ['input-area', 'textarea', 'HTMLTextAreaElement']]) {
+    const inputSource = fs.readFileSync(path.join(first, `${name}.tsx`), 'utf8');
+    const inputDeclaration = fs.readFileSync(path.join(first, `${name}.d.ts`), 'utf8');
+    assert.match(inputSource, new RegExp(`<${tag}[^>]*value=\\{props\\.defaultValue[^>]*disabled=\\{Boolean\\(props\\.disabled\\)\\}[^>]*onInput=\\{nativeInputHandler\\}`));
+    assert.match(inputSource, /event\.currentTarget\.value/);
+    assert.match(inputDeclaration, new RegExp(`JSX\\.${tag === 'input' ? 'Input' : 'Textarea'}HTMLAttributes<${element}>`));
+  }
+  for (const name of ['field', 'sensitive-input']) assert.doesNotMatch(fs.readFileSync(path.join(first, `${name}.tsx`), 'utf8'), /nativeInputHandler|event\.currentTarget\.value/);
+
   const buttonSource = fs.readFileSync(path.join(first, 'button.tsx'), 'utf8');
   const buttonDeclaration = fs.readFileSync(path.join(first, 'button.d.ts'), 'utf8');
   assert.match(buttonSource, /<button id=\{props\.id as string\}[^>]*type=\{\(props\.type/);

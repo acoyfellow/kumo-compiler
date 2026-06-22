@@ -5,15 +5,24 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 </script>
 
 <script setup lang="ts">
+defineOptions({ inheritAttrs: false })
 import { computed, useAttrs, useSlots } from 'vue'
 interface InputAreaProps {
   "observable"?: unknown
+  "defaultValue"?: string
+  "disabled"?: boolean
+  "onChange"?: unknown
   "aria-label"?: unknown
-  "defaultValue"?: unknown
+  "ariaLabel"?: unknown
   fixture?: unknown
   semanticContent?: unknown
 }
 const props = withDefaults(defineProps<InputAreaProps>(), {})
+const nativeAttrs = computed(() => Object.fromEntries(Object.entries(useAttrs()).map(([name, value]) => [name.replace(/[A-Z]/g, letter => '-' + letter.toLowerCase()), value])))
+const nativeAriaLabel = computed(() => (props as any).ariaLabel ?? (props as any)['aria-label'])
+function handleNativeInput(event: Event) {
+  props.onChange?.((event.currentTarget as HTMLInputElement | HTMLTextAreaElement).value)
+}
 const slots = useSlots()
 const styles: Record<string,string> = {}
 const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
@@ -25,5 +34,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;ariaLabel&quot;) &amp;&amp; semanticEqual(semanticValues.ariaLabel, &quot;Notes&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;defaultValue&quot;) &amp;&amp; semanticEqual(semanticValues.defaultValue, &quot;hello&quot;)"><textarea></textarea></template><template v-else><textarea :class="[styles[&quot;root&quot;]]"></textarea></template>
+  <textarea v-bind="nativeAttrs" :aria-label="nativeAriaLabel" :value="props.defaultValue" :disabled="props.disabled || undefined" @input="handleNativeInput">{{ props.defaultValue }}</textarea>
 </template>

@@ -153,6 +153,42 @@ test('Vue supported toggle-control capabilities lower generically to canonical n
   }
 });
 
+test('Vue supported native-input-control capabilities lower generically to native uncontrolled controls', async t => {
+  const library=loadLibrary();
+  const supported=library.behaviorCapabilities.bindings.filter(binding=>binding.id==='native-input-control'&&binding.support==='supported');
+  assert.equal(supported.length,2);
+  for(let run=0;run<2;run++){
+    const build=fs.mkdtempSync(path.resolve(`.kumo-vue-input-${run}-`)); t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+    const manifest=generateVueLibrary(output);
+    for(const binding of supported){
+      const field=library.nativeField.controls.find(control=>control.component===binding.component);
+      const model=library.models.find(model=>model.component===binding.component);
+      const entry=manifest.components.find(entry=>entry.modelDigest===model.modelDigest);
+      const source=fs.readFileSync(path.join(output,entry.file),'utf8');
+      assert.match(source,/defineOptions\(\{ inheritAttrs: false \}\)/);
+      assert.match(source,new RegExp(`<${field.root} v-bind="nativeAttrs"`));
+      assert.match(source,new RegExp(`:value="props\\.${binding.uncontrolled.prop}"`));
+      assert.match(source,/:disabled="props\.disabled \|\| undefined"/);
+      assert.match(source,/@input="handleNativeInput"/);
+      assert.match(source,/event\.currentTarget as HTMLInputElement \| HTMLTextAreaElement/);
+      assert.match(source,/props\.onChange\?\.\(\(event\.currentTarget as HTMLInputElement \| HTMLTextAreaElement\)\.value\)/);
+      assert.doesNotMatch(source,/model\.component\s*===|component\s*===\s*['"](?:input|input-area)['"]|SyntheticEvent|dispatchEvent|new Event/);
+      const Component=await compileSSRComponent(entry,build);
+      const props={defaultValue:field.root==='input'?'native-x':'native-hello',ariaLabel:'Native control',disabled:true,name:'native-name'};
+      const html=await renderToString(createSSRApp({setup:()=>()=>h(Component,props)}));
+      assert.match(html,new RegExp(`^<${field.root}[^>]*`));
+      assert.match(html,/aria-label="Native control"/); assert.match(html,/name="native-name"/);
+      assert.match(html,/disabled/);
+      assert.match(html,field.root==='input'?/value="native-x"/:/>native-hello<\/textarea>$/);
+    }
+    for(const component of ['field','sensitive-input']){
+      const entry=manifest.components.find(entry=>entry.component===component);
+      const source=fs.readFileSync(path.join(output,entry.file),'utf8');
+      assert.doesNotMatch(source,/@input="handleNativeInput"|function handleNativeInput/);
+    }
+  }
+});
+
 test('resolution receipt canonically binds capability and generated manifest hashes',()=>{
   const receipt=JSON.parse(fs.readFileSync('proof/dx/conformance/diagnostics/semantic-emitter-vue-resolution.json','utf8'));
   const contentBindings=JSON.parse(fs.readFileSync('src/kumo/library/capabilities/content-bindings.json','utf8'));

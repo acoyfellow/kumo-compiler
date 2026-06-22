@@ -129,25 +129,49 @@ function toggleSource({state,native}) {
     template:`<${native.root} v-bind="$attrs"${rootAttrs} role="${role}"${styleClass} :aria-label="((props as any).ariaLabel ?? $attrs['aria-label'])" :aria-checked="${aria}" :aria-disabled="props.${state.disabled.prop} || undefined" :disabled="props.${state.disabled.prop} || undefined" @click="activate"${keyHandler}><slot />{{ props.label }}</${native.root}>`
   };
 }
+function nativeInputBinding(model, library) {
+  const behavior = library.behaviorCapabilities.bindings.find(binding => binding.component === model.component && binding.id === 'native-input-control' && binding.support === 'supported');
+  if (!behavior || behavior.missingOperations.length || behavior.controlled.supported || !behavior.uncontrolled.supported) return null;
+  const field = library.nativeField.controls.find(control => control.component === behavior.component && control.support === 'supported');
+  if (!field || field.value.owner !== 'native-uncontrolled' || field.value.initialProp !== behavior.uncontrolled.prop || field.value.transition.callbackValue !== 'current native value') return null;
+  if (!['input','textarea'].includes(field.root) || behavior.requirements.dom.join('\0') !== field.root) return null;
+  return {behavior,field};
+}
+function nativeInputSource({behavior,field}) {
+  return {
+    options:`defineOptions({ inheritAttrs: false })\n`,
+    props:[
+      {name:behavior.uncontrolled.prop,required:false,type:'string'},
+      {name:'disabled',required:false,type:'boolean'},
+      {name:'onChange',required:false,type:'unknown'},
+    ],
+    setup:`const nativeAttrs = computed(() => Object.fromEntries(Object.entries(useAttrs()).map(([name, value]) => [name.replace(/[A-Z]/g, letter => '-' + letter.toLowerCase()), value])))\nconst nativeAriaLabel = computed(() => (props as any).ariaLabel ?? (props as any)['aria-label'])\nfunction handleNativeInput(event: Event) {\n  props.onChange?.((event.currentTarget as HTMLInputElement | HTMLTextAreaElement).value)\n}\n`,
+    template:`<${field.root} v-bind="nativeAttrs" :aria-label="nativeAriaLabel" :value="props.${behavior.uncontrolled.prop}" :disabled="props.disabled || undefined" @input="handleNativeInput"${field.root==='input'?' />':`>{{ props.${behavior.uncontrolled.prop} }}</${field.root}>`}`
+  };
+}
 function emitComponent(model, library) {
   const implementation = validateImplementation(model.draftImplementation);
   const contentBindingDigest = requireContentBindings(model);
   const defaults = Object.fromEntries(model.props.items.filter(p => p.default != null && !(p.name === 'checked' && toggleBinding(model, library))).map(p => [p.name,p.default]));
   const variants = [...(implementation.semanticVariants ?? [])].sort((a,b)=>b.when.length-a.when.length);
   const declaredProps = new Map(model.props.items.map(p => [p.name,p]));
+  const nativeInput = nativeInputBinding(model, library);
+  const loweredNativeInput = nativeInput && nativeInputSource(nativeInput);
   if (toggleBinding(model, library)) declaredProps.set('defaultChecked',{name:'defaultChecked',required:false,type:'boolean'});
+  for (const prop of loweredNativeInput?.props ?? []) declaredProps.set(prop.name, prop);
   for (const variant of variants) for (const predicate of variant.when) if (predicate.kind === 'prop-equals' && predicate.name !== 'children' && !declaredProps.has(predicate.name)) declaredProps.set(predicate.name,{name:predicate.name,required:false,type:'unknown'});
+  if (nativeInput) for (const variant of variants) for (const predicate of variant.when) if (predicate.kind === 'prop-equals' && predicate.name !== 'children' && !declaredProps.has(vuePropName(predicate.name))) declaredProps.set(vuePropName(predicate.name),{name:vuePropName(predicate.name),required:false,type:'unknown'});
   const props = [...declaredProps.values()].map(p => `  ${JSON.stringify(p.name)}${p.required && p.name !== 'children' ? '' : '?'}: ${vueType(p.type)}`).join('\n');
   const predicates = variants.map(v => v.when.map(x => semanticPredicate(x.kind === 'prop-equals' && x.name !== 'children' ? {...x,name:vuePropName(x.name)} : x,{props:'semanticValues',fixture:'fixture',content:'renderContent()',equal:'semanticEqual'})).join(' && ') || 'true');
-  const semantic = variants.map((v,i) => `<template ${i?'v-else-if':'v-if'}="${directive(predicates[i])}">${semanticNode(v.tree)}</template>`).join('');
+  const semantic = nativeInput ? '' : variants.map((v,i) => `<template ${i?'v-else-if':'v-if'}="${directive(predicates[i])}">${semanticNode(v.tree)}</template>`).join('');
   const nativeButton = model.interactions?.nativeButton;
   const toggle = toggleBinding(model, library);
   const loweredToggle = toggle && toggleSource(toggle);
-  const fallback = loweredToggle?.template ?? (nativeButton
+  const fallback = loweredToggle?.template ?? loweredNativeInput?.template ?? (nativeButton
     ? `<button v-bind="$attrs" :type="($attrs.type as any) ?? 'button'" :disabled="props.disabled || props.loading"><svg v-if="props.loading" aria-hidden="true"></svg><slot /></button>`
     : node(implementation.componentRoot));
   const template = semantic ? `${semantic}<template v-else>${fallback}</template>` : fallback;
-  return `<!-- @generated by src/kumo/emitters/vue/index.mjs; do not edit -->\n<script lang="ts">\nexport const modelDigest = ${JSON.stringify(model.modelDigest)}\nexport const contentBindingDigest = ${JSON.stringify(contentBindingDigest)}\n</script>\n\n<script setup lang="ts">\n${loweredToggle?.options ?? (nativeButton ? 'defineOptions({ inheritAttrs: false })\n' : '')}import { ${loweredToggle?.imports ?? 'computed, useAttrs, useSlots'} } from 'vue'\ninterface ${model.public.symbol}Props {\n${props}\n  fixture?: unknown\n  semanticContent?: unknown\n}\nconst props = withDefaults(defineProps<${model.public.symbol}Props>(), ${JSON.stringify(defaults)})\n${loweredToggle?.setup ?? ''}const slots = useSlots()\nconst styles: Record<string,string> = {}\nconst normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
+  return `<!-- @generated by src/kumo/emitters/vue/index.mjs; do not edit -->\n<script lang="ts">\nexport const modelDigest = ${JSON.stringify(model.modelDigest)}\nexport const contentBindingDigest = ${JSON.stringify(contentBindingDigest)}\n</script>\n\n<script setup lang="ts">\n${loweredToggle?.options ?? loweredNativeInput?.options ?? (nativeButton ? 'defineOptions({ inheritAttrs: false })\n' : '')}import { ${loweredToggle?.imports ?? 'computed, useAttrs, useSlots'} } from 'vue'\ninterface ${model.public.symbol}Props {\n${props}\n  fixture?: unknown\n  semanticContent?: unknown\n}\nconst props = withDefaults(defineProps<${model.public.symbol}Props>(), ${JSON.stringify(defaults)})\n${loweredToggle?.setup ?? loweredNativeInput?.setup ?? ''}const slots = useSlots()\nconst styles: Record<string,string> = {}\nconst normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
 const renderContent = () => props.semanticContent ?? normalizeSlotContent(slots.default?.())\nconst fixture = computed(() => props.fixture)\nconst semanticValues = Object.assign({}, useAttrs(), props) as Record<string, unknown>\nconst semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right)\nconst fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : ''\n</script>\n\n<template>\n  ${template}\n</template>\n`;
 }
 export function generateVueLibrary(output = path.join(root, 'generated/libraries/vue')) {

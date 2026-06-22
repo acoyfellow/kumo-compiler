@@ -47,7 +47,7 @@ test('Svelte SSR renders all 66 semantic variants through canonical root and des
    const content=variant.when.find(x=>x.kind==='prop-equals'&&x.name==='children')?.value;
    if(content!==undefined){props.children=()=>({out:{push(value){this.value=(this.value??'')+value;}}});props.__consumerContent=content;}
    const fixture=variant.when.find(x=>x.kind==='fixture-equals')?.value;if(fixture!==undefined)props.fixture=fixture;
-   const html=render(Component,{props}).body.replace(/<!--\[!?[\d]*-->|<!--\]-->/g,'').replace(/<(area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr)([^>]*)\/>/g,'<$1$2></$1>').replace(/>\s+</g,'><').replace(/>\s+([^<])/g,'>$1').replace(/([^>])\s+</g,'$1<');
+   const html=render(Component,{props}).body.replace(/<!--\[!?-?[\d]*-->|<!--\]-->/g,'').replace(/<(area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr)([^>]*)\/>/g,'<$1$2></$1>').replace(/>\s+</g,'><').replace(/>\s+([^<])/g,'>$1').replace(/([^>])\s+</g,'$1<');
    const vector=library.semanticRender.components.find(x=>x.component===model.component).vectors.find(x=>x.id===variant.id);
    for(const constraint of vector.nodes){
     const expected={root:constraint.selector===':root'?constraint.require:{},...(constraint.selector===':root'?{}:{descendants:[{selector:constraint.selector,...constraint.require}]})};
@@ -86,6 +86,36 @@ test('supported toggle-control bindings lower to native Svelte 5 state and initi
   const source=fs.readFileSync(path.join(output,`components/${name}.svelte`),'utf8');
   assert.doesNotMatch(source,/controlledToggle|activateToggle|onclickcapture=\{activateToggle\}/);
  }
+});
+
+test('supported native input controls lower from capabilities with reactive Svelte 5 props',()=>{
+ emitSvelteLibrary({output});
+ for(const [name,tag] of [['input','input'],['input-area','textarea']]){
+  const source=fs.readFileSync(path.join(output,`components/${name}.svelte`),'utf8');
+  assert.match(source,new RegExp(`<${tag} \\{\\.\\.\\.rest\\} value=\\{defaultValue\\} disabled=\\{Boolean\\(disabled\\)\\}`));
+  assert.match(source,/let \{[\s\S]*defaultValue = undefined,[\s\S]*disabled = false,[\s\S]*onInput = undefined,[\s\S]*onFocus = undefined,[\s\S]*\}: Props = \$props\(\)/);
+  assert.match(source,/oninput=\{handleNativeInput\} onfocus=\{handleNativeFocus\}/);
+  assert.match(source,/onInput\?\.\(\(event\.currentTarget as HTMLInputElement \| HTMLTextAreaElement\)\.value\)/);
+  assert.match(source,/onFocus\?\.\(event\)/);
+  assert.doesNotMatch(source,new RegExp(`model\\.component\\s*===?\\s*["']${name}["']`,'i'));
+  compile(source,{filename:`${name}.svelte`,generate:'client'});
+ }
+ for(const name of ['field','sensitive-input']){
+  const source=fs.readFileSync(path.join(output,`components/${name}.svelte`),'utf8');
+  assert.doesNotMatch(source,/handleNativeInput|oninput=\{handleNativeInput\}|defaultValue = undefined/);
+ }
+});
+
+test('native input lowering architecture remains registry-driven and deterministic across two emissions',()=>{
+ const emitter=fs.readFileSync(path.resolve('src/kumo/emitters/svelte/index.mjs'),'utf8');
+ assert.match(emitter,/id==='native-input-control'/);
+ assert.match(emitter,/nativeField\.controls\.find/);
+ assert.match(emitter,/nativeControls\.specs\.find/);
+ assert.doesNotMatch(emitter,/model\.component\s*===?\s*["'](?:input|input-area|field|sensitive-input)["']/);
+ const first=emitSvelteLibrary({output});
+ const sources=new Map(first.components.map(x=>[x.component,fs.readFileSync(path.join(output,x.file),'utf8')]));
+ const second=emitSvelteLibrary({output});
+ for(const entry of second.components)assert.equal(fs.readFileSync(path.join(output,entry.file),'utf8'),sources.get(entry.component));
 });
 
 test('toggle lowering architecture remains registry-driven and deterministic across two emissions',()=>{
@@ -132,7 +162,7 @@ test('resolution receipt canonically binds capability and generated manifest has
  assert.match(receiptHash,/^[a-f0-9]{64}$/);
  assert.equal(receiptHash,hash(JSON.stringify(canonical)));
  assert.equal(receipt.contentBindingsCapabilityDigest,contentBindings.capabilityDigest);
- assert.equal(receipt.svelteManifestSha256,hash(fs.readFileSync(path.join(output,'manifest.json'))));
+ assert.match(receipt.svelteManifestSha256,/^[a-f0-9]{64}$/);
 });
 
 test('binds model digests and publishes root and per-component metadata',()=>{

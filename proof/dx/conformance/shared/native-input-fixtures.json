@@ -1,0 +1,382 @@
+{
+  "schemaVersion": "kumo.native-input-fixtures/v1",
+  "plans": [
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "input",
+      "vector": "bare-disabled",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/input.json",
+        "sha256": "93f91453f14d0f49f29fc52d5bfbc59e50d7a628025200042d729d62e2f12fac",
+        "vectorSha256": "2398a07c1fa529adfb607334dbfc54c5d2111911e9be9cf870172cb1e3f80bf1"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Input",
+        "props": {
+          "aria-label": "Email",
+          "disabled": true,
+          "defaultValue": "x"
+        },
+        "children": []
+      },
+      "setup": [],
+      "actions": [],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "input"
+          }
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "input-fixture",
+        "native-input-control",
+        "trusted-type-focus-actions",
+        "native-value-probes",
+        "callback-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "cdf93deb4b86830dfd65c8b33b381bd7a605224caf9ed0998d9e26a6a3155202"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "input",
+      "vector": "type",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/input.json",
+        "sha256": "93f91453f14d0f49f29fc52d5bfbc59e50d7a628025200042d729d62e2f12fac",
+        "vectorSha256": "2784e468d6d6943f01a94723ec7de6a410adb5515c77c06d5b66b8b172be5fb2"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Input",
+        "props": {
+          "aria-label": "Email"
+        },
+        "children": []
+      },
+      "setup": [
+        {
+          "kind": "event-recorder"
+        }
+      ],
+      "actions": [
+        {
+          "type": "type",
+          "selector": "input",
+          "text": "abc",
+          "editMode": "append"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "value"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "input"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "values": [
+              "abc"
+            ]
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "value:abc"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "input"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "input-fixture",
+        "native-input-control",
+        "trusted-type-focus-actions",
+        "native-value-probes",
+        "callback-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "1678d11b3e1cef01ff9c754aa7e56a83b914bb3f8df5906e7c491faef5cc389f"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "input-area",
+      "vector": "bare",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/input-area.json",
+        "sha256": "c6932336a6db0c8fbe03d3da0192ec6cb639ce8c520b43f95a1713f4a3076e1d",
+        "vectorSha256": "0166830dc301d9b01460cb6de50d55dc10bd54a2951b7e2f4c3d0824d33de564"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "InputArea",
+        "props": {
+          "aria-label": "Notes",
+          "defaultValue": "hello"
+        },
+        "children": []
+      },
+      "setup": [],
+      "actions": [],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "textarea"
+          }
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "input-area-fixture",
+        "native-input-control",
+        "trusted-type-focus-actions",
+        "native-value-probes",
+        "callback-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "f97226ea76e110b7f2faf27d59c7ce9841dadc4f6258e0481ab57c426aa9b1c2"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "input-area",
+      "vector": "type",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/input-area.json",
+        "sha256": "c6932336a6db0c8fbe03d3da0192ec6cb639ce8c520b43f95a1713f4a3076e1d",
+        "vectorSha256": "8ecd3c7e6c7019b865fa285bc37b7b6bb7176fa071176718deb504d1f57220ba"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "InputArea",
+        "props": {
+          "aria-label": "Notes"
+        },
+        "children": []
+      },
+      "setup": [
+        {
+          "kind": "event-recorder"
+        }
+      ],
+      "actions": [
+        {
+          "type": "type",
+          "selector": "textarea",
+          "text": "hello",
+          "editMode": "append"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "value"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "textarea"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "values": [
+              "hello"
+            ]
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "value:hello"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "textarea"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "input-area-fixture",
+        "native-input-control",
+        "trusted-type-focus-actions",
+        "native-value-probes",
+        "callback-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "657349fd03f723a2917411eb3e093950510ee6c56896173ac55756a6ba508885"
+    }
+  ],
+  "absent": [
+    {
+      "component": "input",
+      "vectors": [
+        "field-label"
+      ],
+      "requires": [
+        "field-fixture",
+        "label-control-association"
+      ]
+    },
+    {
+      "component": "input-area",
+      "vectors": [
+        "field-error"
+      ],
+      "requires": [
+        "field-fixture",
+        "label-control-association",
+        "error-message-association"
+      ]
+    },
+    {
+      "component": "field",
+      "vectors": [
+        "optional"
+      ],
+      "requires": [
+        "field-fixture",
+        "compound-native-input-adapter"
+      ]
+    }
+  ],
+  "digest": "a7dcbc4c6a7288083141d431c2119e16598ca13ae2feecebc593c46d098db73b"
+}

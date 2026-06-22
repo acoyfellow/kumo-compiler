@@ -28,11 +28,14 @@ export function InputArea(incoming: InputAreaProps): JSX.Element {
   const renderContent = normalizeRenderContent(props.children, true);
   const normalizedFixture = normalizeFixture(fixture);
   const state: Record<string, () => unknown> = {};
+  const nativeInputHandler: JSX.EventHandlerUnion<HTMLTextAreaElement, InputEvent> = event => {
+    (props.onInput as ((value: string) => void) | undefined)?.(event.currentTarget.value);
+  };
   const refs: Record<string, HTMLElement | undefined> = {};
-  const [, native] = splitProps(props as InputAreaProps & Record<string, unknown>, ["observable"]);
+  const [, native] = splitProps(props as InputAreaProps & Record<string, unknown>, ["class","defaultValue","disabled","onInput","children","fixture","styles"]);
   void native; void state; void refs;
   if (Object.prototype.hasOwnProperty.call(props, "aria-label") && semanticEqual(props["aria-label"], "Notes") && Object.prototype.hasOwnProperty.call(props, "defaultValue") && semanticEqual(props.defaultValue, "hello")) return (<textarea></textarea>);
-  return (<textarea class={mergeStyles(styles.root)}></textarea>);
+  return (<textarea {...native} class={mergeStyles(styles.root, props.class)} value={props.defaultValue as string | number | string[] | undefined} disabled={Boolean(props.disabled)} onInput={nativeInputHandler}></textarea>);
 }
 
 export default InputArea;
