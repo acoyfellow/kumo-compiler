@@ -1,0 +1,4 @@
+import test from'node:test';import assert from'node:assert/strict';import fs from'node:fs';
+const run=fs.readFileSync('proof/dx/conformance/svelte/run.mjs','utf8');
+test('Svelte conformance architecture is fail closed and receipt binds exact package',()=>{assert.match(run,/kumo\.svelte\.conformance\/v1/);assert.match(run,/@acoyfellow\/kumo-svelte@0\.0\.1/);assert.match(run,/counts\.passed!==68\|\|counts\.blocked!==56/);assert.match(run,/staticPassed:64,browserPassed:4/);assert.match(run,/receiptHash=sha\(JSON\.stringify\(receipt\)\)/);assert.match(run,/npm',\['install','--ignore-scripts'\]/)});
+test('Svelte runner has one shared browser route and no synthetic input',()=>{assert.equal((run.match(/runSvelteButtonBrowser\(/g)||[]).length,1);assert.doesNotMatch(run,/Google Chrome|remote-debugging|dispatchEvent|new (?:Event|MouseEvent)|\.click\(/);assert.match(run,/shared-runner-only/);assert.match(run,/56 blocked/)});
