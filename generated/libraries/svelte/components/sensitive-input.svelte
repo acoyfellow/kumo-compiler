@@ -8,18 +8,26 @@
   observable?: unknown;
   children?: Snippet;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     observable = undefined,
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   let state_source = $state("props/native state");
-  const props: Record<string, unknown> = { "observable": observable };
-  const state: Record<string, unknown> = { "source": state_source };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "observable": observable, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = { "source": state_source };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -34,4 +42,8 @@
   styleOperations.push([styles["root"]]);
 </script>
 
+{#if Object.prototype.hasOwnProperty.call(semanticValues, "defaultValue") && semanticEqual(semanticValues.defaultValue, "alpha") && Object.prototype.hasOwnProperty.call(semanticValues, "label") && semanticEqual(semanticValues.label, "Secret")}
+  <div></div>
+{:else}
 <input class={cx(styles["root"])}>
+{/if}

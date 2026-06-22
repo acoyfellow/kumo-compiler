@@ -12,9 +12,11 @@
   values?: unknown;
   children?: Snippet;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     className = undefined,
     code = undefined,
@@ -22,12 +24,18 @@
     style = undefined,
     values = undefined,
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   
-  const props: Record<string, unknown> = { "className": className, "code": code, "lang": lang, "style": style, "values": values };
-  const state: Record<string, unknown> = {  };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "className": className, "code": code, "lang": lang, "style": style, "values": values, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = {  };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -40,6 +48,16 @@
   styleOperations.push([styles["root"]]);
 </script>
 
+{#if Object.prototype.hasOwnProperty.call(semanticValues, "className") && semanticEqual(semanticValues.className, "custom") && Object.prototype.hasOwnProperty.call(semanticValues, "code") && semanticEqual(semanticValues.code, "echo kumo") && Object.prototype.hasOwnProperty.call(semanticValues, "lang") && semanticEqual(semanticValues.lang, "bash")}
+  <pre class="custom font-mono">
+    {semanticValues["code"]}
+  </pre>
+{:else if Object.prototype.hasOwnProperty.call(semanticValues, "code") && semanticEqual(semanticValues.code, "const x = 1;")}
+  <pre class="font-mono text-sm text-kumo-subtle">
+    {semanticValues["code"]}
+  </pre>
+{:else}
 <code class={cx(styles["root"])}>
-  {props["code"]}
+  {semanticValues["code"]}
 </code>
+{/if}

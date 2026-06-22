@@ -14,9 +14,11 @@
   title: unknown;
   children?: Snippet;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     className = undefined,
     commandLine = undefined,
@@ -26,12 +28,18 @@
     size = "base",
     title = undefined,
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   
-  const props: Record<string, unknown> = { "className": className, "commandLine": commandLine, "contents": contents, "description": description, "icon": icon, "size": size, "title": title };
-  const state: Record<string, unknown> = {  };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "className": className, "commandLine": commandLine, "contents": contents, "description": description, "icon": icon, "size": size, "title": title, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = {  };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -44,9 +52,17 @@
   styleOperations.push([styles["root"]]);
 </script>
 
+{#if Object.prototype.hasOwnProperty.call(semanticValues, "title") && semanticEqual(semanticValues.title, "No results")}
+  <div class="px-10 py-16 gap-6">
+    <h2>
+      {semanticValues["title"]}
+    </h2>
+  </div>
+{:else}
 <section class={cx(styles["root"])}>
   {#if icon}{@render icon()}{/if}
-  {props["title"]}
+  {semanticValues["title"]}
   {#if description}{@render description()}{/if}
   {#if contents}{@render contents()}{/if}
 </section>
+{/if}

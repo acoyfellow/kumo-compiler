@@ -16,9 +16,11 @@
   collection?: Snippet;
   children?: Snippet;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     Collapsible = undefined,
     CollapsibleTrigger = undefined,
@@ -30,17 +32,23 @@
     SlidingViews = undefined,
     collection = undefined,
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   let state_isMobile = $state("false during SSR because window is absent");
   let state_isPeeking = $state(false);
   let state_isResizing = $state(false);
   let state_openMobile = $state(false);
   let state_state = $state("expanded when defaultOpen true, otherwise collapsed; peeking while transient peek is active");
   let state_width = $state("defaultWidth, clamped only when setWidth is called");
-  const props: Record<string, unknown> = { "Collapsible": Collapsible, "CollapsibleTrigger": CollapsibleTrigger, "MenuButton": MenuButton, "MenuSubButton": MenuSubButton, "Provider": Provider, "root": root, "SlidingView": SlidingView, "SlidingViews": SlidingViews };
-  const state: Record<string, unknown> = { "isMobile": state_isMobile, "isPeeking": state_isPeeking, "isResizing": state_isResizing, "openMobile": state_openMobile, "state": state_state, "width": state_width };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "Collapsible": Collapsible, "CollapsibleTrigger": CollapsibleTrigger, "MenuButton": MenuButton, "MenuSubButton": MenuSubButton, "Provider": Provider, "root": root, "SlidingView": SlidingView, "SlidingViews": SlidingViews, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = { "isMobile": state_isMobile, "isPeeking": state_isPeeking, "isResizing": state_isResizing, "openMobile": state_openMobile, "state": state_state, "width": state_width };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -50,7 +58,7 @@
   const styleOperations: unknown[][] = [];
   const cx = (...values: unknown[]) => values.filter(Boolean).join(' ');
   void "render-1";
-  state["isPeeking"] = state["isPeeking"];
+  componentState["isPeeking"] = componentState["isPeeking"];
   emitters.push({ id: "emit-3", event: "change", callback: null, value: () => null });
   layers.add("sidebar");
   lifecycles.push({ id: "lifecycle-5", phase: "mounted" });
@@ -60,9 +68,17 @@
   styleOperations.push([styles["root"]]);
 </script>
 
+{#if semanticEqual(fixture, {"export":".Provider","props":{"defaultOpen":false},"children":[{"export":"root","props":{},"children":[{"export":".SlidingViews","props":{"activeKey":"account"},"children":[{"export":".SlidingView","props":{"value":"account"},"children":[{"text":"Account nav"}]},{"export":".SlidingView","props":{"value":"zone"},"children":[{"text":"Zone nav"}]}]},{"export":".Trigger","props":{},"children":[]}]}]})}
+  <div data-state={"collapsed"}>
+    <aside data-state={"collapsed"}></aside>
+  </div>
+{:else if semanticEqual(fixture, {"export":".Provider","props":{},"children":[{"export":"root","props":{},"children":[{"export":".Collapsible","props":{},"children":[{"export":".CollapsibleContent","props":{},"children":[{"text":"Nested navigation"}]}]}]}]})}
+  <div></div>
+{:else}
 <section data-kumo-part="root">
   {#if root}{@render root()}{/if}
 </section>
 <section data-kumo-part="collection">
   {#if collection}{@render collection()}{/if}
 </section>
+{/if}

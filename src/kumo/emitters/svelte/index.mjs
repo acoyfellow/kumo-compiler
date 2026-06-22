@@ -4,7 +4,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {ALGEBRA_VERSION, validateImplementation} from '../../library/algebra.mjs';
 import {loadLibrary} from '../../library/index.mjs';
-import {requireContentBindings} from '../shared/content-adapter.mjs';
+import {requireContentBindings, semanticExpression, semanticPredicate} from '../shared/content-adapter.mjs';
 
 const here=path.dirname(fileURLToPath(import.meta.url));
 const projectRoot=path.resolve(here,'../../../..');
@@ -17,8 +17,10 @@ const defaultValue=item=>item.default===null||item.default===undefined?'undefine
 function expression(value,scope={}) {
  switch(value.kind){
   case'literal':return q(value.value);
-  case'prop':return `props[${q(value.name)}]`;
-  case'state':return `state[${q(value.name)}]`;
+  case'prop':return `semanticValues[${q(value.name)}]`;
+  case'consumer-children':return semanticExpression(value,{content:'renderContent'});
+  case'fixture':return 'fixture';
+  case'state':return `componentState[${q(value.name)}]`;
   case'item':return `${scope[value.name]??safeName(value.name)}`;
   case'coalesce':return `(${value.values.map(x=>expression(x,scope)).join(' ?? ')})`;
   case'equals':return `(${expression(value.left,scope)} === ${expression(value.right,scope)})`;
@@ -41,9 +43,28 @@ const voidTags=new Set(['area','base','br','col','embed','hr','img','input','lin
 function node(value,scope={},depth=0){
  const pad='  '.repeat(depth);
  switch(value.kind){
+  case'semantic-element':{
+   if(value.tag.kind!=='literal'||typeof value.tag.value!=='string'||!/^[a-z][a-z0-9-]*$/.test(value.tag.value))throw new Error('Svelte semantic element requires a validated literal tag');
+   const output=[];
+   for(const [name,item] of Object.entries(value.attributes??{}))output.push(`${name}={${expression(item,scope)}}`);
+   if(value.classes?.length){const classes=value.classes.map(item=>{if(item.kind!=='literal'||typeof item.value!=='string')throw new Error('Svelte semantic classes require validated literals');return item.value;});output.push(`class=${q(classes.join(' '))}`);}
+   const open=`<${value.tag.value}${output.length?' '+output.join(' '):''}>`;
+   if(voidTags.has(value.tag.value))return `${pad}${open}`;
+   let children=value.children??[];
+   if(value.tag.value==='table'&&children.some(x=>x.kind==='semantic-element'&&['tr','th','td'].includes(x.tag?.value))){
+    const cells=children.filter(x=>x.kind==='semantic-element'&&['th','td'].includes(x.tag?.value));
+    const direct=[...children.filter(x=>x.kind==='semantic-element'&&x.tag?.value==='tr').slice(0,Math.max(0,children.filter(x=>x.kind==='semantic-element'&&x.tag?.value==='tr').length-cells.length)),...cells];
+    const kept=children.filter(x=>!(x.kind==='semantic-element'&&['tr','th','td'].includes(x.tag?.value)));const tbody=kept.find(x=>x.kind==='semantic-element'&&x.tag?.value==='tbody');
+    const rows=direct.map(x=>x.tag.value==='tr'?x:{kind:'semantic-element',tag:{kind:'literal',value:'tr'},attributes:{},classes:[],children:[x]});
+    if(tbody)tbody.children=[...(tbody.children??[]),...rows];else kept.push({kind:'semantic-element',tag:{kind:'literal',value:'tbody'},attributes:{},classes:[],children:rows});children=kept;
+   }
+   const body=children.map(x=>node(x,scope,depth+1)).join('\n');
+   return `${pad}${open}${body?`\n${body}\n${pad}`:''}</${value.tag.value}>`;
+  }
   case'element':{const open=`<${value.tag}${attributes(value,scope)}>`;if(voidTags.has(value.tag))return `${pad}${open}`;const body=(value.children??[]).map(x=>node(x,scope,depth+1)).join('\n');return `${pad}${open}${body?`\n${body}\n${pad}`:''}</${value.tag}>`;}
-  case'text':return `${pad}{${expression(value.value,scope)}}`;
+  case'text':return value.value.kind==='consumer-children'?`${pad}{renderContent}`:`${pad}{${expression(value.value,scope)}}`;
   case'children':return `${pad}{#if children}{@render children()}{/if}`;
+  case'fixture-children':return `${pad}{fixtureText(${expression(value.value,scope)})}`;
   case'slot':{const name=safeName(value.name);const fallback=value.fallback?`{:else}\n${node(value.fallback,scope,depth+1)}\n${pad}`:'';return `${pad}{#if ${name}}{@render ${name}()}${fallback}{/if}`;}
   case'condition':return `${pad}{#if ${expression(value.when,scope)}}\n${node(value.then,scope,depth+1)}${value.else?`\n${pad}{:else}\n${node(value.else,scope,depth+1)}`:''}\n${pad}{/if}`;
   case'collection':{const item=safeName(value.item);return `${pad}{#each (${expression(value.source,scope)} ?? []) as ${item} (${expression(value.key,{...scope,[value.item]:item})})}\n${node(value.template,{...scope,[value.item]:item},depth+1)}\n${pad}{/each}`;}
@@ -56,7 +77,7 @@ function operation(op){
  switch(op.kind){
   case'render':return `void ${q(op.id)};`;
   case'emit':return `emitters.push({ id: ${q(op.id)}, event: ${q(op.event)}, callback: ${q(op.callback??null)}, value: () => ${expression(op.value)} });`;
-  case'state':return `state[${q(op.state)}] = ${expression(op.initial)};`;
+  case'state':return `componentState[${q(op.state)}] = ${expression(op.initial)};`;
   case'ref':return `refs[${q(op.target)}] ??= undefined;`;
   case'focus':return `focusTargets.add(${q(op.target)});`;
   case'lifecycle':return `lifecycles.push({ id: ${q(op.id)}, phase: ${q(op.phase)} });`;
@@ -66,6 +87,7 @@ function operation(op){
   default:throw new Error(`unsupported operation kind: ${op.kind}`);
  }
 }
+const predicate=value=>semanticPredicate(value,{props:'semanticValues',fixture:'fixture',equal:'semanticEqual'});
 function component(model){
  const impl=validateImplementation(model.draftImplementation);requireContentBindings(model);if(impl.algebraVersion!==ALGEBRA_VERSION)throw new Error('unsupported algebra');
  const propNames=new Set(model.props.items.map(p=>p.name));
@@ -75,13 +97,16 @@ function component(model){
  const slotTypes=slots.filter(x=>!propNames.has(x)).map(x=>`  ${identifier(x)}?: Snippet;`).join('\n');
  const callbackTypes=(model.emissions.callbacks??[]).map(x=>`  ${identifier(typeof x==='string'?x:x.name)}?: (value: unknown) => void;`).join('\n');
  const declarations=model.props.items.filter(p=>p.name!=='children').map(p=>`${safeName(p.name)} = ${defaultValue(p)}`).concat(slots.filter(x=>!propNames.has(x)&&x!=='children').map(x=>`${safeName(x)} = undefined`)).join(',\n    ');
- const destructure=declarations?`let {\n    ${declarations},\n    children,\n    styles = {},\n    ...rest\n  }: Props = $props();`:`let { children, styles = {}, ...rest }: Props = $props();`;
- const propObject=model.props.items.map(p=>`${q(p.name)}: ${safeName(p.name)}`).join(', ');
+ const destructure=declarations?`let {\n    ${declarations},\n    children,\n    fixture = undefined,\n    __consumerContent = undefined,\n    styles = {},\n    ...rest\n  }: Props = $props();`:`let { children, fixture = undefined, __consumerContent = undefined, styles = {}, ...rest }: Props = $props();`;
+ const destructureSafe=destructure.replace('let {','let componentInput = $props();\n  let {').replaceAll('= $props();','= componentInput;').replace('let componentInput = componentInput;','let componentInput = $props();');
+ const propObject=model.props.items.filter(p=>p.name!=='children').map(p=>`${q(p.name)}: ${safeName(p.name)}`).join(', ');
  const stateObject=model.states.map(s=>`${q(s.name)}: ${safeName(`state_${s.name}`)}`).join(', ');
  const stateDecl=model.states.map(s=>`let ${safeName(`state_${s.name}`)} = $state(${q(s.initial)});`).join('\n  ');
  const ops=impl.operations.map(operation).join('\n  ');
+ const variants=impl.semanticVariants??[];
+ const semantic=[...variants].sort((a,b)=>b.when.length-a.when.length).map((variant,index)=>`${index?'{:else if':'{#if'} ${variant.when.map(predicate).join(' && ')||'true'}}\n${node(variant.tree,{},1)}`).join('\n');
  return `<script lang="ts">\n  import type { Snippet } from 'svelte';\n   const browser = typeof document !== 'undefined';\n\n  export const modelDigest = ${q(model.modelDigest)};
-  export const contentBindingDigest = ${q(model.contentBindings.capabilityDigest)};\n  export type Props = {\n${propLines}${propLines&&slotTypes?'\n':''}${slotTypes}${callbackTypes?'\n'+callbackTypes:''}${propNames.has('children')?'':'\n  children?: Snippet;'}\n  styles?: Record<string, string>;\n  [key: string]: unknown;\n};\n\n  ${destructure}\n  ${stateDecl}\n  const props: Record<string, unknown> = { ${propObject} };\n  const state: Record<string, unknown> = { ${stateObject} };\n  const refs: Record<string, HTMLElement | undefined> = {};\n  const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];\n  const focusTargets = new Set<string>();\n  const lifecycles: Array<{id:string,phase:string}> = [];\n  const services = new Set<string>();\n  const layers = new Set<string>();\n  const styleOperations: unknown[][] = [];\n  const cx = (...values: unknown[]) => values.filter(Boolean).join(' ');\n  ${ops}\n</script>\n\n${node(impl.componentRoot)}\n`;
+  export const contentBindingDigest = ${q(model.contentBindings.capabilityDigest)};\n  export type Props = {\n${propLines}${propLines&&slotTypes?'\n':''}${slotTypes}${callbackTypes?'\n'+callbackTypes:''}${propNames.has('children')?'':'\n  children?: Snippet;'}\n  styles?: Record<string, string>;\n  fixture?: unknown;\n  [key: string]: unknown;\n};\n\n  ${destructureSafe}\n  ${stateDecl}\n  const renderContent = __consumerContent;\n  const semanticProps: Record<string, unknown> = { ${propObject}${propObject?', ':''}...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };\n  const semanticValues = semanticProps;\n  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);\n  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';\n  const componentState: Record<string, unknown> = { ${stateObject} };\n  const refs: Record<string, HTMLElement | undefined> = {};\n  const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];\n  const focusTargets = new Set<string>();\n  const lifecycles: Array<{id:string,phase:string}> = [];\n  const services = new Set<string>();\n  const layers = new Set<string>();\n  const styleOperations: unknown[][] = [];\n  const cx = (...values: unknown[]) => values.filter(Boolean).join(' ');\n  ${ops}\n</script>\n\n${semantic?`${semantic}\n{:else}\n${node(impl.componentRoot)}\n{/if}`:node(impl.componentRoot)}\n`;
 }
 function collectSlots(root,out=[]){if(Array.isArray(root))root.forEach(x=>collectSlots(x,out));else if(root&&typeof root==='object'){if(root.kind==='slot')out.push(root.name);Object.values(root).forEach(x=>collectSlots(x,out));}return out;}
 const compoundBinding=(root,partPath)=>`${root}${partPath.split('.').join('')}`;

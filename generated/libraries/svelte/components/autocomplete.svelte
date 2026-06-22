@@ -12,9 +12,11 @@
   collection?: Snippet;
   children?: Snippet;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     compound = undefined,
     Content = undefined,
@@ -22,15 +24,21 @@
     root = undefined,
     collection = undefined,
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   let state_filter = $state("Base UI autocomplete filtering");
   let state_highlight = $state("none until navigation");
   let state_open = $state("controlled open or Base UI default closed");
   let state_value = $state("value, otherwise defaultValue");
-  const props: Record<string, unknown> = { "compound": compound, "Content": Content, "InputGroup": InputGroup, "root": root };
-  const state: Record<string, unknown> = { "filter": state_filter, "highlight": state_highlight, "open": state_open, "value": state_value };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "compound": compound, "Content": Content, "InputGroup": InputGroup, "root": root, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = { "filter": state_filter, "highlight": state_highlight, "open": state_open, "value": state_value };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -40,7 +48,7 @@
   const styleOperations: unknown[][] = [];
   const cx = (...values: unknown[]) => values.filter(Boolean).join(' ');
   void "render-1";
-  state["highlight"] = state["highlight"];
+  componentState["highlight"] = componentState["highlight"];
   emitters.push({ id: "emit-3", event: "change", callback: null, value: () => null });
   refs["root"] ??= undefined;
   focusTargets.add("root");

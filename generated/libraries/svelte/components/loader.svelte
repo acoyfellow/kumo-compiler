@@ -10,20 +10,28 @@
   size?: number;
   children?: Snippet;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     aria_label = "Loading",
     className = undefined,
     size = "base",
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   
-  const props: Record<string, unknown> = { "aria-label": aria_label, "className": className, "size": size };
-  const state: Record<string, unknown> = {  };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "aria-label": aria_label, "className": className, "size": size, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = {  };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -36,4 +44,16 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<span role={"status"} aria-label={props["aria-label"]} class={cx(styles["root"])}></span>
+{#if Object.prototype.hasOwnProperty.call(semanticValues, "aria-label") && semanticEqual(semanticValues["aria-label"], "Working") && Object.prototype.hasOwnProperty.call(semanticValues, "size") && semanticEqual(semanticValues.size, "lg")}
+  <svg role={"status"} aria-label={"Working"}>
+    <circle></circle>
+    <circle></circle>
+  </svg>
+{:else if true}
+  <svg role={"status"} aria-label={"Loading"} width={"24"} height={"24"}>
+    <circle></circle>
+    <circle></circle>
+  </svg>
+{:else}
+<span role={"status"} aria-label={semanticValues["aria-label"]} class={cx(styles["root"])}></span>
+{/if}

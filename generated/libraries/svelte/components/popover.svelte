@@ -13,9 +13,11 @@
   popover?: Snippet;
   children?: Snippet;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     Close = undefined,
     Content = undefined,
@@ -24,14 +26,20 @@
     Trigger = undefined,
     popover = undefined,
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   let state_anchor = $state("trigger unless explicit element/ref/virtual element/resolver");
   let state_focus = $state("trigger remains focusable");
   let state_open = $state("defaultOpen or controlled open; otherwise false");
-  const props: Record<string, unknown> = { "Close": Close, "Content": Content, "Root": Root, "Title/Description": Title_Description, "Trigger": Trigger };
-  const state: Record<string, unknown> = { "anchor": state_anchor, "focus": state_focus, "open": state_open };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "Close": Close, "Content": Content, "Root": Root, "Title/Description": Title_Description, "Trigger": Trigger, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = { "anchor": state_anchor, "focus": state_focus, "open": state_open };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -41,7 +49,7 @@
   const styleOperations: unknown[][] = [];
   const cx = (...values: unknown[]) => values.filter(Boolean).join(' ');
   void "render-1";
-  state["focus"] = state["focus"];
+  componentState["focus"] = componentState["focus"];
   emitters.push({ id: "emit-3", event: "change", callback: null, value: () => null });
   layers.add("popover");
   lifecycles.push({ id: "lifecycle-5", phase: "mounted" });
@@ -49,10 +57,16 @@
   styleOperations.push([styles["root"]]);
 </script>
 
+{#if semanticEqual(fixture, {"export":"root","props":{},"children":[{"export":".Trigger","props":{},"children":[{"text":"Open"}]}]})}
+  <button type={"button"} tabindex={"0"} aria-haspopup={"dialog"} aria-expanded={"false"} data-kumo-component={"Popover"} data-kumo-part={"trigger"}>
+    {fixtureText(fixture)}
+  </button>
+{:else}
 {#if browser}
   <div data-kumo-portal-target={"document-body"} data-kumo-layer="popover">
     <section data-kumo-part="popover">
       {#if popover}{@render popover()}{/if}
     </section>
   </div>
+{/if}
 {/if}

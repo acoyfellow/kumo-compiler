@@ -14,9 +14,11 @@
   onCheckedChange?: (value: unknown) => void;
   children?: Snippet;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     checked = false,
     disabled = false,
@@ -25,13 +27,19 @@
     onCheckedChange = undefined,
     size = "base",
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   let state_controlled = $state("checked");
   let state_uncontrolled = $state("absence of checked");
-  const props: Record<string, unknown> = { "checked": checked, "disabled": disabled, "group": group, "label": label, "onCheckedChange": onCheckedChange, "size": size };
-  const state: Record<string, unknown> = { "controlled": state_controlled, "uncontrolled": state_uncontrolled };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "checked": checked, "disabled": disabled, "group": group, "label": label, "onCheckedChange": onCheckedChange, "size": size, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = { "controlled": state_controlled, "uncontrolled": state_uncontrolled };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -40,10 +48,14 @@
   const layers = new Set<string>();
   const styleOperations: unknown[][] = [];
   const cx = (...values: unknown[]) => values.filter(Boolean).join(' ');
-  state["controlled"] = state["controlled"];
+  componentState["controlled"] = componentState["controlled"];
   emitters.push({ id: "emit-2", event: "change", callback: null, value: () => null });
   void "render-3";
   styleOperations.push([styles["root"]]);
 </script>
 
+{#if Object.prototype.hasOwnProperty.call(semanticValues, "aria-label") && semanticEqual(semanticValues["aria-label"], "Small") && Object.prototype.hasOwnProperty.call(semanticValues, "size") && semanticEqual(semanticValues.size, "sm")}
+  <button role={"switch"} aria-checked={"false"} class="h-4 w-8"></button>
+{:else}
 <button class={cx(styles["root"])}></button>
+{/if}

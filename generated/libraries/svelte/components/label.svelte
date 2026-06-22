@@ -12,9 +12,11 @@
   showOptional?: boolean;
   tooltip?: unknown;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     asContent = false,
     className = undefined,
@@ -22,12 +24,18 @@
     showOptional = false,
     tooltip = undefined,
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   
-  const props: Record<string, unknown> = { "asContent": asContent, "children": children, "className": className, "htmlFor": htmlFor, "showOptional": showOptional, "tooltip": tooltip };
-  const state: Record<string, unknown> = {  };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "asContent": asContent, "className": className, "htmlFor": htmlFor, "showOptional": showOptional, "tooltip": tooltip, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = {  };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -41,6 +49,21 @@
   styleOperations.push([styles["root"]]);
 </script>
 
+{#if Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Middle Name") && Object.prototype.hasOwnProperty.call(semanticValues, "showOptional") && semanticEqual(semanticValues.showOptional, true)}
+  <label>
+    <span class="font-normal text-kumo-subtle"></span>
+    {"Middle Name(optional)"}
+  </label>
+{:else if Object.prototype.hasOwnProperty.call(semanticValues, "asContent") && semanticEqual(semanticValues.asContent, true) && Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Email")}
+  <span>
+    {renderContent}
+  </span>
+{:else if Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Email")}
+  <label>
+    {renderContent}
+  </label>
+{:else}
 <label class={cx(styles["root"])}>
   {#if children}{@render children()}{/if}
 </label>
+{/if}

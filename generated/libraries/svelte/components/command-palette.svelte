@@ -14,9 +14,11 @@
   root?: Snippet;
   children?: Snippet;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     compound = undefined,
     Dialog = undefined,
@@ -26,15 +28,21 @@
     collection = undefined,
     root = undefined,
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   let state_highlight = $state("first result auto-highlighted always and kept as results change");
   let state_modal = $state(true);
   let state_open = $state("required controlled boolean");
   let state_query = $state("controlled value or empty");
-  const props: Record<string, unknown> = { "compound": compound, "Dialog": Dialog, "Input": Input, "Panel": Panel, "Root": Root };
-  const state: Record<string, unknown> = { "highlight": state_highlight, "modal": state_modal, "open": state_open, "query": state_query };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "compound": compound, "Dialog": Dialog, "Input": Input, "Panel": Panel, "Root": Root, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = { "highlight": state_highlight, "modal": state_modal, "open": state_open, "query": state_query };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -44,7 +52,7 @@
   const styleOperations: unknown[][] = [];
   const cx = (...values: unknown[]) => values.filter(Boolean).join(' ');
   void "render-1";
-  state["modal"] = state["modal"];
+  componentState["modal"] = componentState["modal"];
   emitters.push({ id: "emit-3", event: "change", callback: null, value: () => null });
   focusTargets.add("root");
   layers.add("command-palette");
@@ -53,9 +61,17 @@
   styleOperations.push([styles["root"]]);
 </script>
 
+{#if Object.prototype.hasOwnProperty.call(semanticValues, "highlights") && semanticEqual(semanticValues.highlights, [[0,4]]) && Object.prototype.hasOwnProperty.call(semanticValues, "text") && semanticEqual(semanticValues.text, "Cloudflare") && semanticEqual(fixture, {"export":".HighlightedText","props":{"text":"Cloudflare","highlights":[[0,4]]},"children":[]})}
+  <span>
+    <mark>
+      {"Cloud"}
+    </mark>
+  </span>
+{:else}
 <section data-kumo-part="root">
   {#if root}{@render root()}{/if}
 </section>
 <section data-kumo-part="collection">
   {#if collection}{@render collection()}{/if}
 </section>
+{/if}

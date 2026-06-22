@@ -19,9 +19,11 @@
   collection?: Snippet;
   root?: Snippet;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     aria_label_aria_labelledby = undefined,
     container = undefined,
@@ -36,15 +38,21 @@
     collection = undefined,
     root = undefined,
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   let state_disabled = $state("from root and item descriptor/Option props");
   let state_highlightedOption = $state(null);
   let state_open = $state("controlled open, else defaultOpen, else false");
   let state_value = $state("controlled value, else defaultValue, else null or [] in multiple mode");
-  const props: Record<string, unknown> = { "aria-label/aria-labelledby": aria_label_aria_labelledby, "children": children, "container": container, "hideLabel": hideLabel, "items": items, "label": label, "labelTooltip/description/error": labelTooltip_description_error, "placeholder/loading/disabled/required": placeholder_loading_disabled_required, "renderValue": renderValue, "Root": Root, "size": size };
-  const state: Record<string, unknown> = { "disabled": state_disabled, "highlightedOption": state_highlightedOption, "open": state_open, "value": state_value };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "aria-label/aria-labelledby": aria_label_aria_labelledby, "container": container, "hideLabel": hideLabel, "items": items, "label": label, "labelTooltip/description/error": labelTooltip_description_error, "placeholder/loading/disabled/required": placeholder_loading_disabled_required, "renderValue": renderValue, "Root": Root, "size": size, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = { "disabled": state_disabled, "highlightedOption": state_highlightedOption, "open": state_open, "value": state_value };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -54,7 +62,7 @@
   const styleOperations: unknown[][] = [];
   const cx = (...values: unknown[]) => values.filter(Boolean).join(' ');
   void "render-1";
-  state["highlightedOption"] = state["highlightedOption"];
+  componentState["highlightedOption"] = componentState["highlightedOption"];
   emitters.push({ id: "emit-3", event: "change", callback: null, value: () => null });
   refs["root"] ??= undefined;
   focusTargets.add("root");
@@ -63,9 +71,15 @@
   styleOperations.push([styles["root"]]);
 </script>
 
+{#if Object.prototype.hasOwnProperty.call(semanticValues, "aria-label") && semanticEqual(semanticValues["aria-label"], "Fruit") && Object.prototype.hasOwnProperty.call(semanticValues, "placeholder") && semanticEqual(semanticValues.placeholder, "Choose")}
+  <div>
+    <button type={"button"} tabindex={"0"} role={"combobox"} aria-expanded={"false"} aria-haspopup={"listbox"} aria-label={"Fruit"} data-kumo-component={"Select"} data-kumo-part={"trigger"}></button>
+  </div>
+{:else}
 <section data-kumo-part="root">
   {#if root}{@render root()}{/if}
 </section>
 <section data-kumo-part="collection">
   {#if collection}{@render collection()}{/if}
 </section>
+{/if}

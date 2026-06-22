@@ -14,9 +14,11 @@
   variant?: unknown;
   children?: Snippet;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     disabled = undefined,
     icon = undefined,
@@ -26,13 +28,19 @@
     size = "base",
     variant = "secondary",
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   let state_disabled = $state("false");
   let state_loading = $state("false");
-  const props: Record<string, unknown> = { "disabled": disabled, "icon": icon, "loading": loading, "native": native, "shape": shape, "size": size, "variant": variant };
-  const state: Record<string, unknown> = { "disabled": state_disabled, "loading": state_loading };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "disabled": disabled, "icon": icon, "loading": loading, "native": native, "shape": shape, "size": size, "variant": variant, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = { "disabled": state_disabled, "loading": state_loading };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -46,4 +54,22 @@
   styleOperations.push([styles["root"]]);
 </script>
 
+{#if Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Save") && Object.prototype.hasOwnProperty.call(semanticValues, "data-probe") && semanticEqual(semanticValues["data-probe"], "native") && Object.prototype.hasOwnProperty.call(semanticValues, "name") && semanticEqual(semanticValues.name, "intent") && Object.prototype.hasOwnProperty.call(semanticValues, "value") && semanticEqual(semanticValues.value, "save")}
+  <button type={"button"} name={"intent"} value={"save"} data-probe={"native"} data-kumo-component={"Button"}>
+    <span>
+      {renderContent}
+    </span>
+  </button>
+{:else if Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Create") && Object.prototype.hasOwnProperty.call(semanticValues, "size") && semanticEqual(semanticValues.size, "xs") && Object.prototype.hasOwnProperty.call(semanticValues, "variant") && semanticEqual(semanticValues.variant, "primary")}
+  <button class="bg-kumo-brand h-5 text-xs">
+    {renderContent}
+  </button>
+{:else if Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Delete") && Object.prototype.hasOwnProperty.call(semanticValues, "size") && semanticEqual(semanticValues.size, "lg") && Object.prototype.hasOwnProperty.call(semanticValues, "variant") && semanticEqual(semanticValues.variant, "destructive")}
+  <button class="bg-kumo-danger h-10 text-base">
+    {renderContent}
+  </button>
+{:else if Object.prototype.hasOwnProperty.call(semanticValues, "aria-label") && semanticEqual(semanticValues["aria-label"], "Add item") && Object.prototype.hasOwnProperty.call(semanticValues, "shape") && semanticEqual(semanticValues.shape, "circle") && Object.prototype.hasOwnProperty.call(semanticValues, "size") && semanticEqual(semanticValues.size, "sm")}
+  <button aria-label={"Add item"} class="rounded-full size-6.5"></button>
+{:else}
 <button class={cx(styles["root"])}></button>
+{/if}

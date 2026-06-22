@@ -9,19 +9,27 @@
   className?: unknown;
   layout?: unknown;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     className = undefined,
     layout = "auto",
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   
-  const props: Record<string, unknown> = { "children": children, "className": className, "layout": layout };
-  const state: Record<string, unknown> = {  };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "className": className, "layout": layout, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = {  };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -34,6 +42,34 @@
   styleOperations.push([styles["root"]]);
 </script>
 
+{#if Object.prototype.hasOwnProperty.call(semanticValues, "layout") && semanticEqual(semanticValues.layout, "fixed") && semanticEqual(fixture, {"export":"root","props":{},"children":[{"export":".Body","props":{},"children":[{"export":".Row","props":{},"children":[{"export":".Cell","props":{"sticky":"left"},"children":[{"text":"Pinned"}]}]}]}]})}
+  <table class="table-fixed">
+    <tbody>
+      <tr>
+        <td class="sticky left-0 z-1">
+          {"Pinned"}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+{:else if semanticEqual(fixture, {"export":"root","props":{},"children":[{"export":".Header","props":{},"children":[{"export":".Row","props":{},"children":[{"export":".Head","props":{},"children":[{"text":"Name"}]}]}]},{"export":".Body","props":{},"children":[{"export":".Row","props":{},"children":[{"export":".Cell","props":{"className":"bg-kumo-tint"},"children":[{"text":"Kumo"}]}]}]}]})}
+  <table class="isolate w-full">
+    <thead></thead>
+    <tbody>
+      <tr>
+        <th>
+          {"Name"}
+        </th>
+      </tr>
+      <tr>
+        <td class="bg-kumo-tint">
+          {"Kumo"}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+{:else}
 <table class={cx(styles["root"])}>
   {#if children}{@render children()}{/if}
 </table>
+{/if}

@@ -12,9 +12,11 @@
   collection?: Snippet;
   root?: Snippet;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     container = "provider container or document.body",
     toastManager = undefined,
@@ -22,13 +24,19 @@
     collection = undefined,
     root = undefined,
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   let state_toasts = $state("manager state");
   let state_viewport = $state("portaled after hydration");
-  const props: Record<string, unknown> = { "children": children, "container": container, "toastManager": toastManager, "variant": variant };
-  const state: Record<string, unknown> = { "toasts": state_toasts, "viewport": state_viewport };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "container": container, "toastManager": toastManager, "variant": variant, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = { "toasts": state_toasts, "viewport": state_viewport };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -38,7 +46,7 @@
   const styleOperations: unknown[][] = [];
   const cx = (...values: unknown[]) => values.filter(Boolean).join(' ');
   void "render-1";
-  state["viewport"] = state["viewport"];
+  componentState["viewport"] = componentState["viewport"];
   emitters.push({ id: "emit-3", event: "change", callback: null, value: () => null });
   services.add("clipboard");
   layers.add("toasty");
@@ -46,9 +54,15 @@
   styleOperations.push([styles["root"]]);
 </script>
 
+{#if Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Application")}
+  <div>
+    {renderContent}
+  </div>
+{:else}
 <section data-kumo-part="root">
   {#if root}{@render root()}{/if}
 </section>
 <section data-kumo-part="collection">
   {#if collection}{@render collection()}{/if}
 </section>
+{/if}

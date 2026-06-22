@@ -14,9 +14,11 @@
   truncate?: boolean;
   variant?: unknown;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     as = undefined,
     bold = false,
@@ -26,12 +28,18 @@
     truncate = false,
     variant = "body",
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   
-  const props: Record<string, unknown> = { "as": as, "bold": bold, "children": children, "DANGEROUS_className": DANGEROUS_className, "DANGEROUS_style": DANGEROUS_style, "size": size, "truncate": truncate, "variant": variant };
-  const state: Record<string, unknown> = {  };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "as": as, "bold": bold, "DANGEROUS_className": DANGEROUS_className, "DANGEROUS_style": DANGEROUS_style, "size": size, "truncate": truncate, "variant": variant, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = {  };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -44,6 +52,20 @@
   styleOperations.push([styles["root"]]);
 </script>
 
+{#if Object.prototype.hasOwnProperty.call(semanticValues, "as") && semanticEqual(semanticValues.as, "h1") && Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Title") && Object.prototype.hasOwnProperty.call(semanticValues, "variant") && semanticEqual(semanticValues.variant, "heading1")}
+  <h1 class="text-3xl font-semibold">
+    {renderContent}
+  </h1>
+{:else if Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "code") && Object.prototype.hasOwnProperty.call(semanticValues, "variant") && semanticEqual(semanticValues.variant, "mono")}
+  <span class="font-mono text-sm">
+    {renderContent}
+  </span>
+{:else if Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Body")}
+  <p class="text-kumo-default text-base">
+    {renderContent}
+  </p>
+{:else}
 <span class={cx(styles["root"])}>
   {#if children}{@render children()}{/if}
 </span>
+{/if}

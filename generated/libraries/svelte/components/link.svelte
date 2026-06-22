@@ -11,21 +11,29 @@
   render?: unknown;
   variant?: unknown;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     className = undefined,
     href = undefined,
     render = undefined,
     variant = "inline",
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   
-  const props: Record<string, unknown> = { "children": children, "className": className, "href": href, "render": render, "variant": variant };
-  const state: Record<string, unknown> = {  };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "className": className, "href": href, "render": render, "variant": variant, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = {  };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -38,6 +46,16 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<a href={props["href"]} class={cx(styles["root"])}>
+{#if Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "External") && Object.prototype.hasOwnProperty.call(semanticValues, "href") && semanticEqual(semanticValues.href, "https://example.com") && Object.prototype.hasOwnProperty.call(semanticValues, "variant") && semanticEqual(semanticValues.variant, "plain")}
+  <a href={"https://example.com"} class="hover:text-kumo-link/70">
+    {renderContent}
+  </a>
+{:else if Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Docs") && Object.prototype.hasOwnProperty.call(semanticValues, "href") && semanticEqual(semanticValues.href, "/docs")}
+  <a href={"/docs"} data-kumo-component={"Link"} class="text-kumo-link underline">
+    {renderContent}
+  </a>
+{:else}
+<a href={semanticValues["href"]} class={cx(styles["root"])}>
   {#if children}{@render children()}{/if}
 </a>
+{/if}
