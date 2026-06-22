@@ -2,17 +2,15 @@
   "schemaVersion": 2,
   "framework": "solid",
   "package": "@acoyfellow/kumo-solid@0.0.1",
-  "sourceTree": "2ee1b872b089b61ef443408552622c0750ad3fd7",
-  "sourceTreeDigest": "757d6db29057738920523164bfa088d2ae06104d52a857c06ba3dca7dc2215e7",
-  "packageSha256": "896b95f4406de11fc3cfaa0fdb307610fcb4b91a0ae34d4c1646ed3d64c00337",
+  "sourceTree": "f622b44bc968760a6f4320a9c1e26b22c0286002",
+  "sourceTreeDigest": "36e0c2af73f76ada64437969ea5061aec289723cab8d78fb93a5e99591793327",
+  "packageSha256": "10e53d6c9f38d2e4149b0ffe0a9864b61ed0704a9a63e14d9344142ee80f721b",
   "deterministicRuns": 2,
   "versions": {
     "node": "v24.17.0",
     "npm": "11.13.0",
     "solid": "1.9.13",
-    "vite": "8.0.16",
-    "browser": "Chrome/149.0.7827.156",
-    "protocol": "1.3"
+    "vite": "8.0.16"
   },
   "commands": [
     "npm pack (twice)",
@@ -22,37 +20,17 @@
     "Vite client build",
     "Vite SSR build",
     "solid-js/web renderToString + generateHydrationScript with matching renderId",
-    "Chrome CDP hydration and behavior",
+    "62 packed canonical compareMarkup variants",
+    "client CSS/assets artifact audit",
     "Vite Button-only tree-shaking build",
     "npm workspace install/build"
   ],
   "observations": {
-    "serverNodePreserved": true,
-    "hydrationReady": "true",
-    "before": "Clicked 0",
-    "click": "Clicked 1",
-    "disabledCount": "Clicked 1",
-    "model": "changed",
-    "label": "email",
-    "desc": "email-description email-error",
-    "invalid": "true",
-    "required": true,
-    "css": 1,
-    "consoleMessages": [],
-    "exceptions": [],
-    "networkFailures": [],
-    "assetResponses": [
-      {
-        "url": "http://127.0.0.1:41741/assets/<hashed>",
-        "status": 200,
-        "mimeType": "text/css"
-      },
-      {
-        "url": "http://127.0.0.1:41741/assets/<hashed>",
-        "status": 200,
-        "mimeType": "text/javascript"
-      }
-    ]
+    "hydrationBuildArtifact": "passed",
+    "hydrationBootstrapArtifact": "passed",
+    "hydrationKeysArtifact": "passed",
+    "cssAssets": 1,
+    "clientAssets": 2
   },
   "exportSurface": {
     "componentCount": 41,
@@ -62,19 +40,20 @@
     "compoundFunctions": "passed",
     "compoundSsr": "passed",
     "modelDigestBindings": "passed",
+    "sourceSha256Bindings": "passed",
+    "semanticVariants": 62,
+    "canonicalMarkup": "passed",
     "rootExports": "passed",
     "canonicalAliases": "retained where available"
   },
   "browserConformance": {
-    "verified": [
-      "Button",
-      "Field"
-    ],
+    "verified": [],
     "pending": [
       "Autocomplete",
       "Badge",
       "Banner",
       "Breadcrumbs",
+      "Button",
       "Checkbox",
       "ClipboardText",
       "CloudflareLogo",
@@ -86,6 +65,7 @@
       "Dialog",
       "DropdownMenu",
       "Empty",
+      "Field",
       "Grid",
       "GridItem",
       "Input",
@@ -110,7 +90,8 @@
       "Tabs",
       "Text",
       "Toasty"
-    ]
+    ],
+    "reason": "requires scripts/observable-browser-runner.mjs trusted conformance"
   },
   "checks": {
     "packedTarball": "passed",
@@ -119,23 +100,43 @@
     "compoundImports": "passed",
     "compoundSsr": "passed",
     "modelDigestBindings": "passed",
+    "sourceSha256Bindings": "passed",
+    "semanticVariants": "passed",
+    "canonicalMarkup": "passed",
     "typecheck": "passed",
     "clientBuild": "passed",
     "ssrBuild": "passed",
     "renderToString": "passed",
-    "hydrationBootstrap": "passed",
-    "hydrationKeys": "passed",
-    "chromeHydration": "passed",
-    "browserBehavior": "passed",
-    "aria": "passed",
-    "cssLoadedOnce": "passed",
+    "hydrationBootstrapArtifact": "passed",
+    "hydrationKeysArtifact": "passed",
+    "cssAssets": "passed",
     "assets": "passed",
-    "console": "passed",
-    "serverNodeIdentity": "passed",
     "treeShaking": "passed",
     "workspace": "passed",
-    "hmr": "not-run",
-    "manualScreenReader": "not-run"
+    "liveHydration": {
+      "status": "not-run",
+      "reason": "requires scripts/observable-browser-runner.mjs trusted conformance"
+    },
+    "serverNodeIdentity": {
+      "status": "not-run",
+      "reason": "requires scripts/observable-browser-runner.mjs trusted conformance"
+    },
+    "buttonInteraction": {
+      "status": "not-run",
+      "reason": "requires scripts/observable-browser-runner.mjs trusted conformance"
+    },
+    "fieldInteraction": {
+      "status": "not-run",
+      "reason": "requires scripts/observable-browser-runner.mjs trusted conformance"
+    },
+    "hmr": {
+      "status": "not-run",
+      "reason": "requires scripts/observable-browser-runner.mjs trusted conformance"
+    },
+    "screenReader": {
+      "status": "not-run",
+      "reason": "requires scripts/observable-browser-runner.mjs trusted conformance"
+    }
   },
-  "receiptHash": "89cdc1fbf0730b9e215760003a3582bcb9f6521b04960404504e4768f544bd9e"
+  "receiptHash": "75c0c351f6b20662297783ff37fa140b927292d35ad496cb990edb7d191fced0"
 }
