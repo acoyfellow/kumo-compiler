@@ -1,0 +1,4 @@
+import test from'node:test';import assert from'node:assert/strict';import fs from'node:fs';
+const source=fs.readFileSync('proof/dx/conformance/solid/browser-adapter.mjs','utf8'),runner=fs.readFileSync('scripts/observable-browser-runner.mjs','utf8');
+test('Solid packed adapter delegates all browser lifecycle and trusted input',()=>{assert.match(source,/runObservableBrowser/);assert.match(source,/api\.action/);assert.doesNotMatch(source,/spawn\(|Google Chrome|remote-debugging|dispatchEvent|new Event|\.click\(/);assert.match(runner,/entryFilename=/);assert.match(runner,/viteConfig=/);assert.match(runner,/beforeAppHtml=/)});
+test('Solid Button adapter is capability bounded and isolated',()=>{for(const id of ['disabled-click','loading-click','enabled-click','submit-form'])assert.match(source,new RegExp(id));assert.match(source,/isolated-vector-batches/);assert.doesNotMatch(source,/from['"]@acoyfellow\/kumo-solid\/(?!button)/)});

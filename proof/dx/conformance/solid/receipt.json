@@ -4,7 +4,7 @@
   "framework": "solid",
   "package": "@acoyfellow/kumo-solid@0.0.1",
   "artifact": "library-artifacts/kumo-solid-0.0.1.tgz",
-  "packageSha256": "2fe1eefe0c270ef0720a83cfe56e9ddbd3e8dac4619aae0c944024c7ad4d4aab",
+  "packageSha256": "73abfd47f20a8f4cc04f2e777095a0f6f204d8ad1711bd4cbab75e8179977d2c",
   "contract": {
     "schemaVersion": "kumo.observable/v1",
     "provenanceDigest": "a7fe3efce7677deb02df5635e1c9541b8e618d67763a5ef8ca11f6ef950aeebf"
@@ -14,13 +14,85 @@
     "digest": "e8d7f17985b6ca2c3abf69b69c482d9efcbc63f18ae35760e3673df9aecc2f77",
     "sha256": "3153cc2e780cd7b7de2262f53dbac6886ae3ac61179ffe58ac52ec419dc3efe7"
   },
-  "modelHash": "7e8f304a06a484c7ea205a79aa9b184ce955f7dbaff5ac82cb37649c301a55ae",
+  "modelHash": "a24107a24f4b4c39c50680a0110fbaff1f0b2bf3b5e81807c3063109ce6a3ff1",
   "node": {
     "version": "v24.17.0",
     "platform": "darwin",
     "arch": "arm64"
   },
   "runner": "scripts/observable-browser-runner.mjs",
+  "browser": {
+    "browserCells": 4,
+    "diagnostics": [],
+    "telemetry": [
+      {
+        "id": "disabled-click",
+        "phases": {
+          "build": 401.1903339996934,
+          "serve": 3.0290839970111847,
+          "chrome": 1090.4315830022097
+        },
+        "vectors": [
+          {
+            "component": "button",
+            "id": "disabled-click",
+            "ms": 88.8982499986887
+          }
+        ]
+      },
+      {
+        "id": "loading-click",
+        "phases": {
+          "build": 214.2484169974923,
+          "serve": 1.298165999352932,
+          "chrome": 590.7964169979095
+        },
+        "vectors": [
+          {
+            "component": "button",
+            "id": "loading-click",
+            "ms": 88.31491599977016
+          }
+        ]
+      },
+      {
+        "id": "enabled-click",
+        "phases": {
+          "build": 207.29762499779463,
+          "serve": 0.16020800173282623,
+          "chrome": 598.9190419986844
+        },
+        "vectors": [
+          {
+            "component": "button",
+            "id": "enabled-click",
+            "ms": 89.25695800036192
+          }
+        ]
+      },
+      {
+        "id": "submit-form",
+        "phases": {
+          "build": 207.89200000464916,
+          "serve": 0.12070900201797485,
+          "chrome": 610.5220410004258
+        },
+        "vectors": [
+          {
+            "component": "button",
+            "id": "submit-form",
+            "ms": 88.5317910015583
+          }
+        ]
+      }
+    ],
+    "capabilities": [
+      "trusted-cdp",
+      "native-focus",
+      "hydration",
+      "isolated-vector-batches"
+    ]
+  },
   "policy": {
     "browserLifecycle": "shared-runner-only",
     "trustedInteractions": true,
@@ -30,8 +102,8 @@
     "fixtureSource": "proof/dx/conformance/shared/packed-fixtures.json"
   },
   "counts": {
-    "blocked": 60,
-    "passed": 64
+    "blocked": 56,
+    "passed": 68
   },
   "totalVectors": 124,
   "diagnostics": [],
@@ -163,7 +235,7 @@
         "digest": "abd81959ad07f2cab5863f731a822aa436b25ccc54ab3bb10b1aee829b0e5f32"
       },
       "observation": {
-        "markupSha256": "72af633a12b7759ad22e3f78b142738d3ba7d954a4b414a49cf8e116c5f1dc6e"
+        "markupSha256": "7ae670f6c5a2c2f7037c8a42d0dd2588174e1a21c4eff9f5a54108a30e43c959"
       }
     },
     {
@@ -180,7 +252,7 @@
         "digest": "fe426f57769be0695baea96d78be91f8178b0eaf509a438bee2df5d97f4a763c"
       },
       "observation": {
-        "markupSha256": "73b588e80311a27e75ad2c1aa88393551a47c8225b61be66a92efbd479a24a3b"
+        "markupSha256": "32f75f565125102b02cd2e68002cace61b2825a5b27cffad38cd12ce0347d808"
       }
     },
     {
@@ -197,7 +269,7 @@
         "digest": "98407b5bb84f3fcc60b2a28b04f2a13ac7108bc92580cd7feacee899f2e4d7b5"
       },
       "observation": {
-        "markupSha256": "13bdd87da4dab64b39ba6c551fb8a9fd5f7665db1fee7793cbeb61f9f58a4811"
+        "markupSha256": "48434e44e95e70052cdf702073c4da41f62d8f4851c9d5e005a4a5e0fa9b84af"
       }
     },
     {
@@ -214,52 +286,97 @@
         "digest": "8882af225169a74a4f4e5b6bcba5bfeea054dc5cec43f959ad1b5824e46b6681"
       },
       "observation": {
-        "markupSha256": "9d5eca0a1e59e1efff2c9069535720ca2392d53839d31ea4a93fcc4ce5fa8586"
+        "markupSha256": "ba29f19b98cbb09bc810703160ca00fe88f786fc600f64a0c5cf699aea572fef"
       }
     },
     {
       "component": "button",
       "vector": "disabled-click",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "23a05574e40630f0e64406ef3ee81e2e2806254c552e80b4b773663e51d2b118"
+      },
+      "observation": {
+        "clicks": 0,
+        "submits": 0,
+        "events": [],
+        "focus": "none",
+        "loadingSvg": 0
+      }
     },
     {
       "component": "button",
       "vector": "loading-click",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "e02f8d7d8e79a9435e67bb6d867083559916edb5be6b4b065d9848c39854b1c8"
+      },
+      "observation": {
+        "clicks": 0,
+        "submits": 0,
+        "events": [],
+        "focus": "none",
+        "loadingSvg": 1
+      }
     },
     {
       "component": "button",
       "vector": "enabled-click",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "9280377b0baac9ddacd244de51fe7bf60619cbd8872af40f6d596e744e482bd4"
+      },
+      "observation": {
+        "clicks": 1,
+        "submits": 0,
+        "events": [
+          "click"
+        ],
+        "focus": "root",
+        "loadingSvg": 0
+      }
     },
     {
       "component": "button",
       "vector": "submit-form",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "9905cecf11e578eb08b54cb0faae167f3397becbc9542647e06d89fb578c9342"
+      },
+      "observation": {
+        "clicks": 1,
+        "submits": 1,
+        "events": [
+          "click",
+          "submit"
+        ],
+        "focus": "root",
+        "loadingSvg": 0
+      }
     },
     {
       "component": "checkbox",
@@ -1785,5 +1902,5 @@
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     }
   ],
-  "receiptHash": "416f6d1171c9140b77704410c1e604e915d35c214f1f0f52043f23164c0e3ad4"
+  "receiptHash": "9d19e6a8cb190687db2d83eca04a2c401f8636f88911d0386bf90f8b15dc8909"
 }

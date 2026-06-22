@@ -77,7 +77,8 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
 
   const buttonSource = fs.readFileSync(path.join(first, 'button.tsx'), 'utf8');
   const buttonDeclaration = fs.readFileSync(path.join(first, 'button.d.ts'), 'utf8');
-  assert.match(buttonSource, /<button \{\.\.\.native\} type=\{\(props\.type/);
+  assert.match(buttonSource, /<button id=\{props\.id as string\}[^>]*type=\{\(props\.type/);
+  assert.match(buttonSource, /onClick=\{props\.onClick as JSX\.EventHandlerUnion/);
   assert.match(buttonSource, /disabled=\{Boolean\(props\.disabled \|\| props\.loading\)\}/);
   assert.match(buttonSource, /props\.loading \? <svg aria-hidden="true" \/>/);
   assert.match(buttonSource, /\{props\.children\}<\/button>/);
@@ -108,7 +109,7 @@ test('Solid SSR renders every compiled semantic predicate through canonical mark
     [{children:'Enabled', id:'enabled', onClick:() => {}}, /<button[^>]*id="enabled"[^>]*type="button"[^>]*>Enabled<\/button>/],
     [{children:'Disabled', disabled:true}, /<button[^>]*disabled[^>]*>Disabled<\/button>/],
     [{children:'Loading', loading:true}, /<button[^>]*disabled[^>]*><svg aria-hidden="true"><\/svg>Loading<\/button>/],
-    [{children:'Submit', type:'submit', name:'intent', value:'save'}, /<button[^>]*type="submit"[^>]*name="intent"[^>]*value="save"[^>]*>Submit<\/button>/],
+    [{children:'Submit', type:'submit', name:'intent', value:'save'}, /<button[^>]*name="intent"[^>]*value="save"[^>]*type="submit"[^>]*>Submit<\/button>/],
   ];
   for (const [props, expected] of interactive) assert.match(renderToString(() => buttonModule.Button(props)), expected);
 
