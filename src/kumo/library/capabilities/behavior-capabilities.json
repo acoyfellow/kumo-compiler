@@ -748,7 +748,7 @@
     },
     {
       "id": "native-field",
-      "support": "supported",
+      "support": "requirements-only",
       "component": "input",
       "contractDigest": "8ab290a7d671042434090c4d0e6c8fa30dbb47934480b7b7cabe834ad35553c4",
       "requirements": {
@@ -796,11 +796,16 @@
         "type",
         "field-label"
       ],
-      "missingOperations": []
+      "missingOperations": [
+        {
+          "kind": "field-wiring",
+          "reason": "input includes a Field composition vector, but generated IDs and exact label/description/error/required serialization are not established"
+        }
+      ]
     },
     {
       "id": "native-field",
-      "support": "supported",
+      "support": "requirements-only",
       "component": "input-area",
       "contractDigest": "4d013786afa0089d44e6e40dc041b4b9b3de7dc5a9403384e70f3a8d55cfcd2b",
       "requirements": {
@@ -848,7 +853,12 @@
         "type",
         "field-error"
       ],
-      "missingOperations": []
+      "missingOperations": [
+        {
+          "kind": "field-wiring",
+          "reason": "input-area includes a Field composition vector, but generated IDs and exact label/description/error/required serialization are not established"
+        }
+      ]
     },
     {
       "id": "focus-navigation",
@@ -1600,5 +1610,5 @@
       ]
     }
   ],
-  "capabilityDigest": "b1aa849d24d94febe2287cf143abdd6c5baab0a5c26fef3c4e93d402ab136985"
+  "capabilityDigest": "ad5c407f8c787a45362cd226923a3dd7212dc8740db270b9b95268b6ccdb0316"
 }

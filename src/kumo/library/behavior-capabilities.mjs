@@ -69,7 +69,7 @@ export function deriveBehaviorCapabilities(contracts) {
   for (const name of ['input','input-area','sensitive-input']) {
     const contract = byName.get(name); if (!contract) continue;
     const sensitive = name === 'sensitive-input';
-    bindings.push(requirement(sensitive ? 'sensitive-field' : 'native-field', contract, sensitive ? 'requirements-only' : 'supported', {
+    bindings.push(requirement(sensitive ? 'sensitive-field' : 'native-field', contract, 'requirements-only', {
       states:Object.keys(contract.initialState), transitions:contract.transitions, events:['trusted native input updates DOM value and callback receives current value'], focus:contract.keyboardFocus,
       dom:sensitive ? ['div','input'] : [name === 'input-area' ? 'textarea' : 'input'], aria:contract.semantics.aria,
       uncontrolled:{supported:true, prop:'defaultValue', owner:'native control'},
@@ -78,7 +78,9 @@ export function deriveBehaviorCapabilities(contracts) {
         {kind:'reveal-boundary',reason:'canonical sequence ends masked but does not establish reveal control semantics, intermediate input type, or focus behavior'},
         {kind:'clipboard-failure',reason:'clipboard permission, rejection, failure callbacks, and announcement lifecycle are not established'},
         {kind:'field-wiring',reason:'label focus is established, but generated IDs and exact for/aria-describedby/required serialization are not exposed'}
-      ] : []
+      ] : [
+        {kind:'field-wiring',reason:`${contract.component} includes a Field composition vector, but generated IDs and exact label/description/error/required serialization are not established`}
+      ]
     }));
   }
   for (const name of ['radio','menu-bar','tabs','pagination','command-palette','table-of-contents']) {

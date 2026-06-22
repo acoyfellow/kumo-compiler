@@ -26,14 +26,14 @@ test('registry promotes only complete executable state algebra', () => {
     assert.equal(binding.support, 'supported');
     assert.deepEqual(binding.missingOperations, []);
   }
-  for (const binding of registry.bindings.filter(binding => !['native-button','toggle-control'].includes(binding.id) && !(binding.id==='native-field'&&['input','input-area'].includes(binding.component)))) {
+  for (const binding of registry.bindings.filter(binding => !['native-button','toggle-control'].includes(binding.id))) {
     assert.equal(binding.support, 'requirements-only');
     assert.ok(binding.missingOperations.every(item => item.kind && item.reason));
   }
   for (const component of ['input','input-area']) {
     const binding=registry.bindings.find(item=>item.id==='native-field'&&item.component===component);
-    assert.equal(binding.support,'supported');
-    assert.deepEqual(binding.missingOperations,[]);
+    assert.equal(binding.support,'requirements-only');
+    assert.deepEqual(binding.missingOperations.map(item=>item.kind),['field-wiring']);
     assert.equal(binding.uncontrolled.owner,'native control');
   }
   assert.deepEqual(new Set(registry.bindings.filter(binding=>binding.id==='focus-navigation').map(binding=>binding.component)),new Set(['radio','menu-bar','tabs','pagination','command-palette','table-of-contents']));
