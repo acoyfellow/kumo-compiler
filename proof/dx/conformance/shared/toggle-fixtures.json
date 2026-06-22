@@ -1,0 +1,1310 @@
+{
+  "schemaVersion": "kumo.toggle-fixtures/v1",
+  "plans": [
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "checkbox",
+      "vector": "unchecked-click",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/checkbox.json",
+        "sha256": "ebb6ca5dfdb4ecd665b8bcf0dfd660def8b3ecfab57c100d9d01469ca00a8854",
+        "vectorSha256": "b54485479fbc9deac5ab90f435150b6962c86a30ae353abd5d16751b734da2e0"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Checkbox",
+        "props": {
+          "aria-label": "Accept"
+        },
+        "children": []
+      },
+      "setup": [
+        {
+          "kind": "uncontrolled-state",
+          "mode": "uncontrolled",
+          "initial": false
+        },
+        {
+          "kind": "event-recorder"
+        }
+      ],
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "aria",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "span",
+            "attributes": {
+              "includes": {
+                "role": "checkbox",
+                "aria-checked": "true",
+                "aria-label": "Accept"
+              }
+            }
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "aria",
+          "expected": {
+            "includes": {
+              "role": "checkbox",
+              "aria-checked": "true",
+              "aria-label": "Accept"
+            }
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "checked": true
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "checked:true"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "root"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "checkbox-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "aria-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "3e804becefd088eaf770333d5db03e8097d9fe2432aef5aff51a86257d7666a0"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "checkbox",
+      "vector": "checked-controlled-click",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/checkbox.json",
+        "sha256": "ebb6ca5dfdb4ecd665b8bcf0dfd660def8b3ecfab57c100d9d01469ca00a8854",
+        "vectorSha256": "d7761d8290bc7ad38cff3b1c87ae582cc68cebbf9f2206414872b5c8516a7b00"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Checkbox",
+        "props": {
+          "aria-label": "Accept",
+          "checked": true
+        },
+        "children": []
+      },
+      "setup": [
+        {
+          "kind": "controlled-state",
+          "mode": "controlled",
+          "initial": true
+        },
+        {
+          "kind": "event-recorder",
+          "callback": "checked"
+        }
+      ],
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "aria",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "span",
+            "attributes": {
+              "includes": {
+                "role": "checkbox",
+                "aria-checked": "false"
+              }
+            }
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "aria",
+          "expected": {
+            "includes": {
+              "role": "checkbox",
+              "aria-checked": "false"
+            }
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "checked": false
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "checked:false"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "root"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "checkbox-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "aria-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "12f022b6de4a19f3d1e6072dee5dc97f8c4642d6613b7c63f6c2221503d852e2"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "checkbox",
+      "vector": "indeterminate-space",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/checkbox.json",
+        "sha256": "ebb6ca5dfdb4ecd665b8bcf0dfd660def8b3ecfab57c100d9d01469ca00a8854",
+        "vectorSha256": "d91644ba82bd97ab95209df5dfd17fd4f4afd8ba5a8f0f4d9d990f181956ebe6"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Checkbox",
+        "props": {
+          "aria-label": "Mixed",
+          "indeterminate": true
+        },
+        "children": []
+      },
+      "setup": [
+        {
+          "kind": "uncontrolled-state",
+          "mode": "uncontrolled",
+          "initial": false
+        },
+        {
+          "kind": "event-recorder"
+        }
+      ],
+      "actions": [
+        {
+          "type": "key",
+          "key": "Space"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "aria",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "span",
+            "attributes": {
+              "includes": {
+                "role": "checkbox",
+                "aria-checked": "true"
+              }
+            }
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "aria",
+          "expected": {
+            "includes": {
+              "role": "checkbox",
+              "aria-checked": "true"
+            }
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "checked": true
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "checked:true"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "root"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "checkbox-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "aria-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "ee007d581f3c429a25da58c137bd6abb4945bf25327e98a83d70c1d3966e9448"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "checkbox",
+      "vector": "disabled",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/checkbox.json",
+        "sha256": "ebb6ca5dfdb4ecd665b8bcf0dfd660def8b3ecfab57c100d9d01469ca00a8854",
+        "vectorSha256": "978b197dc5697ddd5bd461a69af2ad5c60ff8d2b57762ce6066144ca68c88c4c"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Checkbox",
+        "props": {
+          "aria-label": "Locked",
+          "disabled": true
+        },
+        "children": []
+      },
+      "setup": [
+        {
+          "kind": "uncontrolled-state",
+          "mode": "uncontrolled",
+          "initial": false
+        }
+      ],
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "aria",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "span",
+            "attributes": {
+              "includes": {
+                "role": "checkbox",
+                "aria-checked": "false",
+                "aria-disabled": "true"
+              }
+            }
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "aria",
+          "expected": {
+            "includes": {
+              "role": "checkbox",
+              "aria-checked": "false",
+              "aria-disabled": "true"
+            }
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "checked": false
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": []
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "none"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "checkbox-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "aria-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "0a5664cf3007db5b035adc14643c588ea32de7c3d89c897ebb52d94ba3bca273"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "checkbox",
+      "vector": "group-default",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/checkbox.json",
+        "sha256": "ebb6ca5dfdb4ecd665b8bcf0dfd660def8b3ecfab57c100d9d01469ca00a8854",
+        "vectorSha256": "58a06a94de4630d077490b44babce375feb3897b3ba84b31b3ab00382d0a681d"
+      },
+      "fixture": {
+        "kind": "family-fixture",
+        "family": "checkbox-group",
+        "adapterRequirement": "checkbox-group-adapter",
+        "payload": {
+          "kind": "checkbox-group",
+          "legend": "Channels",
+          "items": [
+            {
+              "label": "Email",
+              "value": "email"
+            },
+            {
+              "label": "SMS",
+              "value": "sms"
+            }
+          ],
+          "defaultValue": [
+            "email"
+          ]
+        }
+      },
+      "setup": [
+        {
+          "kind": "uncontrolled-state",
+          "mode": "uncontrolled",
+          "initial": false
+        },
+        {
+          "kind": "event-recorder"
+        }
+      ],
+      "actions": [
+        {
+          "type": "click",
+          "target": 1
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "aria",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div",
+            "attributes": {
+              "includes": {
+                "role": "group"
+              }
+            }
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "aria",
+          "expected": {
+            "includes": {
+              "role": "group"
+            }
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "checked": [
+              true,
+              true
+            ]
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "value:email,sms"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "root"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "checkbox-fixture",
+        "checkbox-group-adapter",
+        "trusted-actions",
+        "dom-probes",
+        "aria-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "3ffe62d9c699b6a677660db9095cb69bb730d116adbdcd384664c36ea288331b"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "switch",
+      "vector": "unchecked-click",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/switch.json",
+        "sha256": "c60bd26109b386f67e6f8664a00caae44e438bdab8d15dd96acf72ca30a7d72a",
+        "vectorSha256": "ad8fc6a4fa8fa64baa98d27f0e66f6d2af00a624142f1285bfd9bb20a092bbae"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Switch",
+        "props": {
+          "aria-label": "Power"
+        },
+        "children": []
+      },
+      "setup": [
+        {
+          "kind": "uncontrolled-state",
+          "mode": "uncontrolled",
+          "initial": false
+        },
+        {
+          "kind": "event-recorder"
+        }
+      ],
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "aria",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "button",
+            "attributes": {
+              "includes": {
+                "role": "switch",
+                "aria-checked": "true",
+                "aria-label": "Power"
+              }
+            }
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "aria",
+          "expected": {
+            "includes": {
+              "role": "switch",
+              "aria-checked": "true",
+              "aria-label": "Power"
+            }
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "checked": true
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "checked:true"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "root"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "switch-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "aria-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "08b4649da5085900db8922b435a103cdd728d0c910a0625bf7787e845f8f94f6"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "switch",
+      "vector": "checked-controlled-space",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/switch.json",
+        "sha256": "c60bd26109b386f67e6f8664a00caae44e438bdab8d15dd96acf72ca30a7d72a",
+        "vectorSha256": "272ba585edaf6efa736c0ae443b21f0b9a7787aa331ab277db758fb15ba5d505"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Switch",
+        "props": {
+          "aria-label": "Power",
+          "checked": true
+        },
+        "children": []
+      },
+      "setup": [
+        {
+          "kind": "controlled-state",
+          "mode": "controlled",
+          "initial": true
+        },
+        {
+          "kind": "event-recorder",
+          "callback": "checked"
+        }
+      ],
+      "actions": [
+        {
+          "type": "key",
+          "key": "Space"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "aria",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "button",
+            "attributes": {
+              "includes": {
+                "role": "switch",
+                "aria-checked": "false"
+              }
+            }
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "aria",
+          "expected": {
+            "includes": {
+              "role": "switch",
+              "aria-checked": "false"
+            }
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "checked": false
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "checked:false"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "root"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "switch-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "aria-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "8970dbf04e73ba9d8dccd5b629f4fdeb7165564dad0852796a56846f0378180f"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "switch",
+      "vector": "small",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/switch.json",
+        "sha256": "c60bd26109b386f67e6f8664a00caae44e438bdab8d15dd96acf72ca30a7d72a",
+        "vectorSha256": "d43a60f8d4b51f902fce65ee74321ac5e7203b48ab8cb5843952734d4a5cb2d8"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Switch",
+        "props": {
+          "aria-label": "Small",
+          "size": "sm"
+        },
+        "children": []
+      },
+      "setup": [
+        {
+          "kind": "uncontrolled-state",
+          "mode": "uncontrolled",
+          "initial": false
+        }
+      ],
+      "actions": [],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "aria",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "button",
+            "attributes": {
+              "includes": {
+                "role": "switch",
+                "aria-checked": "false"
+              }
+            },
+            "classes": {
+              "includes": [
+                "h-4",
+                "w-8"
+              ]
+            }
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "aria",
+          "expected": {
+            "includes": {
+              "role": "switch",
+              "aria-checked": "false"
+            }
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "checked": false
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": []
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "none"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "switch-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "aria-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "835bb45bb0e11223a8d7d81608037d8b275f6c10aeec70dce9b946b316bcd178"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "switch",
+      "vector": "large-disabled",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/switch.json",
+        "sha256": "c60bd26109b386f67e6f8664a00caae44e438bdab8d15dd96acf72ca30a7d72a",
+        "vectorSha256": "8ebfa18382743aba2fc678996df7af3ea925073afc724e3e77e6111371995c6e"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Switch",
+        "props": {
+          "aria-label": "Large",
+          "size": "lg",
+          "disabled": true
+        },
+        "children": []
+      },
+      "setup": [
+        {
+          "kind": "uncontrolled-state",
+          "mode": "uncontrolled",
+          "initial": false
+        }
+      ],
+      "actions": [
+        {
+          "type": "click"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "aria",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "button",
+            "attributes": {
+              "includes": {
+                "role": "switch",
+                "aria-checked": "false",
+                "disabled": ""
+              }
+            },
+            "classes": {
+              "includes": [
+                "h-5",
+                "w-10"
+              ]
+            }
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "aria",
+          "expected": {
+            "includes": {
+              "role": "switch",
+              "aria-checked": "false",
+              "disabled": ""
+            }
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "checked": false
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": []
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "none"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "switch-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "aria-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "a4fb7dc9ba0c76a67c543b95504856f1fbda84cfb9ebfb133dd1376739a1e3c8"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "switch",
+      "vector": "group",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/switch.json",
+        "sha256": "c60bd26109b386f67e6f8664a00caae44e438bdab8d15dd96acf72ca30a7d72a",
+        "vectorSha256": "b7fce25ce2b3421eadb4d3c9718e37ae6c9b3a86b7daeb76667108169cf98d60"
+      },
+      "fixture": {
+        "kind": "family-fixture",
+        "family": "switch-group",
+        "adapterRequirement": "switch-group-adapter",
+        "payload": {
+          "kind": "switch-group",
+          "legend": "Alerts",
+          "items": [
+            {
+              "label": "Email"
+            },
+            {
+              "label": "SMS",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "setup": [
+        {
+          "kind": "uncontrolled-state",
+          "mode": "uncontrolled",
+          "initial": false
+        },
+        {
+          "kind": "event-recorder"
+        }
+      ],
+      "actions": [
+        {
+          "type": "click",
+          "target": 0
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "fieldset"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "checked": [
+              true,
+              false
+            ]
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "item0:true"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "root"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "switch-fixture",
+        "switch-group-adapter",
+        "trusted-actions",
+        "dom-probes",
+        "aria-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "491a4d64b1f85c0fbf5f018d89788812996e9045f5900f79f744066a159f69fc"
+    }
+  ],
+  "digest": "4d4473d8d4ed71c0b79f97c16bc9e1847f60494f9254d11463d97b3da35d813d"
+}
