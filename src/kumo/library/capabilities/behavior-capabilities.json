@@ -505,6 +505,130 @@
       ]
     },
     {
+      "id": "date-range",
+      "support": "requirements-only",
+      "component": "date-picker",
+      "contractDigest": "f303d136d3831ff34dfcc30045081b8df8c6026a733e5da0924efbe2e36c0576",
+      "requirements": {
+        "states": [
+          "selected",
+          "displayMonth"
+        ],
+        "transitions": [
+          {
+            "action": "trusted day click",
+            "effect": "onChange receives native Date selection according to mode and bounds"
+          }
+        ],
+        "events": [],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "ArrowLeft",
+              "ArrowRight",
+              "ArrowUp",
+              "ArrowDown",
+              "Enter",
+              "Space"
+            ]
+          }
+        ],
+        "dom": [
+          "div"
+        ],
+        "aria": [
+          "calendar grid",
+          "day buttons expose labels and selected/disabled state",
+          "navigation buttons expose labels"
+        ],
+        "browserServices": []
+      },
+      "controlled": {
+        "supported": false,
+        "reason": "canonical contract does not establish controlled semantics"
+      },
+      "uncontrolled": {
+        "supported": false,
+        "reason": "canonical contract does not establish uncontrolled semantics"
+      },
+      "vectorIds": [
+        "single-selected",
+        "single-change",
+        "bounded-day"
+      ],
+      "missingOperations": [
+        {
+          "kind": "date-range-lowering",
+          "reason": "framework-native calendar rendering, focus, and selection are not yet lowered and browser-proven"
+        }
+      ]
+    },
+    {
+      "id": "date-range",
+      "support": "requirements-only",
+      "component": "date-range-picker",
+      "contractDigest": "9a43f2cb758e4a6678efd135e2926c53ad20d981c6c569e8721e1f463e07c0c6",
+      "requirements": {
+        "states": [
+          "startDate",
+          "endDate",
+          "months"
+        ],
+        "transitions": [
+          {
+            "action": "first trusted day click",
+            "effect": "sets start and clears end"
+          },
+          {
+            "action": "second trusted day click",
+            "effect": "sets ordered end or restarts range"
+          },
+          {
+            "action": "reset click",
+            "effect": "both callbacks receive null"
+          }
+        ],
+        "events": [],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "Enter",
+              "Space"
+            ]
+          }
+        ],
+        "dom": [
+          "div"
+        ],
+        "aria": [
+          "Previous month and Next month buttons",
+          "day buttons have generated accessible labels"
+        ],
+        "browserServices": []
+      },
+      "controlled": {
+        "supported": false,
+        "reason": "canonical contract does not establish controlled semantics"
+      },
+      "uncontrolled": {
+        "supported": false,
+        "reason": "canonical contract does not establish uncontrolled semantics"
+      },
+      "vectorIds": [
+        "default-layout",
+        "small-subtle-timezone",
+        "select-range-reset"
+      ],
+      "missingOperations": [
+        {
+          "kind": "date-range-lowering",
+          "reason": "framework-native calendar rendering, focus, and selection are not yet lowered and browser-proven"
+        }
+      ]
+    },
+    {
       "id": "layer-lifecycle",
       "support": "requirements-only",
       "component": "dialog",
@@ -1006,6 +1130,83 @@
       ]
     },
     {
+      "id": "pagination-state",
+      "support": "requirements-only",
+      "component": "pagination",
+      "contractDigest": "51a1c22d61a7d01fb284cec181585b4d3133e0fcb5cbc39a1439c64130ef8587",
+      "requirements": {
+        "states": [
+          "page",
+          "editingPage",
+          "maxPage"
+        ],
+        "transitions": [
+          {
+            "action": "navigation trusted click",
+            "effect": "setPage receives bounded target"
+          },
+          {
+            "action": "page input Enter or blur",
+            "effect": "numeric value is clamped to [1,maxPage] and committed"
+          },
+          {
+            "action": "dropdown selection",
+            "effect": "selected numeric page is committed"
+          },
+          {
+            "action": "page-size selection",
+            "effect": "onChange receives numeric size"
+          }
+        ],
+        "events": [],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "Enter",
+              "Tab",
+              "ArrowUp",
+              "ArrowDown"
+            ]
+          }
+        ],
+        "dom": [
+          "div"
+        ],
+        "aria": [
+          "nav landmark has configurable label",
+          "boundary controls are disabled",
+          "legacy info is polite atomic live region",
+          "page and page-size selectors have configurable labels"
+        ],
+        "browserServices": []
+      },
+      "controlled": {
+        "supported": false,
+        "reason": "canonical contract does not establish controlled semantics"
+      },
+      "uncontrolled": {
+        "supported": false,
+        "reason": "canonical contract does not establish uncontrolled semantics"
+      },
+      "vectorIds": [
+        "legacy-page-one",
+        "legacy-page-three-ssr",
+        "next-controlled",
+        "boundaries",
+        "input-enter-clamp",
+        "input-blur-clamp",
+        "compound-simple-labels",
+        "compound-dropdown-size"
+      ],
+      "missingOperations": [
+        {
+          "kind": "pagination-state-lowering",
+          "reason": "pagination controls, editing state, and callbacks are not yet lowered and browser-proven"
+        }
+      ]
+    },
+    {
       "id": "layer-lifecycle",
       "support": "requirements-only",
       "component": "popover",
@@ -1424,6 +1625,101 @@
       ]
     },
     {
+      "id": "responsive-sidebar",
+      "support": "requirements-only",
+      "component": "sidebar",
+      "contractDigest": "dcad61e88e48af06516b0fdfba3f33cad06ab66e770be9b9a5ced7c9755c1dd1",
+      "requirements": {
+        "states": [
+          "state",
+          "openMobile",
+          "width",
+          "isMobile",
+          "isResizing",
+          "isPeeking"
+        ],
+        "transitions": [
+          {
+            "action": "Trigger or Rail click",
+            "effect": "toggles desktop open, or mobile openMobile; desktop toggle stops peeking"
+          },
+          {
+            "action": "hover/focus enters collapsed desktop peek zone when peekable",
+            "effect": "state becomes peeking until pointer/focus leaves"
+          },
+          {
+            "action": "ResizeHandle drag or directional arrow",
+            "effect": "width is clamped to minWidth/maxWidth; crossing inward below minWidth collapses, dragging outward to minWidth expands"
+          },
+          {
+            "action": "ResizeHandle Home/End",
+            "effect": "Home collapses; End expands at maxWidth"
+          },
+          {
+            "action": "CollapsibleTrigger click",
+            "effect": "toggles controlled callback and internal open state"
+          },
+          {
+            "action": "focus-visible enters closed Collapsible",
+            "effect": "temporarily opens; blur closes unless explicitly opened or descendant has data-active"
+          },
+          {
+            "action": "SlidingViews activeKey changes",
+            "effect": "track translates to active child index; inactive children become hidden/inert"
+          }
+        ],
+        "events": [],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "Escape",
+              "ArrowLeft",
+              "ArrowRight",
+              "Home",
+              "End",
+              "Tab"
+            ]
+          }
+        ],
+        "dom": [
+          "Provider wrapper div; desktop Sidebar root is aside, mobile root is portaled backdrop plus nav"
+        ],
+        "aria": [
+          "all Sidebar descendants require Provider; useSidebar outside it throws",
+          "desktop collapse modes are icon, offcanvas, or none; none always renders expanded aside",
+          "viewport below mobileBreakpoint renders a modal-like nav sheet labelled Navigation instead of aside",
+          "closed mobile nav has aria-hidden=true and is made inert by ref effect; open focuses first focusable descendant or nav",
+          "Escape closes mobile sheet and restores prior focus; focus leaving open sheet closes it",
+          "Trigger exposes aria-expanded and Collapse sidebar/Expand sidebar label; Rail is tabIndex -1; ResizeHandle is keyboard focusable",
+          "Collapsible trigger receives aria-expanded and aria-controls; content stays mounted as role=region and closed content has aria-hidden=true plus inert after ref effect",
+          "inactive SlidingView stays mounted with aria-hidden=true, pointer-events-none and inert after ref effect",
+          "MenuButton/MenuSubButton auto-wrap in li when not already inside corresponding item"
+        ],
+        "browserServices": []
+      },
+      "controlled": {
+        "supported": false,
+        "reason": "canonical contract does not establish controlled semantics"
+      },
+      "uncontrolled": {
+        "supported": false,
+        "reason": "canonical contract does not establish uncontrolled semantics"
+      },
+      "vectorIds": [
+        "desktop-expanded-compound",
+        "desktop-collapsed-sliding-inert-intent",
+        "collapsible-closed-mounted",
+        "resize-keyboard-expand"
+      ],
+      "missingOperations": [
+        {
+          "kind": "responsive-sidebar-lowering",
+          "reason": "responsive disclosure, inertness, and focus migration are not yet lowered and browser-proven"
+        }
+      ]
+    },
+    {
       "id": "toggle-control",
       "support": "supported",
       "component": "switch",
@@ -1608,7 +1904,69 @@
           "reason": "framework-native focus effects and refs are not yet lowered and browser-proven"
         }
       ]
+    },
+    {
+      "id": "toast-lifecycle",
+      "support": "requirements-only",
+      "component": "toasty",
+      "contractDigest": "35460d33f6056c8b070637ba6ed0fc22d0e3ddd9f7a907602154399466c045f5",
+      "requirements": {
+        "states": [
+          "toasts",
+          "viewport"
+        ],
+        "transitions": [
+          {
+            "action": "manager add",
+            "effect": "toast appears in viewport and live-region announcement"
+          },
+          {
+            "action": "toast action trusted click",
+            "effect": "action callback fires"
+          },
+          {
+            "action": "close trusted click",
+            "effect": "toast enters exit lifecycle then is removed"
+          }
+        ],
+        "events": [],
+        "focus": [
+          {
+            "focusable": false,
+            "keys": []
+          }
+        ],
+        "dom": [
+          "div"
+        ],
+        "aria": [
+          "viewport is a polite live region",
+          "toast title and description participate in announcement",
+          "close button label is Close"
+        ],
+        "browserServices": []
+      },
+      "controlled": {
+        "supported": false,
+        "reason": "canonical contract does not establish controlled semantics"
+      },
+      "uncontrolled": {
+        "supported": false,
+        "reason": "canonical contract does not establish uncontrolled semantics"
+      },
+      "vectorIds": [
+        "provider-ssr",
+        "notify-default",
+        "action-remains-visible",
+        "close-dismiss"
+      ],
+      "missingOperations": [
+        {
+          "kind": "toast-lifecycle-lowering",
+          "reason": "toast portal, lifecycle, and live-region behavior are not yet lowered and browser-proven"
+        }
+      ]
     }
   ],
-  "capabilityDigest": "ad5c407f8c787a45362cd226923a3dd7212dc8740db270b9b95268b6ccdb0316"
+  "capabilityDigest": "71a4b96050a75d1ad48c207a4b354645069a8601b3b34aec957794191e690430"
 }

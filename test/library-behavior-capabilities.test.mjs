@@ -11,7 +11,7 @@ const contracts = names.map(name => JSON.parse(fs.readFileSync(path.join(contrac
 test('registry is canonical and contract-derived', () => {
   const registry = loadBehaviorCapabilities();
   assert.deepEqual(registry, deriveBehaviorCapabilities(contracts));
-  assert.equal(registry.bindings.length, 23);
+  assert.equal(registry.bindings.length, 28);
   const button = registry.bindings.find(binding => binding.component === 'button');
   assert.equal(button.id, 'native-button');
   assert.equal(button.support, 'supported');
@@ -39,6 +39,8 @@ test('registry promotes only complete executable state algebra', () => {
   assert.deepEqual(new Set(registry.bindings.filter(binding=>binding.id==='focus-navigation').map(binding=>binding.component)),new Set(['radio','menu-bar','tabs','pagination','command-palette','table-of-contents']));
   assert.deepEqual(new Set(registry.bindings.filter(binding=>binding.id==='collection-listbox').map(binding=>binding.component)),new Set(['autocomplete','combobox','select','dropdown-menu','radio','command-palette']));
   assert.deepEqual(new Set(registry.bindings.filter(binding=>binding.id==='layer-lifecycle').map(binding=>binding.component)),new Set(['dialog','dropdown-menu','popover']));
+  assert.deepEqual(new Set(registry.bindings.filter(binding=>binding.id==='date-range').map(binding=>binding.component)),new Set(['date-picker','date-range-picker']));
+  for(const id of ['responsive-sidebar','pagination-state','toast-lifecycle'])assert.equal(registry.bindings.filter(binding=>binding.id===id).length,1);
   const checkbox = registry.bindings.find(binding => binding.component === 'checkbox');
   assert.equal(checkbox.controlled.prop, 'checked');
   assert.equal(checkbox.uncontrolled.source, 'absence of checked');

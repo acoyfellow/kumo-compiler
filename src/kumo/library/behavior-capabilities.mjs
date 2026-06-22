@@ -104,6 +104,24 @@ export function deriveBehaviorCapabilities(contracts) {
       missingOperations:[{kind:'layer-lowering',reason:'framework-native portal, dismissal, focus, and positioning lifecycle is not yet lowered and browser-proven'}]
     }));
   }
+  for (const name of ['date-picker','date-range-picker']) {
+    const contract=byName.get(name); if(!contract) continue;
+    bindings.push(requirement('date-range',contract,'requirements-only',{
+      states:Object.keys(contract.initialState),transitions:contract.transitions,focus:contract.keyboardFocus,dom:[contract.semantics.root],aria:contract.semantics.aria,
+      missingOperations:[{kind:'date-range-lowering',reason:'framework-native calendar rendering, focus, and selection are not yet lowered and browser-proven'}]
+    }));
+  }
+  for (const [name,id,reason] of [
+    ['sidebar','responsive-sidebar','responsive disclosure, inertness, and focus migration are not yet lowered and browser-proven'],
+    ['pagination','pagination-state','pagination controls, editing state, and callbacks are not yet lowered and browser-proven'],
+    ['toasty','toast-lifecycle','toast portal, lifecycle, and live-region behavior are not yet lowered and browser-proven']
+  ]) {
+    const contract=byName.get(name); if(!contract) continue;
+    bindings.push(requirement(id,contract,'requirements-only',{
+      states:Object.keys(contract.initialState),transitions:contract.transitions,focus:contract.keyboardFocus,dom:[contract.semantics.root],aria:contract.semantics.aria,
+      missingOperations:[{kind:`${id}-lowering`,reason}]
+    }));
+  }
   bindings.sort((a,b) => a.component.localeCompare(b.component)||a.id.localeCompare(b.id));
   const value = {schemaVersion:BEHAVIOR_CAPABILITIES_VERSION,bindings};
   return {...value,capabilityDigest:digest(value)};
