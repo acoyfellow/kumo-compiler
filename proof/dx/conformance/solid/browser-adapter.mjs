@@ -4,6 +4,7 @@ import{runObservableBrowser}from'../../../../scripts/observable-browser-runner.m
 import{scheduleObservableBrowser}from'../../../../scripts/observable-browser-scheduler.mjs';
 import{executeTogglePlan}from'../shared/toggle-executor.mjs';
 import{executeNativeInputPlan}from'../shared/native-input-executor.mjs';
+import{executeFieldPlan}from'../shared/field-executor.mjs';
 import{compareMarkup}from'../../../../scripts/observable-runner.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../../../..'),ids=new Set(['disabled-click','loading-click','enabled-click','submit-form']),json=JSON.stringify;
 
@@ -20,6 +21,19 @@ export async function runSolidNativeInputBrowser({consumer,plans,ssrRenders}){
   results.push(...run.results);diagnostics.push(...run.diagnostics);telemetry.push({id:`${plan.component}/${plan.vector}`,...run.telemetry});
  }
  return{results,browserCells:results.length,diagnostics,telemetry,capabilities:['trusted-cdp','native-focus','hydration','native-input-fixtures','isolated-vector-batches']};
+}
+export async function runSolidFieldBrowser({consumer,plans,ssrRenders}){
+ if(plans.length!==3||ssrRenders.length!==3)throw Error('Solid field adapter requires exactly three vectors');
+ const results=[],diagnostics=[],telemetry=[];
+ for(let batch=0;batch<plans.length;batch++){
+  const plan=plans[batch],owns=plan.component!=='field',symbol=plan.component==='input-area'?'InputArea':plan.component==='input'?'Input':'Field',subpath=plan.component;
+  const childId=!owns?(plan.fixture.children?.[0]?.props?.id??'field-control'):null;
+  const body=owns?`<${symbol} {...P.fixture.props}/>`:`<Field {...P.fixture.props}><input id=${json(childId)}/></Field>`;
+  const source=`import{hydrate}from'solid-js/web';import{${symbol}}from'@acoyfellow/kumo-solid/${subpath}';const P=${json(plan)};function App(){return <section id="v0">${body}</section>}const before=document.querySelector('#v0 div');hydrate(App,document.querySelector('#app'),{renderId:'kumo-'});queueMicrotask(()=>{globalThis.__nodePreserved=before===document.querySelector('#v0 div');globalThis.__ready=true});`;
+  const run=await scheduleObservableBrowser(()=>runObservableBrowser({name:`solid-packed-${plan.component}-${plan.vector}`,entrySource:source,entryFilename:'client.jsx',viteConfig:path.join(root,'proof/dx/conformance/shared/solid-vite.config.mjs'),buildEnv:{KUMO_CONSUMER:consumer},cssPath:path.join(consumer,'node_modules/@acoyfellow/kumo-solid/package/styles.css'),html:ssrRenders[batch].html,beforeAppHtml:ssrRenders[batch].hydrationScript??'',vectors:[plan],runVector:async(api,current)=>executeFieldPlan({setup:async()=>{},action:async action=>api.action(0,{...action,selector:action.selector}),probe:async probe=>api.evaluate(`(()=>{const box=document.querySelector('#v0'),root=box.querySelector('div'),active=document.activeElement;switch(${json(probe.kind)}){case'dom':return{tag:root.tagName.toLowerCase(),attributes:{includes:Object.fromEntries([...root.attributes].map(x=>[x.name,x.value]))}};case'focus':return active&&['input','textarea'].includes(active.tagName.toLowerCase())?active.tagName.toLowerCase():'none';case'node-identity':return globalThis.__nodePreserved?'preserved':'replaced'}})()`)},current).then(result=>({component:result.component,id:result.vector,passed:true,ssr:'passed',hydration:'passed',nodeIdentity:'preserved',observation:result.probes}))}),{label:`Solid field ${plan.component}/${plan.vector}`});
+  results.push(...run.results);diagnostics.push(...run.diagnostics);telemetry.push({id:`${plan.component}/${plan.vector}`,...run.telemetry});
+ }
+ return{results,browserCells:results.length,diagnostics,telemetry,capabilities:['trusted-cdp','native-focus','hydration','field-composition-fixtures','isolated-vector-batches']};
 }
 export async function runSolidToggleBrowser({consumer,plans,ssrRenders}){
  if(plans.length!==10||ssrRenders.length!==10)throw Error(`Solid toggle adapter requires all ten shared plans: plans=${plans.length} ssr=${ssrRenders.length}`);

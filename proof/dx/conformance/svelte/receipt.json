@@ -4,7 +4,7 @@
   "framework": "svelte",
   "package": "@acoyfellow/kumo-svelte@0.0.1",
   "artifact": "library-artifacts/kumo-svelte-0.0.1.tgz",
-  "packageSha256": "58f1c0633396b93eaf3be81184f261e7077d77a23276eedd543dc8ca48593059",
+  "packageSha256": "b298536a469ad0d22113384632af9e3046a1aa0c2db654adc8b0872eeddd00fc",
   "contract": {
     "schemaVersion": "kumo.observable/v1",
     "provenanceDigest": "a7fe3efce7677deb02df5635e1c9541b8e618d67763a5ef8ca11f6ef950aeebf"
@@ -14,7 +14,7 @@
     "digest": "e8d7f17985b6ca2c3abf69b69c482d9efcbc63f18ae35760e3673df9aecc2f77",
     "sha256": "3153cc2e780cd7b7de2262f53dbac6886ae3ac61179ffe58ac52ec419dc3efe7"
   },
-  "modelHash": "3dd07c6dff92ec778c2845e13456b75fba39af51ab959e602e356e1605a46c7b",
+  "modelHash": "52857850c56e8d07abb15e8abd4fb1c2bb2606a46d4be7f1b89d77e0839b7ac9",
   "runner": "scripts/observable-browser-runner.mjs",
   "browser": {
     "results": [
@@ -576,264 +576,361 @@
           "focus": "textarea",
           "node-identity": "preserved"
         }
+      },
+      {
+        "component": "input",
+        "id": "field-label",
+        "passed": true,
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodeIdentity": "preserved",
+        "observation": {
+          "dom": {
+            "tag": "div",
+            "attributes": {
+              "includes": {}
+            }
+          },
+          "focus": "input",
+          "node-identity": "preserved"
+        }
+      },
+      {
+        "component": "input-area",
+        "id": "field-error",
+        "passed": true,
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodeIdentity": "preserved",
+        "observation": {
+          "dom": {
+            "tag": "div",
+            "attributes": {
+              "includes": {}
+            }
+          },
+          "focus": "textarea",
+          "node-identity": "preserved"
+        }
+      },
+      {
+        "component": "field",
+        "id": "optional",
+        "passed": true,
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodeIdentity": "preserved",
+        "observation": {
+          "dom": {
+            "tag": "div",
+            "attributes": {
+              "includes": {
+                "class": "kumo-field"
+              }
+            }
+          },
+          "node-identity": "preserved"
+        }
       }
     ],
-    "browserCells": 18,
+    "browserCells": 21,
     "diagnostics": [],
     "telemetry": [
       {
         "id": "disabled-click",
         "phases": {
-          "build": 626.6797910034657,
-          "serve": 3.3026669919490814,
-          "chrome": 906.8012080043554
+          "build": 818.7082500010729,
+          "serve": 3.224125012755394,
+          "chrome": 1071.0369589924812
         },
         "vectors": [
           {
             "component": "button",
             "id": "disabled-click",
-            "ms": 88.76516699790955
+            "ms": 90.34891600906849
           }
         ]
       },
       {
         "id": "loading-click",
         "phases": {
-          "build": 454.5550830066204,
-          "serve": 1.441541999578476,
-          "chrome": 720.1864160001278
+          "build": 846.9045829921961,
+          "serve": 1.4898330122232437,
+          "chrome": 822.6982079893351
         },
         "vectors": [
           {
             "component": "button",
             "id": "loading-click",
-            "ms": 87.08008299767971
+            "ms": 91.6100419908762
           }
         ]
       },
       {
         "id": "enabled-click",
         "phases": {
-          "build": 647.5707499980927,
-          "serve": 0.1385830044746399,
-          "chrome": 711.0384579896927
+          "build": 1007.9744579941034,
+          "serve": 0.14775000512599945,
+          "chrome": 767.981542006135
         },
         "vectors": [
           {
             "component": "button",
             "id": "enabled-click",
-            "ms": 86.92337501049042
+            "ms": 117.90562498569489
           }
         ]
       },
       {
         "id": "submit-form",
         "phases": {
-          "build": 647.5750000029802,
-          "serve": 0.12566599249839783,
-          "chrome": 668.5724169909954
+          "build": 1029.6934579908848,
+          "serve": 0.16966700553894043,
+          "chrome": 870.7839170098305
         },
         "vectors": [
           {
             "component": "button",
             "id": "submit-form",
-            "ms": 92.37883299589157
+            "ms": 89.523791000247
           }
         ]
       },
       {
         "id": "checkbox/unchecked-click",
         "phases": {
-          "build": 647.5236250013113,
-          "serve": 0.14970900118350983,
-          "chrome": 710.2111250013113
+          "build": 1046.472207993269,
+          "serve": 0.15025000274181366,
+          "chrome": 858.8312920033932
         },
         "vectors": [
           {
             "component": "checkbox",
-            "ms": 90.40145899355412
+            "ms": 91.40787498652935
           }
         ]
       },
       {
         "id": "checkbox/checked-controlled-click",
         "phases": {
-          "build": 657.3394169956446,
-          "serve": 0.17579099535942078,
-          "chrome": 710.995291993022
+          "build": 989.7174160033464,
+          "serve": 0.14766699075698853,
+          "chrome": 890.4835830032825
         },
         "vectors": [
           {
             "component": "checkbox",
-            "ms": 89.45345801115036
+            "ms": 89.41658300161362
           }
         ]
       },
       {
         "id": "checkbox/indeterminate-space",
         "phases": {
-          "build": 497.78662499785423,
-          "serve": 0.1330839991569519,
-          "chrome": 549.4733339995146
+          "build": 748.3142089992762,
+          "serve": 0.13491599261760712,
+          "chrome": 698.614417001605
         },
         "vectors": [
           {
             "component": "checkbox",
-            "ms": 87.11262500286102
+            "ms": 87.77595800161362
           }
         ]
       },
       {
         "id": "checkbox/disabled",
         "phases": {
-          "build": 269.65366600453854,
-          "serve": 0.1543329954147339,
-          "chrome": 687.6472920030355
+          "build": 933.411499992013,
+          "serve": 0.16441600024700165,
+          "chrome": 892.8450419902802
         },
         "vectors": [
           {
             "component": "checkbox",
-            "ms": 89.31620800495148
+            "ms": 89.92341700196266
           }
         ]
       },
       {
         "id": "checkbox/group-default",
         "phases": {
-          "build": 647.7719579935074,
-          "serve": 0.13266700506210327,
-          "chrome": 697.8712910115719
+          "build": 986.6831250041723,
+          "serve": 0.1440410017967224,
+          "chrome": 842.9739170074463
         },
         "vectors": [
           {
             "component": "checkbox",
-            "ms": 91.08829200267792
+            "ms": 93.16008301079273
           }
         ]
       },
       {
         "id": "switch/unchecked-click",
         "phases": {
-          "build": 658.6118339896202,
-          "serve": 0.16508398950099945,
-          "chrome": 726.1484590023756
+          "build": 960.8532499969006,
+          "serve": 0.1592079997062683,
+          "chrome": 886.0040419995785
         },
         "vectors": [
           {
             "component": "switch",
-            "ms": 90.03008300065994
+            "ms": 89.25787499547005
           }
         ]
       },
       {
         "id": "switch/checked-controlled-space",
         "phases": {
-          "build": 712.9878749996424,
-          "serve": 0.1203330010175705,
-          "chrome": 703.1057500094175
+          "build": 290.6077910065651,
+          "serve": 0.13887499272823334,
+          "chrome": 539.9071670025587
         },
         "vectors": [
           {
             "component": "switch",
-            "ms": 90.48062500357628
+            "ms": 100.155209004879
           }
         ]
       },
       {
         "id": "switch/small",
         "phases": {
-          "build": 702.3191669881344,
-          "serve": 0.1495409905910492,
-          "chrome": 741.7906669974327
+          "build": 286.6885839998722,
+          "serve": 0.12891601026058197,
+          "chrome": 569.0464169979095
         },
         "vectors": [
           {
             "component": "switch",
-            "ms": 2.6876669973134995
+            "ms": 12.24558399617672
           }
         ]
       },
       {
         "id": "switch/large-disabled",
         "phases": {
-          "build": 687.3341249972582,
-          "serve": 0.12408299744129181,
-          "chrome": 741.0433330088854
+          "build": 607.459625005722,
+          "serve": 0.22079099714756012,
+          "chrome": 813.897666990757
         },
         "vectors": [
           {
             "component": "switch",
-            "ms": 89.60395899415016
+            "ms": 89.33891600370407
           }
         ]
       },
       {
         "id": "switch/group",
         "phases": {
-          "build": 318.24562498927116,
-          "serve": 0.11670799553394318,
-          "chrome": 761.1019999980927
+          "build": 838.718125000596,
+          "serve": 0.14308300614356995,
+          "chrome": 789.3437920063734
         },
         "vectors": [
           {
             "component": "switch",
-            "ms": 90.04108299314976
+            "ms": 89.89716699719429
           }
         ]
       },
       {
         "id": "input/bare-disabled",
         "phases": {
-          "build": 647.1378329992294,
-          "serve": 0.1581670045852661,
-          "chrome": 790.4042919874191
+          "build": 870.5992919951677,
+          "serve": 0.12983299791812897,
+          "chrome": 814.9944579899311
         },
         "vectors": [
           {
             "component": "input",
-            "ms": 1.3457079976797104
+            "ms": 1.328792005777359
           }
         ]
       },
       {
         "id": "input/type",
         "phases": {
-          "build": 670.5329170078039,
-          "serve": 0.11070799827575684,
-          "chrome": 651.243915989995
+          "build": 779.2091670036316,
+          "serve": 0.12062500417232513,
+          "chrome": 761.9281660020351
         },
         "vectors": [
           {
             "component": "input",
-            "ms": 91.09900000691414
+            "ms": 89.54162499308586
           }
         ]
       },
       {
         "id": "input-area/bare",
         "phases": {
-          "build": 542.2712090015411,
-          "serve": 0.1129169911146164,
-          "chrome": 804.8272909969091
+          "build": 799.5157909989357,
+          "serve": 0.11474999785423279,
+          "chrome": 773.7865839898586
         },
         "vectors": [
           {
             "component": "input-area",
-            "ms": 1.093291997909546
+            "ms": 1.055083990097046
           }
         ]
       },
       {
         "id": "input-area/type",
         "phases": {
-          "build": 683.2961670011282,
-          "serve": 0.11574999988079071,
-          "chrome": 679.9931249916553
+          "build": 827.0103339999914,
+          "serve": 0.11800000071525574,
+          "chrome": 855.5943330079317
         },
         "vectors": [
           {
             "component": "input-area",
-            "ms": 91.66116699576378
+            "ms": 90.429000005126
+          }
+        ]
+      },
+      {
+        "id": "input/field-label",
+        "phases": {
+          "build": 1009.4412910044193,
+          "serve": 0.11625000834465027,
+          "chrome": 818.2205830067396
+        },
+        "vectors": [
+          {
+            "component": "input",
+            "ms": 120.62112501263618
+          }
+        ]
+      },
+      {
+        "id": "input-area/field-error",
+        "phases": {
+          "build": 697.4844589978456,
+          "serve": 0.10875000059604645,
+          "chrome": 1393.5256669968367
+        },
+        "vectors": [
+          {
+            "component": "input-area",
+            "ms": 92.08512499928474
+          }
+        ]
+      },
+      {
+        "id": "field/optional",
+        "phases": {
+          "build": 1110.0497920066118,
+          "serve": 0.12166699767112732,
+          "chrome": 827.1079159975052
+        },
+        "vectors": [
+          {
+            "component": "field",
+            "ms": 1.0573340058326721
           }
         ]
       }
@@ -846,7 +943,8 @@
       "shared-toggle-plans",
       "direct-root-identity",
       "no-warning-filtering",
-      "native-input-fixtures"
+      "native-input-fixtures",
+      "field-composition-fixtures"
     ]
   },
   "policy": {
@@ -856,11 +954,11 @@
     "fixtureSource": "proof/dx/conformance/shared/packed-fixtures.json"
   },
   "counts": {
-    "passed": 80,
-    "blocked": 44
+    "passed": 82,
+    "blocked": 42
   },
   "staticPassed": 64,
-  "browserPassed": 18,
+  "browserPassed": 21,
   "totalVectors": 124,
   "diagnostics": [],
   "cells": [
@@ -1701,17 +1799,25 @@
       "component": "field",
       "vector": "optional",
       "status": "passed",
-      "mode": "ssr",
+      "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
+      "hydration": "passed",
       "assertion": {
         "status": "passed",
         "digest": "f91886042e2bc1c5a3ecbbe7e01d4bbb019083f6e2a0d07e2157863f82b7fb64"
       },
       "observation": {
-        "markupSha256": "04ad44e00c506f7a5a5ce370bb5c060f725660f52a73cb0971974df2fffe8278"
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "class": "kumo-field"
+            }
+          }
+        },
+        "node-identity": "preserved"
       }
     },
     {
@@ -1844,13 +1950,26 @@
     {
       "component": "input-area",
       "vector": "field-error",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "be8d55b8ded9a43e11e80221d942ac51fae3a9d85627d1504763350d18a4c73d"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {}
+          }
+        },
+        "focus": "textarea",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "input-group",
@@ -1954,13 +2073,26 @@
     {
       "component": "input",
       "vector": "field-label",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "dae7abe77189dac6257f9b70ec698205efce9dbf56cb22988cd973fd9c028ee8"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {}
+          }
+        },
+        "focus": "input",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "label",
@@ -3076,5 +3208,5 @@
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     }
   ],
-  "receiptHash": "126e39c352d1e4af58bd4791ec321192dc00997e96f479ac7e989ac22e5e9047"
+  "receiptHash": "bb1e50010e5293f96d87146f0759832155d69e54933e3da2a2c78ae895616f75"
 }
