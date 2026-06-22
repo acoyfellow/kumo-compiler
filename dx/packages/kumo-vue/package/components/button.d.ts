@@ -2,6 +2,6 @@ import type { DefineComponent } from 'vue';
 export interface ButtonProps { [key: string]: unknown }
 declare const component: DefineComponent<ButtonProps>;
 export default component;
-export declare const modelDigest: "48798c8ab5bf8d756056311749cd7d344b6c82b50134d057656d5f6e4cad48aa";
+export declare const modelDigest: "fb89a6c7da3d24b06ce460e02d60941a1dc33621cc70df51098d707e9255e776";
 
 export { component as Button };
