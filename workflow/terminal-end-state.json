@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "kumo.terminal-end-state/v1",
+  "authority": {
+    "canonicalPackage": "@cloudflare/kumo@2.5.2",
+    "canonicalBrowserCells": 164,
+    "canonicalImmutable": true,
+    "scope": {
+      "classified": 45,
+      "executable": 41,
+      "upstreamBlocked": ["PageHeader", "ResourceListPage"],
+      "supplemental": ["Chart", "Flow"]
+    },
+    "downstreamPackages": [
+      "@acoyfellow/kumo-vue@0.0.1",
+      "@acoyfellow/kumo-svelte@0.0.1",
+      "@acoyfellow/kumo-solid@0.0.1"
+    ]
+  },
+  "terminalGates": {
+    "contracts": {"required": "41/41 contracted and 124/124 canonical vectors passed"},
+    "packedConformance": {"required": "41 executable components and 124/124 vectors passed for React, Vue, Svelte, and Solid; downstream execution uses exact tarballs and scripts/observable-browser-runner.mjs"},
+    "implementationReadiness": {"required": "41/41 models promoted from immutable root/subpath/types/client/SSR/hydration/node/DOM/ARIA/pointer/keyboard/focus/portal/responsive/assets/styles/tree-shaking/workspace/fresh-consumer receipts"},
+    "docsAndExamples": {"required": "41/41 independently compiling exact-artifact examples plus complete reference/tutorial/how-to/explanation coverage"},
+    "kitchenSink": {"required": "production homepage contains a responsive, accessible, light/dark, package-backed Vue/Svelte/Solid application composition generated from receipt eligibility; omissions and reasons remain visible"},
+    "release": {"required": "clean detached Node 22/npm 11 release succeeds twice and package/deploy payload hashes are deterministic twice"},
+    "production": {"required": "two passing production proofs cover 390/768/1440, framework switching, trusted interactions, overflow, diagnostics, package hashes/content types, headers, worker identity, /health, /version, PWA, SEO/share, sitemap, and llms.txt"},
+    "finalReceipt": {"required": "one immutable terminal receipt references every accepted prerequisite and reports no hidden failed, blocked, pending, or not-run executable gate"}
+  },
+  "humanOnly": [
+    "Configure a Git remote and upload the prepared GitHub release",
+    "Optional npm authentication and publication",
+    "Manual HMR or screen-reader scope only when explicitly approved instead of executed"
+  ],
+  "forbidden": [
+    "hand-written lookalikes or demo promotion",
+    "copied final HTML, innerHTML, or @html",
+    "React wrappers in downstream packages",
+    "synthetic input or direct element.click",
+    "filtered diagnostics or suppressHydrationWarning",
+    "skips, allowlists, exceptions, inventory reduction, or optimistic metrics",
+    "npm publish without explicit authorization",
+    "mutation of canonical 164/164 authority"
+  ],
+  "executionPolicy": {
+    "fanOut": "Fan out read-only discovery immediately and mutation work only across disjoint path scopes. One owner controls shared IR, shared runner, receipts, progress, release, deploy, and production paths at a time.",
+    "integration": "Integrate only focused-green batches; regenerate exact artifacts and receipts after each accepted capability family.",
+    "selfSteering": "Every loop run reads machine facts, selects the highest critical-path unblocked task, repairs stale plans or receipts, cancels drifted agents, and never repeats a status-only run when an automatable task exists.",
+    "selfHealing": "On failure classify source, emitter, fixture, harness, package, or environment; repair the lowest shared layer; rerun focused tests twice; preserve failed diagnostics; rollback only the isolated batch if invariants regress.",
+    "stop": "Delete the loop only after the final terminal receipt passes. Stop and report only for explicit human authorization, external authentication, or irreducible upstream blocks outside executable scope."
+  }
+}
