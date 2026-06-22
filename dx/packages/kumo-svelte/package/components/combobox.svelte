@@ -2,7 +2,8 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "e632de38d37be35b83ed3e093ba4e52fbd67247aa10eff83bf2ac59fb1398a41";
+  export const modelDigest = "99992dbcf413455a2229fb3d1cda459e1b2723adfeb2204db400829a901edf36";
+  export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   compound?: Snippet;
   Content?: Snippet;
@@ -13,9 +14,11 @@
   collection?: Snippet;
   children?: Snippet;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     compound = undefined,
     Content = undefined,
@@ -25,15 +28,21 @@
     variants = undefined,
     collection = undefined,
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   let state_inputSide = $state("right");
   let state_multiple = $state("false unless set");
   let state_open = $state("closed unless controlled/default-open");
   let state_selection = $state("value/defaultValue according to Base UI controlled mode");
-  const props: Record<string, unknown> = { "compound": compound, "Content": Content, "root": root, "TriggerInput": TriggerInput, "TriggerMultipleWithInput": TriggerMultipleWithInput, "variants": variants };
-  const state: Record<string, unknown> = { "inputSide": state_inputSide, "multiple": state_multiple, "open": state_open, "selection": state_selection };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "compound": compound, "Content": Content, "root": root, "TriggerInput": TriggerInput, "TriggerMultipleWithInput": TriggerMultipleWithInput, "variants": variants, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = { "inputSide": state_inputSide, "multiple": state_multiple, "open": state_open, "selection": state_selection };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -43,7 +52,7 @@
   const styleOperations: unknown[][] = [];
   const cx = (...values: unknown[]) => values.filter(Boolean).join(' ');
   void "render-1";
-  state["multiple"] = state["multiple"];
+  componentState["multiple"] = componentState["multiple"];
   emitters.push({ id: "emit-3", event: "change", callback: null, value: () => null });
   refs["root"] ??= undefined;
   focusTargets.add("root");

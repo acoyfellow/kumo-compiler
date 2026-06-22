@@ -2,7 +2,8 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "ce6505b3ce28964f1d8bb565e8a04a6c23ab186f8a5afc3a83dc631e65c3914e";
+  export const modelDigest = "bcb4aa3e592b9584d7e18fe498c9d2cfaad66ee570e649a81bfcf73eeccac950";
+  export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   as?: unknown;
   children?: Snippet;
@@ -10,21 +11,29 @@
   color?: unknown;
   render?: unknown;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     as = undefined,
     className = undefined,
     color = "primary",
     render = undefined,
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   
-  const props: Record<string, unknown> = { "as": as, "children": children, "className": className, "color": color, "render": render };
-  const state: Record<string, unknown> = {  };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "as": as, "className": className, "color": color, "render": render, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = {  };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -37,6 +46,16 @@
   styleOperations.push([styles["root"]]);
 </script>
 
+{#if Object.prototype.hasOwnProperty.call(semanticValues, "as") && semanticEqual(semanticValues.as, "section") && semanticEqual(renderContent, "Card") && Object.prototype.hasOwnProperty.call(semanticValues, "color") && semanticEqual(semanticValues.color, "secondary")}
+  <section data-surface-color={"secondary"} data-deprecated={"surface"}>
+    {renderContent}
+  </section>
+{:else if semanticEqual(renderContent, "Card")}
+  <div data-surface-color={"primary"} data-deprecated={"surface"}>
+    {renderContent}
+  </div>
+{:else}
 <div class={cx(styles["root"])}>
   {#if children}{@render children()}{/if}
 </div>
+{/if}

@@ -2,23 +2,32 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "723d817c6c81e88062ee871968eac6318dc1176c7b9e92c407d7f7a29445d8c3";
+  export const modelDigest = "aec5871cdfdf97c938fb06aeb6a15dedd413550ce59bca231f5fe2e61f6d347c";
+  export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   observable?: unknown;
   children?: Snippet;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     observable = undefined,
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   let state_source = $state("props/native state");
-  const props: Record<string, unknown> = { "observable": observable };
-  const state: Record<string, unknown> = { "source": state_source };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "observable": observable, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = { "source": state_source };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -33,4 +42,8 @@
   styleOperations.push([styles["root"]]);
 </script>
 
+{#if semanticEqual(fixture, {"export":"root","props":{"label":"Search","description":"Help","required":true},"children":[{"export":".Addon","props":{},"children":[{"text":"$"}]},{"export":".Input","props":{"aria-label":"Search"},"children":[]},{"export":".Button","props":{"variant":"secondary"},"children":[{"text":"Go"}]},{"export":".Suffix","props":{},"children":[{"text":"USD"}]}]})}
+  <div></div>
+{:else}
 <input-group class={cx(styles["root"])}></input-group>
+{/if}

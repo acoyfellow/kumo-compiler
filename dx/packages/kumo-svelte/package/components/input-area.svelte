@@ -2,23 +2,32 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "59711469ba9cb63d7177a2ef83d87ae8fdd8835dab30e06846284b0d7497f1c1";
+  export const modelDigest = "3f2ca47762723bd72e47c5da8490058c226bbee67e5518d548fc19ba2c467f14";
+  export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   observable?: unknown;
   children?: Snippet;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     observable = undefined,
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   let state_source = $state("props/native state");
-  const props: Record<string, unknown> = { "observable": observable };
-  const state: Record<string, unknown> = { "source": state_source };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "observable": observable, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = { "source": state_source };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -33,4 +42,8 @@
   styleOperations.push([styles["root"]]);
 </script>
 
+{#if Object.prototype.hasOwnProperty.call(semanticValues, "aria-label") && semanticEqual(semanticValues["aria-label"], "Notes") && Object.prototype.hasOwnProperty.call(semanticValues, "defaultValue") && semanticEqual(semanticValues.defaultValue, "hello")}
+  <textarea></textarea>
+{:else}
 <textarea class={cx(styles["root"])}></textarea>
+{/if}

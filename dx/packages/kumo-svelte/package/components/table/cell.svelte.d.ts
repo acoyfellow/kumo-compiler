@@ -2,4 +2,4 @@ import type { Component } from 'svelte';
 import type { Props } from './cell.svelte';
 declare const component: Component<Props>;
 export default component;
-export const modelDigest: "2a86761805e0e78f84a2b578b9b43656181ffd9f47ad91f4c17c81f6977c99c7";
+export const modelDigest: "2cdb90ceb5108dea275b1e150e3868126326b95d7efef9ed8459d14ef57345b9";

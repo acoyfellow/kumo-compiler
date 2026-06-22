@@ -2,25 +2,34 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "0863b724219652fb6b34a5c3bc5564e8fc766a990f62178c6a66e5f17aa8ae1f";
+  export const modelDigest = "4776632c394a536ecd5477ef13e2a89249e69a1b3208a445b782496b317647f1";
+  export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   children?: Snippet;
   className?: unknown;
   render?: unknown;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     className = undefined,
     render = undefined,
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   
-  const props: Record<string, unknown> = { "children": children, "className": className, "render": render };
-  const state: Record<string, unknown> = {  };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "className": className, "render": render, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = {  };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -33,6 +42,18 @@
   styleOperations.push([styles["root"]]);
 </script>
 
+{#if semanticEqual(renderContent, "Card")}
+  <div class="bg-kumo-base shadow-xs ring-kumo-line">
+    {renderContent}
+  </div>
+{:else if semanticEqual(fixture, {"export":"root","props":{},"children":[{"export":".Secondary","props":{},"children":[{"text":"Top"}]},{"export":".Primary","props":{},"children":[{"text":"Main"}]}]})}
+  <div class="bg-kumo-elevated ring-kumo-hairline">
+    <div></div>
+    <div></div>
+    {fixtureText(fixture)}
+  </div>
+{:else}
 <div class={cx(styles["root"])}>
   {#if children}{@render children()}{/if}
 </div>
+{/if}

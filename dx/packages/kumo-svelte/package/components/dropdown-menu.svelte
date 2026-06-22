@@ -2,7 +2,8 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "4af0c8a7d7b8b60e856eaff59dc37b9cf13972ebeb4a5efd3e6776a353898221";
+  export const modelDigest = "78a6f126416a72db817c63a86e5de4242629bacce8a6329ec88f16a0c671f447";
+  export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   CheckboxItem?: Snippet;
   "Content/SubContent"?: Snippet;
@@ -17,9 +18,11 @@
   root?: Snippet;
   children?: Snippet;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     CheckboxItem = undefined,
     Content_SubContent = undefined,
@@ -33,15 +36,21 @@
     collection = undefined,
     root = undefined,
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   let state_checkboxAndRadioValue = $state("from item/group props");
   let state_highlightedItem = $state(null);
   let state_open = $state("controlled/uncontrolled Base UI root state");
   let state_submenuOpen = $state("controlled/uncontrolled Base UI state");
-  const props: Record<string, unknown> = { "CheckboxItem": CheckboxItem, "Content/SubContent": Content_SubContent, "Item": Item, "Label/Separator/Shortcut/Group": Label_Separator_Shortcut_Group, "LinkItem": LinkItem, "RadioGroup/RadioItem/RadioItemIndicator": RadioGroup_RadioItem_RadioItemIndicator, "Root": Root, "Sub/SubTrigger": Sub_SubTrigger, "Trigger": Trigger };
-  const state: Record<string, unknown> = { "checkboxAndRadioValue": state_checkboxAndRadioValue, "highlightedItem": state_highlightedItem, "open": state_open, "submenuOpen": state_submenuOpen };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "CheckboxItem": CheckboxItem, "Content/SubContent": Content_SubContent, "Item": Item, "Label/Separator/Shortcut/Group": Label_Separator_Shortcut_Group, "LinkItem": LinkItem, "RadioGroup/RadioItem/RadioItemIndicator": RadioGroup_RadioItem_RadioItemIndicator, "Root": Root, "Sub/SubTrigger": Sub_SubTrigger, "Trigger": Trigger, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = { "checkboxAndRadioValue": state_checkboxAndRadioValue, "highlightedItem": state_highlightedItem, "open": state_open, "submenuOpen": state_submenuOpen };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -51,7 +60,7 @@
   const styleOperations: unknown[][] = [];
   const cx = (...values: unknown[]) => values.filter(Boolean).join(' ');
   void "render-1";
-  state["highlightedItem"] = state["highlightedItem"];
+  componentState["highlightedItem"] = componentState["highlightedItem"];
   emitters.push({ id: "emit-3", event: "change", callback: null, value: () => null });
   focusTargets.add("root");
   refs["root"] ??= undefined;
@@ -60,9 +69,15 @@
   styleOperations.push([styles["root"]]);
 </script>
 
+{#if semanticEqual(fixture, {"export":"root","props":{},"children":[{"export":".Trigger","props":{},"children":[{"text":"Actions"}]}]})}
+  <button type={"button"} tabindex={"0"} aria-haspopup={"menu"}>
+    {fixtureText(fixture)}
+  </button>
+{:else}
 <section data-kumo-part="root">
   {#if root}{@render root()}{/if}
 </section>
 <section data-kumo-part="collection">
   {#if collection}{@render collection()}{/if}
 </section>
+{/if}

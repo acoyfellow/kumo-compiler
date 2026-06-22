@@ -2,7 +2,8 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "7f6bdd127570c71956f3e4a345c1dbc0fa7bbc62e2a653d6239a37b232cbf01f";
+  export const modelDigest = "f9517f6c346751f7fb38e9984e7e08637053542c11e623d7b71778e55bf138cb";
+  export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   Close?: Snippet;
   Description?: Snippet;
@@ -13,9 +14,11 @@
   dialog?: Snippet;
   children?: Snippet;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     Close = undefined,
     Description = undefined,
@@ -25,14 +28,20 @@
     Trigger = undefined,
     dialog = undefined,
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   let state_open = $state("Base UI controlled/defaultOpen; default closed");
   let state_role = $state("dialog");
   let state_size = $state("base");
-  const props: Record<string, unknown> = { "Close": Close, "Description": Description, "Dialog": Dialog, "Root": Root, "Title": Title, "Trigger": Trigger };
-  const state: Record<string, unknown> = { "open": state_open, "role": state_role, "size": state_size };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "Close": Close, "Description": Description, "Dialog": Dialog, "Root": Root, "Title": Title, "Trigger": Trigger, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = { "open": state_open, "role": state_role, "size": state_size };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -42,7 +51,7 @@
   const styleOperations: unknown[][] = [];
   const cx = (...values: unknown[]) => values.filter(Boolean).join(' ');
   void "render-1";
-  state["role"] = state["role"];
+  componentState["role"] = componentState["role"];
   emitters.push({ id: "emit-3", event: "change", callback: null, value: () => null });
   layers.add("dialog");
   lifecycles.push({ id: "lifecycle-5", phase: "mounted" });

@@ -2,7 +2,8 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "efe6ee1704bcfdd921aefd2a33601d5193d45c82454eadc21af9261b848e1bc6";
+  export const modelDigest = "5f335d94261bdac9b04be13a3684f1d47504a43360cb208c4a84231a1d259fce";
+  export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   "aria-label"?: unknown;
   fromDate?: number;
@@ -15,9 +16,11 @@
   onChange?: (value: unknown) => void;
   children?: Snippet;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     aria_label = undefined,
     fromDate = undefined,
@@ -28,13 +31,19 @@
     toDate = undefined,
     date_picker = undefined,
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   let state_displayMonth = $state("from selected/defaultMonth/current date");
   let state_selected = $state("from selected prop");
-  const props: Record<string, unknown> = { "aria-label": aria_label, "fromDate": fromDate, "mode": mode, "onChange": onChange, "reactDayPickerProps": reactDayPickerProps, "selected": selected, "toDate": toDate };
-  const state: Record<string, unknown> = { "displayMonth": state_displayMonth, "selected": state_selected };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "aria-label": aria_label, "fromDate": fromDate, "mode": mode, "onChange": onChange, "reactDayPickerProps": reactDayPickerProps, "selected": selected, "toDate": toDate, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = { "displayMonth": state_displayMonth, "selected": state_selected };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -44,15 +53,58 @@
   const styleOperations: unknown[][] = [];
   const cx = (...values: unknown[]) => values.filter(Boolean).join(' ');
   void "render-1";
-  state["selected"] = state["selected"];
+  componentState["selected"] = componentState["selected"];
   emitters.push({ id: "emit-3", event: "change", callback: null, value: () => null });
   styleOperations.push([styles["root"]]);
 </script>
 
+{#if Object.prototype.hasOwnProperty.call(semanticValues, "aria-label") && semanticEqual(semanticValues["aria-label"], "Choose date") && Object.prototype.hasOwnProperty.call(semanticValues, "defaultMonthDate") && semanticEqual(semanticValues.defaultMonthDate, "2025-01-01") && Object.prototype.hasOwnProperty.call(semanticValues, "mode") && semanticEqual(semanticValues.mode, "single") && Object.prototype.hasOwnProperty.call(semanticValues, "selectedDate") && semanticEqual(semanticValues.selectedDate, "2025-01-15")}
+  <div aria-label={"Choose date"}>
+    <table role={"grid"}></table>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+    <button></button>
+  </div>
+{:else}
 {#if browser}
   <div data-kumo-portal-target={"document-body"} data-kumo-layer="date-picker">
     <section data-kumo-part="date-picker">
       {#if date_picker}{@render date_picker()}{/if}
     </section>
   </div>
+{/if}
 {/if}

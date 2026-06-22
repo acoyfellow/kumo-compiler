@@ -2,7 +2,8 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "96819ff5ff77c94bea48a81f92da6a4857acc3495fbbd3f4eb7703e24db317d6";
+  export const modelDigest = "f05e8c2389dfb02ca23049e0fc5aa80b2797a0b63cb9c09a9603acb5d07c79bf";
+  export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   children?: Snippet;
   container?: unknown;
@@ -11,9 +12,11 @@
   collection?: Snippet;
   root?: Snippet;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     container = "provider container or document.body",
     toastManager = undefined,
@@ -21,13 +24,19 @@
     collection = undefined,
     root = undefined,
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   let state_toasts = $state("manager state");
   let state_viewport = $state("portaled after hydration");
-  const props: Record<string, unknown> = { "children": children, "container": container, "toastManager": toastManager, "variant": variant };
-  const state: Record<string, unknown> = { "toasts": state_toasts, "viewport": state_viewport };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "container": container, "toastManager": toastManager, "variant": variant, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = { "toasts": state_toasts, "viewport": state_viewport };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -37,7 +46,7 @@
   const styleOperations: unknown[][] = [];
   const cx = (...values: unknown[]) => values.filter(Boolean).join(' ');
   void "render-1";
-  state["viewport"] = state["viewport"];
+  componentState["viewport"] = componentState["viewport"];
   emitters.push({ id: "emit-3", event: "change", callback: null, value: () => null });
   services.add("clipboard");
   layers.add("toasty");
@@ -45,9 +54,15 @@
   styleOperations.push([styles["root"]]);
 </script>
 
+{#if semanticEqual(renderContent, "Application")}
+  <div>
+    {renderContent}
+  </div>
+{:else}
 <section data-kumo-part="root">
   {#if root}{@render root()}{/if}
 </section>
 <section data-kumo-part="collection">
   {#if collection}{@render collection()}{/if}
 </section>
+{/if}

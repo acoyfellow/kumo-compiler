@@ -2,7 +2,8 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "fe575b56fa0db80a1e83a5b6976f0303f63a8f6ab45de9ba8f5abfb19d9a935f";
+  export const modelDigest = "9bed87c38c3dc76bca19c327b60bc4264efc797aacdce1a4e06e08b722ca4c65";
+  export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   checked?: boolean;
   disabled?: boolean;
@@ -13,9 +14,11 @@
   onCheckedChange?: (value: unknown) => void;
   children?: Snippet;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     checked = false,
     disabled = false,
@@ -24,14 +27,20 @@
     label = undefined,
     onCheckedChange = undefined,
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   let state_controlled = $state("checked");
   let state_group = $state("defaultValue/value");
   let state_uncontrolled = $state("absence of checked");
-  const props: Record<string, unknown> = { "checked": checked, "disabled": disabled, "group": group, "indeterminate": indeterminate, "label": label, "onCheckedChange": onCheckedChange };
-  const state: Record<string, unknown> = { "controlled": state_controlled, "group": state_group, "uncontrolled": state_uncontrolled };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "checked": checked, "disabled": disabled, "group": group, "indeterminate": indeterminate, "label": label, "onCheckedChange": onCheckedChange, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = { "controlled": state_controlled, "group": state_group, "uncontrolled": state_uncontrolled };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -40,7 +49,7 @@
   const layers = new Set<string>();
   const styleOperations: unknown[][] = [];
   const cx = (...values: unknown[]) => values.filter(Boolean).join(' ');
-  state["controlled"] = state["controlled"];
+  componentState["controlled"] = componentState["controlled"];
   emitters.push({ id: "emit-2", event: "change", callback: null, value: () => null });
   void "render-3";
   styleOperations.push([styles["root"]]);

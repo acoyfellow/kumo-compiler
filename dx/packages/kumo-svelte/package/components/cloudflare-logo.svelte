@@ -2,27 +2,36 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "50b2371be89b11ae83917c42fdb9b67c42df8467c98e2668e0540afd07dc8c58";
+  export const modelDigest = "b2674fc7e38cace5a90134bb36e79807b0f150548237eb9c09d8398b0c1fa228";
+  export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   className?: unknown;
   color?: unknown;
   variant?: unknown;
   children?: Snippet;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     className = undefined,
     color = "color",
     variant = "full",
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   
-  const props: Record<string, unknown> = { "className": className, "color": color, "variant": variant };
-  const state: Record<string, unknown> = {  };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "className": className, "color": color, "variant": variant, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = {  };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -35,4 +44,26 @@
   styleOperations.push([styles["root"]]);
 </script>
 
+{#if Object.prototype.hasOwnProperty.call(semanticValues, "color") && semanticEqual(semanticValues.color, "white") && Object.prototype.hasOwnProperty.call(semanticValues, "variant") && semanticEqual(semanticValues.variant, "glyph")}
+  <svg role={"img"} aria-label={"Cloudflare logo"} viewBox={"0 0 49 22"} class="text-white">
+    <path></path>
+    <path></path>
+  </svg>
+{:else if true}
+  <svg role={"img"} aria-label={"Cloudflare logo"} viewBox={"0 0 425.6 143.63"} class="text-kumo-default">
+    <path></path>
+    <path></path>
+    <path></path>
+    <path></path>
+    <path></path>
+    <path></path>
+    <path></path>
+    <path></path>
+    <path></path>
+    <path></path>
+    <path></path>
+    <path></path>
+  </svg>
+{:else}
 <svg role={"img"} aria-label={"Cloudflare"} class={cx(styles["root"])}></svg>
+{/if}

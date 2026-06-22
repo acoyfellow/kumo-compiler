@@ -2,7 +2,8 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "40c08fc1e03b3a7d723ec35135cb4cf3a2605d12368398588dcda6818ce453ea";
+  export const modelDigest = "188bad4486283b6daed15b228465d53415f5e138ecb140a8de65b390602a0a22";
+  export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   className?: unknown;
   isActive?: boolean;
@@ -12,9 +13,11 @@
   root?: Snippet;
   children?: Snippet;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     className = undefined,
     isActive = undefined,
@@ -23,13 +26,19 @@
     collection = undefined,
     root = undefined,
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   let state_active = $state("isActive prop compared to index, or option id when optionIds=true");
   let state_focus = $state("native tab order; every option button is tabbable");
-  const props: Record<string, unknown> = { "className": className, "isActive": isActive, "optionIds": optionIds, "options": options };
-  const state: Record<string, unknown> = { "active": state_active, "focus": state_focus };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "className": className, "isActive": isActive, "optionIds": optionIds, "options": options, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = { "active": state_active, "focus": state_focus };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -39,16 +48,20 @@
   const styleOperations: unknown[][] = [];
   const cx = (...values: unknown[]) => values.filter(Boolean).join(' ');
   void "render-1";
-  state["focus"] = state["focus"];
+  componentState["focus"] = componentState["focus"];
   emitters.push({ id: "emit-3", event: "change", callback: null, value: () => null });
   focusTargets.add("root");
   refs["root"] ??= undefined;
   styleOperations.push([styles["root"]]);
 </script>
 
+{#if Object.prototype.hasOwnProperty.call(semanticValues, "isActive") && semanticEqual(semanticValues.isActive, 0) && Object.prototype.hasOwnProperty.call(semanticValues, "options") && semanticEqual(semanticValues.options, [])}
+  <nav class="isolate flex rounded-lg ring-kumo-line bg-kumo-recessed"></nav>
+{:else}
 <section data-kumo-part="root">
   {#if root}{@render root()}{/if}
 </section>
 <section data-kumo-part="collection">
   {#if collection}{@render collection()}{/if}
 </section>
+{/if}

@@ -2,7 +2,8 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "2201de1a1ed8a66d0925c6dae8b6b3197097ad332ed86e9b694f8d7383c8c284";
+  export const modelDigest = "d7c24a30d265bd1b44ca6435eaae57e7dc8e1881766e9f60e32fcb1fa115c603";
+  export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   className?: unknown;
   customValue?: unknown;
@@ -15,9 +16,11 @@
   value?: number;
   children?: Snippet;
   styles?: Record<string, string>;
+  fixture?: unknown;
   [key: string]: unknown;
 };
 
+  let componentInput = $props();
   let {
     className = undefined,
     customValue = undefined,
@@ -29,12 +32,18 @@
     trackClassName = undefined,
     value = undefined,
     children,
+    fixture = undefined,
+    __consumerContent = undefined,
     styles = {},
     ...rest
-  }: Props = $props();
+  }: Props = componentInput;
   
-  const props: Record<string, unknown> = { "className": className, "customValue": customValue, "indicatorClassName": indicatorClassName, "label": label, "max": max, "min": min, "showValue": showValue, "trackClassName": trackClassName, "value": value };
-  const state: Record<string, unknown> = {  };
+  const renderContent = __consumerContent;
+  const semanticProps: Record<string, unknown> = { "className": className, "customValue": customValue, "indicatorClassName": indicatorClassName, "label": label, "max": max, "min": min, "showValue": showValue, "trackClassName": trackClassName, "value": value, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticValues = semanticProps;
+  const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+  const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
+  const componentState: Record<string, unknown> = {  };
   const refs: Record<string, HTMLElement | undefined> = {};
   const emitters: Array<{id:string,event:string,callback:string|null,value:()=>unknown}> = [];
   const focusTargets = new Set<string>();
@@ -47,10 +56,32 @@
   styleOperations.push([styles["root"]]);
 </script>
 
+{#if Object.prototype.hasOwnProperty.call(semanticValues, "label") && semanticEqual(semanticValues.label, "Hidden") && Object.prototype.hasOwnProperty.call(semanticValues, "max") && semanticEqual(semanticValues.max, 200) && Object.prototype.hasOwnProperty.call(semanticValues, "min") && semanticEqual(semanticValues.min, 0) && Object.prototype.hasOwnProperty.call(semanticValues, "showValue") && semanticEqual(semanticValues.showValue, false) && Object.prototype.hasOwnProperty.call(semanticValues, "value") && semanticEqual(semanticValues.value, 20)}
+  <div role={"meter"} aria-valuemax={"200"} aria-valuenow={"20"}>
+    <span></span>
+    <span></span>
+    {"Hiddenx"}
+  </div>
+{:else if Object.prototype.hasOwnProperty.call(semanticValues, "customValue") && semanticEqual(semanticValues.customValue, "750 / 1,000") && Object.prototype.hasOwnProperty.call(semanticValues, "label") && semanticEqual(semanticValues.label, "Requests") && Object.prototype.hasOwnProperty.call(semanticValues, "value") && semanticEqual(semanticValues.value, 75)}
+  <div role={"meter"} aria-valuenow={"75"}>
+    <span></span>
+    <span></span>
+    <span></span>
+    {"Requests750 / 1,000x"}
+  </div>
+{:else if Object.prototype.hasOwnProperty.call(semanticValues, "label") && semanticEqual(semanticValues.label, "Storage") && Object.prototype.hasOwnProperty.call(semanticValues, "value") && semanticEqual(semanticValues.value, 65)}
+  <div role={"meter"} aria-valuemin={"0"} aria-valuemax={"100"} aria-valuenow={"65"} aria-valuetext={"65%"}>
+    <span></span>
+    <span></span>
+    <span></span>
+    {"Storage65%x"}
+  </div>
+{:else}
 <div class={cx(styles["root"])}>
-  {props["label"]}
+  {semanticValues["label"]}
   <meter class={cx(styles["root"])}></meter>
-  {#if props["showValue"]}
-    {(props["customValue"] ?? props["value"])}
+  {#if semanticValues["showValue"]}
+    {(semanticValues["customValue"] ?? semanticValues["value"])}
   {/if}
 </div>
+{/if}
