@@ -39,7 +39,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ]));
 }
 __sfc__.render = render;
-__sfc__.name = "breadcrumbs";
+__sfc__.name = "KumoBreadcrumbs";
 __sfc__.__file = "components/breadcrumbs.vue";
 export default __sfc__;
 

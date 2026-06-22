@@ -16,6 +16,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ], 16 /* FULL_PROPS */));
 }
 __sfc__.render = render;
-__sfc__.name = "input-group.input";
+__sfc__.name = "KumoInputGroupInput";
 __sfc__.__file = "components/input-group.input.vue";
 export default __sfc__;

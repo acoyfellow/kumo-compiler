@@ -16,6 +16,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ], 16 /* FULL_PROPS */));
 }
 __sfc__.render = render;
-__sfc__.name = "autocomplete.input-group";
+__sfc__.name = "KumoAutocompleteInputGroup";
 __sfc__.__file = "components/autocomplete.input-group.vue";
 export default __sfc__;

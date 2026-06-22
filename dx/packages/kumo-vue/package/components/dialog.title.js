@@ -16,6 +16,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ], 16 /* FULL_PROPS */));
 }
 __sfc__.render = render;
-__sfc__.name = "dialog.title";
+__sfc__.name = "KumoDialogTitle";
 __sfc__.__file = "components/dialog.title.vue";
 export default __sfc__;

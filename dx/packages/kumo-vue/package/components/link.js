@@ -56,7 +56,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             ], 10 /* CLASS, PROPS */, _hoisted_3));
 }
 __sfc__.render = render;
-__sfc__.name = "link";
+__sfc__.name = "KumoLink";
 __sfc__.__file = "components/link.vue";
 export default __sfc__;
 

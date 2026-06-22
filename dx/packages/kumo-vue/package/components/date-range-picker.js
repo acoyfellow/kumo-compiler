@@ -67,7 +67,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             ]));
 }
 __sfc__.render = render;
-__sfc__.name = "date-range-picker";
+__sfc__.name = "KumoDateRangePicker";
 __sfc__.__file = "components/date-range-picker.vue";
 export default __sfc__;
 

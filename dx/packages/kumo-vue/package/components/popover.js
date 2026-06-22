@@ -61,7 +61,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         ]));
 }
 __sfc__.render = render;
-__sfc__.name = "popover";
+__sfc__.name = "KumoPopover";
 __sfc__.__file = "components/popover.vue";
 export default __sfc__;
 

@@ -16,6 +16,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ], 16 /* FULL_PROPS */));
 }
 __sfc__.render = render;
-__sfc__.name = "sidebar.footer";
+__sfc__.name = "KumoSidebarFooter";
 __sfc__.__file = "components/sidebar.footer.vue";
 export default __sfc__;

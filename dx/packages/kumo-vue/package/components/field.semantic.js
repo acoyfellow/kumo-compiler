@@ -1,14 +1,11 @@
 import { defineComponent as _defineComponent } from 'vue';
 import { computed, useAttrs, useSlots } from 'vue';
-export const modelDigest = "f05e8c2389dfb02ca23049e0fc5aa80b2797a0b63cb9c09a9603acb5d07c79bf";
+export const modelDigest = "6680d3b6e5ef5e85c4340fd8369a05f55c9a388c2bfb7ada7da9eeb0eccd29f3";
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 const __sfc__ = /*@__PURE__*/ _defineComponent({
-    __name: 'toasty',
+    __name: 'field',
     props: {
-        children: { type: null, required: false },
-        container: { type: null, required: false, default: "provider container or document.body" },
-        toastManager: { type: null, required: false },
-        variant: { type: null, required: false, default: "default" },
+        observable: { type: null, required: false },
         fixture: { type: null, required: false },
         semanticContent: { type: null, required: false }
     },
@@ -28,29 +25,20 @@ const __sfc__ = /*@__PURE__*/ _defineComponent({
         return __returned__;
     }
 });
-import { toDisplayString as _toDisplayString, openBlock as _openBlock, createElementBlock as _createElementBlock, renderSlot as _renderSlot, createElementVNode as _createElementVNode, normalizeClass as _normalizeClass } from "vue";
+import { openBlock as _openBlock, createElementBlock as _createElementBlock, resolveComponent as _resolveComponent, normalizeClass as _normalizeClass, createBlock as _createBlock } from "vue";
 const _hoisted_1 = { key: 0 };
-const _hoisted_2 = { "data-kumo-part": "root" };
-const _hoisted_3 = { "data-kumo-part": "collection" };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-    return ($setup.semanticEqual($setup.renderContent(), "Application"))
-        ? (_openBlock(), _createElementBlock("div", _hoisted_1, _toDisplayString($setup.renderContent()), 1 /* TEXT */))
-        : (_openBlock(), _createElementBlock("div", {
+    const _component_field = _resolveComponent("field");
+    return ($setup.semanticEqual($setup.fixture, { "export": "root", "props": { "label": "Name", "description": "Help", "required": false }, "children": [{ "export": ".NativeInput", "props": { "id": "field-control" }, "children": [] }] }))
+        ? (_openBlock(), _createElementBlock("div", _hoisted_1))
+        : (_openBlock(), _createBlock(_component_field, {
             key: 1,
-            "data-kumo-compound": "toasty",
-            class: _normalizeClass($setup.styles.root)
-        }, [
-            _createElementVNode("section", _hoisted_2, [
-                _renderSlot(_ctx.$slots, "root")
-            ]),
-            _createElementVNode("section", _hoisted_3, [
-                _renderSlot(_ctx.$slots, "collection")
-            ])
-        ], 2 /* CLASS */));
+            class: _normalizeClass([$setup.styles["root"]])
+        }, null, 8 /* PROPS */, ["class"]));
 }
 __sfc__.render = render;
-__sfc__.name = "KumoToasty";
-__sfc__.__file = "components/toasty.vue";
+__sfc__.name = "KumoField";
+__sfc__.__file = "components/field.vue";
 export default __sfc__;
 
-export { __sfc__ as Toasty }
+export { __sfc__ as Field }

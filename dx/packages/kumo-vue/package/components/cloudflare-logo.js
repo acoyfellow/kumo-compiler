@@ -63,7 +63,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             }, null, 2 /* CLASS */));
 }
 __sfc__.render = render;
-__sfc__.name = "cloudflare-logo";
+__sfc__.name = "KumoCloudflareLogo";
 __sfc__.__file = "components/cloudflare-logo.vue";
 export default __sfc__;
 

@@ -340,256 +340,795 @@
     "count": 63,
     "paths": [
       {
-        "component": "autocomplete.content",
-        "file": "package/components/autocomplete.content.js"
+        "root": "Autocomplete",
+        "path": "Content",
+        "binding": "Autocomplete.Content",
+        "symbol": "AutocompleteContent",
+        "file": "package/components/autocomplete.content.js",
+        "types": "package/components/autocomplete.content.d.ts",
+        "sha256": "de7f6dd2f5bb1064c20187a6e4083e295e8346be99e19b7cfae80cbe5193b6a8",
+        "vectorIds": [
+          "autocomplete/filter-and-select"
+        ]
       },
       {
-        "component": "autocomplete.input-group",
-        "file": "package/components/autocomplete.input-group.js"
+        "root": "Autocomplete",
+        "path": "InputGroup",
+        "binding": "Autocomplete.InputGroup",
+        "symbol": "AutocompleteInputGroup",
+        "file": "package/components/autocomplete.input-group.js",
+        "types": "package/components/autocomplete.input-group.d.ts",
+        "sha256": "11c9204ecb80d385a714844e32d61ea66d12458463a6e1199553dac85d035a38",
+        "vectorIds": [
+          "autocomplete/filter-and-select"
+        ]
       },
       {
-        "component": "autocomplete.item",
-        "file": "package/components/autocomplete.item.js"
+        "root": "Autocomplete",
+        "path": "Item",
+        "binding": "Autocomplete.Item",
+        "symbol": "AutocompleteItem",
+        "file": "package/components/autocomplete.item.js",
+        "types": "package/components/autocomplete.item.d.ts",
+        "sha256": "b6a053399e101ea5be1a988bfc38a6047384a8f123d7ee0ba2104f37bed31442",
+        "vectorIds": [
+          "autocomplete/filter-and-select"
+        ]
       },
       {
-        "component": "autocomplete.list",
-        "file": "package/components/autocomplete.list.js"
+        "root": "Autocomplete",
+        "path": "List",
+        "binding": "Autocomplete.List",
+        "symbol": "AutocompleteList",
+        "file": "package/components/autocomplete.list.js",
+        "types": "package/components/autocomplete.list.d.ts",
+        "sha256": "b7f35df9e95b1ec69a1f03c72de0deebbe095ae9b98bbf8d8d4af24d92f06f89",
+        "vectorIds": [
+          "autocomplete/filter-and-select"
+        ]
       },
       {
-        "component": "breadcrumbs.current",
-        "file": "package/components/breadcrumbs.current.js"
+        "root": "Breadcrumbs",
+        "path": "Current",
+        "binding": "Breadcrumbs.Current",
+        "symbol": "BreadcrumbsCurrent",
+        "file": "package/components/breadcrumbs.current.js",
+        "types": "package/components/breadcrumbs.current.d.ts",
+        "sha256": "e182c80aa8f3e8179730c298e23f4d3df4287ae4ce5a8680e51b2442b79e08c9",
+        "vectorIds": [
+          "breadcrumbs/small-current",
+          "breadcrumbs/trail"
+        ]
       },
       {
-        "component": "breadcrumbs.link",
-        "file": "package/components/breadcrumbs.link.js"
+        "root": "Breadcrumbs",
+        "path": "Link",
+        "binding": "Breadcrumbs.Link",
+        "symbol": "BreadcrumbsLink",
+        "file": "package/components/breadcrumbs.link.js",
+        "types": "package/components/breadcrumbs.link.d.ts",
+        "sha256": "aaae1ab9780cdf0239f95d50939d762bf73f3170e0d17baa3f99e72ebafc0554",
+        "vectorIds": [
+          "breadcrumbs/small-current",
+          "breadcrumbs/trail"
+        ]
       },
       {
-        "component": "breadcrumbs.separator",
-        "file": "package/components/breadcrumbs.separator.js"
+        "root": "Breadcrumbs",
+        "path": "Separator",
+        "binding": "Breadcrumbs.Separator",
+        "symbol": "BreadcrumbsSeparator",
+        "file": "package/components/breadcrumbs.separator.js",
+        "types": "package/components/breadcrumbs.separator.d.ts",
+        "sha256": "fa12d87ea148e47cd4dba12db01b717eb9805752aefc974cbca010c70d334fab",
+        "vectorIds": [
+          "breadcrumbs/small-current",
+          "breadcrumbs/trail"
+        ]
       },
       {
-        "component": "combobox.content",
-        "file": "package/components/combobox.content.js"
+        "root": "Combobox",
+        "path": "Content",
+        "binding": "Combobox.Content",
+        "symbol": "ComboboxContent",
+        "file": "package/components/combobox.content.js",
+        "types": "package/components/combobox.content.d.ts",
+        "sha256": "de7f6dd2f5bb1064c20187a6e4083e295e8346be99e19b7cfae80cbe5193b6a8",
+        "vectorIds": [
+          "combobox/single-select"
+        ]
       },
       {
-        "component": "combobox.item",
-        "file": "package/components/combobox.item.js"
+        "root": "Combobox",
+        "path": "Item",
+        "binding": "Combobox.Item",
+        "symbol": "ComboboxItem",
+        "file": "package/components/combobox.item.js",
+        "types": "package/components/combobox.item.d.ts",
+        "sha256": "b6a053399e101ea5be1a988bfc38a6047384a8f123d7ee0ba2104f37bed31442",
+        "vectorIds": [
+          "combobox/single-select"
+        ]
       },
       {
-        "component": "combobox.list",
-        "file": "package/components/combobox.list.js"
+        "root": "Combobox",
+        "path": "List",
+        "binding": "Combobox.List",
+        "symbol": "ComboboxList",
+        "file": "package/components/combobox.list.js",
+        "types": "package/components/combobox.list.d.ts",
+        "sha256": "b7f35df9e95b1ec69a1f03c72de0deebbe095ae9b98bbf8d8d4af24d92f06f89",
+        "vectorIds": [
+          "combobox/single-select"
+        ]
       },
       {
-        "component": "combobox.trigger-input",
-        "file": "package/components/combobox.trigger-input.js"
+        "root": "Combobox",
+        "path": "TriggerInput",
+        "binding": "Combobox.TriggerInput",
+        "symbol": "ComboboxTriggerInput",
+        "file": "package/components/combobox.trigger-input.js",
+        "types": "package/components/combobox.trigger-input.d.ts",
+        "sha256": "541c2e771c40fafeb07c3f996150a07314a22c3266b66f581b473fe43f27a1d1",
+        "vectorIds": [
+          "combobox/single-select"
+        ]
       },
       {
-        "component": "command-palette.highlighted-text",
-        "file": "package/components/command-palette.highlighted-text.js"
+        "root": "CommandPalette",
+        "path": "HighlightedText",
+        "binding": "CommandPalette.HighlightedText",
+        "symbol": "CommandPaletteHighlightedText",
+        "file": "package/components/command-palette.highlighted-text.js",
+        "types": "package/components/command-palette.highlighted-text.d.ts",
+        "sha256": "d840b855a7e7b57ad7830519ca7e54111a9c8dc68b1925084f57afb932f4ac3b",
+        "vectorIds": [
+          "command-palette/highlighted-text"
+        ]
       },
       {
-        "component": "command-palette.input",
-        "file": "package/components/command-palette.input.js"
+        "root": "CommandPalette",
+        "path": "Input",
+        "binding": "CommandPalette.Input",
+        "symbol": "CommandPaletteInput",
+        "file": "package/components/command-palette.input.js",
+        "types": "package/components/command-palette.input.d.ts",
+        "sha256": "c5fa98a5c6ea17962bc9940d424730ab114d6601461242329ad8c112b715fb82",
+        "vectorIds": [
+          "command-palette/open-search-close"
+        ]
       },
       {
-        "component": "command-palette.item",
-        "file": "package/components/command-palette.item.js"
+        "root": "CommandPalette",
+        "path": "Item",
+        "binding": "CommandPalette.Item",
+        "symbol": "CommandPaletteItem",
+        "file": "package/components/command-palette.item.js",
+        "types": "package/components/command-palette.item.d.ts",
+        "sha256": "b6a053399e101ea5be1a988bfc38a6047384a8f123d7ee0ba2104f37bed31442",
+        "vectorIds": [
+          "command-palette/open-search-close"
+        ]
       },
       {
-        "component": "command-palette.list",
-        "file": "package/components/command-palette.list.js"
+        "root": "CommandPalette",
+        "path": "List",
+        "binding": "CommandPalette.List",
+        "symbol": "CommandPaletteList",
+        "file": "package/components/command-palette.list.js",
+        "types": "package/components/command-palette.list.d.ts",
+        "sha256": "b7f35df9e95b1ec69a1f03c72de0deebbe095ae9b98bbf8d8d4af24d92f06f89",
+        "vectorIds": [
+          "command-palette/open-search-close"
+        ]
       },
       {
-        "component": "command-palette.root",
-        "file": "package/components/command-palette.root.js"
+        "root": "CommandPalette",
+        "path": "Root",
+        "binding": "CommandPalette.Root",
+        "symbol": "CommandPaletteRoot",
+        "file": "package/components/command-palette.root.js",
+        "types": "package/components/command-palette.root.d.ts",
+        "sha256": "f5110c3919e6c50244f6089699584e93935a535cdff1ce12fb0c231a1ea4d456",
+        "vectorIds": [
+          "command-palette/open-search-close"
+        ]
       },
       {
-        "component": "dialog.close",
-        "file": "package/components/dialog.close.js"
+        "root": "Dialog",
+        "path": "Close",
+        "binding": "Dialog.Close",
+        "symbol": "DialogClose",
+        "file": "package/components/dialog.close.js",
+        "types": "package/components/dialog.close.d.ts",
+        "sha256": "f91de61deff7c5c3dcea0a623c7ae2be06d96c35c9e1575e0961167dcc06d28b",
+        "vectorIds": [
+          "dialog/open-and-close"
+        ]
       },
       {
-        "component": "dialog.description",
-        "file": "package/components/dialog.description.js"
+        "root": "Dialog",
+        "path": "Description",
+        "binding": "Dialog.Description",
+        "symbol": "DialogDescription",
+        "file": "package/components/dialog.description.js",
+        "types": "package/components/dialog.description.d.ts",
+        "sha256": "4a8ba21951f63a15b6bd08642d6f4ff68d3dc053ef9c3e1d46ae7c8e042d516f",
+        "vectorIds": [
+          "dialog/open-and-close"
+        ]
       },
       {
-        "component": "dialog.root",
-        "file": "package/components/dialog.root.js"
+        "root": "Dialog",
+        "path": "Root",
+        "binding": "Dialog.Root",
+        "symbol": "DialogRoot",
+        "file": "package/components/dialog.root.js",
+        "types": "package/components/dialog.root.d.ts",
+        "sha256": "f5110c3919e6c50244f6089699584e93935a535cdff1ce12fb0c231a1ea4d456",
+        "vectorIds": [
+          "dialog/closed-trigger",
+          "dialog/open-and-close"
+        ]
       },
       {
-        "component": "dialog.title",
-        "file": "package/components/dialog.title.js"
+        "root": "Dialog",
+        "path": "Title",
+        "binding": "Dialog.Title",
+        "symbol": "DialogTitle",
+        "file": "package/components/dialog.title.js",
+        "types": "package/components/dialog.title.d.ts",
+        "sha256": "427d5bf10e7201d4479cdef33768e79ba37230554cb6b5f2d51c60cb9f0f62bb",
+        "vectorIds": [
+          "dialog/closed-trigger",
+          "dialog/open-and-close"
+        ]
       },
       {
-        "component": "dialog.trigger",
-        "file": "package/components/dialog.trigger.js"
+        "root": "Dialog",
+        "path": "Trigger",
+        "binding": "Dialog.Trigger",
+        "symbol": "DialogTrigger",
+        "file": "package/components/dialog.trigger.js",
+        "types": "package/components/dialog.trigger.d.ts",
+        "sha256": "b704b97c05a11a22549f97f4c0ce6ad648ae0d0e5abcfd64a8f3cb6cf16732e5",
+        "vectorIds": [
+          "dialog/closed-trigger",
+          "dialog/open-and-close"
+        ]
       },
       {
-        "component": "dropdown-menu.content",
-        "file": "package/components/dropdown-menu.content.js"
+        "root": "DropdownMenu",
+        "path": "Content",
+        "binding": "DropdownMenu.Content",
+        "symbol": "DropdownMenuContent",
+        "file": "package/components/dropdown-menu.content.js",
+        "types": "package/components/dropdown-menu.content.d.ts",
+        "sha256": "de7f6dd2f5bb1064c20187a6e4083e295e8346be99e19b7cfae80cbe5193b6a8",
+        "vectorIds": [
+          "dropdown-menu/keyboard-typeahead-submenu-dismissal",
+          "dropdown-menu/pointer-item-selection"
+        ]
       },
       {
-        "component": "dropdown-menu.item",
-        "file": "package/components/dropdown-menu.item.js"
+        "root": "DropdownMenu",
+        "path": "Item",
+        "binding": "DropdownMenu.Item",
+        "symbol": "DropdownMenuItem",
+        "file": "package/components/dropdown-menu.item.js",
+        "types": "package/components/dropdown-menu.item.d.ts",
+        "sha256": "b6a053399e101ea5be1a988bfc38a6047384a8f123d7ee0ba2104f37bed31442",
+        "vectorIds": [
+          "dropdown-menu/keyboard-typeahead-submenu-dismissal",
+          "dropdown-menu/pointer-item-selection"
+        ]
       },
       {
-        "component": "dropdown-menu.sub-content",
-        "file": "package/components/dropdown-menu.sub-content.js"
+        "root": "DropdownMenu",
+        "path": "Sub",
+        "binding": "DropdownMenu.Sub",
+        "symbol": "DropdownMenuSub",
+        "file": "package/components/dropdown-menu.sub.js",
+        "types": "package/components/dropdown-menu.sub.d.ts",
+        "sha256": "b2b5bcb328661f5dcacdd1bfab52a4c437883a72acf02216db8e7ac57950def7",
+        "vectorIds": [
+          "dropdown-menu/keyboard-typeahead-submenu-dismissal"
+        ]
       },
       {
-        "component": "dropdown-menu.sub-trigger",
-        "file": "package/components/dropdown-menu.sub-trigger.js"
+        "root": "DropdownMenu",
+        "path": "SubContent",
+        "binding": "DropdownMenu.SubContent",
+        "symbol": "DropdownMenuSubContent",
+        "file": "package/components/dropdown-menu.sub-content.js",
+        "types": "package/components/dropdown-menu.sub-content.d.ts",
+        "sha256": "13da71ddf668f517ff37a89588f715d74db968364e8a49a7770e7a091c49174f",
+        "vectorIds": [
+          "dropdown-menu/keyboard-typeahead-submenu-dismissal"
+        ]
       },
       {
-        "component": "dropdown-menu.sub",
-        "file": "package/components/dropdown-menu.sub.js"
+        "root": "DropdownMenu",
+        "path": "SubTrigger",
+        "binding": "DropdownMenu.SubTrigger",
+        "symbol": "DropdownMenuSubTrigger",
+        "file": "package/components/dropdown-menu.sub-trigger.js",
+        "types": "package/components/dropdown-menu.sub-trigger.d.ts",
+        "sha256": "2e33e9af091b0882a51ce89b1853bf81d77bfc66db29dbbea1cb186faa0d7e48",
+        "vectorIds": [
+          "dropdown-menu/keyboard-typeahead-submenu-dismissal"
+        ]
       },
       {
-        "component": "dropdown-menu.trigger",
-        "file": "package/components/dropdown-menu.trigger.js"
+        "root": "DropdownMenu",
+        "path": "Trigger",
+        "binding": "DropdownMenu.Trigger",
+        "symbol": "DropdownMenuTrigger",
+        "file": "package/components/dropdown-menu.trigger.js",
+        "types": "package/components/dropdown-menu.trigger.d.ts",
+        "sha256": "b704b97c05a11a22549f97f4c0ce6ad648ae0d0e5abcfd64a8f3cb6cf16732e5",
+        "vectorIds": [
+          "dropdown-menu/closed-trigger-ssr",
+          "dropdown-menu/keyboard-typeahead-submenu-dismissal",
+          "dropdown-menu/pointer-item-selection"
+        ]
       },
       {
-        "component": "field.native-input",
-        "file": "package/components/field.native-input.js"
+        "root": "Field",
+        "path": "NativeInput",
+        "binding": "Field.NativeInput",
+        "symbol": "FieldNativeInput",
+        "file": "package/components/field.native-input.js",
+        "types": "package/components/field.native-input.d.ts",
+        "sha256": "0a5eb58414501f653fc8d11b26fdbc1966ca92e3a3efe7b28cf6f50090e9483c",
+        "vectorIds": [
+          "field/optional"
+        ]
       },
       {
-        "component": "input-group.addon",
-        "file": "package/components/input-group.addon.js"
+        "root": "InputGroup",
+        "path": "Addon",
+        "binding": "InputGroup.Addon",
+        "symbol": "InputGroupAddon",
+        "file": "package/components/input-group.addon.js",
+        "types": "package/components/input-group.addon.d.ts",
+        "sha256": "701c37b4d7749f908c0df3dec242f1f5b95408fa7af910943cd38d6702310831",
+        "vectorIds": [
+          "input-group/composition",
+          "input-group/disabled-error",
+          "input-group/field-focus"
+        ]
       },
       {
-        "component": "input-group.button",
-        "file": "package/components/input-group.button.js"
+        "root": "InputGroup",
+        "path": "Button",
+        "binding": "InputGroup.Button",
+        "symbol": "InputGroupButton",
+        "file": "package/components/input-group.button.js",
+        "types": "package/components/input-group.button.d.ts",
+        "sha256": "641a2b71a05bcc08bb0dfed643ef26f84af5d74513a117b07281d7963f066954",
+        "vectorIds": [
+          "input-group/composition",
+          "input-group/disabled-error",
+          "input-group/field-focus"
+        ]
       },
       {
-        "component": "input-group.input",
-        "file": "package/components/input-group.input.js"
+        "root": "InputGroup",
+        "path": "Input",
+        "binding": "InputGroup.Input",
+        "symbol": "InputGroupInput",
+        "file": "package/components/input-group.input.js",
+        "types": "package/components/input-group.input.d.ts",
+        "sha256": "c5fa98a5c6ea17962bc9940d424730ab114d6601461242329ad8c112b715fb82",
+        "vectorIds": [
+          "input-group/composition",
+          "input-group/disabled-error",
+          "input-group/field-focus"
+        ]
       },
       {
-        "component": "input-group.suffix",
-        "file": "package/components/input-group.suffix.js"
+        "root": "InputGroup",
+        "path": "Suffix",
+        "binding": "InputGroup.Suffix",
+        "symbol": "InputGroupSuffix",
+        "file": "package/components/input-group.suffix.js",
+        "types": "package/components/input-group.suffix.d.ts",
+        "sha256": "32b7815c04c6f6d9ab43eb85c739688bde81e37259f56dc43061ad7a6a38f8a2",
+        "vectorIds": [
+          "input-group/composition",
+          "input-group/disabled-error",
+          "input-group/field-focus"
+        ]
       },
       {
-        "component": "layer-card.primary",
-        "file": "package/components/layer-card.primary.js"
+        "root": "LayerCard",
+        "path": "Primary",
+        "binding": "LayerCard.Primary",
+        "symbol": "LayerCardPrimary",
+        "file": "package/components/layer-card.primary.js",
+        "types": "package/components/layer-card.primary.d.ts",
+        "sha256": "6526f9d1923a6b0476de000b680cc7484bfbbee70ad801f02ac34897b542c7bb",
+        "vectorIds": [
+          "layer-card/layered"
+        ]
       },
       {
-        "component": "layer-card.secondary",
-        "file": "package/components/layer-card.secondary.js"
+        "root": "LayerCard",
+        "path": "Secondary",
+        "binding": "LayerCard.Secondary",
+        "symbol": "LayerCardSecondary",
+        "file": "package/components/layer-card.secondary.js",
+        "types": "package/components/layer-card.secondary.d.ts",
+        "sha256": "63502c3b2a77acf330d24e0c81e025d1ce94bd416dcb01ad102acf96c4f011fe",
+        "vectorIds": [
+          "layer-card/layered"
+        ]
       },
       {
-        "component": "popover.close",
-        "file": "package/components/popover.close.js"
+        "root": "Popover",
+        "path": "Close",
+        "binding": "Popover.Close",
+        "symbol": "PopoverClose",
+        "file": "package/components/popover.close.js",
+        "types": "package/components/popover.close.d.ts",
+        "sha256": "f91de61deff7c5c3dcea0a623c7ae2be06d96c35c9e1575e0961167dcc06d28b",
+        "vectorIds": [
+          "popover/pointer-open-close-outside"
+        ]
       },
       {
-        "component": "popover.content",
-        "file": "package/components/popover.content.js"
+        "root": "Popover",
+        "path": "Content",
+        "binding": "Popover.Content",
+        "symbol": "PopoverContent",
+        "file": "package/components/popover.content.js",
+        "types": "package/components/popover.content.d.ts",
+        "sha256": "de7f6dd2f5bb1064c20187a6e4083e295e8346be99e19b7cfae80cbe5193b6a8",
+        "vectorIds": [
+          "popover/controlled-open",
+          "popover/pointer-open-close-outside"
+        ]
       },
       {
-        "component": "popover.description",
-        "file": "package/components/popover.description.js"
+        "root": "Popover",
+        "path": "Description",
+        "binding": "Popover.Description",
+        "symbol": "PopoverDescription",
+        "file": "package/components/popover.description.js",
+        "types": "package/components/popover.description.d.ts",
+        "sha256": "4a8ba21951f63a15b6bd08642d6f4ff68d3dc053ef9c3e1d46ae7c8e042d516f",
+        "vectorIds": [
+          "popover/pointer-open-close-outside"
+        ]
       },
       {
-        "component": "popover.title",
-        "file": "package/components/popover.title.js"
+        "root": "Popover",
+        "path": "Title",
+        "binding": "Popover.Title",
+        "symbol": "PopoverTitle",
+        "file": "package/components/popover.title.js",
+        "types": "package/components/popover.title.d.ts",
+        "sha256": "427d5bf10e7201d4479cdef33768e79ba37230554cb6b5f2d51c60cb9f0f62bb",
+        "vectorIds": [
+          "popover/pointer-open-close-outside"
+        ]
       },
       {
-        "component": "popover.trigger",
-        "file": "package/components/popover.trigger.js"
+        "root": "Popover",
+        "path": "Trigger",
+        "binding": "Popover.Trigger",
+        "symbol": "PopoverTrigger",
+        "file": "package/components/popover.trigger.js",
+        "types": "package/components/popover.trigger.d.ts",
+        "sha256": "b704b97c05a11a22549f97f4c0ce6ad648ae0d0e5abcfd64a8f3cb6cf16732e5",
+        "vectorIds": [
+          "popover/closed-trigger-ssr",
+          "popover/controlled-open",
+          "popover/pointer-open-close-outside"
+        ]
       },
       {
-        "component": "select.option",
-        "file": "package/components/select.option.js"
+        "root": "Select",
+        "path": "Option",
+        "binding": "Select.Option",
+        "symbol": "SelectOption",
+        "file": "package/components/select.option.js",
+        "types": "package/components/select.option.d.ts",
+        "sha256": "86bf9bddb8f4b79381c0d5b60966f98cd568a6872b4a83afeb50c682ba82e81b",
+        "vectorIds": [
+          "select/controlled-value-open-order",
+          "select/keyboard-end-dismissal",
+          "select/keyboard-home-dismissal",
+          "select/keyboard-typeahead-dismissal",
+          "select/multiple-object-selection",
+          "select/pointer-open-select-disabled"
+        ]
       },
       {
-        "component": "sidebar.collapsible-content",
-        "file": "package/components/sidebar.collapsible-content.js"
+        "root": "Sidebar",
+        "path": "Collapsible",
+        "binding": "Sidebar.Collapsible",
+        "symbol": "SidebarCollapsible",
+        "file": "package/components/sidebar.collapsible.js",
+        "types": "package/components/sidebar.collapsible.d.ts",
+        "sha256": "6c6671243f3ef9358b45176af661f5167284fff8a6a99aa15b6fb6d7e53026ce",
+        "vectorIds": [
+          "sidebar/collapsible-closed-mounted"
+        ]
       },
       {
-        "component": "sidebar.collapsible",
-        "file": "package/components/sidebar.collapsible.js"
+        "root": "Sidebar",
+        "path": "CollapsibleContent",
+        "binding": "Sidebar.CollapsibleContent",
+        "symbol": "SidebarCollapsibleContent",
+        "file": "package/components/sidebar.collapsible-content.js",
+        "types": "package/components/sidebar.collapsible-content.d.ts",
+        "sha256": "0c9d3e9478450a5caf7ced283c2df891aac6d2222d8d4a8ec0fc44c8c610939a",
+        "vectorIds": [
+          "sidebar/collapsible-closed-mounted"
+        ]
       },
       {
-        "component": "sidebar.content",
-        "file": "package/components/sidebar.content.js"
+        "root": "Sidebar",
+        "path": "Content",
+        "binding": "Sidebar.Content",
+        "symbol": "SidebarContent",
+        "file": "package/components/sidebar.content.js",
+        "types": "package/components/sidebar.content.d.ts",
+        "sha256": "de7f6dd2f5bb1064c20187a6e4083e295e8346be99e19b7cfae80cbe5193b6a8",
+        "vectorIds": [
+          "sidebar/desktop-expanded-compound"
+        ]
       },
       {
-        "component": "sidebar.footer",
-        "file": "package/components/sidebar.footer.js"
+        "root": "Sidebar",
+        "path": "Footer",
+        "binding": "Sidebar.Footer",
+        "symbol": "SidebarFooter",
+        "file": "package/components/sidebar.footer.js",
+        "types": "package/components/sidebar.footer.d.ts",
+        "sha256": "5a6a5336972807d184ae6b5cc4814e3e34b57d2db93e36320d5e24f0bc31d670",
+        "vectorIds": [
+          "sidebar/desktop-expanded-compound"
+        ]
       },
       {
-        "component": "sidebar.group-label",
-        "file": "package/components/sidebar.group-label.js"
+        "root": "Sidebar",
+        "path": "Group",
+        "binding": "Sidebar.Group",
+        "symbol": "SidebarGroup",
+        "file": "package/components/sidebar.group.js",
+        "types": "package/components/sidebar.group.d.ts",
+        "sha256": "330a18822b00857db27fa3d257c2b6b224bf6542706b3d9b8e6ba81e904e3fc2",
+        "vectorIds": [
+          "sidebar/desktop-expanded-compound"
+        ]
       },
       {
-        "component": "sidebar.group",
-        "file": "package/components/sidebar.group.js"
+        "root": "Sidebar",
+        "path": "GroupLabel",
+        "binding": "Sidebar.GroupLabel",
+        "symbol": "SidebarGroupLabel",
+        "file": "package/components/sidebar.group-label.js",
+        "types": "package/components/sidebar.group-label.d.ts",
+        "sha256": "e2c121e17be6e7f2608edb5bb96f65e59d905baa3953e5b941cf1bda4f6e4aec",
+        "vectorIds": [
+          "sidebar/desktop-expanded-compound"
+        ]
       },
       {
-        "component": "sidebar.header",
-        "file": "package/components/sidebar.header.js"
+        "root": "Sidebar",
+        "path": "Header",
+        "binding": "Sidebar.Header",
+        "symbol": "SidebarHeader",
+        "file": "package/components/sidebar.header.js",
+        "types": "package/components/sidebar.header.d.ts",
+        "sha256": "e75b411b5b9482641f0f357b31faf70e9ab3f3eb51e9a5c256d3d8383cd3c343",
+        "vectorIds": [
+          "sidebar/desktop-expanded-compound"
+        ]
       },
       {
-        "component": "sidebar.menu-button",
-        "file": "package/components/sidebar.menu-button.js"
+        "root": "Sidebar",
+        "path": "Menu",
+        "binding": "Sidebar.Menu",
+        "symbol": "SidebarMenu",
+        "file": "package/components/sidebar.menu.js",
+        "types": "package/components/sidebar.menu.d.ts",
+        "sha256": "d590c8130b41c5c193d7a15d665cf2a313efdabd36c230d7f27b62da515f4e43",
+        "vectorIds": [
+          "sidebar/desktop-expanded-compound"
+        ]
       },
       {
-        "component": "sidebar.menu",
-        "file": "package/components/sidebar.menu.js"
+        "root": "Sidebar",
+        "path": "MenuButton",
+        "binding": "Sidebar.MenuButton",
+        "symbol": "SidebarMenuButton",
+        "file": "package/components/sidebar.menu-button.js",
+        "types": "package/components/sidebar.menu-button.d.ts",
+        "sha256": "36f1b3a68ee5e735b3254c6f81e041004fa1e0f87d017ea240981578ee27c011",
+        "vectorIds": [
+          "sidebar/desktop-expanded-compound"
+        ]
       },
       {
-        "component": "sidebar.provider",
-        "file": "package/components/sidebar.provider.js"
+        "root": "Sidebar",
+        "path": "Provider",
+        "binding": "Sidebar.Provider",
+        "symbol": "SidebarProvider",
+        "file": "package/components/sidebar.provider.js",
+        "types": "package/components/sidebar.provider.d.ts",
+        "sha256": "b22777712d546341210e55c2180575de91e1e9f4b52710e8cbc1fe61dc5d433d",
+        "vectorIds": [
+          "sidebar/collapsible-closed-mounted",
+          "sidebar/desktop-collapsed-sliding-inert-intent",
+          "sidebar/desktop-expanded-compound",
+          "sidebar/resize-keyboard-expand"
+        ]
       },
       {
-        "component": "sidebar.resize-handle",
-        "file": "package/components/sidebar.resize-handle.js"
+        "root": "Sidebar",
+        "path": "ResizeHandle",
+        "binding": "Sidebar.ResizeHandle",
+        "symbol": "SidebarResizeHandle",
+        "file": "package/components/sidebar.resize-handle.js",
+        "types": "package/components/sidebar.resize-handle.d.ts",
+        "sha256": "dd2a8f0fea220592c5bae820be2ef0922824d4b251151ecece314f7635e5e5f9",
+        "vectorIds": [
+          "sidebar/resize-keyboard-expand"
+        ]
       },
       {
-        "component": "sidebar.sliding-view",
-        "file": "package/components/sidebar.sliding-view.js"
+        "root": "Sidebar",
+        "path": "SlidingView",
+        "binding": "Sidebar.SlidingView",
+        "symbol": "SidebarSlidingView",
+        "file": "package/components/sidebar.sliding-view.js",
+        "types": "package/components/sidebar.sliding-view.d.ts",
+        "sha256": "e391813b49728448fdb21c3a393f727587f312fc9f0ddb24e02b2a83ab52824b",
+        "vectorIds": [
+          "sidebar/desktop-collapsed-sliding-inert-intent"
+        ]
       },
       {
-        "component": "sidebar.sliding-views",
-        "file": "package/components/sidebar.sliding-views.js"
+        "root": "Sidebar",
+        "path": "SlidingViews",
+        "binding": "Sidebar.SlidingViews",
+        "symbol": "SidebarSlidingViews",
+        "file": "package/components/sidebar.sliding-views.js",
+        "types": "package/components/sidebar.sliding-views.d.ts",
+        "sha256": "0e90487d2e67717f73b2cdd77176b933f03a8bb559f11c6a303ae9d853a20ad8",
+        "vectorIds": [
+          "sidebar/desktop-collapsed-sliding-inert-intent"
+        ]
       },
       {
-        "component": "sidebar.trigger",
-        "file": "package/components/sidebar.trigger.js"
+        "root": "Sidebar",
+        "path": "Trigger",
+        "binding": "Sidebar.Trigger",
+        "symbol": "SidebarTrigger",
+        "file": "package/components/sidebar.trigger.js",
+        "types": "package/components/sidebar.trigger.d.ts",
+        "sha256": "b704b97c05a11a22549f97f4c0ce6ad648ae0d0e5abcfd64a8f3cb6cf16732e5",
+        "vectorIds": [
+          "sidebar/desktop-collapsed-sliding-inert-intent",
+          "sidebar/desktop-expanded-compound"
+        ]
       },
       {
-        "component": "table-of-contents.group",
-        "file": "package/components/table-of-contents.group.js"
+        "root": "Table",
+        "path": "Body",
+        "binding": "Table.Body",
+        "symbol": "TableBody",
+        "file": "package/components/table.body.js",
+        "types": "package/components/table.body.d.ts",
+        "sha256": "d1b29d6053b095426f4d86aae843d23c63f77fb06e25ecc8b3554f1ad288eb8e",
+        "vectorIds": [
+          "table/fixed-sticky",
+          "table/semantic-selected"
+        ]
       },
       {
-        "component": "table-of-contents.item",
-        "file": "package/components/table-of-contents.item.js"
+        "root": "Table",
+        "path": "Cell",
+        "binding": "Table.Cell",
+        "symbol": "TableCell",
+        "file": "package/components/table.cell.js",
+        "types": "package/components/table.cell.d.ts",
+        "sha256": "e468185e56e74b8f7aaf08ee5e8fe326e00c8d8d1c26f4ba2965ad9ab9bc6323",
+        "vectorIds": [
+          "table/fixed-sticky",
+          "table/semantic-selected"
+        ]
       },
       {
-        "component": "table-of-contents.list",
-        "file": "package/components/table-of-contents.list.js"
+        "root": "Table",
+        "path": "Head",
+        "binding": "Table.Head",
+        "symbol": "TableHead",
+        "file": "package/components/table.head.js",
+        "types": "package/components/table.head.d.ts",
+        "sha256": "356565e90644171d31c149325f9aa2f99a213af30fde81c6a18d8155eafe2e76",
+        "vectorIds": [
+          "table/semantic-selected"
+        ]
       },
       {
-        "component": "table-of-contents.title",
-        "file": "package/components/table-of-contents.title.js"
+        "root": "Table",
+        "path": "Header",
+        "binding": "Table.Header",
+        "symbol": "TableHeader",
+        "file": "package/components/table.header.js",
+        "types": "package/components/table.header.d.ts",
+        "sha256": "e75b411b5b9482641f0f357b31faf70e9ab3f3eb51e9a5c256d3d8383cd3c343",
+        "vectorIds": [
+          "table/semantic-selected"
+        ]
       },
       {
-        "component": "table.body",
-        "file": "package/components/table.body.js"
+        "root": "Table",
+        "path": "Row",
+        "binding": "Table.Row",
+        "symbol": "TableRow",
+        "file": "package/components/table.row.js",
+        "types": "package/components/table.row.d.ts",
+        "sha256": "5999e2c9ddb43143e62946a279d61ae65a3e973a623865fbb6bcca141e4b8d3b",
+        "vectorIds": [
+          "table/fixed-sticky",
+          "table/semantic-selected"
+        ]
       },
       {
-        "component": "table.cell",
-        "file": "package/components/table.cell.js"
+        "root": "TableOfContents",
+        "path": "Group",
+        "binding": "TableOfContents.Group",
+        "symbol": "TableOfContentsGroup",
+        "file": "package/components/table-of-contents.group.js",
+        "types": "package/components/table-of-contents.group.d.ts",
+        "sha256": "330a18822b00857db27fa3d257c2b6b224bf6542706b3d9b8e6ba81e904e3fc2",
+        "vectorIds": [
+          "table-of-contents/nested-linked-group"
+        ]
       },
       {
-        "component": "table.head",
-        "file": "package/components/table.head.js"
+        "root": "TableOfContents",
+        "path": "Item",
+        "binding": "TableOfContents.Item",
+        "symbol": "TableOfContentsItem",
+        "file": "package/components/table-of-contents.item.js",
+        "types": "package/components/table-of-contents.item.d.ts",
+        "sha256": "b6a053399e101ea5be1a988bfc38a6047384a8f123d7ee0ba2104f37bed31442",
+        "vectorIds": [
+          "table-of-contents/nested-linked-group",
+          "table-of-contents/static-title-items"
+        ]
       },
       {
-        "component": "table.header",
-        "file": "package/components/table.header.js"
+        "root": "TableOfContents",
+        "path": "List",
+        "binding": "TableOfContents.List",
+        "symbol": "TableOfContentsList",
+        "file": "package/components/table-of-contents.list.js",
+        "types": "package/components/table-of-contents.list.d.ts",
+        "sha256": "b7f35df9e95b1ec69a1f03c72de0deebbe095ae9b98bbf8d8d4af24d92f06f89",
+        "vectorIds": [
+          "table-of-contents/nested-linked-group",
+          "table-of-contents/static-title-items"
+        ]
       },
       {
-        "component": "table.row",
-        "file": "package/components/table.row.js"
+        "root": "TableOfContents",
+        "path": "Title",
+        "binding": "TableOfContents.Title",
+        "symbol": "TableOfContentsTitle",
+        "file": "package/components/table-of-contents.title.js",
+        "types": "package/components/table-of-contents.title.d.ts",
+        "sha256": "427d5bf10e7201d4479cdef33768e79ba37230554cb6b5f2d51c60cb9f0f62bb",
+        "vectorIds": [
+          "table-of-contents/static-title-items"
+        ]
       }
     ]
   },

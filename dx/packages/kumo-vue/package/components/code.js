@@ -49,7 +49,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             }, _toDisplayString($setup.props.code), 3 /* TEXT, CLASS */));
 }
 __sfc__.render = render;
-__sfc__.name = "code";
+__sfc__.name = "KumoCode";
 __sfc__.__file = "components/code.vue";
 export default __sfc__;
 

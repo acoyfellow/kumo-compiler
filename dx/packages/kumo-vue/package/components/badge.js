@@ -53,7 +53,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             ], 2 /* CLASS */));
 }
 __sfc__.render = render;
-__sfc__.name = "badge";
+__sfc__.name = "KumoBadge";
 __sfc__.__file = "components/badge.vue";
 export default __sfc__;
 

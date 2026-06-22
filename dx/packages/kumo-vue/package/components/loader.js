@@ -60,7 +60,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             }, null, 10 /* CLASS, PROPS */, _hoisted_3));
 }
 __sfc__.render = render;
-__sfc__.name = "loader";
+__sfc__.name = "KumoLoader";
 __sfc__.__file = "components/loader.vue";
 export default __sfc__;
 

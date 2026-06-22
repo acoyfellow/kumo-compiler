@@ -89,7 +89,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
                     ], 2 /* CLASS */));
 }
 __sfc__.render = render;
-__sfc__.name = "pagination";
+__sfc__.name = "KumoPagination";
 __sfc__.__file = "components/pagination.vue";
 export default __sfc__;
 

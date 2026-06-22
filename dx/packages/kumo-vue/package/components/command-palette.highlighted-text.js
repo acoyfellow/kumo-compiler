@@ -16,6 +16,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ], 16 /* FULL_PROPS */));
 }
 __sfc__.render = render;
-__sfc__.name = "command-palette.highlighted-text";
+__sfc__.name = "KumoCommandPaletteHighlightedText";
 __sfc__.__file = "components/command-palette.highlighted-text.vue";
 export default __sfc__;

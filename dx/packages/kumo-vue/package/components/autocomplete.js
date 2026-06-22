@@ -47,7 +47,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ]));
 }
 __sfc__.render = render;
-__sfc__.name = "autocomplete";
+__sfc__.name = "KumoAutocomplete";
 __sfc__.__file = "components/autocomplete.vue";
 export default __sfc__;
 

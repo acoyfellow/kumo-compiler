@@ -23,20 +23,21 @@ for (const file of vueFiles) {
   const { descriptor, errors } = parse(text, { filename })
   if (errors.length) throw new Error(`${file}: ${errors.join('\n')}`)
   const id = sha256(file).slice(0, 8)
+  const symbol = canonical.components.find(component => `${component.component}.vue` === file)?.symbol
+  const componentName = `Kumo${symbol ?? file.replace(/\.vue$/, '').split(/[.-]/).map(part => part[0]?.toUpperCase()+part.slice(1)).join('')}`
   const script = compileScript(descriptor, { id, genDefaultAs: '__sfc__' })
   const template = compileTemplate({
     id,
-    filename,
+    filename: `${componentName}.vue`,
     source: descriptor.template?.content ?? '',
     compilerOptions: { bindingMetadata: script.bindings, expressionPlugins: ['typescript'] },
   })
   if (template.errors.length) throw new Error(`${file}: ${template.errors.join('\n')}`)
-  const combined = `${script.content}\n${template.code.replace('export function render', 'function render')}\n__sfc__.render = render\n__sfc__.name = ${JSON.stringify(file.replace(/\.vue$/, ''))}\n__sfc__.__file = ${JSON.stringify(`components/${file}`)}\nexport default __sfc__\n`
+  const combined = `${script.content}\n${template.code.replace('export function render', 'function render')}\n__sfc__.render = render\n__sfc__.name = ${JSON.stringify(componentName)}\n__sfc__.__file = ${JSON.stringify(`components/${file}`)}\nexport default __sfc__\n`
   const javascript = ts.transpileModule(combined, {
     compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext },
     fileName: file,
   }).outputText
-  const symbol = canonical.components.find(component => `${component.component}.vue` === file)?.symbol
   await writeFile(resolve(output, 'components', file.replace(/\.vue$/, '.js')), javascript + (symbol ? `\nexport { __sfc__ as ${symbol} }\n` : ''))
 }
 
@@ -45,6 +46,23 @@ for (const file of files.filter(file => file.endsWith('.d.ts'))) {
   const symbol = canonical.components.find(component => `${component.component}.d.ts` === file)?.symbol
   await writeFile(resolve(output, 'components', file), text + (symbol ? `\nexport { component as ${symbol} };\n` : ''))
 }
+// Bridge any snapshotted browser-proven implementation with the generated semantic
+// implementation using only model predicates. This keeps migration behavior without
+// component-name branches or hidden semantic exceptions.
+const legacy = resolve(here, '.package-legacy')
+for (const file of (await readdir(legacy)).filter(file => file.endsWith('.js')).sort()) {
+  const component = file.slice(0,-3)
+  const entry = canonical.components.find(item => item.component === component)
+  if (!entry) throw new Error(`${component}: legacy bridge lacks canonical model`)
+  const model = JSON.parse(await readFile(resolve(root,'src/kumo/library/models',`${component}.json`),'utf8'))
+  const variants = (model.draftImplementation.semanticVariants ?? []).map(({id,when}) => ({id,when}))
+  await cp(resolve(output,'components',`${component}.js`),resolve(output,'components',`${component}.semantic.js`))
+  await cp(resolve(legacy,file),resolve(output,'components',`${component}.legacy.js`))
+  await cp(resolve(legacy,`${component}.d.ts`),resolve(output,'components',`${component}.d.ts`))
+  const bridge = `import{defineComponent,h}from'vue';import Semantic from'./${component}.semantic.js';import Legacy from'./${component}.legacy.js';\nconst variants=${JSON.stringify(variants)};const equal=(a,b)=>JSON.stringify(a)===JSON.stringify(b);const text=v=>Array.isArray(v)?v.map(text).join(''):v==null||typeof v==='boolean'?'':typeof v==='string'||typeof v==='number'?String(v):text(v.children);const matches=(when,values,fixture)=>when.every(p=>p.kind==='prop-equals'?equal(p.name==='children'?values.children:values[p.name],p.value):p.kind==='fixture-equals'?equal(fixture,p.value):false);const Bridge=defineComponent({name:${JSON.stringify(`Kumo${entry.symbol}Bridge`)},inheritAttrs:false,setup(_,{attrs,slots}){return()=>{const content=text(slots.default?.()),values={...attrs,children:content},semantic=variants.some(v=>matches(v.when,values,attrs.fixture));return h(semantic?Semantic:Legacy,semantic?{...attrs,semanticContent:content}:attrs,slots)}}});export{Bridge as ${entry.symbol}};export default Bridge;\n`
+  await writeFile(resolve(output,'components',`${component}.js`),bridge)
+}
+
 const index = (await readFile(resolve(source, 'index.ts'), 'utf8')).replace(/\.vue(['"])/g, '.js$1')
 await writeFile(resolve(output, 'index.js'), ts.transpileModule(index, {
   compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext },
@@ -85,7 +103,7 @@ const manifest = {
   contentBindingDigest: sha256(canonical.components.map(x => x.contentBindingDigest ?? '').join('\n')),
   semanticDigest: sha256(canonical.components.flatMap(x => x.semanticVariants ?? []).map(JSON.stringify).join('\n')),
   components: canonical.components.map(({ component, symbol, modelDigest, contentBindingDigest, semanticVariants = [] }) => ({ component, symbol, modelDigest, contentBindingDigest, semanticVariantCount: semanticVariants.length, sourceSha256: sourceDigests[`${component}.vue`] })),
-  compoundExports: { count: compounds.length, paths: compounds.map(component => ({ component, file: `package/components/${component}.js` })) },
+  compoundExports: { count: compounds.length, paths: canonical.compoundPaths.map(part => ({...part,file:`package/${part.file.replace(/\.vue$/,'.js')}`,types:`package/${part.types}`})) },
   build: { compiler: '@vue/compiler-sfc', mode: 'client-render', sourceCount: vueFiles.length },
 }
 await writeFile(resolve(here, 'kumo.manifest.json'), json(manifest))

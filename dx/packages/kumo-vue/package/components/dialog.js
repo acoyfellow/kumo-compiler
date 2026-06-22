@@ -50,7 +50,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ]));
 }
 __sfc__.render = render;
-__sfc__.name = "dialog";
+__sfc__.name = "KumoDialog";
 __sfc__.__file = "components/dialog.vue";
 export default __sfc__;
 

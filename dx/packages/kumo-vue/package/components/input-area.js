@@ -38,7 +38,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }, null, 2 /* CLASS */));
 }
 __sfc__.render = render;
-__sfc__.name = "input-area";
+__sfc__.name = "KumoInputArea";
 __sfc__.__file = "components/input-area.vue";
 export default __sfc__;
 

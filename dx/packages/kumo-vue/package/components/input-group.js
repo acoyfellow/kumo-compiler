@@ -28,7 +28,7 @@ const __sfc__ = /*@__PURE__*/ _defineComponent({
 import { openBlock as _openBlock, createElementBlock as _createElementBlock, resolveComponent as _resolveComponent, normalizeClass as _normalizeClass, createBlock as _createBlock } from "vue";
 const _hoisted_1 = { key: 0 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_input_group = _resolveComponent("input-group", true);
+    const _component_input_group = _resolveComponent("input-group");
     return ($setup.semanticEqual($setup.fixture, { "export": "root", "props": { "label": "Search", "description": "Help", "required": true }, "children": [{ "export": ".Addon", "props": {}, "children": [{ "text": "$" }] }, { "export": ".Input", "props": { "aria-label": "Search" }, "children": [] }, { "export": ".Button", "props": { "variant": "secondary" }, "children": [{ "text": "Go" }] }, { "export": ".Suffix", "props": {}, "children": [{ "text": "USD" }] }] }))
         ? (_openBlock(), _createElementBlock("div", _hoisted_1))
         : (_openBlock(), _createBlock(_component_input_group, {
@@ -37,7 +37,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }, null, 8 /* PROPS */, ["class"]));
 }
 __sfc__.render = render;
-__sfc__.name = "input-group";
+__sfc__.name = "KumoInputGroup";
 __sfc__.__file = "components/input-group.vue";
 export default __sfc__;
 

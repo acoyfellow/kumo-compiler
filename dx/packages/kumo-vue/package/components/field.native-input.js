@@ -16,6 +16,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ], 16 /* FULL_PROPS */));
 }
 __sfc__.render = render;
-__sfc__.name = "field.native-input";
+__sfc__.name = "KumoFieldNativeInput";
 __sfc__.__file = "components/field.native-input.vue";
 export default __sfc__;

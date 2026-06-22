@@ -64,7 +64,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             ], 2 /* CLASS */));
 }
 __sfc__.render = render;
-__sfc__.name = "tabs";
+__sfc__.name = "KumoTabs";
 __sfc__.__file = "components/tabs.vue";
 export default __sfc__;
 

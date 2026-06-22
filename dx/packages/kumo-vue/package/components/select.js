@@ -69,7 +69,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         ], 2 /* CLASS */));
 }
 __sfc__.render = render;
-__sfc__.name = "select";
+__sfc__.name = "KumoSelect";
 __sfc__.__file = "components/select.vue";
 export default __sfc__;
 

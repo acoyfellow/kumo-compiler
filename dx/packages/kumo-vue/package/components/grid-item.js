@@ -45,7 +45,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             ], 2 /* CLASS */));
 }
 __sfc__.render = render;
-__sfc__.name = "grid-item";
+__sfc__.name = "KumoGridItem";
 __sfc__.__file = "components/grid-item.vue";
 export default __sfc__;
 

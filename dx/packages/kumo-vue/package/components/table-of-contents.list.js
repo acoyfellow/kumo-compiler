@@ -16,6 +16,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ], 16 /* FULL_PROPS */));
 }
 __sfc__.render = render;
-__sfc__.name = "table-of-contents.list";
+__sfc__.name = "KumoTableOfContentsList";
 __sfc__.__file = "components/table-of-contents.list.vue";
 export default __sfc__;

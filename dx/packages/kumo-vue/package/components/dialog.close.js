@@ -16,6 +16,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ], 16 /* FULL_PROPS */));
 }
 __sfc__.render = render;
-__sfc__.name = "dialog.close";
+__sfc__.name = "KumoDialogClose";
 __sfc__.__file = "components/dialog.close.vue";
 export default __sfc__;

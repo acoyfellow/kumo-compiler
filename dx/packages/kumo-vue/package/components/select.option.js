@@ -16,6 +16,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ], 16 /* FULL_PROPS */));
 }
 __sfc__.render = render;
-__sfc__.name = "select.option";
+__sfc__.name = "KumoSelectOption";
 __sfc__.__file = "components/select.option.vue";
 export default __sfc__;

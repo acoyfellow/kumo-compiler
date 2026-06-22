@@ -63,7 +63,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         ]));
 }
 __sfc__.render = render;
-__sfc__.name = "date-picker";
+__sfc__.name = "KumoDatePicker";
 __sfc__.__file = "components/date-picker.vue";
 export default __sfc__;
 

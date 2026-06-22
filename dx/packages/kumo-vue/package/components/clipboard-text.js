@@ -30,7 +30,7 @@ const __sfc__ = /*@__PURE__*/ _defineComponent({
 import { openBlock as _openBlock, createElementBlock as _createElementBlock, resolveComponent as _resolveComponent, normalizeClass as _normalizeClass, createBlock as _createBlock } from "vue";
 const _hoisted_1 = { key: 0 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-    const _component_clipboard_text = _resolveComponent("clipboard-text", true);
+    const _component_clipboard_text = _resolveComponent("clipboard-text");
     return (Object.prototype.hasOwnProperty.call($setup.semanticValues, "text") && $setup.semanticEqual($setup.semanticValues.text, "visible") && Object.prototype.hasOwnProperty.call($setup.semanticValues, "textToCopy") && $setup.semanticEqual($setup.semanticValues.textToCopy, "payload"))
         ? (_openBlock(), _createElementBlock("div", _hoisted_1))
         : (_openBlock(), _createBlock(_component_clipboard_text, {
@@ -39,7 +39,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         }, null, 8 /* PROPS */, ["class"]));
 }
 __sfc__.render = render;
-__sfc__.name = "clipboard-text";
+__sfc__.name = "KumoClipboardText";
 __sfc__.__file = "components/clipboard-text.vue";
 export default __sfc__;
 

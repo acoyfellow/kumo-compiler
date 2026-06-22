@@ -49,7 +49,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ]));
 }
 __sfc__.render = render;
-__sfc__.name = "combobox";
+__sfc__.name = "KumoCombobox";
 __sfc__.__file = "components/combobox.vue";
 export default __sfc__;
 

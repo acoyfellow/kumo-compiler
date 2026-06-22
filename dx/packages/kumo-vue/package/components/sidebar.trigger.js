@@ -16,6 +16,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ], 16 /* FULL_PROPS */));
 }
 __sfc__.render = render;
-__sfc__.name = "sidebar.trigger";
+__sfc__.name = "KumoSidebarTrigger";
 __sfc__.__file = "components/sidebar.trigger.vue";
 export default __sfc__;

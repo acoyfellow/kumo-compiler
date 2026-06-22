@@ -59,7 +59,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         ], 2 /* CLASS */));
 }
 __sfc__.render = render;
-__sfc__.name = "dropdown-menu";
+__sfc__.name = "KumoDropdownMenu";
 __sfc__.__file = "components/dropdown-menu.vue";
 export default __sfc__;
 

@@ -16,6 +16,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ], 16 /* FULL_PROPS */));
 }
 __sfc__.render = render;
-__sfc__.name = "sidebar.group-label";
+__sfc__.name = "KumoSidebarGroupLabel";
 __sfc__.__file = "components/sidebar.group-label.vue";
 export default __sfc__;

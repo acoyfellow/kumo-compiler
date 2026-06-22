@@ -52,7 +52,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         ], 2 /* CLASS */));
 }
 __sfc__.render = render;
-__sfc__.name = "menu-bar";
+__sfc__.name = "KumoMenuBar";
 __sfc__.__file = "components/menu-bar.vue";
 export default __sfc__;
 

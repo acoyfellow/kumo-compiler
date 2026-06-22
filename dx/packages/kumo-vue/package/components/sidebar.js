@@ -61,7 +61,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
             ], 2 /* CLASS */));
 }
 __sfc__.render = render;
-__sfc__.name = "sidebar";
+__sfc__.name = "KumoSidebar";
 __sfc__.__file = "components/sidebar.vue";
 export default __sfc__;
 

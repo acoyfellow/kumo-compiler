@@ -16,6 +16,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ], 16 /* FULL_PROPS */));
 }
 __sfc__.render = render;
-__sfc__.name = "command-palette.input";
+__sfc__.name = "KumoCommandPaletteInput";
 __sfc__.__file = "components/command-palette.input.vue";
 export default __sfc__;

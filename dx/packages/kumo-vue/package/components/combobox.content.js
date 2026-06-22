@@ -16,6 +16,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ], 16 /* FULL_PROPS */));
 }
 __sfc__.render = render;
-__sfc__.name = "combobox.content";
+__sfc__.name = "KumoComboboxContent";
 __sfc__.__file = "components/combobox.content.vue";
 export default __sfc__;

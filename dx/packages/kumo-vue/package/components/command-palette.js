@@ -54,7 +54,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         ], 2 /* CLASS */));
 }
 __sfc__.render = render;
-__sfc__.name = "command-palette";
+__sfc__.name = "KumoCommandPalette";
 __sfc__.__file = "components/command-palette.vue";
 export default __sfc__;
 

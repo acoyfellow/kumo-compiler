@@ -49,7 +49,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ]));
 }
 __sfc__.render = render;
-__sfc__.name = "radio";
+__sfc__.name = "KumoRadio";
 __sfc__.__file = "components/radio.vue";
 export default __sfc__;
 
