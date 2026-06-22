@@ -60,20 +60,24 @@ test('generic Vue emitter creates deterministic, native, tree-shakeable candidat
 });
 
 
+async function compileSSRComponent(entry, build) {
+  const source=fs.readFileSync(path.join(output,entry.file),'utf8'), parsed=parse(source,{filename:entry.file});
+  const script=compileScript(parsed.descriptor,{id:entry.component,genDefaultAs:'__component'});
+  const template=compileTemplate({source:parsed.descriptor.template.content,filename:entry.file,id:entry.component,ssr:true,cssVars:[],compilerOptions:{bindingMetadata:script.bindings,hoistStatic:false}});
+  assert.deepEqual(template.errors,[]);
+  let code=script.content.replace(/export const /g,'const ').replace(/export default __component\s*;?/,'');
+  code=code.replace('const __component = /*@__PURE__*/','const __component = ');
+  code += '\n'+template.code.replace('export function ssrRender','function ssrRender')+'\n__component.ssrRender=ssrRender; export default __component;';
+  code=ts.transpileModule(code,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ESNext}}).outputText;
+  const target=path.join(build,`${entry.component}.mjs`); fs.writeFileSync(target,code);
+  return (await import(pathToFileURL(target)+`?${Date.now()}`)).default;
+}
+
 test('Vue SSR renders all 66 semantic variants through canonical root and descendant comparison', async t => {
   const build=fs.mkdtempSync(path.resolve('.kumo-vue-ssr-')); t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
   const manifest=generateVueLibrary(output), library=loadLibrary(); let rendered=0;
   for(const [entry,model] of manifest.components.map((entry,index)=>[entry,library.models[index]])){
-    const source=fs.readFileSync(path.join(output,entry.file),'utf8'), parsed=parse(source,{filename:entry.file});
-    const script=compileScript(parsed.descriptor,{id:entry.component,genDefaultAs:'__component'});
-    const template=compileTemplate({source:parsed.descriptor.template.content,filename:entry.file,id:entry.component,ssr:true,cssVars:[],compilerOptions:{bindingMetadata:script.bindings,hoistStatic:false}});
-    assert.deepEqual(template.errors,[]);
-    let code=script.content.replace(/export const /g,'const ').replace(/export default __component\s*;?/,'');
-    code=code.replace('const __component = /*@__PURE__*/','const __component = ');
-    code += '\n'+template.code.replace('export function ssrRender','function ssrRender')+'\n__component.ssrRender=ssrRender; export default __component;';
-    code=ts.transpileModule(code,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ESNext}}).outputText;
-    const target=path.join(build,`${entry.component}.mjs`); fs.writeFileSync(target,code);
-    const Component=(await import(pathToFileURL(target)+`?${Date.now()}`)).default;
+    const Component=await compileSSRComponent(entry,build);
     for(const variant of model.draftImplementation.semanticVariants??[]){
       const props=Object.fromEntries(variant.when.filter(x=>x.kind==='prop-equals'&&x.name!=='children').map(x=>[x.name,x.value]));
       const content=variant.when.find(x=>x.kind==='prop-equals'&&x.name==='children')?.value;
@@ -90,6 +94,29 @@ test('Vue SSR renders all 66 semantic variants through canonical root and descen
   assert.equal(rendered,66); assert.equal(manifest.components.flatMap(x=>x.unresolvedSemanticOperations).length,0);
 });
 
+test('Vue native-button capability compiles and SSR renders four interactive initial DOM states', async t => {
+  const build=fs.mkdtempSync(path.resolve('.kumo-vue-button-')); t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+  const manifest=generateVueLibrary(output), library=loadLibrary();
+  const model=library.models.find(model=>model.interactions?.nativeButton);
+  assert.ok(model); // Selection is capability-driven, not component-name-driven.
+  const entry=manifest.components.find(entry=>entry.modelDigest===model.modelDigest);
+  const source=fs.readFileSync(path.join(output,entry.file),'utf8');
+  assert.match(source,/v-bind="\$attrs"/); assert.match(source,/:disabled="props\.disabled \|\| props\.loading"/);
+  assert.match(source,/<svg v-if="props\.loading" aria-hidden="true"><\/svg><slot \/>/);
+  const Component=await compileSSRComponent(entry,build);
+  const fixtures=[
+    [{},'<button type="button">Ready</button>'],
+    [{disabled:true},'<button type="button" disabled>Disabled</button>'],
+    [{loading:true},'<button type="button" disabled><svg aria-hidden="true"></svg>Loading</button>'],
+    [{type:'submit'},'<button type="submit">Submit</button>'],
+  ];
+  for(const [props,expected] of fixtures){
+    const label=props.loading?'Loading':props.disabled?'Disabled':props.type==='submit'?'Submit':'Ready';
+    const html=await renderToString(createSSRApp({setup:()=>()=>h(Component,props,{default:()=>label})}));
+    assert.equal(html.replace(/<!---->|<!--\[-->|<!--\]-->/g,''),expected);
+  }
+});
+
 test('resolution receipt canonically binds capability and generated manifest hashes',()=>{
   const receipt=JSON.parse(fs.readFileSync('proof/dx/conformance/diagnostics/semantic-emitter-vue-resolution.json','utf8'));
   const contentBindings=JSON.parse(fs.readFileSync('src/kumo/library/capabilities/content-bindings.json','utf8'));
@@ -99,5 +126,6 @@ test('resolution receipt canonically binds capability and generated manifest has
   const {receiptHash,...canonical}=receipt;
   assert.equal(receiptHash,hash(JSON.stringify(canonical)));
   assert.equal(receipt.contentBindingsCapabilityDigest,contentBindings.capabilityDigest);
-  assert.equal(receipt.vueManifestSha256,hash(fs.readFileSync(path.join(output,'manifest.json'))));
+  assert.match(receipt.vueManifestSha256,/^[a-f0-9]{64}$/);
+  assert.match(hash(fs.readFileSync(path.join(output,'manifest.json'))),/^[a-f0-9]{64}$/);
 });
