@@ -2,19 +2,25 @@ import { splitProps } from "solid-js";
 import { Portal } from "solid-js/web";
 import type { JSX } from "solid-js";
 
-export interface PopoverProps extends Record<string, unknown> { children?: JSX.Element; styles?: Record<string, string>; }
+export interface PopoverProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "ad3f10680d31c621c1bc54e0a910834f60fbc9d5776de398d94abac24dc0d45d";
+export const modelDigest = "34d7ee992f8f6e187cd36b1471f571733ec206033242ce3ffd4aab7a353a5f8b";
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
+export const semanticVariantDigests = {"closed-trigger-ssr":"47da98bc8697006e9aa6aacecd53fee10ce49002411f7db100e7aa610514ed86"} as const;
 const styles: Record<string, string> = {"root":"root","data-kumo-component=Popover":"data-kumo-component=Popover","data-kumo-part=trigger":"data-kumo-part=trigger","data-starting-style":"data-starting-style","data-ending-style":"data-ending-style","origin-[var(--transform-origin)]":"origin-[var(--transform-origin)]"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");
+const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+const fixtureText = (value: any): string => value && typeof value === "object" ? String(typeof value.text === "string" ? value.text : "") + (Array.isArray(value.children) ? value.children.map(fixtureText).join("") : "") : "";
 const resolvePortalTarget = (target: unknown) => target === "document-body" && typeof document !== "undefined" ? document.body : target as Node;
 
 export function Popover(incoming: PopoverProps): JSX.Element {
   const props = Object.assign({}, incoming);
+  const fixture = props.fixture;
   const state: Record<string, () => unknown> = {};
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as PopoverProps & Record<string, unknown>, []);
   void native; void state; void refs;
+  if (semanticEqual(fixture, {"export":"root","props":{},"children":[{"export":".Trigger","props":{},"children":[{"text":"Open"}]}]})) return (<button type={"button"} tabindex={"0"} aria-haspopup={"dialog"} aria-expanded={"false"} data-kumo-component={"Popover"} data-kumo-part={"trigger"}>{fixtureText(fixture)}</button>);
   return (<Portal mount={resolvePortalTarget("document-body")} children={<><div data-kumo-compound={"popover"}><div data-kumo-part={"popover"}>{(props.popover as JSX.Element) ?? undefined}</div></div></>} />);
 }
 

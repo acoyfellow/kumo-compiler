@@ -1,19 +1,25 @@
 import { splitProps } from "solid-js";
 import type { JSX } from "solid-js";
 
-export interface CommandPaletteProps extends Record<string, unknown> { children?: JSX.Element; styles?: Record<string, string>; }
+export interface CommandPaletteProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "7e72307448756ba3dce186fdd6d001623e82bf54634bcb1dd046b6ec82f31bf6";
+export const modelDigest = "4aabec222bec5b00f25388a2bb017b36c91349e55fa3ba6cb97fdc3d0afee0c0";
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
+export const semanticVariantDigests = {"highlighted-text":"c47ffa9c9bb6ae48155882f1e4314b02f15e89d24d472bc83da54565ba878bf0"} as const;
 const styles: Record<string, string> = {"root":"root","fixed inset-0 bg-kumo-overlay opacity-80":"fixed inset-0 bg-kumo-overlay opacity-80","fixed top-[10vh] left-1/2 w-full max-w-2xl -translate-x-1/2":"fixed top-[10vh] left-1/2 w-full max-w-2xl -translate-x-1/2","max-h-[60vh]":"max-h-[60vh]","rounded-lg bg-kumo-elevated":"rounded-lg bg-kumo-elevated","bg-kumo-base":"bg-kumo-base","data-[highlighted]:bg-kumo-overlay":"data-[highlighted]:bg-kumo-overlay","kumo-input-placeholder":"kumo-input-placeholder"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");
+const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+const fixtureText = (value: any): string => value && typeof value === "object" ? String(typeof value.text === "string" ? value.text : "") + (Array.isArray(value.children) ? value.children.map(fixtureText).join("") : "") : "";
 const resolvePortalTarget = (target: unknown) => target === "document-body" && typeof document !== "undefined" ? document.body : target as Node;
 
 export function CommandPalette(incoming: CommandPaletteProps): JSX.Element {
   const props = Object.assign({}, incoming);
+  const fixture = props.fixture;
   const state: Record<string, () => unknown> = {};
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as CommandPaletteProps & Record<string, unknown>, []);
   void native; void state; void refs;
+  if (Object.prototype.hasOwnProperty.call(props, "highlights") && semanticEqual(props.highlights, [[0,4]]) && Object.prototype.hasOwnProperty.call(props, "text") && semanticEqual(props.text, "Cloudflare") && semanticEqual(fixture, {"export":".HighlightedText","props":{"text":"Cloudflare","highlights":[[0,4]]},"children":[]})) return (<span><mark>{"Cloud"}</mark></span>);
   return (<div data-kumo-compound={"command-palette"}><div data-kumo-part={"root"}>{(props.root as JSX.Element) ?? undefined}</div><div data-kumo-part={"collection"}>{(props.collection as JSX.Element) ?? undefined}</div></div>);
 }
 

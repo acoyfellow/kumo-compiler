@@ -13,6 +13,7 @@ export interface DialogProps {
   "Title"?: JSX.Element;
   "Trigger"?: JSX.Element;
   children?: JSX.Element;
+  fixture?: unknown;
   styles?: Record<string, string>;
 }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }

@@ -2,15 +2,20 @@ import { splitProps } from "solid-js";
 import { Portal } from "solid-js/web";
 import type { JSX } from "solid-js";
 
-export interface DialogProps extends Record<string, unknown> { children?: JSX.Element; styles?: Record<string, string>; }
+export interface DialogProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "7f6bdd127570c71956f3e4a345c1dbc0fa7bbc62e2a653d6239a37b232cbf01f";
+export const modelDigest = "f9517f6c346751f7fb38e9984e7e08637053542c11e623d7b71778e55bf138cb";
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
+export const semanticVariantDigests = {} as const;
 const styles: Record<string, string> = {"root":"root","fixed inset-0 bg-kumo-recessed opacity-80":"fixed inset-0 bg-kumo-recessed opacity-80","fixed top-1/2 left-1/2":"fixed top-1/2 left-1/2","max-w-[calc(100vw-2rem)]":"max-w-[calc(100vw-2rem)]","rounded-xl bg-kumo-base text-kumo-default":"rounded-xl bg-kumo-base text-kumo-default","shadow-m ring ring-kumo-line":"shadow-m ring ring-kumo-line","sm:min-w-96":"sm:min-w-96","min-w-72":"min-w-72","min-w-[32rem]":"min-w-[32rem]","min-w-[48rem]":"min-w-[48rem]"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");
+const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+const fixtureText = (value: any): string => value && typeof value === "object" ? String(typeof value.text === "string" ? value.text : "") + (Array.isArray(value.children) ? value.children.map(fixtureText).join("") : "") : "";
 const resolvePortalTarget = (target: unknown) => target === "document-body" && typeof document !== "undefined" ? document.body : target as Node;
 
 export function Dialog(incoming: DialogProps): JSX.Element {
   const props = Object.assign({}, incoming);
+  const fixture = props.fixture;
   const state: Record<string, () => unknown> = {};
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as DialogProps & Record<string, unknown>, []);

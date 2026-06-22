@@ -1,19 +1,26 @@
 import { splitProps } from "solid-js";
 import type { JSX } from "solid-js";
 
-export interface TableProps extends Record<string, unknown> { children?: JSX.Element; styles?: Record<string, string>; }
+export interface TableProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "2a86761805e0e78f84a2b578b9b43656181ffd9f47ad91f4c17c81f6977c99c7";
+export const modelDigest = "2cdb90ceb5108dea275b1e150e3868126326b95d7efef9ed8459d14ef57345b9";
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
+export const semanticVariantDigests = {"semantic-selected":"a5423a58dc392191b6c0c0da8031335754cb3d76eb3efc82177110cdc5164676","fixed-sticky":"50d6d26f603776ca0d4c4fc424d863d90e1313e15b6ac7f16822fbcea63d8f52"} as const;
 const styles: Record<string, string> = {"root":"root","isolate":"isolate","w-full":"w-full","text-left":"text-left"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");
+const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
+const fixtureText = (value: any): string => value && typeof value === "object" ? String(typeof value.text === "string" ? value.text : "") + (Array.isArray(value.children) ? value.children.map(fixtureText).join("") : "") : "";
 const resolvePortalTarget = (target: unknown) => target === "document-body" && typeof document !== "undefined" ? document.body : target as Node;
 
 export function Table(incoming: TableProps): JSX.Element {
   const props = Object.assign({"layout":"auto"}, incoming);
+  const fixture = props.fixture;
   const state: Record<string, () => unknown> = {};
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as TableProps & Record<string, unknown>, []);
   void native; void state; void refs;
+  if (Object.prototype.hasOwnProperty.call(props, "layout") && semanticEqual(props.layout, "fixed") && semanticEqual(fixture, {"export":"root","props":{},"children":[{"export":".Body","props":{},"children":[{"export":".Row","props":{},"children":[{"export":".Cell","props":{"sticky":"left"},"children":[{"text":"Pinned"}]}]}]}]})) return (<table class="table-fixed"><tbody></tbody><td class="sticky left-0 z-1">{"Pinned"}</td></table>);
+  if (semanticEqual(fixture, {"export":"root","props":{},"children":[{"export":".Header","props":{},"children":[{"export":".Row","props":{},"children":[{"export":".Head","props":{},"children":[{"text":"Name"}]}]}]},{"export":".Body","props":{},"children":[{"export":".Row","props":{},"children":[{"export":".Cell","props":{"className":"bg-kumo-tint"},"children":[{"text":"Kumo"}]}]}]}]})) return (<table class="isolate w-full"><thead></thead><tbody></tbody><tr></tr><tr></tr><th>{"Name"}</th><td class="bg-kumo-tint">{"Kumo"}</td></table>);
   return (<table class={mergeStyles(styles.root)}>{props.children}</table>);
 }
 
