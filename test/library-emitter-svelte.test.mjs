@@ -121,7 +121,7 @@ test('native-button capability emits four interactive initial DOM states',async 
  for(const [props,expected] of vectors)assert.match(render(Button,{props}).body.replace(/<!--[\s\S]*?-->/g,''),expected);
 });
 
-test.skip('resolution receipt canonically binds capability and generated manifest hashes',()=>{
+test('resolution receipt canonically binds capability and generated manifest hashes',()=>{
  const receiptPath=path.resolve('proof/dx/conformance/diagnostics/semantic-emitter-svelte-resolution.json');
  const receipt=JSON.parse(fs.readFileSync(receiptPath,'utf8'));
  const {receiptHash,...canonical}=receipt;
