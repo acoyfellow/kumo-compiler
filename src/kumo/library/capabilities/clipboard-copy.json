@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "kumo.clipboard-copy/v1",
+  "component": "clipboard-text",
+  "support": "supported",
+  "root": "div",
+  "copySource": {
+    "prop": "textToCopy",
+    "fallback": "text"
+  },
+  "activations": [
+    {
+      "trigger": {
+        "type": "click",
+        "selector": "button"
+      },
+      "vector": "click-copy"
+    },
+    {
+      "trigger": {
+        "type": "key",
+        "selector": "button",
+        "key": "Enter"
+      },
+      "vector": "keyboard"
+    }
+  ],
+  "behavior": {
+    "writesClipboard": true,
+    "clipboardWriteValue": "resolved copy text (textToCopy, else text)",
+    "firesCopyCallback": "copy",
+    "announcesSuccess": "Copied",
+    "retainsButtonFocus": true
+  },
+  "unknowns": [
+    {
+      "field": "liveRegionAriaAndDom",
+      "status": "unknown",
+      "reason": "Canonical vectors assert the announced text \"Copied\", not the live-region element, role, aria-live, aria-atomic, or DOM placement."
+    },
+    {
+      "field": "failureCallbackAndAnnouncement",
+      "status": "unknown",
+      "reason": "Canonical vectors specify only successful copy; failure callback and failure announcement behavior are not established."
+    },
+    {
+      "field": "announcementTimingAndClearing",
+      "status": "unknown",
+      "reason": "Insertion delay, retention, clearing, and repeated-copy behavior are not established by canonical vectors."
+    },
+    {
+      "field": "buttonAccessibleName",
+      "status": "unknown",
+      "reason": "Canonical vectors assert button activation and focus, not the button accessible name, type, or descendants."
+    }
+  ],
+  "vectorIds": [
+    "ssr",
+    "click-copy",
+    "keyboard"
+  ],
+  "provenance": [
+    {
+      "component": "clipboard-text",
+      "contractPath": "contracts/kumo.observable/v1/components/clipboard-text.json",
+      "contractDigest": "1a9749b6c0399605bf4030786d13ff98de3082204a6f73a4157477efe585f838",
+      "vectorIds": [
+        "ssr",
+        "click-copy",
+        "keyboard"
+      ]
+    }
+  ],
+  "capabilityDigest": "973e89a1253f8939b247a7fbbf4aec396fc85f773ccd4b00cb234ef8fbe01970"
+}
