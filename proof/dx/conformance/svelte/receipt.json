@@ -1,10 +1,10 @@
 {
-  "schemaVersion": "kumo.solid.conformance/v1",
+  "schemaVersion": "kumo.svelte.conformance/v1",
   "status": "diagnostic",
-  "framework": "solid",
-  "package": "@acoyfellow/kumo-solid@0.0.1",
-  "artifact": "library-artifacts/kumo-solid-0.0.1.tgz",
-  "packageSha256": "15c2dbe108c9c3f1bd49aaa51c8e31e8452d4933725435208681023fbab319e4",
+  "framework": "svelte",
+  "package": "@acoyfellow/kumo-svelte@0.0.1",
+  "artifact": "library-artifacts/kumo-svelte-0.0.1.tgz",
+  "packageSha256": "c22fa3a91ab6a6b6916ec17e19ccdf73f538607a572693a61631e1e59dcc606c",
   "contract": {
     "schemaVersion": "kumo.observable/v1",
     "provenanceDigest": "a7fe3efce7677deb02df5635e1c9541b8e618d67763a5ef8ca11f6ef950aeebf"
@@ -14,74 +14,144 @@
     "digest": "e8d7f17985b6ca2c3abf69b69c482d9efcbc63f18ae35760e3673df9aecc2f77",
     "sha256": "3153cc2e780cd7b7de2262f53dbac6886ae3ac61179ffe58ac52ec419dc3efe7"
   },
-  "modelHash": "acd627adf502132d8a5365f28e1efeca91977f9db12843149c9de9f0511818dc",
-  "node": {
-    "version": "v24.17.0",
-    "platform": "darwin",
-    "arch": "arm64"
-  },
+  "modelHash": "b61c49827d2c823fe968ac06bd60c7addd17837105abdae06a80be56d7f59e49",
   "runner": "scripts/observable-browser-runner.mjs",
   "browser": {
+    "results": [
+      {
+        "component": "button",
+        "id": "disabled-click",
+        "passed": true,
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodeIdentity": "preserved",
+        "observation": {
+          "html": "<button type=\"button\" disabled=\"\"><!--[-1--><!--]--><!--[0--><!---->Locked<!--]--></button>",
+          "clicks": 0,
+          "submits": 0,
+          "events": [],
+          "focus": "none",
+          "svg": 0,
+          "nodePreserved": true
+        }
+      },
+      {
+        "component": "button",
+        "id": "loading-click",
+        "passed": true,
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodeIdentity": "preserved",
+        "observation": {
+          "html": "<button type=\"button\" disabled=\"\"><!--[0--><svg aria-hidden=\"true\"></svg><!--]--><!--[0--><!---->Saving<!--]--></button>",
+          "clicks": 0,
+          "submits": 0,
+          "events": [],
+          "focus": "none",
+          "svg": 1,
+          "nodePreserved": true
+        }
+      },
+      {
+        "component": "button",
+        "id": "enabled-click",
+        "passed": true,
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodeIdentity": "preserved",
+        "observation": {
+          "html": "<button type=\"button\"><!--[-1--><!--]--><!--[0--><!---->Run<!--]--></button>",
+          "clicks": 1,
+          "submits": 0,
+          "events": [
+            "click"
+          ],
+          "focus": "root",
+          "svg": 0,
+          "nodePreserved": true
+        }
+      },
+      {
+        "component": "button",
+        "id": "submit-form",
+        "passed": true,
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodeIdentity": "preserved",
+        "observation": {
+          "html": "<button type=\"submit\"><!--[-1--><!--]--><!--[0--><!---->Submit<!--]--></button>",
+          "clicks": 1,
+          "submits": 1,
+          "events": [
+            "click",
+            "submit"
+          ],
+          "focus": "root",
+          "svg": 0,
+          "nodePreserved": true
+        }
+      }
+    ],
     "browserCells": 4,
     "diagnostics": [],
     "telemetry": [
       {
         "id": "disabled-click",
         "phases": {
-          "build": 202.69883300364017,
-          "serve": 2.9449580013751984,
-          "chrome": 629.050499998033
+          "build": 240.541207998991,
+          "serve": 2.9300839975476265,
+          "chrome": 563.025208003819
         },
         "vectors": [
           {
             "component": "button",
             "id": "disabled-click",
-            "ms": 89.56679199635983
+            "ms": 89.86445900052786
           }
         ]
       },
       {
         "id": "loading-click",
         "phases": {
-          "build": 198.4140419960022,
-          "serve": 1.3882910013198853,
-          "chrome": 534.6029579937458
+          "build": 235.92683400213718,
+          "serve": 1.3329590037465096,
+          "chrome": 579.3605419993401
         },
         "vectors": [
           {
             "component": "button",
             "id": "loading-click",
-            "ms": 89.3950419947505
+            "ms": 89.27800000458956
           }
         ]
       },
       {
         "id": "enabled-click",
         "phases": {
-          "build": 198.72233299911022,
-          "serve": 0.13591700047254562,
-          "chrome": 597.3045840039849
+          "build": 244.69375000149012,
+          "serve": 0.1231670007109642,
+          "chrome": 671.7714169993997
         },
         "vectors": [
           {
             "component": "button",
             "id": "enabled-click",
-            "ms": 89.65229200571775
+            "ms": 88.78237500041723
           }
         ]
       },
       {
         "id": "submit-form",
         "phases": {
-          "build": 207.9137080013752,
-          "serve": 0.13704200088977814,
-          "chrome": 520.7761249989271
+          "build": 244.5775830000639,
+          "serve": 0.13004200160503387,
+          "chrome": 599.0260419994593
         },
         "vectors": [
           {
             "component": "button",
             "id": "submit-form",
-            "ms": 90.11325000226498
+            "ms": 90.37433400005102
           }
         ]
       }
@@ -96,15 +166,15 @@
   "policy": {
     "browserLifecycle": "shared-runner-only",
     "trustedInteractions": true,
-    "diagnosticsFiltering": false,
-    "hiddenVectors": false,
-    "ssrLoader": "vite+vite-plugin-solid",
+    "ssrLoader": "vite+@sveltejs/vite-plugin-svelte",
     "fixtureSource": "proof/dx/conformance/shared/packed-fixtures.json"
   },
   "counts": {
-    "blocked": 56,
-    "passed": 68
+    "passed": 68,
+    "blocked": 56
   },
+  "staticPassed": 64,
+  "browserPassed": 4,
   "totalVectors": 124,
   "diagnostics": [],
   "cells": [
@@ -114,8 +184,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -133,7 +203,7 @@
         "digest": "bde3caccb20f3f09a8b74429553747e38d36304b7b7c8f8e0f486cf2792cf22d"
       },
       "observation": {
-        "markupSha256": "533e04756ec738e9934d5ef155c34e39a1ca47700a261e420e5c6c2aa8acbc1a"
+        "markupSha256": "e93d725ef37513eba7f88a41cff644393da05cadf23fc8f546e03e46962207b9"
       }
     },
     {
@@ -150,7 +220,7 @@
         "digest": "17e57d2197d3b81bf4ae1c125418f667d31a2eba0e18f92dc1757f89a5be3442"
       },
       "observation": {
-        "markupSha256": "bd5177c2755fc646c09729ade49cbe717a55a34ecc6a64eb09a1ddead3e9465a"
+        "markupSha256": "242822de5ae7f80e6f52719105249e7ecd10a501ce31d16200c28761e3a13fb1"
       }
     },
     {
@@ -167,7 +237,7 @@
         "digest": "c45e628a5b85a89701e968ffce997245aeb2b58eacd500e2548965c96591c506"
       },
       "observation": {
-        "markupSha256": "32a9e482e933ba3b36a8c30ed9fc7c90f564d5d79fee0d85ad25ed576931b145"
+        "markupSha256": "47a09cf669fe6f5e370ae81cb863fe17ddf1ef81867296394fd4e8af5aea8b95"
       }
     },
     {
@@ -184,7 +254,7 @@
         "digest": "37a8001c26e5d7879678640b39018eae422585b7ba7adbbeda0ac9a4804fd67f"
       },
       "observation": {
-        "markupSha256": "4b8372984e30a44d51f8d4c4ac3045a4ec4cc2d65a33eb8b37032e983cbc8be5"
+        "markupSha256": "d868036718d607e2e3b3be7599ddfaba05af4760e10b977cb46d14bb57d14967"
       }
     },
     {
@@ -201,7 +271,7 @@
         "digest": "495c3abd7e395988c63504b1f36e00baa58d55ddf1cf6de3070d77e9e013cc5a"
       },
       "observation": {
-        "markupSha256": "685c16e9f2857a71fb228e8334afa92cdf82d8cbf6480e443a9e5f68a4a265e3"
+        "markupSha256": "1769fad836cc55c4879266b7741bedc1955d2aa1b1833b93941de207723f69e1"
       }
     },
     {
@@ -218,7 +288,7 @@
         "digest": "e0d8471fa283cf7d70218865d3e33ab5d2b1fe589cc7c05de1de7e629a03ee94"
       },
       "observation": {
-        "markupSha256": "1002b6d5f5f14f32b1e844ef512a99f37dcf9eb65d111a447a0846e8a3fa43a8"
+        "markupSha256": "0898b7a79a360eae39fe3ca4834505646877420b7a9993d4744c63a96ef55910"
       }
     },
     {
@@ -235,7 +305,7 @@
         "digest": "abd81959ad07f2cab5863f731a822aa436b25ccc54ab3bb10b1aee829b0e5f32"
       },
       "observation": {
-        "markupSha256": "7ae670f6c5a2c2f7037c8a42d0dd2588174e1a21c4eff9f5a54108a30e43c959"
+        "markupSha256": "89896486d184bc6699fce750a28e5227ef5d922a33a1ff632dd72a1eb6847cc0"
       }
     },
     {
@@ -252,7 +322,7 @@
         "digest": "fe426f57769be0695baea96d78be91f8178b0eaf509a438bee2df5d97f4a763c"
       },
       "observation": {
-        "markupSha256": "32f75f565125102b02cd2e68002cace61b2825a5b27cffad38cd12ce0347d808"
+        "markupSha256": "724bc61ab462212b8a56754e238cec05b552490795fb6ad6094bb4881fcfb642"
       }
     },
     {
@@ -269,7 +339,7 @@
         "digest": "98407b5bb84f3fcc60b2a28b04f2a13ac7108bc92580cd7feacee899f2e4d7b5"
       },
       "observation": {
-        "markupSha256": "48434e44e95e70052cdf702073c4da41f62d8f4851c9d5e005a4a5e0fa9b84af"
+        "markupSha256": "01190fe184c5d4d1310210f97371face280df1340e98dbd143a031c40a00f6b4"
       }
     },
     {
@@ -286,7 +356,7 @@
         "digest": "8882af225169a74a4f4e5b6bcba5bfeea054dc5cec43f959ad1b5824e46b6681"
       },
       "observation": {
-        "markupSha256": "ba29f19b98cbb09bc810703160ca00fe88f786fc600f64a0c5cf699aea572fef"
+        "markupSha256": "3845122bc33c41504429e0672c448119f2395068a29de136c280b96817ef382b"
       }
     },
     {
@@ -303,11 +373,13 @@
         "digest": "23a05574e40630f0e64406ef3ee81e2e2806254c552e80b4b773663e51d2b118"
       },
       "observation": {
+        "html": "<button type=\"button\" disabled=\"\"><!--[-1--><!--]--><!--[0--><!---->Locked<!--]--></button>",
         "clicks": 0,
         "submits": 0,
         "events": [],
         "focus": "none",
-        "loadingSvg": 0
+        "svg": 0,
+        "nodePreserved": true
       }
     },
     {
@@ -324,11 +396,13 @@
         "digest": "e02f8d7d8e79a9435e67bb6d867083559916edb5be6b4b065d9848c39854b1c8"
       },
       "observation": {
+        "html": "<button type=\"button\" disabled=\"\"><!--[0--><svg aria-hidden=\"true\"></svg><!--]--><!--[0--><!---->Saving<!--]--></button>",
         "clicks": 0,
         "submits": 0,
         "events": [],
         "focus": "none",
-        "loadingSvg": 1
+        "svg": 1,
+        "nodePreserved": true
       }
     },
     {
@@ -345,13 +419,15 @@
         "digest": "9280377b0baac9ddacd244de51fe7bf60619cbd8872af40f6d596e744e482bd4"
       },
       "observation": {
+        "html": "<button type=\"button\"><!--[-1--><!--]--><!--[0--><!---->Run<!--]--></button>",
         "clicks": 1,
         "submits": 0,
         "events": [
           "click"
         ],
         "focus": "root",
-        "loadingSvg": 0
+        "svg": 0,
+        "nodePreserved": true
       }
     },
     {
@@ -368,6 +444,7 @@
         "digest": "9905cecf11e578eb08b54cb0faae167f3397becbc9542647e06d89fb578c9342"
       },
       "observation": {
+        "html": "<button type=\"submit\"><!--[-1--><!--]--><!--[0--><!---->Submit<!--]--></button>",
         "clicks": 1,
         "submits": 1,
         "events": [
@@ -375,7 +452,8 @@
           "submit"
         ],
         "focus": "root",
-        "loadingSvg": 0
+        "svg": 0,
+        "nodePreserved": true
       }
     },
     {
@@ -384,8 +462,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -395,8 +473,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -406,8 +484,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -417,8 +495,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -428,8 +506,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -447,7 +525,7 @@
         "digest": "f91886042e2bc1c5a3ecbbe7e01d4bbb019083f6e2a0d07e2157863f82b7fb64"
       },
       "observation": {
-        "markupSha256": "5fc60732c47adf0b7a2357dc81967b9758ad07405e969b2d8c3e93c75384ab1c"
+        "markupSha256": "b24f364d6309928857b42e538422fe1c700bdd817fe53527317982d716724790"
       }
     },
     {
@@ -456,8 +534,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -467,8 +545,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -486,7 +564,7 @@
         "digest": "3b668eabc87dc8a4616613a9d05ff2b771d4bbbaa592b8d2094e67d03c0ec239"
       },
       "observation": {
-        "markupSha256": "65f25fd0a41d09c0e86022b2d9560f8f2af596172867667336ebf68f097f3845"
+        "markupSha256": "c07c54b578edfc3fc79af12000b902c8f078f679307cabb9d35e62d7360e4d0a"
       }
     },
     {
@@ -503,7 +581,7 @@
         "digest": "518a9aa5368e63877075c82273890165a7b0d46ff2a3860e53cb9f52e620af36"
       },
       "observation": {
-        "markupSha256": "2221593802f2129000e148c01b49034cae3206d23b0d8a1393d040ad18191210"
+        "markupSha256": "8ccba682c09d1161a26382a09dd6c4f484df74c045926461d0909a9c5692cb5c"
       }
     },
     {
@@ -520,7 +598,7 @@
         "digest": "e4fc21c5b9a3f59c1b97631f13cea500715c00aa1851cb955a0e61195661e0c1"
       },
       "observation": {
-        "markupSha256": "1cdcee9c463d8c2844347d9684962b693c8a4e78efdc2faa8d03f77730fa0e12"
+        "markupSha256": "45654a02eb5adc7e145d8a21829cbe416150fe4c054ee6fd780a32e0cc264f3d"
       }
     },
     {
@@ -537,7 +615,7 @@
         "digest": "7cc9610f7d1560f3ee8a253a873ca3dc2f169bf275ead567268135af3d752a81"
       },
       "observation": {
-        "markupSha256": "36602dfc1f50065ab0a64fcb0e4a4c6a4bb279b3d35e327be28ddd741693c377"
+        "markupSha256": "7d5da98a1cffd35d44a2fe365a9ade0f0b7add53c49b4910adad4dbc0a560605"
       }
     },
     {
@@ -546,8 +624,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -565,7 +643,7 @@
         "digest": "2e80fef2335d8d9dd11942d7c52120b37fca05902a2e48c680b8833b7ffd8f2b"
       },
       "observation": {
-        "markupSha256": "00bd759646c4df70db9d426ba65b6663c11f3b37a00892ab7f4960f937b5e376"
+        "markupSha256": "f306c5f265ce2a060fd9e13b87773e225aa5def80f007dceb021977b03a69112"
       }
     },
     {
@@ -574,8 +652,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -593,7 +671,7 @@
         "digest": "9cea995353847f88c8c98c2888ba09a0736407ab2e47999521f1c43bf922fc14"
       },
       "observation": {
-        "markupSha256": "08f6aacf57a1d53fb58093104b92a677c2d4045a8f9ff2cf63e9d79e03e4b29d"
+        "markupSha256": "ef327b03805dd931ccd03b5c793c6bc502f5b1eb37f1ffba18a14cbe09ed7833"
       }
     },
     {
@@ -602,8 +680,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -613,8 +691,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -632,7 +710,7 @@
         "digest": "85bfa0d377fb8d9858cfb46d9637519c420f1f4afe4a2ad41887d5d948e2fbc6"
       },
       "observation": {
-        "markupSha256": "52ae2138a20854511e44b2e7063637fdd2f0d45c302f17cd74794e278fa1cb1e"
+        "markupSha256": "1b2decd480d254b65b352b0b7294f3b77fb7811b5ab754b2792842a32b7d5d0e"
       }
     },
     {
@@ -649,7 +727,7 @@
         "digest": "76f7e414cf7b0adbe09b06046f9b72e15354b721c31d9d772aec5223e69d5c31"
       },
       "observation": {
-        "markupSha256": "e843128768bdff8e23a0d7adae1a330659c8d5f7fb9e6bbfbf89a8fbcb347d97"
+        "markupSha256": "3b4ddffc39abbf77b2af3df8628e19020d902e3d7e734ba9cc0efebc4015ecc5"
       }
     },
     {
@@ -658,8 +736,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -677,7 +755,7 @@
         "digest": "71789b60baea35fc579965938dbafd270a08620213b5c887073268cbbc393d85"
       },
       "observation": {
-        "markupSha256": "039722eaf908c1d378fedd9e31ee7e892eacf15c23c16f4475e2399af7959624"
+        "markupSha256": "a33e3b4a4234c743d70ff6acc952cd2361ec26e37c4dec252bb20776abf5c5fa"
       }
     },
     {
@@ -686,8 +764,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -705,7 +783,7 @@
         "digest": "88681c5ff97795e0a67402567c7f2ec12187f63822db2d590830ca990d4b9558"
       },
       "observation": {
-        "markupSha256": "4c3f81e077571f78335991736e9c5e2286fce2db6f8e8792ef65419efac2c704"
+        "markupSha256": "3d24f47d74a11f36f0518341c297c3f84af3fbb1e8a387193984af0afff6a978"
       }
     },
     {
@@ -714,8 +792,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -725,8 +803,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -744,7 +822,7 @@
         "digest": "e30b8546ebfebddcd8b14ef49decf53241066edce50ccc6f5a9cec67e8a2b5ec"
       },
       "observation": {
-        "markupSha256": "9febb853816eb796406644d6c05c4b2f551ce6efc7f84e16d22baf83ebb093be"
+        "markupSha256": "d80f156fc1f6c49d8c4dc43bd0bcd8d5c79b47b7fcb10aa38615710e92de6239"
       }
     },
     {
@@ -761,7 +839,7 @@
         "digest": "03674d7c6e5c86088e8fbeaf2ee0000b6ea63fbf8cf4753b74d7618e9a76d3f9"
       },
       "observation": {
-        "markupSha256": "7b92eb44ffc1d030eafdae45aee845f3085312d7247678073b983d4d9e5755fe"
+        "markupSha256": "a1fc2a50c76e87a0fcce3ef610d59cffbb52fd7ebcc61248b14796da23010496"
       }
     },
     {
@@ -778,7 +856,7 @@
         "digest": "f91886042e2bc1c5a3ecbbe7e01d4bbb019083f6e2a0d07e2157863f82b7fb64"
       },
       "observation": {
-        "markupSha256": "2a5abf437c53186e31d8b340a2411dd3f51d8e8d1f5c8fc3e8cec28b47bb6ef8"
+        "markupSha256": "04ad44e00c506f7a5a5ce370bb5c060f725660f52a73cb0971974df2fffe8278"
       }
     },
     {
@@ -795,7 +873,7 @@
         "digest": "aa17f8f67835dd64d546a90f4dc5605088b401cc927141d1b09d2ff0c80ce96d"
       },
       "observation": {
-        "markupSha256": "52e2370bd4cc9e5d616425606a10d2a2cd80bf75f75eb61fcee18f592388879d"
+        "markupSha256": "e1eb97501d3056232288ca4bf0b6c0257d191cd29b2c5e6964d4445d0d9b0674"
       }
     },
     {
@@ -812,7 +890,7 @@
         "digest": "56dfb67b0a1751da16051a38ba691f45951cc577880727d1fc5256cc36734767"
       },
       "observation": {
-        "markupSha256": "f19cfaf4c8d374a355dae2cfa2ffb5726a3e7dbe5c9784f5783fee8d32ee0d95"
+        "markupSha256": "ff491221a5b0dfcbc412aaf77b8907d9e62cdafb42f1856b60ea0a0cc6f2da52"
       }
     },
     {
@@ -829,7 +907,7 @@
         "digest": "432e714434f6b38ed0904ccdf7bffe65711f06479088b1b3e31ddce22c1caf2b"
       },
       "observation": {
-        "markupSha256": "473471defe2d654ff3717212a4106b76b6eec036dfe3ca00dfbb79fbaf4be222"
+        "markupSha256": "52a6887a6048ed7d39c9974cb10d8aa951f751976a28a0811d6b44172656c926"
       }
     },
     {
@@ -846,7 +924,7 @@
         "digest": "3133bc7d808f658055aefdf9d7fc9f3bb5baba47cd4b6d9fdd4a66b180c89094"
       },
       "observation": {
-        "markupSha256": "4f7bf5aa134400b6e677d16187eb2b6322a8dac3aadf2f1e3c773735aa75f527"
+        "markupSha256": "ffbfaaccbc50edc785b1c84fac21ca5ebf4f695f5249410100db4e0164d10e74"
       }
     },
     {
@@ -863,7 +941,7 @@
         "digest": "ea1c34b34bca1e33d3d6cda9cac379dbf63e94cfcec65186557768a09088140b"
       },
       "observation": {
-        "markupSha256": "683fab385f2e414279a59f0dba501fdecd0a10456041c33e03afc4241ad6de3e"
+        "markupSha256": "0b3da9852bfb4c696f731d4de2953523da283d74b35bcb68f96c0651a2c8f57f"
       }
     },
     {
@@ -872,8 +950,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -883,8 +961,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -902,7 +980,7 @@
         "digest": "f91886042e2bc1c5a3ecbbe7e01d4bbb019083f6e2a0d07e2157863f82b7fb64"
       },
       "observation": {
-        "markupSha256": "5fc60732c47adf0b7a2357dc81967b9758ad07405e969b2d8c3e93c75384ab1c"
+        "markupSha256": "14f3057601045e32e2f1ecfcaa372b4b76b13accf96d8527a898482003b06b28"
       }
     },
     {
@@ -911,8 +989,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -922,8 +1000,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -941,7 +1019,7 @@
         "digest": "71219a203f2c7192a1e6410e1161429f25a1fc2ced5237d70b3595f9ac4d30fe"
       },
       "observation": {
-        "markupSha256": "8a4b8df58c01927d681f5b56915eb315192baabd47eaa51cf2c560626d1be8da"
+        "markupSha256": "f546fe2cb198e18ae80abf757bca3dd01ba76cde6490b4832dbf294fa4b49502"
       }
     },
     {
@@ -950,8 +1028,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -961,8 +1039,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -980,7 +1058,7 @@
         "digest": "168bc71e56937634461c75fdd772cb3cf7b0dec645300f3a578519386f24b3dc"
       },
       "observation": {
-        "markupSha256": "69a383e8b784c3f6b96954957aa7fa16b74eef46bf6438a182802d40c8583c30"
+        "markupSha256": "c7d2cb63ae02e8c8d6b8cb0762144590aa6a468f52cbe3cfa9a0e91cae235ed7"
       }
     },
     {
@@ -997,7 +1075,7 @@
         "digest": "b6d6d2b455c30ec958a16e6c3204c15363480d35e2ad6ff490ab74c9b38caaf5"
       },
       "observation": {
-        "markupSha256": "d016a3624e9c7867c17ce41d7aa7af1fd6742f91588b71abda1db79b8b733f39"
+        "markupSha256": "77adfa66d1a69115c10455fb260a83945b24304569c24883bf07566e62722737"
       }
     },
     {
@@ -1014,7 +1092,7 @@
         "digest": "af51f62c8fb94eee2b35d59d2826701e65754ee6075555870ed68bfbca84eac4"
       },
       "observation": {
-        "markupSha256": "8b6b4a2948fa87567e4d7aa607d7c2771f9979a613040bf62e48b23e87cb99bf"
+        "markupSha256": "d19b848751508aee08e3a6aebb5c18f68e7322b43718a60b5c0c116a5f246b93"
       }
     },
     {
@@ -1031,7 +1109,7 @@
         "digest": "31a92959fbfc22f7320dc325158537302c8769a866f0bd565724e11acd6985f0"
       },
       "observation": {
-        "markupSha256": "c6a1e24c08d5dc20100609be52ed523bf5d39ce3544fc358b2995734cb8efa39"
+        "markupSha256": "917f9b2ef1ea1089ed7d7308d65f46cedee99f2c0be1ad9b2fa1cb3fddc3acf9"
       }
     },
     {
@@ -1048,7 +1126,7 @@
         "digest": "f748e2c675354502ab3b20e93853bb2379f94daab8223ad7ede0f54299642637"
       },
       "observation": {
-        "markupSha256": "9689de4a5fa555bf6f17ec6d365bc1406eac241023b4457d972a9739a62e5307"
+        "markupSha256": "21c7525795ef8d8c3d6719dc85d9372304b74289b23a87c5b98b40e8040d4c34"
       }
     },
     {
@@ -1065,7 +1143,7 @@
         "digest": "145ac74174dd016001156ca315c9bdda77ceae9593b4820f11508aeca6d32bbc"
       },
       "observation": {
-        "markupSha256": "e6c82a90e062982e3011febd7cae19347033e1b0494b65252b9086e1003a3bfb"
+        "markupSha256": "73de9155f1bc5d257f7d6315ce92be2e2cf4800f8c846e27d1342d1182a3fa52"
       }
     },
     {
@@ -1082,7 +1160,7 @@
         "digest": "8cdc6abac41f174e698d6d06749eefd67c2e207f43f1c264d1fb20b5b5f50384"
       },
       "observation": {
-        "markupSha256": "7b8f55cd38bf94a4bea8e28b2bc0c589c83c25db56a667f61bd8f1b09aa00bae"
+        "markupSha256": "5eb5e2a4c53d6b5053a65e54518aeba3f76bdd17c07fb2592c27a59f7dc857d4"
       }
     },
     {
@@ -1099,7 +1177,7 @@
         "digest": "b66289b4a90a4f2ddb9c0f1dc533e5432b40d629e15302b7caf26af42548e01a"
       },
       "observation": {
-        "markupSha256": "ca62d87635ad094d2257a53554cef962a2f847a404783fd4e69858d549296b62"
+        "markupSha256": "c7553612b106f0f97434041908f5e5cd4e4ba921752a9b455b51c4087c75a60e"
       }
     },
     {
@@ -1116,7 +1194,7 @@
         "digest": "c00958399e02c9dd4d23f33ac2ae5bb9a61657a0903975b05adc1770f7d435bb"
       },
       "observation": {
-        "markupSha256": "d232fba83521a999e4c0f9db7807caefb7e93c3e4742b2a1273c18f1c385d7ad"
+        "markupSha256": "d20e14bb52c7edc4507a69c2dce398ad728744dc42a5fa5bccb3c3a10e395e38"
       }
     },
     {
@@ -1133,7 +1211,7 @@
         "digest": "ebd5559f579a567fe0e7bb5610fbf5cf008ed4bef1772bac95baf1e7593ccd70"
       },
       "observation": {
-        "markupSha256": "9d55410300c049a1ac0186bf62cb3583214a7fc6d6f2ecfbfc908f7bb8c06f7c"
+        "markupSha256": "b43db366d20762fcf526613bf966568072e3a915c3f8b042c2ea275e99175342"
       }
     },
     {
@@ -1142,8 +1220,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1153,8 +1231,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1172,7 +1250,7 @@
         "digest": "da0f7549db45397183c4e4e0bb6a0fb5e4180339886587998ba761de43c0759a"
       },
       "observation": {
-        "markupSha256": "5ea977148b131099383e7d43adeea99d2b1e9df92636789dcf06184e8e40506f"
+        "markupSha256": "2b8ec7481b18e30c8e566c4d7c1d8c645cbaee98e6c14e99b21ad79bfbdec9e2"
       }
     },
     {
@@ -1189,7 +1267,7 @@
         "digest": "06fe92f5dd856e440a8bb0924021536cc8e2b2ed95f255707d85c8f27dd821b7"
       },
       "observation": {
-        "markupSha256": "01b525078a1547ce65d76f7ab6afcbdfdece84785a57c0d94957c7a5a85ce48d"
+        "markupSha256": "a936b55ec54406757869500796bf9e06bc51c06f28b16badbf75d482862f277f"
       }
     },
     {
@@ -1206,7 +1284,7 @@
         "digest": "bf429317447c186758e177c2e77e3cd7834f75aa39d82571f5ec943bbeda5d19"
       },
       "observation": {
-        "markupSha256": "decb6b52d179475cfc5946736a52e969749080854fc6f067f3f5ba14d5cfc659"
+        "markupSha256": "26a6fed082b3b628558e885e66bc647804d3d6cf649bb678847d35e15bb4e398"
       }
     },
     {
@@ -1223,7 +1301,7 @@
         "digest": "25280acd3e1d9aea30a6d34b9b6697dbfac64d24ddffee5945fd6cf5fb8c50a0"
       },
       "observation": {
-        "markupSha256": "4c4f1bd4978488b1ea9db7c9eb08614a5ed80c60079507f050fa824c1fceb3c8"
+        "markupSha256": "7574b4cc79550860a03bca29fe4c3ff3f58af9e723978b7a68c662ab89f5ccd7"
       }
     },
     {
@@ -1232,10 +1310,16 @@
       "status": "blocked",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "assertion": {
+        "status": "passed",
+        "digest": "8bf800aa3bc98a8fd5131e6525761ed910421eb62309b0555113bf980eff6884"
+      },
+      "observation": {
+        "markupSha256": "0f2420ad3e4945d3407302609df79da6d4df5da40063c575893219a4a615587f"
+      }
     },
     {
       "component": "pagination",
@@ -1243,8 +1327,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1254,8 +1338,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1265,8 +1349,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1276,8 +1360,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1295,7 +1379,7 @@
         "digest": "3a43db5d7f7112543620d33b9a34af625309d3e7800bdfa5bad176961a49d8f8"
       },
       "observation": {
-        "markupSha256": "79b7d1ae03ed2cac3024c926b0fa92bec6fdbb15f3787a6c37f87d34d6309925"
+        "markupSha256": "5efad9a53ef4db3d3ee641def416d5b11444d30893861040116bc7b7762043c4"
       }
     },
     {
@@ -1312,7 +1396,7 @@
         "digest": "9c2da72ad011f6aa451b8759e5e15187d18ce8917a7dc95948a4766e704ea720"
       },
       "observation": {
-        "markupSha256": "4f2afbfc600a78ac2f0540b5bf31a147ab1ea6f0e0eec7a7fe00ceaffba830b3"
+        "markupSha256": "764f7b791613e483947c9274582501b78e8a3dad8757bee780b721b3a78b23fa"
       }
     },
     {
@@ -1329,7 +1413,7 @@
         "digest": "dc8904a159c34278ddf574941e036a244631be322d76623aac438e1c3432805b"
       },
       "observation": {
-        "markupSha256": "5aa9229c78de32e9c1b513d33858e46884c874236d4d6a282b6243e43013c414"
+        "markupSha256": "7478379bea0bd6aec3653b8d5c93fd1f0168cb5fc502f7fd635cd9026b115cd4"
       }
     },
     {
@@ -1338,8 +1422,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1349,8 +1433,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1360,8 +1444,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1371,8 +1455,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1382,8 +1466,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1393,8 +1477,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1404,8 +1488,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1423,7 +1507,7 @@
         "digest": "058ada4df483cb143037f4e73eadee582173cc62124d3bee91f067e7eae27a86"
       },
       "observation": {
-        "markupSha256": "a92f6b5156ec32a7332a52f166d187a8ffc673f12d810df7b0e369cd57b2d4c5"
+        "markupSha256": "283482e17a282a606edf6218cadb8fdea89dc91a1a1be157223b5b3d393d01ff"
       }
     },
     {
@@ -1432,8 +1516,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1443,8 +1527,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1454,8 +1538,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1465,8 +1549,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1476,8 +1560,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1487,8 +1571,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1506,7 +1590,7 @@
         "digest": "f91886042e2bc1c5a3ecbbe7e01d4bbb019083f6e2a0d07e2157863f82b7fb64"
       },
       "observation": {
-        "markupSha256": "5fc60732c47adf0b7a2357dc81967b9758ad07405e969b2d8c3e93c75384ab1c"
+        "markupSha256": "f11dc076aa54e8cda86399581210947991636727c29465deea703f8536f8aa15"
       }
     },
     {
@@ -1515,8 +1599,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1526,8 +1610,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1537,8 +1621,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1556,7 +1640,7 @@
         "digest": "71a7e6d0dc977f882f73008e736ecbab8271d965de43603364fbdcf22ecbe691"
       },
       "observation": {
-        "markupSha256": "ad4331b2182102832e55d3bc9f35172f14f74d9b3fa5b6c583b7d84a0ff4a698"
+        "markupSha256": "0a9e96e7a54e0ff4f05d3322ec015db0e5ed9f26cba27df39799bff8cd147359"
       }
     },
     {
@@ -1573,7 +1657,7 @@
         "digest": "a35984bee12a3bd8c8b6e5673b32db9f5c7f3d6b35dcb5db34354371454b9763"
       },
       "observation": {
-        "markupSha256": "5fc60732c47adf0b7a2357dc81967b9758ad07405e969b2d8c3e93c75384ab1c"
+        "markupSha256": "13b14f15ccd24ba0fce4f0e6c19169e7fbc7c8633aa855cbbe31cc7239f812c6"
       }
     },
     {
@@ -1582,8 +1666,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1601,7 +1685,7 @@
         "digest": "bb25857c37f10a266cddefc7b4ddf71065bb25f7967c8213ba64fff80261c0d4"
       },
       "observation": {
-        "markupSha256": "e556486d5049dc5fdb907a0b690cc73ae5f93500d2a873c3478d07137c5b87c1"
+        "markupSha256": "1bde9238d403651fe153ab6c8033d26d376fb9aff5c9eb663f2a190c238fc783"
       }
     },
     {
@@ -1618,7 +1702,7 @@
         "digest": "ef4b7336db251cb7b5ce2c66858d90e48b4e2c02c19c85673259c1a583b7a472"
       },
       "observation": {
-        "markupSha256": "bdbb430da130d46c284d8845c8164f88d5987557eba7d18c07e6b2287d9ecb17"
+        "markupSha256": "1dc9110eae56be026a88be4de949a67ed1c8bd21c05e6c2b69e11e84e5ef8115"
       }
     },
     {
@@ -1627,8 +1711,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1638,8 +1722,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1649,10 +1733,16 @@
       "status": "blocked",
       "mode": "ssr",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "assertion": {
+        "status": "passed",
+        "digest": "2fcb9fb181fdadeae22f64a1b5cbe7d926e2b0a368034e7d4c65e1ffb2e90627"
+      },
+      "observation": {
+        "markupSha256": "bcaae2e8b10578430fdbbc91f44b77a8591a80f59bdef549dd5b71ff818bf196"
+      }
     },
     {
       "component": "switch",
@@ -1660,8 +1750,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1671,8 +1761,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1690,7 +1780,7 @@
         "digest": "af1e6e35498f97024e0475722b908ac7e7d0f633d36f5d739432a70db131a6de"
       },
       "observation": {
-        "markupSha256": "edaf2b9a2c8b83212e571e16ea2927e7933764d3c5972fb524a35c918dbca6f8"
+        "markupSha256": "4fe0b87618fbb986a93f98e5ec309195c5caa685f5dcbd954c9bf92b8a5ae666"
       }
     },
     {
@@ -1707,7 +1797,7 @@
         "digest": "12939128f248ec177a6e96925d43c803fdac43a44e31b014ea940f78d2a543a7"
       },
       "observation": {
-        "markupSha256": "ce4143ce181f406e1796517fee9a00bdb4705ee5b4c85c23b7d306816d5b7c1c"
+        "markupSha256": "820f7a25e23964b1b99a9b95192dc32fa4d3aa9b8810aeb72413369fa2d5ea0c"
       }
     },
     {
@@ -1724,7 +1814,7 @@
         "digest": "551841029ad3205ece81396b199f06c130ec6126775e433effd201da969ce984"
       },
       "observation": {
-        "markupSha256": "ddcd5050c3b904af529ddaccc271bc6f0c4b0b4d748b971429c18a082edf47bb"
+        "markupSha256": "0b44583fa813bc259a4703db23dc33ea39e923b5bdf5ccf723d7eea94bde7ad0"
       }
     },
     {
@@ -1741,7 +1831,7 @@
         "digest": "69d9c7e3d0912c53137abaa0ab536f0506c25972f101c4c77bb64c562f7f87ad"
       },
       "observation": {
-        "markupSha256": "4ddd11d1d52b60000d344ddb03141925c85b54173c29df2ccccbd760e9fa3aeb"
+        "markupSha256": "fd726db97656eb7cd729acc70005f5ad33f16657d44213935c3d55c0a770caa6"
       }
     },
     {
@@ -1758,7 +1848,7 @@
         "digest": "622141402471ac3bc2d79e2692a1391fb8c3106fe42546b3892e9ea0d36244b2"
       },
       "observation": {
-        "markupSha256": "904e21011652634773b4c16a173546f222572e16218f8d09d3f29b8b42db4d02"
+        "markupSha256": "8155e1f89a9f816d2e33bd5fe2aecc599d45125f547b1990b3644a46a2256a34"
       }
     },
     {
@@ -1775,7 +1865,7 @@
         "digest": "622141402471ac3bc2d79e2692a1391fb8c3106fe42546b3892e9ea0d36244b2"
       },
       "observation": {
-        "markupSha256": "904e21011652634773b4c16a173546f222572e16218f8d09d3f29b8b42db4d02"
+        "markupSha256": "985c11527d52af4a721a37061c6af671bbbaeb58e00722df460f92cebb115a36"
       }
     },
     {
@@ -1784,8 +1874,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1795,8 +1885,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1814,7 +1904,7 @@
         "digest": "6d1913b3589110144049c777110e7b9871d51f440948a0817ca0e1170bcf0d36"
       },
       "observation": {
-        "markupSha256": "ec73b34e5fb3b53fdd692a81032d8355ae7ec2ddede2b3bc07573710b690b4f1"
+        "markupSha256": "7becfdf05f3b0b7f7059ba9237f520a45bf42d050abfb15a446e4d7809067cf4"
       }
     },
     {
@@ -1831,7 +1921,7 @@
         "digest": "b5b207794e4cf3ea60f412a1ff696666be082e1795fe8a96bb5ad93ae1f4e94e"
       },
       "observation": {
-        "markupSha256": "9de37931dcc61add8f61ae29d452010b11d900b1e60f166586fdc228b14c4e52"
+        "markupSha256": "5e6c2d95c8d1f1299aef6acd28a6546676291addf3d6fe7eb1ed373150c8c9a4"
       }
     },
     {
@@ -1848,7 +1938,7 @@
         "digest": "77480b82e9affa11aa594c3f9e6f6ad494f65869ff62a1f853410d229d049df3"
       },
       "observation": {
-        "markupSha256": "f6c1dcda8eac6aedf031b0ac813119c806514bbae043448efdd844fbfe9268d4"
+        "markupSha256": "98b3112100ffa4b332b4ea15a02ead4b5fae1a17cdc05a20433f534b9ea901e3"
       }
     },
     {
@@ -1865,7 +1955,7 @@
         "digest": "4502edf2f5cc17fbd89624e09cb708707c9a03635fe1dda0cd89a7d3456933a8"
       },
       "observation": {
-        "markupSha256": "a8fde37b67ce9ada1d92d47ad5b73ab806a3f8e5ea21cbfa1854c1e7ef7d6d68"
+        "markupSha256": "ec3b7809fa7f6473330c47742c916d0c4e24e2e823ea0daa78861f6d4dcf1c0f"
       }
     },
     {
@@ -1874,8 +1964,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1885,8 +1975,8 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     },
@@ -1896,11 +1986,11 @@
       "status": "blocked",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     }
   ],
-  "receiptHash": "1ed613ed533f547da8b9eb68789e90ded3d1c023b2bfccbbda207b98c0bec4d7"
+  "receiptHash": "3352ce313a8107a83889f201e8f91ec23b33625e5c29d7102a35b73cd0151872"
 }

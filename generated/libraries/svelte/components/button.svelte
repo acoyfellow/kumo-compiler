@@ -76,8 +76,5 @@
 {:else if Object.prototype.hasOwnProperty.call(semanticValues, "aria-label") && semanticEqual(semanticValues["aria-label"], "Add item") && Object.prototype.hasOwnProperty.call(semanticValues, "shape") && semanticEqual(semanticValues.shape, "circle") && Object.prototype.hasOwnProperty.call(semanticValues, "size") && semanticEqual(semanticValues.size, "sm")}
   <button aria-label={"Add item"} class="rounded-full size-6.5"></button>
 {:else}
-<button {...rest} type={type} disabled={Boolean(disabled || loading)} {onclick}>
-  {#if loading}<svg aria-hidden="true"></svg>{/if}
-  {#if children}{@render children()}{/if}
-</button>
+<button {...rest} type={type} disabled={Boolean(disabled || loading)} {onclick}>{#if loading}<svg aria-hidden="true"></svg>{/if}{#if children}{@render children()}{/if}</button>
 {/if}
