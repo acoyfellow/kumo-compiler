@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 
 const receipt = () => readFile('proof/dx/vue-library/receipt.json', 'utf8').then(JSON.parse);
+const reason = 'requires scripts/observable-browser-runner.mjs trusted conformance';
 
 test('Vue package export surface is independently proven', async () => {
   const r = await receipt();
@@ -16,19 +17,35 @@ test('Vue package export surface is independently proven', async () => {
   assert.equal(r.exportSurface.subpathImports, 'passed');
   assert.equal(r.exportSurface.types, 'passed');
   assert.equal(r.exportSurface.noWorkspaceImports, 'passed');
+  assert.equal(r.exportSurface.fileAudit, 'passed');
+  assert.equal(r.exportSurface.treeShaking, 'passed');
   for (const key of ['packageSha256', 'sourceTreeDigest', 'receiptHash']) assert.match(r[key], /^[a-f0-9]{64}$/);
 });
 
-test('Vue browser conformance reports passing and pending claims honestly', async () => {
+test('Vue package proof reports only deterministic static/package claims', async () => {
   const r = await receipt();
-  for (const key of ['clientBuild','ssrBuild','renderToString','chromeHydration','buttonFieldBehavior','cssLoadedOnce'])
-    assert.equal(r.browserConformance[key], 'passed', key);
-  assert.ok(Object.values(r.contractVectors).includes('pending'));
-  assert.equal(r.observations.serverNodePreserved, true);
-  assert.equal(r.observations.click, 'Clicked 1');
-  assert.equal(r.observations.disabledCount, 'Clicked 1');
-  assert.equal(r.observations.model, 'changed');
-  assert.deepEqual(r.observations.consoleMessages, []);
-  assert.deepEqual(r.observations.exceptions, []);
-  assert.deepEqual(r.observations.networkFailures, []);
+  for (const key of ['clientBuild', 'ssrBuild', 'renderToString', 'cssAssetsPresent'])
+    assert.equal(r.packageConformance[key], 'passed', key);
+  assert.equal(r.staticSemanticConformance.status, 'passed');
+  assert.equal(r.staticSemanticConformance.passed, 62);
+  assert.equal(r.staticSemanticConformance.unresolved, 4);
+  for (const key of ['hydration', 'serverNodeIdentity', 'buttonFieldBehavior', 'hmr', 'screenReader']) {
+    assert.equal(r.browserConformance[key], 'not-run', key);
+    assert.equal(r.pendingReasons[key], reason, key);
+  }
+  assert.deepEqual(r.observations, {});
+});
+
+test('Vue package proof contains no synthetic events or manual browser lifecycle', async () => {
+  const source = await readFile('proof/dx/vue-library/run.mjs', 'utf8');
+  for (const pattern of [
+    /Runtime\.evaluate/,
+    /\.click\s*\(/,
+    /dispatchEvent\s*\(/,
+    /new Event\s*\(/,
+    /remote-debugging-port/,
+    /Google Chrome/,
+    /new WebSocket/,
+    /Page\.reload/,
+  ]) assert.doesNotMatch(source, pattern);
 });
