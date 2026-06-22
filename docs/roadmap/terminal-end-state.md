@@ -111,37 +111,30 @@ Never discard or overwrite unrelated changes in:
 
 Any additional protected paths reported by machine state receive the same treatment.
 
-## Known framework blockers (escalated, not weakened)
+## Resolved framework findings
 
-### Solid native-input hydration node identity
+### Solid native-input hydration node identity (RESOLVED)
 
-Native `input`/`input-area` lowering is browser-proven for Vue and Svelte (each
-`80 passed / 44 blocked / 124 vectors`, the four `native-input-fixtures.json`
-vectors `input/bare-disabled`, `input/type`, `input-area/bare`, `input-area/type`
-passing with `node-identity: preserved`). Solid is not yet promoted for these
-vectors.
+Native `input`/`input-area` control lowering is browser-proven for all three
+frameworks. Each conformance receipt is `80 passed / 44 blocked / 124 vectors`,
+with the four `native-input-fixtures.json` vectors (`input/bare-disabled`,
+`input/type`, `input-area/bare`, `input-area/type`) passing with
+`node-identity: preserved`.
 
-Observed, reproduced through `scripts/observable-browser-runner.mjs`:
+Root cause of the earlier Solid `replaced` result was a harness defect, not a
+Solid limitation or emitter/package/receipt defect: the Solid native-input
+client bundle hydrated with `hydrate(() => <App/>, ...)` (an arrow wrapper that
+introduces an extra reactive boundary), while the SSR entry rendered the
+component tree directly. That structural mismatch caused Solid to discard and
+recreate the form-control node. Switching the client to `hydrate(App, ...)`
+(matching the SSR structure) makes Solid adopt the server node and preserve
+identity. Verified through `scripts/observable-browser-runner.mjs`: with the
+packed component, `hydrate(App, ...)` yields `preserved: true` while
+`hydrate(() => <App/>, ...)` yields `preserved: false`.
 
-- The `bare-disabled` static semantic branch renders `<input>` with no Solid
-  hydration key; under `hydrate()` the server node is discarded and recreated
-  (`node-identity: replaced`), while Vue and Svelte adopt it.
-- Adding a Solid hydration marker to the static element (`ref={hydrationRoot}`,
-  inline `ref`, or a no-op dynamic attribute) makes `renderToString` emit
-  `data-hk` on the `<input>`, but `hydrate()` still recreates the element. The
-  same recreation is observed for the dynamic-fallback `type` vector.
-- This is specific to `<input>`/`<textarea>` form controls in this harness;
-  `<button>` (Button) and `<span role>`/`<button role>` (Checkbox/Switch) roots
-  hydrate with preserved identity in the same Solid adapter.
-
-This is a genuine Solid SSR/hydration behavior, not a fixture, harness, package,
-or receipt defect, and was not masked. Until it is resolved at the emitter or
-harness layer with real browser proof, Solid stays at its prior native-input
-status and the four-framework `packed-conformance` intersection legitimately
-excludes `input`/`input-area`. The gate is not weakened: no skip, allowlist,
-filtered diagnostic, or fabricated identity result is used.
-
-Next attempt should isolate whether Solid's `hydrate` adopts a form-control
-element that carries a real reconciled property binding (e.g. a controlled
-`value` signal with byte-identical SSR/client serialization and no trailing-space
-class), proven through the shared runner before any promotion.
+The four-framework `packed-conformance` intersection still excludes `input` and
+`input-area` because each retains a blocked field-composition vector
+(`input/field-label`, `input-area/field-error`) pending the `field-wiring`
+capability. Those components join the intersection only after field wiring is
+implemented and browser-proven across all three frameworks. The gate is not
+weakened: no skip, allowlist, filtered diagnostic, or fabricated result is used.
