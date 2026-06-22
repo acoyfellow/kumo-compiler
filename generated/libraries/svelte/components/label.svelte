@@ -49,16 +49,16 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Middle Name") && Object.prototype.hasOwnProperty.call(semanticValues, "showOptional") && semanticEqual(semanticValues.showOptional, true)}
+{#if semanticEqual(renderContent, "Middle Name") && Object.prototype.hasOwnProperty.call(semanticValues, "showOptional") && semanticEqual(semanticValues.showOptional, true)}
   <label>
     <span class="font-normal text-kumo-subtle"></span>
     {"Middle Name(optional)"}
   </label>
-{:else if Object.prototype.hasOwnProperty.call(semanticValues, "asContent") && semanticEqual(semanticValues.asContent, true) && Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Email")}
+{:else if Object.prototype.hasOwnProperty.call(semanticValues, "asContent") && semanticEqual(semanticValues.asContent, true) && semanticEqual(renderContent, "Email")}
   <span>
     {renderContent}
   </span>
-{:else if Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Email")}
+{:else if semanticEqual(renderContent, "Email")}
   <label>
     {renderContent}
   </label>

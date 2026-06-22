@@ -46,11 +46,11 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if Object.prototype.hasOwnProperty.call(semanticValues, "as") && semanticEqual(semanticValues.as, "section") && Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Card") && Object.prototype.hasOwnProperty.call(semanticValues, "color") && semanticEqual(semanticValues.color, "secondary")}
+{#if Object.prototype.hasOwnProperty.call(semanticValues, "as") && semanticEqual(semanticValues.as, "section") && semanticEqual(renderContent, "Card") && Object.prototype.hasOwnProperty.call(semanticValues, "color") && semanticEqual(semanticValues.color, "secondary")}
   <section data-surface-color={"secondary"} data-deprecated={"surface"}>
     {renderContent}
   </section>
-{:else if Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Card")}
+{:else if semanticEqual(renderContent, "Card")}
   <div data-surface-color={"primary"} data-deprecated={"surface"}>
     {renderContent}
   </div>

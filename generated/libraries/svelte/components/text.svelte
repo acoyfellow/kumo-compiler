@@ -52,15 +52,15 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if Object.prototype.hasOwnProperty.call(semanticValues, "as") && semanticEqual(semanticValues.as, "h1") && Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Title") && Object.prototype.hasOwnProperty.call(semanticValues, "variant") && semanticEqual(semanticValues.variant, "heading1")}
+{#if Object.prototype.hasOwnProperty.call(semanticValues, "as") && semanticEqual(semanticValues.as, "h1") && semanticEqual(renderContent, "Title") && Object.prototype.hasOwnProperty.call(semanticValues, "variant") && semanticEqual(semanticValues.variant, "heading1")}
   <h1 class="text-3xl font-semibold">
     {renderContent}
   </h1>
-{:else if Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "code") && Object.prototype.hasOwnProperty.call(semanticValues, "variant") && semanticEqual(semanticValues.variant, "mono")}
+{:else if semanticEqual(renderContent, "code") && Object.prototype.hasOwnProperty.call(semanticValues, "variant") && semanticEqual(semanticValues.variant, "mono")}
   <span class="font-mono text-sm">
     {renderContent}
   </span>
-{:else if Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Body")}
+{:else if semanticEqual(renderContent, "Body")}
   <p class="text-kumo-default text-base">
     {renderContent}
   </p>

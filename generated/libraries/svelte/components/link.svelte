@@ -46,11 +46,11 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "External") && Object.prototype.hasOwnProperty.call(semanticValues, "href") && semanticEqual(semanticValues.href, "https://example.com") && Object.prototype.hasOwnProperty.call(semanticValues, "variant") && semanticEqual(semanticValues.variant, "plain")}
+{#if semanticEqual(renderContent, "External") && Object.prototype.hasOwnProperty.call(semanticValues, "href") && semanticEqual(semanticValues.href, "https://example.com") && Object.prototype.hasOwnProperty.call(semanticValues, "variant") && semanticEqual(semanticValues.variant, "plain")}
   <a href={"https://example.com"} class="hover:text-kumo-link/70">
     {renderContent}
   </a>
-{:else if Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Docs") && Object.prototype.hasOwnProperty.call(semanticValues, "href") && semanticEqual(semanticValues.href, "/docs")}
+{:else if semanticEqual(renderContent, "Docs") && Object.prototype.hasOwnProperty.call(semanticValues, "href") && semanticEqual(semanticValues.href, "/docs")}
   <a href={"/docs"} data-kumo-component={"Link"} class="text-kumo-link underline">
     {renderContent}
   </a>

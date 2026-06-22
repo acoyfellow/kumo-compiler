@@ -54,7 +54,7 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Application")}
+{#if semanticEqual(renderContent, "Application")}
   <div>
     {renderContent}
   </div>

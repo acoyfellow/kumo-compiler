@@ -58,7 +58,7 @@
     <p></p>
     {"NoticeDetails"}
   </div>
-{:else if Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Careful") && Object.prototype.hasOwnProperty.call(semanticValues, "variant") && semanticEqual(semanticValues.variant, "alert")}
+{:else if semanticEqual(renderContent, "Careful") && Object.prototype.hasOwnProperty.call(semanticValues, "variant") && semanticEqual(semanticValues.variant, "alert")}
   <div class="bg-kumo-banner-warning text-kumo-warning">
     <p>
       {renderContent}

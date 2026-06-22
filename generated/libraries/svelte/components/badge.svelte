@@ -44,12 +44,12 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if Object.prototype.hasOwnProperty.call(semanticValues, "appearance") && semanticEqual(semanticValues.appearance, "dot") && Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Healthy") && Object.prototype.hasOwnProperty.call(semanticValues, "variant") && semanticEqual(semanticValues.variant, "success")}
+{#if Object.prototype.hasOwnProperty.call(semanticValues, "appearance") && semanticEqual(semanticValues.appearance, "dot") && semanticEqual(renderContent, "Healthy") && Object.prototype.hasOwnProperty.call(semanticValues, "variant") && semanticEqual(semanticValues.variant, "success")}
   <span>
     <span aria-hidden={"true"} class="bg-kumo-success"></span>
     {renderContent}
   </span>
-{:else if Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "PRO")}
+{:else if semanticEqual(renderContent, "PRO")}
   <span class="inline-flex bg-kumo-badge-inverted">
     {renderContent}
   </span>

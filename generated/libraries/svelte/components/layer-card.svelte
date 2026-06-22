@@ -42,7 +42,7 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Card")}
+{#if semanticEqual(renderContent, "Card")}
   <div class="bg-kumo-base shadow-xs ring-kumo-line">
     {renderContent}
   </div>

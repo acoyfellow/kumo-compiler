@@ -40,11 +40,11 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Cell") && Object.prototype.hasOwnProperty.call(semanticValues, "className") && semanticEqual(semanticValues.className, "p-4")}
+{#if semanticEqual(renderContent, "Cell") && Object.prototype.hasOwnProperty.call(semanticValues, "className") && semanticEqual(semanticValues.className, "p-4")}
   <div class="p-4">
     {renderContent}
   </div>
-{:else if Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Cell")}
+{:else if semanticEqual(renderContent, "Cell")}
   <div>
     {renderContent}
   </div>

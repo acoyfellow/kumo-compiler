@@ -46,11 +46,11 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Two") && Object.prototype.hasOwnProperty.call(semanticValues, "gap") && semanticEqual(semanticValues.gap, "none") && Object.prototype.hasOwnProperty.call(semanticValues, "variant") && semanticEqual(semanticValues.variant, "side-by-side")}
+{#if semanticEqual(renderContent, "Two") && Object.prototype.hasOwnProperty.call(semanticValues, "gap") && semanticEqual(semanticValues.gap, "none") && Object.prototype.hasOwnProperty.call(semanticValues, "variant") && semanticEqual(semanticValues.variant, "side-by-side")}
   <div class="grid-cols-2 gap-0">
     {renderContent}
   </div>
-{:else if Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Cells") && Object.prototype.hasOwnProperty.call(semanticValues, "variant") && semanticEqual(semanticValues.variant, "3up")}
+{:else if semanticEqual(renderContent, "Cells") && Object.prototype.hasOwnProperty.call(semanticValues, "variant") && semanticEqual(semanticValues.variant, "3up")}
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
     {renderContent}
   </div>

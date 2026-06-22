@@ -54,17 +54,17 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Save") && Object.prototype.hasOwnProperty.call(semanticValues, "data-probe") && semanticEqual(semanticValues["data-probe"], "native") && Object.prototype.hasOwnProperty.call(semanticValues, "name") && semanticEqual(semanticValues.name, "intent") && Object.prototype.hasOwnProperty.call(semanticValues, "value") && semanticEqual(semanticValues.value, "save")}
+{#if semanticEqual(renderContent, "Save") && Object.prototype.hasOwnProperty.call(semanticValues, "data-probe") && semanticEqual(semanticValues["data-probe"], "native") && Object.prototype.hasOwnProperty.call(semanticValues, "name") && semanticEqual(semanticValues.name, "intent") && Object.prototype.hasOwnProperty.call(semanticValues, "value") && semanticEqual(semanticValues.value, "save")}
   <button type={"button"} name={"intent"} value={"save"} data-probe={"native"} data-kumo-component={"Button"}>
     <span>
       {renderContent}
     </span>
   </button>
-{:else if Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Create") && Object.prototype.hasOwnProperty.call(semanticValues, "size") && semanticEqual(semanticValues.size, "xs") && Object.prototype.hasOwnProperty.call(semanticValues, "variant") && semanticEqual(semanticValues.variant, "primary")}
+{:else if semanticEqual(renderContent, "Create") && Object.prototype.hasOwnProperty.call(semanticValues, "size") && semanticEqual(semanticValues.size, "xs") && Object.prototype.hasOwnProperty.call(semanticValues, "variant") && semanticEqual(semanticValues.variant, "primary")}
   <button class="bg-kumo-brand h-5 text-xs">
     {renderContent}
   </button>
-{:else if Object.prototype.hasOwnProperty.call(semanticValues, "children") && semanticEqual(semanticValues.children, "Delete") && Object.prototype.hasOwnProperty.call(semanticValues, "size") && semanticEqual(semanticValues.size, "lg") && Object.prototype.hasOwnProperty.call(semanticValues, "variant") && semanticEqual(semanticValues.variant, "destructive")}
+{:else if semanticEqual(renderContent, "Delete") && Object.prototype.hasOwnProperty.call(semanticValues, "size") && semanticEqual(semanticValues.size, "lg") && Object.prototype.hasOwnProperty.call(semanticValues, "variant") && semanticEqual(semanticValues.variant, "destructive")}
   <button class="bg-kumo-danger h-10 text-base">
     {renderContent}
   </button>
