@@ -6,11 +6,14 @@ export function requireContentBindings(model) {
   return model.contentBindings.capabilityDigest;
 }
 
-export function normalizeRenderContent(value) {
+export function normalizeRenderContent(value, {accessors = false} = {}) {
   if (value == null || value === false || value === true) return '';
   if (typeof value === 'string' || typeof value === 'number') return String(value);
-  if (Array.isArray(value)) return value.map(normalizeRenderContent).join('');
-  if (typeof value === 'object') return `${typeof value.text === 'string' ? value.text : ''}${Array.isArray(value.children) ? value.children.map(normalizeRenderContent).join('') : ''}`;
+  if (Array.isArray(value)) return value.map(item => normalizeRenderContent(item, {accessors})).join('');
+  // Framework child accessors are explicitly opted into by an emitter. Never invoke
+  // functions discovered inside fixture objects (those may be arbitrary components).
+  if (accessors && typeof value === 'function') return normalizeRenderContent(value(), {accessors});
+  if (typeof value === 'object') return `${typeof value.text === 'string' ? value.text : ''}${Array.isArray(value.children) ? value.children.map(item => normalizeRenderContent(item, {accessors:false})).join('') : ''}`;
   return '';
 }
 

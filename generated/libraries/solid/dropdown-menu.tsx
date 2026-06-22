@@ -9,17 +9,28 @@ export const semanticVariantDigests = {"closed-trigger-ssr":"96a51ef90c52bda1606
 const styles: Record<string, string> = {"root":"root","data-highlighted":"data-highlighted","data-disabled":"data-disabled","data-popup-open":"data-popup-open","data-starting-style":"data-starting-style","data-ending-style":"data-ending-style","text-kumo-danger":"text-kumo-danger"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");
 const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
-const fixtureText = (value: any): string => value && typeof value === "object" ? String(typeof value.text === "string" ? value.text : "") + (Array.isArray(value.children) ? value.children.map(fixtureText).join("") : "") : "";
+const normalizeRenderContent = (value: unknown, accessors = false): string => {
+  if (value == null || value === false || value === true) return "";
+  if (typeof value === "string" || typeof value === "number") return String(value);
+  if (Array.isArray(value)) return value.map(item => normalizeRenderContent(item, accessors)).join("");
+  if (accessors && typeof value === "function") return normalizeRenderContent(value(), accessors);
+  if (typeof value === "object") { const item = value as {text?: unknown; children?: unknown}; return (typeof item.text === "string" ? item.text : "") + (Array.isArray(item.children) ? item.children.map(child => normalizeRenderContent(child)).join("") : ""); }
+  return "";
+};
+const normalizeFixture = (value: unknown): unknown => Array.isArray(value) ? value.map(normalizeFixture) : value && typeof value === "object" ? Object.fromEntries(Object.entries(value).map(([key, item]) => [key, normalizeFixture(item)])) : value;
+const fixtureText = (value: unknown): string => normalizeRenderContent(value);
 const resolvePortalTarget = (target: unknown) => target === "document-body" && typeof document !== "undefined" ? document.body : target as Node;
 
 export function DropdownMenu(incoming: DropdownMenuProps): JSX.Element {
   const props = Object.assign({}, incoming);
   const fixture = props.fixture;
+  const renderContent = normalizeRenderContent(props.children, true);
+  const normalizedFixture = normalizeFixture(fixture);
   const state: Record<string, () => unknown> = {};
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as DropdownMenuProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  if (semanticEqual(fixture, {"export":"root","props":{},"children":[{"export":".Trigger","props":{},"children":[{"text":"Actions"}]}]})) return (<button type={"button"} tabindex={"0"} aria-haspopup={"menu"}>{fixtureText(fixture)}</button>);
+  if (semanticEqual(normalizedFixture, {"export":"root","props":{},"children":[{"export":".Trigger","props":{},"children":[{"text":"Actions"}]}]})) return (<button type={"button"} tabindex={"0"} aria-haspopup={"menu"}>{fixtureText(fixture)}</button>);
   return (<div data-kumo-compound={"dropdown-menu"}><div data-kumo-part={"root"}>{(props.root as JSX.Element) ?? undefined}</div><div data-kumo-part={"collection"}>{(props.collection as JSX.Element) ?? undefined}</div></div>);
 }
 

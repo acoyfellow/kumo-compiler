@@ -9,19 +9,30 @@ export const semanticVariantDigests = {"body-default":"b244946da5cf1ff8c2da48978
 const styles: Record<string, string> = {"root":"root","text-kumo-default":"text-kumo-default","text-base":"text-base"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");
 const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
-const fixtureText = (value: any): string => value && typeof value === "object" ? String(typeof value.text === "string" ? value.text : "") + (Array.isArray(value.children) ? value.children.map(fixtureText).join("") : "") : "";
+const normalizeRenderContent = (value: unknown, accessors = false): string => {
+  if (value == null || value === false || value === true) return "";
+  if (typeof value === "string" || typeof value === "number") return String(value);
+  if (Array.isArray(value)) return value.map(item => normalizeRenderContent(item, accessors)).join("");
+  if (accessors && typeof value === "function") return normalizeRenderContent(value(), accessors);
+  if (typeof value === "object") { const item = value as {text?: unknown; children?: unknown}; return (typeof item.text === "string" ? item.text : "") + (Array.isArray(item.children) ? item.children.map(child => normalizeRenderContent(child)).join("") : ""); }
+  return "";
+};
+const normalizeFixture = (value: unknown): unknown => Array.isArray(value) ? value.map(normalizeFixture) : value && typeof value === "object" ? Object.fromEntries(Object.entries(value).map(([key, item]) => [key, normalizeFixture(item)])) : value;
+const fixtureText = (value: unknown): string => normalizeRenderContent(value);
 const resolvePortalTarget = (target: unknown) => target === "document-body" && typeof document !== "undefined" ? document.body : target as Node;
 
 export function Text(incoming: TextProps): JSX.Element {
   const props = Object.assign({"bold":false,"size":"base","truncate":false,"variant":"body"}, incoming);
   const fixture = props.fixture;
+  const renderContent = normalizeRenderContent(props.children, true);
+  const normalizedFixture = normalizeFixture(fixture);
   const state: Record<string, () => unknown> = {};
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as TextProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  if (Object.prototype.hasOwnProperty.call(props, "as") && semanticEqual(props.as, "h1") && Object.prototype.hasOwnProperty.call(props, "children") && semanticEqual(props.children, "Title") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "heading1")) return (<h1 class="text-3xl font-semibold">{props.children}</h1>);
-  if (Object.prototype.hasOwnProperty.call(props, "children") && semanticEqual(props.children, "code") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "mono")) return (<span class="font-mono text-sm">{props.children}</span>);
-  if (Object.prototype.hasOwnProperty.call(props, "children") && semanticEqual(props.children, "Body")) return (<p class="text-kumo-default text-base">{props.children}</p>);
+  if (Object.prototype.hasOwnProperty.call(props, "as") && semanticEqual(props.as, "h1") && semanticEqual(renderContent, "Title") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "heading1")) return (<h1 class="text-3xl font-semibold">{props.children}</h1>);
+  if (semanticEqual(renderContent, "code") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "mono")) return (<span class="font-mono text-sm">{props.children}</span>);
+  if (semanticEqual(renderContent, "Body")) return (<p class="text-kumo-default text-base">{props.children}</p>);
   return (<span class={mergeStyles(styles.root)}>{props.children}</span>);
 }
 

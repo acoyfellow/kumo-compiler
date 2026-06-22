@@ -9,12 +9,23 @@ export const semanticVariantDigests = {"percentage":"c4c772dbf859773aca432276c16
 const styles: Record<string, string> = {"root":"root","flex":"flex","w-full":"w-full","flex-col":"flex-col","gap-2":"gap-2"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");
 const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
-const fixtureText = (value: any): string => value && typeof value === "object" ? String(typeof value.text === "string" ? value.text : "") + (Array.isArray(value.children) ? value.children.map(fixtureText).join("") : "") : "";
+const normalizeRenderContent = (value: unknown, accessors = false): string => {
+  if (value == null || value === false || value === true) return "";
+  if (typeof value === "string" || typeof value === "number") return String(value);
+  if (Array.isArray(value)) return value.map(item => normalizeRenderContent(item, accessors)).join("");
+  if (accessors && typeof value === "function") return normalizeRenderContent(value(), accessors);
+  if (typeof value === "object") { const item = value as {text?: unknown; children?: unknown}; return (typeof item.text === "string" ? item.text : "") + (Array.isArray(item.children) ? item.children.map(child => normalizeRenderContent(child)).join("") : ""); }
+  return "";
+};
+const normalizeFixture = (value: unknown): unknown => Array.isArray(value) ? value.map(normalizeFixture) : value && typeof value === "object" ? Object.fromEntries(Object.entries(value).map(([key, item]) => [key, normalizeFixture(item)])) : value;
+const fixtureText = (value: unknown): string => normalizeRenderContent(value);
 const resolvePortalTarget = (target: unknown) => target === "document-body" && typeof document !== "undefined" ? document.body : target as Node;
 
 export function Meter(incoming: MeterProps): JSX.Element {
   const props = Object.assign({"max":100,"min":0,"showValue":true}, incoming);
   const fixture = props.fixture;
+  const renderContent = normalizeRenderContent(props.children, true);
+  const normalizedFixture = normalizeFixture(fixture);
   const state: Record<string, () => unknown> = {};
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as MeterProps & Record<string, unknown>, []);

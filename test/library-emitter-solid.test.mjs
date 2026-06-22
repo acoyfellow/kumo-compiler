@@ -95,9 +95,14 @@ test('Solid SSR renders every compiled semantic predicate through canonical mark
   for (const [item, model] of result.components.map((item, index) => [item, library.models[index]])) {
     const module = await import(path.join(build, item.source.replace(/tsx$/, 'js')) + `?${Date.now()}`);
     for (const variant of model.draftImplementation.semanticVariants ?? []) {
-      const props = Object.fromEntries(variant.when.filter(x => x.kind === 'prop-equals').map(x => [x.name, x.value]));
-      const fixture = variant.when.find(x => x.kind === 'fixture-equals')?.value;
-      if (fixture !== undefined) props.fixture = fixture;
+      const canonicalProps = Object.fromEntries(variant.when.filter(x => x.kind === 'prop-equals').map(x => [x.name, x.value]));
+      const canonicalFixture = variant.when.find(x => x.kind === 'fixture-equals')?.value;
+      // Match the shared packed fixture compiler: children arrive as nested native
+      // child arrays/accessors, while all non-child predicate inputs remain generic.
+      const packChildren = value => [() => [value]];
+      const props = {...canonicalProps};
+      if (Object.hasOwn(props, 'children')) props.children = packChildren(props.children);
+      if (canonicalFixture !== undefined) props.fixture = structuredClone(canonicalFixture);
       const {renderToString} = await import('solid-js/web');
       const html = renderToString(() => module[item.symbol](props));
       const vector = library.semanticRender.components.find(x => x.component === model.component).vectors.find(x => x.id === variant.id);
