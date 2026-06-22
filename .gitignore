@@ -1,9 +1,6 @@
 node_modules/
 proof/artifacts/
 *.tgz
-# Reviewed deploy package snapshots are release payload, not generated source artifacts.
-!deploy/packages/*.tgz
-!release/github/libraries-v0.0.1/*.tgz
 .DS_Store
 .wrangler
 .workflow/receipts/
@@ -31,7 +28,8 @@ dx/packages/kumo-vue/package/
 dx/packages/kumo-svelte/package/
 dx/packages/kumo-solid/package/
 
-# Deterministic publication bundles (rebuilt by release/deploy preparation).
+# Deterministic deployment payload (rebuilt by release/deploy preparation).
+deploy/
 deploy/_astro/
 deploy/*/react/assets/
 deploy/*/vue/assets/
