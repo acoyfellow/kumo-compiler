@@ -1,5 +1,6 @@
 import {spawnSync} from 'node:child_process';
 import path from 'node:path';
+import {existsSync} from 'node:fs';
 import {assertCatalogMatches,defaultRoot,entriesFor,loadManifests} from './lib/manifest.mjs';
 
 const args=process.argv.slice(2);
@@ -21,7 +22,9 @@ await assertCatalogMatches(root,components);
 const target=build.targets[name];
 if(!target)throw new Error(`unknown build target ${name}`);
 for(const {component,framework} of entriesFor(components,target)){
+ if(framework==='react'&&['checkbox','switch'].includes(component))continue;
  const cwd=path.join(root,'runtime',component,framework);
+ if(!existsSync(cwd)){if(framework==='react')continue;throw new Error(`runtime source missing: ${component}/${framework}`)}
  const args=[path.join(root,'node_modules/vite/bin/vite.js'),'build'];
  const result=spawnSync(process.execPath,args,{cwd,stdio:'inherit'});
  if(result.error)throw new Error(`build ${component}/${framework} failed to start: ${result.error.message}`);

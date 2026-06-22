@@ -33,6 +33,7 @@
     "serve": "node review/server.mjs",
     "catalog:validate": "node benchmarks/catalog.mjs",
     "catalog:build": "node benchmarks/catalog.mjs --build",
+    "pretest": "node tools/prepare-tests.mjs",
     "test": "node --test test/*.test.mjs",
     "test:catalog-browser-proof": "node --test test/catalog-browser-proof.test.mjs",
     "proof:catalog-browser": "node proof/catalog-browser-proof.mjs",

@@ -1,6 +1,6 @@
 import { splitProps } from 'solid-js';
 
-export function Button(props) {
+export function Button(props: Record<string, any>) {
   const [local, native] = splitProps(props, ['variant', 'size', 'disabled', 'loading', 'children', 'class']);
   return <button {...native}
     class={['kumo-button', `kumo-button--${local.variant ?? 'primary'}`, `kumo-button--${local.size ?? 'medium'}`, local.class].filter(Boolean).join(' ')}

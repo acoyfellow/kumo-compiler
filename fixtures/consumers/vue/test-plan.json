@@ -1,1 +1,16 @@
-{"schemaVersion":1,"framework":"vue","status":"passed","cases":[{"name":"packed-tarball","status":"passed"},{"name":"ssr","status":"passed"},{"name":"hydration","status":"passed"},{"name":"workspaces","status":"passed"},{"name":"tree-shaking","status":"passed"},{"name":"typecheck","status":"passed"},{"name":"browser-behavior-aria-css","status":"passed"},{"name":"hmr","status":"not-run"},{"name":"manual-screen-reader","status":"not-run"}]}
+{
+  "schemaVersion": 2,
+  "framework": "vue",
+  "status": "passed",
+  "cases": [
+    {"name":"packed-tarball","status":"passed"},
+    {"name":"ssr","status":"passed"},
+    {"name":"hydration","status":"not-run","reason":"requires scripts/observable-browser-runner.mjs trusted conformance"},
+    {"name":"workspaces","status":"passed"},
+    {"name":"tree-shaking","status":"passed"},
+    {"name":"typecheck","status":"passed"},
+    {"name":"browser-behavior-aria-css","status":"not-run","reason":"requires scripts/observable-browser-runner.mjs trusted conformance"},
+    {"name":"hmr","status":"not-run","reason":"manual HMR gate"},
+    {"name":"manual-screen-reader","status":"not-run","reason":"manual assistive-technology gate"}
+  ]
+}

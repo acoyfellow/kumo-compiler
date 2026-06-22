@@ -1,12 +1,27 @@
 import {spawnSync} from 'node:child_process'
+import {fileURLToPath} from 'node:url'
+
+const root=fileURLToPath(new URL('..',import.meta.url))
 const flows={
- contract:['node scripts/verify-package.mjs'],
- generate:['node scripts/libraries/build.mjs'],
- conformance:['node --test test/*.test.mjs'],
- package:['node dx/packages/kumo-vue/build.mjs','node dx/packages/kumo-svelte/build.mjs','node dx/packages/kumo-solid/build.mjs','node scripts/verify-package.mjs'],
- release:['npm run release:check'],
- deploy:['npm run deploy:dry-run'],
+  contract:[
+    [process.execPath,['--test','test/observable-contracts.test.mjs','test/observable-status.test.mjs']],
+  ],
+  generate:[
+    [process.execPath,['src/kumo/library/generate.mjs']],
+    [process.execPath,['src/kumo/emitters/vue/index.mjs']],
+    [process.execPath,['src/kumo/emitters/svelte/index.mjs']],
+    [process.execPath,['src/kumo/emitters/solid/generate.mjs']],
+  ],
+  conformance:[
+    ['npm',['test']],
+  ],
+  package:[
+    [process.execPath,['--test','test/library-artifacts.test.mjs']],
+  ],
+  release:[
+    ['npm',['run','release:check']],
+  ],
 }
-const name=process.argv[2], steps=flows[name]
-if(!steps) throw new Error(`expected one of: ${Object.keys(flows).join(', ')}`)
-for(const command of steps){const result=spawnSync(command,{cwd:new URL('..',import.meta.url),shell:true,stdio:'inherit'});if(result.status)process.exit(result.status??1)}
+const name=process.argv[2],steps=flows[name]
+if(!steps)throw new Error(`expected one of: ${[...Object.keys(flows),'deploy'].join(', ')}`)
+for(const[command,args]of steps){const result=spawnSync(command,args,{cwd:root,stdio:'inherit'});if(result.status)process.exit(result.status??1)}

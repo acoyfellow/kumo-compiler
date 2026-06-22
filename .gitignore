@@ -33,7 +33,10 @@ dx/packages/kumo-solid/package/
 
 # Deterministic publication bundles (rebuilt by release/deploy preparation).
 deploy/_astro/
-deploy/*/{react,vue,svelte,solid}/assets/
+deploy/*/react/assets/
+deploy/*/vue/assets/
+deploy/*/svelte/assets/
+deploy/*/solid/assets/
 runtime/**/public-runtime/
 runtime-canonical/**/public-runtime/
 # Two behavior-gate fixtures are intentionally immutable and remain tracked.
@@ -42,4 +45,12 @@ runtime-canonical/**/public-runtime/
 !runtime/checkbox/react/public-runtime/assets/react-checkbox.js
 !runtime/switch/react/public-runtime/
 !runtime/switch/react/public-runtime/assets/
+!runtime/switch/react/public-runtime/assets/react-switch.js
+runtime/checkbox/react/public-runtime/*
+!runtime/checkbox/react/public-runtime/assets/
+runtime/checkbox/react/public-runtime/assets/*
+!runtime/checkbox/react/public-runtime/assets/react-checkbox.js
+runtime/switch/react/public-runtime/*
+!runtime/switch/react/public-runtime/assets/
+runtime/switch/react/public-runtime/assets/*
 !runtime/switch/react/public-runtime/assets/react-switch.js

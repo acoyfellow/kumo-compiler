@@ -1,18 +1,16 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "framework": "svelte",
   "package": "@acoyfellow/kumo-svelte@0.0.1",
-  "sourceTree": "2ee1b872b089b61ef443408552622c0750ad3fd7",
-  "sourceTreeDigest": "c387a28f27308f345f78e4a65e9bc86bdfa81d08155f526d5d835936254e50ee",
-  "packageSha256": "4cb43b81af5e4b60cb00ecd3e0297481fb305df3853532c75042b9156c2206af",
+  "sourceTree": "2ec2c65a316a57d7d7c10609de9f3607f2abcb8f",
+  "sourceTreeDigest": "78817f957d41ffb252cf36dccea050c18d92cc9b7e09b527880d835eb10edc7d",
+  "packageSha256": "8a5ca97a7682d2e7009ada60dd21aa9e5320440b31bddde5c6389566660cde62",
   "deterministicRuns": 2,
   "versions": {
     "node": "v24.17.0",
     "npm": "11.13.0",
     "svelte": "5.56.3",
-    "vite": "8.0.16",
-    "browser": "Chrome/149.0.7827.156",
-    "protocol": "1.3"
+    "vite": "8.0.16"
   },
   "exportSurface": {
     "componentCount": 41,
@@ -270,18 +268,32 @@
       "TableOfContentsItem",
       "TableOfContentsList",
       "TableOfContentsTitle"
-    ]
+    ],
+    "compoundPathCount": 63
+  },
+  "packageConformance": {
+    "typecheck": "passed",
+    "svelteCheck": "passed",
+    "clientBuild": "passed",
+    "ssrBuild": "passed",
+    "renderToString": "passed",
+    "treeShaking": "passed",
+    "workspace": "passed"
+  },
+  "staticSemanticConformance": {
+    "status": "passed",
+    "passed": 62,
+    "unresolved": 4,
+    "receipt": "proof/dx/conformance/diagnostics/semantic-emitter-svelte-resolution.json"
   },
   "browserConformance": {
-    "passed": [
-      "button",
-      "field"
-    ],
+    "verified": [],
     "pending": [
       "autocomplete",
       "badge",
       "banner",
       "breadcrumbs",
+      "button",
       "checkbox",
       "clipboard-text",
       "cloudflare-logo",
@@ -293,6 +305,7 @@
       "dialog",
       "dropdown-menu",
       "empty",
+      "field",
       "grid",
       "grid-item",
       "input",
@@ -317,7 +330,8 @@
       "tabs",
       "text",
       "toasty"
-    ]
+    ],
+    "reason": "requires scripts/observable-browser-runner.mjs trusted conformance"
   },
   "commands": [
     "npm pack (twice)",
@@ -327,38 +341,10 @@
     "Vite client build",
     "Vite SSR build",
     "svelte/server render",
-    "Chrome CDP hydration and behavior",
     "Vite Button-only tree-shaking build",
     "npm workspace install/build"
   ],
-  "observations": {
-    "serverNodePreserved": true,
-    "hydrationReady": "true",
-    "before": "Clicked 0",
-    "click": "Clicked 1",
-    "disabledCount": "Clicked 1",
-    "model": "changed",
-    "label": "email",
-    "desc": "email-description email-error",
-    "invalid": "true",
-    "required": true,
-    "css": 1,
-    "consoleMessages": [],
-    "exceptions": [],
-    "networkFailures": [],
-    "assetResponses": [
-      {
-        "url": "http://127.0.0.1:41740/assets/<hashed>",
-        "status": 200,
-        "mimeType": "text/css"
-      },
-      {
-        "url": "http://127.0.0.1:41740/assets/<hashed>",
-        "status": 200,
-        "mimeType": "text/javascript"
-      }
-    ]
-  },
+  "observations": {},
   "checks": {
     "packedTarball": "passed",
     "fileAudit": "passed",
@@ -367,17 +353,32 @@
     "clientBuild": "passed",
     "ssrBuild": "passed",
     "renderToString": "passed",
-    "chromeHydration": "passed",
-    "buttonFieldBrowserBehavior": "passed",
-    "aria": "passed",
-    "cssLoadedOnce": "passed",
-    "assets": "passed",
-    "console": "passed",
-    "serverNodeIdentity": "passed",
     "treeShaking": "passed",
     "workspace": "passed",
-    "hmr": "not-run",
-    "manualScreenReader": "not-run"
+    "liveHydration": {
+      "status": "not-run",
+      "reason": "requires scripts/observable-browser-runner.mjs trusted conformance"
+    },
+    "serverNodeIdentity": {
+      "status": "not-run",
+      "reason": "requires scripts/observable-browser-runner.mjs trusted conformance"
+    },
+    "buttonInteraction": {
+      "status": "not-run",
+      "reason": "requires scripts/observable-browser-runner.mjs trusted conformance"
+    },
+    "fieldInteraction": {
+      "status": "not-run",
+      "reason": "requires scripts/observable-browser-runner.mjs trusted conformance"
+    },
+    "hmr": {
+      "status": "not-run",
+      "reason": "requires scripts/observable-browser-runner.mjs trusted conformance"
+    },
+    "screenReader": {
+      "status": "not-run",
+      "reason": "requires scripts/observable-browser-runner.mjs trusted conformance"
+    }
   },
-  "receiptHash": "9eeaccbd077bee01cea5671236be2a1a527fa320550f189ce8f8bd8e96b986e2"
+  "receiptHash": "ab2953192bfce0c899d8550fc06e943510473b4bc08ef0d3ff688cf7ba87f3cd"
 }

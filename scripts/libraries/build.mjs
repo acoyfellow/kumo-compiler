@@ -21,6 +21,8 @@ const entries = [];
 const seen = new Set();
 for (const framework of frameworks) {
   const source = resolve(root, 'dx/packages', `kumo-${framework}`);
+  const build = spawnSync(process.execPath, [resolve(source, 'build.mjs')], { cwd: root, encoding: 'utf8' });
+  if (build.status !== 0) fail(`${framework}: package staging build failed: ${build.stderr || build.stdout}`);
   const receiptPath = resolve(root, 'proof/dx', `${framework}-library/receipt.json`);
   const receipt = JSON.parse(await readFile(receiptPath, 'utf8'));
   const pkg = JSON.parse(await readFile(resolve(source, 'package.json'), 'utf8'));

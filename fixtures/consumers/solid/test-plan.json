@@ -7,10 +7,10 @@
   "cases": [
     {"name":"deterministic-double-pack-file-audit","status":"passed"},
     {"name":"fresh-tarball-install-typecheck-client-ssr-renderToString","status":"passed"},
-    {"name":"system-chrome-hydration-node-identity-behavior-aria-css-assets-diagnostics","status":"passed"},
+    {"name":"system-chrome-hydration-node-identity-behavior-aria-css-assets-diagnostics","status":"not-run","reason":"requires scripts/observable-browser-runner.mjs trusted conformance"},
     {"name":"button-only-tree-shaking","status":"passed"},
     {"name":"workspace-install-build","status":"passed"},
-    {"name":"hmr","status":"not-run"},
-    {"name":"manual-screen-reader","status":"not-run"}
+    {"name":"hmr","status":"not-run","reason":"manual HMR gate"},
+    {"name":"manual-screen-reader","status":"not-run","reason":"manual assistive-technology gate"}
   ]
 }

@@ -44,10 +44,16 @@ test('receipt separates export proof from partial browser conformance', async ()
   assert.equal(new Set(r.exportSurface.slugExports).size, 41);
   assert.equal(new Set(r.exportSurface.rootSymbols).size, 104);
   assert.equal(new Set(r.exportSurface.declarationSymbols).size, 104);
-  assert.deepEqual(r.browserConformance.passed, ['button', 'field']);
-  assert.equal(r.browserConformance.pending.length, 39);
-  assert.equal(r.checks.buttonFieldBrowserBehavior, 'passed');
-  assert.equal(r.checks.browserBehavior, undefined);
+  assert.equal(r.staticSemanticConformance.status,'passed');
+  assert.equal(r.staticSemanticConformance.passed,62);
+  assert.equal(r.staticSemanticConformance.unresolved,4);
+  assert.deepEqual(r.browserConformance.verified, []);
+  assert.equal(r.browserConformance.pending.length, 41);
+  for(const key of ['liveHydration','serverNodeIdentity','buttonInteraction','fieldInteraction','hmr','screenReader']){
+    assert.equal(r.checks[key].status,'not-run');assert.match(r.checks[key].reason,/observable-browser-runner/);
+  }
+  const proof=await readFile('proof/dx/svelte-library/run.mjs','utf8');
+  assert.doesNotMatch(proof,/dispatchEvent|\.click\(|remote-debugging|WebSocket/);
   const { receiptHash, ...canonical } = r;
   assert.equal(receiptHash, createHash('sha256').update(JSON.stringify(canonical)).digest('hex'));
 });

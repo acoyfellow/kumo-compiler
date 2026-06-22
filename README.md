@@ -1,87 +1,87 @@
 # Kumo compiler
 
+A contract-first portability and conformance kit for Cloudflare Kumo.
+
 Start with the **[seven-minute repository guide](docs/architecture/seven-minute-guide.md)**.
+
+## Scope
+
+```text
+canonical @cloudflare/kumo@2.5.2
+→ kumo.observable/v1 contracts
+→ framework-neutral library algebra
+→ native Vue, Svelte, and Solid packages
+→ packed browser receipts
+→ public Astro catalog
+```
+
+- **45 classified** components
+- **41 executable** components
+- **2 upstream blocked:** PageHeader, ResourceListPage
+- **2 supplemental:** Chart, Flow
+- Canonical browser authority remains the immutable React **164/164** control.
+
+Downstream package identities are fixed:
+
+```text
+@acoyfellow/kumo-vue@0.0.1
+@acoyfellow/kumo-svelte@0.0.1
+@acoyfellow/kumo-solid@0.0.1
+```
 
 ## Repository map
 
-- `contracts/` and `src/kumo/library/models/`: editable authority
-- `generated/libraries/`: authoritative generated framework output
-- `dx/packages/kumo-*`: package manifests/builders; `package/` is disposable
-- `proof/` and `benchmarks/`: accepted evidence and immutable receipts
-- `docs/archive/`: historical context, never active authority
-- [`repository-map.json`](repository-map.json): machine-readable zones and identities
+| Zone | Purpose | Edit? |
+|---|---|---|
+| `contracts/` | observable canonical behavior | yes, with provenance |
+| `src/kumo/library/` | framework-neutral component algebra | yes |
+| `src/kumo/emitters/` | native framework emitters | yes |
+| `generated/libraries/` | sole generated framework authority | no |
+| `dx/packages/kumo-*` | package builders and migration inputs | builders only |
+| `proof/`, `benchmarks/` | accepted evidence and receipts | never by generators |
+| `docs/archive/` | historical campaign context | context only |
 
-The supported flow is `contract → generate → conformance → package → release → deploy`. See the guide for exact commands and boundaries.
+The machine-readable version is [`repository-map.json`](repository-map.json).
 
-## Detailed reference
+## Six commands
 
-Private package-backed compiler and proof service for Cloudflare Kumo. `@cloudflare/kumo@2.5.2` React is canonical; TypeScript compilers normalize 41 supported components to `kumo.ir/v1` and emit React, Vue, Svelte, and Solid runtimes.
+```sh
+npm ci
+npm run contract       # validate contracts and observable status
+npm run generate       # regenerate library models and framework output
+npm run conformance    # run fail-closed tests and receipts
+npm run package        # build and verify deterministic package tarballs
+npm run release        # complete release check; never publishes
+npm run deploy         # explicit production deployment
+```
+
+Compatibility aliases remain for CI and focused debugging, but these six are the supported operator flow.
+
+## Evidence rules
+
+A successful build is not parity. Claims require a receipt with one of:
 
 ```text
-pinned Kumo package → versioned IR → framework emitters → v2 browser authority → Astro catalog
+passed | failed | blocked | not-run
 ```
 
-## Framework libraries
+Missing evidence never passes. Browser behavior must run through `scripts/observable-browser-runner.mjs` using trusted CDP input, one-tree SSR/hydration, canonical CSS, node identity, and unfiltered diagnostics.
 
-Package-backed component galleries: [Vue](https://kumo-compiler.coey.dev/libraries/vue/), [Svelte](https://kumo-compiler.coey.dev/libraries/svelte/), and [Solid](https://kumo-compiler.coey.dev/libraries/solid/). Each ships Button and Field; Select is not included.
+## Current product status
 
-- [Developer documentation](https://kumo-compiler.coey.dev/docs/)
-- [Complete runnable examples](https://kumo-compiler.coey.dev/examples/)
-- [Package and export reference](https://kumo-compiler.coey.dev/docs/reference/packages/)
-- [Svelte playground validation](https://kumo-compiler.coey.dev/docs/how-to/svelte-playground/)
+See the generated [completion progress](docs/progress.md) and its machine receipt at `proof/progress/latest.json`.
 
-The current distribution is an installable HTTPS npm tarball, not a public npm registry publication. Dependency-capable projects can install it directly; registry-only resolvers such as svelte.dev Playground remain blocked until an authorized public publication exists. The single-repository GitHub release workflow is documented in [Distribute from GitHub](docs/how-to/github-release.md); the optional, human-run registry handoff is [Publish to npm](docs/how-to/publish-npm.md).
+Production: **https://kumo-compiler.coey.dev**
 
-## Seven-minute start
+## Operations and reference
 
-Requires Node 22 and npm. The package is private and versioned `0.0.1`.
-
-```sh
-npm ci
-npm run release:install  # deterministic Astro install from astro/package-lock.json
-npm run examples:build  # fresh HTTPS installs + complete Vue/Svelte/Solid builds
-npm test
-npm run matrix:kumo       # 24 shards; exact 164 component/framework targets
-npm run release:check
-npm run deploy:dry-run
-```
-
-The matrix atomically promotes only a complete 164-target run into [`generated/browser-evidence/authority.json`](generated/browser-evidence/authority.json). Browser run records use `kumo.browser-proof-run/v2`; receipts and [`generated/migration-status.json`](generated/migration-status.json) derive from that authority. Use `npm run compile:kumo` for focused compiler work and review generated diffs.
-
-## Production and operations
-
-The production Worker is **https://kumo-compiler.coey.dev**. The catalog and its evidence receipts are intentionally public: they contain no proprietary material and do not require Cloudflare Access or other authentication. `release:check` first runs `release:install`, a fail-fast `npm ci` scoped to Astro's separate lockfile; normal unit tests do not install dependencies. `npm run deploy:prepare` only builds Astro, replaces `deploy/` with `astro/dist`, and validates manifest route inventories; it has no proof side effects. Authorized operators use `npm run deploy`, then `npm run proof:production`. Use `npm run rollback:dry-run` or `npm run rollback` with `CLOUDFLARE_WORKER_VERSION_ID`, followed by production probes.
-
-Retain immutable deploy artifacts, manifest identity, receipts, production proof, source revision, and the predecessor Worker version for rollback. Public production probes require no Access service token. A live rollback rehearsal remains an operational exercise and must use the retained predecessor Worker version.
-
-A receipt supports only its named claim and revision. Screenshots or successful builds alone do not establish parity. See [evidence authority](docs/explanation/evidence-authority.md), [deployment](docs/runbooks/deployment.md), and [evidence reproduction](docs/how-to/reproduce-evidence.md).
-
-## Check a Kumo upstream update
-
-Requires Node 22, npm 11, system Chrome, npm-registry network access, and a clean worktree. The isolated operator path is:
-
-```sh
-npm ci
-OUT=".upstream-check-$$"
-node scripts/upstream-check.mjs --from 2.5.1 --to 2.5.2 --scenario real --out "$OUT/real"
-node scripts/upstream-check.mjs --from 2.5.1 --to 2.5.2 --scenario synthetic-export-break --out "$OUT/synthetic" || test $? -eq 2
-node scripts/upstream-rollback.mjs --out "$OUT/rollback"
-rm -rf "$OUT"
-```
-
-The current real package diff passed with 0 changes. Button generation passed all 4 framework cells; in the browser Vue passed, Solid failed, and React/Svelte were blocked. The synthetic export break correctly blocked all 4 authority cells. Isolated rollback passed, including real `npm ci`, byte-identical restoration, and a deterministic rerun.
-
-A passed receipt does **not** edit the package pin or promote browser authority, and none of these commands deploy or publish. Apply a reviewed pin/lockfile change separately on main. Read the [seven-minute update procedure](docs/how-to/update-kumo.md) and [receipt/status reference](docs/reference/upstream.md) before interpreting blocked cells or stale authority.
-
-Deterministic, non-browser fixture rehearsals additionally cover additive components and props, behavior changes, CSS token changes, and export renames. Run `npm run upstream:rehearse`, then `npm run upstream:rehearse:validate`.
-
-## Roadmap
-
-The current implementation is the immutable comparison baseline. The active architectural bake-off—internal compilers, Builder.io Mitosis, and a shared behavior core—is specified in [Compiler bake-off](docs/roadmap/compiler-bake-off.md).
-
-## Documentation
-
-- [Add a component](docs/how-to/add-component.md) · [first proof](docs/tutorials/first-proof.md)
-- [Deploy](docs/how-to/deploy.md) · [rollback](docs/how-to/rollback.md) · [incident response](docs/runbooks/incident-response.md)
-- [IR](docs/reference/ir.md) · [manifests and receipts](docs/reference/manifests.md) · [upstream receipts](docs/reference/upstream.md)
-- [Security](SECURITY.md) · [deletion](DELETION.md)
+- [Architecture in seven minutes](docs/architecture/seven-minute-guide.md)
+- [Evidence authority](docs/explanation/evidence-authority.md)
+- [Add a component](docs/how-to/add-component.md)
+- [Reproduce evidence](docs/how-to/reproduce-evidence.md)
+- [Deploy](docs/how-to/deploy.md)
+- [Rollback](docs/how-to/rollback.md)
+- [GitHub release](docs/how-to/github-release.md)
+- [Optional npm handoff](docs/how-to/publish-npm.md)
+- [Historical campaigns](docs/archive/README.md)
+- [Security](SECURITY.md)

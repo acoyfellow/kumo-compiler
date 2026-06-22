@@ -1,10 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFile, readdir } from 'node:fs/promises';
+import { access, readFile, readdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
 const root = resolve(import.meta.dirname, '..');
-const legacy = ['compiler.mjs','button-compiler.mjs','dialog-compiler.mjs','native-control-compiler.mjs','popover-compiler.mjs','form-compiler.mjs','navigation-compiler.mjs','data-presentational-compiler.mjs','selection-command-date-compiler.mjs','select-proof.mjs','button-proof.mjs','dialog-proof.mjs','native-control-proof.mjs','popover-proof.mjs','form-proof.mjs','navigation-proof.mjs','data-presentational-proof.mjs','selection-command-date-proof.mjs'];
+const legacy = ['button-compiler.mjs','dialog-compiler.mjs','native-control-compiler.mjs','popover-compiler.mjs','form-compiler.mjs','navigation-compiler.mjs','data-presentational-compiler.mjs','selection-command-date-compiler.mjs','select-proof.mjs','button-proof.mjs','dialog-proof.mjs','native-control-proof.mjs','popover-proof.mjs','form-proof.mjs','navigation-proof.mjs','data-presentational-proof.mjs','selection-command-date-proof.mjs'];
 
 async function sourceFiles(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -12,6 +12,7 @@ async function sourceFiles(directory) {
 }
 
 test('legacy generators, proof orchestration, and machine-local paths stay deleted', async () => {
+  await assert.rejects(access(resolve(root,'compiler.mjs')));
   const pkg = await readFile(resolve(root, 'package.json'), 'utf8');
   for (const name of legacy) assert.ok(!pkg.includes(name), `package command reintroduced ${name}`);
   const files = (await sourceFiles(root)).filter(file => /\.(?:mjs|js|ts|json|md)$/.test(file) && file !== import.meta.filename);

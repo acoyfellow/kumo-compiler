@@ -1,7 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import {execFileSync} from 'node:child_process'
-import {readFile} from 'node:fs/promises'
+import {readFile,readdir} from 'node:fs/promises'
 import {resolve} from 'node:path'
 const root=resolve(import.meta.dirname,'..')
 const tracked=()=>execFileSync('git',['ls-files','--cached','--others','--exclude-standard'],{cwd:root,encoding:'utf8'}).trim().split('\n')
@@ -11,14 +11,23 @@ test('generated authority and disposable package staging cannot duplicate',async
  assert.equal(files.filter(x=>/^dx\/packages\/kumo-(vue|svelte|solid)\/package\//.test(x)).length,0)
  for(const framework of ['vue','svelte','solid']) assert(files.includes(`dx/packages/kumo-${framework}/build.mjs`))
  const map=JSON.parse(await readFile(resolve(root,'repository-map.json')))
- assert.equal(map.authority.generatedFrameworks,'generated/libraries/')
+ assert.equal(map.zones.generatedFrameworks.path,'generated/libraries/')
+ assert.equal(map.zones.generatedFrameworks.editable,false)
 })
 test('compiled publication assets are untracked except immutable gates',()=>{
  const files=tracked().filter(x=>/^(deploy\/.*\/assets\/|(?:runtime|runtime-canonical)\/.*\/public-runtime\/)/.test(x))
  assert.deepEqual(files.sort(),['runtime/checkbox/react/public-runtime/assets/react-checkbox.js','runtime/switch/react/public-runtime/assets/react-switch.js'])
 })
+test('generated source files declare their boundary',async()=>{
+ for(const framework of ['vue','svelte','solid']){
+  const base=resolve(root,'generated/libraries',framework),queue=[base];
+  while(queue.length){const dir=queue.pop();for(const entry of await readdir(dir,{withFileTypes:true})){const file=resolve(dir,entry.name);if(entry.isDirectory())queue.push(file);else if(/\.(?:vue|svelte|tsx|ts|js)$/.test(entry.name)){const source=await readFile(file,'utf8');assert.match(source,/^(?:<!--|\/\/) @generated /,file)}}}
+ }
+})
 test('active documentation does not treat archive as authority',async()=>{
- const map=await readFile(resolve(root,'repository-map.json'),'utf8')
- assert(!map.includes('docs/archive/'))
+ const map=JSON.parse(await readFile(resolve(root,'repository-map.json'),'utf8'))
+ assert.equal(map.zones.archive.path,'docs/archive/')
+ assert.equal(map.zones.archive.authority,false)
+ assert.equal(map.zones.receipts.authority,true)
  assert(tracked().includes('docs/archive/README.md'))
 })

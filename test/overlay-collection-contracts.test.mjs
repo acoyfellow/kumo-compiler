@@ -7,12 +7,12 @@ import {runCanonicalVectors} from '../scripts/observable-runner.mjs';
 const ids=['dropdown-menu','menu-bar','popover','select'];
 const contracts=ids.map(id=>validateContract(JSON.parse(fs.readFileSync(`contracts/kumo.observable/v1/components/${id}.json`,'utf8'))));
 
-test('overlay and collection contracts are provenance-bound and keep interactive vectors blocked',()=>{
+test('overlay and collection contracts are provenance-bound and browser-receipted',()=>{
   contracts.forEach(verifyCanonical);
+  const report=JSON.parse(fs.readFileSync('proof/observable-contracts/canonical.json','utf8'));
   for(const contract of contracts){
     assert(contract.vectors.some(vector=>!vector.actions?.length),`${contract.component} needs action-free SSR evidence`);
-    for(const vector of contract.vectors.filter(vector=>vector.actions?.length))
-      assert(contract.unknowns.some(unknown=>unknown.field===`vectors.${vector.id}`&&unknown.status==='blocked'),`${contract.component}/${vector.id} must remain blocked`);
+    for(const vector of contract.vectors){const cell=report.cells.find(cell=>cell.component===contract.component&&cell.vector===vector.id);assert.equal(cell?.status,'passed',`${contract.component}/${vector.id}`)}
   }
   const select=contracts.find(contract=>contract.component==='select');
   assert(select.unknowns.some(unknown=>unknown.field==='existingSelectPilot.svelte'&&/failed pointer/.test(unknown.reason)));
