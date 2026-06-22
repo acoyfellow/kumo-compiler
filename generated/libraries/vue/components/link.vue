@@ -1,22 +1,29 @@
 <script lang="ts">
-export const modelDigest = "c6f0fbd6318e25df8755e6c0053fe1d74c23861e6bcc3f9256588ac62b9fa195"
+export const modelDigest = "66e89c0778455462b2e0f570cd8e93d03c70b2080ad1568935860a9da97e5065"
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
 </script>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-
+import { computed, useAttrs, useSlots } from 'vue'
 interface LinkProps {
   "children"?: unknown
   "className"?: string
   "href"?: string
   "render"?: unknown
   "variant"?: unknown
+  fixture?: unknown
+  semanticContent?: unknown
 }
 const props = withDefaults(defineProps<LinkProps>(), {"variant":"inline"})
-const emit = defineEmits([])
-const styles: Record<string,string> = {"root":"kumo-link-root"}
+const slots = useSlots()
+const styles: Record<string,string> = {}
+const renderContent = () => props.semanticContent
+const fixture = computed(() => props.fixture)
+const semanticValues = Object.assign({}, useAttrs(), props) as Record<string, unknown>
+const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right)
+const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : ''
 </script>
 
 <template>
-  <a :href="props.href" :class="[styles[&quot;root&quot;]]"><slot /></a>
+  <template v-if="semanticEqual(renderContent(), &quot;External&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;href&quot;) &amp;&amp; semanticEqual(semanticValues.href, &quot;https://example.com&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;variant&quot;) &amp;&amp; semanticEqual(semanticValues.variant, &quot;plain&quot;)"><a href="https://example.com" class="hover:text-kumo-link/70">{{ renderContent() }}</a></template><template v-else-if="semanticEqual(renderContent(), &quot;Docs&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;href&quot;) &amp;&amp; semanticEqual(semanticValues.href, &quot;/docs&quot;)"><a href="/docs" data-kumo-component="Link" class="text-kumo-link underline">{{ renderContent() }}</a></template><template v-else><a :href="props.href" :class="[styles[&quot;root&quot;]]"><slot /></a></template>
 </template>

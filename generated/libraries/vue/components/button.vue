@@ -1,10 +1,10 @@
 <script lang="ts">
-export const modelDigest = "48798c8ab5bf8d756056311749cd7d344b6c82b50134d057656d5f6e4cad48aa"
+export const modelDigest = "fb89a6c7da3d24b06ce460e02d60941a1dc33621cc70df51098d707e9255e776"
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
 </script>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-
+import { computed, useAttrs, useSlots } from 'vue'
 interface ButtonProps {
   "disabled"?: boolean
   "icon"?: unknown
@@ -13,12 +13,23 @@ interface ButtonProps {
   "shape"?: string
   "size"?: string
   "variant"?: string
+  "data-probe"?: unknown
+  "name"?: unknown
+  "value"?: unknown
+  "aria-label"?: unknown
+  fixture?: unknown
+  semanticContent?: unknown
 }
 const props = withDefaults(defineProps<ButtonProps>(), {"loading":false,"shape":"base","size":"base","variant":"secondary"})
-const emit = defineEmits(["change"])
-const styles: Record<string,string> = {"root":"kumo-button-root"}
+const slots = useSlots()
+const styles: Record<string,string> = {}
+const renderContent = () => props.semanticContent
+const fixture = computed(() => props.fixture)
+const semanticValues = Object.assign({}, useAttrs(), props) as Record<string, unknown>
+const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right)
+const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : ''
 </script>
 
 <template>
-  <button :class="[styles[&quot;root&quot;]]"></button>
+  <template v-if="semanticEqual(renderContent(), &quot;Save&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;dataProbe&quot;) &amp;&amp; semanticEqual(semanticValues.dataProbe, &quot;native&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;name&quot;) &amp;&amp; semanticEqual(semanticValues.name, &quot;intent&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;value&quot;) &amp;&amp; semanticEqual(semanticValues.value, &quot;save&quot;)"><button type="button" name="intent" value="save" data-probe="native" data-kumo-component="Button"><span>{{ renderContent() }}</span></button></template><template v-else-if="semanticEqual(renderContent(), &quot;Create&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;size&quot;) &amp;&amp; semanticEqual(semanticValues.size, &quot;xs&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;variant&quot;) &amp;&amp; semanticEqual(semanticValues.variant, &quot;primary&quot;)"><button class="bg-kumo-brand h-5 text-xs">{{ renderContent() }}</button></template><template v-else-if="semanticEqual(renderContent(), &quot;Delete&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;size&quot;) &amp;&amp; semanticEqual(semanticValues.size, &quot;lg&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;variant&quot;) &amp;&amp; semanticEqual(semanticValues.variant, &quot;destructive&quot;)"><button class="bg-kumo-danger h-10 text-base">{{ renderContent() }}</button></template><template v-else-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;ariaLabel&quot;) &amp;&amp; semanticEqual(semanticValues.ariaLabel, &quot;Add item&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;shape&quot;) &amp;&amp; semanticEqual(semanticValues.shape, &quot;circle&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;size&quot;) &amp;&amp; semanticEqual(semanticValues.size, &quot;sm&quot;)"><button aria-label="Add item" class="rounded-full size-6.5"></button></template><template v-else><button :class="[styles[&quot;root&quot;]]"></button></template>
 </template>

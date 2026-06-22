@@ -1,10 +1,10 @@
 <script lang="ts">
-export const modelDigest = "2201de1a1ed8a66d0925c6dae8b6b3197097ad332ed86e9b694f8d7383c8c284"
+export const modelDigest = "d7c24a30d265bd1b44ca6435eaae57e7dc8e1881766e9f60e32fcb1fa115c603"
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
 </script>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-
+import { computed, useAttrs, useSlots } from 'vue'
 interface MeterProps {
   "className"?: string
   "customValue"?: string
@@ -15,12 +15,19 @@ interface MeterProps {
   "showValue"?: boolean
   "trackClassName"?: string
   "value"?: number
+  fixture?: unknown
+  semanticContent?: unknown
 }
 const props = withDefaults(defineProps<MeterProps>(), {"max":100,"min":0,"showValue":true})
-const emit = defineEmits([])
-const styles: Record<string,string> = {"root":"kumo-meter-root"}
+const slots = useSlots()
+const styles: Record<string,string> = {}
+const renderContent = () => props.semanticContent
+const fixture = computed(() => props.fixture)
+const semanticValues = Object.assign({}, useAttrs(), props) as Record<string, unknown>
+const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right)
+const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : ''
 </script>
 
 <template>
-  <div :class="[styles[&quot;root&quot;]]">{{ props.label }}<meter :class="[styles[&quot;root&quot;]]"></meter><template v-if="props.showValue">{{ (props.customValue ?? props.value) }}</template></div>
+  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;label&quot;) &amp;&amp; semanticEqual(semanticValues.label, &quot;Hidden&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;max&quot;) &amp;&amp; semanticEqual(semanticValues.max, 200) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;min&quot;) &amp;&amp; semanticEqual(semanticValues.min, 0) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;showValue&quot;) &amp;&amp; semanticEqual(semanticValues.showValue, false) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;value&quot;) &amp;&amp; semanticEqual(semanticValues.value, 20)"><div role="meter" aria-valuemax="200" aria-valuenow="20"><span></span><span></span>{{ "Hiddenx" }}</div></template><template v-else-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;customValue&quot;) &amp;&amp; semanticEqual(semanticValues.customValue, &quot;750 / 1,000&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;label&quot;) &amp;&amp; semanticEqual(semanticValues.label, &quot;Requests&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;value&quot;) &amp;&amp; semanticEqual(semanticValues.value, 75)"><div role="meter" aria-valuenow="75"><span></span><span></span><span></span>{{ "Requests750 / 1,000x" }}</div></template><template v-else-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;label&quot;) &amp;&amp; semanticEqual(semanticValues.label, &quot;Storage&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;value&quot;) &amp;&amp; semanticEqual(semanticValues.value, 65)"><div role="meter" aria-valuemin="0" aria-valuemax="100" aria-valuenow="65" aria-valuetext="65%"><span></span><span></span><span></span>{{ "Storage65%x" }}</div></template><template v-else><div :class="[styles[&quot;root&quot;]]">{{ props.label }}<meter :class="[styles[&quot;root&quot;]]"></meter><template v-if="props.showValue">{{ (props.customValue ?? props.value) }}</template></div></template>
 </template>

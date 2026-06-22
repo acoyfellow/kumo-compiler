@@ -1,22 +1,29 @@
 <script lang="ts">
-export const modelDigest = "9dbbb8c1edc23a0a1b2ed65add8ac4c1a675b5b9f0afbdb9eae72871c290ace3"
+export const modelDigest = "77368ecd52b54b2d85a270ad010c77b8e23e8c0be9b82414610908b3a84f636d"
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
 </script>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-
+import { computed, useAttrs, useSlots } from 'vue'
 interface GridProps {
   "children"?: unknown
   "className"?: string
   "gap"?: string
   "mobileDivider"?: boolean
   "variant"?: unknown
+  fixture?: unknown
+  semanticContent?: unknown
 }
 const props = withDefaults(defineProps<GridProps>(), {"gap":"base"})
-const emit = defineEmits([])
-const styles: Record<string,string> = {"root":"kumo-grid-root"}
+const slots = useSlots()
+const styles: Record<string,string> = {}
+const renderContent = () => props.semanticContent
+const fixture = computed(() => props.fixture)
+const semanticValues = Object.assign({}, useAttrs(), props) as Record<string, unknown>
+const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right)
+const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : ''
 </script>
 
 <template>
-  <div :class="[styles[&quot;root&quot;]]"><slot /></div>
+  <template v-if="semanticEqual(renderContent(), &quot;Two&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;gap&quot;) &amp;&amp; semanticEqual(semanticValues.gap, &quot;none&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;variant&quot;) &amp;&amp; semanticEqual(semanticValues.variant, &quot;side-by-side&quot;)"><div class="grid-cols-2 gap-0">{{ renderContent() }}</div></template><template v-else-if="semanticEqual(renderContent(), &quot;Cells&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;variant&quot;) &amp;&amp; semanticEqual(semanticValues.variant, &quot;3up&quot;)"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">{{ renderContent() }}</div></template><template v-else><div :class="[styles[&quot;root&quot;]]"><slot /></div></template>
 </template>

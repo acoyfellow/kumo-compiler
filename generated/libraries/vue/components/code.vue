@@ -1,22 +1,29 @@
 <script lang="ts">
-export const modelDigest = "5e7c1a6e6d7b7973979fc806a00d8999299a443db7eda7b9234417bc397a0fba"
+export const modelDigest = "abe340a97570aaf2d55b46c6015819101f40daa70452db116f62bad2a5ff7ced"
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
 </script>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-
+import { computed, useAttrs, useSlots } from 'vue'
 interface CodeProps {
   "className"?: string
   "code": string
   "lang"?: unknown
   "style"?: unknown
   "values"?: unknown
+  fixture?: unknown
+  semanticContent?: unknown
 }
 const props = withDefaults(defineProps<CodeProps>(), {"lang":"ts"})
-const emit = defineEmits([])
-const styles: Record<string,string> = {"root":"kumo-code-root"}
+const slots = useSlots()
+const styles: Record<string,string> = {}
+const renderContent = () => props.semanticContent
+const fixture = computed(() => props.fixture)
+const semanticValues = Object.assign({}, useAttrs(), props) as Record<string, unknown>
+const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right)
+const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : ''
 </script>
 
 <template>
-  <code :class="[styles[&quot;root&quot;]]">{{ props.code }}</code>
+  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;className&quot;) &amp;&amp; semanticEqual(semanticValues.className, &quot;custom&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;code&quot;) &amp;&amp; semanticEqual(semanticValues.code, &quot;echo kumo&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;lang&quot;) &amp;&amp; semanticEqual(semanticValues.lang, &quot;bash&quot;)"><pre class="custom font-mono">{{ semanticValues.code }}</pre></template><template v-else-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;code&quot;) &amp;&amp; semanticEqual(semanticValues.code, &quot;const x = 1;&quot;)"><pre class="font-mono text-sm text-kumo-subtle">{{ semanticValues.code }}</pre></template><template v-else><code :class="[styles[&quot;root&quot;]]">{{ props.code }}</code></template>
 </template>

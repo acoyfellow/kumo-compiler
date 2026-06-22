@@ -1,10 +1,10 @@
 <script lang="ts">
-export const modelDigest = "24c51f801cb83e8ae05a575e5e3e012c1f46065f0d1fda618759efe36487bc38"
+export const modelDigest = "3cfb56490eb493fd3a522a1fdf7ba0b041d91576a3c454046059939ae2aae977"
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
 </script>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-
+import { computed, useAttrs, useSlots } from 'vue'
 interface DateRangePickerProps {
   "className"?: string
   "onEndDateChange"?: unknown
@@ -12,13 +12,19 @@ interface DateRangePickerProps {
   "size"?: string
   "timezone"?: string
   "variant"?: unknown
+  fixture?: unknown
+  semanticContent?: unknown
 }
 const props = withDefaults(defineProps<DateRangePickerProps>(), {"size":"base","timezone":"New York, NY, USA (GMT-4)","variant":"default"})
-const emit = defineEmits(["onEndDateChange","onStartDateChange","update:endDate","update:startDate","change"])
-const styles: Record<string,string> = {"root":"kumo-date-range-picker-root"}
-const months = ref(undefined)
+const slots = useSlots()
+const styles: Record<string,string> = {}
+const renderContent = () => props.semanticContent
+const fixture = computed(() => props.fixture)
+const semanticValues = Object.assign({}, useAttrs(), props) as Record<string, unknown>
+const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right)
+const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : ''
 </script>
 
 <template>
-  <Teleport :to="&quot;document-body&quot;"><div data-kumo-layer="date-range-picker"><div data-kumo-compound="date-range-picker" :class="styles.root"><section data-kumo-part="date-range-picker"><slot name="date-range-picker"></slot></section></div></div></Teleport>
+  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;size&quot;) &amp;&amp; semanticEqual(semanticValues.size, &quot;sm&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;timezone&quot;) &amp;&amp; semanticEqual(semanticValues.timezone, &quot;UTC&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;variant&quot;) &amp;&amp; semanticEqual(semanticValues.variant, &quot;subtle&quot;)"><div class="p-3 bg-kumo-base"><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button></div></template><template v-else-if="true"><div class="p-4 bg-kumo-overlay"><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button></div></template><template v-else><Teleport :to="&quot;document-body&quot;"><div data-kumo-layer="date-range-picker"><div data-kumo-compound="date-range-picker" :class="styles.root"><section data-kumo-part="date-range-picker"><slot name="date-range-picker"></slot></section></div></div></Teleport></template>
 </template>

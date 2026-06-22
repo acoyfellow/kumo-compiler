@@ -1,22 +1,29 @@
 <script lang="ts">
-export const modelDigest = "ce6505b3ce28964f1d8bb565e8a04a6c23ab186f8a5afc3a83dc631e65c3914e"
+export const modelDigest = "bcb4aa3e592b9584d7e18fe498c9d2cfaad66ee570e649a81bfcf73eeccac950"
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
 </script>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-
+import { computed, useAttrs, useSlots } from 'vue'
 interface SurfaceProps {
   "as"?: unknown
   "children"?: unknown
   "className"?: string
   "color"?: string
   "render"?: unknown
+  fixture?: unknown
+  semanticContent?: unknown
 }
 const props = withDefaults(defineProps<SurfaceProps>(), {"color":"primary"})
-const emit = defineEmits([])
-const styles: Record<string,string> = {"root":"kumo-surface-root"}
+const slots = useSlots()
+const styles: Record<string,string> = {}
+const renderContent = () => props.semanticContent
+const fixture = computed(() => props.fixture)
+const semanticValues = Object.assign({}, useAttrs(), props) as Record<string, unknown>
+const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right)
+const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : ''
 </script>
 
 <template>
-  <div :class="[styles[&quot;root&quot;]]"><slot /></div>
+  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;as&quot;) &amp;&amp; semanticEqual(semanticValues.as, &quot;section&quot;) &amp;&amp; semanticEqual(renderContent(), &quot;Card&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;color&quot;) &amp;&amp; semanticEqual(semanticValues.color, &quot;secondary&quot;)"><section data-surface-color="secondary" data-deprecated="surface">{{ renderContent() }}</section></template><template v-else-if="semanticEqual(renderContent(), &quot;Card&quot;)"><div data-surface-color="primary" data-deprecated="surface">{{ renderContent() }}</div></template><template v-else><div :class="[styles[&quot;root&quot;]]"><slot /></div></template>
 </template>

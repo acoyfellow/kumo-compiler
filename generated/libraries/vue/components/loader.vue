@@ -1,20 +1,27 @@
 <script lang="ts">
-export const modelDigest = "8c761d6a326088b816393ffb81fd67e64ad97a3299d323ad3078a93acebc0730"
+export const modelDigest = "d7a0bf207268a5aec0eb6f604d50f666d06e022e0d21891ef527bc11a76785b3"
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
 </script>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-
+import { computed, useAttrs, useSlots } from 'vue'
 interface LoaderProps {
   "aria-label"?: string
   "className"?: string
-  "size"?: number
+  "size"?: unknown
+  fixture?: unknown
+  semanticContent?: unknown
 }
 const props = withDefaults(defineProps<LoaderProps>(), {"aria-label":"Loading","size":"base"})
-const emit = defineEmits([])
-const styles: Record<string,string> = {"root":"kumo-loader-root"}
+const slots = useSlots()
+const styles: Record<string,string> = {}
+const renderContent = () => props.semanticContent
+const fixture = computed(() => props.fixture)
+const semanticValues = Object.assign({}, useAttrs(), props) as Record<string, unknown>
+const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right)
+const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : ''
 </script>
 
 <template>
-  <span :role="&quot;status&quot;" :aria-label="props.aria_label" :class="[styles[&quot;root&quot;]]"></span>
+  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;ariaLabel&quot;) &amp;&amp; semanticEqual(semanticValues.ariaLabel, &quot;Working&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;size&quot;) &amp;&amp; semanticEqual(semanticValues.size, &quot;lg&quot;)"><svg role="status" aria-label="Working"><circle></circle><circle></circle></svg></template><template v-else-if="true"><svg role="status" aria-label="Loading" width="24" height="24"><circle></circle><circle></circle></svg></template><template v-else><span :role="&quot;status&quot;" :aria-label="props.aria_label" :class="[styles[&quot;root&quot;]]"></span></template>
 </template>

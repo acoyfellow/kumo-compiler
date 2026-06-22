@@ -2,4 +2,4 @@ import type { DefineComponent } from 'vue';
 export interface GridProps { [key: string]: unknown }
 declare const component: DefineComponent<GridProps>;
 export default component;
-export declare const modelDigest: "9dbbb8c1edc23a0a1b2ed65add8ac4c1a675b5b9f0afbdb9eae72871c290ace3";
+export declare const modelDigest: "77368ecd52b54b2d85a270ad010c77b8e23e8c0be9b82414610908b3a84f636d";

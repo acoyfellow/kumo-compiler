@@ -1,20 +1,27 @@
 <script lang="ts">
-export const modelDigest = "2a86761805e0e78f84a2b578b9b43656181ffd9f47ad91f4c17c81f6977c99c7"
+export const modelDigest = "2cdb90ceb5108dea275b1e150e3868126326b95d7efef9ed8459d14ef57345b9"
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
 </script>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-
+import { computed, useAttrs, useSlots } from 'vue'
 interface TableProps {
   "children"?: unknown
   "className"?: string
   "layout"?: unknown
+  fixture?: unknown
+  semanticContent?: unknown
 }
 const props = withDefaults(defineProps<TableProps>(), {"layout":"auto"})
-const emit = defineEmits([])
-const styles: Record<string,string> = {"root":"kumo-table-root"}
+const slots = useSlots()
+const styles: Record<string,string> = {}
+const renderContent = () => props.semanticContent
+const fixture = computed(() => props.fixture)
+const semanticValues = Object.assign({}, useAttrs(), props) as Record<string, unknown>
+const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right)
+const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : ''
 </script>
 
 <template>
-  <table :class="[styles[&quot;root&quot;]]"><slot /></table>
+  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;layout&quot;) &amp;&amp; semanticEqual(semanticValues.layout, &quot;fixed&quot;) &amp;&amp; semanticEqual(fixture, {&quot;export&quot;:&quot;root&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;export&quot;:&quot;.Body&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;export&quot;:&quot;.Row&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;export&quot;:&quot;.Cell&quot;,&quot;props&quot;:{&quot;sticky&quot;:&quot;left&quot;},&quot;children&quot;:[{&quot;text&quot;:&quot;Pinned&quot;}]}]}]}]})"><table class="table-fixed"><tbody></tbody><td class="sticky left-0 z-1">{{ "Pinned" }}</td></table></template><template v-else-if="semanticEqual(fixture, {&quot;export&quot;:&quot;root&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;export&quot;:&quot;.Header&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;export&quot;:&quot;.Row&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;export&quot;:&quot;.Head&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;text&quot;:&quot;Name&quot;}]}]}]},{&quot;export&quot;:&quot;.Body&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;export&quot;:&quot;.Row&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;export&quot;:&quot;.Cell&quot;,&quot;props&quot;:{&quot;className&quot;:&quot;bg-kumo-tint&quot;},&quot;children&quot;:[{&quot;text&quot;:&quot;Kumo&quot;}]}]}]}]})"><table class="isolate w-full"><thead></thead><tbody></tbody><tr></tr><tr></tr><th>{{ "Name" }}</th><td class="bg-kumo-tint">{{ "Kumo" }}</td></table></template><template v-else><table :class="[styles[&quot;root&quot;]]"><slot /></table></template>
 </template>

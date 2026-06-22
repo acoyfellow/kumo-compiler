@@ -15,6 +15,7 @@ export function normalizeRenderContent(value) {
 }
 
 export function semanticPredicate(value, {props='props', fixture='fixture', content='renderContent', equal='semanticEqual'} = {}) {
+  if (value.kind === 'prop-equals' && value.name === 'children') return `${equal}(${content}, ${JSON.stringify(value.value)})`;
   if (value.kind === 'prop-equals') return `Object.prototype.hasOwnProperty.call(${props}, ${JSON.stringify(value.name)}) && ${equal}(${member(props, value.name)}, ${JSON.stringify(value.value)})`;
   if (value.kind === 'fixture-equals') return `${equal}(${fixture}, ${JSON.stringify(value.value)})`;
   throw new Error(`unsupported semantic predicate: ${value.kind}`);

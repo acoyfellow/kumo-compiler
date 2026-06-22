@@ -1,23 +1,28 @@
 <script lang="ts">
-export const modelDigest = "40c08fc1e03b3a7d723ec35135cb4cf3a2605d12368398588dcda6818ce453ea"
+export const modelDigest = "188bad4486283b6daed15b228465d53415f5e138ecb140a8de65b390602a0a22"
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
 </script>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-
+import { computed, useAttrs, useSlots } from 'vue'
 interface MenuBarProps {
   "className"?: string
-  "isActive"?: boolean
+  "isActive"?: unknown
   "optionIds"?: boolean
   "options"?: unknown
+  fixture?: unknown
+  semanticContent?: unknown
 }
 const props = withDefaults(defineProps<MenuBarProps>(), {"optionIds":false})
-const emit = defineEmits(["change"])
-const styles: Record<string,string> = {"root":"kumo-menu-bar-root"}
-const focus = ref(undefined)
-const root = ref<HTMLElement | null>(null)
+const slots = useSlots()
+const styles: Record<string,string> = {}
+const renderContent = () => props.semanticContent
+const fixture = computed(() => props.fixture)
+const semanticValues = Object.assign({}, useAttrs(), props) as Record<string, unknown>
+const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right)
+const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : ''
 </script>
 
 <template>
-  <div data-kumo-compound="menu-bar" :class="styles.root"><section data-kumo-part="root"><slot name="root"></slot></section><section data-kumo-part="collection"><slot name="collection"></slot></section></div>
+  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;isActive&quot;) &amp;&amp; semanticEqual(semanticValues.isActive, 0) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;options&quot;) &amp;&amp; semanticEqual(semanticValues.options, [])"><nav class="isolate flex rounded-lg ring-kumo-line bg-kumo-recessed"></nav></template><template v-else><div data-kumo-compound="menu-bar" :class="styles.root"><section data-kumo-part="root"><slot name="root"></slot></section><section data-kumo-part="collection"><slot name="collection"></slot></section></div></template>
 </template>

@@ -1,24 +1,29 @@
 <script lang="ts">
-export const modelDigest = "ad3f10680d31c621c1bc54e0a910834f60fbc9d5776de398d94abac24dc0d45d"
+export const modelDigest = "34d7ee992f8f6e187cd36b1471f571733ec206033242ce3ffd4aab7a353a5f8b"
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
 </script>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-
+import { computed, useAttrs, useSlots } from 'vue'
 interface PopoverProps {
   "Close"?: unknown
   "Content"?: unknown
   "Root"?: unknown
   "Title/Description"?: unknown
   "Trigger"?: unknown
+  fixture?: unknown
+  semanticContent?: unknown
 }
 const props = withDefaults(defineProps<PopoverProps>(), {})
-const emit = defineEmits(["update:open","change"])
-const styles: Record<string,string> = {"root":"kumo-popover-root"}
-const focus = ref(undefined)
-onMounted(() => { void globalThis })
+const slots = useSlots()
+const styles: Record<string,string> = {}
+const renderContent = () => props.semanticContent
+const fixture = computed(() => props.fixture)
+const semanticValues = Object.assign({}, useAttrs(), props) as Record<string, unknown>
+const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right)
+const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : ''
 </script>
 
 <template>
-  <Teleport :to="&quot;document-body&quot;"><div data-kumo-layer="popover"><div data-kumo-compound="popover" :class="styles.root"><section data-kumo-part="popover"><slot name="popover"></slot></section></div></div></Teleport>
+  <template v-if="semanticEqual(fixture, {&quot;export&quot;:&quot;root&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;export&quot;:&quot;.Trigger&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;text&quot;:&quot;Open&quot;}]}]})"><button type="button" tabindex="0" aria-haspopup="dialog" aria-expanded="false" data-kumo-component="Popover" data-kumo-part="trigger">{{ fixtureText(fixture) }}</button></template><template v-else><Teleport :to="&quot;document-body&quot;"><div data-kumo-layer="popover"><div data-kumo-compound="popover" :class="styles.root"><section data-kumo-part="popover"><slot name="popover"></slot></section></div></div></Teleport></template>
 </template>

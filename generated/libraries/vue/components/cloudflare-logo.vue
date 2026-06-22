@@ -1,20 +1,27 @@
 <script lang="ts">
-export const modelDigest = "50b2371be89b11ae83917c42fdb9b67c42df8467c98e2668e0540afd07dc8c58"
+export const modelDigest = "b2674fc7e38cace5a90134bb36e79807b0f150548237eb9c09d8398b0c1fa228"
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
 </script>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-
+import { computed, useAttrs, useSlots } from 'vue'
 interface CloudflareLogoProps {
   "className"?: string
   "color"?: unknown
   "variant"?: unknown
+  fixture?: unknown
+  semanticContent?: unknown
 }
 const props = withDefaults(defineProps<CloudflareLogoProps>(), {"color":"color","variant":"full"})
-const emit = defineEmits([])
-const styles: Record<string,string> = {"root":"kumo-cloudflare-logo-root"}
+const slots = useSlots()
+const styles: Record<string,string> = {}
+const renderContent = () => props.semanticContent
+const fixture = computed(() => props.fixture)
+const semanticValues = Object.assign({}, useAttrs(), props) as Record<string, unknown>
+const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right)
+const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : ''
 </script>
 
 <template>
-  <svg :role="&quot;img&quot;" :aria-label="&quot;Cloudflare&quot;" :class="[styles[&quot;root&quot;]]"></svg>
+  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;color&quot;) &amp;&amp; semanticEqual(semanticValues.color, &quot;white&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;variant&quot;) &amp;&amp; semanticEqual(semanticValues.variant, &quot;glyph&quot;)"><component :is="'svg'" v-bind="{ &quot;role&quot;: &quot;img&quot;, &quot;aria-label&quot;: &quot;Cloudflare logo&quot;, &quot;viewBox&quot;: &quot;0 0 49 22&quot; }" class="text-white"><path></path><path></path></component></template><template v-else-if="true"><component :is="'svg'" v-bind="{ &quot;role&quot;: &quot;img&quot;, &quot;aria-label&quot;: &quot;Cloudflare logo&quot;, &quot;viewBox&quot;: &quot;0 0 425.6 143.63&quot; }" class="text-kumo-default"><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path></component></template><template v-else><svg :role="&quot;img&quot;" :aria-label="&quot;Cloudflare&quot;" :class="[styles[&quot;root&quot;]]"></svg></template>
 </template>

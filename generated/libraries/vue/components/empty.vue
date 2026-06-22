@@ -1,10 +1,10 @@
 <script lang="ts">
-export const modelDigest = "807df579a4b5811636f6c8ae3fbc56d8907ba572d3a57cf9b47ea9f266a81eca"
+export const modelDigest = "09c586d6894b365150e81a5fba8032a98695d8f6cd14bf4ea0f0466bda52b194"
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
 </script>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-
+import { computed, useAttrs, useSlots } from 'vue'
 interface EmptyProps {
   "className"?: string
   "commandLine"?: string
@@ -13,12 +13,19 @@ interface EmptyProps {
   "icon"?: unknown
   "size"?: string
   "title": string
+  fixture?: unknown
+  semanticContent?: unknown
 }
 const props = withDefaults(defineProps<EmptyProps>(), {"size":"base"})
-const emit = defineEmits([])
-const styles: Record<string,string> = {"root":"kumo-empty-root"}
+const slots = useSlots()
+const styles: Record<string,string> = {}
+const renderContent = () => props.semanticContent
+const fixture = computed(() => props.fixture)
+const semanticValues = Object.assign({}, useAttrs(), props) as Record<string, unknown>
+const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right)
+const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : ''
 </script>
 
 <template>
-  <section :class="[styles[&quot;root&quot;]]"><slot name="icon"></slot>{{ props.title }}<slot name="description"></slot><slot name="contents"></slot></section>
+  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;title&quot;) &amp;&amp; semanticEqual(semanticValues.title, &quot;No results&quot;)"><div class="px-10 py-16 gap-6"><h2>{{ semanticValues.title }}</h2></div></template><template v-else><section :class="[styles[&quot;root&quot;]]"><slot name="icon"></slot>{{ props.title }}<slot name="description"></slot><slot name="contents"></slot></section></template>
 </template>

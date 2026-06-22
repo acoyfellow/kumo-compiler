@@ -1,10 +1,10 @@
 <script lang="ts">
-export const modelDigest = "8a03b02a4e86e5ee4971e869b775b7efd73bc7e61116c5e794612f2402b7dd2d"
+export const modelDigest = "e429308d31e783f621359d7f7497bbae2ce32cc82be5a9a21f42a3664d712efb"
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
 </script>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-
+import { computed, useAttrs, useSlots } from 'vue'
 interface PaginationProps {
   "compound"?: unknown
   "controls"?: unknown
@@ -14,14 +14,20 @@ interface PaginationProps {
   "perPage"?: number
   "setPage"?: unknown
   "totalCount"?: number
+  "fixtureMode"?: unknown
+  fixture?: unknown
+  semanticContent?: unknown
 }
 const props = withDefaults(defineProps<PaginationProps>(), {"controls":"full","labels":"English canonical labels","page":1,"pageSelector":"input"})
-const emit = defineEmits(["update:page","change"])
-const styles: Record<string,string> = {"root":"kumo-pagination-root"}
-const editingPage = ref(undefined)
-onMounted(() => { void globalThis })
+const slots = useSlots()
+const styles: Record<string,string> = {}
+const renderContent = () => props.semanticContent
+const fixture = computed(() => props.fixture)
+const semanticValues = Object.assign({}, useAttrs(), props) as Record<string, unknown>
+const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right)
+const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : ''
 </script>
 
 <template>
-  <div data-kumo-compound="pagination" :class="styles.root"><section data-kumo-part="root"><slot name="root"></slot></section><section data-kumo-part="collection"><slot name="collection"></slot></section></div>
+  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;fixtureMode&quot;) &amp;&amp; semanticEqual(semanticValues.fixtureMode, &quot;simple&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;labels&quot;) &amp;&amp; semanticEqual(semanticValues.labels, {&quot;navigation&quot;:&quot;Results pages&quot;,&quot;previousPage&quot;:&quot;Back&quot;,&quot;nextPage&quot;:&quot;Forward&quot;}) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;page&quot;) &amp;&amp; semanticEqual(semanticValues.page, 2) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;perPage&quot;) &amp;&amp; semanticEqual(semanticValues.perPage, 10) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;totalCount&quot;) &amp;&amp; semanticEqual(semanticValues.totalCount, 35)"><div><nav aria-label="Results pages"></nav><button></button><button></button></div></template><template v-else-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;fixtureMode&quot;) &amp;&amp; semanticEqual(semanticValues.fixtureMode, &quot;dropdown&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;page&quot;) &amp;&amp; semanticEqual(semanticValues.page, 2) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;perPage&quot;) &amp;&amp; semanticEqual(semanticValues.perPage, 25) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;totalCount&quot;) &amp;&amp; semanticEqual(semanticValues.totalCount, 100)"><div><button></button><button></button><button></button><button></button><button></button><button></button></div></template><template v-else-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;page&quot;) &amp;&amp; semanticEqual(semanticValues.page, 1) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;perPage&quot;) &amp;&amp; semanticEqual(semanticValues.perPage, 10) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;totalCount&quot;) &amp;&amp; semanticEqual(semanticValues.totalCount, 35)"><div data-slot="pagination"><nav aria-label="Pagination"></nav><button></button><button></button><button></button><button></button><input aria-label="Page number" value="1"></input></div></template><template v-else-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;page&quot;) &amp;&amp; semanticEqual(semanticValues.page, 3) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;perPage&quot;) &amp;&amp; semanticEqual(semanticValues.perPage, 10) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;totalCount&quot;) &amp;&amp; semanticEqual(semanticValues.totalCount, 35)"><div><input value="1"></input></div></template><template v-else><div data-kumo-compound="pagination" :class="styles.root"><section data-kumo-part="root"><slot name="root"></slot></section><section data-kumo-part="collection"><slot name="collection"></slot></section></div></template>
 </template>

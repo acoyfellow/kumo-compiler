@@ -4,6 +4,7 @@ import crypto from 'node:crypto';
 import {fileURLToPath} from 'node:url';
 import {loadLibrary, canonicalJSON} from '../../library/index.mjs';
 import {validateImplementation, NODE_KINDS, EXPRESSION_KINDS, OPERATION_KINDS} from '../../library/algebra.mjs';
+import {requireContentBindings, semanticExpression, semanticPredicate} from '../shared/content-adapter.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '../../../..');
@@ -50,9 +51,11 @@ function node(value, context = {}) {
   }
 }
 function vueType(type) {
-  if (/boolean/i.test(type)) return 'boolean';
-  if (/number/i.test(type)) return 'number';
-  if (/string|base\||sm\||xs\||lg\||primary\||dialog\|/i.test(type)) return 'string';
+  const boolean = /boolean/i.test(type), number = /number/i.test(type), string = /string|base\||sm\||xs\||lg\||primary\||dialog\|/i.test(type);
+  if ([boolean,number,string].filter(Boolean).length > 1) return 'unknown';
+  if (boolean) return 'boolean';
+  if (number) return 'number';
+  if (string) return 'string';
   return 'unknown';
 }
 function compoundPartSource(partPath) {
@@ -79,23 +82,41 @@ function compoundBindingSource(graph, imports) {
   const literal = value => typeof value === 'string' ? value : `{ ${Object.entries(value).map(([key, child]) => `${JSON.stringify(key)}: ${literal(child)}`).join(', ')} }`;
   return `export const ${id(graph.canonicalRoot)} = Object.assign(RootComponent, ${literal(root)})`;
 }
+const vuePropName = name => name.replace(/-([a-z])/g,(_,letter)=>letter.toUpperCase());
+function semanticNode(value) {
+  const e = item => {
+    const semanticItem = item.kind === 'prop' ? {...item,name:vuePropName(item.name)} : item;
+    const semantic = semanticExpression(semanticItem,{props:'semanticValues',fixture:'fixture',content:'renderContent()'});
+    if (semantic !== null) return semantic;
+    return expression(item,'semanticValues');
+  };
+  switch (value.kind) {
+    case 'semantic-element': {
+      if (value.tag.kind !== 'literal' || !/^[a-z][a-z0-9-]*$/.test(value.tag.value)) throw new Error('Vue semantic element requires literal tag');
+      const entries = Object.entries(value.attributes ?? {});
+      const dynamicTag = entries.some(([name]) => /[A-Z]/.test(name));
+      const attrs = dynamicTag ? [`v-bind="{ ${entries.map(([name,item]) => `${directive(JSON.stringify(name))}: ${directive(e(item))}`).join(', ')} }"`] : entries.map(([name,item]) => item.kind === 'literal' && typeof item.value === 'string' ? `${name}="${esc(item.value)}"` : `:${name}="${directive(e(item))}"`);
+      if (value.classes?.length) attrs.push(`class="${esc(value.classes.map(x => x.value).join(' '))}"`);
+      const tag = dynamicTag ? `component :is="'${value.tag.value}'"` : value.tag.value;
+      const close = dynamicTag ? 'component' : value.tag.value;
+      return `<${tag}${attrs.length?' '+attrs.join(' '):''}>${(value.children??[]).map(semanticNode).join('')}</${close}>`;
+    }
+    case 'text': return `{{ ${e(value.value)} }}`;
+    case 'fixture-children': return `{{ fixtureText(${e(value.value)}) }}`;
+    default: return node(value);
+  }
+}
 function emitComponent(model) {
   const implementation = validateImplementation(model.draftImplementation);
-  const states = new Map(model.states.map(s => [s.name, s]));
-  const stateOps = implementation.operations.filter(x => x.kind === 'state');
-  const refs = implementation.operations.filter(x => ['ref','focus'].includes(x.kind)).map(x => x.target).filter(Boolean);
-  const services = implementation.operations.filter(x => x.kind === 'browser-service');
-  const callbacks = model.emissions.callbacks.map(x => typeof x === 'string' ? x : x.name).filter(Boolean);
-  const modelEvents = model.emissions.models.map(x => typeof x === 'string' ? `update:${x}` : x.event).filter(Boolean);
-  const events = [...new Set([...callbacks, ...modelEvents, ...implementation.operations.filter(x => x.kind === 'emit').map(x => x.event).filter(Boolean)])];
-  const props = model.props.items.map(p => `  ${JSON.stringify(p.name)}${p.required ? '' : '?'}: ${vueType(p.type)}`).join('\n');
-  const defaults = Object.fromEntries(model.props.items.filter(p => p.default !== null && p.default !== undefined).map(p => [p.name,p.default]));
-  const styleNames = [...new Set(implementation.operations.flatMap(x => x.styles ?? []).filter(x => x.kind === 'style-ref').map(x => x.name))];
-  const lines = [`import { onMounted, ref } from 'vue'`, ``, `interface ${model.public.symbol}Props {`, props, `}`, `const props = withDefaults(defineProps<${model.public.symbol}Props>(), ${JSON.stringify(defaults)})`, `const emit = defineEmits(${JSON.stringify(events)})`, `const styles: Record<string,string> = ${JSON.stringify(Object.fromEntries(styleNames.map(x => [x, `kumo-${model.component}-${x}`])))}`];
-  for (const op of stateOps) { const initial = states.get(op.state)?.initial; const fallback = initial === 'true' || initial === true ? 'true' : initial === 'false' || initial === false ? 'false' : op.initial?.kind === 'state' ? 'undefined' : expression(op.initial); lines.push(`const ${id(op.state)} = ref(${fallback})`); }
-  for (const name of [...new Set(refs)]) lines.push(`const ${id(name)} = ref<HTMLElement | null>(null)`);
-  if (services.length || implementation.operations.some(x => x.kind === 'lifecycle')) lines.push(`onMounted(() => { void ${services.length ? 'globalThis' : 'props'} })`);
-  return `<script lang="ts">\nexport const modelDigest = ${JSON.stringify(model.modelDigest)}\n</script>\n\n<script setup lang="ts">\n${lines.filter(x => x !== undefined).join('\n')}\n</script>\n\n<template>\n  ${node(implementation.componentRoot)}\n</template>\n`;
+  const contentBindingDigest = requireContentBindings(model);
+  const defaults = Object.fromEntries(model.props.items.filter(p => p.default != null).map(p => [p.name,p.default]));
+  const variants = [...(implementation.semanticVariants ?? [])].sort((a,b)=>b.when.length-a.when.length);
+  const declaredProps = new Map(model.props.items.map(p => [p.name,p]));
+  for (const variant of variants) for (const predicate of variant.when) if (predicate.kind === 'prop-equals' && predicate.name !== 'children' && !declaredProps.has(predicate.name)) declaredProps.set(predicate.name,{name:predicate.name,required:false,type:'unknown'});
+  const props = [...declaredProps.values()].map(p => `  ${JSON.stringify(p.name)}${p.required && p.name !== 'children' ? '' : '?'}: ${vueType(p.type)}`).join('\n');
+  const predicates = variants.map(v => v.when.map(x => semanticPredicate(x.kind === 'prop-equals' && x.name !== 'children' ? {...x,name:vuePropName(x.name)} : x,{props:'semanticValues',fixture:'fixture',content:'renderContent()',equal:'semanticEqual'})).join(' && ') || 'true');
+  const semantic = variants.map((v,i) => `<template ${i?'v-else-if':'v-if'}="${directive(predicates[i])}">${semanticNode(v.tree)}</template>`).join('');
+  return `<script lang="ts">\nexport const modelDigest = ${JSON.stringify(model.modelDigest)}\nexport const contentBindingDigest = ${JSON.stringify(contentBindingDigest)}\n</script>\n\n<script setup lang="ts">\nimport { computed, useAttrs, useSlots } from 'vue'\ninterface ${model.public.symbol}Props {\n${props}\n  fixture?: unknown\n  semanticContent?: unknown\n}\nconst props = withDefaults(defineProps<${model.public.symbol}Props>(), ${JSON.stringify(defaults)})\nconst slots = useSlots()\nconst styles: Record<string,string> = {}\nconst renderContent = () => props.semanticContent\nconst fixture = computed(() => props.fixture)\nconst semanticValues = Object.assign({}, useAttrs(), props) as Record<string, unknown>\nconst semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right)\nconst fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : ''\n</script>\n\n<template>\n  ${semantic}<template ${semantic?'v-else':''}>${node(implementation.componentRoot)}</template>\n</template>\n`;
 }
 export function generateVueLibrary(output = path.join(root, 'generated/libraries/vue')) {
   const {models} = loadLibrary();
@@ -121,7 +142,7 @@ export function generateVueLibrary(output = path.join(root, 'generated/libraries
     }
     const declaration = `import type { DefineComponent } from 'vue';\nexport interface ${model.public.symbol}Props { [key: string]: unknown }\ndeclare const component: DefineComponent<${model.public.symbol}Props>;\nexport default component;\nexport declare const modelDigest: ${JSON.stringify(model.modelDigest)};\n`;
     fs.writeFileSync(path.join(output,`components/${model.component}.d.ts`), declaration);
-    entries.push({component:model.component,symbol:model.public.symbol,subpath:model.public.subpath,file,modelDigest:model.modelDigest,sha256:sha(source),exports:model.public.exports,compoundExports:graph ? {canonicalRoot:graph.canonicalRoot,tree:graph.tree,paths:graph.paths.map(item => item.path)} : undefined,partImports});
+    entries.push({component:model.component,symbol:model.public.symbol,subpath:model.public.subpath,file,modelDigest:model.modelDigest,contentBindingDigest:model.contentBindings.capabilityDigest,semanticVariants:(model.draftImplementation.semanticVariants ?? []).map(({id,expectationDigest}) => ({id,expectationDigest})),unresolvedSemanticOperations:model.unresolvedSemanticOperations ?? [],sha256:sha(source),exports:model.public.exports,compoundExports:graph ? {canonicalRoot:graph.canonicalRoot,tree:graph.tree,paths:graph.paths.map(item => item.path)} : undefined,partImports});
   }
   const indexLines = [];
   const declarationLines = [];

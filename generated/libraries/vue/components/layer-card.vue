@@ -1,20 +1,27 @@
 <script lang="ts">
-export const modelDigest = "0863b724219652fb6b34a5c3bc5564e8fc766a990f62178c6a66e5f17aa8ae1f"
+export const modelDigest = "4776632c394a536ecd5477ef13e2a89249e69a1b3208a445b782496b317647f1"
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
 </script>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-
+import { computed, useAttrs, useSlots } from 'vue'
 interface LayerCardProps {
   "children"?: unknown
   "className"?: string
   "render"?: unknown
+  fixture?: unknown
+  semanticContent?: unknown
 }
 const props = withDefaults(defineProps<LayerCardProps>(), {})
-const emit = defineEmits([])
-const styles: Record<string,string> = {"root":"kumo-layer-card-root"}
+const slots = useSlots()
+const styles: Record<string,string> = {}
+const renderContent = () => props.semanticContent
+const fixture = computed(() => props.fixture)
+const semanticValues = Object.assign({}, useAttrs(), props) as Record<string, unknown>
+const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right)
+const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : ''
 </script>
 
 <template>
-  <div :class="[styles[&quot;root&quot;]]"><slot /></div>
+  <template v-if="semanticEqual(renderContent(), &quot;Card&quot;)"><div class="bg-kumo-base shadow-xs ring-kumo-line">{{ renderContent() }}</div></template><template v-else-if="semanticEqual(fixture, {&quot;export&quot;:&quot;root&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;export&quot;:&quot;.Secondary&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;text&quot;:&quot;Top&quot;}]},{&quot;export&quot;:&quot;.Primary&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;text&quot;:&quot;Main&quot;}]}]})"><div class="bg-kumo-elevated ring-kumo-hairline"><div></div><div></div>{{ fixtureText(fixture) }}</div></template><template v-else><div :class="[styles[&quot;root&quot;]]"><slot /></div></template>
 </template>

@@ -1,23 +1,28 @@
 <script lang="ts">
-export const modelDigest = "96819ff5ff77c94bea48a81f92da6a4857acc3495fbbd3f4eb7703e24db317d6"
+export const modelDigest = "f05e8c2389dfb02ca23049e0fc5aa80b2797a0b63cb9c09a9603acb5d07c79bf"
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
 </script>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-
+import { computed, useAttrs, useSlots } from 'vue'
 interface ToastyProps {
   "children"?: unknown
   "container"?: unknown
   "toastManager"?: unknown
   "variant"?: unknown
+  fixture?: unknown
+  semanticContent?: unknown
 }
 const props = withDefaults(defineProps<ToastyProps>(), {"container":"provider container or document.body","variant":"default"})
-const emit = defineEmits(["change"])
-const styles: Record<string,string> = {"root":"kumo-toasty-root"}
-const viewport = ref(undefined)
-onMounted(() => { void globalThis })
+const slots = useSlots()
+const styles: Record<string,string> = {}
+const renderContent = () => props.semanticContent
+const fixture = computed(() => props.fixture)
+const semanticValues = Object.assign({}, useAttrs(), props) as Record<string, unknown>
+const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right)
+const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : ''
 </script>
 
 <template>
-  <div data-kumo-compound="toasty" :class="styles.root"><section data-kumo-part="root"><slot name="root"></slot></section><section data-kumo-part="collection"><slot name="collection"></slot></section></div>
+  <template v-if="semanticEqual(renderContent(), &quot;Application&quot;)"><div>{{ renderContent() }}</div></template><template v-else><div data-kumo-compound="toasty" :class="styles.root"><section data-kumo-part="root"><slot name="root"></slot></section><section data-kumo-part="collection"><slot name="collection"></slot></section></div></template>
 </template>

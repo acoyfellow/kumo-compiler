@@ -1,10 +1,10 @@
 <script lang="ts">
-export const modelDigest = "60219ad3fa185b8a9db3e82cc4fc77b1b0683b2881bcf6b0460646bb320e67c2"
+export const modelDigest = "19772bcfdc866198d1b6f48413057aaede6eb359bfb324e0ee9f1aa353f1b630"
+export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
 </script>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-
+import { computed, useAttrs, useSlots } from 'vue'
 interface TextProps {
   "as"?: unknown
   "bold"?: boolean
@@ -14,12 +14,19 @@ interface TextProps {
   "size"?: string
   "truncate"?: boolean
   "variant"?: unknown
+  fixture?: unknown
+  semanticContent?: unknown
 }
 const props = withDefaults(defineProps<TextProps>(), {"bold":false,"size":"base","truncate":false,"variant":"body"})
-const emit = defineEmits([])
-const styles: Record<string,string> = {"root":"kumo-text-root"}
+const slots = useSlots()
+const styles: Record<string,string> = {}
+const renderContent = () => props.semanticContent
+const fixture = computed(() => props.fixture)
+const semanticValues = Object.assign({}, useAttrs(), props) as Record<string, unknown>
+const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right)
+const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : ''
 </script>
 
 <template>
-  <span :class="[styles[&quot;root&quot;]]"><slot /></span>
+  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;as&quot;) &amp;&amp; semanticEqual(semanticValues.as, &quot;h1&quot;) &amp;&amp; semanticEqual(renderContent(), &quot;Title&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;variant&quot;) &amp;&amp; semanticEqual(semanticValues.variant, &quot;heading1&quot;)"><h1 class="text-3xl font-semibold">{{ renderContent() }}</h1></template><template v-else-if="semanticEqual(renderContent(), &quot;code&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;variant&quot;) &amp;&amp; semanticEqual(semanticValues.variant, &quot;mono&quot;)"><span class="font-mono text-sm">{{ renderContent() }}</span></template><template v-else-if="semanticEqual(renderContent(), &quot;Body&quot;)"><p class="text-kumo-default text-base">{{ renderContent() }}</p></template><template v-else><span :class="[styles[&quot;root&quot;]]"><slot /></span></template>
 </template>
