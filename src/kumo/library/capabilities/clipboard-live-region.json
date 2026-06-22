@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "kumo.clipboard-live-region/v1",
+  "component": "clipboard-text",
+  "support": "requirements-only",
+  "contractDigest": "1a9749b6c0399605bf4030786d13ff98de3082204a6f73a4157477efe585f838",
+  "ssr": {
+    "supported": true,
+    "hydration": "identical",
+    "browserAccessDuringRender": false,
+    "initialClipboardWrites": [],
+    "initialAnnouncements": []
+  },
+  "state": {
+    "clipboardWrites": "ordered-log",
+    "announcements": "ordered-log",
+    "events": "ordered-log",
+    "focus": "button"
+  },
+  "activation": [
+    {
+      "trigger": {
+        "type": "click",
+        "selector": "button"
+      },
+      "clipboardText": {
+        "source": "textToCopy",
+        "fallback": "text"
+      },
+      "onSuccess": {
+        "event": "copy",
+        "announcement": "Copied"
+      }
+    },
+    {
+      "trigger": {
+        "type": "key",
+        "selector": "button",
+        "key": "Enter"
+      },
+      "clipboardText": {
+        "source": "textToCopy",
+        "fallback": "text"
+      },
+      "onSuccess": {
+        "event": "copy",
+        "focus": "button"
+      }
+    }
+  ],
+  "browserService": {
+    "name": "clipboard",
+    "operation": "writeText",
+    "invocation": "trusted button activation",
+    "availability": "browser-only"
+  },
+  "callbacks": {
+    "success": "copy",
+    "failure": null
+  },
+  "liveRegion": {
+    "successMessage": "Copied",
+    "lifecycle": "announcement-after-success"
+  },
+  "requirements": {
+    "dom": [
+      "div",
+      "button"
+    ],
+    "aria": [
+      "native and Field semantics observed in canonical Chrome"
+    ],
+    "focus": {
+      "focusable": true,
+      "keys": [
+        "Tab",
+        "Enter",
+        "Escape"
+      ]
+    }
+  },
+  "unknowns": [
+    {
+      "field": "clipboardPermissionAndRejection",
+      "reason": "Base UI event details, autofill/password managers, IME, RTL, selection ranges, clipboard rejection, and platform accessibility-tree differences remain inherited/vendor unknowns."
+    },
+    {
+      "field": "failureCallbackAndAnnouncement",
+      "reason": "Canonical vectors specify only successful copy events and do not establish failure callback or announcement behavior."
+    },
+    {
+      "field": "announcementTimingAndClearing",
+      "reason": "Canonical vectors establish a Copied announcement after success but not insertion delay, retention, clearing, or repeated-copy behavior."
+    },
+    {
+      "field": "liveRegionAriaAndDom",
+      "reason": "Canonical contract does not establish the live-region element, role, aria-live value, aria-atomic value, or DOM placement."
+    },
+    {
+      "field": "buttonAccessibleNameAndStructure",
+      "reason": "Canonical contract establishes button activation and focus but not the button accessible name, type, descendants, or exact DOM placement."
+    }
+  ],
+  "vectorIds": [
+    "ssr",
+    "click-copy",
+    "keyboard"
+  ],
+  "missingOperations": [
+    {
+      "kind": "failure-transition",
+      "reason": "Clipboard rejection behavior and failure callbacks are not established by canonical vectors."
+    },
+    {
+      "kind": "announcement-lifecycle",
+      "reason": "Announcement timing, clearing, and repeated-copy behavior are not established by canonical vectors."
+    },
+    {
+      "kind": "live-region-semantics",
+      "reason": "Live-region role, aria attributes, and DOM placement are not established by the canonical contract."
+    },
+    {
+      "kind": "button-semantics",
+      "reason": "Button accessible name, type, descendants, and exact DOM placement are not established by the canonical contract."
+    }
+  ],
+  "capabilityDigest": "358ddcbb6af99a1fe45354ba217cdcd0c12d527edc054dfaa04220f2f3d08290"
+}

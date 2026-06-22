@@ -5,13 +5,13 @@ import path from 'node:path';
 import {deriveBehaviorCapabilities, loadBehaviorCapabilities, validateBehaviorCapabilities} from '../src/kumo/library/behavior-capabilities.mjs';
 
 const contractDir = path.resolve('contracts/kumo.observable/v1/components');
-const names = ['button','checkbox','input','input-area','radio','switch','sensitive-input'];
+const names = ['button','checkbox','clipboard-text','input','input-area','radio','switch','sensitive-input'];
 const contracts = names.map(name => JSON.parse(fs.readFileSync(path.join(contractDir, `${name}.json`))));
 
 test('registry is canonical and contract-derived', () => {
   const registry = loadBehaviorCapabilities();
   assert.deepEqual(registry, deriveBehaviorCapabilities(contracts));
-  assert.equal(registry.bindings.length, 7);
+  assert.equal(registry.bindings.length, 8);
   const button = registry.bindings.find(binding => binding.component === 'button');
   assert.equal(button.id, 'native-button');
   assert.equal(button.support, 'supported');
@@ -26,13 +26,16 @@ test('registry promotes only complete executable state algebra', () => {
     assert.equal(binding.support, 'supported');
     assert.deepEqual(binding.missingOperations, []);
   }
-  for (const binding of registry.bindings.filter(binding => ['radio','input','input-area','sensitive-input'].includes(binding.component))) {
+  for (const binding of registry.bindings.filter(binding => ['clipboard-text','radio','input','input-area','sensitive-input'].includes(binding.component))) {
     assert.equal(binding.support, 'requirements-only');
     assert.ok(binding.missingOperations.every(item => item.kind && item.reason));
   }
   const checkbox = registry.bindings.find(binding => binding.component === 'checkbox');
   assert.equal(checkbox.controlled.prop, 'checked');
   assert.equal(checkbox.uncontrolled.source, 'absence of checked');
+  const clipboard = registry.bindings.find(binding => binding.component === 'clipboard-text');
+  assert.equal(clipboard.id, 'clipboard-live-region');
+  assert.ok(clipboard.missingOperations.some(item => item.kind === 'announcement-lifecycle'));
   const input = registry.bindings.find(binding => binding.component === 'input');
   assert.equal(input.controlled.supported, false);
 });

@@ -11,6 +11,7 @@ import {deriveNativeButton} from './native-button.mjs';
 import {deriveBehaviorCapabilities} from './behavior-capabilities.mjs';
 import {deriveControlledState} from './controlled-state.mjs';
 import {deriveNativeControls} from './native-controls.mjs';
+import {deriveClipboardLiveRegion} from './clipboard-live-region.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '../../..');
@@ -101,6 +102,7 @@ const compoundByComponent = new Map(compoundExports.roots.map(entry => [entry.co
 const contractFiles = fs.readdirSync(contracts).filter(file => file.endsWith('.json')).sort((a,b) => a.slice(0,-5).localeCompare(b.slice(0,-5)));
 const canonicalContracts = contractFiles.map(file => JSON.parse(fs.readFileSync(path.join(contracts,file),'utf8')));
 const behaviorCapabilities = deriveBehaviorCapabilities(canonicalContracts);
+const clipboardLiveRegion = deriveClipboardLiveRegion(canonicalContracts.find(contract => contract.component === 'clipboard-text'));
 const nativeControlContracts = canonicalContracts.filter(contract => ['checkbox','switch','radio','input','input-area','sensitive-input'].includes(contract.component));
 const controlledState = deriveControlledState(nativeControlContracts.filter(contract => ['checkbox','switch','radio'].includes(contract.component)));
 const nativeControls = deriveNativeControls(nativeControlContracts);
@@ -138,6 +140,7 @@ fs.writeFileSync(path.join(here, 'capabilities/semantic-render.json'), `${JSON.s
 fs.writeFileSync(path.join(here, 'capabilities/content-bindings.json'), `${JSON.stringify(contentBindings,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/native-button.json'), `${JSON.stringify(nativeButton,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/behavior-capabilities.json'), `${JSON.stringify(behaviorCapabilities,null,2)}\n`);
+fs.writeFileSync(path.join(here, 'capabilities/clipboard-live-region.json'), `${JSON.stringify(clipboardLiveRegion,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/controlled-state.json'), `${JSON.stringify(controlledState,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/native-controls.json'), `${JSON.stringify(nativeControls,null,2)}\n`);
 process.stdout.write(`${canonicalJSON({candidateDefinitionCount:41,count:entries.length,implementationReadyCount:0})}\n`);

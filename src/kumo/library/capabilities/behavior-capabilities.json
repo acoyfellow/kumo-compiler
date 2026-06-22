@@ -123,6 +123,82 @@
       "missingOperations": []
     },
     {
+      "id": "clipboard-live-region",
+      "support": "requirements-only",
+      "component": "clipboard-text",
+      "contractDigest": "1a9749b6c0399605bf4030786d13ff98de3082204a6f73a4157477efe585f838",
+      "requirements": {
+        "states": [
+          "clipboard writes",
+          "live announcements",
+          "copy events",
+          "button focus"
+        ],
+        "transitions": [
+          {
+            "action": "native user action",
+            "effect": "callback/state transition"
+          }
+        ],
+        "events": [
+          "copy on successful clipboard write",
+          "failure behavior not established"
+        ],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "Tab",
+              "Enter",
+              "Escape"
+            ]
+          }
+        ],
+        "dom": [
+          "div",
+          "button",
+          "live-region element not established"
+        ],
+        "aria": [
+          "native and Field semantics observed in canonical Chrome"
+        ],
+        "browserServices": [
+          "navigator clipboard writeText after trusted button activation"
+        ]
+      },
+      "controlled": {
+        "supported": false,
+        "reason": "canonical contract does not establish controlled semantics"
+      },
+      "uncontrolled": {
+        "supported": false,
+        "reason": "canonical contract does not establish uncontrolled semantics"
+      },
+      "vectorIds": [
+        "ssr",
+        "click-copy",
+        "keyboard"
+      ],
+      "missingOperations": [
+        {
+          "kind": "failure-transition",
+          "reason": "clipboard rejection behavior and failure callbacks are not established by canonical vectors"
+        },
+        {
+          "kind": "announcement-lifecycle",
+          "reason": "announcement timing, clearing, and repeated-copy behavior are not established by canonical vectors"
+        },
+        {
+          "kind": "live-region-semantics",
+          "reason": "live-region role, aria attributes, and DOM placement are not established by the canonical contract"
+        },
+        {
+          "kind": "button-semantics",
+          "reason": "button accessible name, type, descendants, and exact DOM placement are not established by the canonical contract"
+        }
+      ]
+    },
+    {
       "id": "native-field",
       "support": "requirements-only",
       "component": "input",
@@ -438,5 +514,5 @@
       "missingOperations": []
     }
   ],
-  "capabilityDigest": "3a1289f0910ec7cc8031a221c14cec260e40fda4c95431abbfc837b50eec7cc5"
+  "capabilityDigest": "f7c42f13ca2f8bb9bab0617fd666647a3c00255e2d1ebe913ccef87d57725bfd"
 }

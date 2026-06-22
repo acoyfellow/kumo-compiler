@@ -27,6 +27,19 @@ export function deriveBehaviorCapabilities(contracts) {
   const byName = new Map(contracts.map(contract => [contract.component, contract]));
   for (const contract of contracts) if (contract.schemaVersion !== CONTRACT_VERSION) throw new Error(`unsupported behavior contract: ${contract.component}`);
   const bindings = [];
+  const clipboard = byName.get('clipboard-text');
+  if (clipboard) bindings.push(requirement('clipboard-live-region', clipboard, 'requirements-only', {
+    states:['clipboard writes','live announcements','copy events','button focus'], transitions:clipboard.transitions,
+    events:['copy on successful clipboard write','failure behavior not established'], focus:clipboard.keyboardFocus,
+    dom:[clipboard.semantics.root,'button','live-region element not established'], aria:clipboard.semantics.aria,
+    browserServices:['navigator clipboard writeText after trusted button activation'],
+    missingOperations:[
+      {kind:'failure-transition',reason:'clipboard rejection behavior and failure callbacks are not established by canonical vectors'},
+      {kind:'announcement-lifecycle',reason:'announcement timing, clearing, and repeated-copy behavior are not established by canonical vectors'},
+      {kind:'live-region-semantics',reason:'live-region role, aria attributes, and DOM placement are not established by the canonical contract'},
+      {kind:'button-semantics',reason:'button accessible name, type, descendants, and exact DOM placement are not established by the canonical contract'}
+    ]
+  }));
   const button = byName.get('button');
   if (!button) throw new Error('button contract required');
   bindings.push(requirement('native-button', button, 'supported', {
