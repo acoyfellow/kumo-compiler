@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "kumo.pagination-state/v1",
+  "navigation": {
+    "previous": "page-1",
+    "next": "page+1",
+    "target": "clamped-to-inclusive-[1,maxPage]",
+    "boundaries": "disable-first/previous-at-1-and-next/last-at-maxPage"
+  },
+  "ownership": "controlled-proposes-uncontrolled-commits",
+  "pageSize": {
+    "maximum": "max(1,ceil(totalCount/perPage))",
+    "selection": "numeric-change-proposal"
+  },
+  "input": {
+    "syntax": "trimmed-unsigned-base-10-integer",
+    "commitTriggers": [
+      "Enter",
+      "blur"
+    ],
+    "commit": "parse-clamp-propose",
+    "invalid": "restore-current-without-proposal"
+  },
+  "legacySSR": {
+    "editingPage": 1,
+    "hydration": "synchronize-to-controlled-page-preserving-node"
+  },
+  "unknowns": [
+    {
+      "field": "selectPopupPlatformPresentation",
+      "status": "unknown",
+      "reason": "Dropdown popup geometry, native accessibility projection, and keyboard details are inherited from the Kumo Select/Base UI implementation and browser; they are not guessed here."
+    },
+    {
+      "field": "invalidPageInputUserFeedback",
+      "status": "unknown",
+      "reason": "The canonical vectors do not establish announcements or validation UI for invalid page text."
+    },
+    {
+      "field": "pageSizePageReset",
+      "status": "unknown",
+      "reason": "The canonical contract establishes numeric page-size change only; resulting page reset behavior is not observed."
+    }
+  ],
+  "provenance": {
+    "component": "pagination",
+    "contractPath": "contracts/kumo.observable/v1/components/pagination.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "exportPath": "./components/pagination",
+      "typesPath": "dist/src/components/pagination/index.d.ts",
+      "runtimePath": "dist/components/pagination.js",
+      "typesSha256": "77edcec0d0034c3a20db1a7b28c866b064069002cd5882bde3dcb06aadab8a8d",
+      "runtimeSha256": "387d7219fd2a0e30d4891612d9f151fcf50a816de53bf9219ab2cc9ea89ceaf5",
+      "irSchemaVersion": "kumo.ir/v1"
+    },
+    "vectorIds": [
+      "legacy-page-one",
+      "legacy-page-three-ssr",
+      "next-controlled",
+      "boundaries",
+      "input-enter-clamp",
+      "input-blur-clamp",
+      "compound-simple-labels",
+      "compound-dropdown-size"
+    ],
+    "contractDigest": "242c3a330b948bd0d570f7c53473513939d353f00f7d64e1c8fdd20483654edd"
+  },
+  "capabilityDigest": "9619552c62a870dc23286e66f3259567af5cf6999d1b075509c55e0c1a5ce608"
+}
