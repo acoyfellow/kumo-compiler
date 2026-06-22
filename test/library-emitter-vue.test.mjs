@@ -94,6 +94,28 @@ test('Vue SSR renders all 66 semantic variants through canonical root and descen
   assert.equal(rendered,66); assert.equal(manifest.components.flatMap(x=>x.unresolvedSemanticOperations).length,0);
 });
 
+test('Vue clipboard-copy capability lowers to deterministic hydration-stable native markup', async t => {
+  const library=loadLibrary(), capability=library.clipboardCopy;
+  assert.equal(capability.support,'supported');
+  const emissions=[];
+  for(let run=0;run<2;run++){
+    const build=fs.mkdtempSync(path.resolve(`.kumo-vue-clipboard-${run}-`)); t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+    const manifest=generateVueLibrary(output);
+    const model=library.models.find(model=>model.component===capability.component);
+    const entry=manifest.components.find(entry=>entry.modelDigest===model.modelDigest);
+    const source=fs.readFileSync(path.join(output,entry.file),'utf8');
+    assert.match(source,/<div><span>/); assert.match(source,/<button type="button" @click="copyText">/);
+    assert.match(source,/<span aria-live="polite">\{\{ copyAnnouncement \}\}<\/span><\/div>/);
+    assert.match(source,/navigator\.clipboard\.writeText\(props\.textToCopy \?\? props\.text\)/);
+    assert.match(source,/props\.onCopy\?\.\(\)/); assert.doesNotMatch(source,/innerHTML|@html|dispatchEvent|new Event|\.blur\(/);
+    const Component=await compileSSRComponent(entry,build);
+    const html=await renderToString(createSSRApp({setup:()=>()=>h(Component,{text:'Visible',textToCopy:'Copy me'})}));
+    assert.match(html,/^<div><span>Visible<\/span><button type="button">Copy<\/button><span aria-live="polite"><\/span><\/div>$/);
+    emissions.push({source,html});
+  }
+  assert.deepEqual(emissions[1],emissions[0]);
+});
+
 test('Vue native-button capability compiles and SSR renders four interactive initial DOM states', async t => {
   const build=fs.mkdtempSync(path.resolve('.kumo-vue-button-')); t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
   const manifest=generateVueLibrary(output), library=loadLibrary();

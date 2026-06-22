@@ -1,0 +1,289 @@
+{
+ "schemaVersion": "kumo.clipboard-fixtures/v1",
+ "plans": [
+  {
+   "schemaVersion": "kumo.fixture-plan/v1",
+   "component": "clipboard-text",
+   "vector": "click-copy",
+   "contract": {
+    "schemaVersion": "kumo.observable/v1",
+    "path": "contracts/kumo.observable/v1/components/clipboard-text.json",
+    "sha256": "9733e1033d222842197c48c46d3188b504eacc559604f5e6a71a544e41edd3da",
+    "vectorSha256": "583a3a5be44d2db54bce1f8551f7954e70943638883475221ef40d565f1f31fd"
+   },
+   "fixture": {
+    "kind": "component",
+    "ref": "ClipboardText",
+    "props": {
+     "text": "visible",
+     "textToCopy": "payload"
+    },
+    "children": []
+   },
+   "setup": [
+    {
+     "kind": "clipboard"
+    },
+    {
+     "kind": "event-recorder"
+    }
+   ],
+   "actions": [
+    {
+     "type": "click",
+     "selector": "button"
+    }
+   ],
+   "probes": [
+    {
+     "kind": "dom",
+     "path": "root"
+    },
+    {
+     "kind": "clipboard",
+     "path": "clipboard"
+    },
+    {
+     "kind": "events",
+     "path": "events"
+    },
+    {
+     "kind": "focus",
+     "path": "focus"
+    },
+    {
+     "kind": "node-identity",
+     "path": "root"
+    }
+   ],
+   "assertions": [
+    {
+     "kind": "includes",
+     "probe": "dom",
+     "expected": {
+      "tag": "div"
+     }
+    },
+    {
+     "kind": "equals",
+     "probe": "clipboard",
+     "expected": [
+      "payload"
+     ]
+    },
+    {
+     "kind": "sequence",
+     "probe": "events",
+     "expected": [
+      "copy"
+     ]
+    },
+    {
+     "kind": "equals",
+     "probe": "focus",
+     "expected": "button"
+    },
+    {
+     "kind": "identity",
+     "probe": "node-identity",
+     "expected": "preserved"
+    }
+   ],
+   "capabilities": [
+    "clipboard-text-fixture",
+    "trusted-click-key-actions",
+    "clipboard-probes",
+    "callback-probes",
+    "focus-probes",
+    "node-identity"
+   ],
+   "bundle": {
+    "entry": "client.js",
+    "viteConfig": "vite.config.mjs",
+    "files": {},
+    "headHtml": "",
+    "beforeAppHtml": "",
+    "buildEnv": {}
+   },
+   "digest": "3c7ee5b5be85f883311b4a3539508f5a1b3bc095b769850515c486c87b1bdf37"
+  },
+  {
+   "schemaVersion": "kumo.fixture-plan/v1",
+   "component": "clipboard-text",
+   "vector": "keyboard",
+   "contract": {
+    "schemaVersion": "kumo.observable/v1",
+    "path": "contracts/kumo.observable/v1/components/clipboard-text.json",
+    "sha256": "9733e1033d222842197c48c46d3188b504eacc559604f5e6a71a544e41edd3da",
+    "vectorSha256": "108d22474e65e3e4afb586f9041540e7a466f4fa93aa47208fc2509faa2b7e3d"
+   },
+   "fixture": {
+    "kind": "component",
+    "ref": "ClipboardText",
+    "props": {
+     "text": "keyboard"
+    },
+    "children": []
+   },
+   "setup": [
+    {
+     "kind": "clipboard"
+    },
+    {
+     "kind": "event-recorder"
+    }
+   ],
+   "actions": [
+    {
+     "type": "key",
+     "selector": "button",
+     "key": "Enter"
+    }
+   ],
+   "probes": [
+    {
+     "kind": "dom",
+     "path": "root"
+    },
+    {
+     "kind": "clipboard",
+     "path": "clipboard"
+    },
+    {
+     "kind": "events",
+     "path": "events"
+    },
+    {
+     "kind": "focus",
+     "path": "focus"
+    },
+    {
+     "kind": "node-identity",
+     "path": "root"
+    }
+   ],
+   "assertions": [
+    {
+     "kind": "includes",
+     "probe": "dom",
+     "expected": {
+      "tag": "div"
+     }
+    },
+    {
+     "kind": "equals",
+     "probe": "clipboard",
+     "expected": [
+      "payload",
+      "keyboard"
+     ]
+    },
+    {
+     "kind": "sequence",
+     "probe": "events",
+     "expected": [
+      "copy"
+     ]
+    },
+    {
+     "kind": "equals",
+     "probe": "focus",
+     "expected": "button"
+    },
+    {
+     "kind": "identity",
+     "probe": "node-identity",
+     "expected": "preserved"
+    }
+   ],
+   "capabilities": [
+    "clipboard-text-fixture",
+    "trusted-click-key-actions",
+    "clipboard-probes",
+    "callback-probes",
+    "focus-probes",
+    "node-identity"
+   ],
+   "bundle": {
+    "entry": "client.js",
+    "viteConfig": "vite.config.mjs",
+    "files": {},
+    "headHtml": "",
+    "beforeAppHtml": "",
+    "buildEnv": {}
+   },
+   "digest": "d71ffa51c5380490e23e7bc43575ed97d42d68f7dc71b6b077a8b04089492d36"
+  },
+  {
+   "schemaVersion": "kumo.fixture-plan/v1",
+   "component": "clipboard-text",
+   "vector": "ssr",
+   "contract": {
+    "schemaVersion": "kumo.observable/v1",
+    "path": "contracts/kumo.observable/v1/components/clipboard-text.json",
+    "sha256": "9733e1033d222842197c48c46d3188b504eacc559604f5e6a71a544e41edd3da",
+    "vectorSha256": "021192cbcdd5a8722ac703b7ec1dbb1e9357eb08b9a60770e7fe579c9f53bb8a"
+   },
+   "fixture": {
+    "kind": "component",
+    "ref": "ClipboardText",
+    "props": {
+     "text": "visible",
+     "textToCopy": "payload"
+    },
+    "children": []
+   },
+   "setup": [
+    {
+     "kind": "clipboard"
+    },
+    {
+     "kind": "event-recorder"
+    }
+   ],
+   "actions": [],
+   "probes": [
+    {
+     "kind": "dom",
+     "path": "root"
+    },
+    {
+     "kind": "node-identity",
+     "path": "root"
+    }
+   ],
+   "assertions": [
+    {
+     "kind": "includes",
+     "probe": "dom",
+     "expected": {
+      "tag": "div"
+     }
+    },
+    {
+     "kind": "identity",
+     "probe": "node-identity",
+     "expected": "preserved"
+    }
+   ],
+   "capabilities": [
+    "clipboard-text-fixture",
+    "trusted-click-key-actions",
+    "clipboard-probes",
+    "callback-probes",
+    "focus-probes",
+    "node-identity"
+   ],
+   "bundle": {
+    "entry": "client.js",
+    "viteConfig": "vite.config.mjs",
+    "files": {},
+    "headHtml": "",
+    "beforeAppHtml": "",
+    "buildEnv": {}
+   },
+   "digest": "2903620afbc0319c996ba9a38ac1b2f841cfa1e99154ff6faa5ac6710f188250"
+  }
+ ],
+ "digest": "c6085b2a5a1fd0bec53a4a3e1dcfd90b62b4c6016034ca2b2d9918895751713f"
+}

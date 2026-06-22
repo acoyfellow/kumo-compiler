@@ -2,6 +2,9 @@
 import type { JSX } from "solid-js";
 export interface ClipboardTextProps {
   "observable"?: unknown;
+  "text"?: string;
+  "textToCopy"?: string;
+  "onCopy"?: () => void;
   children?: JSX.Element;
   fixture?: unknown;
   styles?: Record<string, string>;

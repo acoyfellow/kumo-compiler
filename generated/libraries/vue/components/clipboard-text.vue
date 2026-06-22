@@ -5,7 +5,7 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 </script>
 
 <script setup lang="ts">
-import { computed, useAttrs, useSlots } from 'vue'
+import { computed, ref, useAttrs, useSlots } from 'vue'
 interface ClipboardTextProps {
   "observable"?: unknown
   "text"?: unknown
@@ -14,6 +14,12 @@ interface ClipboardTextProps {
   semanticContent?: unknown
 }
 const props = withDefaults(defineProps<ClipboardTextProps>(), {})
+const copyAnnouncement = ref('')
+async function copyText() {
+  await navigator.clipboard.writeText(props.textToCopy ?? props.text)
+  props.onCopy?.()
+  copyAnnouncement.value = "Copied"
+}
 const slots = useSlots()
 const styles: Record<string,string> = {}
 const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
@@ -25,5 +31,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;text&quot;) &amp;&amp; semanticEqual(semanticValues.text, &quot;visible&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;textToCopy&quot;) &amp;&amp; semanticEqual(semanticValues.textToCopy, &quot;payload&quot;)"><div></div></template><template v-else><clipboard-text :class="[styles[&quot;root&quot;]]"></clipboard-text></template>
+  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;text&quot;) &amp;&amp; semanticEqual(semanticValues.text, &quot;visible&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;textToCopy&quot;) &amp;&amp; semanticEqual(semanticValues.textToCopy, &quot;payload&quot;)"><div></div></template><template v-else><div><span>{{ props.text }}</span><button type="button" @click="copyText">Copy</button><span aria-live="polite">{{ copyAnnouncement }}</span></div></template>
 </template>

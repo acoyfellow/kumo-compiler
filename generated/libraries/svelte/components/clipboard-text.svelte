@@ -8,6 +8,9 @@
   export type Props = {
   observable?: unknown;
   children?: Snippet;
+  text?: unknown;
+  textToCopy?: unknown;
+  onCopy?: () => void;
   styles?: Record<string, string>;
   fixture?: unknown;
   [key: string]: unknown;
@@ -15,6 +18,9 @@
 
   let {
     observable = undefined,
+    text = undefined,
+    textToCopy = undefined,
+    onCopy = undefined,
     children,
     fixture = undefined,
     __consumerContent = undefined,
@@ -23,6 +29,9 @@
   }: Props = $props();
   let state_source = $state("props/native state");
 
+  let copyStatus = $state('');
+  async function copyText() { await navigator.clipboard.writeText(String(textToCopy ?? text ?? '')); onCopy?.(); copyStatus = "Copied"; }
+  function copyTextOnEnter(event: KeyboardEvent) { if (event.key === 'Enter') void copyText(); }
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "observable": observable, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;
@@ -47,5 +56,5 @@
 {#if Object.prototype.hasOwnProperty.call(semanticValues, "text") && semanticEqual(semanticValues.text, "visible") && Object.prototype.hasOwnProperty.call(semanticValues, "textToCopy") && semanticEqual(semanticValues.textToCopy, "payload")}
   <div></div>
 {:else}
-<clipboard-text class={cx(styles["root"])}></clipboard-text>
+<div {...rest}>{text}<button type="button" onclickcapture={copyText} onkeydowncapture={copyTextOnEnter}>Copy</button><span aria-live="polite">{copyStatus}</span></div>
 {/if}

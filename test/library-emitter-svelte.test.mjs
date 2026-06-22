@@ -179,6 +179,27 @@ test('native-button capability emits four interactive initial DOM states',async 
  for(const [props,expected] of vectors)assert.match(render(Button,{props}).body.replace(/<!--[\s\S]*?-->/g,''),expected);
 });
 
+test('supported clipboard-copy lowers generically with stable SSR and deterministic output',async t=>{
+ const build=fs.mkdtempSync(path.join(os.tmpdir(),'kumo-svelte-clipboard-'));
+ t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+ fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
+ const {clipboardCopy}=loadLibrary();
+ const first=emitSvelteLibrary({output});
+ assert.equal(first.components.flatMap(x=>x.semanticVariants).length,66);
+ const source=fs.readFileSync(path.join(output,`components/${clipboardCopy.component}.svelte`),'utf8');
+ const second=emitSvelteLibrary({output});
+ assert.equal(fs.readFileSync(path.join(output,`components/${clipboardCopy.component}.svelte`),'utf8'),source);
+ assert.match(source,/<div \{\.\.\.rest\}>\{text\}<button type="button" onclickcapture=\{copyText\} onkeydowncapture=\{copyTextOnEnter\}>Copy<\/button><span aria-live="polite">\{copyStatus\}<\/span><\/div>/);
+ assert.match(source,/navigator\.clipboard\.writeText\(String\(textToCopy \?\? text \?\? ''\)\)/);
+ assert.match(source,/onCopy\?\.\(\); copyStatus = "Copied"/);
+ assert.doesNotMatch(source,/model\.component\s*===?\s*["']clipboard-text["']|@html|innerHTML|dispatchEvent/);
+ const compiled=compile(source,{filename:'clipboard-text.svelte',generate:'server'});
+ const target=path.join(build,'clipboard-text.mjs');fs.writeFileSync(target,compiled.js.code);
+ const ClipboardText=(await import(pathToFileURL(target)+`?${Date.now()}`)).default;
+ const html=render(ClipboardText,{props:{text:'visible',textToCopy:'payload'}}).body.replace(/<!--[\s\S]*?-->/g,'');
+ assert.match(html,/^<div>visible<button type="button">Copy<\/button><span aria-live="polite"><\/span><\/div>$/);
+});
+
 test('resolution receipt canonically binds capability and generated manifest hashes',()=>{
  const receiptPath=path.resolve('proof/dx/conformance/diagnostics/semantic-emitter-svelte-resolution.json');
  const receipt=JSON.parse(fs.readFileSync(receiptPath,'utf8'));

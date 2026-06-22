@@ -102,6 +102,16 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   assert.match(fieldSource, /<div><label for=\{props\.controlId as string \?\? "field-control"\}>\{props\.label as JSX\.Element\}<\/label>\{props\.children\}<\/div>/);
   for (const name of ['field', 'sensitive-input']) assert.doesNotMatch(fs.readFileSync(path.join(first, `${name}.tsx`), 'utf8'), /nativeInputHandler|event\.currentTarget\.value/);
 
+  const clipboardSource = fs.readFileSync(path.join(first, 'clipboard-text.tsx'), 'utf8');
+  const clipboardDeclaration = fs.readFileSync(path.join(first, 'clipboard-text.d.ts'), 'utf8');
+  assert.match(clipboardSource, /return \(<div>\{props\.text as JSX\.Element\}<button type="button" onClick=\{copyText\} onKeyDown=\{copyOnKeyDown\}>Copy<\/button><span aria-live="polite">\{copyStatus\(\)\}<\/span><\/div>\)/);
+  assert.match(clipboardSource, /navigator\.clipboard\.writeText\(\(props\.textToCopy \?\? props\.text\) as string\)/);
+  assert.match(clipboardSource, /props\.onCopy[\s\S]*setCopyStatus\("Copied"\)/);
+  assert.match(clipboardSource, /event\.key === "Enter"/);
+  assert.match(clipboardDeclaration, /"textToCopy"\?: string;/);
+  assert.match(clipboardDeclaration, /"text"\?: string;/);
+  assert.match(clipboardDeclaration, /"onCopy"\?: \(\) => void;/);
+
   const buttonSource = fs.readFileSync(path.join(first, 'button.tsx'), 'utf8');
   const buttonDeclaration = fs.readFileSync(path.join(first, 'button.d.ts'), 'utf8');
   assert.match(buttonSource, /<button id=\{props\.id as string\}[^>]*type=\{\(props\.type/);
