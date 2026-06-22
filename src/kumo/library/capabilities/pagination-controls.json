@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "kumo.pagination-controls/v1",
+  "component": "pagination",
+  "support": "supported",
+  "root": {
+    "tag": "div",
+    "attributes": {
+      "data-slot": "pagination"
+    }
+  },
+  "legacy": {
+    "nav": {
+      "tag": "nav",
+      "ariaLabel": "Pagination"
+    },
+    "buttons": [
+      "first",
+      "previous",
+      "next",
+      "last"
+    ],
+    "pageInput": {
+      "ariaLabel": "Page number",
+      "valueProp": "page"
+    }
+  },
+  "behavior": {
+    "ownership": "controlled proposes, uncontrolled commits",
+    "navigationClamp": "inclusive [1, maxPage]",
+    "boundaries": "first/previous disabled at page 1; next/last disabled at maxPage",
+    "pageEvent": "page:<n> on accepted change",
+    "input": {
+      "commitTriggers": [
+        "Enter",
+        "blur"
+      ],
+      "parse": "trimmed unsigned base-10",
+      "clamp": "inclusive [1, maxPage]",
+      "invalid": "restore current without proposal"
+    }
+  },
+  "stateAlgebra": {
+    "maxPage": 4,
+    "clampAbove": 4,
+    "clampBelow": 1,
+    "next": 3,
+    "previous": 1,
+    "enterClamp": 4,
+    "blurClamp": 1
+  },
+  "unknowns": [
+    {
+      "field": "pageSizeDropdownPresentation",
+      "status": "unknown",
+      "reason": "Canonical vectors assert button counts, not the page-size dropdown popup platform presentation, listbox semantics, or open/close behavior."
+    },
+    {
+      "field": "invalidPageInputFeedback",
+      "status": "unknown",
+      "reason": "Canonical vectors restore the current page on invalid input but do not establish validation UI or announcements."
+    }
+  ],
+  "vectorIds": [
+    "legacy-page-one",
+    "legacy-page-three-ssr",
+    "next-controlled",
+    "boundaries",
+    "input-enter-clamp",
+    "input-blur-clamp",
+    "compound-simple-labels",
+    "compound-dropdown-size"
+  ],
+  "provenance": {
+    "component": "pagination",
+    "contractPath": "contracts/kumo.observable/v1/components/pagination.json",
+    "contractDigest": "51a1c22d61a7d01fb284cec181585b4d3133e0fcb5cbc39a1439c64130ef8587",
+    "vectorIds": [
+      "legacy-page-one",
+      "legacy-page-three-ssr",
+      "next-controlled",
+      "boundaries",
+      "input-enter-clamp",
+      "input-blur-clamp",
+      "compound-simple-labels",
+      "compound-dropdown-size"
+    ]
+  },
+  "capabilityDigest": "eafc8c0a36329e417e4cd483299f1df3b750aeef0115188ddec4a0b8ac3cc543"
+}
