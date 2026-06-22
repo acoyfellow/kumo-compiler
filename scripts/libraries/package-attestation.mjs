@@ -10,10 +10,11 @@ export const PACKAGE_IDENTITIES = Object.freeze({
 export const REQUIRED_GATES = Object.freeze(['freshConsumerInstall', 'clientBuild', 'ssrBuild']);
 const SHA256 = /^[a-f0-9]{64}$/;
 const AUTOMATABLE_STATUSES = new Set(['passed', 'failed', 'blocked', 'not-run']);
+const DEFAULT_MAX_AGE_MS = 24 * 60 * 60 * 1000;
 
 function object(value) { return value && typeof value === 'object' && !Array.isArray(value); }
 
-export function validatePackageAttestation(attestation, { tarballBytes, prerequisites, now } = {}) {
+export function validatePackageAttestation(attestation, { tarballBytes, prerequisites, now, maxAgeMs = DEFAULT_MAX_AGE_MS } = {}) {
   const errors = [];
   if (!object(attestation)) return { valid: false, errors: ['attestation must be an object'] };
   const expectedName = PACKAGE_IDENTITIES[attestation.framework];
@@ -36,7 +37,11 @@ export function validatePackageAttestation(attestation, { tarballBytes, prerequi
       if (!AUTOMATABLE_STATUSES.has(check.status)) errors.push(`invalid gate status: ${gate}`);
       if (check.status !== 'passed') errors.push(`automatable gate did not pass: ${gate}`);
       if (typeof check.checkedAt !== 'string' || !Number.isFinite(Date.parse(check.checkedAt))) errors.push(`invalid gate timestamp: ${gate}`);
-      else if (now !== undefined && Date.parse(check.checkedAt) > new Date(now).getTime()) errors.push(`gate timestamp is in the future: ${gate}`);
+      else if (now !== undefined) {
+        const age = new Date(now).getTime() - Date.parse(check.checkedAt);
+        if (age < 0) errors.push(`gate timestamp is in the future: ${gate}`);
+        else if (age > maxAgeMs) errors.push(`gate timestamp is stale: ${gate}`);
+      }
     }
   }
   if (!Array.isArray(attestation.prerequisites) || attestation.prerequisites.length === 0) errors.push('missing prerequisite digests');

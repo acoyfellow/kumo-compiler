@@ -60,6 +60,7 @@ test('rejects stale/future checks and prerequisite or raw tarball mismatch', () 
   assert.match(validatePackageAttestation(valid, { tarballBytes: Buffer.from('different') }).errors.join(), /hash mismatch/);
   assert.match(validatePackageAttestation(valid, { prerequisites: [{ identity: 'other', sha256: 'a'.repeat(64) }] }).errors.join(), /prerequisites do not match/);
   assert.match(validatePackageAttestation(valid, { now: '2026-06-22T11:00:00.000Z' }).errors.join(), /future/);
+  assert.match(validatePackageAttestation(valid, { now: '2026-06-24T13:00:00.000Z' }).errors.join(), /stale/);
 });
 
 test('writes canonical output idempotently and collision-safely', async () => {
