@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "kumo.native-button/v1",
+  "component": "button",
+  "root": "button",
+  "type": {
+    "prop": "type",
+    "default": "button"
+  },
+  "content": {
+    "role": "consumer-content"
+  },
+  "nativeAttributes": true,
+  "disabledWhen": [
+    {
+      "prop": "disabled",
+      "equals": true
+    },
+    {
+      "prop": "loading",
+      "equals": true
+    }
+  ],
+  "loadingIndicator": {
+    "when": {
+      "prop": "loading",
+      "equals": true
+    },
+    "tag": "svg",
+    "attributes": {
+      "aria-hidden": "true"
+    },
+    "beforeContent": true
+  },
+  "events": {
+    "click": {
+      "native": true,
+      "suppressedWhen": [
+        "disabled",
+        "loading"
+      ]
+    },
+    "submit": {
+      "nativeForm": true,
+      "when": {
+        "prop": "type",
+        "equals": "submit"
+      }
+    }
+  },
+  "vectorIds": [
+    "disabled-click",
+    "loading-click",
+    "enabled-click",
+    "submit-form"
+  ],
+  "capabilityDigest": "fbfb394f88d5f31f788be3f6365ca4a6902774d7d56a0c81a795f46111dee68f"
+}

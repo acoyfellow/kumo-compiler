@@ -5,6 +5,7 @@ import {fileURLToPath} from 'node:url';
 import {validateImplementation} from './algebra.mjs';
 import {validateSemanticRender} from './semantic-render.mjs';
 import {loadContentBindings} from './content-bindings.mjs';
+import {loadNativeButton} from './native-button.mjs';
 
 export const LIBRARY_SCHEMA_VERSION = 'kumo.library/v1';
 export const CAPABILITIES = Object.freeze([
@@ -108,6 +109,7 @@ export function validateModel(model) {
 
 export function loadLibrary(base = here) {
   const contentBindings = loadContentBindings(path.join(base, 'capabilities/content-bindings.json'));
+  const nativeButton = loadNativeButton(path.join(base,'capabilities/native-button.json')); 
   const semanticRender = validateSemanticRender(JSON.parse(fs.readFileSync(path.join(base, 'capabilities/semantic-render.json'), 'utf8')));
   const manifest = JSON.parse(fs.readFileSync(path.join(base, 'manifest.json'), 'utf8'));
   if (manifest.count !== 41 || manifest.components.length !== 41) throw new Error('library inventory must contain exactly 41 models');
@@ -126,9 +128,12 @@ export function loadLibrary(base = here) {
   for (const model of models) {
     if (model.contentBindings?.schemaVersion !== contentBindings.schemaVersion || model.contentBindings?.capabilityDigest !== contentBindings.capabilityDigest) throw new Error(`${model.component}: content binding mismatch`);
   }
+  const button=models.find(model=>model.component==='button');
+  if(button?.interactions?.nativeButton?.schemaVersion!==nativeButton.schemaVersion||button?.interactions?.nativeButton?.capabilityDigest!==nativeButton.capabilityDigest)throw new Error('button native interaction binding mismatch');
+  for(const model of models)if(model.component!=='button'&&model.interactions?.nativeButton)throw new Error(`${model.component}: unexpected native button interaction`);
   for (const model of models) if (model.semanticRender) {
     const semantic = semanticComponents.get(model.component);
     if (!semantic || model.semanticRender.capabilityDigest !== semanticRender.capabilityDigest || model.semanticRender.vectorIds.join('\0') !== semantic.vectors.map(vector => vector.id).join('\0')) throw new Error(`${model.component}: semantic render binding mismatch`);
   }
-  return {manifest, models, semanticRender, contentBindings};
+  return {manifest, models, semanticRender, contentBindings, nativeButton};
 }
