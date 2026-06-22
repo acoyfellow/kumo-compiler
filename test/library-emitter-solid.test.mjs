@@ -73,6 +73,15 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   assert.doesNotMatch(downstream, /React|innerHTML|demo|@cloudflare\/|return\s+null/);
   const emitter = fs.readFileSync(new URL('../src/kumo/emitters/solid/index.mjs', import.meta.url), 'utf8');
   assert.doesNotMatch(emitter, /switch\s*\(\s*(?:model\.)?component|if\s*\(\s*(?:model\.)?component\s*===|case\s+["'](?:autocomplete|badge|banner|button|select)["']\s*:/);
+  assert.doesNotMatch(emitter, /model\.component\s*===\s*["']button["']/);
+
+  const buttonSource = fs.readFileSync(path.join(first, 'button.tsx'), 'utf8');
+  const buttonDeclaration = fs.readFileSync(path.join(first, 'button.d.ts'), 'utf8');
+  assert.match(buttonSource, /<button \{\.\.\.native\} type=\{\(props\.type/);
+  assert.match(buttonSource, /disabled=\{Boolean\(props\.disabled \|\| props\.loading\)\}/);
+  assert.match(buttonSource, /props\.loading \? <svg aria-hidden="true" \/>/);
+  assert.match(buttonSource, /\{props\.children\}<\/button>/);
+  assert.match(buttonDeclaration, /JSX\.ButtonHTMLAttributes<HTMLButtonElement>/);
 });
 
 test('Solid SSR renders every compiled semantic predicate through canonical markup comparison', async t => {
@@ -92,6 +101,17 @@ test('Solid SSR renders every compiled semantic predicate through canonical mark
     fs.writeFileSync(path.join(build, item.source.replace(/tsx$/, 'js')), transformed.code);
   }
   const library = loadLibrary();
+  const buttonItem = result.components.find(item => item.component === 'button');
+  const buttonModule = await import(path.join(build, buttonItem.source.replace(/tsx$/, 'js')) + `?interactive=${Date.now()}`);
+  const {renderToString} = await import('solid-js/web');
+  const interactive = [
+    [{children:'Enabled', id:'enabled', onClick:() => {}}, /<button[^>]*id="enabled"[^>]*type="button"[^>]*>Enabled<\/button>/],
+    [{children:'Disabled', disabled:true}, /<button[^>]*disabled[^>]*>Disabled<\/button>/],
+    [{children:'Loading', loading:true}, /<button[^>]*disabled[^>]*><svg aria-hidden="true"><\/svg>Loading<\/button>/],
+    [{children:'Submit', type:'submit', name:'intent', value:'save'}, /<button[^>]*type="submit"[^>]*name="intent"[^>]*value="save"[^>]*>Submit<\/button>/],
+  ];
+  for (const [props, expected] of interactive) assert.match(renderToString(() => buttonModule.Button(props)), expected);
+
   for (const [item, model] of result.components.map((item, index) => [item, library.models[index]])) {
     const module = await import(path.join(build, item.source.replace(/tsx$/, 'js')) + `?${Date.now()}`);
     for (const variant of model.draftImplementation.semanticVariants ?? []) {
@@ -103,7 +123,6 @@ test('Solid SSR renders every compiled semantic predicate through canonical mark
       const props = {...canonicalProps};
       if (Object.hasOwn(props, 'children')) props.children = packChildren(props.children);
       if (canonicalFixture !== undefined) props.fixture = structuredClone(canonicalFixture);
-      const {renderToString} = await import('solid-js/web');
       const html = renderToString(() => module[item.symbol](props));
       const vector = library.semanticRender.components.find(x => x.component === model.component).vectors.find(x => x.id === variant.id);
       for (const constraint of vector.nodes) if (constraint.selector === ':root') {

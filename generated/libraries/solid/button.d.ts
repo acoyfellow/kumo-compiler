@@ -4,7 +4,7 @@ export interface ButtonProps {
   "disabled"?: unknown;
   "icon"?: unknown;
   "loading"?: unknown;
-  "native"?: unknown;
+  "native"?: JSX.ButtonHTMLAttributes<HTMLButtonElement>;
   "shape"?: unknown;
   "size"?: unknown;
   "variant"?: unknown;

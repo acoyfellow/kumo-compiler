@@ -4,7 +4,7 @@ import type { JSX } from "solid-js";
 
 export interface ButtonProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "fb89a6c7da3d24b06ce460e02d60941a1dc33621cc70df51098d707e9255e776";
+export const modelDigest = "3614020190406e3bafd01ba171c5adfb78201450b686e1a54f441c5f554a5d4e";
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"default-native":"89e5a990e2451bf44e0420d88f6e76f062098202f08342f53285ad643e01457d","primary-xs":"ea3fa92bf02ca819bfc1f0b1446ff5b5c341ee657a3fa65d338d6c02019a3a82","destructive-lg":"15b0195a8eb219af4f9e17f2bcaf9c423b9ebee692056c1964a025ed5275ac51","circle-label":"eec5ae2310b6553ab713fe5aa9d5722c0d36f00714e790b1e42778ccc353dc50"} as const;
 const styles: Record<string, string> = {"root":"root","group":"group","flex":"flex","w-max":"w-max","h-5":"h-5","h-6.5":"h-6.5","h-9":"h-9","h-10":"h-10","bg-kumo-brand":"bg-kumo-brand","bg-kumo-base":"bg-kumo-base","bg-transparent":"bg-transparent","rounded-full":"rounded-full"};
@@ -29,13 +29,13 @@ export function Button(incoming: ButtonProps): JSX.Element {
   const normalizedFixture = normalizeFixture(fixture);
   const state: Record<string, () => unknown> = {};
   const refs: Record<string, HTMLElement | undefined> = {};
-  const [, native] = splitProps(props as ButtonProps & Record<string, unknown>, ["native"]);
+  const [, native] = splitProps(props as ButtonProps & Record<string, unknown>, ["disabled","icon","loading","shape","size","variant","children","fixture","styles"]);
   void native; void state; void refs;
   if (semanticEqual(renderContent, "Save") && Object.prototype.hasOwnProperty.call(props, "data-probe") && semanticEqual(props["data-probe"], "native") && Object.prototype.hasOwnProperty.call(props, "name") && semanticEqual(props.name, "intent") && Object.prototype.hasOwnProperty.call(props, "value") && semanticEqual(props.value, "save")) return (<button type={"button"} name={"intent"} value={"save"} data-probe={"native"} data-kumo-component={"Button"}><span>{props.children}</span></button>);
   if (semanticEqual(renderContent, "Create") && Object.prototype.hasOwnProperty.call(props, "size") && semanticEqual(props.size, "xs") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "primary")) return (<button class="bg-kumo-brand h-5 text-xs">{props.children}</button>);
   if (semanticEqual(renderContent, "Delete") && Object.prototype.hasOwnProperty.call(props, "size") && semanticEqual(props.size, "lg") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "destructive")) return (<button class="bg-kumo-danger h-10 text-base">{props.children}</button>);
   if (Object.prototype.hasOwnProperty.call(props, "aria-label") && semanticEqual(props["aria-label"], "Add item") && Object.prototype.hasOwnProperty.call(props, "shape") && semanticEqual(props.shape, "circle") && Object.prototype.hasOwnProperty.call(props, "size") && semanticEqual(props.size, "sm")) return (<button aria-label={"Add item"} class="rounded-full size-6.5"></button>);
-  return (<button class={mergeStyles(styles.root)}></button>);
+  return (<button {...native} type={(props.type as JSX.ButtonHTMLAttributes<HTMLButtonElement>["type"]) ?? "button"} disabled={Boolean(props.disabled || props.loading)}>{props.loading ? <svg aria-hidden="true" /> : undefined}{props.children}</button>);
 }
 
 export default Button;
