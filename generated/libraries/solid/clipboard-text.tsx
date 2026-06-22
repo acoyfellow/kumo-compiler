@@ -34,12 +34,10 @@ export function ClipboardText(incoming: ClipboardTextProps): JSX.Element {
     (props.onCopy as (() => void) | undefined)?.();
     setCopyStatus("Copied");
   };
-  const copyOnKeyDown: JSX.EventHandlerUnion<HTMLButtonElement, KeyboardEvent> = event => { if (event.key === "Enter") void copyText(); };
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as ClipboardTextProps & Record<string, unknown>, ["observable"]);
   void native; void state; void refs;
-  if (Object.prototype.hasOwnProperty.call(props, "text") && semanticEqual(props.text, "visible") && Object.prototype.hasOwnProperty.call(props, "textToCopy") && semanticEqual(props.textToCopy, "payload")) return (<div></div>);
-  return (<div>{props.text as JSX.Element}<button type="button" onClick={copyText} onKeyDown={copyOnKeyDown}>Copy</button><span aria-live="polite">{copyStatus()}</span></div>);
+  return (<div>{props.text as JSX.Element}<button type="button" onClick={copyText}>Copy</button><span aria-live="polite">{copyStatus()}</span></div>);
 }
 
 export default ClipboardText;

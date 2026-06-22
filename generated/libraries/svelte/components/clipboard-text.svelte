@@ -31,7 +31,6 @@
 
   let copyStatus = $state('');
   async function copyText() { await navigator.clipboard.writeText(String(textToCopy ?? text ?? '')); onCopy?.(); copyStatus = "Copied"; }
-  function copyTextOnEnter(event: KeyboardEvent) { if (event.key === 'Enter') void copyText(); }
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "observable": observable, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;
@@ -53,8 +52,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if Object.prototype.hasOwnProperty.call(semanticValues, "text") && semanticEqual(semanticValues.text, "visible") && Object.prototype.hasOwnProperty.call(semanticValues, "textToCopy") && semanticEqual(semanticValues.textToCopy, "payload")}
-  <div></div>
-{:else}
-<div {...rest}>{text}<button type="button" onclickcapture={copyText} onkeydowncapture={copyTextOnEnter}>Copy</button><span aria-live="polite">{copyStatus}</span></div>
-{/if}
+<div {...rest}>{text}<button type="button" onclickcapture={copyText}>Copy</button><span aria-live="polite">{copyStatus}</span></div>

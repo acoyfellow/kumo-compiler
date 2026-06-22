@@ -34,7 +34,6 @@ export function Input(incoming: InputProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as InputProps & Record<string, unknown>, ["class","defaultValue","disabled","onInput","children","fixture","styles"]);
   void native; void state; void refs;
-  if (Object.prototype.hasOwnProperty.call(props, "aria-label") && semanticEqual(props["aria-label"], "Email") && Object.prototype.hasOwnProperty.call(props, "defaultValue") && semanticEqual(props.defaultValue, "x") && Object.prototype.hasOwnProperty.call(props, "disabled") && semanticEqual(props.disabled, true)) return (<input></input>);
   return (props.label != null ? <div><label for="kumo-8eb97ee93afe">{props.label as JSX.Element}</label><input {...native} id="kumo-8eb97ee93afe" class={mergeStyles(styles.root, props.class)} value={props.defaultValue as string | number | string[] | undefined} disabled={Boolean(props.disabled)} onInput={nativeInputHandler}></input></div> : <input {...native} class={mergeStyles(styles.root, props.class)} value={props.defaultValue as string | number | string[] | undefined} disabled={Boolean(props.disabled)} onInput={nativeInputHandler}></input>);
 }
 

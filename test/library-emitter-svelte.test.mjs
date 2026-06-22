@@ -189,7 +189,8 @@ test('supported clipboard-copy lowers generically with stable SSR and determinis
  const source=fs.readFileSync(path.join(output,`components/${clipboardCopy.component}.svelte`),'utf8');
  const second=emitSvelteLibrary({output});
  assert.equal(fs.readFileSync(path.join(output,`components/${clipboardCopy.component}.svelte`),'utf8'),source);
- assert.match(source,/<div \{\.\.\.rest\}>\{text\}<button type="button" onclickcapture=\{copyText\} onkeydowncapture=\{copyTextOnEnter\}>Copy<\/button><span aria-live="polite">\{copyStatus\}<\/span><\/div>/);
+ assert.match(source,/<div \{\.\.\.rest\}>\{text\}<button type="button" onclickcapture=\{copyText\}>Copy<\/button><span aria-live="polite">\{copyStatus\}<\/span><\/div>/);
+ assert.doesNotMatch(source,/copyTextOnEnter/);
  assert.match(source,/navigator\.clipboard\.writeText\(String\(textToCopy \?\? text \?\? ''\)\)/);
  assert.match(source,/onCopy\?\.\(\); copyStatus = "Copied"/);
  assert.doesNotMatch(source,/model\.component\s*===?\s*["']clipboard-text["']|@html|innerHTML|dispatchEvent/);

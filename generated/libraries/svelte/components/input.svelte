@@ -56,8 +56,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if Object.prototype.hasOwnProperty.call(semanticValues, "aria-label") && semanticEqual(semanticValues["aria-label"], "Email") && Object.prototype.hasOwnProperty.call(semanticValues, "defaultValue") && semanticEqual(semanticValues.defaultValue, "x") && Object.prototype.hasOwnProperty.call(semanticValues, "disabled") && semanticEqual(semanticValues.disabled, true)}
-  <input>
-{:else}
 {#if label !== undefined}<div><label for={controlId}>{label}</label><input {...rest} id={controlId} value={defaultValue} disabled={Boolean(disabled)} oninput={handleNativeInput} onfocus={handleNativeFocus}></div>{:else}<input {...rest} value={defaultValue} disabled={Boolean(disabled)} oninput={handleNativeInput} onfocus={handleNativeFocus}>{/if}
-{/if}

@@ -8,8 +8,9 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 import { computed, ref, useAttrs, useSlots } from 'vue'
 interface ClipboardTextProps {
   "observable"?: unknown
-  "text"?: unknown
-  "textToCopy"?: unknown
+  "text"?: string
+  "textToCopy"?: string
+  "onCopy"?: unknown
   fixture?: unknown
   semanticContent?: unknown
 }
@@ -31,5 +32,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;text&quot;) &amp;&amp; semanticEqual(semanticValues.text, &quot;visible&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;textToCopy&quot;) &amp;&amp; semanticEqual(semanticValues.textToCopy, &quot;payload&quot;)"><div></div></template><template v-else><div><span>{{ props.text }}</span><button type="button" @click="copyText">Copy</button><span aria-live="polite">{{ copyAnnouncement }}</span></div></template>
+  <div><span>{{ props.text }}</span><button type="button" @click="copyText">Copy</button><span aria-live="polite">{{ copyAnnouncement }}</span></div>
 </template>

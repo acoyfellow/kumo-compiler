@@ -104,10 +104,10 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
 
   const clipboardSource = fs.readFileSync(path.join(first, 'clipboard-text.tsx'), 'utf8');
   const clipboardDeclaration = fs.readFileSync(path.join(first, 'clipboard-text.d.ts'), 'utf8');
-  assert.match(clipboardSource, /return \(<div>\{props\.text as JSX\.Element\}<button type="button" onClick=\{copyText\} onKeyDown=\{copyOnKeyDown\}>Copy<\/button><span aria-live="polite">\{copyStatus\(\)\}<\/span><\/div>\)/);
+  assert.match(clipboardSource, /return \(<div>\{props\.text as JSX\.Element\}<button type="button" onClick=\{copyText\}>Copy<\/button><span aria-live="polite">\{copyStatus\(\)\}<\/span><\/div>\)/);
+  assert.doesNotMatch(clipboardSource, /copyOnKeyDown/);
   assert.match(clipboardSource, /navigator\.clipboard\.writeText\(\(props\.textToCopy \?\? props\.text\) as string\)/);
   assert.match(clipboardSource, /props\.onCopy[\s\S]*setCopyStatus\("Copied"\)/);
-  assert.match(clipboardSource, /event\.key === "Enter"/);
   assert.match(clipboardDeclaration, /"textToCopy"\?: string;/);
   assert.match(clipboardDeclaration, /"text"\?: string;/);
   assert.match(clipboardDeclaration, /"onCopy"\?: \(\) => void;/);

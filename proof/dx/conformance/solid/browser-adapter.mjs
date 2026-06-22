@@ -5,6 +5,7 @@ import{scheduleObservableBrowser}from'../../../../scripts/observable-browser-sch
 import{executeTogglePlan}from'../shared/toggle-executor.mjs';
 import{executeNativeInputPlan}from'../shared/native-input-executor.mjs';
 import{executeFieldPlan}from'../shared/field-executor.mjs';
+import{executeClipboardPlan}from'../shared/clipboard-executor.mjs';
 import{compareMarkup}from'../../../../scripts/observable-runner.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../../../..'),ids=new Set(['disabled-click','loading-click','enabled-click','submit-form']),json=JSON.stringify;
 
@@ -21,6 +22,17 @@ export async function runSolidNativeInputBrowser({consumer,plans,ssrRenders}){
   results.push(...run.results);diagnostics.push(...run.diagnostics);telemetry.push({id:`${plan.component}/${plan.vector}`,...run.telemetry});
  }
  return{results,browserCells:results.length,diagnostics,telemetry,capabilities:['trusted-cdp','native-focus','hydration','native-input-fixtures','isolated-vector-batches']};
+}
+export async function runSolidClipboardBrowser({consumer,plans,ssrRenders}){
+ if(plans.length!==3||ssrRenders.length!==3)throw Error('Solid clipboard adapter requires exactly three vectors');
+ const results=[],diagnostics=[],telemetry=[];
+ for(let batch=0;batch<plans.length;batch++){
+  const plan=plans[batch];
+  const source=`import{hydrate}from'solid-js/web';import{ClipboardText}from'@acoyfellow/kumo-solid/clipboard-text';const P=${json(plan)};Object.defineProperty(navigator,'clipboard',{configurable:true,value:{writeText:async t=>{globalThis.__clipboard=[...(globalThis.__clipboard||[]),t]}}});globalThis.__clipboard=[];globalThis.__events=[];function App(){return <section id="v0"><ClipboardText {...P.fixture.props} onCopy={()=>{globalThis.__events=[...(globalThis.__events||[]),'copy']}}/></section>}const before=document.querySelector('#v0 div');hydrate(App,document.querySelector('#app'),{renderId:'kumo-'});queueMicrotask(()=>{globalThis.__nodePreserved=before===document.querySelector('#v0 div');globalThis.__ready=true});`;
+  const run=await scheduleObservableBrowser(()=>runObservableBrowser({name:`solid-packed-clipboard-${plan.vector}`,entrySource:source,entryFilename:'client.jsx',viteConfig:path.join(root,'proof/dx/conformance/shared/solid-vite.config.mjs'),buildEnv:{KUMO_CONSUMER:consumer},cssPath:path.join(consumer,'node_modules/@acoyfellow/kumo-solid/package/styles.css'),html:ssrRenders[batch].html,beforeAppHtml:ssrRenders[batch].hydrationScript??'',vectors:[plan],runVector:async(api,current)=>executeClipboardPlan({setup:async()=>{},action:async action=>api.action(0,{...action,selector:action.selector}),probe:async probe=>api.evaluate(`(()=>{const box=document.querySelector('#v0'),root=box.querySelector('div'),active=document.activeElement,btn=box.querySelector('button');switch(${json(probe.kind)}){case'dom':return{tag:root.tagName.toLowerCase(),attributes:{includes:Object.fromEntries([...root.attributes].map(x=>[x.name,x.value]))}};case'clipboard':return [...(globalThis.__clipboard||[])];case'events':return [...(globalThis.__events||[])];case'focus':return active===btn?'button':active&&active.tagName?active.tagName.toLowerCase():'none';case'node-identity':return globalThis.__nodePreserved?'preserved':'replaced'}})()`)},current).then(result=>({component:result.component,id:result.vector,passed:true,ssr:'passed',hydration:'passed',nodeIdentity:'preserved',observation:result.probes}))}),{label:`Solid clipboard ${plan.vector}`});
+  results.push(...run.results);diagnostics.push(...run.diagnostics);telemetry.push({id:`${plan.component}/${plan.vector}`,...run.telemetry});
+ }
+ return{results,browserCells:results.length,diagnostics,telemetry,capabilities:['trusted-cdp','native-focus','hydration','clipboard-boundary','clipboard-fixtures','isolated-vector-batches']};
 }
 export async function runSolidFieldBrowser({consumer,plans,ssrRenders}){
  if(plans.length!==3||ssrRenders.length!==3)throw Error('Solid field adapter requires exactly three vectors');

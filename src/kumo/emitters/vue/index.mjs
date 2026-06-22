@@ -188,11 +188,12 @@ function emitComponent(model, library) {
   const loweredClipboardCopy = clipboardCopy && clipboardCopySource(clipboardCopy);
   if (toggleBinding(model, library)) declaredProps.set('defaultChecked',{name:'defaultChecked',required:false,type:'boolean'});
   for (const prop of loweredNativeInput?.props ?? []) declaredProps.set(prop.name, prop);
+  if (clipboardCopy) { declaredProps.set(clipboardCopy.copySource.fallback,{name:clipboardCopy.copySource.fallback,required:false,type:'string'}); declaredProps.set(clipboardCopy.copySource.prop,{name:clipboardCopy.copySource.prop,required:false,type:'string'}); declaredProps.set('onCopy',{name:'onCopy',required:false,type:'unknown'}); }
   for (const variant of variants) for (const predicate of variant.when) if (predicate.kind === 'prop-equals' && predicate.name !== 'children' && !declaredProps.has(predicate.name)) declaredProps.set(predicate.name,{name:predicate.name,required:false,type:'unknown'});
   if (nativeInput) for (const variant of variants) for (const predicate of variant.when) if (predicate.kind === 'prop-equals' && predicate.name !== 'children' && !declaredProps.has(vuePropName(predicate.name))) declaredProps.set(vuePropName(predicate.name),{name:vuePropName(predicate.name),required:false,type:'unknown'});
   const props = [...declaredProps.values()].map(p => `  ${JSON.stringify(p.name)}${p.required && p.name !== 'children' ? '' : '?'}: ${vueType(p.type)}`).join('\n');
   const predicates = variants.map(v => v.when.map(x => semanticPredicate(x.kind === 'prop-equals' && x.name !== 'children' ? {...x,name:vuePropName(x.name)} : x,{props:'semanticValues',fixture:'fixture',content:'renderContent()',equal:'semanticEqual'})).join(' && ') || 'true');
-  const semantic = nativeInput ? '' : variants.map((v,i) => `<template ${i?'v-else-if':'v-if'}="${directive(predicates[i])}">${semanticNode(v.tree)}</template>`).join('');
+  const semantic = (nativeInput || clipboardCopy) ? '' : variants.map((v,i) => `<template ${i?'v-else-if':'v-if'}="${directive(predicates[i])}">${semanticNode(v.tree)}</template>`).join('');
   const nativeButton = model.interactions?.nativeButton;
   const toggle = toggleBinding(model, library);
   const loweredToggle = toggle && toggleSource(toggle);
