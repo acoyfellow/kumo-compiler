@@ -30,7 +30,9 @@ for (const framework of frameworks) {
   if (canonicalReceiptDigest(receipt) !== receipt.receiptHash)
     fail(`${framework}: receipt digest is invalid; rerun/update the individual library runner`);
   for (const [check, result] of Object.entries(receipt.checks ?? {})) {
-    if (result !== 'passed' && result !== 'not-run') fail(`${framework}: receipt check ${check}=${result}`);
+    const status = typeof result === 'string' ? result : result?.status;
+    if (status !== 'passed' && status !== 'not-run') fail(`${framework}: receipt check ${check}=${status}`);
+    if (status === 'not-run' && typeof result === 'object' && !result.reason) fail(`${framework}: receipt check ${check} lacks not-run reason`);
   }
   const packageManifest = JSON.parse(await readFile(resolve(source, 'kumo.manifest.json'), 'utf8'));
   const components = packageManifest.components.map((component) => typeof component === 'string' ? component : component.component ?? component.name);
