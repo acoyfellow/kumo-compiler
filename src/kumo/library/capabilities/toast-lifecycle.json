@@ -1,0 +1,218 @@
+{
+  "schemaVersion": "kumo.toast-lifecycle/v1",
+  "component": "toasty",
+  "support": "requirements-only",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/toasty.json",
+    "contractDigest": "35460d33f6056c8b070637ba6ed0fc22d0e3ddd9f7a907602154399466c045f5",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.5.2",
+      "exportPath": "./components/toast",
+      "typesPath": "dist/src/components/toast/index.d.ts",
+      "runtimePath": "dist/components/toast.js",
+      "typesSha256": "db0aec09820cb948e375b1ae2a9ff211895cade75aca811e79073d641ed288e7",
+      "runtimeSha256": "a903254a1e2943c1e27e2476de198fad20452aea8849d504f543dc77045289da",
+      "irSchemaVersion": "kumo.ir/v1"
+    },
+    "vectorIds": [
+      "provider-ssr",
+      "notify-default",
+      "action-remains-visible",
+      "close-dismiss"
+    ]
+  },
+  "identity": {
+    "returnedId": {
+      "supported": false,
+      "reason": "Canonical vectors invoke notify through the fixture and never observe the manager return value."
+    },
+    "callerSuppliedId": {
+      "supported": false,
+      "reason": "Stable caller-supplied IDs and duplicate-ID behavior are vendor-manager details not exercised by canonical vectors."
+    }
+  },
+  "queue": {
+    "representation": "ordered manager state",
+    "insertionOrder": {
+      "supported": false,
+      "reason": "Only one toast is created in each canonical vector; multi-toast queue order, limit, and eviction are unobserved."
+    },
+    "visibleLimit": {
+      "supported": false,
+      "reason": "Canonical vectors never create a second toast."
+    }
+  },
+  "operations": {
+    "create": {
+      "supported": true,
+      "value": {
+        "trigger": {
+          "type": "click",
+          "selector": "[data-notify]"
+        },
+        "visible": true,
+        "title": "Saved",
+        "description": "Changes saved",
+        "event": "notify"
+      },
+      "vectorIds": [
+        "notify-default"
+      ]
+    },
+    "update": {
+      "supported": false,
+      "reason": "No canonical vector updates an existing toast."
+    },
+    "dismiss": {
+      "supported": true,
+      "value": {
+        "trigger": {
+          "type": "click",
+          "selector": "[aria-label=Close]",
+          "checkpoint": {
+            "root": {
+              "tag": "div"
+            },
+            "state": {
+              "announcement": "Saved Changes saved"
+            },
+            "events": [
+              "notify"
+            ]
+          },
+          "scope": "document"
+        },
+        "phase": "exit-then-remove",
+        "visibleAfterWait": false,
+        "focusAfterRemoval": "none"
+      },
+      "vectorIds": [
+        "close-dismiss"
+      ]
+    },
+    "action": {
+      "supported": true,
+      "value": {
+        "trigger": {
+          "type": "click",
+          "selector": "[data-toast-action]",
+          "checkpoint": {
+            "root": {
+              "tag": "div"
+            },
+            "state": {
+              "visible": true,
+              "announcement": "Saved Changes saved"
+            },
+            "events": [
+              "notify",
+              "action"
+            ]
+          },
+          "scope": "document"
+        },
+        "remainsVisible": true,
+        "event": "action",
+        "focus": "[data-toast-action]"
+      },
+      "vectorIds": [
+        "action-remains-visible"
+      ]
+    }
+  },
+  "timeout": {
+    "automaticDismiss": {
+      "supported": false,
+      "reason": "Canonical waits prove visibility at the action checkpoint and removal after explicit close, not a default timeout."
+    },
+    "durationMs": {
+      "supported": false,
+      "reason": "Exact timer duration is not asserted."
+    },
+    "pause": {
+      "supported": false,
+      "reason": "No hover, focus, page-visibility, or programmatic timer pause is exercised."
+    },
+    "resume": {
+      "supported": false,
+      "reason": "No paused timer is resumed by a canonical vector."
+    }
+  },
+  "portal": {
+    "supported": true,
+    "value": {
+      "containerDefault": "provider container or document.body",
+      "initial": "portaled after hydration",
+      "ssrRoot": "div"
+    },
+    "vectorIds": [
+      "provider-ssr"
+    ]
+  },
+  "liveRegion": {
+    "supported": true,
+    "value": {
+      "priority": "polite",
+      "content": [
+        "title",
+        "description"
+      ],
+      "announcement": "Saved Changes saved",
+      "actionDoesNotClear": true,
+      "closeCheckpointRetainsAnnouncement": "Saved Changes saved"
+    },
+    "vectorIds": [
+      "action-remains-visible",
+      "close-dismiss"
+    ]
+  },
+  "cleanup": {
+    "explicitClose": {
+      "supported": true,
+      "value": "enters exit lifecycle then is removed",
+      "vectorIds": [
+        "close-dismiss"
+      ]
+    },
+    "announcementRemoval": {
+      "supported": false,
+      "reason": "Assistive technology announcement timing and animation-completion removal timing are inherited from Base UI, CSS, and the user agent; exact wall-clock timing is not guessed."
+    },
+    "providerUnmount": {
+      "supported": false,
+      "reason": "Provider unmount cleanup is not exercised by canonical vectors."
+    },
+    "timerDisposal": {
+      "supported": false,
+      "reason": "Vendor timer allocation and disposal are not observed by canonical vectors."
+    }
+  },
+  "vendorUnknowns": [
+    {
+      "field": "managerIdGenerationAndDedupe",
+      "reason": "The public manager is inherited from Base UI; ID generation, duplicate handling, and bump scheduling are not canonical-vector observations."
+    },
+    {
+      "field": "timerScheduler",
+      "reason": "Timeout defaults, clock source, pause conditions, and resume arithmetic are inherited from the vendor and are not asserted."
+    },
+    {
+      "field": "queuePolicy",
+      "reason": "Ordering under multiple additions, capacity, eviction, promise updates, and swipe dismissal are not exercised."
+    },
+    {
+      "field": "liveRegionLifecycle",
+      "reason": "Assistive technology announcement timing and animation-completion removal timing are inherited from Base UI, CSS, and the user agent; exact wall-clock timing is not guessed."
+    }
+  ],
+  "missingOperations": [
+    "stable-id-contract",
+    "multi-toast-queue",
+    "update-transition",
+    "automatic-timeout",
+    "pause-resume",
+    "provider-unmount-cleanup"
+  ],
+  "capabilityDigest": "9214fd41cec484ccd22431e623a66a50a204977a8923a32735a04624b7ac6f1e"
+}
