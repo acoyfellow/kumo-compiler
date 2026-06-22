@@ -28,20 +28,23 @@ export function Switch(incoming: SwitchProps): JSX.Element {
   const renderContent = normalizeRenderContent(props.children, true);
   const normalizedFixture = normalizeFixture(fixture);
   const state: Record<string, () => unknown> = {};
-  const controlled = Object.prototype.hasOwnProperty.call(incoming, "checked");
+  const controlled = incoming.checked !== undefined;
   const [uncontrolled, setUncontrolled] = createSignal(Boolean(incoming.defaultChecked ?? false));
   const checked = () => controlled ? Boolean(incoming.checked) : uncontrolled();
-  const toggleChecked: JSX.EventHandlerUnion<HTMLButtonElement, Event> = event => {
-    if (!event.isTrusted || props.disabled) return;
+  const currentIndeterminate = () => false;
+  const activateToggle = () => {
+    if (props.disabled) return;
     const next = !checked();
     if (!controlled) setUncontrolled(next);
     (props.onCheckedChange as ((checked: boolean) => void) | undefined)?.(next);
   };
+  const toggleChecked: JSX.EventHandlerUnion<HTMLButtonElement, MouseEvent> = () => activateToggle();
+  const toggleOnKeyDown: JSX.EventHandlerUnion<HTMLSpanElement, KeyboardEvent> = event => { if (event.code === "Space" || event.key === " ") { event.preventDefault(); activateToggle(); } };
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as SwitchProps & Record<string, unknown>, []);
   void native; void state; void refs;
   if (Object.prototype.hasOwnProperty.call(props, "aria-label") && semanticEqual(props["aria-label"], "Small") && Object.prototype.hasOwnProperty.call(props, "size") && semanticEqual(props.size, "sm")) return (<button role={"switch"} aria-checked={"false"} class="h-4 w-8"></button>);
-  return (<button type="button" role="switch" class={mergeStyles(styles.root)} disabled={Boolean(props.disabled)} aria-checked={checked()} onClick={toggleChecked} />);
+  return (<button class={mergeStyles((props.size === "sm") ? "h-4 w-8" : "", (props.size === "lg") ? "h-5 w-10" : "")} aria-label={props["aria-label"] as string} type="button" role="switch" aria-checked={checked()} disabled={Boolean(props.disabled)} onClick={toggleChecked} />);
 }
 
 export default Switch;

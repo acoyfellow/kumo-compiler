@@ -78,13 +78,13 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
 
   for (const name of ['checkbox', 'switch']) {
     const toggleSource = fs.readFileSync(path.join(first, `${name}.tsx`), 'utf8');
-    assert.match(toggleSource, /Object\.prototype\.hasOwnProperty\.call\(incoming, "checked"\)/);
+    assert.match(toggleSource, /const controlled = incoming\.checked !== undefined/);
     assert.match(toggleSource, /incoming\.defaultChecked \?\? false/);
-    assert.match(toggleSource, /if \(!event\.isTrusted \|\| props\.disabled\) return/);
+    assert.match(toggleSource, /if \(props\.disabled\) return/);
     assert.match(toggleSource, /props\.onCheckedChange/);
   }
-  assert.match(fs.readFileSync(path.join(first, 'checkbox.tsx'), 'utf8'), /<input type="checkbox" role="checkbox"[^>]*aria-checked=\{props\.indeterminate \? "mixed" : checked\(\)\}[^>]*checked=\{checked\(\)\}[^>]*onChange=\{toggleChecked\}/);
-  assert.match(fs.readFileSync(path.join(first, 'switch.tsx'), 'utf8'), /<button type="button" role="switch"[^>]*aria-checked=\{checked\(\)\}[^>]*onClick=\{toggleChecked\}/);
+  assert.match(fs.readFileSync(path.join(first, 'checkbox.tsx'), 'utf8'), /<span[^>]*role="checkbox"[^>]*aria-checked=\{currentIndeterminate\(\) \? "mixed" : checked\(\)\}[^>]*onClick=\{toggleChecked\}/);
+  assert.match(fs.readFileSync(path.join(first, 'switch.tsx'), 'utf8'), /<button[^>]*type="button"[^>]*role="switch"[^>]*aria-checked=\{checked\(\)\}[^>]*onClick=\{toggleChecked\}/);
   for (const name of ['radio', 'field']) assert.doesNotMatch(fs.readFileSync(path.join(first, `${name}.tsx`), 'utf8'), /toggleChecked|defaultChecked/);
 
   const buttonSource = fs.readFileSync(path.join(first, 'button.tsx'), 'utf8');

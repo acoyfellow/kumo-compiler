@@ -28,19 +28,23 @@ export function Checkbox(incoming: CheckboxProps): JSX.Element {
   const renderContent = normalizeRenderContent(props.children, true);
   const normalizedFixture = normalizeFixture(fixture);
   const state: Record<string, () => unknown> = {};
-  const controlled = Object.prototype.hasOwnProperty.call(incoming, "checked");
+  const controlled = incoming.checked !== undefined;
   const [uncontrolled, setUncontrolled] = createSignal(Boolean(incoming.defaultChecked ?? false));
   const checked = () => controlled ? Boolean(incoming.checked) : uncontrolled();
-  const toggleChecked: JSX.EventHandlerUnion<HTMLInputElement, Event> = event => {
-    if (!event.isTrusted || props.disabled) return;
-    const next = (event.currentTarget as HTMLInputElement).checked;
+  const [currentIndeterminate, setCurrentIndeterminate] = createSignal(Boolean(incoming.indeterminate));
+  const activateToggle = () => {
+    if (props.disabled) return;
+    const next = currentIndeterminate() ? true : !checked();
+    setCurrentIndeterminate(false);
     if (!controlled) setUncontrolled(next);
     (props.onCheckedChange as ((checked: boolean) => void) | undefined)?.(next);
   };
+  const toggleChecked: JSX.EventHandlerUnion<HTMLSpanElement, MouseEvent> = () => activateToggle();
+  const toggleOnKeyDown: JSX.EventHandlerUnion<HTMLSpanElement, KeyboardEvent> = event => { if (event.code === "Space" || event.key === " ") { event.preventDefault(); activateToggle(); } };
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as CheckboxProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  return (<input type="checkbox" role="checkbox" class={mergeStyles(styles.root)} disabled={Boolean(props.disabled)} aria-checked={props.indeterminate ? "mixed" : checked()} checked={checked()} onChange={toggleChecked} />);
+  return (<span aria-label={props["aria-label"] as string} role="checkbox" aria-checked={currentIndeterminate() ? "mixed" : checked()} aria-disabled={Boolean(props.disabled) || undefined} tabIndex={props.disabled ? undefined : 0} onClick={toggleChecked} onKeyDown={toggleOnKeyDown} />);
 }
 
 export default Checkbox;
