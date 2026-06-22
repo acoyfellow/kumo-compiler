@@ -4,9 +4,9 @@ import type { JSX } from "solid-js";
 
 export interface BreadcrumbsProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "b6e5e0d42071bc3fa59e912c2fa0d704cc3acc039749d4c109e804bab44b4b15";
+export const modelDigest = "eba5829a500fbcf08243716c059636b3da146dba33d31b0340db71d035587a01";
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
-export const semanticVariantDigests = {} as const;
+export const semanticVariantDigests = {"trail":"988fbe9b9467e3a7ec328520e34a5ea0ee2fd2c84014465d6304c4b2bc2b5427","small-current":"9362e5bf743e1dcf8b15a2ba2db9cc9664b02f59456f37291fcab081ce99c5fe"} as const;
 const styles: Record<string, string> = {"root":"root","group":"group","mr-4":"mr-4","flex":"flex","items-center":"items-center"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");
 const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
@@ -31,6 +31,8 @@ export function Breadcrumbs(incoming: BreadcrumbsProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as BreadcrumbsProps & Record<string, unknown>, []);
   void native; void state; void refs;
+  if (Object.prototype.hasOwnProperty.call(props, "size") && semanticEqual(props.size, "sm") && semanticEqual(normalizedFixture, {"export":"root","props":{},"children":[{"export":".Link","props":{"href":"/home"},"children":[{"text":"Home"}]},{"export":".Separator","props":{},"children":[]},{"export":".Current","props":{},"children":[{"text":"Here"}]}]})) return (<nav class="text-sm h-10"><a></a><a></a><span></span><span></span><span></span><span></span><span></span><span></span>{"HomeHereHomeHere"}</nav>);
+  if (semanticEqual(normalizedFixture, {"export":"root","props":{},"children":[{"export":".Link","props":{"href":"/home"},"children":[{"text":"Home"}]},{"export":".Separator","props":{},"children":[]},{"export":".Current","props":{},"children":[{"text":"Here"}]}]})) return (<nav aria-label={"breadcrumb"} class="text-base h-12"><a href={"/home"} data-kumo-component={"Breadcrumbs"} data-kumo-part={"link"}></a><a href={"/home"} data-kumo-component={"Breadcrumbs"} data-kumo-part={"link"}></a><span></span><span></span><span></span><span></span><span></span><span></span>{"HomeHereHomeHere"}</nav>);
   return (<nav aria-label={"Breadcrumbs"} class={mergeStyles(styles.root)}>{props.children}</nav>);
 }
 

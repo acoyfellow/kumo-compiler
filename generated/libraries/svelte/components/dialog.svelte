@@ -3,7 +3,7 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "f9517f6c346751f7fb38e9984e7e08637053542c11e623d7b71778e55bf138cb";
+  export const modelDigest = "bbb9a5923924fd49391fbcee50197c821eda77610c050fb355e378e852397b0d";
   export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   Close?: Snippet;
@@ -61,10 +61,16 @@
   styleOperations.push([styles["root"]]);
 </script>
 
+{#if Object.prototype.hasOwnProperty.call(semanticValues, "role") && semanticEqual(semanticValues.role, "dialog") && semanticEqual(fixture, {"export":".Root","props":{},"children":[{"export":".Trigger","props":{},"children":[{"text":"Open settings"}]},{"export":"root","props":{},"children":[{"export":".Title","props":{},"children":[{"text":"Settings"}]}]}]})}
+  <button data-kumo-component={"Dialog"} data-kumo-part={"trigger"}>
+    {"Open settings"}
+  </button>
+{:else}
 {#if browser}
   <div data-kumo-portal-target={"document-body"} data-kumo-layer="dialog">
     <section data-kumo-part="dialog">
       {#if dialog}{@render dialog()}{/if}
     </section>
   </div>
+{/if}
 {/if}

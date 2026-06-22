@@ -37,8 +37,8 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   assert.deepEqual(manifest.components.map(x => x.compoundPaths), library.models.map(model => model.composition.compoundExports?.paths.map(x => x.path) ?? []));
   assert.deepEqual(manifest.components.map(x => x.semanticVariants), library.models.map(model => (model.draftImplementation.semanticVariants ?? []).map(({id, expectationDigest}) => ({id, expectationDigest}))));
   assert.deepEqual(manifest.components.map(x => x.unresolvedSemanticOperations), library.models.map(model => model.unresolvedSemanticOperations ?? []));
-  assert.equal(manifest.components.flatMap(x => x.semanticVariants).length, 62);
-  assert.equal(manifest.components.flatMap(x => x.unresolvedSemanticOperations).length, 4);
+  assert.equal(manifest.components.flatMap(x => x.semanticVariants).length, 66);
+  assert.equal(manifest.components.flatMap(x => x.unresolvedSemanticOperations).length, 0);
 
   for (const item of manifest.components) {
     assert.equal(item.sha256, sha(fs.readFileSync(path.join(first, item.source))));

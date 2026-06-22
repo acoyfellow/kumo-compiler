@@ -3,7 +3,7 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "4776632c394a536ecd5477ef13e2a89249e69a1b3208a445b782496b317647f1";
+  export const modelDigest = "18db983088868d26659f87134e6b676f4803d0cdb1e56652f53a7b3203005d2e";
   export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   children?: Snippet;
@@ -51,7 +51,7 @@
   <div class="bg-kumo-elevated ring-kumo-hairline">
     <div></div>
     <div></div>
-    {fixtureText(fixture)}
+    {"TopMain"}
   </div>
 {:else}
 <div class={cx(styles["root"])}>

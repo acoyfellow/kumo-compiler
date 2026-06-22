@@ -45,8 +45,8 @@ test('receipt separates export proof from partial browser conformance', async ()
   assert.equal(new Set(r.exportSurface.rootSymbols).size, 104);
   assert.equal(new Set(r.exportSurface.declarationSymbols).size, 104);
   assert.equal(r.staticSemanticConformance.status,'passed');
-  assert.equal(r.staticSemanticConformance.passed,62);
-  assert.equal(r.staticSemanticConformance.unresolved,4);
+  assert.equal(r.staticSemanticConformance.passed,66);
+  assert.equal(r.staticSemanticConformance.unresolved,0);
   assert.deepEqual(r.browserConformance.verified, []);
   assert.equal(r.browserConformance.pending.length, 41);
   for(const key of ['liveHydration','serverNodeIdentity','buttonInteraction','fieldInteraction','hmr','screenReader']){

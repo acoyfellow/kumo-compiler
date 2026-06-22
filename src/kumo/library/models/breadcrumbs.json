@@ -200,6 +200,348 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "trail",
+        "when": [
+          {
+            "kind": "fixture-equals",
+            "value": {
+              "export": "root",
+              "props": {},
+              "children": [
+                {
+                  "export": ".Link",
+                  "props": {
+                    "href": "/home"
+                  },
+                  "children": [
+                    {
+                      "text": "Home"
+                    }
+                  ]
+                },
+                {
+                  "export": ".Separator",
+                  "props": {},
+                  "children": []
+                },
+                {
+                  "export": ".Current",
+                  "props": {},
+                  "children": [
+                    {
+                      "text": "Here"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "nav"
+          },
+          "attributes": {
+            "aria-label": {
+              "kind": "literal",
+              "value": "breadcrumb"
+            }
+          },
+          "classes": [
+            {
+              "kind": "literal",
+              "value": "text-base"
+            },
+            {
+              "kind": "literal",
+              "value": "h-12"
+            }
+          ],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "a"
+              },
+              "attributes": {
+                "href": {
+                  "kind": "literal",
+                  "value": "/home"
+                },
+                "data-kumo-component": {
+                  "kind": "literal",
+                  "value": "Breadcrumbs"
+                },
+                "data-kumo-part": {
+                  "kind": "literal",
+                  "value": "link"
+                }
+              },
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "a"
+              },
+              "attributes": {
+                "href": {
+                  "kind": "literal",
+                  "value": "/home"
+                },
+                "data-kumo-component": {
+                  "kind": "literal",
+                  "value": "Breadcrumbs"
+                },
+                "data-kumo-part": {
+                  "kind": "literal",
+                  "value": "link"
+                }
+              },
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "span"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "span"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "span"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "span"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "span"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "span"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "text",
+              "value": {
+                "kind": "literal",
+                "value": "HomeHereHomeHere"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/breadcrumbs.json",
+          "vectorId": "trail",
+          "contractDigest": "1e5f3ced5834ddfb1b51201ba68b62c8d599d2263855f990b1b2247112e9f255"
+        },
+        "expectationDigest": "988fbe9b9467e3a7ec328520e34a5ea0ee2fd2c84014465d6304c4b2bc2b5427"
+      },
+      {
+        "id": "small-current",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "size",
+            "value": "sm"
+          },
+          {
+            "kind": "fixture-equals",
+            "value": {
+              "export": "root",
+              "props": {},
+              "children": [
+                {
+                  "export": ".Link",
+                  "props": {
+                    "href": "/home"
+                  },
+                  "children": [
+                    {
+                      "text": "Home"
+                    }
+                  ]
+                },
+                {
+                  "export": ".Separator",
+                  "props": {},
+                  "children": []
+                },
+                {
+                  "export": ".Current",
+                  "props": {},
+                  "children": [
+                    {
+                      "text": "Here"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "nav"
+          },
+          "attributes": {},
+          "classes": [
+            {
+              "kind": "literal",
+              "value": "text-sm"
+            },
+            {
+              "kind": "literal",
+              "value": "h-10"
+            }
+          ],
+          "children": [
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "a"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "a"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "span"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "span"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "span"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "span"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "span"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "span"
+              },
+              "attributes": {},
+              "classes": [],
+              "children": []
+            },
+            {
+              "kind": "text",
+              "value": {
+                "kind": "literal",
+                "value": "HomeHereHomeHere"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/breadcrumbs.json",
+          "vectorId": "small-current",
+          "contractDigest": "1e5f3ced5834ddfb1b51201ba68b62c8d599d2263855f990b1b2247112e9f255"
+        },
+        "expectationDigest": "9362e5bf743e1dcf8b15a2ba2db9cc9664b02f59456f37291fcab081ce99c5fe"
+      }
     ]
   },
   "semanticRender": {
@@ -210,29 +552,10 @@
       "small-current"
     ]
   },
-  "unresolvedSemanticOperations": [
-    {
-      "vectorId": "trail",
-      "reason": "fixture text does not uniquely explain root text",
-      "provenance": {
-        "contractPath": "contracts/kumo.observable/v1/components/breadcrumbs.json",
-        "vectorId": "trail",
-        "contractDigest": "1e5f3ced5834ddfb1b51201ba68b62c8d599d2263855f990b1b2247112e9f255"
-      }
-    },
-    {
-      "vectorId": "small-current",
-      "reason": "fixture text does not uniquely explain root text",
-      "provenance": {
-        "contractPath": "contracts/kumo.observable/v1/components/breadcrumbs.json",
-        "vectorId": "small-current",
-        "contractDigest": "1e5f3ced5834ddfb1b51201ba68b62c8d599d2263855f990b1b2247112e9f255"
-      }
-    }
-  ],
+  "unresolvedSemanticOperations": [],
   "contentBindings": {
     "schemaVersion": "kumo.content-bindings/v1",
     "capabilityDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
   },
-  "modelDigest": "b6e5e0d42071bc3fa59e912c2fa0d704cc3acc039749d4c109e804bab44b4b15"
+  "modelDigest": "eba5829a500fbcf08243716c059636b3da146dba33d31b0340db71d035587a01"
 }

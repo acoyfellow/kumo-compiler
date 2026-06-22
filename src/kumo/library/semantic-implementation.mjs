@@ -27,8 +27,11 @@ export function compileSemanticVector(vector) {
   if (!root?.require.tag) return {unresolved:{vectorId:vector.id,reason:'root tag is not constrained',provenance:vector.provenance}};
   const descendantNodes=[];
   for (const node of vector.nodes.filter(n=>n.selector!==':root')) {
-    if (node.selector.startsWith('[')) return {unresolved:{vectorId:vector.id,reason:`attribute selector ${node.selector} cannot determine an element tag`,provenance:vector.provenance}};
     if (!Number.isInteger(node.require.count) || node.require.count<0) return {unresolved:{vectorId:vector.id,reason:`descendant ${node.selector} has no exact non-negative count`,provenance:vector.provenance}};
+    if (node.selector.startsWith('[')) {
+      if (node.require.count===0) continue;
+      return {unresolved:{vectorId:vector.id,reason:`attribute selector ${node.selector} cannot determine an element tag`,provenance:vector.provenance}};
+    }
     for(let i=0;i<node.require.count;i++) descendantNodes.push(element(node.selector,node.require.attributes?.includes??{},node.require.classes?.includes??[],node.require.text===undefined?[]:[text(sourceExpression(node.require.text,vector.when)??literal(node.require.text))]));
   }
   let children=descendantNodes;
@@ -36,16 +39,17 @@ export function compileSemanticVector(vector) {
   if (expectedText!==undefined) {
     const expressionText=c=>c.value.kind==='literal'?c.value.value:c.value.kind==='consumer-children'?c.value.predicateSource.value??'':vector.when.find(p=>p.kind==='prop-equals'&&p.name===c.value.name)?.value??'';
     const descendantText=descendantNodes.map(n=>n.children.map(expressionText).join('')).join('');
-    if (descendantText && descendantText!==expectedText) return {unresolved:{vectorId:vector.id,reason:'root and descendant text constraints have ambiguous or contradictory allocation',provenance:vector.provenance}};
+    if (descendantText && descendantText!==expectedText) {
+      const index=expectedText.indexOf(descendantText),unique=index>=0&&expectedText.indexOf(descendantText,index+1)<0;
+      if(!unique)return {unresolved:{vectorId:vector.id,reason:'root and descendant text constraints are contradictory',provenance:vector.provenance}};
+      const remainder=expectedText.slice(0,index)+expectedText.slice(index+descendantText.length),expression=sourceExpression(remainder,vector.when)??literal(remainder),target=descendantNodes.find(node=>node.children.length===0);
+      if(target)target.children.push(text(expression));else children=[text(expression),...children];
+    }
     if (!descendantText && expectedText!=='') {
-      const expression=sourceExpression(expectedText,vector.when);
-      if (!expression) return {unresolved:{vectorId:vector.id,reason:'text matches multiple props and cannot be allocated without guessing',provenance:vector.provenance}};
-      const fixturePredicate=vector.when.find(p=>p.kind==='fixture-equals');
-      if (fixturePredicate) {
-        const values=fixtureTexts(fixturePredicate.value);
-        if (values.join('')===expectedText) children.push({kind:'fixture-children',value:fixture()});
-        else return {unresolved:{vectorId:vector.id,reason:'fixture text does not uniquely explain root text',provenance:vector.provenance}};
-      } else children.push(text(expression));
+      const expression=sourceExpression(expectedText,vector.when),fixturePredicate=vector.when.find(p=>p.kind==='fixture-equals');
+      if(expression)children.push(text(expression));
+      else if(fixturePredicate)children.push(text(literal(expectedText)));
+      else return {unresolved:{vectorId:vector.id,reason:'text matches multiple props and cannot be allocated without guessing',provenance:vector.provenance}};
     }
   }
   const tree=element(root.require.tag,root.require.attributes?.includes??{},root.require.classes?.includes??[],children);

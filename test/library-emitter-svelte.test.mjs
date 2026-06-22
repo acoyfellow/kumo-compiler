@@ -30,7 +30,7 @@ test('emits exactly 41 sorted deterministic native Svelte components',()=>{
  }
 });
 
-test('Svelte SSR renders all 62 semantic variants through canonical root and descendant comparison',async t=>{
+test('Svelte SSR renders all 66 semantic variants through canonical root and descendant comparison',async t=>{
  const build=fs.mkdtempSync(path.join(os.tmpdir(),'kumo-svelte-ssr-'));
  t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
  fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
@@ -57,8 +57,8 @@ test('Svelte SSR renders all 62 semantic variants through canonical root and des
    rendered++;
   }
  }
- assert.equal(rendered,62);
- assert.equal(manifest.components.flatMap(x=>x.unresolvedSemanticOperations).length,4);
+ assert.equal(rendered,66);
+ assert.equal(manifest.components.flatMap(x=>x.unresolvedSemanticOperations).length,0);
 });
 
 test('resolution receipt canonically binds capability and generated manifest hashes',()=>{
@@ -67,8 +67,8 @@ test('resolution receipt canonically binds capability and generated manifest has
  const {receiptHash,...canonical}=receipt;
  const {contentBindings}=loadLibrary();
  assert.equal(receipt.status,'passed');
- assert.equal(receipt.semanticVariants,62);
- assert.equal(receipt.unresolvedSemanticOperations,4);
+ assert.equal(receipt.semanticVariants,66);
+ assert.equal(receipt.unresolvedSemanticOperations,0);
  assert.match(receiptHash,/^[a-f0-9]{64}$/);
  assert.equal(receiptHash,hash(JSON.stringify(canonical)));
  assert.equal(receipt.contentBindingsCapabilityDigest,contentBindings.capabilityDigest);

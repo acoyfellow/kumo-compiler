@@ -5,7 +5,7 @@ import type { JSX } from "solid-js";
 
 export interface PopoverProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "34d7ee992f8f6e187cd36b1471f571733ec206033242ce3ffd4aab7a353a5f8b";
+export const modelDigest = "cc912e264b579e2ed770a09131e4874ada9d948fefc9f1dc9be0b0a9d038de4d";
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"closed-trigger-ssr":"47da98bc8697006e9aa6aacecd53fee10ce49002411f7db100e7aa610514ed86"} as const;
 const styles: Record<string, string> = {"root":"root","data-kumo-component=Popover":"data-kumo-component=Popover","data-kumo-part=trigger":"data-kumo-part=trigger","data-starting-style":"data-starting-style","data-ending-style":"data-ending-style","origin-[var(--transform-origin)]":"origin-[var(--transform-origin)]"};
@@ -32,7 +32,7 @@ export function Popover(incoming: PopoverProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as PopoverProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  if (semanticEqual(normalizedFixture, {"export":"root","props":{},"children":[{"export":".Trigger","props":{},"children":[{"text":"Open"}]}]})) return (<button type={"button"} tabindex={"0"} aria-haspopup={"dialog"} aria-expanded={"false"} data-kumo-component={"Popover"} data-kumo-part={"trigger"}>{fixtureText(fixture)}</button>);
+  if (semanticEqual(normalizedFixture, {"export":"root","props":{},"children":[{"export":".Trigger","props":{},"children":[{"text":"Open"}]}]})) return (<button type={"button"} tabindex={"0"} aria-haspopup={"dialog"} aria-expanded={"false"} data-kumo-component={"Popover"} data-kumo-part={"trigger"}>{"Open"}</button>);
   return (<Portal mount={resolvePortalTarget("document-body")} children={<><div data-kumo-compound={"popover"}><div data-kumo-part={"popover"}>{(props.popover as JSX.Element) ?? undefined}</div></div></>} />);
 }
 

@@ -90,30 +90,20 @@
       "symbol": "Breadcrumbs",
       "subpath": "./components/breadcrumbs",
       "file": "components/breadcrumbs.vue",
-      "modelDigest": "b6e5e0d42071bc3fa59e912c2fa0d704cc3acc039749d4c109e804bab44b4b15",
+      "modelDigest": "eba5829a500fbcf08243716c059636b3da146dba33d31b0340db71d035587a01",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
-      "semanticVariants": [],
-      "unresolvedSemanticOperations": [
+      "semanticVariants": [
         {
-          "vectorId": "trail",
-          "reason": "fixture text does not uniquely explain root text",
-          "provenance": {
-            "contractPath": "contracts/kumo.observable/v1/components/breadcrumbs.json",
-            "vectorId": "trail",
-            "contractDigest": "1e5f3ced5834ddfb1b51201ba68b62c8d599d2263855f990b1b2247112e9f255"
-          }
+          "id": "trail",
+          "expectationDigest": "988fbe9b9467e3a7ec328520e34a5ea0ee2fd2c84014465d6304c4b2bc2b5427"
         },
         {
-          "vectorId": "small-current",
-          "reason": "fixture text does not uniquely explain root text",
-          "provenance": {
-            "contractPath": "contracts/kumo.observable/v1/components/breadcrumbs.json",
-            "vectorId": "small-current",
-            "contractDigest": "1e5f3ced5834ddfb1b51201ba68b62c8d599d2263855f990b1b2247112e9f255"
-          }
+          "id": "small-current",
+          "expectationDigest": "9362e5bf743e1dcf8b15a2ba2db9cc9664b02f59456f37291fcab081ce99c5fe"
         }
       ],
-      "sha256": "e44d40044814a6bce5eb3cc1c9d0fce4127f1611ae42b2b9b4441a7361d51f76",
+      "unresolvedSemanticOperations": [],
+      "sha256": "742dcd72912f0ad36c33e880b810fa1524b8864d33d4850ec654df5d7f60c3cb",
       "exports": [
         "Breadcrumbs",
         "breadcrumbsVariants",
@@ -366,21 +356,16 @@
       "symbol": "Dialog",
       "subpath": "./components/dialog",
       "file": "components/dialog.vue",
-      "modelDigest": "f9517f6c346751f7fb38e9984e7e08637053542c11e623d7b71778e55bf138cb",
+      "modelDigest": "bbb9a5923924fd49391fbcee50197c821eda77610c050fb355e378e852397b0d",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
-      "semanticVariants": [],
-      "unresolvedSemanticOperations": [
+      "semanticVariants": [
         {
-          "vectorId": "closed-trigger",
-          "reason": "attribute selector [role=dialog] cannot determine an element tag",
-          "provenance": {
-            "contractPath": "contracts/kumo.observable/v1/components/dialog.json",
-            "vectorId": "closed-trigger",
-            "contractDigest": "15bdd0b64f302b4a64929843f7958278d13b196cc80702033dbf526db845a5e3"
-          }
+          "id": "closed-trigger",
+          "expectationDigest": "b96e3604ff637e62f8a623de4b4a5d2be662c130f4a195f5e33636566b2126e2"
         }
       ],
-      "sha256": "907a97f15aaae84e8fa614a0c87f1f14239b4d53a921a0e54669b92c1b8dcfa5",
+      "unresolvedSemanticOperations": [],
+      "sha256": "3c83febe7734198f4c9cb599e553b43e4acc50aacef72047b36652f53d4c01fa",
       "exports": [
         "Dialog",
         "DialogRoot",
@@ -412,7 +397,7 @@
       "symbol": "DropdownMenu",
       "subpath": "./components/dropdown",
       "file": "components/dropdown-menu.vue",
-      "modelDigest": "78a6f126416a72db817c63a86e5de4242629bacce8a6329ec88f16a0c671f447",
+      "modelDigest": "b7a7a7552e372c2e1ea240ec06c7dce7aef9118128e29322f995167f2f63016d",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
       "semanticVariants": [
         {
@@ -421,7 +406,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "dcf7826665c48207d7c8ec8e943e2fabd1e7fff426e2cba862d34a208b579582",
+      "sha256": "3b800161cf6754d758052cbb6805920df87a5c794deaacad16d1a93870fbdfe1",
       "exports": [
         "DropdownMenu"
       ],
@@ -450,26 +435,20 @@
       "symbol": "Empty",
       "subpath": "./components/empty",
       "file": "components/empty.vue",
-      "modelDigest": "09c586d6894b365150e81a5fba8032a98695d8f6cd14bf4ea0f0466bda52b194",
+      "modelDigest": "7c44f85a5193723c0aa68789e6ac8207071d68aca9e4b9d56bc93a57b3ecf50e",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
       "semanticVariants": [
         {
           "id": "minimal",
           "expectationDigest": "fac6cc210e864da2dd8e1aefab71c1261c24df86ace2fe3bc85a3cac59f2cce4"
-        }
-      ],
-      "unresolvedSemanticOperations": [
+        },
         {
-          "vectorId": "small-description",
-          "reason": "root and descendant text constraints have ambiguous or contradictory allocation",
-          "provenance": {
-            "contractPath": "contracts/kumo.observable/v1/components/empty.json",
-            "vectorId": "small-description",
-            "contractDigest": "cbcbfdf0208594b31ebda18d022e2ab58d90c860592bee81f979bd247949e054"
-          }
+          "id": "small-description",
+          "expectationDigest": "92b78bc5b2f43a8a6d864b961e5d72647a9c82691e3a4fdd71fed52cb41be36a"
         }
       ],
-      "sha256": "36f967a9fe9dfbaddb71c20db9642eb3391a3f85201c92da19b5e6baaac15f39",
+      "unresolvedSemanticOperations": [],
+      "sha256": "658b8cef46cc8bc20df65dd95d26b0c9a3089ecade7e829e687bfb78e186b2ee",
       "exports": [
         "Empty",
         "emptyVariants",
@@ -665,7 +644,7 @@
       "symbol": "LayerCard",
       "subpath": "./components/layer-card",
       "file": "components/layer-card.vue",
-      "modelDigest": "4776632c394a536ecd5477ef13e2a89249e69a1b3208a445b782496b317647f1",
+      "modelDigest": "18db983088868d26659f87134e6b676f4803d0cdb1e56652f53a7b3203005d2e",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
       "semanticVariants": [
         {
@@ -678,7 +657,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "6340676d8608a8cd6d4d4729164a71a83f0b3fb356593065c414b4c719d3a3a8",
+      "sha256": "68075b82e1569c736597174b8eeb1a95bc2631e4fa9966c3a39b71c2da8e29d8",
       "exports": [
         "LayerCard"
       ],
@@ -827,7 +806,7 @@
       "symbol": "Popover",
       "subpath": "./components/popover",
       "file": "components/popover.vue",
-      "modelDigest": "34d7ee992f8f6e187cd36b1471f571733ec206033242ce3ffd4aab7a353a5f8b",
+      "modelDigest": "cc912e264b579e2ed770a09131e4874ada9d948fefc9f1dc9be0b0a9d038de4d",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
       "semanticVariants": [
         {
@@ -836,7 +815,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "d42d53fb9a75061415da83b38ef9304e107bfb1878d7bbee75db44f4a8ca435a",
+      "sha256": "73e3814a2731e143a69ab590b41d9ba7b9de0936304eddf6dada86122c9edc44",
       "exports": [
         "Popover",
         "PopoverRoot",

@@ -2,9 +2,9 @@
   "schemaVersion": 2,
   "framework": "solid",
   "package": "@acoyfellow/kumo-solid@0.0.1",
-  "sourceTree": "2ec2c65a316a57d7d7c10609de9f3607f2abcb8f",
-  "sourceTreeDigest": "7623374ebdcacee67d4d163c44342a2c801aab64239dbe53ee7989d8118f5f64",
-  "packageSha256": "9264d0bafffb75422036cddcf924b0ad5f52b3f93e2507b4ee794125d2c8cd31",
+  "sourceTree": "e9cd3adcff0110a6c501aa00ab8d31f568fcc2d5",
+  "sourceTreeDigest": "13babe13cfd520f7ac2a2dc0dd9e15be0c7ce31c963be1c86ee76ed2a7358ace",
+  "packageSha256": "2fe1eefe0c270ef0720a83cfe56e9ddbd3e8dac4619aae0c944024c7ad4d4aab",
   "deterministicRuns": 2,
   "versions": {
     "node": "v24.17.0",
@@ -20,7 +20,7 @@
     "Vite client build",
     "Vite SSR build",
     "solid-js/web renderToString + generateHydrationScript with matching renderId",
-    "62 packed canonical compareMarkup variants",
+    "66 packed canonical compareMarkup variants",
     "client CSS/assets artifact audit",
     "Vite Button-only tree-shaking build",
     "npm workspace install/build"
@@ -41,7 +41,7 @@
     "compoundSsr": "passed",
     "modelDigestBindings": "passed",
     "sourceSha256Bindings": "passed",
-    "semanticVariants": 62,
+    "semanticVariants": 66,
     "canonicalMarkup": "passed",
     "rootExports": "passed",
     "canonicalAliases": "retained where available"
@@ -138,5 +138,5 @@
       "reason": "requires scripts/observable-browser-runner.mjs trusted conformance"
     }
   },
-  "receiptHash": "2d263ebe94f8170ba8db88ebec1795c23794454b4ba3b27b05eb8089b23983b2"
+  "receiptHash": "4514ebe39a3360f212c701c675ce1f6d6ee2fb66f961194a6ce2fba8ac35485e"
 }

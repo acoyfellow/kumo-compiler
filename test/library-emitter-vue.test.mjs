@@ -60,7 +60,7 @@ test('generic Vue emitter creates deterministic, native, tree-shakeable candidat
 });
 
 
-test('Vue SSR renders all 62 semantic variants through canonical root and descendant comparison', async t => {
+test('Vue SSR renders all 66 semantic variants through canonical root and descendant comparison', async t => {
   const build=fs.mkdtempSync(path.resolve('.kumo-vue-ssr-')); t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
   const manifest=generateVueLibrary(output), library=loadLibrary(); let rendered=0;
   for(const [entry,model] of manifest.components.map((entry,index)=>[entry,library.models[index]])){
@@ -87,7 +87,7 @@ test('Vue SSR renders all 62 semantic variants through canonical root and descen
       rendered++;
     }
   }
-  assert.equal(rendered,62); assert.equal(manifest.components.flatMap(x=>x.unresolvedSemanticOperations).length,4);
+  assert.equal(rendered,66); assert.equal(manifest.components.flatMap(x=>x.unresolvedSemanticOperations).length,0);
 });
 
 test('resolution receipt canonically binds capability and generated manifest hashes',()=>{
@@ -95,7 +95,7 @@ test('resolution receipt canonically binds capability and generated manifest has
   const contentBindings=JSON.parse(fs.readFileSync('src/kumo/library/capabilities/content-bindings.json','utf8'));
   assert.equal(receipt.status,'passed');
   assert.equal(receipt.resolvedFingerprint,'semantic-variant-consumer-children-empty-ssr');
-  assert.equal(receipt.semanticVariants,62);assert.equal(receipt.unresolvedSemanticOperations,4);assert.equal(receipt.testRuns,2);
+  assert.equal(receipt.semanticVariants,66);assert.equal(receipt.unresolvedSemanticOperations,0);assert.equal(receipt.testRuns,2);
   const {receiptHash,...canonical}=receipt;
   assert.equal(receiptHash,hash(JSON.stringify(canonical)));
   assert.equal(receipt.contentBindingsCapabilityDigest,contentBindings.capabilityDigest);

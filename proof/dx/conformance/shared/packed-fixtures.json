@@ -580,7 +580,9 @@
       "fixture": {
         "kind": "component",
         "ref": "Breadcrumbs",
-        "props": {},
+        "props": {
+          "size": "sm"
+        },
         "children": [
           {
             "kind": "component",
@@ -6174,7 +6176,9 @@
       "fixture": {
         "kind": "component",
         "ref": "Popover",
-        "props": {},
+        "props": {
+          "open": true
+        },
         "children": [
           {
             "kind": "component",
@@ -6755,7 +6759,10 @@
       "fixture": {
         "kind": "component",
         "ref": "Select",
-        "props": {},
+        "props": {
+          "aria-label": "Choice",
+          "placeholder": "Choose"
+        },
         "children": [
           {
             "kind": "component",
@@ -6864,7 +6871,10 @@
       "fixture": {
         "kind": "component",
         "ref": "Select",
-        "props": {},
+        "props": {
+          "aria-label": "Choice",
+          "defaultValue": "alpha"
+        },
         "children": [
           {
             "kind": "component",
@@ -7006,7 +7016,10 @@
       "fixture": {
         "kind": "component",
         "ref": "Select",
-        "props": {},
+        "props": {
+          "aria-label": "Choice",
+          "defaultValue": "alpha"
+        },
         "children": [
           {
             "kind": "component",
@@ -7154,7 +7167,10 @@
       "fixture": {
         "kind": "component",
         "ref": "Select",
-        "props": {},
+        "props": {
+          "aria-label": "Choice",
+          "defaultValue": "alpha"
+        },
         "children": [
           {
             "kind": "component",
@@ -7296,7 +7312,11 @@
       "fixture": {
         "kind": "component",
         "ref": "Select",
-        "props": {},
+        "props": {
+          "aria-label": "Controlled",
+          "value": "alpha",
+          "open": true
+        },
         "children": [
           {
             "kind": "component",
@@ -7392,7 +7412,10 @@
       "fixture": {
         "kind": "component",
         "ref": "Select",
-        "props": {},
+        "props": {
+          "aria-label": "People",
+          "multiple": true
+        },
         "children": [
           {
             "kind": "component",
@@ -9162,7 +9185,9 @@
       "fixture": {
         "kind": "component",
         "ref": "Table",
-        "props": {},
+        "props": {
+          "layout": "fixed"
+        },
         "children": [
           {
             "kind": "component",
@@ -9276,7 +9301,18 @@
       "fixture": {
         "kind": "component",
         "ref": "Tabs",
-        "props": {},
+        "props": {
+          "tabs": [
+            {
+              "value": "overview",
+              "label": "Overview"
+            },
+            {
+              "value": "settings",
+              "label": "Settings"
+            }
+          ]
+        },
         "children": []
       },
       "setup": {},
@@ -9326,7 +9362,21 @@
       "fixture": {
         "kind": "component",
         "ref": "Tabs",
-        "props": {},
+        "props": {
+          "variant": "underline",
+          "size": "sm",
+          "selectedValue": "settings",
+          "tabs": [
+            {
+              "value": "overview",
+              "label": "Overview"
+            },
+            {
+              "value": "settings",
+              "label": "Settings"
+            }
+          ]
+        },
         "children": []
       },
       "setup": {},
@@ -10009,5 +10059,5 @@
       }
     }
   ],
-  "digest": "e7daabc3db075cef51119a8980d0c7aba7111e0fa3f4648074c677177f0e4b78"
+  "digest": "e8d7f17985b6ca2c3abf69b69c482d9efcbc63f18ae35760e3673df9aecc2f77"
 }

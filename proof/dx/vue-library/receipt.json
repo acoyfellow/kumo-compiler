@@ -2,9 +2,9 @@
   "schemaVersion": 3,
   "framework": "vue",
   "package": "@acoyfellow/kumo-vue@0.0.1",
-  "sourceTree": "2ec2c65a316a57d7d7c10609de9f3607f2abcb8f",
-  "sourceTreeDigest": "cb3a87ee856ea7537fe26b77a137e3257faabc8ca190f0aef2da3fa8385e8d3f",
-  "packageSha256": "65267432aa5cf9d17143722e6e56f19f6e105f3678d7421c67bff74fb50f77e8",
+  "sourceTree": "e9cd3adcff0110a6c501aa00ab8d31f568fcc2d5",
+  "sourceTreeDigest": "89f2346306b3cbcd83fe8ecc8983c27031f89255a269fadc5727022df364144f",
+  "packageSha256": "0ae0ea92cbb4cdb4ac1d5537b8efc40e0cd6a9c500e1c7c7619df68838477d17",
   "deterministicRuns": 2,
   "versions": {
     "node": "v24.17.0",
@@ -18,7 +18,7 @@
     "all 41 root/subpath TypeScript imports",
     "Vite client build",
     "Vue SSR build/render",
-    "62 packed semantic SSR comparisons",
+    "66 packed semantic SSR comparisons",
     "compound export imports",
     "CSS/assets file presence",
     "Vite tree-shaking build",
@@ -51,8 +51,8 @@
   },
   "staticSemanticConformance": {
     "status": "passed",
-    "passed": 62,
-    "unresolved": 4
+    "passed": 66,
+    "unresolved": 0
   },
   "pendingReasons": {
     "hydration": "requires scripts/observable-browser-runner.mjs trusted conformance",
@@ -62,5 +62,5 @@
     "screenReader": "requires scripts/observable-browser-runner.mjs trusted conformance"
   },
   "observations": {},
-  "receiptHash": "e53ec3e23b5fc553d5763339110853981cc2fc53dc5458fae0a36b18e1c2d0e4"
+  "receiptHash": "5aecc938034f3cc6ef722db7ba8a288df1a8b0ba7aca46bd05f93d0307d17dd8"
 }

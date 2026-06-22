@@ -371,6 +371,84 @@
           }
         ]
       }
+    ],
+    "semanticVariants": [
+      {
+        "id": "closed-trigger",
+        "when": [
+          {
+            "kind": "prop-equals",
+            "name": "role",
+            "value": "dialog"
+          },
+          {
+            "kind": "fixture-equals",
+            "value": {
+              "export": ".Root",
+              "props": {},
+              "children": [
+                {
+                  "export": ".Trigger",
+                  "props": {},
+                  "children": [
+                    {
+                      "text": "Open settings"
+                    }
+                  ]
+                },
+                {
+                  "export": "root",
+                  "props": {},
+                  "children": [
+                    {
+                      "export": ".Title",
+                      "props": {},
+                      "children": [
+                        {
+                          "text": "Settings"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "tree": {
+          "kind": "semantic-element",
+          "tag": {
+            "kind": "literal",
+            "value": "button"
+          },
+          "attributes": {
+            "data-kumo-component": {
+              "kind": "literal",
+              "value": "Dialog"
+            },
+            "data-kumo-part": {
+              "kind": "literal",
+              "value": "trigger"
+            }
+          },
+          "classes": [],
+          "children": [
+            {
+              "kind": "text",
+              "value": {
+                "kind": "literal",
+                "value": "Open settings"
+              }
+            }
+          ]
+        },
+        "provenance": {
+          "contractPath": "contracts/kumo.observable/v1/components/dialog.json",
+          "vectorId": "closed-trigger",
+          "contractDigest": "15bdd0b64f302b4a64929843f7958278d13b196cc80702033dbf526db845a5e3"
+        },
+        "expectationDigest": "b96e3604ff637e62f8a623de4b4a5d2be662c130f4a195f5e33636566b2126e2"
+      }
     ]
   },
   "semanticRender": {
@@ -380,20 +458,10 @@
       "closed-trigger"
     ]
   },
-  "unresolvedSemanticOperations": [
-    {
-      "vectorId": "closed-trigger",
-      "reason": "attribute selector [role=dialog] cannot determine an element tag",
-      "provenance": {
-        "contractPath": "contracts/kumo.observable/v1/components/dialog.json",
-        "vectorId": "closed-trigger",
-        "contractDigest": "15bdd0b64f302b4a64929843f7958278d13b196cc80702033dbf526db845a5e3"
-      }
-    }
-  ],
+  "unresolvedSemanticOperations": [],
   "contentBindings": {
     "schemaVersion": "kumo.content-bindings/v1",
     "capabilityDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
   },
-  "modelDigest": "f9517f6c346751f7fb38e9984e7e08637053542c11e623d7b71778e55bf138cb"
+  "modelDigest": "bbb9a5923924fd49391fbcee50197c821eda77610c050fb355e378e852397b0d"
 }

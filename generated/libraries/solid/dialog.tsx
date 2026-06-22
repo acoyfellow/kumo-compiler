@@ -5,9 +5,9 @@ import type { JSX } from "solid-js";
 
 export interface DialogProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "f9517f6c346751f7fb38e9984e7e08637053542c11e623d7b71778e55bf138cb";
+export const modelDigest = "bbb9a5923924fd49391fbcee50197c821eda77610c050fb355e378e852397b0d";
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
-export const semanticVariantDigests = {} as const;
+export const semanticVariantDigests = {"closed-trigger":"b96e3604ff637e62f8a623de4b4a5d2be662c130f4a195f5e33636566b2126e2"} as const;
 const styles: Record<string, string> = {"root":"root","fixed inset-0 bg-kumo-recessed opacity-80":"fixed inset-0 bg-kumo-recessed opacity-80","fixed top-1/2 left-1/2":"fixed top-1/2 left-1/2","max-w-[calc(100vw-2rem)]":"max-w-[calc(100vw-2rem)]","rounded-xl bg-kumo-base text-kumo-default":"rounded-xl bg-kumo-base text-kumo-default","shadow-m ring ring-kumo-line":"shadow-m ring ring-kumo-line","sm:min-w-96":"sm:min-w-96","min-w-72":"min-w-72","min-w-[32rem]":"min-w-[32rem]","min-w-[48rem]":"min-w-[48rem]"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");
 const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
@@ -32,6 +32,7 @@ export function Dialog(incoming: DialogProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as DialogProps & Record<string, unknown>, []);
   void native; void state; void refs;
+  if (Object.prototype.hasOwnProperty.call(props, "role") && semanticEqual(props.role, "dialog") && semanticEqual(normalizedFixture, {"export":".Root","props":{},"children":[{"export":".Trigger","props":{},"children":[{"text":"Open settings"}]},{"export":"root","props":{},"children":[{"export":".Title","props":{},"children":[{"text":"Settings"}]}]}]})) return (<button data-kumo-component={"Dialog"} data-kumo-part={"trigger"}>{"Open settings"}</button>);
   return (<Portal mount={resolvePortalTarget("document-body")} children={<><div data-kumo-compound={"dialog"}><div data-kumo-part={"dialog"}>{(props.dialog as JSX.Element) ?? undefined}</div></div></>} />);
 }
 

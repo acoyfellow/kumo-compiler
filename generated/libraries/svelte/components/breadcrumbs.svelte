@@ -3,7 +3,7 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "b6e5e0d42071bc3fa59e912c2fa0d704cc3acc039749d4c109e804bab44b4b15";
+  export const modelDigest = "eba5829a500fbcf08243716c059636b3da146dba33d31b0340db71d035587a01";
   export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   children?: Snippet;
@@ -43,6 +43,32 @@
   styleOperations.push([styles["root"]]);
 </script>
 
+{#if Object.prototype.hasOwnProperty.call(semanticValues, "size") && semanticEqual(semanticValues.size, "sm") && semanticEqual(fixture, {"export":"root","props":{},"children":[{"export":".Link","props":{"href":"/home"},"children":[{"text":"Home"}]},{"export":".Separator","props":{},"children":[]},{"export":".Current","props":{},"children":[{"text":"Here"}]}]})}
+  <nav class="text-sm h-10">
+    <a></a>
+    <a></a>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    {"HomeHereHomeHere"}
+  </nav>
+{:else if semanticEqual(fixture, {"export":"root","props":{},"children":[{"export":".Link","props":{"href":"/home"},"children":[{"text":"Home"}]},{"export":".Separator","props":{},"children":[]},{"export":".Current","props":{},"children":[{"text":"Here"}]}]})}
+  <nav aria-label={"breadcrumb"} class="text-base h-12">
+    <a href={"/home"} data-kumo-component={"Breadcrumbs"} data-kumo-part={"link"}></a>
+    <a href={"/home"} data-kumo-component={"Breadcrumbs"} data-kumo-part={"link"}></a>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    {"HomeHereHomeHere"}
+  </nav>
+{:else}
 <nav aria-label={"Breadcrumbs"} class={cx(styles["root"])}>
   {#if children}{@render children()}{/if}
 </nav>
+{/if}

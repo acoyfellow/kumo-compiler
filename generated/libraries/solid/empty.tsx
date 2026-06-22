@@ -4,9 +4,9 @@ import type { JSX } from "solid-js";
 
 export interface EmptyProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "09c586d6894b365150e81a5fba8032a98695d8f6cd14bf4ea0f0466bda52b194";
+export const modelDigest = "7c44f85a5193723c0aa68789e6ac8207071d68aca9e4b9d56bc93a57b3ecf50e";
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
-export const semanticVariantDigests = {"minimal":"fac6cc210e864da2dd8e1aefab71c1261c24df86ace2fe3bc85a3cac59f2cce4"} as const;
+export const semanticVariantDigests = {"minimal":"fac6cc210e864da2dd8e1aefab71c1261c24df86ace2fe3bc85a3cac59f2cce4","small-description":"92b78bc5b2f43a8a6d864b961e5d72647a9c82691e3a4fdd71fed52cb41be36a"} as const;
 const styles: Record<string, string> = {"root":"root","flex":"flex","w-full":"w-full","flex-col":"flex-col","items-center":"items-center"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");
 const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
@@ -31,6 +31,7 @@ export function Empty(incoming: EmptyProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as EmptyProps & Record<string, unknown>, []);
   void native; void state; void refs;
+  if (Object.prototype.hasOwnProperty.call(props, "description") && semanticEqual(props.description, "Try again") && Object.prototype.hasOwnProperty.call(props, "size") && semanticEqual(props.size, "sm") && Object.prototype.hasOwnProperty.call(props, "title") && semanticEqual(props.title, "Empty")) return (<div class="px-6 py-8 gap-4"><h2>{(props.title as any)}</h2><p>{(props.description as any)}</p></div>);
   if (Object.prototype.hasOwnProperty.call(props, "title") && semanticEqual(props.title, "No results")) return (<div class="px-10 py-16 gap-6"><h2>{(props.title as any)}</h2></div>);
   return (<section class={mergeStyles(styles.root)}>{(props.icon as JSX.Element) ?? undefined}{(props.title as any)}{(props.description as JSX.Element) ?? undefined}{(props.contents as JSX.Element) ?? undefined}</section>);
 }

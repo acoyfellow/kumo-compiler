@@ -27,8 +27,8 @@ test('Vue package proof reports only deterministic static/package claims', async
   for (const key of ['clientBuild', 'ssrBuild', 'renderToString', 'cssAssetsPresent'])
     assert.equal(r.packageConformance[key], 'passed', key);
   assert.equal(r.staticSemanticConformance.status, 'passed');
-  assert.equal(r.staticSemanticConformance.passed, 62);
-  assert.equal(r.staticSemanticConformance.unresolved, 4);
+  assert.equal(r.staticSemanticConformance.passed, 66);
+  assert.equal(r.staticSemanticConformance.unresolved, 0);
   for (const key of ['hydration', 'serverNodeIdentity', 'buttonFieldBehavior', 'hmr', 'screenReader']) {
     assert.equal(r.browserConformance[key], 'not-run', key);
     assert.equal(r.pendingReasons[key], reason, key);

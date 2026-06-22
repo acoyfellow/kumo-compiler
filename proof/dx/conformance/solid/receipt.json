@@ -4,17 +4,17 @@
   "framework": "solid",
   "package": "@acoyfellow/kumo-solid@0.0.1",
   "artifact": "library-artifacts/kumo-solid-0.0.1.tgz",
-  "packageSha256": "9926d226d9225d3e6fdcf039e9977f879a0941638aa9fa779a1daa418014749d",
+  "packageSha256": "2fe1eefe0c270ef0720a83cfe56e9ddbd3e8dac4619aae0c944024c7ad4d4aab",
   "contract": {
     "schemaVersion": "kumo.observable/v1",
     "provenanceDigest": "a7fe3efce7677deb02df5635e1c9541b8e618d67763a5ef8ca11f6ef950aeebf"
   },
   "plan": {
     "schemaVersion": "kumo.packed-fixture/v1",
-    "digest": "e7daabc3db075cef51119a8980d0c7aba7111e0fa3f4648074c677177f0e4b78",
-    "sha256": "3e81bd38185b09a5e0475eaf4c8d6bbe0d6f25847900e8a2e63b5b7d5ee87b65"
+    "digest": "e8d7f17985b6ca2c3abf69b69c482d9efcbc63f18ae35760e3673df9aecc2f77",
+    "sha256": "3153cc2e780cd7b7de2262f53dbac6886ae3ac61179ffe58ac52ec419dc3efe7"
   },
-  "modelHash": "c5283c795cccab37fda9061175bcb937d6202df3d14aac1371e6acd6d5eb8afa",
+  "modelHash": "7e8f304a06a484c7ea205a79aa9b184ce955f7dbaff5ac82cb37649c301a55ae",
   "node": {
     "version": "v24.17.0",
     "platform": "darwin",
@@ -31,8 +31,7 @@
   },
   "counts": {
     "blocked": 60,
-    "failed": 56,
-    "passed": 8
+    "passed": 64
   },
   "totalVectors": 124,
   "diagnostics": [],
@@ -51,162 +50,172 @@
     {
       "component": "badge",
       "vector": "default",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: missing class inline-flex"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: missing class inline-flex"
+      "assertion": {
+        "status": "passed",
+        "digest": "bde3caccb20f3f09a8b74429553747e38d36304b7b7c8f8e0f486cf2792cf22d"
+      },
+      "observation": {
+        "markupSha256": "533e04756ec738e9934d5ef155c34e39a1ca47700a261e420e5c6c2aa8acbc1a"
+      }
     },
     {
       "component": "badge",
       "vector": "success-dot",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "descendant span: count expected 1, got 0"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "descendant span: count expected 1, got 0"
+      "assertion": {
+        "status": "passed",
+        "digest": "17e57d2197d3b81bf4ae1c125418f667d31a2eba0e18f92dc1757f89a5be3442"
+      },
+      "observation": {
+        "markupSha256": "bd5177c2755fc646c09729ade49cbe717a55a34ecc6a64eb09a1ddead3e9465a"
+      }
     },
     {
       "component": "banner",
       "vector": "structured",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: tag expected div, got section"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: tag expected div, got section"
+      "assertion": {
+        "status": "passed",
+        "digest": "c45e628a5b85a89701e968ffce997245aeb2b58eacd500e2548965c96591c506"
+      },
+      "observation": {
+        "markupSha256": "32a9e482e933ba3b36a8c30ed9fc7c90f564d5d79fee0d85ad25ed576931b145"
+      }
     },
     {
       "component": "banner",
       "vector": "alert-simple",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: tag expected div, got section"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: tag expected div, got section"
+      "assertion": {
+        "status": "passed",
+        "digest": "37a8001c26e5d7879678640b39018eae422585b7ba7adbbeda0ac9a4804fd67f"
+      },
+      "observation": {
+        "markupSha256": "4b8372984e30a44d51f8d4c4ac3045a4ec4cc2d65a33eb8b37032e983cbc8be5"
+      }
     },
     {
       "component": "breadcrumbs",
       "vector": "trail",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: text expected HomeHereHomeHere, got HomeHere"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: text expected HomeHereHomeHere, got HomeHere"
+      "assertion": {
+        "status": "passed",
+        "digest": "495c3abd7e395988c63504b1f36e00baa58d55ddf1cf6de3070d77e9e013cc5a"
+      },
+      "observation": {
+        "markupSha256": "685c16e9f2857a71fb228e8334afa92cdf82d8cbf6480e443a9e5f68a4a265e3"
+      }
     },
     {
       "component": "breadcrumbs",
       "vector": "small-current",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: text expected HomeHereHomeHere, got HomeHere"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: text expected HomeHereHomeHere, got HomeHere"
+      "assertion": {
+        "status": "passed",
+        "digest": "e0d8471fa283cf7d70218865d3e33ab5d2b1fe589cc7c05de1de7e629a03ee94"
+      },
+      "observation": {
+        "markupSha256": "1002b6d5f5f14f32b1e844ef512a99f37dcf9eb65d111a447a0846e8a3fa43a8"
+      }
     },
     {
       "component": "button",
       "vector": "default-native",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: attribute type mismatch"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: attribute type mismatch"
+      "assertion": {
+        "status": "passed",
+        "digest": "abd81959ad07f2cab5863f731a822aa436b25ccc54ab3bb10b1aee829b0e5f32"
+      },
+      "observation": {
+        "markupSha256": "72af633a12b7759ad22e3f78b142738d3ba7d954a4b414a49cf8e116c5f1dc6e"
+      }
     },
     {
       "component": "button",
       "vector": "primary-xs",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: missing class bg-kumo-brand"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: missing class bg-kumo-brand"
+      "assertion": {
+        "status": "passed",
+        "digest": "fe426f57769be0695baea96d78be91f8178b0eaf509a438bee2df5d97f4a763c"
+      },
+      "observation": {
+        "markupSha256": "73b588e80311a27e75ad2c1aa88393551a47c8225b61be66a92efbd479a24a3b"
+      }
     },
     {
       "component": "button",
       "vector": "destructive-lg",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: missing class bg-kumo-danger"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: missing class bg-kumo-danger"
+      "assertion": {
+        "status": "passed",
+        "digest": "98407b5bb84f3fcc60b2a28b04f2a13ac7108bc92580cd7feacee899f2e4d7b5"
+      },
+      "observation": {
+        "markupSha256": "13bdd87da4dab64b39ba6c551fb8a9fd5f7665db1fee7793cbeb61f9f58a4811"
+      }
     },
     {
       "component": "button",
       "vector": "circle-label",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: missing class rounded-full"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: missing class rounded-full"
+      "assertion": {
+        "status": "passed",
+        "digest": "8882af225169a74a4f4e5b6bcba5bfeea054dc5cec43f959ad1b5824e46b6681"
+      },
+      "observation": {
+        "markupSha256": "9d5eca0a1e59e1efff2c9069535720ca2392d53839d31ea4a93fcc4ce5fa8586"
+      }
     },
     {
       "component": "button",
@@ -321,7 +330,7 @@
         "digest": "f91886042e2bc1c5a3ecbbe7e01d4bbb019083f6e2a0d07e2157863f82b7fb64"
       },
       "observation": {
-        "markupSha256": "353152e71eea9dee98b6fe9ee0ac5d2e6741058f5b656c16acba3a8fe9b94075"
+        "markupSha256": "5fc60732c47adf0b7a2357dc81967b9758ad07405e969b2d8c3e93c75384ab1c"
       }
     },
     {
@@ -349,66 +358,70 @@
     {
       "component": "cloudflare-logo",
       "vector": "full-color",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: missing class text-kumo-default"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: missing class text-kumo-default"
+      "assertion": {
+        "status": "passed",
+        "digest": "3b668eabc87dc8a4616613a9d05ff2b771d4bbbaa592b8d2094e67d03c0ec239"
+      },
+      "observation": {
+        "markupSha256": "65f25fd0a41d09c0e86022b2d9560f8f2af596172867667336ebf68f097f3845"
+      }
     },
     {
       "component": "cloudflare-logo",
       "vector": "glyph-white",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: missing class text-white"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: missing class text-white"
+      "assertion": {
+        "status": "passed",
+        "digest": "518a9aa5368e63877075c82273890165a7b0d46ff2a3860e53cb9f52e620af36"
+      },
+      "observation": {
+        "markupSha256": "2221593802f2129000e148c01b49034cae3206d23b0d8a1393d040ad18191210"
+      }
     },
     {
       "component": "code",
       "vector": "default",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: tag expected pre, got code"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: tag expected pre, got code"
+      "assertion": {
+        "status": "passed",
+        "digest": "e4fc21c5b9a3f59c1b97631f13cea500715c00aa1851cb955a0e61195661e0c1"
+      },
+      "observation": {
+        "markupSha256": "1cdcee9c463d8c2844347d9684962b693c8a4e78efdc2faa8d03f77730fa0e12"
+      }
     },
     {
       "component": "code",
       "vector": "bash",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: tag expected pre, got code"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: tag expected pre, got code"
+      "assertion": {
+        "status": "passed",
+        "digest": "7cc9610f7d1560f3ee8a253a873ca3dc2f169bf275ead567268135af3d752a81"
+      },
+      "observation": {
+        "markupSha256": "36602dfc1f50065ab0a64fcb0e4a4c6a4bb279b3d35e327be28ddd741693c377"
+      }
     },
     {
       "component": "combobox",
@@ -424,18 +437,19 @@
     {
       "component": "command-palette",
       "vector": "highlighted-text",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: tag expected span, got div"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: tag expected span, got div"
+      "assertion": {
+        "status": "passed",
+        "digest": "2e80fef2335d8d9dd11942d7c52120b37fca05902a2e48c680b8833b7ffd8f2b"
+      },
+      "observation": {
+        "markupSha256": "00bd759646c4df70db9d426ba65b6663c11f3b37a00892ab7f4960f937b5e376"
+      }
     },
     {
       "component": "command-palette",
@@ -451,18 +465,19 @@
     {
       "component": "date-picker",
       "vector": "single-selected",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "runner: expected one element root"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "runner: expected one element root"
+      "assertion": {
+        "status": "passed",
+        "digest": "9cea995353847f88c8c98c2888ba09a0736407ab2e47999521f1c43bf922fc14"
+      },
+      "observation": {
+        "markupSha256": "08f6aacf57a1d53fb58093104b92a677c2d4045a8f9ff2cf63e9d79e03e4b29d"
+      }
     },
     {
       "component": "date-picker",
@@ -489,34 +504,36 @@
     {
       "component": "date-range-picker",
       "vector": "default-layout",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "runner: expected one element root"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "runner: expected one element root"
+      "assertion": {
+        "status": "passed",
+        "digest": "85bfa0d377fb8d9858cfb46d9637519c420f1f4afe4a2ad41887d5d948e2fbc6"
+      },
+      "observation": {
+        "markupSha256": "52ae2138a20854511e44b2e7063637fdd2f0d45c302f17cd74794e278fa1cb1e"
+      }
     },
     {
       "component": "date-range-picker",
       "vector": "small-subtle-timezone",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "runner: expected one element root"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "runner: expected one element root"
+      "assertion": {
+        "status": "passed",
+        "digest": "76f7e414cf7b0adbe09b06046f9b72e15354b721c31d9d772aec5223e69d5c31"
+      },
+      "observation": {
+        "markupSha256": "e843128768bdff8e23a0d7adae1a330659c8d5f7fb9e6bbfbf89a8fbcb347d97"
+      }
     },
     {
       "component": "date-range-picker",
@@ -532,18 +549,19 @@
     {
       "component": "dialog",
       "vector": "closed-trigger",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: tag expected button, got div"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: tag expected button, got div"
+      "assertion": {
+        "status": "passed",
+        "digest": "71789b60baea35fc579965938dbafd270a08620213b5c887073268cbbc393d85"
+      },
+      "observation": {
+        "markupSha256": "039722eaf908c1d378fedd9e31ee7e892eacf15c23c16f4475e2399af7959624"
+      }
     },
     {
       "component": "dialog",
@@ -559,18 +577,19 @@
     {
       "component": "dropdown-menu",
       "vector": "closed-trigger-ssr",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: tag expected button, got div"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: tag expected button, got div"
+      "assertion": {
+        "status": "passed",
+        "digest": "88681c5ff97795e0a67402567c7f2ec12187f63822db2d590830ca990d4b9558"
+      },
+      "observation": {
+        "markupSha256": "4c3f81e077571f78335991736e9c5e2286fce2db6f8e8792ef65419efac2c704"
+      }
     },
     {
       "component": "dropdown-menu",
@@ -597,34 +616,36 @@
     {
       "component": "empty",
       "vector": "minimal",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: tag expected div, got section"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: tag expected div, got section"
+      "assertion": {
+        "status": "passed",
+        "digest": "e30b8546ebfebddcd8b14ef49decf53241066edce50ccc6f5a9cec67e8a2b5ec"
+      },
+      "observation": {
+        "markupSha256": "9febb853816eb796406644d6c05c4b2f551ce6efc7f84e16d22baf83ebb093be"
+      }
     },
     {
       "component": "empty",
       "vector": "small-description",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: tag expected div, got section"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: tag expected div, got section"
+      "assertion": {
+        "status": "passed",
+        "digest": "03674d7c6e5c86088e8fbeaf2ee0000b6ea63fbf8cf4753b74d7618e9a76d3f9"
+      },
+      "observation": {
+        "markupSha256": "7b92eb44ffc1d030eafdae45aee845f3085312d7247678073b983d4d9e5755fe"
+      }
     },
     {
       "component": "field",
@@ -640,7 +661,7 @@
         "digest": "f91886042e2bc1c5a3ecbbe7e01d4bbb019083f6e2a0d07e2157863f82b7fb64"
       },
       "observation": {
-        "markupSha256": "5aa15452ec7d794bc8ab3090504da56c59439cf00eaf0c72f3f44d4d1944174d"
+        "markupSha256": "2a5abf437c53186e31d8b340a2411dd3f51d8e8d1f5c8fc3e8cec28b47bb6ef8"
       }
     },
     {
@@ -657,56 +678,59 @@
         "digest": "aa17f8f67835dd64d546a90f4dc5605088b401cc927141d1b09d2ff0c80ce96d"
       },
       "observation": {
-        "markupSha256": "242e48fc433a7edf896ef946862b1c9f2456e8959a4a7a47050f1c5398a39132"
+        "markupSha256": "52e2370bd4cc9e5d616425606a10d2a2cd80bf75f75eb61fcee18f592388879d"
       }
     },
     {
       "component": "grid-item",
       "vector": "custom-class",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: missing class p-4"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: missing class p-4"
+      "assertion": {
+        "status": "passed",
+        "digest": "56dfb67b0a1751da16051a38ba691f45951cc577880727d1fc5256cc36734767"
+      },
+      "observation": {
+        "markupSha256": "f19cfaf4c8d374a355dae2cfa2ffb5726a3e7dbe5c9784f5783fee8d32ee0d95"
+      }
     },
     {
       "component": "grid",
       "vector": "three-up",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: missing class grid"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: missing class grid"
+      "assertion": {
+        "status": "passed",
+        "digest": "432e714434f6b38ed0904ccdf7bffe65711f06479088b1b3e31ddce22c1caf2b"
+      },
+      "observation": {
+        "markupSha256": "473471defe2d654ff3717212a4106b76b6eec036dfe3ca00dfbb79fbaf4be222"
+      }
     },
     {
       "component": "grid",
       "vector": "side-none",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: missing class grid-cols-2"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: missing class grid-cols-2"
+      "assertion": {
+        "status": "passed",
+        "digest": "3133bc7d808f658055aefdf9d7fc9f3bb5baba47cd4b6d9fdd4a66b180c89094"
+      },
+      "observation": {
+        "markupSha256": "4f7bf5aa134400b6e677d16187eb2b6322a8dac3aadf2f1e3c773735aa75f527"
+      }
     },
     {
       "component": "input-area",
@@ -722,7 +746,7 @@
         "digest": "ea1c34b34bca1e33d3d6cda9cac379dbf63e94cfcec65186557768a09088140b"
       },
       "observation": {
-        "markupSha256": "a46276398781e81b83fcb871a02c51c76e8efdadb8aafba29e0575e1eb027999"
+        "markupSha256": "683fab385f2e414279a59f0dba501fdecd0a10456041c33e03afc4241ad6de3e"
       }
     },
     {
@@ -761,7 +785,7 @@
         "digest": "f91886042e2bc1c5a3ecbbe7e01d4bbb019083f6e2a0d07e2157863f82b7fb64"
       },
       "observation": {
-        "markupSha256": "a33bbc6622e070976ea6a58cfd92fd1e9127823e56ccaa04093ef562021127f9"
+        "markupSha256": "5fc60732c47adf0b7a2357dc81967b9758ad07405e969b2d8c3e93c75384ab1c"
       }
     },
     {
@@ -800,7 +824,7 @@
         "digest": "71219a203f2c7192a1e6410e1161429f25a1fc2ced5237d70b3595f9ac4d30fe"
       },
       "observation": {
-        "markupSha256": "346687b0a4526da51ccc554bcc77c260a43b62947a24cc29144493efe0163535"
+        "markupSha256": "8a4b8df58c01927d681f5b56915eb315192baabd47eaa51cf2c560626d1be8da"
       }
     },
     {
@@ -839,152 +863,161 @@
         "digest": "168bc71e56937634461c75fdd772cb3cf7b0dec645300f3a578519386f24b3dc"
       },
       "observation": {
-        "markupSha256": "d0f9a9a9543a66b806c5c3570f479ff197f3ede4a358f36cc1de43e5aeba3107"
+        "markupSha256": "69a383e8b784c3f6b96954957aa7fa16b74eef46bf6438a182802d40c8583c30"
       }
     },
     {
       "component": "label",
       "vector": "optional",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: text expected Middle Name(optional), got Middle Name"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: text expected Middle Name(optional), got Middle Name"
+      "assertion": {
+        "status": "passed",
+        "digest": "b6d6d2b455c30ec958a16e6c3204c15363480d35e2ad6ff490ab74c9b38caaf5"
+      },
+      "observation": {
+        "markupSha256": "d016a3624e9c7867c17ce41d7aa7af1fd6742f91588b71abda1db79b8b733f39"
+      }
     },
     {
       "component": "label",
       "vector": "as-content",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: tag expected span, got label"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: tag expected span, got label"
+      "assertion": {
+        "status": "passed",
+        "digest": "af51f62c8fb94eee2b35d59d2826701e65754ee6075555870ed68bfbca84eac4"
+      },
+      "observation": {
+        "markupSha256": "8b6b4a2948fa87567e4d7aa607d7c2771f9979a613040bf62e48b23e87cb99bf"
+      }
     },
     {
       "component": "layer-card",
       "vector": "simple",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: missing class bg-kumo-base"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: missing class bg-kumo-base"
+      "assertion": {
+        "status": "passed",
+        "digest": "31a92959fbfc22f7320dc325158537302c8769a866f0bd565724e11acd6985f0"
+      },
+      "observation": {
+        "markupSha256": "c6a1e24c08d5dc20100609be52ed523bf5d39ce3544fc358b2995734cb8efa39"
+      }
     },
     {
       "component": "layer-card",
       "vector": "layered",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: missing class bg-kumo-elevated"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: missing class bg-kumo-elevated"
+      "assertion": {
+        "status": "passed",
+        "digest": "f748e2c675354502ab3b20e93853bb2379f94daab8223ad7ede0f54299642637"
+      },
+      "observation": {
+        "markupSha256": "9689de4a5fa555bf6f17ec6d365bc1406eac241023b4457d972a9739a62e5307"
+      }
     },
     {
       "component": "link",
       "vector": "internal",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: missing class text-kumo-link"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: missing class text-kumo-link"
+      "assertion": {
+        "status": "passed",
+        "digest": "145ac74174dd016001156ca315c9bdda77ceae9593b4820f11508aeca6d32bbc"
+      },
+      "observation": {
+        "markupSha256": "e6c82a90e062982e3011febd7cae19347033e1b0494b65252b9086e1003a3bfb"
+      }
     },
     {
       "component": "link",
       "vector": "plain-external",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: missing class hover:text-kumo-link/70"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: missing class hover:text-kumo-link/70"
+      "assertion": {
+        "status": "passed",
+        "digest": "8cdc6abac41f174e698d6d06749eefd67c2e207f43f1c264d1fb20b5b5f50384"
+      },
+      "observation": {
+        "markupSha256": "7b8f55cd38bf94a4bea8e28b2bc0c589c83c25db56a667f61bd8f1b09aa00bae"
+      }
     },
     {
       "component": "loader",
       "vector": "default",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: tag expected svg, got span"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: tag expected svg, got span"
+      "assertion": {
+        "status": "passed",
+        "digest": "b66289b4a90a4f2ddb9c0f1dc533e5432b40d629e15302b7caf26af42548e01a"
+      },
+      "observation": {
+        "markupSha256": "ca62d87635ad094d2257a53554cef962a2f847a404783fd4e69858d549296b62"
+      }
     },
     {
       "component": "loader",
       "vector": "large-labelled",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: tag expected svg, got span"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: tag expected svg, got span"
+      "assertion": {
+        "status": "passed",
+        "digest": "c00958399e02c9dd4d23f33ac2ae5bb9a61657a0903975b05adc1770f7d435bb"
+      },
+      "observation": {
+        "markupSha256": "d232fba83521a999e4c0f9db7807caefb7e93c3e4742b2a1273c18f1c385d7ad"
+      }
     },
     {
       "component": "menu-bar",
       "vector": "empty-nav-ssr",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: tag expected nav, got div"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: tag expected nav, got div"
+      "assertion": {
+        "status": "passed",
+        "digest": "ebd5559f579a567fe0e7bb5610fbf5cf008ed4bef1772bac95baf1e7593ccd70"
+      },
+      "observation": {
+        "markupSha256": "9d55410300c049a1ac0186bf62cb3583214a7fc6d6f2ecfbfc908f7bb8c06f7c"
+      }
     },
     {
       "component": "menu-bar",
@@ -1011,66 +1044,70 @@
     {
       "component": "meter",
       "vector": "percentage",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: text expected Storage65%x, got Storage65"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: text expected Storage65%x, got Storage65"
+      "assertion": {
+        "status": "passed",
+        "digest": "da0f7549db45397183c4e4e0bb6a0fb5e4180339886587998ba761de43c0759a"
+      },
+      "observation": {
+        "markupSha256": "5ea977148b131099383e7d43adeea99d2b1e9df92636789dcf06184e8e40506f"
+      }
     },
     {
       "component": "meter",
       "vector": "custom-value",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: text expected Requests750 / 1,000x, got Requests750 / 1,000"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: text expected Requests750 / 1,000x, got Requests750 / 1,000"
+      "assertion": {
+        "status": "passed",
+        "digest": "06fe92f5dd856e440a8bb0924021536cc8e2b2ed95f255707d85c8f27dd821b7"
+      },
+      "observation": {
+        "markupSha256": "01b525078a1547ce65d76f7ab6afcbdfdece84785a57c0d94957c7a5a85ce48d"
+      }
     },
     {
       "component": "meter",
       "vector": "custom-range-hidden",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: text expected Hiddenx, got Hidden"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: text expected Hiddenx, got Hidden"
+      "assertion": {
+        "status": "passed",
+        "digest": "bf429317447c186758e177c2e77e3cd7834f75aa39d82571f5ec943bbeda5d19"
+      },
+      "observation": {
+        "markupSha256": "decb6b52d179475cfc5946736a52e969749080854fc6f067f3f5ba14d5cfc659"
+      }
     },
     {
       "component": "pagination",
       "vector": "legacy-page-one",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: attribute data-slot mismatch"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: attribute data-slot mismatch"
+      "assertion": {
+        "status": "passed",
+        "digest": "25280acd3e1d9aea30a6d34b9b6697dbfac64d24ddffee5945fd6cf5fb8c50a0"
+      },
+      "observation": {
+        "markupSha256": "4c4f1bd4978488b1ea9db7c9eb08614a5ed80c60079507f050fa824c1fceb3c8"
+      }
     },
     {
       "component": "pagination",
@@ -1130,50 +1167,53 @@
     {
       "component": "pagination",
       "vector": "compound-simple-labels",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "descendant nav: count expected 1, got 0"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "descendant nav: count expected 1, got 0"
+      "assertion": {
+        "status": "passed",
+        "digest": "3a43db5d7f7112543620d33b9a34af625309d3e7800bdfa5bad176961a49d8f8"
+      },
+      "observation": {
+        "markupSha256": "79b7d1ae03ed2cac3024c926b0fa92bec6fdbb15f3787a6c37f87d34d6309925"
+      }
     },
     {
       "component": "pagination",
       "vector": "compound-dropdown-size",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "descendant button: count expected 6, got 0"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "descendant button: count expected 6, got 0"
+      "assertion": {
+        "status": "passed",
+        "digest": "9c2da72ad011f6aa451b8759e5e15187d18ce8917a7dc95948a4766e704ea720"
+      },
+      "observation": {
+        "markupSha256": "4f2afbfc600a78ac2f0540b5bf31a147ab1ea6f0e0eec7a7fe00ceaffba830b3"
+      }
     },
     {
       "component": "popover",
       "vector": "closed-trigger-ssr",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "runner: expected one element root"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "runner: expected one element root"
+      "assertion": {
+        "status": "passed",
+        "digest": "dc8904a159c34278ddf574941e036a244631be322d76623aac438e1c3432805b"
+      },
+      "observation": {
+        "markupSha256": "5aa9229c78de32e9c1b513d33858e46884c874236d4d6a282b6243e43013c414"
+      }
     },
     {
       "component": "popover",
@@ -1255,18 +1295,19 @@
     {
       "component": "select",
       "vector": "closed-placeholder-ssr",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "descendant button: count expected 1, got 0"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "descendant button: count expected 1, got 0"
+      "assertion": {
+        "status": "passed",
+        "digest": "058ada4df483cb143037f4e73eadee582173cc62124d3bee91f067e7eae27a86"
+      },
+      "observation": {
+        "markupSha256": "a92f6b5156ec32a7332a52f166d187a8ffc673f12d810df7b0e369cd57b2d4c5"
+      }
     },
     {
       "component": "select",
@@ -1337,18 +1378,19 @@
     {
       "component": "sensitive-input",
       "vector": "masked",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: tag expected div, got input"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: tag expected div, got input"
+      "assertion": {
+        "status": "passed",
+        "digest": "f91886042e2bc1c5a3ecbbe7e01d4bbb019083f6e2a0d07e2157863f82b7fb64"
+      },
+      "observation": {
+        "markupSha256": "5fc60732c47adf0b7a2357dc81967b9758ad07405e969b2d8c3e93c75384ab1c"
+      }
     },
     {
       "component": "sensitive-input",
@@ -1386,18 +1428,19 @@
     {
       "component": "sidebar",
       "vector": "desktop-collapsed-sliding-inert-intent",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: attribute data-state mismatch"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: attribute data-state mismatch"
+      "assertion": {
+        "status": "passed",
+        "digest": "71a7e6d0dc977f882f73008e736ecbab8271d965de43603364fbdcf22ecbe691"
+      },
+      "observation": {
+        "markupSha256": "ad4331b2182102832e55d3bc9f35172f14f74d9b3fa5b6c583b7d84a0ff4a698"
+      }
     },
     {
       "component": "sidebar",
@@ -1413,7 +1456,7 @@
         "digest": "a35984bee12a3bd8c8b6e5673b32db9f5c7f3d6b35dcb5db34354371454b9763"
       },
       "observation": {
-        "markupSha256": "0013871befc3f77b890554225731a7dec74334083ba546bb2fe52afdd6627309"
+        "markupSha256": "5fc60732c47adf0b7a2357dc81967b9758ad07405e969b2d8c3e93c75384ab1c"
       }
     },
     {
@@ -1430,34 +1473,36 @@
     {
       "component": "surface",
       "vector": "default",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: attribute data-surface-color mismatch"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: attribute data-surface-color mismatch"
+      "assertion": {
+        "status": "passed",
+        "digest": "bb25857c37f10a266cddefc7b4ddf71065bb25f7967c8213ba64fff80261c0d4"
+      },
+      "observation": {
+        "markupSha256": "e556486d5049dc5fdb907a0b690cc73ae5f93500d2a873c3478d07137c5b87c1"
+      }
     },
     {
       "component": "surface",
       "vector": "as-section",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: tag expected section, got div"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: tag expected section, got div"
+      "assertion": {
+        "status": "passed",
+        "digest": "ef4b7336db251cb7b5ce2c66858d90e48b4e2c02c19c85673259c1a583b7a472"
+      },
+      "observation": {
+        "markupSha256": "bdbb430da130d46c284d8845c8164f88d5987557eba7d18c07e6b2287d9ecb17"
+      }
     },
     {
       "component": "switch",
@@ -1517,98 +1562,104 @@
     {
       "component": "table-of-contents",
       "vector": "static-title-items",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: tag expected nav, got div"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: tag expected nav, got div"
+      "assertion": {
+        "status": "passed",
+        "digest": "af1e6e35498f97024e0475722b908ac7e7d0f633d36f5d739432a70db131a6de"
+      },
+      "observation": {
+        "markupSha256": "edaf2b9a2c8b83212e571e16ea2927e7933764d3c5972fb524a35c918dbca6f8"
+      }
     },
     {
       "component": "table-of-contents",
       "vector": "nested-linked-group",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: tag expected nav, got div"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: tag expected nav, got div"
+      "assertion": {
+        "status": "passed",
+        "digest": "12939128f248ec177a6e96925d43c803fdac43a44e31b014ea940f78d2a543a7"
+      },
+      "observation": {
+        "markupSha256": "ce4143ce181f406e1796517fee9a00bdb4705ee5b4c85c23b7d306816d5b7c1c"
+      }
     },
     {
       "component": "table",
       "vector": "semantic-selected",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: missing class isolate"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: missing class isolate"
+      "assertion": {
+        "status": "passed",
+        "digest": "551841029ad3205ece81396b199f06c130ec6126775e433effd201da969ce984"
+      },
+      "observation": {
+        "markupSha256": "ddcd5050c3b904af529ddaccc271bc6f0c4b0b4d748b971429c18a082edf47bb"
+      }
     },
     {
       "component": "table",
       "vector": "fixed-sticky",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: missing class table-fixed"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: missing class table-fixed"
+      "assertion": {
+        "status": "passed",
+        "digest": "69d9c7e3d0912c53137abaa0ab536f0506c25972f101c4c77bb64c562f7f87ad"
+      },
+      "observation": {
+        "markupSha256": "4ddd11d1d52b60000d344ddb03141925c85b54173c29df2ccccbd760e9fa3aeb"
+      }
     },
     {
       "component": "tabs",
       "vector": "segmented-uncontrolled-first",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "descendant button: count expected 2, got 0"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "descendant button: count expected 2, got 0"
+      "assertion": {
+        "status": "passed",
+        "digest": "622141402471ac3bc2d79e2692a1391fb8c3106fe42546b3892e9ea0d36244b2"
+      },
+      "observation": {
+        "markupSha256": "904e21011652634773b4c16a173546f222572e16218f8d09d3f29b8b42db4d02"
+      }
     },
     {
       "component": "tabs",
       "vector": "underline-selected-value",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "descendant button: count expected 2, got 0"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "descendant button: count expected 2, got 0"
+      "assertion": {
+        "status": "passed",
+        "digest": "622141402471ac3bc2d79e2692a1391fb8c3106fe42546b3892e9ea0d36244b2"
+      },
+      "observation": {
+        "markupSha256": "904e21011652634773b4c16a173546f222572e16218f8d09d3f29b8b42db4d02"
+      }
     },
     {
       "component": "tabs",
@@ -1635,66 +1686,70 @@
     {
       "component": "text",
       "vector": "body-default",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: tag expected p, got span"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: tag expected p, got span"
+      "assertion": {
+        "status": "passed",
+        "digest": "6d1913b3589110144049c777110e7b9871d51f440948a0817ca0e1170bcf0d36"
+      },
+      "observation": {
+        "markupSha256": "ec73b34e5fb3b53fdd692a81032d8355ae7ec2ddede2b3bc07573710b690b4f1"
+      }
     },
     {
       "component": "text",
       "vector": "mono-default",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: missing class font-mono"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: missing class font-mono"
+      "assertion": {
+        "status": "passed",
+        "digest": "b5b207794e4cf3ea60f412a1ff696666be082e1795fe8a96bb5ad93ae1f4e94e"
+      },
+      "observation": {
+        "markupSha256": "9de37931dcc61add8f61ae29d452010b11d900b1e60f166586fdc228b14c4e52"
+      }
     },
     {
       "component": "text",
       "vector": "heading-element",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: tag expected h1, got span"
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: tag expected h1, got span"
+      "assertion": {
+        "status": "passed",
+        "digest": "77480b82e9affa11aa594c3f9e6f6ad494f65869ff62a1f853410d229d049df3"
+      },
+      "observation": {
+        "markupSha256": "f6c1dcda8eac6aedf031b0ac813119c806514bbae043448efdd844fbfe9268d4"
+      }
     },
     {
       "component": "toasty",
       "vector": "provider-ssr",
-      "status": "failed",
+      "status": "passed",
       "mode": "ssr",
-      "diagnostics": [
-        {
-          "phase": "vite-ssr",
-          "message": "root: text expected Application, got "
-        }
-      ],
-      "nodeIdentity": "not-run",
-      "ssr": "failed",
+      "diagnostics": [],
+      "nodeIdentity": "native-packed-fixture",
+      "ssr": "passed",
       "hydration": "not-run",
-      "reason": "root: text expected Application, got "
+      "assertion": {
+        "status": "passed",
+        "digest": "4502edf2f5cc17fbd89624e09cb708707c9a03635fe1dda0cd89a7d3456933a8"
+      },
+      "observation": {
+        "markupSha256": "a8fde37b67ce9ada1d92d47ad5b73ab806a3f8e5ea21cbfa1854c1e7ef7d6d68"
+      }
     },
     {
       "component": "toasty",
@@ -1730,5 +1785,5 @@
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     }
   ],
-  "receiptHash": "762efafb792a774fd53367bab93ba59d7b08618ea6395f709f18b2f8d3292a78"
+  "receiptHash": "416f6d1171c9140b77704410c1e604e915d35c214f1f0f52043f23164c0e3ad4"
 }

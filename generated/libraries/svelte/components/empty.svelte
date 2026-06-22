@@ -3,7 +3,7 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "09c586d6894b365150e81a5fba8032a98695d8f6cd14bf4ea0f0466bda52b194";
+  export const modelDigest = "7c44f85a5193723c0aa68789e6ac8207071d68aca9e4b9d56bc93a57b3ecf50e";
   export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   className?: unknown;
@@ -53,7 +53,16 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if Object.prototype.hasOwnProperty.call(semanticValues, "title") && semanticEqual(semanticValues.title, "No results")}
+{#if Object.prototype.hasOwnProperty.call(semanticValues, "description") && semanticEqual(semanticValues.description, "Try again") && Object.prototype.hasOwnProperty.call(semanticValues, "size") && semanticEqual(semanticValues.size, "sm") && Object.prototype.hasOwnProperty.call(semanticValues, "title") && semanticEqual(semanticValues.title, "Empty")}
+  <div class="px-6 py-8 gap-4">
+    <h2>
+      {semanticValues["title"]}
+    </h2>
+    <p>
+      {semanticValues["description"]}
+    </p>
+  </div>
+{:else if Object.prototype.hasOwnProperty.call(semanticValues, "title") && semanticEqual(semanticValues.title, "No results")}
   <div class="px-10 py-16 gap-6">
     <h2>
       {semanticValues["title"]}

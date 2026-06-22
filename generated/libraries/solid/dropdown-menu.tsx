@@ -4,7 +4,7 @@ import type { JSX } from "solid-js";
 
 export interface DropdownMenuProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "78a6f126416a72db817c63a86e5de4242629bacce8a6329ec88f16a0c671f447";
+export const modelDigest = "b7a7a7552e372c2e1ea240ec06c7dce7aef9118128e29322f995167f2f63016d";
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"closed-trigger-ssr":"96a51ef90c52bda16064391fbaddcdd8221a7f254583a75aa51732efd36fee89"} as const;
 const styles: Record<string, string> = {"root":"root","data-highlighted":"data-highlighted","data-disabled":"data-disabled","data-popup-open":"data-popup-open","data-starting-style":"data-starting-style","data-ending-style":"data-ending-style","text-kumo-danger":"text-kumo-danger"};
@@ -31,7 +31,7 @@ export function DropdownMenu(incoming: DropdownMenuProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as DropdownMenuProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  if (semanticEqual(normalizedFixture, {"export":"root","props":{},"children":[{"export":".Trigger","props":{},"children":[{"text":"Actions"}]}]})) return (<button type={"button"} tabindex={"0"} aria-haspopup={"menu"}>{fixtureText(fixture)}</button>);
+  if (semanticEqual(normalizedFixture, {"export":"root","props":{},"children":[{"export":".Trigger","props":{},"children":[{"text":"Actions"}]}]})) return (<button type={"button"} tabindex={"0"} aria-haspopup={"menu"}>{"Actions"}</button>);
   return (<div data-kumo-compound={"dropdown-menu"}><div data-kumo-part={"root"}>{(props.root as JSX.Element) ?? undefined}</div><div data-kumo-part={"collection"}>{(props.collection as JSX.Element) ?? undefined}</div></div>);
 }
 
