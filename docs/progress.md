@@ -11,8 +11,8 @@ Machine receipt: `proof/progress/latest.json`
   `░░░░░░░░░░░░░░░░░░░░`
 - ✓ **Components in all three packages** — 41/41  
   `████████████████████`
-- ○ **Four-framework package conformance** — 0/41  
-  `░░░░░░░░░░░░░░░░░░░░`
+- → **Four-framework package conformance** — 19/41  
+  `█████████░░░░░░░░░░░`
 - → **Complete component examples and docs** — 2/41  
   `█░░░░░░░░░░░░░░░░░░░`
 - ○ **Final production proof** — 0/1  
@@ -23,6 +23,28 @@ Machine receipt: `proof/progress/latest.json`
 - 41 executable components must complete every gate.
 - PageHeader and ResourceListPage remain upstream-export blocked.
 - Chart and Flow are supplemental, not executable.
+
+## Complete four-framework packed conformance
+
+- badge
+- banner
+- breadcrumbs
+- button
+- cloudflare-logo
+- code
+- empty
+- field
+- grid
+- grid-item
+- label
+- layer-card
+- link
+- loader
+- meter
+- surface
+- table
+- table-of-contents
+- text
 
 ## Current package surface
 
