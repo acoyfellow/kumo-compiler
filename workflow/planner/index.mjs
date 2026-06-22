@@ -32,7 +32,8 @@ export function guardAntiWeakening(baseline,candidate){
   for(const k of ['skips','suppressions','filters','exceptions','allowlists'])if((candidate[k]?.length??0)>(baseline[k]?.length??0))throw Error(`new ${k} forbidden`);
   if(baseline.canonicalEvidenceDigest!==candidate.canonicalEvidenceDigest)throw Error('canonical evidence mutation');return true;
 }
-function attemptFor(f,history){return 1+history.filter(h=>h.fingerprint===failureFingerprint(f)).length}
+function receiptAttempts(receipt){const attempts=receipt.attempts??1;if(!Number.isInteger(attempts)||attempts<1)throw Error('malformed planner receipt attempts');return attempts}
+function attemptFor(f,history){const fingerprint=failureFingerprint(f);return 1+history.filter(h=>h.taskId===f.id||h.fingerprint===fingerprint).reduce((total,receipt)=>total+receiptAttempts(receipt),0)}
 export function plan(input){
   if(!input||!Array.isArray(input.failures)||!input.workflow||!input.capabilities||!input.ownership)throw Error('malformed planner evidence');
   if(input.expectedInputDigest&&input.expectedInputDigest!==digest({...input,expectedInputDigest:undefined}))throw Error('stale input digest');
