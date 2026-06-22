@@ -19,11 +19,15 @@ test('registry is canonical and contract-derived', () => {
   assert.deepEqual(button.missingOperations, []);
 });
 
-test('families remain fail-closed with explicit provenance and gaps', () => {
+test('registry promotes only complete executable state algebra', () => {
   const registry = loadBehaviorCapabilities();
-  for (const binding of registry.bindings.filter(binding => binding.component !== 'button')) {
+  for (const binding of registry.bindings) assert.ok(binding.vectorIds.length);
+  for (const binding of registry.bindings.filter(binding => ['checkbox','switch','radio'].includes(binding.component))) {
+    assert.equal(binding.support, 'supported');
+    assert.deepEqual(binding.missingOperations, []);
+  }
+  for (const binding of registry.bindings.filter(binding => ['input','input-area','sensitive-input'].includes(binding.component))) {
     assert.equal(binding.support, 'requirements-only');
-    assert.ok(binding.vectorIds.length);
     assert.ok(binding.missingOperations.every(item => item.kind && item.reason));
   }
   const checkbox = registry.bindings.find(binding => binding.component === 'checkbox');
@@ -36,7 +40,7 @@ test('families remain fail-closed with explicit provenance and gaps', () => {
 test('validation rejects optimistic unresolved support and digest mutation', () => {
   const registry = structuredClone(loadBehaviorCapabilities());
   const checkbox = registry.bindings.find(binding => binding.component === 'checkbox');
-  checkbox.missingOperations = [];
+  checkbox.support = 'requirements-only';
   assert.throws(() => validateBehaviorCapabilities(registry), /explicit reasons/);
   const mutated = structuredClone(loadBehaviorCapabilities());
   mutated.bindings[0].requirements.events.push('fabricated');

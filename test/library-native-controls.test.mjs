@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {deriveNativeControls,loadNativeControls,validateNativeControls} from '../src/kumo/library/native-controls.mjs';
+import {loadLibrary} from '../src/kumo/library/index.mjs';
+const names=['checkbox','switch','radio','input','input-area','sensitive-input'];
+const contracts=names.map(name=>JSON.parse(fs.readFileSync(`contracts/kumo.observable/v1/components/${name}.json`)));
+test('native controls are canonical and digest bound',()=>assert.deepEqual(loadNativeControls(),deriveNativeControls(contracts)));
+test('native state requirements include focus DOM ARIA disabled and field wiring',()=>{const capability=loadNativeControls();const checkbox=capability.specs.find(x=>x.component==='checkbox');assert.equal(checkbox.root,'span');assert.ok(checkbox.aria.includes('aria-checked=false|true|mixed'));assert.deepEqual(checkbox.disabled.suppresses,['transition','event','focus']);const input=capability.specs.find(x=>x.component==='input');assert.equal(input.fieldWiring.labelActivates,'input');assert.equal(input.fieldWiring.nativeAttributes,true)});
+test('unknown native operations remain explicitly unsupported',()=>{for(const spec of loadNativeControls().specs)for(const operation of Object.values(spec.operations))assert.equal(operation.supported,false)});
+test('library exposes validated algebra',()=>{const library=loadLibrary();assert.equal(library.nativeControls.specs.length,6);assert.equal(library.controlledState.specs.length,3)});
+test('mutations fail closed',()=>{const value=structuredClone(loadNativeControls());value.specs[0].operations.ime={supported:true};assert.throws(()=>validateNativeControls(value),/fail closed/)});

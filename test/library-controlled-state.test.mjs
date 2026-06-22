@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {createControlledState,deriveControlledState,loadControlledState,validateControlledState} from '../src/kumo/library/controlled-state.mjs';
+const names=['checkbox','switch','radio'];
+const contracts=names.map(name=>JSON.parse(fs.readFileSync(`contracts/kumo.observable/v1/components/${name}.json`)));
+test('controlled state is canonical and digest bound',()=>assert.deepEqual(loadControlledState(),deriveControlledState(contracts)));
+test('ownership is fixed by controlled property presence',()=>{const spec=loadControlledState().specs[0];const uncontrolled=createControlledState(spec,{});assert.equal(uncontrolled.read(),false);assert.equal(uncontrolled.transition(true).committed,true);assert.equal(uncontrolled.read(),true);const controlled=createControlledState(spec,{checked:false});assert.equal(controlled.transition(true).committed,false);assert.equal(controlled.read({checked:false}),false);assert.equal(controlled.read({checked:true}),true)});
+test('indeterminate and disabled semantics are explicit',()=>{const checkbox=loadControlledState().specs[0];assert.equal(checkbox.indeterminate.activationResult,true);assert.deepEqual(checkbox.disabled.suppresses,['transition','event','focus'])});
+test('digest mutation fails closed',()=>{const value=structuredClone(loadControlledState());value.specs[0].initial=true;assert.throws(()=>validateControlledState(value),/digest mismatch/)});

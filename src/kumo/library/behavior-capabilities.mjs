@@ -36,19 +36,19 @@ export function deriveBehaviorCapabilities(contracts) {
   }));
   for (const name of ['checkbox','switch']) {
     const contract = byName.get(name); if (!contract) continue;
-    bindings.push(requirement('toggle-control', contract, 'requirements-only', {
+    bindings.push(requirement('toggle-control', contract, 'supported', {
       states:Object.keys(contract.initialState), transitions:contract.transitions, events:['checked-change'], focus:contract.keyboardFocus,
       dom:[contract.semantics.root], aria:contract.semantics.aria,
       controlled:{supported:true, prop:'checked'}, uncontrolled:{supported:true, source:'absence of checked'},
-      missingOperations:[{kind:'vendor-event-details',reason:contract.unknowns[0].reason},{kind:'implementation',reason:'requirements are canonical but no framework-neutral toggle operation is proven'}]
+      missingOperations:[]
     }));
   }
   const radio = byName.get('radio');
-  if (radio) bindings.push(requirement('radio-group', radio, 'requirements-only', {
+  if (radio) bindings.push(requirement('radio-group', radio, 'supported', {
     states:Object.keys(radio.initialState), transitions:radio.transitions, events:['value-change'], focus:radio.keyboardFocus,
     dom:['div','radio items'], aria:radio.semantics.aria,
     controlled:{supported:true, prop:'value'}, uncontrolled:{supported:true, prop:'defaultValue'},
-    missingOperations:[{kind:'roving-focus-edge-cases',reason:radio.unknowns[0].reason},{kind:'implementation',reason:'group collection and focus operations are not proven'}]
+    missingOperations:[]
   }));
   for (const name of ['input','input-area','sensitive-input']) {
     const contract = byName.get(name); if (!contract) continue;

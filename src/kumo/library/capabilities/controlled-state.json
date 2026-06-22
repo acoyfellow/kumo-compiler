@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "kumo.controlled-state/v1",
+  "specs": [
+    {
+      "component": "checkbox",
+      "controlledProp": "checked",
+      "defaultProp": "defaultChecked",
+      "initial": false,
+      "event": "checked-change",
+      "ownership": "property-presence",
+      "indeterminate": {
+        "prop": "indeterminate",
+        "initial": false,
+        "activationResult": true
+      },
+      "disabled": {
+        "prop": "disabled",
+        "suppresses": [
+          "transition",
+          "event",
+          "focus"
+        ]
+      },
+      "vectorIds": [
+        "unchecked-click",
+        "checked-controlled-click",
+        "indeterminate-space",
+        "disabled",
+        "group-default"
+      ]
+    },
+    {
+      "component": "switch",
+      "controlledProp": "checked",
+      "defaultProp": "defaultChecked",
+      "initial": false,
+      "event": "checked-change",
+      "ownership": "property-presence",
+      "indeterminate": null,
+      "disabled": {
+        "prop": "disabled",
+        "suppresses": [
+          "transition",
+          "event",
+          "focus"
+        ]
+      },
+      "vectorIds": [
+        "unchecked-click",
+        "checked-controlled-space",
+        "small",
+        "large-disabled",
+        "group"
+      ]
+    },
+    {
+      "component": "radio",
+      "controlledProp": "value",
+      "defaultProp": "defaultValue",
+      "initial": null,
+      "event": "value-change",
+      "ownership": "property-presence",
+      "indeterminate": null,
+      "disabled": {
+        "prop": "disabled",
+        "itemProp": "disabled",
+        "suppresses": [
+          "transition",
+          "event",
+          "focus"
+        ]
+      },
+      "vectorIds": [
+        "default-click",
+        "controlled-click",
+        "arrow",
+        "disabled-item",
+        "disabled-group"
+      ]
+    }
+  ],
+  "capabilityDigest": "f3c26474d1533f751d0472e5df53c2a31a51ac729cb153ef78405730e023e77d"
+}

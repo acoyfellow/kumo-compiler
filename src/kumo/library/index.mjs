@@ -7,6 +7,8 @@ import {validateSemanticRender} from './semantic-render.mjs';
 import {loadContentBindings} from './content-bindings.mjs';
 import {loadNativeButton} from './native-button.mjs';
 import {loadBehaviorCapabilities} from './behavior-capabilities.mjs';
+import {loadControlledState} from './controlled-state.mjs';
+import {loadNativeControls} from './native-controls.mjs';
 
 export const LIBRARY_SCHEMA_VERSION = 'kumo.library/v1';
 export const CAPABILITIES = Object.freeze([
@@ -112,6 +114,8 @@ export function loadLibrary(base = here) {
   const contentBindings = loadContentBindings(path.join(base, 'capabilities/content-bindings.json'));
   const nativeButton = loadNativeButton(path.join(base,'capabilities/native-button.json'));
   const behaviorCapabilities = loadBehaviorCapabilities(path.join(base,'capabilities/behavior-capabilities.json'));
+  const controlledState = loadControlledState(path.join(base,'capabilities/controlled-state.json'));
+  const nativeControls = loadNativeControls(path.join(base,'capabilities/native-controls.json'));
   const semanticRender = validateSemanticRender(JSON.parse(fs.readFileSync(path.join(base, 'capabilities/semantic-render.json'), 'utf8')));
   const manifest = JSON.parse(fs.readFileSync(path.join(base, 'manifest.json'), 'utf8'));
   if (manifest.count !== 41 || manifest.components.length !== 41) throw new Error('library inventory must contain exactly 41 models');
@@ -137,5 +141,5 @@ export function loadLibrary(base = here) {
     const semantic = semanticComponents.get(model.component);
     if (!semantic || model.semanticRender.capabilityDigest !== semanticRender.capabilityDigest || model.semanticRender.vectorIds.join('\0') !== semantic.vectors.map(vector => vector.id).join('\0')) throw new Error(`${model.component}: semantic render binding mismatch`);
   }
-  return {manifest, models, semanticRender, contentBindings, nativeButton, behaviorCapabilities};
+  return {manifest, models, semanticRender, contentBindings, nativeButton, behaviorCapabilities, controlledState, nativeControls};
 }
