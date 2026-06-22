@@ -1,5 +1,0 @@
-import type { Component } from 'svelte';
-import type { Props } from './grid-item.svelte';
-declare const component: Component<Props>;
-export default component;
-export const modelDigest: "40f49eae26c10cb50f9eff28ca613e0eb9e5cf415f57f0b763ec8e8cc46f2a16";

@@ -1,7 +1,0 @@
-import type { DefineComponent } from 'vue';
-export interface CheckboxProps { [key: string]: unknown }
-declare const component: DefineComponent<CheckboxProps>;
-export default component;
-export declare const modelDigest: "9bed87c38c3dc76bca19c327b60bc4264efc797aacdce1a4e06e08b722ca4c65";
-
-export { component as Checkbox };

@@ -1,5 +1,0 @@
-import type { Component } from 'svelte';
-import type { Props } from './surface.svelte';
-declare const component: Component<Props>;
-export default component;
-export const modelDigest: "bcb4aa3e592b9584d7e18fe498c9d2cfaad66ee570e649a81bfcf73eeccac950";

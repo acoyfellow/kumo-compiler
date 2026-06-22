@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "canonicalModel": "kindle-alpha-api",
+  "authority": {
+    "contracts": "contracts/",
+    "componentModels": "src/kumo/library/models/",
+    "generatedFrameworks": "generated/libraries/",
+    "receipts": ["benchmarks/", "proof/", ".workflow/receipts/"]
+  },
+  "generated": ["generated/libraries/", "deploy/", "runtime/*/*/public-runtime/", "dx/packages/kumo-*/package/"],
+  "commands": ["contract", "generate", "conformance", "package", "release", "deploy"],
+  "packageIdentities": ["@acoyfellow/kumo-vue", "@acoyfellow/kumo-svelte", "@acoyfellow/kumo-solid"]
+}

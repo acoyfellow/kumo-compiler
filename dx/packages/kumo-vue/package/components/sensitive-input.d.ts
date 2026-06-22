@@ -1,7 +1,0 @@
-import type { DefineComponent } from 'vue';
-export interface SensitiveInputProps { [key: string]: unknown }
-declare const component: DefineComponent<SensitiveInputProps>;
-export default component;
-export declare const modelDigest: "929d4c3eecd153af78d2db33ff8ba69333a6f6f39415ee3c65cb1d8f9eabcc3c";
-
-export { component as SensitiveInput };

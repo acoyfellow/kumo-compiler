@@ -1,7 +1,0 @@
-import type { DefineComponent } from 'vue';
-export interface InputAreaProps { [key: string]: unknown }
-declare const component: DefineComponent<InputAreaProps>;
-export default component;
-export declare const modelDigest: "3f2ca47762723bd72e47c5da8490058c226bbee67e5518d548fc19ba2c467f14";
-
-export { component as InputArea };

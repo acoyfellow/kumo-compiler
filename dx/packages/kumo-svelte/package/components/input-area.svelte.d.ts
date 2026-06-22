@@ -1,5 +1,0 @@
-import type { Component } from 'svelte';
-import type { Props } from './input-area.svelte';
-declare const component: Component<Props>;
-export default component;
-export const modelDigest: "3f2ca47762723bd72e47c5da8490058c226bbee67e5518d548fc19ba2c467f14";

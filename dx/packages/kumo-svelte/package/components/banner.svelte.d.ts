@@ -1,5 +1,0 @@
-import type { Component } from 'svelte';
-import type { Props } from './banner.svelte';
-declare const component: Component<Props>;
-export default component;
-export const modelDigest: "e57b4fc419d2b1310d0ea4963a5181380a89060415280931c0e7698f1cd2ede2";

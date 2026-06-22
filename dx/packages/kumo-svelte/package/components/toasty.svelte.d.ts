@@ -1,5 +1,0 @@
-import type { Component } from 'svelte';
-import type { Props } from './toasty.svelte';
-declare const component: Component<Props>;
-export default component;
-export const modelDigest: "f05e8c2389dfb02ca23049e0fc5aa80b2797a0b63cb9c09a9603acb5d07c79bf";

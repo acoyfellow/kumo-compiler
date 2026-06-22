@@ -1,6 +1,0 @@
-@import './tokens.css';
-:where(.kumo-button,.kumo-field,.kumo-field *){box-sizing:border-box}
-.kumo-button{min-height:44px;border:0;border-radius:var(--kumo-radius);padding:var(--kumo-space-2) var(--kumo-space-3);font:inherit;cursor:pointer}
-.kumo-button--primary{background:var(--kumo-color-primary);color:white}.kumo-button--secondary{background:#e5e7eb;color:#111827}.kumo-button--danger{background:#b91c1c;color:white}
-.kumo-button--small{font-size:.875rem}.kumo-button--large{font-size:1.125rem}.kumo-button:disabled{cursor:not-allowed;opacity:.6}
-.kumo-field{display:grid;gap:var(--kumo-space-1)}.kumo-field__label{font-weight:600}.kumo-field__description{color:#4b5563}.kumo-field__input{min-height:44px;border:1px solid #9ca3af;border-radius:var(--kumo-radius);padding:var(--kumo-space-2)}.kumo-field__error{color:#b91c1c}

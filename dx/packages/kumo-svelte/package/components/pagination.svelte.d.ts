@@ -1,5 +1,0 @@
-import type { Component } from 'svelte';
-import type { Props } from './pagination.svelte';
-declare const component: Component<Props>;
-export default component;
-export const modelDigest: "e429308d31e783f621359d7f7497bbae2ce32cc82be5a9a21f42a3664d712efb";

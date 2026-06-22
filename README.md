@@ -1,5 +1,20 @@
 # Kumo compiler
 
+Start with the **[seven-minute repository guide](docs/architecture/seven-minute-guide.md)**.
+
+## Repository map
+
+- `contracts/` and `src/kumo/library/models/`: editable authority
+- `generated/libraries/`: authoritative generated framework output
+- `dx/packages/kumo-*`: package manifests/builders; `package/` is disposable
+- `proof/` and `benchmarks/`: accepted evidence and immutable receipts
+- `docs/archive/`: historical context, never active authority
+- [`repository-map.json`](repository-map.json): machine-readable zones and identities
+
+The supported flow is `contract → generate → conformance → package → release → deploy`. See the guide for exact commands and boundaries.
+
+## Detailed reference
+
 Private package-backed compiler and proof service for Cloudflare Kumo. `@cloudflare/kumo@2.5.2` React is canonical; TypeScript compilers normalize 41 supported components to `kumo.ir/v1` and emit React, Vue, Svelte, and Solid runtimes.
 
 ```text

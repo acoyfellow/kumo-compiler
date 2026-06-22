@@ -1,5 +1,0 @@
-import type { Component } from 'svelte';
-import type { Props } from './autocomplete.svelte';
-declare const component: Component<Props>;
-export default component;
-export const modelDigest: "eaaaeaa276ea71e352f24eb85a16563be59a8a5b44e3b3e57a29ef9c3c6e125b";

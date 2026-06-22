@@ -7,6 +7,10 @@ const forbidden=[
  'astro/.astro',
  'astro/dist',
  'dist',
+ 'dx/packages/kumo-vue/package',
+ 'dx/packages/kumo-svelte/package',
+ 'dx/packages/kumo-solid/package',
+ 'deploy/_astro',
  'proof/button-artifacts',
  'proof/data-presentational-artifacts',
  'proof/dialog-artifacts',
@@ -16,6 +20,7 @@ const forbidden=[
  'proof/popover-artifacts',
  'proof/selection-command-date-artifacts',
 ];
+for (const framework of ['vue','svelte','solid']) forbidden.push(`dx/packages/kumo-${framework}/package`);
 const tracked=execFileSync('git',['ls-files','--',...forbidden],{cwd:root,encoding:'utf8'}).trim();
 if(tracked)throw new Error(`reproducible artifacts are tracked:\n${tracked}`);
 const status=execFileSync('git',['status','--porcelain','--untracked-files=all'],{cwd:root,encoding:'utf8'});
