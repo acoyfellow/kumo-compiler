@@ -1,0 +1,115 @@
+{
+  "schemaVersion": "kumo.field-composition/v1",
+  "support": "supported",
+  "behavior": {
+    "container": "div",
+    "labelAssociation": "id/for",
+    "labelClickFocusesControl": true,
+    "ownedControlIdMechanism": "stable generated id assigned to the native control and referenced by the label for attribute",
+    "providedControlIdMechanism": "caller-supplied id on Field.NativeInput referenced by the label for attribute"
+  },
+  "controls": [
+    {
+      "component": "field",
+      "container": "div",
+      "control": "native-input",
+      "ownsControl": false,
+      "label": {
+        "associates": "id/for",
+        "activatesControl": true,
+        "clickFocusesControl": true
+      },
+      "focus": {
+        "target": "native-input",
+        "trigger": "trusted label click"
+      },
+      "vectors": [
+        "optional"
+      ]
+    },
+    {
+      "component": "input",
+      "container": "div",
+      "control": "input",
+      "ownsControl": true,
+      "label": {
+        "associates": "id/for",
+        "activatesControl": true,
+        "clickFocusesControl": true
+      },
+      "focus": {
+        "target": "input",
+        "trigger": "trusted label click"
+      },
+      "vectors": [
+        "field-label"
+      ]
+    },
+    {
+      "component": "input-area",
+      "container": "div",
+      "control": "textarea",
+      "ownsControl": true,
+      "label": {
+        "associates": "id/for",
+        "activatesControl": true,
+        "clickFocusesControl": true
+      },
+      "focus": {
+        "target": "textarea",
+        "trigger": "trusted label click"
+      },
+      "vectors": [
+        "field-error"
+      ]
+    }
+  ],
+  "unknowns": [
+    {
+      "field": "generatedIdValue",
+      "status": "unknown",
+      "reason": "Canonical vectors assert label-click focus, not the exact generated id string, precedence, or uniqueness policy."
+    },
+    {
+      "field": "describedBySerialization",
+      "status": "unknown",
+      "reason": "description and error are present in fixtures but their exact aria-describedby id wiring and ordering are not asserted by the canonical expected observations."
+    },
+    {
+      "field": "requiredSerialization",
+      "status": "unknown",
+      "reason": "required is present in fixtures but exact native required / aria-required serialization is not asserted by the canonical expected observations."
+    }
+  ],
+  "provenance": [
+    {
+      "component": "field",
+      "contractPath": "contracts/kumo.observable/v1/components/field.json",
+      "contractDigest": "9dd6d0bc3ab0683f1671958dccbfea163a3658c715de96df67b650a8add6ea55",
+      "vectorIds": [
+        "optional"
+      ]
+    },
+    {
+      "component": "input",
+      "contractPath": "contracts/kumo.observable/v1/components/input.json",
+      "contractDigest": "8ab290a7d671042434090c4d0e6c8fa30dbb47934480b7b7cabe834ad35553c4",
+      "vectorIds": [
+        "bare-disabled",
+        "type",
+        "field-label"
+      ]
+    },
+    {
+      "component": "input-area",
+      "contractPath": "contracts/kumo.observable/v1/components/input-area.json",
+      "contractDigest": "4d013786afa0089d44e6e40dc041b4b9b3de7dc5a9403384e70f3a8d55cfcd2b",
+      "vectorIds": [
+        "bare",
+        "type",
+        "field-error"
+      ]
+    }
+  ],
+  "capabilityDigest": "65c0d1990ec5d86132648d97e6ff7f7a37d1b203498121ae759856bcb5917a28"
+}

@@ -20,6 +20,7 @@ import {deriveDateRange} from './date-range.mjs';
 import {deriveResponsiveSidebar} from './responsive-sidebar.mjs';
 import {derivePaginationState} from './pagination-state.mjs';
 import {deriveToastLifecycle} from './toast-lifecycle.mjs';
+import {deriveFieldComposition, FIELD_COMPOSITION_COMPONENTS} from './field-composition.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '../../..');
@@ -118,6 +119,7 @@ const dateRange = deriveDateRange(canonicalContracts.filter(contract => ['date-p
 const responsiveSidebar = deriveResponsiveSidebar(canonicalContracts.find(contract => contract.component === 'sidebar'));
 const paginationState = derivePaginationState(canonicalContracts.find(contract => contract.component === 'pagination'));
 const toastLifecycle = deriveToastLifecycle(canonicalContracts.find(contract => contract.component === 'toasty'));
+const fieldComposition = deriveFieldComposition(canonicalContracts.filter(contract => FIELD_COMPOSITION_COMPONENTS.includes(contract.component)));
 const nativeControlContracts = canonicalContracts.filter(contract => ['checkbox','switch','radio','input','input-area','sensitive-input'].includes(contract.component));
 const controlledState = deriveControlledState(nativeControlContracts.filter(contract => ['checkbox','switch','radio'].includes(contract.component)));
 const nativeControls = deriveNativeControls(nativeControlContracts);
@@ -164,6 +166,7 @@ fs.writeFileSync(path.join(here, 'capabilities/date-range.json'), `${JSON.string
 fs.writeFileSync(path.join(here, 'capabilities/responsive-sidebar.json'), `${JSON.stringify(responsiveSidebar,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/pagination-state.json'), `${JSON.stringify(paginationState,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/toast-lifecycle.json'), `${JSON.stringify(toastLifecycle,null,2)}\n`);
+fs.writeFileSync(path.join(here, 'capabilities/field-composition.json'), `${JSON.stringify(fieldComposition,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/controlled-state.json'), `${JSON.stringify(controlledState,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/native-controls.json'), `${JSON.stringify(nativeControls,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/native-field.json'), `${JSON.stringify(nativeField,null,2)}\n`);
