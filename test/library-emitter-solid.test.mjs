@@ -74,6 +74,18 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   const emitter = fs.readFileSync(new URL('../src/kumo/emitters/solid/index.mjs', import.meta.url), 'utf8');
   assert.doesNotMatch(emitter, /switch\s*\(\s*(?:model\.)?component|if\s*\(\s*(?:model\.)?component\s*===|case\s+["'](?:autocomplete|badge|banner|button|select)["']\s*:/);
   assert.doesNotMatch(emitter, /model\.component\s*===\s*["']button["']/);
+  assert.doesNotMatch(emitter, /model\.component\s*===\s*["'](?:checkbox|switch|radio|field)["']/);
+
+  for (const name of ['checkbox', 'switch']) {
+    const toggleSource = fs.readFileSync(path.join(first, `${name}.tsx`), 'utf8');
+    assert.match(toggleSource, /Object\.prototype\.hasOwnProperty\.call\(incoming, "checked"\)/);
+    assert.match(toggleSource, /incoming\.defaultChecked \?\? false/);
+    assert.match(toggleSource, /if \(!event\.isTrusted \|\| props\.disabled\) return/);
+    assert.match(toggleSource, /props\.onCheckedChange/);
+  }
+  assert.match(fs.readFileSync(path.join(first, 'checkbox.tsx'), 'utf8'), /<input type="checkbox" role="checkbox"[^>]*aria-checked=\{props\.indeterminate \? "mixed" : checked\(\)\}[^>]*checked=\{checked\(\)\}[^>]*onChange=\{toggleChecked\}/);
+  assert.match(fs.readFileSync(path.join(first, 'switch.tsx'), 'utf8'), /<button type="button" role="switch"[^>]*aria-checked=\{checked\(\)\}[^>]*onClick=\{toggleChecked\}/);
+  for (const name of ['radio', 'field']) assert.doesNotMatch(fs.readFileSync(path.join(first, `${name}.tsx`), 'utf8'), /toggleChecked|defaultChecked/);
 
   const buttonSource = fs.readFileSync(path.join(first, 'button.tsx'), 'utf8');
   const buttonDeclaration = fs.readFileSync(path.join(first, 'button.d.ts'), 'utf8');
@@ -90,6 +102,10 @@ test('Solid SSR renders every compiled semantic predicate through canonical mark
   const build = path.join(output, 'build');
   t.after(() => fs.rmSync(output, {recursive:true, force:true}));
   const result = emitSolidLibrary({outputPath:output});
+  const repeated = fs.mkdtempSync(path.join(os.tmpdir(), 'kumo-solid-ssr-repeat-'));
+  t.after(() => fs.rmSync(repeated, {recursive:true, force:true}));
+  emitSolidLibrary({outputPath:repeated});
+  assert.equal(digestTree(output), digestTree(repeated));
   fs.symlinkSync(path.resolve('node_modules'), path.join(output, 'node_modules'), 'dir');
   const typed = path.join(output, 'typed'); fs.mkdirSync(typed);
   execFileSync(path.resolve('node_modules/.bin/tsc'), [
