@@ -1,5 +1,9 @@
 {
-  "schemaVersion": "kumo.solid-package/v1",
+  "schemaVersion": "kumo.solid-emitter/v1",
+  "algebraVersion": "kumo.component-algebra/v1",
+  "candidate": true,
+  "count": 41,
+  "libraryManifestDigest": "1df5f8aac6d712862dc24a37f26f122ce267a094c8ecb176a57782f03ea7cb2a",
   "components": [
     {
       "component": "autocomplete",
@@ -17,7 +21,9 @@
       ],
       "source": "autocomplete.tsx",
       "declaration": "autocomplete.d.ts",
-      "sha256": "d19aad2a191d4111a450047a8ecbb01e7b68b8411a4c96dec176fbb04487f1d0"
+      "sha256": "482ab043a1e8cc8fbfbb9245abb6af59ca9729a754f5fc4c0ba298be592ab031",
+      "sourceSha256": "482ab043a1e8cc8fbfbb9245abb6af59ca9729a754f5fc4c0ba298be592ab031",
+      "declarationSha256": "a055aaf512805e8da5d3c32a77baab4e9c1fe130088d345a60c0bebe9660c1f1"
     },
     {
       "component": "badge",
@@ -39,7 +45,9 @@
       "compoundPaths": [],
       "source": "badge.tsx",
       "declaration": "badge.d.ts",
-      "sha256": "0e4cada2428e3c06fd47b38dd2be77f0c131b50f5e599a3aee15638f035dcc14"
+      "sha256": "ebe99d1f29a008f1f16953a2828c180b51d9c43fe950fd991bb237cddb1e83f7",
+      "sourceSha256": "ebe99d1f29a008f1f16953a2828c180b51d9c43fe950fd991bb237cddb1e83f7",
+      "declarationSha256": "ef6fc0326bc90db29c696c6af539e5435158a9a7a3a63b5135762db08ff0887e"
     },
     {
       "component": "banner",
@@ -61,7 +69,9 @@
       "compoundPaths": [],
       "source": "banner.tsx",
       "declaration": "banner.d.ts",
-      "sha256": "c8cad074323b80b7b7bc3758394b11fb952dd7cb08eef6276718a877427d99c3"
+      "sha256": "e5f99c2c0f7b117794730bcf963f866ac7dc4ee51212fb7a5d57b9e72b562510",
+      "sourceSha256": "e5f99c2c0f7b117794730bcf963f866ac7dc4ee51212fb7a5d57b9e72b562510",
+      "declarationSha256": "dccbd76057472567583eea917870852620074d694a28fd211b60d54ba70906e2"
     },
     {
       "component": "breadcrumbs",
@@ -97,7 +107,9 @@
       ],
       "source": "breadcrumbs.tsx",
       "declaration": "breadcrumbs.d.ts",
-      "sha256": "bd67b80e29121ea90e8c485adae2d638f5fef93f66011f9ca22c60f8c6ebcd54"
+      "sha256": "36115914583f80aa919a9d609027239d685e16fa65ff0fee17b42f1d1e0c84e2",
+      "sourceSha256": "36115914583f80aa919a9d609027239d685e16fa65ff0fee17b42f1d1e0c84e2",
+      "declarationSha256": "ac2f1d181673257c5918135afb352d31af72c00292aad5dbe586447daca57a42"
     },
     {
       "component": "button",
@@ -127,7 +139,9 @@
       "compoundPaths": [],
       "source": "button.tsx",
       "declaration": "button.d.ts",
-      "sha256": "2715de13246426e0f999c6a06d0e6bf3b70990ceca79a794b7d736be04f0418c"
+      "sha256": "52438c3494cf345ef9fc171e12582904e2f2d1da5bb1540de58f41bb209a6c98",
+      "sourceSha256": "acce8aea4d3c46ebeed62c7ca2d0144ad2cd24ab629e546bb691d3aa61ac8500",
+      "declarationSha256": "82620c6681cf44da9af4b73a17780ec39cd1a37b44da78fd7eb6e84a8cdb5846"
     },
     {
       "component": "checkbox",
@@ -140,7 +154,9 @@
       "compoundPaths": [],
       "source": "checkbox.tsx",
       "declaration": "checkbox.d.ts",
-      "sha256": "3e0bd2f57a29b073fe131bc02f6c090f00293c37f7fe2450b60e70c9268a7b46"
+      "sha256": "d12771fe2778518960cd1677725ae30fc8485728743ec69a525a0faf068f7e41",
+      "sourceSha256": "d12771fe2778518960cd1677725ae30fc8485728743ec69a525a0faf068f7e41",
+      "declarationSha256": "46b36501a5a9b42d51c1197e84ef25a80415b68ad79298862abfdbf06e76ab38"
     },
     {
       "component": "clipboard-text",
@@ -158,7 +174,9 @@
       "compoundPaths": [],
       "source": "clipboard-text.tsx",
       "declaration": "clipboard-text.d.ts",
-      "sha256": "ff59b91e9109bca10b381b4929c739b69325305bbdf0b5194c35e752a613d118"
+      "sha256": "bc214c079c8e4b6e42f8732f1509a9c936de7f5447cd036f32e338c1e6c65424",
+      "sourceSha256": "bc214c079c8e4b6e42f8732f1509a9c936de7f5447cd036f32e338c1e6c65424",
+      "declarationSha256": "db33340e789c62b39f66cbf849510f8e1739f1aa311c3bf029ebbcd6a9a1640f"
     },
     {
       "component": "cloudflare-logo",
@@ -180,7 +198,9 @@
       "compoundPaths": [],
       "source": "cloudflare-logo.tsx",
       "declaration": "cloudflare-logo.d.ts",
-      "sha256": "815ea50899b91a4190b7fcd1cfcd0e97cc1ea4a5eb479b5c936b3ecf2a8da9ce"
+      "sha256": "1c487c396571cfbc0443ab8fac631d2548c1e3fccd1d5ce0f1a7040e36430a8a",
+      "sourceSha256": "1c487c396571cfbc0443ab8fac631d2548c1e3fccd1d5ce0f1a7040e36430a8a",
+      "declarationSha256": "5d8114c4e2cd82bfd1ac8e68f7947b41c82ace363b936fc6d81d3bf487f554eb"
     },
     {
       "component": "code",
@@ -202,7 +222,9 @@
       "compoundPaths": [],
       "source": "code.tsx",
       "declaration": "code.d.ts",
-      "sha256": "4118cd85bb4efbe2f50dd52e43058e0e5ca236f0a707ebf927a0d340740f053b"
+      "sha256": "4f764f30ea5c65e90cdf96a0cbd51c3222fd320f986868dff9d6f51f8f2dbdf9",
+      "sourceSha256": "4f764f30ea5c65e90cdf96a0cbd51c3222fd320f986868dff9d6f51f8f2dbdf9",
+      "declarationSha256": "233dcf5edbf5f0b9e9e3d01175ed82fc1137dbda2d15246217a983dfc5975296"
     },
     {
       "component": "combobox",
@@ -220,7 +242,9 @@
       ],
       "source": "combobox.tsx",
       "declaration": "combobox.d.ts",
-      "sha256": "2c23054429b1119d02ea8eb055890e201faaf2734ebccbf467f8742b836a57fd"
+      "sha256": "64f5d6b1f5bd4122b17e85d155365431bc6378c09e8a84900b527597b9ed41d2",
+      "sourceSha256": "64f5d6b1f5bd4122b17e85d155365431bc6378c09e8a84900b527597b9ed41d2",
+      "declarationSha256": "e320165786bbae40b755022c9255a9d51565f24fac1776fcac30f1175c0af6ed"
     },
     {
       "component": "command-palette",
@@ -244,7 +268,9 @@
       ],
       "source": "command-palette.tsx",
       "declaration": "command-palette.d.ts",
-      "sha256": "80c12c7a9891655fb26acbb7777eb006a28dc1d8e6e8f710c9c42f7f3cd28d5a"
+      "sha256": "153b8d4cfee1c639aaa819e82d182326deee89321df1eb3e046f5070f6cabc86",
+      "sourceSha256": "153b8d4cfee1c639aaa819e82d182326deee89321df1eb3e046f5070f6cabc86",
+      "declarationSha256": "e247a02d907db1a674520fbee9a44bd112e65ec06cd28e18434d59ab07a3a862"
     },
     {
       "component": "date-picker",
@@ -262,7 +288,9 @@
       "compoundPaths": [],
       "source": "date-picker.tsx",
       "declaration": "date-picker.d.ts",
-      "sha256": "9c0f7324f67816bc752f5b3df02bf321a5593ef1dd871f0d6697f16dba8ec5c6"
+      "sha256": "534ea77f7f68ef4cb9cdf9a6cf8825f408e5bbad1e96780dd278e11ce7304792",
+      "sourceSha256": "534ea77f7f68ef4cb9cdf9a6cf8825f408e5bbad1e96780dd278e11ce7304792",
+      "declarationSha256": "e7126a550a8863540e2285d412528c25cd1aa8fb6da506d98c66a3b7d3a7b128"
     },
     {
       "component": "date-range-picker",
@@ -284,7 +312,9 @@
       "compoundPaths": [],
       "source": "date-range-picker.tsx",
       "declaration": "date-range-picker.d.ts",
-      "sha256": "9908e85f3f9b7da8fcc4c707ed270ed9b7feb940200c37b0ab97a44b9d4e8dd3"
+      "sha256": "69330e9d7a034fffed84b5435b56eb49eb4d763412f786a0a5d08156f2eb6950",
+      "sourceSha256": "69330e9d7a034fffed84b5435b56eb49eb4d763412f786a0a5d08156f2eb6950",
+      "declarationSha256": "7680c781211573021618f2f167920de520f35e0ee99079592754b7ddadf15354"
     },
     {
       "component": "dialog",
@@ -313,7 +343,9 @@
       ],
       "source": "dialog.tsx",
       "declaration": "dialog.d.ts",
-      "sha256": "7634c2028991910902fe187f84b1c3dca68226fb7f1b8a5196783db4e6f043fb"
+      "sha256": "0e3cdedadbc65561b675d013070a3ec65cf94fba2d24acf774c962f5537880ff",
+      "sourceSha256": "0e3cdedadbc65561b675d013070a3ec65cf94fba2d24acf774c962f5537880ff",
+      "declarationSha256": "840e625eb41bae18d991b033e896c027c01fa41f4ef0789d8d4555ef3fc3c780"
     },
     {
       "component": "dropdown-menu",
@@ -338,7 +370,9 @@
       ],
       "source": "dropdown-menu.tsx",
       "declaration": "dropdown-menu.d.ts",
-      "sha256": "8ee329c1bb368f7d40eead66820d21648d6e44d8866200f24101d4df381f497e"
+      "sha256": "2c866d729b79b6071262d0519ea4b7c364223699604c8274ae45834281e15fc3",
+      "sourceSha256": "2c866d729b79b6071262d0519ea4b7c364223699604c8274ae45834281e15fc3",
+      "declarationSha256": "dfd910416f8ae3e07bd5087c3ac150a2986a4d03333ac44ee3aaffe5bb1afe74"
     },
     {
       "component": "empty",
@@ -366,7 +400,9 @@
       "compoundPaths": [],
       "source": "empty.tsx",
       "declaration": "empty.d.ts",
-      "sha256": "cc345a283a73500f61263a1b603a22f55228f637ac46559b762888fd20045625"
+      "sha256": "080ba6879d63196ed315b1ab79652ea4468dcfc543d85dea4781d9a5e78d3b5c",
+      "sourceSha256": "080ba6879d63196ed315b1ab79652ea4468dcfc543d85dea4781d9a5e78d3b5c",
+      "declarationSha256": "45eba3f4732f1b5d0e7dc9e41bbcc33008649276c13816ad62262ab18c149998"
     },
     {
       "component": "field",
@@ -386,7 +422,9 @@
       ],
       "source": "field.tsx",
       "declaration": "field.d.ts",
-      "sha256": "468aa1afd7225b909cbd6ac6361cf55ce8893baab0d2f95fe382ee8c398e211c"
+      "sha256": "2952a46043f8b0dbaa6cea54a3b6f3cbf3c21042a79831b80a732dd11f8f9fd6",
+      "sourceSha256": "457cf9cf766f964f3c11ea1a1638ded376a97e203422ff754217b9950556cdd9",
+      "declarationSha256": "e0265bd6db2a4704db4931b3edafec19c4e563df0a6b072aca84f7aaac3526c0"
     },
     {
       "component": "grid",
@@ -408,7 +446,9 @@
       "compoundPaths": [],
       "source": "grid.tsx",
       "declaration": "grid.d.ts",
-      "sha256": "a14277e7a226d2d266a9f8bc994b3aa2a0c6f4d2b70f42cfba7687a350b537ff"
+      "sha256": "af7d4e6f2bb1bb859455e7ea4e922cb0b9efe74021e82bf49951d200c1ac54fd",
+      "sourceSha256": "af7d4e6f2bb1bb859455e7ea4e922cb0b9efe74021e82bf49951d200c1ac54fd",
+      "declarationSha256": "24179a07270aa2ef298d99065f779f4e27484ba86fba47f5416bf16dba520186"
     },
     {
       "component": "grid-item",
@@ -430,7 +470,9 @@
       "compoundPaths": [],
       "source": "grid-item.tsx",
       "declaration": "grid-item.d.ts",
-      "sha256": "79e672019acc7f8287aed2d4e584e76286f6b018ce568e973e89e7b849f601c8"
+      "sha256": "bc10f694c673de9c8a9f98c5b54d069c9c9e9ed42909458eae1d6086d8e863d9",
+      "sourceSha256": "bc10f694c673de9c8a9f98c5b54d069c9c9e9ed42909458eae1d6086d8e863d9",
+      "declarationSha256": "bff83ef47495f39e3b93e39b9038bf780878f23339e6730cabe41e8767a6a5dc"
     },
     {
       "component": "input",
@@ -448,7 +490,9 @@
       "compoundPaths": [],
       "source": "input.tsx",
       "declaration": "input.d.ts",
-      "sha256": "8edd6ddc33f4033366c14ced4a5c6f52df24aea7a401a1d46f28ba5ceddd2da4"
+      "sha256": "0ef684e631e68dfe6acdaeabd69626ef9744441845c38b05f8c91d2f603d971a",
+      "sourceSha256": "0ef684e631e68dfe6acdaeabd69626ef9744441845c38b05f8c91d2f603d971a",
+      "declarationSha256": "69fadc6e7b5455528d125f0a230532d3d1ebb22ea92927407cd30b2de0ed8812"
     },
     {
       "component": "input-area",
@@ -466,7 +510,9 @@
       "compoundPaths": [],
       "source": "input-area.tsx",
       "declaration": "input-area.d.ts",
-      "sha256": "d2d5543e8fd0d879829232d7d55ef83b3601067b5706ba6741b70c20cf8edf56"
+      "sha256": "b451a167718db928edd24c8983c1c52cef86de49add12fabc7c84936f80eaa31",
+      "sourceSha256": "b451a167718db928edd24c8983c1c52cef86de49add12fabc7c84936f80eaa31",
+      "declarationSha256": "9a8b72494e433c5f4634a970abf0088903feb82406bd7bfa1ecd5a8aeafdfe4f"
     },
     {
       "component": "input-group",
@@ -489,7 +535,9 @@
       ],
       "source": "input-group.tsx",
       "declaration": "input-group.d.ts",
-      "sha256": "d8c9fddc243fd2b57f553c9ff445b11c97d6b7fca3293139f03e43ba900cab59"
+      "sha256": "55435d3eb34bff1c5a2cbaf098cf6ca9095116bf29dfbaa844e57a57e7aa7400",
+      "sourceSha256": "55435d3eb34bff1c5a2cbaf098cf6ca9095116bf29dfbaa844e57a57e7aa7400",
+      "declarationSha256": "e4321f7a2f2009980292304f326ba0947e86f271b2fc444385ceab358a6fc15b"
     },
     {
       "component": "label",
@@ -515,7 +563,9 @@
       "compoundPaths": [],
       "source": "label.tsx",
       "declaration": "label.d.ts",
-      "sha256": "2fffd9ef8827b5e5a06bb2ce9f5a4663ab5fb9dc51dfda202b8c4a242c32c482"
+      "sha256": "7144b56f3f3fee5779a6d9e7aa5947d84581f375f2e93929d1c4efe44c4028e0",
+      "sourceSha256": "7144b56f3f3fee5779a6d9e7aa5947d84581f375f2e93929d1c4efe44c4028e0",
+      "declarationSha256": "4f97ad8ee8d385aa9762b146a6445748831121b14df08a52479482bbf7d88c59"
     },
     {
       "component": "layer-card",
@@ -540,7 +590,9 @@
       ],
       "source": "layer-card.tsx",
       "declaration": "layer-card.d.ts",
-      "sha256": "e89595555ea6ba8822ff544d57fd9d18cd9141757cad20cf05f0b6ad78606a33"
+      "sha256": "59d2c6a708d70821cb127762e5c52278a09b19a98b9f41e727d87eb1641fe040",
+      "sourceSha256": "59d2c6a708d70821cb127762e5c52278a09b19a98b9f41e727d87eb1641fe040",
+      "declarationSha256": "8ade888f090b0a2f120dedde44823d19a19aca5061e8516f1ef561543be62663"
     },
     {
       "component": "link",
@@ -562,7 +614,9 @@
       "compoundPaths": [],
       "source": "link.tsx",
       "declaration": "link.d.ts",
-      "sha256": "7d8059104115460b251b19012bec822c195c1bb63bf338b322ae6a1527e82745"
+      "sha256": "8f68399e7c80386234ef5ef2d0e82286c2965bfee209fa88d4643e96faa444ca",
+      "sourceSha256": "8f68399e7c80386234ef5ef2d0e82286c2965bfee209fa88d4643e96faa444ca",
+      "declarationSha256": "d131ba8b8d025efd5ada5c053d839cbcaf262f7c7bd9f45fcfaf044515ea1d7a"
     },
     {
       "component": "loader",
@@ -584,7 +638,9 @@
       "compoundPaths": [],
       "source": "loader.tsx",
       "declaration": "loader.d.ts",
-      "sha256": "9d74c65c828152b86de2982dbd088246ca791fab6347622682b4f9941ebeb32e"
+      "sha256": "50d98fe1f103cf9fb6504d45b0a949dd92b669126b8379ab42065f09ce131b32",
+      "sourceSha256": "50d98fe1f103cf9fb6504d45b0a949dd92b669126b8379ab42065f09ce131b32",
+      "declarationSha256": "d1a2235aa6e398e994407cbac3644bbc2dd8e82a9691b8b933ef0693277ff16e"
     },
     {
       "component": "menu-bar",
@@ -602,7 +658,9 @@
       "compoundPaths": [],
       "source": "menu-bar.tsx",
       "declaration": "menu-bar.d.ts",
-      "sha256": "74a5ae3ca1d42501ae2b974b88da59aaf2a0031bcdac6e000b5bfd4d03fa314f"
+      "sha256": "e0dd8dee51cee011349c365f5419a4c452af096d0a5912d79c91e1889a8d594c",
+      "sourceSha256": "e0dd8dee51cee011349c365f5419a4c452af096d0a5912d79c91e1889a8d594c",
+      "declarationSha256": "1b6f978385a8aafd153c02b55a729c30a2db5e771ba2a57c76b3c3e17b0d46de"
     },
     {
       "component": "meter",
@@ -628,7 +686,9 @@
       "compoundPaths": [],
       "source": "meter.tsx",
       "declaration": "meter.d.ts",
-      "sha256": "7cf845067362d581362c3150fb180a7a22f258f39362d88551b5409d6e623c11"
+      "sha256": "9108b60ea90caeb871a2f7e51c5025028bbb8c9dee585d40e4b319721f135a56",
+      "sourceSha256": "9108b60ea90caeb871a2f7e51c5025028bbb8c9dee585d40e4b319721f135a56",
+      "declarationSha256": "7259dc652d33a483f2af9a4efaf1df91431186793d4fcd68083954800123126d"
     },
     {
       "component": "pagination",
@@ -658,7 +718,9 @@
       "compoundPaths": [],
       "source": "pagination.tsx",
       "declaration": "pagination.d.ts",
-      "sha256": "da2ed453e1b17ffb1d57a6b39d186304b1e437b9bbc1e9494f0f5b39deb0b459"
+      "sha256": "19dbd3ca46934649eee658c7ca38f2bcfe3fa4eb682a2dea034971ecd7d9531b",
+      "sourceSha256": "19dbd3ca46934649eee658c7ca38f2bcfe3fa4eb682a2dea034971ecd7d9531b",
+      "declarationSha256": "ac85c8cf64719f2107a14b6e6376892c6defd660cd360fbaf862950f1e2b2b6a"
     },
     {
       "component": "popover",
@@ -682,7 +744,9 @@
       ],
       "source": "popover.tsx",
       "declaration": "popover.d.ts",
-      "sha256": "b3ef5851386eeb2fdae9a190221104cfc366b84f58ae7de41f59423af6fbc134"
+      "sha256": "5ddc8b0b6296508168c7ac1d653dfb3bf5f55982819b887cb053120fab72dfe5",
+      "sourceSha256": "5ddc8b0b6296508168c7ac1d653dfb3bf5f55982819b887cb053120fab72dfe5",
+      "declarationSha256": "bd3492881396a552421b1afb7b70cbba22aeed7f111813efa3c51ccba5653166"
     },
     {
       "component": "radio",
@@ -695,7 +759,9 @@
       "compoundPaths": [],
       "source": "radio.tsx",
       "declaration": "radio.d.ts",
-      "sha256": "869dce403c0c3bb01bfd2beeee40b4a8268b6d96feaa053462a01c8621f23425"
+      "sha256": "11110e068de44dadad27b5c9ac69cd49d6497e1ed3bc4fa7bd584143bd5a18ba",
+      "sourceSha256": "11110e068de44dadad27b5c9ac69cd49d6497e1ed3bc4fa7bd584143bd5a18ba",
+      "declarationSha256": "594d60d73a4f6535c96c61111368a326a813fbb3090ef1845c27263246eb2f85"
     },
     {
       "component": "select",
@@ -715,7 +781,9 @@
       ],
       "source": "select.tsx",
       "declaration": "select.d.ts",
-      "sha256": "a7bbb995691ca5c669f693bd7c7ddadf6f8b3f7bcdd9f7a2ecdc2b61499e1a36"
+      "sha256": "a184d24b0f5a7b6f93205af8764d7b4be74cd3fddef8725534366f8a273beb5d",
+      "sourceSha256": "a184d24b0f5a7b6f93205af8764d7b4be74cd3fddef8725534366f8a273beb5d",
+      "declarationSha256": "bce8589ba3f9c38038ab73f62977ec09aeff4a4e76f871876947fea1d23db1bc"
     },
     {
       "component": "sensitive-input",
@@ -733,7 +801,9 @@
       "compoundPaths": [],
       "source": "sensitive-input.tsx",
       "declaration": "sensitive-input.d.ts",
-      "sha256": "421e246cf6aa69249476364d4bd9fcab034769c8cee08d67c70729d5d8b99af2"
+      "sha256": "682d7ca2e4e0b9f83ca8f29493ee348faee851163b729a980aac6ed522d0629e",
+      "sourceSha256": "682d7ca2e4e0b9f83ca8f29493ee348faee851163b729a980aac6ed522d0629e",
+      "declarationSha256": "1cb1a1701693e931bd1e7f7ce3904c3542cea542c3bf8ca70bb57c60753ca980"
     },
     {
       "component": "sidebar",
@@ -770,7 +840,9 @@
       ],
       "source": "sidebar.tsx",
       "declaration": "sidebar.d.ts",
-      "sha256": "88a9f65c1ff8804848f364ecdafe9dbf0c120f8fa3bff169702996fb4fc59fa1"
+      "sha256": "93aaaff08d311028c689aa0badec6456c4d6ff866954cb5b8d2413345c3b1abd",
+      "sourceSha256": "93aaaff08d311028c689aa0badec6456c4d6ff866954cb5b8d2413345c3b1abd",
+      "declarationSha256": "aafb26d724ae9bf1c976918168bd2c2590856bc68e4fdb456ca6bae67c238fae"
     },
     {
       "component": "surface",
@@ -792,7 +864,9 @@
       "compoundPaths": [],
       "source": "surface.tsx",
       "declaration": "surface.d.ts",
-      "sha256": "7ec5c978f36b944c684bad901d66f6305b898b03956d0449230a758ccca26161"
+      "sha256": "7a54e81af578362cd68fb35df112282e648f7304789ac21b93566ab5593abf33",
+      "sourceSha256": "7a54e81af578362cd68fb35df112282e648f7304789ac21b93566ab5593abf33",
+      "declarationSha256": "0df089b51cbacbae2af8d5c50c61ff63a71618c0d6fe1cdaec971cbd5fcf6c48"
     },
     {
       "component": "switch",
@@ -810,7 +884,9 @@
       "compoundPaths": [],
       "source": "switch.tsx",
       "declaration": "switch.d.ts",
-      "sha256": "a413c070a3fe7484675cb002e1a4294037837192ca4bd60c4f87fb1889d7a6e1"
+      "sha256": "c0541f2aa21ecc8fad11d7a65e753107cf80981792fbed54c690fdb0748ec3eb",
+      "sourceSha256": "c0541f2aa21ecc8fad11d7a65e753107cf80981792fbed54c690fdb0748ec3eb",
+      "declarationSha256": "8961ce4286ed156816e74574eab85e15a7f1caf24eec937e3e7a9ec035fe969c"
     },
     {
       "component": "table",
@@ -838,7 +914,9 @@
       ],
       "source": "table.tsx",
       "declaration": "table.d.ts",
-      "sha256": "19f67886309b012139527098e230599857094a4558081933151461e5e710cdc3"
+      "sha256": "90a91c6bbad5d14237cdc597fb69fcf826f05c6bf9129497026560fc318ad968",
+      "sourceSha256": "90a91c6bbad5d14237cdc597fb69fcf826f05c6bf9129497026560fc318ad968",
+      "declarationSha256": "3641c6b93df3aa33e97b95ed32246bfb0ebdc87d5d8fbc8c70679f367dabcda0"
     },
     {
       "component": "table-of-contents",
@@ -865,7 +943,9 @@
       ],
       "source": "table-of-contents.tsx",
       "declaration": "table-of-contents.d.ts",
-      "sha256": "82551363ef73e73489356d2c7b40b0a27f909869c429cc0184f65918dbf7116f"
+      "sha256": "1ea2c0aa52bb2b716439b07d18445a5eae484ad7ef1ee39fd3b85758ad3286a9",
+      "sourceSha256": "1ea2c0aa52bb2b716439b07d18445a5eae484ad7ef1ee39fd3b85758ad3286a9",
+      "declarationSha256": "598d5906fc727b9d1172302a31e5dcf9ba85a0155c32168130a39e15102c5cac"
     },
     {
       "component": "tabs",
@@ -887,7 +967,9 @@
       "compoundPaths": [],
       "source": "tabs.tsx",
       "declaration": "tabs.d.ts",
-      "sha256": "10c55cb4ab6cf82b71939b5ddf397d223bf89052703d5967b53af23428a738c3"
+      "sha256": "e6e74dc99e5923d92eedb4c10a1407ef25ac05e5100c1c612ec01c9ee04cc495",
+      "sourceSha256": "e6e74dc99e5923d92eedb4c10a1407ef25ac05e5100c1c612ec01c9ee04cc495",
+      "declarationSha256": "89f3f43665b92f3338ecafef43021db8a334879a44ade6a32e960f5585672951"
     },
     {
       "component": "text",
@@ -913,7 +995,9 @@
       "compoundPaths": [],
       "source": "text.tsx",
       "declaration": "text.d.ts",
-      "sha256": "2a3a02f5221586b20e390fdca220c496f1d2a61f3fc46c63005f787427a90c14"
+      "sha256": "83d949c46b7700d5d24c7f696e549f923141bb8401bb906cbc5144f815fc6871",
+      "sourceSha256": "83d949c46b7700d5d24c7f696e549f923141bb8401bb906cbc5144f815fc6871",
+      "declarationSha256": "46a78912a3b44ed5b1d3f957191821b0f7de77c3e557712c33aebdf59327e57d"
     },
     {
       "component": "toasty",
@@ -931,7 +1015,9 @@
       "compoundPaths": [],
       "source": "toasty.tsx",
       "declaration": "toasty.d.ts",
-      "sha256": "88486044e5e15805e63da0074c18407a92d08fa983b85937ed5cab0e41df653b"
+      "sha256": "6b5ef599c03cb8e7c6855ee4e2508d3649ea465bd89298924fd4d5aedc95b7d6",
+      "sourceSha256": "6b5ef599c03cb8e7c6855ee4e2508d3649ea465bd89298924fd4d5aedc95b7d6",
+      "declarationSha256": "a61849c4f743e03b21758e9e1e6d6f4d4fe9e616b0df91d13a52c950a8a98a5b"
     }
   ]
 }

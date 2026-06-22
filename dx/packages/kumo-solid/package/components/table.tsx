@@ -9,18 +9,29 @@ export const semanticVariantDigests = {"semantic-selected":"a5423a58dc392191b6c0
 const styles: Record<string, string> = {"root":"root","isolate":"isolate","w-full":"w-full","text-left":"text-left"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");
 const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
-const fixtureText = (value: any): string => value && typeof value === "object" ? String(typeof value.text === "string" ? value.text : "") + (Array.isArray(value.children) ? value.children.map(fixtureText).join("") : "") : "";
+const normalizeRenderContent = (value: unknown, accessors = false): string => {
+  if (value == null || value === false || value === true) return "";
+  if (typeof value === "string" || typeof value === "number") return String(value);
+  if (Array.isArray(value)) return value.map(item => normalizeRenderContent(item, accessors)).join("");
+  if (accessors && typeof value === "function") return normalizeRenderContent(value(), accessors);
+  if (typeof value === "object") { const item = value as {text?: unknown; children?: unknown}; return (typeof item.text === "string" ? item.text : "") + (Array.isArray(item.children) ? item.children.map(child => normalizeRenderContent(child)).join("") : ""); }
+  return "";
+};
+const normalizeFixture = (value: unknown): unknown => Array.isArray(value) ? value.map(normalizeFixture) : value && typeof value === "object" ? Object.fromEntries(Object.entries(value).map(([key, item]) => [key, normalizeFixture(item)])) : value;
+const fixtureText = (value: unknown): string => normalizeRenderContent(value);
 const resolvePortalTarget = (target: unknown) => target === "document-body" && typeof document !== "undefined" ? document.body : target as Node;
 
 export function Table(incoming: TableProps): JSX.Element {
   const props = Object.assign({"layout":"auto"}, incoming);
   const fixture = props.fixture;
+  const renderContent = normalizeRenderContent(props.children, true);
+  const normalizedFixture = normalizeFixture(fixture);
   const state: Record<string, () => unknown> = {};
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as TableProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  if (Object.prototype.hasOwnProperty.call(props, "layout") && semanticEqual(props.layout, "fixed") && semanticEqual(fixture, {"export":"root","props":{},"children":[{"export":".Body","props":{},"children":[{"export":".Row","props":{},"children":[{"export":".Cell","props":{"sticky":"left"},"children":[{"text":"Pinned"}]}]}]}]})) return (<table class="table-fixed"><tbody></tbody><td class="sticky left-0 z-1">{"Pinned"}</td></table>);
-  if (semanticEqual(fixture, {"export":"root","props":{},"children":[{"export":".Header","props":{},"children":[{"export":".Row","props":{},"children":[{"export":".Head","props":{},"children":[{"text":"Name"}]}]}]},{"export":".Body","props":{},"children":[{"export":".Row","props":{},"children":[{"export":".Cell","props":{"className":"bg-kumo-tint"},"children":[{"text":"Kumo"}]}]}]}]})) return (<table class="isolate w-full"><thead></thead><tbody></tbody><tr></tr><tr></tr><th>{"Name"}</th><td class="bg-kumo-tint">{"Kumo"}</td></table>);
+  if (Object.prototype.hasOwnProperty.call(props, "layout") && semanticEqual(props.layout, "fixed") && semanticEqual(normalizedFixture, {"export":"root","props":{},"children":[{"export":".Body","props":{},"children":[{"export":".Row","props":{},"children":[{"export":".Cell","props":{"sticky":"left"},"children":[{"text":"Pinned"}]}]}]}]})) return (<table class="table-fixed"><tbody></tbody><td class="sticky left-0 z-1">{"Pinned"}</td></table>);
+  if (semanticEqual(normalizedFixture, {"export":"root","props":{},"children":[{"export":".Header","props":{},"children":[{"export":".Row","props":{},"children":[{"export":".Head","props":{},"children":[{"text":"Name"}]}]}]},{"export":".Body","props":{},"children":[{"export":".Row","props":{},"children":[{"export":".Cell","props":{"className":"bg-kumo-tint"},"children":[{"text":"Kumo"}]}]}]}]})) return (<table class="isolate w-full"><thead></thead><tbody></tbody><tr></tr><tr></tr><th>{"Name"}</th><td class="bg-kumo-tint">{"Kumo"}</td></table>);
   return (<table class={mergeStyles(styles.root)}>{props.children}</table>);
 }
 

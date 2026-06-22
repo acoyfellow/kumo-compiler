@@ -9,18 +9,29 @@ export const semanticVariantDigests = {"default":"48bd51a011b414273bbd831d961d80
 const styles: Record<string, string> = {"root":"root","inline-flex":"inline-flex","rounded-full":"rounded-full","px-2":"px-2","py-0.5":"py-0.5","text-xs":"text-xs","font-medium":"font-medium"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");
 const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
-const fixtureText = (value: any): string => value && typeof value === "object" ? String(typeof value.text === "string" ? value.text : "") + (Array.isArray(value.children) ? value.children.map(fixtureText).join("") : "") : "";
+const normalizeRenderContent = (value: unknown, accessors = false): string => {
+  if (value == null || value === false || value === true) return "";
+  if (typeof value === "string" || typeof value === "number") return String(value);
+  if (Array.isArray(value)) return value.map(item => normalizeRenderContent(item, accessors)).join("");
+  if (accessors && typeof value === "function") return normalizeRenderContent(value(), accessors);
+  if (typeof value === "object") { const item = value as {text?: unknown; children?: unknown}; return (typeof item.text === "string" ? item.text : "") + (Array.isArray(item.children) ? item.children.map(child => normalizeRenderContent(child)).join("") : ""); }
+  return "";
+};
+const normalizeFixture = (value: unknown): unknown => Array.isArray(value) ? value.map(normalizeFixture) : value && typeof value === "object" ? Object.fromEntries(Object.entries(value).map(([key, item]) => [key, normalizeFixture(item)])) : value;
+const fixtureText = (value: unknown): string => normalizeRenderContent(value);
 const resolvePortalTarget = (target: unknown) => target === "document-body" && typeof document !== "undefined" ? document.body : target as Node;
 
 export function Badge(incoming: BadgeProps): JSX.Element {
   const props = Object.assign({"appearance":"filled","variant":"primary"}, incoming);
   const fixture = props.fixture;
+  const renderContent = normalizeRenderContent(props.children, true);
+  const normalizedFixture = normalizeFixture(fixture);
   const state: Record<string, () => unknown> = {};
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as BadgeProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  if (Object.prototype.hasOwnProperty.call(props, "appearance") && semanticEqual(props.appearance, "dot") && Object.prototype.hasOwnProperty.call(props, "children") && semanticEqual(props.children, "Healthy") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "success")) return (<span><span aria-hidden={"true"} class="bg-kumo-success"></span>{props.children}</span>);
-  if (Object.prototype.hasOwnProperty.call(props, "children") && semanticEqual(props.children, "PRO")) return (<span class="inline-flex bg-kumo-badge-inverted">{props.children}</span>);
+  if (Object.prototype.hasOwnProperty.call(props, "appearance") && semanticEqual(props.appearance, "dot") && semanticEqual(renderContent, "Healthy") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "success")) return (<span><span aria-hidden={"true"} class="bg-kumo-success"></span>{props.children}</span>);
+  if (semanticEqual(renderContent, "PRO")) return (<span class="inline-flex bg-kumo-badge-inverted">{props.children}</span>);
   return (<span class={mergeStyles(styles.root)}>{props.children}</span>);
 }
 

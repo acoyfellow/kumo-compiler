@@ -9,18 +9,29 @@ export const semanticVariantDigests = {"three-up":"1d4ad816e0831f232c9946096131c
 const styles: Record<string, string> = {"root":"root","grid":"grid"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");
 const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
-const fixtureText = (value: any): string => value && typeof value === "object" ? String(typeof value.text === "string" ? value.text : "") + (Array.isArray(value.children) ? value.children.map(fixtureText).join("") : "") : "";
+const normalizeRenderContent = (value: unknown, accessors = false): string => {
+  if (value == null || value === false || value === true) return "";
+  if (typeof value === "string" || typeof value === "number") return String(value);
+  if (Array.isArray(value)) return value.map(item => normalizeRenderContent(item, accessors)).join("");
+  if (accessors && typeof value === "function") return normalizeRenderContent(value(), accessors);
+  if (typeof value === "object") { const item = value as {text?: unknown; children?: unknown}; return (typeof item.text === "string" ? item.text : "") + (Array.isArray(item.children) ? item.children.map(child => normalizeRenderContent(child)).join("") : ""); }
+  return "";
+};
+const normalizeFixture = (value: unknown): unknown => Array.isArray(value) ? value.map(normalizeFixture) : value && typeof value === "object" ? Object.fromEntries(Object.entries(value).map(([key, item]) => [key, normalizeFixture(item)])) : value;
+const fixtureText = (value: unknown): string => normalizeRenderContent(value);
 const resolvePortalTarget = (target: unknown) => target === "document-body" && typeof document !== "undefined" ? document.body : target as Node;
 
 export function Grid(incoming: GridProps): JSX.Element {
   const props = Object.assign({"gap":"base"}, incoming);
   const fixture = props.fixture;
+  const renderContent = normalizeRenderContent(props.children, true);
+  const normalizedFixture = normalizeFixture(fixture);
   const state: Record<string, () => unknown> = {};
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as GridProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  if (Object.prototype.hasOwnProperty.call(props, "children") && semanticEqual(props.children, "Two") && Object.prototype.hasOwnProperty.call(props, "gap") && semanticEqual(props.gap, "none") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "side-by-side")) return (<div class="grid-cols-2 gap-0">{props.children}</div>);
-  if (Object.prototype.hasOwnProperty.call(props, "children") && semanticEqual(props.children, "Cells") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "3up")) return (<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">{props.children}</div>);
+  if (semanticEqual(renderContent, "Two") && Object.prototype.hasOwnProperty.call(props, "gap") && semanticEqual(props.gap, "none") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "side-by-side")) return (<div class="grid-cols-2 gap-0">{props.children}</div>);
+  if (semanticEqual(renderContent, "Cells") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "3up")) return (<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">{props.children}</div>);
   return (<div class={mergeStyles(styles.root)}>{props.children}</div>);
 }
 
