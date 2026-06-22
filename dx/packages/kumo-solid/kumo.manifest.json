@@ -140,7 +140,7 @@
       "source": "button.tsx",
       "declaration": "button.d.ts",
       "sha256": "52438c3494cf345ef9fc171e12582904e2f2d1da5bb1540de58f41bb209a6c98",
-      "sourceSha256": "acce8aea4d3c46ebeed62c7ca2d0144ad2cd24ab629e546bb691d3aa61ac8500",
+      "sourceSha256": "94a035b28821e5445d8ef23dfe8f8547a88d7128440a049fdd3e3ee879e6a5d7",
       "declarationSha256": "82620c6681cf44da9af4b73a17780ec39cd1a37b44da78fd7eb6e84a8cdb5846"
     },
     {
@@ -423,7 +423,7 @@
       "source": "field.tsx",
       "declaration": "field.d.ts",
       "sha256": "2952a46043f8b0dbaa6cea54a3b6f3cbf3c21042a79831b80a732dd11f8f9fd6",
-      "sourceSha256": "457cf9cf766f964f3c11ea1a1638ded376a97e203422ff754217b9950556cdd9",
+      "sourceSha256": "2967ddbb4f0d6eecd57613fe8aa26f3b23724f9f9f42f15b6b755a79f0a1f3ed",
       "declarationSha256": "e0265bd6db2a4704db4931b3edafec19c4e563df0a6b072aca84f7aaac3526c0"
     },
     {
@@ -1019,5 +1019,9 @@
       "sourceSha256": "6b5ef599c03cb8e7c6855ee4e2508d3649ea465bd89298924fd4d5aedc95b7d6",
       "declarationSha256": "a61849c4f743e03b21758e9e1e6d6f4d4fe9e616b0df91d13a52c950a8a98a5b"
     }
+  ],
+  "migrationBridges": [
+    "button",
+    "field"
   ]
 }

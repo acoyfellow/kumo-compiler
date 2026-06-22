@@ -1,13 +1,2 @@
-import { splitProps } from 'solid-js';
-
-export function Button(props) {
-  const [local, native] = splitProps(props, ['variant', 'size', 'disabled', 'loading', 'children', 'class']);
-  return <button {...native}
-    class={['kumo-button', `kumo-button--${local.variant ?? 'primary'}`, `kumo-button--${local.size ?? 'medium'}`, local.class].filter(Boolean).join(' ')}
-    disabled={Boolean(local.disabled || local.loading)}
-    aria-busy={local.loading ? 'true' : undefined}
-  >{local.loading ? 'Loading…' : local.children}</button>;
-}
-
-export const modelDigest = "fb89a6c7da3d24b06ce460e02d60941a1dc33621cc70df51098d707e9255e776";
-export default Button;
+import{createComponent}from'solid-js';import Semantic from'./button.semantic';import Legacy from'./button.legacy';
+const variants=[{"id":"default-native","when":[{"kind":"prop-equals","name":"children","value":"Save"},{"kind":"prop-equals","name":"data-probe","value":"native"},{"kind":"prop-equals","name":"name","value":"intent"},{"kind":"prop-equals","name":"value","value":"save"}]},{"id":"primary-xs","when":[{"kind":"prop-equals","name":"children","value":"Create"},{"kind":"prop-equals","name":"size","value":"xs"},{"kind":"prop-equals","name":"variant","value":"primary"}]},{"id":"destructive-lg","when":[{"kind":"prop-equals","name":"children","value":"Delete"},{"kind":"prop-equals","name":"size","value":"lg"},{"kind":"prop-equals","name":"variant","value":"destructive"}]},{"id":"circle-label","when":[{"kind":"prop-equals","name":"aria-label","value":"Add item"},{"kind":"prop-equals","name":"shape","value":"circle"},{"kind":"prop-equals","name":"size","value":"sm"}]}];const equal=(a:unknown,b:unknown)=>JSON.stringify(a)===JSON.stringify(b);const content=(v:any):string=>Array.isArray(v)?v.map(content).join(''):v==null||typeof v==='boolean'?'':typeof v==='string'||typeof v==='number'?String(v):content(v.children);const matches=(when:any[],props:Record<string,any>)=>when.every((p:any)=>p.kind==='prop-equals'?equal(p.name==='children'?content(props.children):props[p.name],p.value):p.kind==='fixture-equals'?equal(props.fixture,p.value):false);export function Button(props:Record<string,any>){return createComponent(variants.some(v=>matches(v.when,props))?Semantic:Legacy,props)}export default Button;
