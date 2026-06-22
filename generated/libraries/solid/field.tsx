@@ -32,7 +32,7 @@ export function Field(incoming: FieldProps): JSX.Element {
   const [, native] = splitProps(props as FieldProps & Record<string, unknown>, ["observable"]);
   void native; void state; void refs;
   if (semanticEqual(normalizedFixture, {"export":"root","props":{"label":"Name","description":"Help","required":false},"children":[{"export":".NativeInput","props":{"id":"field-control"},"children":[]}]})) return (<div></div>);
-  return (<div class={mergeStyles(styles.root)} data-kumo-element={"field"}></div>);
+  return (<div><label for={props.controlId as string ?? "field-control"}>{props.label as JSX.Element}</label>{props.children}</div>);
 }
 
 export function FieldNativeInput(props: CompoundPartProps): JSX.Element {

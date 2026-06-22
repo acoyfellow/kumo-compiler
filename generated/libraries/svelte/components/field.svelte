@@ -8,6 +8,8 @@
   export type Props = {
   observable?: unknown;
   children?: Snippet;
+  label?: unknown;
+  controlId?: string;
   styles?: Record<string, string>;
   fixture?: unknown;
   [key: string]: unknown;
@@ -15,6 +17,8 @@
 
   let {
     observable = undefined,
+    label = undefined,
+    controlId = "field-control",
     children,
     fixture = undefined,
     __consumerContent = undefined,
@@ -46,5 +50,5 @@
 {#if semanticEqual(fixture, {"export":"root","props":{"label":"Name","description":"Help","required":false},"children":[{"export":".NativeInput","props":{"id":"field-control"},"children":[]}]})}
   <div></div>
 {:else}
-<field class={cx(styles["root"])}></field>
+<div {...rest}><label for={controlId}>{label}</label>{#if children}{@render children()}{/if}</div>
 {/if}

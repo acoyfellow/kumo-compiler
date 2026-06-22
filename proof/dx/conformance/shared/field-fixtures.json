@@ -1,0 +1,231 @@
+{
+  "schemaVersion": "kumo.field-fixtures/v1",
+  "plans": [
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "input",
+      "vector": "field-label",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/input.json",
+        "sha256": "93f91453f14d0f49f29fc52d5bfbc59e50d7a628025200042d729d62e2f12fac",
+        "vectorSha256": "0d69765690dea514c2621c972f41791a1da5445673e0e48bd1ca191199db8da5"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Input",
+        "props": {
+          "label": "Email",
+          "description": "Help",
+          "required": true
+        },
+        "children": []
+      },
+      "setup": [],
+      "actions": [
+        {
+          "type": "click",
+          "selector": "label"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "input"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "field-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "8e92faf387127ffd8a2142e0dce582dff10eb8cbbd33cea6eed1cc7b22b55cb2"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "input-area",
+      "vector": "field-error",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/input-area.json",
+        "sha256": "c6932336a6db0c8fbe03d3da0192ec6cb639ce8c520b43f95a1713f4a3076e1d",
+        "vectorSha256": "1fd224dc54f9fbd0b2318f2040b23a5a9bfe2e123dfd23f4943ffdf10254459f"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "InputArea",
+        "props": {
+          "label": "Notes",
+          "error": "Required",
+          "required": true
+        },
+        "children": []
+      },
+      "setup": [],
+      "actions": [
+        {
+          "type": "click",
+          "selector": "label"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "textarea"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "field-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "0b10cbe72d31a5ae26c44247ec750c265b64583bfd988fbb362aec69333df734"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "field",
+      "vector": "optional",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/field.json",
+        "sha256": "3eb567a473959aeef5542888524971b92364642b4a36e7b97723bb4cb8e1cbc3",
+        "vectorSha256": "8386166fcc22124735b8834b5a0e2f6f6bbb4e818797022c8d371c5e0066b5c6"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Field",
+        "props": {
+          "label": "Name",
+          "description": "Help",
+          "required": false
+        },
+        "children": [
+          {
+            "kind": "component",
+            "ref": "Field.NativeInput",
+            "props": {
+              "id": "field-control"
+            },
+            "children": []
+          }
+        ]
+      },
+      "setup": [],
+      "actions": [],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "field-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "29a0f4fbe6c4c52eab7f4bea7e647f8911eb73dbaa0a0e5a9a5568c73d98c94e"
+    }
+  ],
+  "digest": "722edac276499a5a383797e950345349a5b9054fbb029859ed92a1b684720934"
+}

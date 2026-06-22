@@ -189,6 +189,38 @@ test('Vue supported native-input-control capabilities lower generically to nativ
   }
 });
 
+test('Vue field composition labels native controls with stable matching ids and preserves bare controls', async t => {
+  const library=loadLibrary();
+  assert.equal(library.fieldComposition.support,'supported');
+  const owned=library.fieldComposition.controls.filter(control=>control.ownsControl);
+  const emissions=[];
+  for(let run=0;run<2;run++){
+    const build=fs.mkdtempSync(path.resolve(`.kumo-vue-field-${run}-`)); t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+    const manifest=generateVueLibrary(output);
+    const runMarkup=[];
+    for(const control of owned){
+      const entry=manifest.components.find(entry=>entry.component===control.component);
+      const Component=await compileSSRComponent(entry,build);
+      const labelled=await renderToString(createSSRApp({setup:()=>()=>h(Component,{label:'Control label'})}));
+      const match=labelled.match(/^<div><label for="([^"]+)">Control label<\/label><(?:input|textarea)[^>]* id="([^"]+)"/);
+      assert.ok(match,`${control.component}: ${labelled}`);
+      assert.equal(match[1],match[2]);
+      const bare=await renderToString(createSSRApp({setup:()=>()=>h(Component)}));
+      assert.match(bare,new RegExp(`^<${control.control}(?:\\s|>)`));
+      runMarkup.push(labelled);
+    }
+    emissions.push(runMarkup);
+  }
+  assert.deepEqual(emissions[1],emissions[0]);
+
+  const field=library.fieldComposition.controls.find(control=>!control.ownsControl);
+  const manifest=generateVueLibrary(output), entry=manifest.components.find(entry=>entry.component===field.component);
+  const source=fs.readFileSync(path.join(output,entry.file),'utf8');
+  assert.match(source,/<div><label :for=/);
+  assert.match(source,/<slot \/><\/div>/);
+  assert.doesNotMatch(source,/innerHTML|@html|dispatchEvent|new Event/);
+});
+
 test('resolution receipt canonically binds capability and generated manifest hashes',()=>{
   const receipt=JSON.parse(fs.readFileSync('proof/dx/conformance/diagnostics/semantic-emitter-vue-resolution.json','utf8'));
   const contentBindings=JSON.parse(fs.readFileSync('src/kumo/library/capabilities/content-bindings.json','utf8'));

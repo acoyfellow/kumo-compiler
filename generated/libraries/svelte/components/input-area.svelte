@@ -12,6 +12,7 @@
   disabled?: boolean;
   onInput?: (value: string) => void;
   onFocus?: (event: FocusEvent) => void;
+  label?: unknown;
   styles?: Record<string, string>;
   fixture?: unknown;
   [key: string]: unknown;
@@ -23,6 +24,7 @@
     disabled = false,
     onInput = undefined,
     onFocus = undefined,
+    label = undefined,
     children,
     fixture = undefined,
     __consumerContent = undefined,
@@ -31,6 +33,7 @@
   }: Props = $props();
   let state_source = $state("props/native state");
 
+  const controlId = "kumo-614bcb3608f3";
   function handleNativeInput(event: Event) { onInput?.((event.currentTarget as HTMLInputElement | HTMLTextAreaElement).value); }
   function handleNativeFocus(event: FocusEvent) { onFocus?.(event); }
   const renderContent = __consumerContent;
@@ -56,5 +59,5 @@
 {#if Object.prototype.hasOwnProperty.call(semanticValues, "aria-label") && semanticEqual(semanticValues["aria-label"], "Notes") && Object.prototype.hasOwnProperty.call(semanticValues, "defaultValue") && semanticEqual(semanticValues.defaultValue, "hello")}
   <textarea></textarea>
 {:else}
-<textarea {...rest} value={defaultValue} disabled={Boolean(disabled)} oninput={handleNativeInput} onfocus={handleNativeFocus}></textarea>
+{#if label !== undefined}<div><label for={controlId}>{label}</label><textarea {...rest} id={controlId} value={defaultValue} disabled={Boolean(disabled)} oninput={handleNativeInput} onfocus={handleNativeFocus}></textarea></div>{:else}<textarea {...rest} value={defaultValue} disabled={Boolean(disabled)} oninput={handleNativeInput} onfocus={handleNativeFocus}></textarea>{/if}
 {/if}

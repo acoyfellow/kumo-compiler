@@ -6,11 +6,12 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 
 <script setup lang="ts">
 defineOptions({ inheritAttrs: false })
-import { computed, useAttrs, useSlots } from 'vue'
+import { computed, useAttrs, useId, useSlots } from 'vue'
 interface InputProps {
   "observable"?: unknown
   "defaultValue"?: string
   "disabled"?: boolean
+  "label"?: string
   "onChange"?: unknown
   "aria-label"?: unknown
   "ariaLabel"?: unknown
@@ -18,8 +19,9 @@ interface InputProps {
   semanticContent?: unknown
 }
 const props = withDefaults(defineProps<InputProps>(), {})
-const nativeAttrs = computed(() => Object.fromEntries(Object.entries(useAttrs()).map(([name, value]) => [name.replace(/[A-Z]/g, letter => '-' + letter.toLowerCase()), value])))
+const nativeAttrs = computed(() => Object.fromEntries(Object.entries(useAttrs()).filter(([name]) => name !== 'id').map(([name, value]) => [name.replace(/[A-Z]/g, letter => '-' + letter.toLowerCase()), value])))
 const nativeAriaLabel = computed(() => (props as any).ariaLabel ?? (props as any)['aria-label'])
+const controlId = useId()
 function handleNativeInput(event: Event) {
   props.onChange?.((event.currentTarget as HTMLInputElement | HTMLTextAreaElement).value)
 }
@@ -34,5 +36,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <input v-bind="nativeAttrs" :aria-label="nativeAriaLabel" :value="props.defaultValue" :disabled="props.disabled || undefined" @input="handleNativeInput" />
+  <div v-if="props.label !== undefined"><label :for="controlId">{{ props.label }}</label><input v-bind="nativeAttrs" :id="controlId" :aria-label="nativeAriaLabel" :value="props.defaultValue" :disabled="props.disabled || undefined" @input="handleNativeInput" /></div><input v-else v-bind="nativeAttrs" :aria-label="nativeAriaLabel" :value="props.defaultValue" :disabled="props.disabled || undefined" @input="handleNativeInput" />
 </template>

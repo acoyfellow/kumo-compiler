@@ -35,7 +35,7 @@ export function InputArea(incoming: InputAreaProps): JSX.Element {
   const [, native] = splitProps(props as InputAreaProps & Record<string, unknown>, ["class","defaultValue","disabled","onInput","children","fixture","styles"]);
   void native; void state; void refs;
   if (Object.prototype.hasOwnProperty.call(props, "aria-label") && semanticEqual(props["aria-label"], "Notes") && Object.prototype.hasOwnProperty.call(props, "defaultValue") && semanticEqual(props.defaultValue, "hello")) return (<textarea></textarea>);
-  return (<textarea {...native} class={mergeStyles(styles.root, props.class)} value={props.defaultValue as string | number | string[] | undefined} disabled={Boolean(props.disabled)} onInput={nativeInputHandler}></textarea>);
+  return (props.label != null ? <div><label for="kumo-614bcb3608f3">{props.label as JSX.Element}</label><textarea {...native} id="kumo-614bcb3608f3" class={mergeStyles(styles.root, props.class)} value={props.defaultValue as string | number | string[] | undefined} disabled={Boolean(props.disabled)} onInput={nativeInputHandler}></textarea></div> : <textarea {...native} class={mergeStyles(styles.root, props.class)} value={props.defaultValue as string | number | string[] | undefined} disabled={Boolean(props.disabled)} onInput={nativeInputHandler}></textarea>);
 }
 
 export default InputArea;

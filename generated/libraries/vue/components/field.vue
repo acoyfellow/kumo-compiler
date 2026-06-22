@@ -23,5 +23,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template v-if="semanticEqual(fixture, {&quot;export&quot;:&quot;root&quot;,&quot;props&quot;:{&quot;label&quot;:&quot;Name&quot;,&quot;description&quot;:&quot;Help&quot;,&quot;required&quot;:false},&quot;children&quot;:[{&quot;export&quot;:&quot;.NativeInput&quot;,&quot;props&quot;:{&quot;id&quot;:&quot;field-control&quot;},&quot;children&quot;:[]}]})"><div></div></template><template v-else><field :class="[styles[&quot;root&quot;]]"></field></template>
+  <div><label :for="String((props as any).childId ?? $attrs['child-id'] ?? 'field-control')">{{ (props as any).label }}</label><slot /></div>
 </template>

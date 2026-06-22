@@ -106,6 +106,34 @@ test('supported native input controls lower from capabilities with reactive Svel
  }
 });
 
+test('supported field composition emits associated labels and stable owned ids',async t=>{
+ const build=fs.mkdtempSync(path.join(os.tmpdir(),'kumo-svelte-fields-'));
+ t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+ fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
+ const first=emitSvelteLibrary({output});
+ const firstSources=new Map(first.components.map(x=>[x.component,fs.readFileSync(path.join(output,x.file),'utf8')]));
+ const second=emitSvelteLibrary({output});
+ assert.equal(second.components.flatMap(x=>x.semanticVariants).length,66);
+ for(const name of ['input','input-area']){
+  const source=fs.readFileSync(path.join(output,`components/${name}.svelte`),'utf8');
+  assert.equal(source,firstSources.get(name));
+  assert.match(source,/const controlId = "kumo-[a-f0-9]{12}"/);
+  assert.match(source,/<div><label for=\{controlId\}>\{label\}<\/label><(?:input|textarea) \{\.\.\.rest\} id=\{controlId\}/);
+  assert.match(source,/\{:else\}<(?:input|textarea) \{\.\.\.rest\} value=\{defaultValue\}/);
+  const compiled=compile(source,{filename:`${name}.svelte`,generate:'server'});
+  const target=path.join(build,`${name}.mjs`);fs.writeFileSync(target,compiled.js.code);
+  const Component=(await import(pathToFileURL(target)+`?${Date.now()}`)).default;
+  const labelled=render(Component,{props:{label:'Name'}}).body;
+  const id=labelled.match(/<label for="([^"]+)"/)?.[1];
+  assert.ok(id);
+  assert.match(labelled,new RegExp(`<(?:input|textarea)[^>]* id="${id}"`));
+  assert.doesNotMatch(render(Component,{props:{}}).body,/<div>|<label/);
+ }
+ const field=fs.readFileSync(path.join(output,'components/field.svelte'),'utf8');
+ assert.match(field,/<div \{\.\.\.rest\}><label for=\{controlId\}>\{label\}<\/label>\{#if children\}/);
+ assert.match(field,/controlId = "field-control"/);
+});
+
 test('native input lowering architecture remains registry-driven and deterministic across two emissions',()=>{
  const emitter=fs.readFileSync(path.resolve('src/kumo/emitters/svelte/index.mjs'),'utf8');
  assert.match(emitter,/id==='native-input-control'/);

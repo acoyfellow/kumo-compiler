@@ -91,9 +91,15 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
     const inputSource = fs.readFileSync(path.join(first, `${name}.tsx`), 'utf8');
     const inputDeclaration = fs.readFileSync(path.join(first, `${name}.d.ts`), 'utf8');
     assert.match(inputSource, new RegExp(`<${tag}[^>]*value=\\{props\\.defaultValue[^>]*disabled=\\{Boolean\\(props\\.disabled\\)\\}[^>]*onInput=\\{nativeInputHandler\\}`));
+    assert.match(inputSource, /props\.label != null \? <div><label for="kumo-[a-f0-9]{12}">\{props\.label as JSX\.Element\}<\/label>/);
+    const id = inputSource.match(/<label for="(kumo-[a-f0-9]{12})"/)[1];
+    assert.match(inputSource, new RegExp(`<${tag} \\{\\.\\.\\.native\\} id="${id}"`));
+    assert.match(inputSource, new RegExp(`: <${tag} \\{\\.\\.\\.native\\} class=`));
     assert.match(inputSource, /event\.currentTarget\.value/);
     assert.match(inputDeclaration, new RegExp(`JSX\\.${tag === 'input' ? 'Input' : 'Textarea'}HTMLAttributes<${element}>`));
   }
+  const fieldSource = fs.readFileSync(path.join(first, 'field.tsx'), 'utf8');
+  assert.match(fieldSource, /<div><label for=\{props\.controlId as string \?\? "field-control"\}>\{props\.label as JSX\.Element\}<\/label>\{props\.children\}<\/div>/);
   for (const name of ['field', 'sensitive-input']) assert.doesNotMatch(fs.readFileSync(path.join(first, `${name}.tsx`), 'utf8'), /nativeInputHandler|event\.currentTarget\.value/);
 
   const buttonSource = fs.readFileSync(path.join(first, 'button.tsx'), 'utf8');
