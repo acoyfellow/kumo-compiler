@@ -6,7 +6,7 @@
       "contractPath": "contracts/kumo.observable/v1/components/autocomplete.json",
       "contractDigest": "ec76d75c3cb1e5d949e1f02e80b7482c913b188554bc0c235d67b38a77abe585",
       "vectorIds": [
-        "autocomplete/filter-and-select"
+        "filter-and-select"
       ]
     },
     {
@@ -14,7 +14,7 @@
       "contractPath": "contracts/kumo.observable/v1/components/combobox.json",
       "contractDigest": "ab7a671638e44e5e7257fe76f4da0592d07ff7fbfad8c0802b7114a3234f58f9",
       "vectorIds": [
-        "combobox/single-select"
+        "single-select"
       ]
     },
     {
@@ -22,12 +22,13 @@
       "contractPath": "contracts/kumo.observable/v1/components/select.json",
       "contractDigest": "409c6d9e38a6840dff897aebaef8d8864b433ac1336831d74494d04ec8f020f6",
       "vectorIds": [
-        "select/controlled-value-open-order",
-        "select/keyboard-end-dismissal",
-        "select/keyboard-home-dismissal",
-        "select/keyboard-typeahead-dismissal",
-        "select/multiple-object-selection",
-        "select/pointer-open-select-disabled"
+        "closed-placeholder-ssr",
+        "pointer-open-select-disabled",
+        "keyboard-end-dismissal",
+        "keyboard-home-dismissal",
+        "keyboard-typeahead-dismissal",
+        "controlled-value-open-order",
+        "multiple-object-selection"
       ]
     },
     {
@@ -35,24 +36,30 @@
       "contractPath": "contracts/kumo.observable/v1/components/dropdown-menu.json",
       "contractDigest": "21bf29e0898604231db71d5016c69c94b69a55ee8696e7f7de611e17818e2de5",
       "vectorIds": [
-        "dropdown-menu/keyboard-typeahead-submenu-dismissal",
-        "dropdown-menu/pointer-item-selection",
-        "dropdown-menu/closed-trigger-ssr"
+        "closed-trigger-ssr",
+        "pointer-item-selection",
+        "keyboard-typeahead-submenu-dismissal"
       ]
     },
     {
       "component": "radio",
       "contractPath": "contracts/kumo.observable/v1/components/radio.json",
       "contractDigest": "1efdf13299ecfadca60575431a14a175f081174974420aa56bb6a785dd548ed8",
-      "vectorIds": []
+      "vectorIds": [
+        "default-click",
+        "controlled-click",
+        "arrow",
+        "disabled-item",
+        "disabled-group"
+      ]
     },
     {
       "component": "command-palette",
       "contractPath": "contracts/kumo.observable/v1/components/command-palette.json",
       "contractDigest": "002e8d68fdb91b46f3b9081d6cba7c0eb4dffcff4ae5c02d18abf9c830bf1320",
       "vectorIds": [
-        "command-palette/highlighted-text",
-        "command-palette/open-search-close"
+        "highlighted-text",
+        "open-search-close"
       ]
     }
   ],
@@ -111,5 +118,5 @@
     "vendor callback ordering",
     "vendor dismissal policy"
   ],
-  "capabilityDigest": "7fd6d2d2beae32a37ac78f1b250f483c534236812991d458fd4130207aaa851a"
+  "capabilityDigest": "9742f8f594aba288c1b47bccdca292cf12795b5fdd5d01399eb6da0975960462"
 }

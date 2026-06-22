@@ -12,6 +12,9 @@ import {deriveBehaviorCapabilities} from './behavior-capabilities.mjs';
 import {deriveControlledState} from './controlled-state.mjs';
 import {deriveNativeControls} from './native-controls.mjs';
 import {deriveClipboardLiveRegion} from './clipboard-live-region.mjs';
+import {deriveFocusNavigation, FOCUS_COMPONENTS} from './focus-navigation.mjs';
+import {deriveCollectionListbox, COLLECTION_COMPONENTS} from './collection-listbox.mjs';
+import {deriveLayerLifecycle} from './layer-lifecycle.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '../../..');
@@ -103,6 +106,9 @@ const contractFiles = fs.readdirSync(contracts).filter(file => file.endsWith('.j
 const canonicalContracts = contractFiles.map(file => JSON.parse(fs.readFileSync(path.join(contracts,file),'utf8')));
 const behaviorCapabilities = deriveBehaviorCapabilities(canonicalContracts);
 const clipboardLiveRegion = deriveClipboardLiveRegion(canonicalContracts.find(contract => contract.component === 'clipboard-text'));
+const focusNavigation = deriveFocusNavigation(canonicalContracts.filter(contract => FOCUS_COMPONENTS.includes(contract.component)));
+const collectionListbox = deriveCollectionListbox(canonicalContracts.filter(contract => COLLECTION_COMPONENTS.includes(contract.component)));
+const layerLifecycle = deriveLayerLifecycle(canonicalContracts.filter(contract => ['dialog','dropdown-menu','popover'].includes(contract.component)));
 const nativeControlContracts = canonicalContracts.filter(contract => ['checkbox','switch','radio','input','input-area','sensitive-input'].includes(contract.component));
 const controlledState = deriveControlledState(nativeControlContracts.filter(contract => ['checkbox','switch','radio'].includes(contract.component)));
 const nativeControls = deriveNativeControls(nativeControlContracts);
@@ -141,6 +147,9 @@ fs.writeFileSync(path.join(here, 'capabilities/content-bindings.json'), `${JSON.
 fs.writeFileSync(path.join(here, 'capabilities/native-button.json'), `${JSON.stringify(nativeButton,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/behavior-capabilities.json'), `${JSON.stringify(behaviorCapabilities,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/clipboard-live-region.json'), `${JSON.stringify(clipboardLiveRegion,null,2)}\n`);
+fs.writeFileSync(path.join(here, 'capabilities/focus-navigation.json'), `${JSON.stringify(focusNavigation,null,2)}\n`);
+fs.writeFileSync(path.join(here, 'capabilities/collection-listbox.json'), `${JSON.stringify(collectionListbox,null,2)}\n`);
+fs.writeFileSync(path.join(here, 'capabilities/layer-lifecycle.json'), `${JSON.stringify(layerLifecycle,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/controlled-state.json'), `${JSON.stringify(controlledState,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/native-controls.json'), `${JSON.stringify(nativeControls,null,2)}\n`);
 process.stdout.write(`${canonicalJSON({candidateDefinitionCount:41,count:entries.length,implementationReadyCount:0})}\n`);

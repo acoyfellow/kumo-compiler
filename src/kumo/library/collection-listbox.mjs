@@ -9,7 +9,8 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const own = (value, key) => Object.prototype.hasOwnProperty.call(value, key);
 
 function provenance(contract) {
-  return {component:contract.component,contractPath:`contracts/kumo.observable/v1/components/${contract.component}.json`,contractDigest:contract.provenance.contractDigest,vectorIds:contract.composition?.compoundExports?.paths?.flatMap(path=>path.vectorIds).filter((id,index,all)=>all.indexOf(id)===index) ?? []};
+  if (contract.schemaVersion !== 'kumo.observable/v1' || !Array.isArray(contract.vectors)) throw new Error(`${contract.component}: canonical observable contract required`);
+  return {component:contract.component,contractPath:`contracts/kumo.observable/v1/components/${contract.component}.json`,contractDigest:digest(contract),vectorIds:contract.vectors.map(vector=>vector.id)};
 }
 
 export function deriveCollectionListbox(contracts) {

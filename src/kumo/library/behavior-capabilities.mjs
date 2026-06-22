@@ -76,7 +76,28 @@ export function deriveBehaviorCapabilities(contracts) {
       missingOperations:[{kind:'controlled-semantics',reason:'canonical contract does not establish a controlled value prop'},{kind:'vendor-behavior',reason:contract.unknowns[0].reason},{kind:'implementation',reason:'native forwarding and field wiring operations are not proven'}]
     }));
   }
-  bindings.sort((a,b) => a.component.localeCompare(b.component));
+  for (const name of ['radio','menu-bar','tabs','pagination','command-palette','table-of-contents']) {
+    const contract=byName.get(name); if(!contract) continue;
+    bindings.push(requirement('focus-navigation',contract,'requirements-only',{
+      states:Object.keys(contract.initialState),transitions:contract.transitions,focus:contract.keyboardFocus,dom:[contract.semantics.root],aria:contract.semantics.aria,
+      missingOperations:[{kind:'focus-lowering',reason:'framework-native focus effects and refs are not yet lowered and browser-proven'}]
+    }));
+  }
+  for (const name of ['autocomplete','combobox','select','dropdown-menu','radio','command-palette']) {
+    const contract=byName.get(name); if(!contract) continue;
+    bindings.push(requirement('collection-listbox',contract,'requirements-only',{
+      states:Object.keys(contract.initialState),transitions:contract.transitions,focus:contract.keyboardFocus,dom:[contract.semantics.root],aria:contract.semantics.aria,
+      missingOperations:[{kind:'collection-lowering',reason:'framework-native collection registration, selection, and typeahead are not yet lowered and browser-proven'}]
+    }));
+  }
+  for (const name of ['dialog','dropdown-menu','popover']) {
+    const contract=byName.get(name); if(!contract) continue;
+    bindings.push(requirement('layer-lifecycle',contract,'requirements-only',{
+      states:Object.keys(contract.initialState),transitions:contract.transitions,focus:contract.keyboardFocus,dom:[contract.semantics.root],aria:contract.semantics.aria,browserServices:['portal','document listeners','focus management','positioning'],
+      missingOperations:[{kind:'layer-lowering',reason:'framework-native portal, dismissal, focus, and positioning lifecycle is not yet lowered and browser-proven'}]
+    }));
+  }
+  bindings.sort((a,b) => a.component.localeCompare(b.component)||a.id.localeCompare(b.id));
   const value = {schemaVersion:BEHAVIOR_CAPABILITIES_VERSION,bindings};
   return {...value,capabilityDigest:digest(value)};
 }
@@ -94,7 +115,7 @@ export function validateBehaviorCapabilities(value) {
     if (binding.support !== 'supported' && (!binding.missingOperations.length || binding.missingOperations.some(item => !item.kind || !item.reason))) throw new Error(`${key}: unresolved support requires explicit reasons`);
     if (binding.support === 'supported' && binding.missingOperations.length) throw new Error(`${key}: supported binding cannot be unresolved`);
   }
-  if (value.bindings.map(x=>x.component).join('\0') !== [...value.bindings].sort((a,b)=>a.component.localeCompare(b.component)).map(x=>x.component).join('\0')) throw new Error('behavior bindings must be sorted');
+  if (value.bindings.map(x=>`${x.component}:${x.id}`).join('\0') !== [...value.bindings].sort((a,b)=>a.component.localeCompare(b.component)||a.id.localeCompare(b.id)).map(x=>`${x.component}:${x.id}`).join('\0')) throw new Error('behavior bindings must be sorted');
   const {capabilityDigest,...unsigned}=value;
   if (capabilityDigest !== digest(unsigned)) throw new Error('behavior capability digest mismatch');
   return value;

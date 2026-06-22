@@ -5,17 +5,17 @@ import path from 'node:path';
 import {deriveBehaviorCapabilities, loadBehaviorCapabilities, validateBehaviorCapabilities} from '../src/kumo/library/behavior-capabilities.mjs';
 
 const contractDir = path.resolve('contracts/kumo.observable/v1/components');
-const names = ['button','checkbox','clipboard-text','input','input-area','radio','switch','sensitive-input'];
+const names = fs.readdirSync(contractDir).filter(name=>name.endsWith('.json')).map(name=>name.slice(0,-5)).sort();
 const contracts = names.map(name => JSON.parse(fs.readFileSync(path.join(contractDir, `${name}.json`))));
 
 test('registry is canonical and contract-derived', () => {
   const registry = loadBehaviorCapabilities();
   assert.deepEqual(registry, deriveBehaviorCapabilities(contracts));
-  assert.equal(registry.bindings.length, 8);
+  assert.equal(registry.bindings.length, 23);
   const button = registry.bindings.find(binding => binding.component === 'button');
   assert.equal(button.id, 'native-button');
   assert.equal(button.support, 'supported');
-  assert.deepEqual(button.vectorIds, contracts[0].vectors.map(vector => vector.id));
+  assert.deepEqual(button.vectorIds, contracts.find(contract=>contract.component==='button').vectors.map(vector => vector.id));
   assert.deepEqual(button.missingOperations, []);
 });
 
@@ -26,10 +26,13 @@ test('registry promotes only complete executable state algebra', () => {
     assert.equal(binding.support, 'supported');
     assert.deepEqual(binding.missingOperations, []);
   }
-  for (const binding of registry.bindings.filter(binding => ['clipboard-text','radio','input','input-area','sensitive-input'].includes(binding.component))) {
+  for (const binding of registry.bindings.filter(binding => binding.id!=='native-button'&&binding.id!=='toggle-control')) {
     assert.equal(binding.support, 'requirements-only');
     assert.ok(binding.missingOperations.every(item => item.kind && item.reason));
   }
+  assert.deepEqual(new Set(registry.bindings.filter(binding=>binding.id==='focus-navigation').map(binding=>binding.component)),new Set(['radio','menu-bar','tabs','pagination','command-palette','table-of-contents']));
+  assert.deepEqual(new Set(registry.bindings.filter(binding=>binding.id==='collection-listbox').map(binding=>binding.component)),new Set(['autocomplete','combobox','select','dropdown-menu','radio','command-palette']));
+  assert.deepEqual(new Set(registry.bindings.filter(binding=>binding.id==='layer-lifecycle').map(binding=>binding.component)),new Set(['dialog','dropdown-menu','popover']));
   const checkbox = registry.bindings.find(binding => binding.component === 'checkbox');
   assert.equal(checkbox.controlled.prop, 'checked');
   assert.equal(checkbox.uncontrolled.source, 'absence of checked');

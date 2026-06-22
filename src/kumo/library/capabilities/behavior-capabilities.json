@@ -2,6 +2,78 @@
   "schemaVersion": "kumo.behavior-capabilities/v1",
   "bindings": [
     {
+      "id": "collection-listbox",
+      "support": "requirements-only",
+      "component": "autocomplete",
+      "contractDigest": "ec76d75c3cb1e5d949e1f02e80b7482c913b188554bc0c235d67b38a77abe585",
+      "requirements": {
+        "states": [
+          "value",
+          "open",
+          "highlight",
+          "filter"
+        ],
+        "transitions": [
+          {
+            "action": "focus/type input",
+            "effect": "updates free-form value, filters suggestions, and can open popup"
+          },
+          {
+            "action": "ArrowDown/ArrowUp",
+            "effect": "moves highlighted suggestion"
+          },
+          {
+            "action": "Enter on highlighted item",
+            "effect": "selects suggestion and updates value"
+          },
+          {
+            "action": "Escape",
+            "effect": "closes popup"
+          }
+        ],
+        "events": [],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "ArrowDown",
+              "ArrowUp",
+              "Enter",
+              "Escape",
+              "Home",
+              "End"
+            ]
+          }
+        ],
+        "dom": [
+          "input"
+        ],
+        "aria": [
+          "input exposes combobox semantics through Base UI",
+          "popup list items expose highlighted and selected states",
+          "label/description/error use Field associations when label is supplied"
+        ],
+        "browserServices": []
+      },
+      "controlled": {
+        "supported": false,
+        "reason": "canonical contract does not establish controlled semantics"
+      },
+      "uncontrolled": {
+        "supported": false,
+        "reason": "canonical contract does not establish uncontrolled semantics"
+      },
+      "vectorIds": [
+        "filter-and-select"
+      ],
+      "missingOperations": [
+        {
+          "kind": "collection-lowering",
+          "reason": "framework-native collection registration, selection, and typeahead are not yet lowered and browser-proven"
+        }
+      ]
+    },
+    {
       "id": "native-button",
       "support": "supported",
       "component": "button",
@@ -199,6 +271,482 @@
       ]
     },
     {
+      "id": "collection-listbox",
+      "support": "requirements-only",
+      "component": "combobox",
+      "contractDigest": "ab7a671638e44e5e7257fe76f4da0592d07ff7fbfad8c0802b7114a3234f58f9",
+      "requirements": {
+        "states": [
+          "selection",
+          "open",
+          "multiple",
+          "inputSide"
+        ],
+        "transitions": [
+          {
+            "action": "type in trigger input",
+            "effect": "filters items and opens popup"
+          },
+          {
+            "action": "ArrowDown/ArrowUp",
+            "effect": "moves option highlight"
+          },
+          {
+            "action": "Enter/click option",
+            "effect": "selects constrained item; multiple mode toggles/chips selection"
+          },
+          {
+            "action": "click clear/remove",
+            "effect": "clears selection or removes chip"
+          },
+          {
+            "action": "Escape",
+            "effect": "closes popup"
+          }
+        ],
+        "events": [],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "ArrowDown",
+              "ArrowUp",
+              "Enter",
+              "Escape",
+              "Home",
+              "End",
+              "Backspace"
+            ]
+          }
+        ],
+        "dom": [
+          "input"
+        ],
+        "aria": [
+          "input has combobox semantics and controls popup listbox",
+          "items expose option selection/highlight/disabled state",
+          "clear,show-options,and chip-remove controls have configurable accessible labels",
+          "Field supplies label,required,description,error associations"
+        ],
+        "browserServices": []
+      },
+      "controlled": {
+        "supported": false,
+        "reason": "canonical contract does not establish controlled semantics"
+      },
+      "uncontrolled": {
+        "supported": false,
+        "reason": "canonical contract does not establish uncontrolled semantics"
+      },
+      "vectorIds": [
+        "single-select"
+      ],
+      "missingOperations": [
+        {
+          "kind": "collection-lowering",
+          "reason": "framework-native collection registration, selection, and typeahead are not yet lowered and browser-proven"
+        }
+      ]
+    },
+    {
+      "id": "collection-listbox",
+      "support": "requirements-only",
+      "component": "command-palette",
+      "contractDigest": "002e8d68fdb91b46f3b9081d6cba7c0eb4dffcff4ae5c02d18abf9c830bf1320",
+      "requirements": {
+        "states": [
+          "open",
+          "query",
+          "highlight",
+          "modal"
+        ],
+        "transitions": [
+          {
+            "action": "backdrop click",
+            "effect": "calls onBackdropClick when provided, otherwise onOpenChange(false)"
+          },
+          {
+            "action": "Escape in Input",
+            "effect": "prevents default and closes dialog"
+          },
+          {
+            "action": "ArrowDown/ArrowUp",
+            "effect": "moves highlight and calls onItemHighlighted"
+          },
+          {
+            "action": "Enter",
+            "effect": "selects highlighted autocomplete item"
+          },
+          {
+            "action": "Meta+Enter or Control+Enter",
+            "effect": "with onSelect and getSelectableItems calls onSelect(item,{newTab:true})"
+          }
+        ],
+        "events": [],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "ArrowDown",
+              "ArrowUp",
+              "Enter",
+              "Meta+Enter",
+              "Control+Enter",
+              "Escape"
+            ]
+          }
+        ],
+        "dom": [
+          "div"
+        ],
+        "aria": [
+          "open Root/Dialog renders modal dialog and backdrop",
+          "Panel input uses autocomplete combobox semantics",
+          "items expose highlighted and disabled state",
+          "focus is trapped/restored by Base UI dialog"
+        ],
+        "browserServices": []
+      },
+      "controlled": {
+        "supported": false,
+        "reason": "canonical contract does not establish controlled semantics"
+      },
+      "uncontrolled": {
+        "supported": false,
+        "reason": "canonical contract does not establish uncontrolled semantics"
+      },
+      "vectorIds": [
+        "highlighted-text",
+        "open-search-close"
+      ],
+      "missingOperations": [
+        {
+          "kind": "collection-lowering",
+          "reason": "framework-native collection registration, selection, and typeahead are not yet lowered and browser-proven"
+        }
+      ]
+    },
+    {
+      "id": "focus-navigation",
+      "support": "requirements-only",
+      "component": "command-palette",
+      "contractDigest": "002e8d68fdb91b46f3b9081d6cba7c0eb4dffcff4ae5c02d18abf9c830bf1320",
+      "requirements": {
+        "states": [
+          "open",
+          "query",
+          "highlight",
+          "modal"
+        ],
+        "transitions": [
+          {
+            "action": "backdrop click",
+            "effect": "calls onBackdropClick when provided, otherwise onOpenChange(false)"
+          },
+          {
+            "action": "Escape in Input",
+            "effect": "prevents default and closes dialog"
+          },
+          {
+            "action": "ArrowDown/ArrowUp",
+            "effect": "moves highlight and calls onItemHighlighted"
+          },
+          {
+            "action": "Enter",
+            "effect": "selects highlighted autocomplete item"
+          },
+          {
+            "action": "Meta+Enter or Control+Enter",
+            "effect": "with onSelect and getSelectableItems calls onSelect(item,{newTab:true})"
+          }
+        ],
+        "events": [],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "ArrowDown",
+              "ArrowUp",
+              "Enter",
+              "Meta+Enter",
+              "Control+Enter",
+              "Escape"
+            ]
+          }
+        ],
+        "dom": [
+          "div"
+        ],
+        "aria": [
+          "open Root/Dialog renders modal dialog and backdrop",
+          "Panel input uses autocomplete combobox semantics",
+          "items expose highlighted and disabled state",
+          "focus is trapped/restored by Base UI dialog"
+        ],
+        "browserServices": []
+      },
+      "controlled": {
+        "supported": false,
+        "reason": "canonical contract does not establish controlled semantics"
+      },
+      "uncontrolled": {
+        "supported": false,
+        "reason": "canonical contract does not establish uncontrolled semantics"
+      },
+      "vectorIds": [
+        "highlighted-text",
+        "open-search-close"
+      ],
+      "missingOperations": [
+        {
+          "kind": "focus-lowering",
+          "reason": "framework-native focus effects and refs are not yet lowered and browser-proven"
+        }
+      ]
+    },
+    {
+      "id": "layer-lifecycle",
+      "support": "requirements-only",
+      "component": "dialog",
+      "contractDigest": "15bdd0b64f302b4a64929843f7958278d13b196cc80702033dbf526db845a5e3",
+      "requirements": {
+        "states": [
+          "open",
+          "role",
+          "size"
+        ],
+        "transitions": [
+          {
+            "action": "click Trigger",
+            "effect": "opens modal portal and moves focus into content"
+          },
+          {
+            "action": "click Close",
+            "effect": "closes and restores focus to Trigger"
+          },
+          {
+            "action": "Escape",
+            "effect": "closes standard dialog and restores focus; alert-dialog dismissal follows AlertDialog primitive"
+          },
+          {
+            "action": "outside press",
+            "effect": "dismisses role=dialog; role=alertdialog requires explicit acknowledgement"
+          }
+        ],
+        "events": [],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "Enter",
+              "Space",
+              "Tab",
+              "Shift+Tab",
+              "Escape"
+            ]
+          }
+        ],
+        "dom": [
+          "button"
+        ],
+        "aria": [
+          "trigger is a button with popup/dialog expanded semantics",
+          "content has role dialog or alertdialog",
+          "Title and Description are associated with content by generated aria-labelledby/aria-describedby",
+          "modal backdrop makes outside content inert through Base UI"
+        ],
+        "browserServices": [
+          "portal",
+          "document listeners",
+          "focus management",
+          "positioning"
+        ]
+      },
+      "controlled": {
+        "supported": false,
+        "reason": "canonical contract does not establish controlled semantics"
+      },
+      "uncontrolled": {
+        "supported": false,
+        "reason": "canonical contract does not establish uncontrolled semantics"
+      },
+      "vectorIds": [
+        "closed-trigger",
+        "open-and-close"
+      ],
+      "missingOperations": [
+        {
+          "kind": "layer-lowering",
+          "reason": "framework-native portal, dismissal, focus, and positioning lifecycle is not yet lowered and browser-proven"
+        }
+      ]
+    },
+    {
+      "id": "collection-listbox",
+      "support": "requirements-only",
+      "component": "dropdown-menu",
+      "contractDigest": "21bf29e0898604231db71d5016c69c94b69a55ee8696e7f7de611e17818e2de5",
+      "requirements": {
+        "states": [
+          "open",
+          "highlightedItem",
+          "checkboxAndRadioValue",
+          "submenuOpen"
+        ],
+        "transitions": [
+          {
+            "action": "pointer or keyboard trigger activation",
+            "effect": "open menu in portal and establish highlighted/focused item"
+          },
+          {
+            "action": "item activation",
+            "effect": "invoke item callback; close policy is Base UI-owned and requires execution"
+          },
+          {
+            "action": "outside press or Escape",
+            "effect": "dismiss and restore trigger focus, subject to Base UI event cancellation"
+          },
+          {
+            "action": "submenu arrow or pointer intent",
+            "effect": "open nested portalled submenu"
+          }
+        ],
+        "events": [],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "Enter",
+              "Space",
+              "ArrowDown",
+              "ArrowUp",
+              "ArrowLeft",
+              "ArrowRight",
+              "Home",
+              "End",
+              "Escape",
+              "Tab",
+              "printable typeahead"
+            ]
+          }
+        ],
+        "dom": [
+          "button"
+        ],
+        "aria": [
+          "closed trigger is a button with aria-haspopup=menu",
+          "open portal uses menu/menuitem roles",
+          "checkbox and radio items expose checked semantics",
+          "selected on Item is decorative, not semantic selection"
+        ],
+        "browserServices": []
+      },
+      "controlled": {
+        "supported": false,
+        "reason": "canonical contract does not establish controlled semantics"
+      },
+      "uncontrolled": {
+        "supported": false,
+        "reason": "canonical contract does not establish uncontrolled semantics"
+      },
+      "vectorIds": [
+        "closed-trigger-ssr",
+        "pointer-item-selection",
+        "keyboard-typeahead-submenu-dismissal"
+      ],
+      "missingOperations": [
+        {
+          "kind": "collection-lowering",
+          "reason": "framework-native collection registration, selection, and typeahead are not yet lowered and browser-proven"
+        }
+      ]
+    },
+    {
+      "id": "layer-lifecycle",
+      "support": "requirements-only",
+      "component": "dropdown-menu",
+      "contractDigest": "21bf29e0898604231db71d5016c69c94b69a55ee8696e7f7de611e17818e2de5",
+      "requirements": {
+        "states": [
+          "open",
+          "highlightedItem",
+          "checkboxAndRadioValue",
+          "submenuOpen"
+        ],
+        "transitions": [
+          {
+            "action": "pointer or keyboard trigger activation",
+            "effect": "open menu in portal and establish highlighted/focused item"
+          },
+          {
+            "action": "item activation",
+            "effect": "invoke item callback; close policy is Base UI-owned and requires execution"
+          },
+          {
+            "action": "outside press or Escape",
+            "effect": "dismiss and restore trigger focus, subject to Base UI event cancellation"
+          },
+          {
+            "action": "submenu arrow or pointer intent",
+            "effect": "open nested portalled submenu"
+          }
+        ],
+        "events": [],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "Enter",
+              "Space",
+              "ArrowDown",
+              "ArrowUp",
+              "ArrowLeft",
+              "ArrowRight",
+              "Home",
+              "End",
+              "Escape",
+              "Tab",
+              "printable typeahead"
+            ]
+          }
+        ],
+        "dom": [
+          "button"
+        ],
+        "aria": [
+          "closed trigger is a button with aria-haspopup=menu",
+          "open portal uses menu/menuitem roles",
+          "checkbox and radio items expose checked semantics",
+          "selected on Item is decorative, not semantic selection"
+        ],
+        "browserServices": [
+          "portal",
+          "document listeners",
+          "focus management",
+          "positioning"
+        ]
+      },
+      "controlled": {
+        "supported": false,
+        "reason": "canonical contract does not establish controlled semantics"
+      },
+      "uncontrolled": {
+        "supported": false,
+        "reason": "canonical contract does not establish uncontrolled semantics"
+      },
+      "vectorIds": [
+        "closed-trigger-ssr",
+        "pointer-item-selection",
+        "keyboard-typeahead-submenu-dismissal"
+      ],
+      "missingOperations": [
+        {
+          "kind": "layer-lowering",
+          "reason": "framework-native portal, dismissal, focus, and positioning lifecycle is not yet lowered and browser-proven"
+        }
+      ]
+    },
+    {
       "id": "native-field",
       "support": "requirements-only",
       "component": "input",
@@ -327,6 +875,344 @@
       ]
     },
     {
+      "id": "focus-navigation",
+      "support": "requirements-only",
+      "component": "menu-bar",
+      "contractDigest": "f045535d57d8458b042cab9857f4cd31970c38e58506a55a5da9bc7717da4339",
+      "requirements": {
+        "states": [
+          "active",
+          "focus"
+        ],
+        "transitions": [
+          {
+            "action": "option click",
+            "effect": "invoke that option onClick once; consumer owns active state"
+          },
+          {
+            "action": "ArrowLeft or ArrowRight while focus is inside nav",
+            "effect": "document-level listener wraps focus among focusable descendants"
+          },
+          {
+            "action": "focus leaves nav",
+            "effect": "remove scoped document key listener"
+          }
+        ],
+        "events": [],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "Tab",
+              "Shift+Tab",
+              "ArrowLeft",
+              "ArrowRight",
+              "Enter",
+              "Space"
+            ]
+          }
+        ],
+        "dom": [
+          "nav"
+        ],
+        "aria": [
+          "root is nav, not role=menubar",
+          "each option is a native button named by aria-label=tooltip",
+          "active state is visual only; no aria-current, aria-pressed, or aria-selected"
+        ],
+        "browserServices": []
+      },
+      "controlled": {
+        "supported": false,
+        "reason": "canonical contract does not establish controlled semantics"
+      },
+      "uncontrolled": {
+        "supported": false,
+        "reason": "canonical contract does not establish uncontrolled semantics"
+      },
+      "vectorIds": [
+        "empty-nav-ssr",
+        "buttons-active-index",
+        "active-by-id"
+      ],
+      "missingOperations": [
+        {
+          "kind": "focus-lowering",
+          "reason": "framework-native focus effects and refs are not yet lowered and browser-proven"
+        }
+      ]
+    },
+    {
+      "id": "focus-navigation",
+      "support": "requirements-only",
+      "component": "pagination",
+      "contractDigest": "51a1c22d61a7d01fb284cec181585b4d3133e0fcb5cbc39a1439c64130ef8587",
+      "requirements": {
+        "states": [
+          "page",
+          "editingPage",
+          "maxPage"
+        ],
+        "transitions": [
+          {
+            "action": "navigation trusted click",
+            "effect": "setPage receives bounded target"
+          },
+          {
+            "action": "page input Enter or blur",
+            "effect": "numeric value is clamped to [1,maxPage] and committed"
+          },
+          {
+            "action": "dropdown selection",
+            "effect": "selected numeric page is committed"
+          },
+          {
+            "action": "page-size selection",
+            "effect": "onChange receives numeric size"
+          }
+        ],
+        "events": [],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "Enter",
+              "Tab",
+              "ArrowUp",
+              "ArrowDown"
+            ]
+          }
+        ],
+        "dom": [
+          "div"
+        ],
+        "aria": [
+          "nav landmark has configurable label",
+          "boundary controls are disabled",
+          "legacy info is polite atomic live region",
+          "page and page-size selectors have configurable labels"
+        ],
+        "browserServices": []
+      },
+      "controlled": {
+        "supported": false,
+        "reason": "canonical contract does not establish controlled semantics"
+      },
+      "uncontrolled": {
+        "supported": false,
+        "reason": "canonical contract does not establish uncontrolled semantics"
+      },
+      "vectorIds": [
+        "legacy-page-one",
+        "legacy-page-three-ssr",
+        "next-controlled",
+        "boundaries",
+        "input-enter-clamp",
+        "input-blur-clamp",
+        "compound-simple-labels",
+        "compound-dropdown-size"
+      ],
+      "missingOperations": [
+        {
+          "kind": "focus-lowering",
+          "reason": "framework-native focus effects and refs are not yet lowered and browser-proven"
+        }
+      ]
+    },
+    {
+      "id": "layer-lifecycle",
+      "support": "requirements-only",
+      "component": "popover",
+      "contractDigest": "4ed87b192b9060dd60e8e86efa01860761dbc5714e39b1778be23b79a25f8e22",
+      "requirements": {
+        "states": [
+          "open",
+          "anchor",
+          "focus"
+        ],
+        "transitions": [
+          {
+            "action": "pointer or keyboard trigger activation",
+            "effect": "open portalled positioned content"
+          },
+          {
+            "action": "Close activation, Escape, or accepted outside interaction",
+            "effect": "request close and restore trigger focus"
+          },
+          {
+            "action": "controlled open change",
+            "effect": "emit onOpenChange while supplied open prop remains authoritative"
+          }
+        ],
+        "events": [],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "Enter",
+              "Space",
+              "Escape",
+              "Tab",
+              "Shift+Tab"
+            ]
+          }
+        ],
+        "dom": [
+          "button"
+        ],
+        "aria": [
+          "closed trigger is button with aria-haspopup=dialog and aria-expanded=false",
+          "content uses Base UI popup/dialog semantics",
+          "title and description provide generated associations"
+        ],
+        "browserServices": [
+          "portal",
+          "document listeners",
+          "focus management",
+          "positioning"
+        ]
+      },
+      "controlled": {
+        "supported": false,
+        "reason": "canonical contract does not establish controlled semantics"
+      },
+      "uncontrolled": {
+        "supported": false,
+        "reason": "canonical contract does not establish uncontrolled semantics"
+      },
+      "vectorIds": [
+        "closed-trigger-ssr",
+        "pointer-open-close-outside",
+        "controlled-open"
+      ],
+      "missingOperations": [
+        {
+          "kind": "layer-lowering",
+          "reason": "framework-native portal, dismissal, focus, and positioning lifecycle is not yet lowered and browser-proven"
+        }
+      ]
+    },
+    {
+      "id": "collection-listbox",
+      "support": "requirements-only",
+      "component": "radio",
+      "contractDigest": "1efdf13299ecfadca60575431a14a175f081174974420aa56bb6a785dd548ed8",
+      "requirements": {
+        "states": [
+          "uncontrolled",
+          "controlled"
+        ],
+        "transitions": [
+          {
+            "action": "click|ArrowDown|ArrowUp|ArrowLeft|ArrowRight",
+            "effect": "select enabled item and invoke onValueChange"
+          }
+        ],
+        "events": [],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "ArrowDown",
+              "ArrowUp",
+              "ArrowLeft",
+              "ArrowRight"
+            ]
+          }
+        ],
+        "dom": [
+          "div"
+        ],
+        "aria": [
+          "role=radiogroup",
+          "items role=radio",
+          "aria-checked=false|true"
+        ],
+        "browserServices": []
+      },
+      "controlled": {
+        "supported": false,
+        "reason": "canonical contract does not establish controlled semantics"
+      },
+      "uncontrolled": {
+        "supported": false,
+        "reason": "canonical contract does not establish uncontrolled semantics"
+      },
+      "vectorIds": [
+        "default-click",
+        "controlled-click",
+        "arrow",
+        "disabled-item",
+        "disabled-group"
+      ],
+      "missingOperations": [
+        {
+          "kind": "collection-lowering",
+          "reason": "framework-native collection registration, selection, and typeahead are not yet lowered and browser-proven"
+        }
+      ]
+    },
+    {
+      "id": "focus-navigation",
+      "support": "requirements-only",
+      "component": "radio",
+      "contractDigest": "1efdf13299ecfadca60575431a14a175f081174974420aa56bb6a785dd548ed8",
+      "requirements": {
+        "states": [
+          "uncontrolled",
+          "controlled"
+        ],
+        "transitions": [
+          {
+            "action": "click|ArrowDown|ArrowUp|ArrowLeft|ArrowRight",
+            "effect": "select enabled item and invoke onValueChange"
+          }
+        ],
+        "events": [],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "ArrowDown",
+              "ArrowUp",
+              "ArrowLeft",
+              "ArrowRight"
+            ]
+          }
+        ],
+        "dom": [
+          "div"
+        ],
+        "aria": [
+          "role=radiogroup",
+          "items role=radio",
+          "aria-checked=false|true"
+        ],
+        "browserServices": []
+      },
+      "controlled": {
+        "supported": false,
+        "reason": "canonical contract does not establish controlled semantics"
+      },
+      "uncontrolled": {
+        "supported": false,
+        "reason": "canonical contract does not establish uncontrolled semantics"
+      },
+      "vectorIds": [
+        "default-click",
+        "controlled-click",
+        "arrow",
+        "disabled-item",
+        "disabled-group"
+      ],
+      "missingOperations": [
+        {
+          "kind": "focus-lowering",
+          "reason": "framework-native focus effects and refs are not yet lowered and browser-proven"
+        }
+      ]
+    },
+    {
       "id": "radio-group",
       "support": "requirements-only",
       "component": "radio",
@@ -390,6 +1276,95 @@
         {
           "kind": "roving-focus",
           "reason": "RTL wrapping, Home/End, and browser-specific roving-focus edge behavior inherited from Base UI are not declared by Kumo and are not guessed."
+        }
+      ]
+    },
+    {
+      "id": "collection-listbox",
+      "support": "requirements-only",
+      "component": "select",
+      "contractDigest": "409c6d9e38a6840dff897aebaef8d8864b433ac1336831d74494d04ec8f020f6",
+      "requirements": {
+        "states": [
+          "value",
+          "open",
+          "highlightedOption",
+          "disabled"
+        ],
+        "transitions": [
+          {
+            "action": "pointer trigger then enabled option",
+            "effect": "open, highlight/select, emit value change, and normally dismiss single select"
+          },
+          {
+            "action": "Arrow/Home/End/Page keys",
+            "effect": "move highlight while skipping disabled options and scroll it into view"
+          },
+          {
+            "action": "printable typeahead",
+            "effect": "highlight matching enabled option within Base UI timeout"
+          },
+          {
+            "action": "Escape, Tab, or outside interaction",
+            "effect": "dismiss according to Base UI reason and focus policy"
+          },
+          {
+            "action": "controlled value/open interaction",
+            "effect": "emit callbacks while supplied props remain authoritative"
+          }
+        ],
+        "events": [],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "Enter",
+              "Space",
+              "ArrowDown",
+              "ArrowUp",
+              "Home",
+              "End",
+              "PageDown",
+              "PageUp",
+              "Escape",
+              "Tab",
+              "printable typeahead"
+            ]
+          }
+        ],
+        "dom": [
+          "div"
+        ],
+        "aria": [
+          "trigger is role=combobox with aria-haspopup=listbox and aria-expanded",
+          "popup is listbox and items are options with selected/disabled state",
+          "label or aria-label/aria-labelledby is required from consumer",
+          "hidden input participates in form submission",
+          "multiple selection exposes listbox multiselect semantics via Base UI"
+        ],
+        "browserServices": []
+      },
+      "controlled": {
+        "supported": false,
+        "reason": "canonical contract does not establish controlled semantics"
+      },
+      "uncontrolled": {
+        "supported": false,
+        "reason": "canonical contract does not establish uncontrolled semantics"
+      },
+      "vectorIds": [
+        "closed-placeholder-ssr",
+        "pointer-open-select-disabled",
+        "keyboard-end-dismissal",
+        "keyboard-home-dismissal",
+        "keyboard-typeahead-dismissal",
+        "controlled-value-open-order",
+        "multiple-object-selection"
+      ],
+      "missingOperations": [
+        {
+          "kind": "collection-lowering",
+          "reason": "framework-native collection registration, selection, and typeahead are not yet lowered and browser-proven"
         }
       ]
     },
@@ -512,7 +1487,140 @@
         "group"
       ],
       "missingOperations": []
+    },
+    {
+      "id": "focus-navigation",
+      "support": "requirements-only",
+      "component": "table-of-contents",
+      "contractDigest": "71979902dad3ae9c2285b106715845d05a2c14a42144ea5f71024fff62e79a8f",
+      "requirements": {
+        "states": [
+          "active"
+        ],
+        "transitions": [],
+        "events": [],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "native anchor navigation only; no component-managed keys"
+            ]
+          }
+        ],
+        "dom": [
+          "nav containing consumer-composed title/list/items/groups"
+        ],
+        "aria": [
+          "root is a navigation landmark with default aria-label Table of contents",
+          "active Item emits aria-current=true; inactive Item omits aria-current",
+          "Group emits aria-current=true only when href is present and active is true",
+          "component is controlled/presentational: consumer owns scroll tracking and active state",
+          "Group always nests its children in a ul; label is an anchor when href exists and otherwise a paragraph"
+        ],
+        "browserServices": []
+      },
+      "controlled": {
+        "supported": false,
+        "reason": "canonical contract does not establish controlled semantics"
+      },
+      "uncontrolled": {
+        "supported": false,
+        "reason": "canonical contract does not establish uncontrolled semantics"
+      },
+      "vectorIds": [
+        "static-title-items",
+        "nested-linked-group"
+      ],
+      "missingOperations": [
+        {
+          "kind": "focus-lowering",
+          "reason": "framework-native focus effects and refs are not yet lowered and browser-proven"
+        }
+      ]
+    },
+    {
+      "id": "focus-navigation",
+      "support": "requirements-only",
+      "component": "tabs",
+      "contractDigest": "fbbb0d671907280d2ae6c38247506d3d7bbfde18604896102b97e066c24f890f",
+      "requirements": {
+        "states": [
+          "controlled",
+          "uncontrolled",
+          "activation",
+          "overflowing"
+        ],
+        "transitions": [
+          {
+            "action": "click a trigger",
+            "effect": "selects it (or requests controlled change), invokes onValueChange, and scrolls trigger into view"
+          },
+          {
+            "action": "ArrowLeft/ArrowRight focus navigation in manual mode",
+            "effect": "moves roving focus without selection until Enter or Space"
+          },
+          {
+            "action": "ArrowLeft/ArrowRight focus navigation with activateOnFocus=true",
+            "effect": "moves focus and activates focused trigger"
+          },
+          {
+            "action": "mouse pointer drag on overflowing segmented list beyond 3px",
+            "effect": "scrolls horizontally and suppresses click selection"
+          },
+          {
+            "action": "ResizeObserver detects segmented scrollWidth greater than clientWidth",
+            "effect": "sets data-overflowing and enables grab/drag behavior"
+          }
+        ],
+        "events": [],
+        "focus": [
+          {
+            "focusable": true,
+            "keys": [
+              "ArrowLeft",
+              "ArrowRight",
+              "Home",
+              "End",
+              "Enter",
+              "Space"
+            ]
+          }
+        ],
+        "dom": [
+          "div"
+        ],
+        "aria": [
+          "list uses tablist semantics and each item is a tab trigger",
+          "selected trigger has aria-selected=true and roving tabIndex 0; unselected triggers have aria-selected=false and tabIndex -1",
+          "this API renders navigation triggers only: it has no panel/content prop and must not synthesize tabpanel elements",
+          "empty or omitted tabs returns null",
+          "controlled value takes precedence over selectedValue",
+          "segmented list measures horizontal overflow; mouse drag scroll starts only after greater than 3px movement and suppresses the resulting click",
+          "click scrolls its trigger into nearest visible position"
+        ],
+        "browserServices": []
+      },
+      "controlled": {
+        "supported": false,
+        "reason": "canonical contract does not establish controlled semantics"
+      },
+      "uncontrolled": {
+        "supported": false,
+        "reason": "canonical contract does not establish uncontrolled semantics"
+      },
+      "vectorIds": [
+        "segmented-uncontrolled-first",
+        "underline-selected-value",
+        "manual-arrow-then-enter",
+        "automatic-arrow"
+      ],
+      "missingOperations": [
+        {
+          "kind": "focus-lowering",
+          "reason": "framework-native focus effects and refs are not yet lowered and browser-proven"
+        }
+      ]
     }
   ],
-  "capabilityDigest": "f7c42f13ca2f8bb9bab0617fd666647a3c00255e2d1ebe913ccef87d57725bfd"
+  "capabilityDigest": "cfc875514ef423d3f6e45fb48038ad1178cd112d7e4ad539a3cd477346e7c199"
 }
