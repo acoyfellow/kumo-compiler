@@ -50,7 +50,7 @@ test('Svelte SSR renders all 66 semantic variants through canonical root and des
    const html=render(Component,{props}).body.replace(/<!--\[!?-?[\d]*-->|<!--\]-->/g,'').replace(/<(area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr)([^>]*)\/>/g,'<$1$2></$1>').replace(/>\s+</g,'><').replace(/>\s+([^<])/g,'>$1').replace(/([^>])\s+</g,'$1<');
    const vector=library.semanticRender.components.find(x=>x.component===model.component).vectors.find(x=>x.id===variant.id);
    for(const constraint of vector.nodes){
-    if(model.component==='toasty'&&variant.id==='provider-ssr'&&constraint.selector===':root'){assert.match(html,/^<div data-kumo-component="Toasty">Application.*<button type="button" data-notify="">Notify<\/button><\/div>$/);continue;}
+    if(model.component==='toasty'&&variant.id==='provider-ssr'&&constraint.selector===':root'){assert.match(html,/^<div data-kumo-component="Toasty">Application.*<button type="button" data-notify="" aria-label="Notify"><\/button><\/div>$/);continue;}
     const expected={root:constraint.selector===':root'?constraint.require:{},...(constraint.selector===':root'?{}:{descendants:[{selector:constraint.selector,...constraint.require}]})};
     try{assert.equal(compareMarkup(html,expected),true);}
     catch(error){error.message=`${model.component}#${variant.id} ${constraint.selector}: ${error.message}\n${html}`;throw error;}
@@ -492,7 +492,7 @@ test('supported toast lifecycle lowers Toasty observable behavior without loweri
  emitSvelteLibrary({output});
  assert.equal(fs.readFileSync(path.join(output,`components/${toastLifecycle.component}.svelte`),'utf8'),source);
  assert.match(source,/data-kumo-component="Toasty"/);
- assert.match(source,/data-notify onclick=\{notifyToast\}>Notify/);
+ assert.match(source,/data-notify aria-label="Notify" onclick=\{notifyToast\}><\/button>/);
  assert.match(source,/role="status" aria-live="polite"/);
  assert.match(source,/Saved<\/strong><span>Changes saved/);
  assert.match(source,/data-toast-action onclick=\{activateToast\}/);
@@ -506,7 +506,7 @@ test('supported toast lifecycle lowers Toasty observable behavior without loweri
  const Toasty=(await import(pathToFileURL(target)+`?${Date.now()}`)).default;
  const children=payload=>payload.push('Application');
  const html=render(Toasty,{props:{children}}).body.replace(/<!--[\s\S]*?-->/g,'');
- assert.match(html,/^<div data-kumo-component="Toasty">Application<button type="button" data-notify="">Notify<\/button><\/div>$/);
+ assert.match(html,/^<div data-kumo-component="Toasty">Application<button type="button" data-notify="" aria-label="Notify"><\/button><\/div>$/);
 });
 
 test('binds model digests and publishes root and per-component metadata',()=>{

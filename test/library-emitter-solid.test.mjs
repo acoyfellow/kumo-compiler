@@ -159,7 +159,7 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   const toastyDeclaration = fs.readFileSync(path.join(first, 'toasty.d.ts'), 'utf8');
   assert.match(toastySource, /const props = mergeProps/);
   assert.match(toastySource, /data-kumo-component="Toasty"/);
-  assert.match(toastySource, /data-notify onClick=\{notifyToast\}>Notify/);
+  assert.match(toastySource, /data-notify aria-label="Notify" onClick=\{notifyToast\}><\/button>/);
   assert.match(toastySource, /role="status" aria-live="polite"/);
   assert.match(toastySource, /<strong>Saved<\/strong><span>Changes saved<\/span>/);
   assert.match(toastySource, /data-toast-action onClick=\{toastAction\}/);
@@ -319,7 +319,7 @@ test('Solid SSR renders every compiled semantic predicate through canonical mark
   const toastyItem = result.components.find(item => item.component === 'toasty');
   const toastyModule = await import(path.join(build, toastyItem.source.replace(/tsx$/, 'js')) + `?toasty=${Date.now()}`);
   const toastyHtml = renderToString(() => toastyModule.Toasty({children:'Application'}));
-  assert.match(toastyHtml, /^<div data-kumo-component="Toasty">Application<button type="button" data-notify>Notify<\/button><\/div>$/);
+  assert.match(toastyHtml, /^<div data-kumo-component="Toasty">Application<button type="button" data-notify aria-label="Notify"><\/button><\/div>$/);
   assert.doesNotMatch(toastyHtml, /role="status"/);
 
   const interactive = [

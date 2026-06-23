@@ -535,7 +535,7 @@ function closeToast() {
 }
 onBeforeUnmount(() => { if (removalTimer !== undefined) clearTimeout(removalTimer) })
 `,
-    template:`<div v-bind="$attrs" data-kumo-component="Toasty">{{ providerText }}<button type="button" data-notify @click="notify">Notify</button><div v-if="visible" role="status" aria-live="polite" data-toast><div data-toast-title>{{ title }}</div><div data-toast-description>{{ description }}</div><button type="button" data-toast-action @click="act">Action</button><button type="button" aria-label="Close" @click="closeToast">Close</button></div></div>`
+    template:`<div v-bind="$attrs" data-kumo-component="Toasty">{{ providerText }}<button type="button" data-notify aria-label="Notify" @click="notify"></button><div v-if="visible" role="status" aria-live="polite" data-toast><div data-toast-title>{{ title }}</div><div data-toast-description>{{ description }}</div><button type="button" data-toast-action @click="act">Action</button><button type="button" aria-label="Close" @click="closeToast">Close</button></div></div>`
   };
 }
 function paginationBinding(model, library) {

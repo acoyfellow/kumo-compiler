@@ -64,4 +64,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<div data-kumo-component="Toasty">{#if children}{@render children()}{/if}<button type="button" data-notify onclick={notifyToast}>Notify</button>{#if toastVisible}<div role="status" aria-live="polite"><strong>Saved</strong><span>Changes saved</span><button type="button" data-toast-action onclick={activateToast}>Action</button><button bind:this={toastClose} type="button" aria-label="Close" onclick={closeToast}>Close</button></div>{/if}</div>
+<div data-kumo-component="Toasty">{#if children}{@render children()}{/if}<button type="button" data-notify aria-label="Notify" onclick={notifyToast}></button>{#if toastVisible}<div role="status" aria-live="polite"><strong>Saved</strong><span>Changes saved</span><button type="button" data-toast-action onclick={activateToast}>Action</button><button bind:this={toastClose} type="button" aria-label="Close" onclick={closeToast}>Close</button></div>{/if}</div>

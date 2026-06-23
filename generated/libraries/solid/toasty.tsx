@@ -47,7 +47,7 @@ export function Toasty(incoming: ToastyProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as ToastyProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  return (<div data-kumo-component="Toasty">{props.children}<button type="button" data-notify onClick={notifyToast}>Notify</button>{toastVisible() ? <div role="status" aria-live="polite"><strong>Saved</strong><span>Changes saved</span><button type="button" data-toast-action onClick={toastAction}>Action</button><button type="button" aria-label="Close" onClick={closeToast}>Close</button></div> : undefined}</div>);
+  return (<div data-kumo-component="Toasty">{props.children}<button type="button" data-notify aria-label="Notify" onClick={notifyToast}></button>{toastVisible() ? <div role="status" aria-live="polite"><strong>Saved</strong><span>Changes saved</span><button type="button" data-toast-action onClick={toastAction}>Action</button><button type="button" aria-label="Close" onClick={closeToast}>Close</button></div> : undefined}</div>);
 }
 
 export default Toasty;
