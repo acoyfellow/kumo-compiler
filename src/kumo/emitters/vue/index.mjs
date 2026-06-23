@@ -745,7 +745,7 @@ function selectBinding(model, library) {
 function selectSource() {
   return {
     options:`defineOptions({ inheritAttrs: false })\n`,
-    imports:'computed, getCurrentInstance, nextTick, ref, useAttrs, useSlots',
+    imports:'computed, getCurrentInstance, nextTick, onMounted, ref, useAttrs, useSlots',
     setup:`type SelectFixtureNode = { export?: string; text?: string; props?: Record<string, any>; children?: SelectFixtureNode[] }
 type SelectOption = { value: any; label: string; disabled: boolean }
 const instance = getCurrentInstance()
@@ -761,6 +761,8 @@ const internalOpen = ref(supplied('defaultOpen') ? Boolean((props as any).defaul
 const selectedValue = computed(() => valueControlled ? (props as any).value : internalValue.value)
 const selectOpen = computed(() => openControlled ? Boolean((props as any).open) : internalOpen.value)
 const triggerRef = ref<HTMLButtonElement | null>(null)
+const mounted = ref(false)
+onMounted(() => { mounted.value = true })
 const optionRefs = ref<HTMLElement[]>([])
 const activeIndex = ref(-1)
 const highlightScrolled = ref(false)
@@ -798,12 +800,12 @@ function optionKey(event: KeyboardEvent) {
   else if (event.key === 'End') index = lastEnabled()
   else if (event.key.length === 1) index = selectOptions.value.findIndex(item => !item.disabled && item.label.toLocaleLowerCase().startsWith(event.key.toLocaleLowerCase()))
   else if (event.key === 'Escape') { event.preventDefault(); emitOpen(false); nextTick(() => triggerRef.value?.focus()); return }
-  else if (event.key === 'Tab') { emitOpen(false); nextTick(() => triggerRef.value?.focus()); return }
+  else if (event.key === 'Tab') { event.preventDefault(); emitOpen(false); nextTick(() => triggerRef.value?.focus()); return }
   else return
   if (index >= 0) { event.preventDefault(); focusOption(index) }
 }
 `,
-    template:`<div v-bind="$attrs"><button ref="triggerRef" type="button" tabindex="0" role="combobox" :aria-expanded="String(selectOpen)" aria-haspopup="listbox" :aria-label="selectLabel" data-kumo-component="Select" data-kumo-part="trigger" :data-placeholder="selectedValue == null || (multiple && selectedValue.length === 0) ? '' : undefined" @click="openSelect" @keydown="triggerKey"></button><Teleport v-if="selectOpen" to="body"><div role="listbox" :aria-multiselectable="multiple || undefined" :data-highlight-scrolled="highlightScrolled || undefined"><div v-for="(item, index) in selectOptions" :key="index" :ref="element => { if (element) optionRefs[index] = element as HTMLElement }" role="option" tabindex="-1" :aria-selected="isSelected(item.value)" :aria-disabled="item.disabled || undefined" :data-value="typeof item.value === 'object' ? item.value?.id : item.value" :data-highlighted="activeIndex === index || undefined" :data-selected="isSelected(item.value) || undefined" @click="selectItem(item, index)" @keydown="optionKey">{{ item.label }}</div></div></Teleport></div>`
+    template:`<div v-bind="$attrs"><button ref="triggerRef" type="button" tabindex="0" role="combobox" :aria-expanded="String(selectOpen)" aria-haspopup="listbox" :aria-label="selectLabel" data-kumo-component="Select" data-kumo-part="trigger" :data-placeholder="selectedValue == null || (multiple && selectedValue.length === 0) ? '' : undefined" @click="openSelect" @keydown="triggerKey"></button><Teleport v-if="mounted && selectOpen" to="body"><div role="listbox" :aria-multiselectable="multiple || undefined" :data-highlight-scrolled="highlightScrolled || undefined"><div v-for="(item, index) in selectOptions" :key="index" :ref="element => { if (element) optionRefs[index] = element as HTMLElement }" role="option" tabindex="-1" :aria-selected="isSelected(item.value)" :aria-disabled="item.disabled || undefined" :data-value="typeof item.value === 'object' ? item.value?.id : item.value" :data-highlighted="activeIndex === index || undefined" :data-selected="isSelected(item.value) || undefined" @click="selectItem(item, index)" @keydown="optionKey">{{ item.label }}</div></div></Teleport></div>`
   };
 }
 function toastLifecycleBinding(model, library) {

@@ -1303,8 +1303,7 @@
     "fixtureSource": "proof/dx/conformance/shared/packed-fixtures.json"
   },
   "counts": {
-    "passed": 118,
-    "blocked": 6
+    "passed": 124
   },
   "staticPassed": 64,
   "browserPassed": 34,
@@ -3744,84 +3743,228 @@
       "component": "select",
       "vector": "closed-placeholder-ssr",
       "status": "passed",
-      "mode": "ssr",
+      "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
+      "hydration": "passed",
       "assertion": {
         "status": "passed",
-        "digest": "058ada4df483cb143037f4e73eadee582173cc62124d3bee91f067e7eae27a86"
+        "digest": "1ccf217b12e3f11632daf2bbc19812dc06c9d38ba53fda4d00b7470f3adfce9f"
       },
       "observation": {
-        "markupSha256": "283482e17a282a606edf6218cadb8fdea89dc91a1a1be157223b5b3d393d01ff"
+        "dom": {
+          "tag": "div"
+        },
+        "descendants": [
+          {
+            "selector": "button",
+            "count": 1,
+            "tag": "button",
+            "attributes": {
+              "includes": {
+                "type": "button",
+                "tabindex": "0",
+                "role": "combobox",
+                "aria-expanded": "false",
+                "aria-haspopup": "listbox",
+                "aria-label": "Fruit",
+                "data-kumo-component": "Select",
+                "data-kumo-part": "trigger"
+              }
+            }
+          }
+        ],
+        "node-identity": "preserved"
       }
     },
     {
       "component": "select",
       "vector": "pointer-open-select-disabled",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "68e2e3758f47676c6a18396c61a630ed78525c79aaad6bf8be0b8654a27e44db"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div"
+        },
+        "state": {
+          "value": "alpha",
+          "open": false,
+          "disabledOptionSelectable": false
+        },
+        "events": [
+          "open-change:true",
+          "value-change:alpha",
+          "open-change:false"
+        ],
+        "focus": "button",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "select",
       "vector": "keyboard-end-dismissal",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "24a6d23fbc73c37c2d21814cfda596beb025352b9ac4c28480818df85205ec83"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div"
+        },
+        "state": {
+          "value": "alpha",
+          "open": false,
+          "disabledSkipped": true,
+          "highlightScrolled": true
+        },
+        "events": [
+          "open-change:true",
+          "open-change:false"
+        ],
+        "focus": "button",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "select",
       "vector": "keyboard-home-dismissal",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "24a6d23fbc73c37c2d21814cfda596beb025352b9ac4c28480818df85205ec83"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div"
+        },
+        "state": {
+          "value": "alpha",
+          "open": false,
+          "disabledSkipped": true,
+          "highlightScrolled": true
+        },
+        "events": [
+          "open-change:true",
+          "open-change:false"
+        ],
+        "focus": "button",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "select",
       "vector": "keyboard-typeahead-dismissal",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "24a6d23fbc73c37c2d21814cfda596beb025352b9ac4c28480818df85205ec83"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div"
+        },
+        "state": {
+          "value": "alpha",
+          "open": false,
+          "disabledSkipped": true,
+          "highlightScrolled": true
+        },
+        "events": [
+          "open-change:true",
+          "open-change:false"
+        ],
+        "focus": "button",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "select",
       "vector": "controlled-value-open-order",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "d87c03eb41463e768d7d61ee92452200e7bf6f9a467e8baebc144b8f31d7d82c"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div"
+        },
+        "state": {
+          "value": "alpha",
+          "open": true,
+          "controlled": true
+        },
+        "events": [
+          "value-change:charlie",
+          "open-change:false",
+          "open-change:false"
+        ],
+        "focus": "button",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "select",
       "vector": "multiple-object-selection",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "53b6294981f5f0cdaf59b78b08a71b223fc691f03de086ad9306ddce0e02a2ff"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div"
+        },
+        "state": {
+          "selectedIds": [
+            "ada",
+            "grace"
+          ],
+          "open": true
+        },
+        "events": [
+          "open-change:true",
+          "value-change:ada",
+          "value-change:ada,grace"
+        ],
+        "focus": "[role=option]",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "sensitive-input",
@@ -4678,5 +4821,5 @@
       }
     }
   ],
-  "receiptHash": "ed6405de1d1808bdaafc5eed86b3af2912651d29d4fb5dba804502017ffa54d0"
+  "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04"
 }

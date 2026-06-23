@@ -11,7 +11,7 @@ Machine receipt: `proof/progress/latest.json`
   `░░░░░░░░░░░░░░░░░░░░`
 - ✓ **Components in all three packages** — 41/41
   `████████████████████`
-- → **Four-framework package conformance** — 40/41
+- ✓ **Four-framework package conformance** — 41/41
   `████████████████████`
 - → **Complete component examples and docs** — 2/41
   `█░░░░░░░░░░░░░░░░░░░`
@@ -57,6 +57,7 @@ Machine receipt: `proof/progress/latest.json`
 - pagination
 - popover
 - radio
+- select
 - sensitive-input
 - sidebar
 - surface
