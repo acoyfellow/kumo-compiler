@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kumo-compiler.coey.dev/proof/terminal/schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "identity", "status", "contentSha256", "prerequisites", "body"],
+  "properties": {
+    "schemaVersion": {"const": "kumo.immutable-receipt/v1"},
+    "identity": {"const": "kumo-terminal"},
+    "status": {"const": "passed"},
+    "contentSha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "prerequisites": {
+      "type": "array",
+      "minItems": 11,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["identity", "sha256"],
+        "properties": {"identity": {"type": "string", "minLength": 1}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}
+      }
+    },
+    "body": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schemaVersion", "identity", "status", "authority", "commit", "metrics", "prerequisites"],
+      "properties": {
+        "schemaVersion": {"const": "kumo.terminal-body/v1"},
+        "identity": {"const": "kumo-terminal"},
+        "status": {"const": "passed"},
+        "authority": {"type": "object"},
+        "commit": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
+        "metrics": {"type": "object"},
+        "prerequisites": {"type": "array"}
+      }
+    }
+  }
+}
