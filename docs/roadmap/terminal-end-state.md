@@ -184,3 +184,25 @@ per-component cloud prover that runs one component's vectors in a dedicated proc
 monolithic per-framework run.mjs. Build that prover as its own focused task, then radio and
 the remaining interactive components prove through it in parallel. Until then radio stays
 blocked with no gate weakened.
+
+
+### Radio — root cause FOUND (run 70 breakthrough)
+
+The "radio harness mystery" was NOT a phantom harness/bundle/pool bug. A standalone
+per-vector cloud prover (the recommended tool) revealed the truth that the monolithic
+slice hid: the slice threw on the FIRST failing vector and marked all 5 blocked. Per-vector,
+radio is actually:
+- default-click: PASS  ([false,true])
+- arrow: PASS
+- controlled-click: FAIL — controlled radio (value prop) correctly does not self-update;
+  the conformance harness must feed the new value back (exactly like pagination's setPage).
+  Fix: adapter passes a controlled value the harness updates on the value callback.
+- disabled-item / disabled-group: FAIL on FOCUS only (state is correct/unchanged). Clicking a
+  disabled radio leaves focus on the group's static tabindex=-1; canonical expects focus 'none'.
+  Fix: remove the group's static tabindex=-1 and focus the group only after a real selection
+  (identical to the pagination nav focus-on-blur fix).
+
+These are three concrete, small, component/adapter fixes — not a harness defect. The standalone
+per-vector prover is the right harness going forward because it surfaces per-vector truth instead
+of failing opaque on the first error. Next: apply the controlled-feedback + disabled-focus fixes,
+then radio passes 5/5 across all three frameworks.
