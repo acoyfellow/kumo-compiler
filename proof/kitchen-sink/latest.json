@@ -1,201 +1,634 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "readiness": "41/41",
-  "composition": "installed package tarballs via Vite framework-native galleries",
+  "composition": "installed exact local package tarballs rendered through native framework component APIs",
   "packages": {
     "vue": {
       "package": "@acoyfellow/kumo-vue",
+      "tarball": "kumo-vue-0.0.1.tgz",
       "sha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
       "receiptDigest": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
     },
     "svelte": {
       "package": "@acoyfellow/kumo-svelte",
+      "tarball": "kumo-svelte-0.0.1.tgz",
       "sha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
       "receiptDigest": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
     },
     "solid": {
       "package": "@acoyfellow/kumo-solid",
+      "tarball": "kumo-solid-0.0.1.tgz",
       "sha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
       "receiptDigest": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
     }
   },
+  "categories": {
+    "foundations": [
+      "badge",
+      "banner",
+      "button",
+      "cloudflare-logo",
+      "code",
+      "label",
+      "link",
+      "loader",
+      "meter",
+      "text"
+    ],
+    "forms": [
+      "autocomplete",
+      "checkbox",
+      "combobox",
+      "field",
+      "input",
+      "input-area",
+      "input-group",
+      "radio",
+      "select",
+      "sensitive-input",
+      "switch"
+    ],
+    "navigation": [
+      "breadcrumbs",
+      "menu-bar",
+      "pagination",
+      "sidebar",
+      "table-of-contents",
+      "tabs"
+    ],
+    "collections": [
+      "command-palette",
+      "dropdown-menu",
+      "empty",
+      "table"
+    ],
+    "layers": [
+      "dialog",
+      "layer-card",
+      "popover",
+      "surface",
+      "toasty"
+    ],
+    "data-layout": [
+      "clipboard-text",
+      "grid",
+      "grid-item"
+    ],
+    "dates": [
+      "date-picker",
+      "date-range-picker"
+    ]
+  },
   "imports": [
+    "@acoyfellow/kumo-vue/autocomplete",
     "@acoyfellow/kumo-vue/badge",
     "@acoyfellow/kumo-vue/banner",
+    "@acoyfellow/kumo-vue/breadcrumbs",
     "@acoyfellow/kumo-vue/button",
     "@acoyfellow/kumo-vue/checkbox",
+    "@acoyfellow/kumo-vue/clipboard-text",
+    "@acoyfellow/kumo-vue/cloudflare-logo",
     "@acoyfellow/kumo-vue/code",
+    "@acoyfellow/kumo-vue/combobox",
+    "@acoyfellow/kumo-vue/command-palette",
+    "@acoyfellow/kumo-vue/date-picker",
+    "@acoyfellow/kumo-vue/date-range-picker",
+    "@acoyfellow/kumo-vue/dialog",
+    "@acoyfellow/kumo-vue/dropdown-menu",
+    "@acoyfellow/kumo-vue/empty",
     "@acoyfellow/kumo-vue/field",
+    "@acoyfellow/kumo-vue/grid",
+    "@acoyfellow/kumo-vue/grid-item",
     "@acoyfellow/kumo-vue/input",
+    "@acoyfellow/kumo-vue/input-area",
+    "@acoyfellow/kumo-vue/input-group",
     "@acoyfellow/kumo-vue/label",
+    "@acoyfellow/kumo-vue/layer-card",
     "@acoyfellow/kumo-vue/link",
     "@acoyfellow/kumo-vue/loader",
+    "@acoyfellow/kumo-vue/menu-bar",
     "@acoyfellow/kumo-vue/meter",
+    "@acoyfellow/kumo-vue/pagination",
+    "@acoyfellow/kumo-vue/popover",
+    "@acoyfellow/kumo-vue/radio",
+    "@acoyfellow/kumo-vue/select",
+    "@acoyfellow/kumo-vue/sensitive-input",
+    "@acoyfellow/kumo-vue/sidebar",
+    "@acoyfellow/kumo-vue/surface",
     "@acoyfellow/kumo-vue/switch",
+    "@acoyfellow/kumo-vue/table",
+    "@acoyfellow/kumo-vue/table-of-contents",
+    "@acoyfellow/kumo-vue/tabs",
+    "@acoyfellow/kumo-vue/text",
+    "@acoyfellow/kumo-vue/toasty",
+    "@acoyfellow/kumo-svelte/autocomplete",
     "@acoyfellow/kumo-svelte/badge",
     "@acoyfellow/kumo-svelte/banner",
+    "@acoyfellow/kumo-svelte/breadcrumbs",
     "@acoyfellow/kumo-svelte/button",
     "@acoyfellow/kumo-svelte/checkbox",
+    "@acoyfellow/kumo-svelte/clipboard-text",
+    "@acoyfellow/kumo-svelte/cloudflare-logo",
     "@acoyfellow/kumo-svelte/code",
+    "@acoyfellow/kumo-svelte/combobox",
+    "@acoyfellow/kumo-svelte/command-palette",
+    "@acoyfellow/kumo-svelte/date-picker",
+    "@acoyfellow/kumo-svelte/date-range-picker",
+    "@acoyfellow/kumo-svelte/dialog",
+    "@acoyfellow/kumo-svelte/dropdown-menu",
+    "@acoyfellow/kumo-svelte/empty",
     "@acoyfellow/kumo-svelte/field",
+    "@acoyfellow/kumo-svelte/grid",
+    "@acoyfellow/kumo-svelte/grid-item",
     "@acoyfellow/kumo-svelte/input",
+    "@acoyfellow/kumo-svelte/input-area",
+    "@acoyfellow/kumo-svelte/input-group",
     "@acoyfellow/kumo-svelte/label",
+    "@acoyfellow/kumo-svelte/layer-card",
     "@acoyfellow/kumo-svelte/link",
     "@acoyfellow/kumo-svelte/loader",
+    "@acoyfellow/kumo-svelte/menu-bar",
     "@acoyfellow/kumo-svelte/meter",
+    "@acoyfellow/kumo-svelte/pagination",
+    "@acoyfellow/kumo-svelte/popover",
+    "@acoyfellow/kumo-svelte/radio",
+    "@acoyfellow/kumo-svelte/select",
+    "@acoyfellow/kumo-svelte/sensitive-input",
+    "@acoyfellow/kumo-svelte/sidebar",
+    "@acoyfellow/kumo-svelte/surface",
     "@acoyfellow/kumo-svelte/switch",
+    "@acoyfellow/kumo-svelte/table",
+    "@acoyfellow/kumo-svelte/table-of-contents",
+    "@acoyfellow/kumo-svelte/tabs",
+    "@acoyfellow/kumo-svelte/text",
+    "@acoyfellow/kumo-svelte/toasty",
+    "@acoyfellow/kumo-solid/autocomplete",
     "@acoyfellow/kumo-solid/badge",
     "@acoyfellow/kumo-solid/banner",
+    "@acoyfellow/kumo-solid/breadcrumbs",
     "@acoyfellow/kumo-solid/button",
     "@acoyfellow/kumo-solid/checkbox",
+    "@acoyfellow/kumo-solid/clipboard-text",
+    "@acoyfellow/kumo-solid/cloudflare-logo",
     "@acoyfellow/kumo-solid/code",
+    "@acoyfellow/kumo-solid/combobox",
+    "@acoyfellow/kumo-solid/command-palette",
+    "@acoyfellow/kumo-solid/date-picker",
+    "@acoyfellow/kumo-solid/date-range-picker",
+    "@acoyfellow/kumo-solid/dialog",
+    "@acoyfellow/kumo-solid/dropdown-menu",
+    "@acoyfellow/kumo-solid/empty",
     "@acoyfellow/kumo-solid/field",
+    "@acoyfellow/kumo-solid/grid",
+    "@acoyfellow/kumo-solid/grid-item",
     "@acoyfellow/kumo-solid/input",
+    "@acoyfellow/kumo-solid/input-area",
+    "@acoyfellow/kumo-solid/input-group",
     "@acoyfellow/kumo-solid/label",
+    "@acoyfellow/kumo-solid/layer-card",
     "@acoyfellow/kumo-solid/link",
     "@acoyfellow/kumo-solid/loader",
+    "@acoyfellow/kumo-solid/menu-bar",
     "@acoyfellow/kumo-solid/meter",
-    "@acoyfellow/kumo-solid/switch"
+    "@acoyfellow/kumo-solid/pagination",
+    "@acoyfellow/kumo-solid/popover",
+    "@acoyfellow/kumo-solid/radio",
+    "@acoyfellow/kumo-solid/select",
+    "@acoyfellow/kumo-solid/sensitive-input",
+    "@acoyfellow/kumo-solid/sidebar",
+    "@acoyfellow/kumo-solid/surface",
+    "@acoyfellow/kumo-solid/switch",
+    "@acoyfellow/kumo-solid/table",
+    "@acoyfellow/kumo-solid/table-of-contents",
+    "@acoyfellow/kumo-solid/tabs",
+    "@acoyfellow/kumo-solid/text",
+    "@acoyfellow/kumo-solid/toasty"
   ],
   "renderedComponents": [
+    "autocomplete",
     "badge",
     "banner",
+    "breadcrumbs",
     "button",
     "checkbox",
+    "clipboard-text",
+    "cloudflare-logo",
     "code",
+    "combobox",
+    "command-palette",
+    "date-picker",
+    "date-range-picker",
+    "dialog",
+    "dropdown-menu",
+    "empty",
     "field",
+    "grid",
+    "grid-item",
     "input",
+    "input-area",
+    "input-group",
     "label",
+    "layer-card",
     "link",
     "loader",
+    "menu-bar",
     "meter",
-    "switch"
+    "pagination",
+    "popover",
+    "radio",
+    "select",
+    "sensitive-input",
+    "sidebar",
+    "surface",
+    "switch",
+    "table",
+    "table-of-contents",
+    "tabs",
+    "text",
+    "toasty"
   ],
-  "omissions": [
-    {
-      "component": "autocomplete",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+  "omissions": [],
+  "componentEvidence": {
+    "autocomplete": {
+      "receiptState": "passed",
+      "modelDigest": "eaaaeaa276ea71e352f24eb85a16563be59a8a5b44e3b3e57a29ef9c3c6e125b",
+      "contract": "contracts/kumo.observable/v1/components/autocomplete.json",
+      "receipt": "generated/receipts/autocomplete.{framework}.json",
+      "unknowns": [
+        "portal.container: Autocomplete.Content uses Base UI Portal without exposing a container prop; exact portal target under provider/shadow DOM was not asserted.",
+        "ssr.popup: Closed action-free SSR is supported; open portal markup and generated ids depend on Base UI and were not frozen as exact strings.",
+        "defaultFiltering: Canonical composition with explicit items does not filter automatically in this fixture; ArrowDown selects Apple after typing Ban."
+      ]
     },
-    {
-      "component": "breadcrumbs",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    "badge": {
+      "receiptState": "passed",
+      "modelDigest": "d61594f3236e8d7e4602671f3db5548b0873d563cfc52c9d9249597042a2cf31",
+      "contract": "contracts/kumo.observable/v1/components/badge.json",
+      "receipt": "generated/receipts/badge.{framework}.json",
+      "unknowns": []
     },
-    {
-      "component": "clipboard-text",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    "banner": {
+      "receiptState": "passed",
+      "modelDigest": "e57b4fc419d2b1310d0ea4963a5181380a89060415280931c0e7698f1cd2ede2",
+      "contract": "contracts/kumo.observable/v1/components/banner.json",
+      "receipt": "generated/receipts/banner.{framework}.json",
+      "unknowns": []
     },
-    {
-      "component": "cloudflare-logo",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    "breadcrumbs": {
+      "receiptState": "passed",
+      "modelDigest": "eba5829a500fbcf08243716c059636b3da146dba33d31b0340db71d035587a01",
+      "contract": "contracts/kumo.observable/v1/components/breadcrumbs.json",
+      "receipt": "generated/receipts/breadcrumbs.{framework}.json",
+      "unknowns": []
     },
-    {
-      "component": "combobox",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    "button": {
+      "receiptState": "passed",
+      "modelDigest": "3614020190406e3bafd01ba171c5adfb78201450b686e1a54f441c5f554a5d4e",
+      "contract": "contracts/kumo.observable/v1/components/button.json",
+      "receipt": "generated/receipts/button.{framework}.json",
+      "unknowns": [
+        "tooltipTimingAndIconIdentity: Tooltip timing and arbitrary icon component rendering are delegated to Tooltip and React and are not guessed by this contract."
+      ]
     },
-    {
-      "component": "command-palette",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    "checkbox": {
+      "receiptState": "passed",
+      "modelDigest": "9bed87c38c3dc76bca19c327b60bc4264efc797aacdce1a4e06e08b722ca4c65",
+      "contract": "contracts/kumo.observable/v1/components/checkbox.json",
+      "receipt": "generated/receipts/checkbox.{framework}.json",
+      "unknowns": [
+        "inheritedBaseUIEventDetails: Callback detail object and browser/platform edge behavior are inherited from Base UI and are intentionally not guessed."
+      ]
     },
-    {
-      "component": "date-picker",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    "clipboard-text": {
+      "receiptState": "passed",
+      "modelDigest": "b0a8634b18904bafb4a3ad9eb78bc40c9142397d8869bcc94a88c6a372265e25",
+      "contract": "contracts/kumo.observable/v1/components/clipboard-text.json",
+      "receipt": "generated/receipts/clipboard-text.{framework}.json",
+      "unknowns": [
+        "inheritedVendorBehavior: Base UI event details, autofill/password managers, IME, RTL, selection ranges, clipboard rejection, and platform accessibility-tree differences remain inherited/vendor unknowns."
+      ]
     },
-    {
-      "component": "date-range-picker",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    "cloudflare-logo": {
+      "receiptState": "passed",
+      "modelDigest": "b2674fc7e38cace5a90134bb36e79807b0f150548237eb9c09d8398b0c1fa228",
+      "contract": "contracts/kumo.observable/v1/components/cloudflare-logo.json",
+      "receipt": "generated/receipts/cloudflare-logo.{framework}.json",
+      "unknowns": []
     },
-    {
-      "component": "dialog",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    "code": {
+      "receiptState": "passed",
+      "modelDigest": "abe340a97570aaf2d55b46c6015819101f40daa70452db116f62bad2a5ff7ced",
+      "contract": "contracts/kumo.observable/v1/components/code.json",
+      "receipt": "generated/receipts/code.{framework}.json",
+      "unknowns": []
     },
-    {
-      "component": "dropdown-menu",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    "combobox": {
+      "receiptState": "passed",
+      "modelDigest": "99992dbcf413455a2229fb3d1cda459e1b2723adfeb2204db400829a901edf36",
+      "contract": "contracts/kumo.observable/v1/components/combobox.json",
+      "receipt": "generated/receipts/combobox.{framework}.json",
+      "unknowns": [
+        "generatedIds: Base UI generates input/listbox ids; relationships are required but literal ids are intentionally not frozen.",
+        "multipleChipDom: Exact nested chip/input DOM depends on renderItem and controlled value; behavior is specified without inventing a universal fixture shape."
+      ]
     },
-    {
-      "component": "empty",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    "command-palette": {
+      "receiptState": "passed",
+      "modelDigest": "4aabec222bec5b00f25388a2bb017b36c91349e55fa3ba6cb97fdc3d0afee0c0",
+      "contract": "contracts/kumo.observable/v1/components/command-palette.json",
+      "receipt": "generated/receipts/command-palette.{framework}.json",
+      "unknowns": [
+        "closedRootPlaceholder: A controlled closed portal may yield no rendered element; shared runner needs a mount-host convention before root expectations can distinguish host from component output.",
+        "selectionOnPlainEnter: Canonical wrapper documents selection but Item click ownership remains consumer-provided; exact event log is not asserted.",
+        "ssrOpenPortal: Action-free closed SSR is supported; exact open portal output and generated ids are Base UI implementation details."
+      ]
     },
-    {
-      "component": "grid",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    "date-picker": {
+      "receiptState": "passed",
+      "modelDigest": "5f335d94261bdac9b04be13a3684f1d47504a43360cb208c4a84231a1d259fce",
+      "contract": "contracts/kumo.observable/v1/components/date-picker.json",
+      "receipt": "generated/receipts/date-picker.{framework}.json",
+      "unknowns": [
+        "localizedLabelsAndCalendarText: Calendar strings, week layout, and locale-specific formatting are owned by react-day-picker and Intl/browser locale; this contract intentionally does not invent locale behavior."
+      ]
     },
-    {
-      "component": "grid-item",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    "date-range-picker": {
+      "receiptState": "passed",
+      "modelDigest": "3cfb56490eb493fd3a522a1fdf7ba0b041d91576a3c454046059939ae2aae977",
+      "contract": "contracts/kumo.observable/v1/components/date-range-picker.json",
+      "receipt": "generated/receipts/date-range-picker.{framework}.json",
+      "unknowns": [
+        "calendarMonthAndLocalizedDayLabels: The component initializes from the current local month and generates labels with browser locale APIs; exact dates and strings are deliberately not frozen or invented."
+      ]
     },
-    {
-      "component": "input-area",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    "dialog": {
+      "receiptState": "passed",
+      "modelDigest": "bbb9a5923924fd49391fbcee50197c821eda77610c050fb355e378e852397b0d",
+      "contract": "contracts/kumo.observable/v1/components/dialog.json",
+      "receipt": "generated/receipts/dialog.{framework}.json",
+      "unknowns": [
+        "alertdialogEscape: Declarations guarantee outside-click resistance but do not state Escape policy; delegated browser evidence was not available for an exact claim.",
+        "generatedIds: Title/description association ids are generated by Base UI and literal values are not stable contract surface.",
+        "vectorRootPortalConvention: Open content is portaled and the shared runner's root selection convention may require adapting the alertdialog vector without changing canonical semantics."
+      ]
     },
-    {
-      "component": "input-group",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    "dropdown-menu": {
+      "receiptState": "passed",
+      "modelDigest": "b7a7a7552e372c2e1ea240ec06c7dce7aef9118128e29322f995167f2f63016d",
+      "contract": "contracts/kumo.observable/v1/components/dropdown-menu.json",
+      "receipt": "generated/receipts/dropdown-menu.{framework}.json",
+      "unknowns": [
+        "vectors.pointer-item-selection: Required browser vector is authored but pending the shared browser adapter; event order and close-on-select are not claimed as passing.",
+        "vectors.keyboard-typeahead-submenu-dismissal: Required keyboard/typeahead/submenu vector is pending shared browser execution.",
+        "dismissalAndEventOrdering: Exact outside-event phase, cancellation, link activation, close-on-select defaults, callback order, and focus restoration are delegated to Base UI and not directly observed.",
+        "positioningPortalHydration: Collision fallback, RTL, nested-layer arbitration, custom container behavior, portal relocation, deterministic IDs, and hydration node preservation need browser evidence.",
+        "typeahead: Matching normalization and timeout are Base UI behavior and were not directly observed."
+      ]
     },
-    {
-      "component": "layer-card",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    "empty": {
+      "receiptState": "passed",
+      "modelDigest": "7c44f85a5193723c0aa68789e6ac8207071d68aca9e4b9d56bc93a57b3ecf50e",
+      "contract": "contracts/kumo.observable/v1/components/empty.json",
+      "receipt": "generated/receipts/empty.{framework}.json",
+      "unknowns": []
     },
-    {
-      "component": "menu-bar",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    "field": {
+      "receiptState": "passed",
+      "modelDigest": "6680d3b6e5ef5e85c4340fd8369a05f55c9a388c2bfb7ada7da9eeb0eccd29f3",
+      "contract": "contracts/kumo.observable/v1/components/field.json",
+      "receipt": "generated/receipts/field.{framework}.json",
+      "unknowns": [
+        "inheritedVendorBehavior: Base UI event details, autofill/password managers, IME, RTL, selection ranges, clipboard rejection, and platform accessibility-tree differences remain inherited/vendor unknowns."
+      ]
     },
-    {
-      "component": "pagination",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    "grid": {
+      "receiptState": "passed",
+      "modelDigest": "77368ecd52b54b2d85a270ad010c77b8e23e8c0be9b82414610908b3a84f636d",
+      "contract": "contracts/kumo.observable/v1/components/grid.json",
+      "receipt": "generated/receipts/grid.{framework}.json",
+      "unknowns": []
     },
-    {
-      "component": "popover",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    "grid-item": {
+      "receiptState": "passed",
+      "modelDigest": "40f49eae26c10cb50f9eff28ca613e0eb9e5cf415f57f0b763ec8e8cc46f2a16",
+      "contract": "contracts/kumo.observable/v1/components/grid-item.json",
+      "receipt": "generated/receipts/grid-item.{framework}.json",
+      "unknowns": []
     },
-    {
-      "component": "radio",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    "input": {
+      "receiptState": "passed",
+      "modelDigest": "ccce2fdcca8c5218c94732f83446c137e03d4b7dd9548ffde312605374734e2f",
+      "contract": "contracts/kumo.observable/v1/components/input.json",
+      "receipt": "generated/receipts/input.{framework}.json",
+      "unknowns": [
+        "inheritedVendorBehavior: Base UI event details, autofill/password managers, IME, RTL, selection ranges, clipboard rejection, and platform accessibility-tree differences remain inherited/vendor unknowns."
+      ]
     },
-    {
-      "component": "select",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    "input-area": {
+      "receiptState": "passed",
+      "modelDigest": "3f2ca47762723bd72e47c5da8490058c226bbee67e5518d548fc19ba2c467f14",
+      "contract": "contracts/kumo.observable/v1/components/input-area.json",
+      "receipt": "generated/receipts/input-area.{framework}.json",
+      "unknowns": [
+        "inheritedVendorBehavior: Base UI event details, autofill/password managers, IME, RTL, selection ranges, clipboard rejection, and platform accessibility-tree differences remain inherited/vendor unknowns."
+      ]
     },
-    {
-      "component": "sensitive-input",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    "input-group": {
+      "receiptState": "passed",
+      "modelDigest": "aec5871cdfdf97c938fb06aeb6a15dedd413550ce59bca231f5fe2e61f6d347c",
+      "contract": "contracts/kumo.observable/v1/components/input-group.json",
+      "receipt": "generated/receipts/input-group.{framework}.json",
+      "unknowns": [
+        "inheritedVendorBehavior: Base UI event details, autofill/password managers, IME, RTL, selection ranges, clipboard rejection, and platform accessibility-tree differences remain inherited/vendor unknowns."
+      ]
     },
-    {
-      "component": "sidebar",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    "label": {
+      "receiptState": "passed",
+      "modelDigest": "5095f41d10b4171b26a76054676cdd46240c352d0283a678dedfe13047e9ca2f",
+      "contract": "contracts/kumo.observable/v1/components/label.json",
+      "receipt": "generated/receipts/label.{framework}.json",
+      "unknowns": []
     },
-    {
-      "component": "surface",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    "layer-card": {
+      "receiptState": "passed",
+      "modelDigest": "18db983088868d26659f87134e6b676f4803d0cdb1e56652f53a7b3203005d2e",
+      "contract": "contracts/kumo.observable/v1/components/layer-card.json",
+      "receipt": "generated/receipts/layer-card.{framework}.json",
+      "unknowns": [
+        "semantics.rootWhenRenderProvided: The caller-provided React element controls the polymorphic root."
+      ]
     },
-    {
-      "component": "table",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    "link": {
+      "receiptState": "passed",
+      "modelDigest": "66e89c0778455462b2e0f570cd8e93d03c70b2080ad1568935860a9da97e5065",
+      "contract": "contracts/kumo.observable/v1/components/link.json",
+      "receipt": "generated/receipts/link.{framework}.json",
+      "unknowns": [
+        "semantics.rootWhenRenderProvided: The render prop or LinkProvider controls the framework-specific root."
+      ]
     },
-    {
-      "component": "table-of-contents",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    "loader": {
+      "receiptState": "passed",
+      "modelDigest": "d7a0bf207268a5aec0eb6f604d50f666d06e022e0d21891ef527bc11a76785b3",
+      "contract": "contracts/kumo.observable/v1/components/loader.json",
+      "receipt": "generated/receipts/loader.{framework}.json",
+      "unknowns": []
     },
-    {
-      "component": "tabs",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    "menu-bar": {
+      "receiptState": "passed",
+      "modelDigest": "188bad4486283b6daed15b228465d53415f5e138ecb140a8de65b390602a0a22",
+      "contract": "contracts/kumo.observable/v1/components/menu-bar.json",
+      "receipt": "generated/receipts/menu-bar.{framework}.json",
+      "unknowns": [
+        "vectors.buttons-active-index: Options require ReactNode icons and function callbacks not representable by the serializable fixture DSL; shared browser fixture execution is required.",
+        "vectors.active-by-id: ID matching and arrow wrap vector is authored as a requirement but pending shared browser execution.",
+        "tooltip: Tooltip portal DOM, accessible description relationship, delays, hover/focus dismissal, and hydration are outside the MenuBar chunk and unobserved.",
+        "focusLifecycle: Listener behavior during focus movement, dynamic option changes, disabled descendants, and focus-in/out ordering require browser execution.",
+        "responsivePositioningTypeahead: MenuBar has no responsive, portal, positioning, selection typeahead, or dismissal API of its own; only nested Tooltip may portal/dismiss."
+      ]
     },
-    {
-      "component": "text",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    "meter": {
+      "receiptState": "passed",
+      "modelDigest": "d7c24a30d265bd1b44ca6435eaae57e7dc8e1881766e9f60e32fcb1fa115c603",
+      "contract": "contracts/kumo.observable/v1/components/meter.json",
+      "receipt": "generated/receipts/meter.{framework}.json",
+      "unknowns": []
     },
-    {
-      "component": "toasty",
-      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    "pagination": {
+      "receiptState": "passed",
+      "modelDigest": "e429308d31e783f621359d7f7497bbae2ce32cc82be5a9a21f42a3664d712efb",
+      "contract": "contracts/kumo.observable/v1/components/pagination.json",
+      "receipt": "generated/receipts/pagination.{framework}.json",
+      "unknowns": [
+        "selectPopupPlatformPresentation: Dropdown popup geometry, native accessibility projection, and keyboard details are inherited from the Kumo Select/Base UI implementation and browser; they are not guessed here."
+      ]
+    },
+    "popover": {
+      "receiptState": "passed",
+      "modelDigest": "cc912e264b579e2ed770a09131e4874ada9d948fefc9f1dc9be0b0a9d038de4d",
+      "contract": "contracts/kumo.observable/v1/components/popover.json",
+      "receipt": "generated/receipts/popover.{framework}.json",
+      "unknowns": [
+        "vectors.pointer-open-close-outside: Portal positioning, outside interaction, dismissal ordering, ARIA association, and focus restoration require the pending shared browser adapter.",
+        "vectors.controlled-open: Controlled open callback semantics are a required browser vector and are not fabricated from SSR.",
+        "positioning: Collision fallback order, arrow placement, available-size variables, RTL, zoom, viewport edges, virtual anchors, and fixed versus absolute coordinates need direct browser observation.",
+        "dismissalFocus: Exact outside pointer/focus phase, preventDefault behavior, nested layers, initial-focus policy, Tab behavior, and restoration ordering are delegated to Base UI.",
+        "portalHydration: Custom/provider/body container precedence is declared; SSR open markup, portal relocation, generated ID stability, warnings, and node preservation remain unexecuted.",
+        "collisionPlacement: Base UI may flip the requested side at viewport boundaries; this Chrome fixture observes bottom when top collides."
+      ]
+    },
+    "radio": {
+      "receiptState": "passed",
+      "modelDigest": "851f6bb506c384c8d6d8ec9583d3ec05a0cf060d5d9192464a29ba55e1185844",
+      "contract": "contracts/kumo.observable/v1/components/radio.json",
+      "receipt": "generated/receipts/radio.{framework}.json",
+      "unknowns": [
+        "inheritedBaseUIRovingFocus: RTL wrapping, Home/End, and browser-specific roving-focus edge behavior inherited from Base UI are not declared by Kumo and are not guessed."
+      ]
+    },
+    "select": {
+      "receiptState": "passed",
+      "modelDigest": "0c3f889199eb1006a83fb3d1f7315e54f420dbb14327c8661decd4eb1b7a3215",
+      "contract": "contracts/kumo.observable/v1/components/select.json",
+      "receipt": "generated/receipts/select.{framework}.json",
+      "unknowns": [
+        "existingSelectPilot.react-vue: proof/select/receipts.json records React and Vue blocked before meaningful interaction because harness queries returned null; their interaction gates remain blocked.",
+        "existingSelectPilot.svelte: Existing receipt records failed pointer open/select, typeahead, controlled value/open, and callback ordering. These failures remain required parity gates.",
+        "existingSelectPilot.solid: Existing receipt records failed pointer open/select, typeahead, controlled state, callback ordering, hydration, and focus/scroll. These failures remain visible and unresolved.",
+        "portalPositioningHydration: Anchor-width minimum, available-height scrolling, collision behavior, provider/custom/body portal precedence, open SSR, portal relocation, generated IDs, warning-free hydration, and node preservation require direct evidence.",
+        "crossBrowserStylesAssets: Required Chromium, Firefox, WebKit, RTL, zoom, reduced motion, mobile/coarse pointer, stylesheet presence, icon loading, error/loading/Field variants, and animation reversal vectors have not run.",
+        "diacriticTypeahead: Locale and diacritic normalization are inherited from Base UI; the executable vector uses deterministic ASCII typeahead."
+      ]
+    },
+    "sensitive-input": {
+      "receiptState": "passed",
+      "modelDigest": "929d4c3eecd153af78d2db33ff8ba69333a6f6f39415ee3c65cb1d8f9eabcc3c",
+      "contract": "contracts/kumo.observable/v1/components/sensitive-input.json",
+      "receipt": "generated/receipts/sensitive-input.{framework}.json",
+      "unknowns": [
+        "inheritedVendorBehavior: Base UI event details, autofill/password managers, IME, RTL, selection ranges, clipboard rejection, and platform accessibility-tree differences remain inherited/vendor unknowns."
+      ]
+    },
+    "sidebar": {
+      "receiptState": "passed",
+      "modelDigest": "25a19cbe99e84a9f4daf06d56a4f43a039827812a3623bc39919eb4683550b77",
+      "contract": "contracts/kumo.observable/v1/components/sidebar.json",
+      "receipt": "generated/receipts/sidebar.{framework}.json",
+      "unknowns": [
+        "ssrHydration.responsiveBranch: SSR always evaluates isMobile=false, while the first client render reads matchMedia synchronously. A narrow viewport can therefore choose desktop aside on the server and mobile portal/nav on hydration; no identical-hydration or browser-pass claim is made.",
+        "inert.ssrSerialization: Mobile, CollapsibleContent, and SlidingView apply/remove inert imperatively in ref callbacks. aria-hidden is SSR-observable, but inert presence before/through hydration must be browser-observed and is not asserted action-free.",
+        "mobile.portalAndFocus: Exact portal placement, focus restoration ordering, and focusout interactions require a browser; behavior is documented from canonical runtime but no browser pass is claimed.",
+        "CollapsibleTrigger.fixture: CollapsibleTrigger requires a render ReactElement. The generic JSON composition DSL cannot encode a ReactElement-valued prop, so trigger linkage is not fabricated in the action-free vector.",
+        "SlidingViews.direction: The public direction prop is declared and defaults left, but canonical runtime computes translation solely from active child index; no direction-dependent observable effect is invented."
+      ]
+    },
+    "surface": {
+      "receiptState": "passed",
+      "modelDigest": "bcb4aa3e592b9584d7e18fe498c9d2cfaad66ee570e649a81bfcf73eeccac950",
+      "contract": "contracts/kumo.observable/v1/components/surface.json",
+      "receipt": "generated/receipts/surface.{framework}.json",
+      "unknowns": [
+        "semantics.rootWhenRenderProvided: The caller-provided React element controls the root."
+      ]
+    },
+    "switch": {
+      "receiptState": "passed",
+      "modelDigest": "70db6933357de8ee3d47759cd14f5ca8cab2cc88427a19740a54a5f4d65377b3",
+      "contract": "contracts/kumo.observable/v1/components/switch.json",
+      "receipt": "generated/receipts/switch.{framework}.json",
+      "unknowns": [
+        "inheritedBaseUIFormSemantics: Reset/autofill and platform activation details inherited from Base UI are outside the canonical Kumo declaration and are not guessed."
+      ]
+    },
+    "table": {
+      "receiptState": "passed",
+      "modelDigest": "2cdb90ceb5108dea275b1e150e3868126326b95d7efef9ed8459d14ef57345b9",
+      "contract": "contracts/kumo.observable/v1/components/table.json",
+      "receipt": "generated/receipts/table.{framework}.json",
+      "unknowns": []
+    },
+    "table-of-contents": {
+      "receiptState": "passed",
+      "modelDigest": "81f51f73fcb15fac9412c9a30a06ea03f1e2fa2292ec5b6197d72c106554a466",
+      "contract": "contracts/kumo.observable/v1/components/table-of-contents.json",
+      "receipt": "generated/receipts/table-of-contents.{framework}.json",
+      "unknowns": [
+        "render.customElementSemantics: Item render clones a consumer element with anchor-like props; its resulting tag, router behavior, and focus semantics depend on that supplied element and are not invented.",
+        "consumer.activeStatePolicy: Canonical TableOfContents performs no observation or scroll tracking; which item is active and whether multiple active flags are supplied is wholly consumer-controlled."
+      ]
+    },
+    "tabs": {
+      "receiptState": "passed",
+      "modelDigest": "79ef8064a09f0913da0ed4e2cceaee0c9227ca5a0bfd2311b29c281595691791",
+      "contract": "contracts/kumo.observable/v1/components/tabs.json",
+      "receipt": "generated/receipts/tabs.{framework}.json",
+      "unknowns": [
+        "overflow.pointerGeometry: Whether a given label set overflows and exact scrollLeft changes depend on measured browser layout, fonts, and viewport; no browser pass is claimed.",
+        "baseUi.generatedIds: Base UI may emit generated identifiers and additional state attributes; their exact values are implementation-managed and are intentionally not frozen.",
+        "panels: Canonical Tabs 2.5.2 has no panel API and renders no tabpanel; panel lifecycle, aria-controls linkage to consumer content, and content visibility must not be invented."
+      ]
+    },
+    "text": {
+      "receiptState": "passed",
+      "modelDigest": "19772bcfdc866198d1b6f48413057aaede6eb359bfb324e0ee9f1aa353f1b630",
+      "contract": "contracts/kumo.observable/v1/components/text.json",
+      "receipt": "generated/receipts/text.{framework}.json",
+      "unknowns": []
+    },
+    "toasty": {
+      "receiptState": "passed",
+      "modelDigest": "f05e8c2389dfb02ca23049e0fc5aa80b2797a0b63cb9c09a9603acb5d07c79bf",
+      "contract": "contracts/kumo.observable/v1/components/toasty.json",
+      "receipt": "generated/receipts/toasty.{framework}.json",
+      "unknowns": [
+        "announcementTimingAndRemovalDelay: Assistive technology announcement timing and animation-completion removal timing are inherited from Base UI, CSS, and the user agent; exact wall-clock timing is not guessed."
+      ]
     }
-  ],
-  "prohibitions": [
-    "innerHTML",
-    "@html",
-    "React wrappers"
-  ],
-  "deterministicInputs": [
-    "library-artifacts/manifest.json",
-    "proof/readiness/latest.json"
-  ]
+  },
+  "digests": {
+    "builder": "7f25627a568237022e11f8b4a72e5ead5a425d51427369445d6cfd8c8846c89e",
+    "readiness": "953016333c5702c6fd072131541da65c3d7d87afb9cc0e01992dffcdac46b464",
+    "contracts": "c3644ae9fd31b656415f8a0b2872de33e4c7b0ea1d3ace88cc68db5fd0617f80",
+    "gallerySource": "d7f3bbac72b92edaf11ec8919ba9cd3e4dba08702d6c14f062a2a9dc1670f325"
+  }
 }
