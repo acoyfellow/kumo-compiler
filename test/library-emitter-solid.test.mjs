@@ -100,7 +100,20 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   }
   const fieldSource = fs.readFileSync(path.join(first, 'field.tsx'), 'utf8');
   assert.match(fieldSource, /<div><label for=\{props\.controlId as string \?\? "field-control"\}>\{props\.label as JSX\.Element\}<\/label>\{props\.children\}<\/div>/);
-  for (const name of ['field', 'sensitive-input']) assert.doesNotMatch(fs.readFileSync(path.join(first, `${name}.tsx`), 'utf8'), /nativeInputHandler|event\.currentTarget\.value/);
+  assert.doesNotMatch(fieldSource, /nativeInputHandler|event\.currentTarget\.value/);
+
+  const sensitiveSource = fs.readFileSync(path.join(first, 'sensitive-input.tsx'), 'utf8');
+  assert.match(sensitiveSource, /const props = mergeProps/);
+  assert.match(sensitiveSource, /<div data-kumo-component="SensitiveInput">/);
+  assert.match(sensitiveSource, /<div data-kumo-part="masked-container" onClick=\{revealSensitive\}>/);
+  assert.match(sensitiveSource, /<input[^>]*type="password"/);
+  assert.equal((sensitiveSource.match(/<button type="button"/g) ?? []).length, 2);
+  assert.match(sensitiveSource, /<div aria-live="polite">\{sensitiveAnnouncement\(\)\}<\/div>/);
+  assert.match(sensitiveSource, /navigator\.clipboard\.writeText\(sensitiveValue\(\)\)/);
+  assert.match(sensitiveSource, /setSensitiveAnnouncement\("Copied to clipboard"\)/);
+  assert.match(sensitiveSource, /props\.onValueChange/);
+  assert.match(sensitiveSource, /props\.onCopy/);
+  assert.doesNotMatch(sensitiveSource, /semanticEqual\(normalizedFixture/);
 
   const clipboardSource = fs.readFileSync(path.join(first, 'clipboard-text.tsx'), 'utf8');
   const clipboardDeclaration = fs.readFileSync(path.join(first, 'clipboard-text.d.ts'), 'utf8');

@@ -5,15 +5,35 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 </script>
 
 <script setup lang="ts">
-import { computed, useAttrs, useSlots } from 'vue'
+defineOptions({ inheritAttrs: false })
+import { computed, nextTick, ref, useAttrs, useSlots } from 'vue'
 interface SensitiveInputProps {
   "observable"?: unknown
+  "onValueChange"?: unknown
+  "onCopy"?: unknown
   "defaultValue"?: unknown
   "label"?: unknown
   fixture?: unknown
   semanticContent?: unknown
 }
 const props = withDefaults(defineProps<SensitiveInputProps>(), {})
+const sensitiveValue = ref(props.defaultValue ?? '')
+const revealed = ref(false)
+const sensitiveInputRef = ref<HTMLInputElement | null>(null)
+const copyAnnouncement = ref('')
+function revealValue() {
+  revealed.value = true
+  nextTick(() => sensitiveInputRef.value?.focus())
+}
+function updateSensitiveValue(event: Event) {
+  sensitiveValue.value = (event.currentTarget as HTMLInputElement).value
+  props.onValueChange?.(sensitiveValue.value)
+}
+async function copySensitiveValue() {
+  await navigator.clipboard.writeText(sensitiveValue.value)
+  copyAnnouncement.value = 'Copied to clipboard'
+  props.onCopy?.()
+}
 const slots = useSlots()
 const styles: Record<string,string> = {}
 const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
@@ -25,5 +45,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;defaultValue&quot;) &amp;&amp; semanticEqual(semanticValues.defaultValue, &quot;alpha&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;label&quot;) &amp;&amp; semanticEqual(semanticValues.label, &quot;Secret&quot;)"><div></div></template><template v-else><input :class="[styles[&quot;root&quot;]]"></input></template>
+  <div v-bind="$attrs" data-kumo-component="SensitiveInput"><label>{{ props.label }}</label><div data-kumo-part="masked-container" @click="revealValue">{{ revealed ? sensitiveValue : 'Value hidden' }}</div><input ref="sensitiveInputRef" type="password" :value="sensitiveValue" @input="updateSensitiveValue" /><button type="button" @click="revealValue">Reveal</button><button type="button" @click="copySensitiveValue">Copy</button><div aria-live="polite">{{ copyAnnouncement }}</div></div>
 </template>

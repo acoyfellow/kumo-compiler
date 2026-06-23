@@ -1,0 +1,281 @@
+{
+  "schemaVersion": "kumo.sensitive-input-fixtures/v1",
+  "plans": [
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "sensitive-input",
+      "vector": "masked",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/sensitive-input.json",
+        "sha256": "d369ab439ceca358ea20606a35115523eefb15adfe87601b2adae45d2746bcb6",
+        "vectorSha256": "f7b648d474208e99288d93d3ef72588a1d9047ef4f4e81fc3e3bfab021b12c1f"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "SensitiveInput",
+        "props": {
+          "label": "Secret",
+          "defaultValue": "alpha"
+        },
+        "children": []
+      },
+      "setup": [],
+      "actions": [],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "sensitive-input-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "12d2fd341071ac58da2ba000bbdf041b82918aeeeb8c5ee06b9838c44c1941a7"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "sensitive-input",
+      "vector": "reveal-edit-escape",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/sensitive-input.json",
+        "sha256": "d369ab439ceca358ea20606a35115523eefb15adfe87601b2adae45d2746bcb6",
+        "vectorSha256": "bcbb4a25fde9d4209ee8acfe77497c312c39214ec3fb98f8208ec28ef0f25f6e"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "SensitiveInput",
+        "props": {
+          "label": "Secret",
+          "defaultValue": "alpha"
+        },
+        "children": []
+      },
+      "setup": [],
+      "actions": [
+        {
+          "type": "click",
+          "selector": "[data-kumo-part=masked-container]"
+        },
+        {
+          "type": "type",
+          "selector": "input",
+          "text": "z",
+          "editMode": "append"
+        },
+        {
+          "type": "key",
+          "selector": "input",
+          "key": "Escape"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "values": [
+              "alphaz"
+            ],
+            "types": [
+              "password"
+            ]
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "value:alphaz"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "input"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "sensitive-input-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "53467755f6a452531d494f0c9031a08dddd2d64a80bce095251d813c7b2ba474"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "sensitive-input",
+      "vector": "copy",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/sensitive-input.json",
+        "sha256": "d369ab439ceca358ea20606a35115523eefb15adfe87601b2adae45d2746bcb6",
+        "vectorSha256": "d8154ffbd75f19109a08f44d7fe8dedacfe86727475e7295b79f66a157cb34b3"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "SensitiveInput",
+        "props": {
+          "label": "Secret",
+          "defaultValue": "alpha"
+        },
+        "children": []
+      },
+      "setup": [],
+      "actions": [
+        {
+          "type": "click",
+          "selector": "button",
+          "target": 1
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "clipboard": [
+              "payload",
+              "keyboard",
+              "alpha"
+            ],
+            "live": [
+              "Value hiddenCopied to clipboard"
+            ]
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "copy"
+          ]
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "sensitive-input-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "state-probes",
+        "event-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "34a8abbb2cc79f5d2e364af171daa1da2604bc486d1f47b92b7121bc2e225a51"
+    }
+  ],
+  "digest": "68c3122faadb8ab936b8c3ff3c88c4079f7c82a008436195622a89a44943ee03"
+}

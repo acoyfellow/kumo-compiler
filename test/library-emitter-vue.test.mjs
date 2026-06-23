@@ -94,6 +94,38 @@ test('Vue SSR renders all 66 semantic variants through canonical root and descen
   assert.equal(rendered,66); assert.equal(manifest.components.flatMap(x=>x.unresolvedSemanticOperations).length,0);
 });
 
+test('Vue sensitive-input capability lowers deterministic masked, editable, and copy markup', async t => {
+  const library=loadLibrary(), capability=library.sensitiveInput;
+  assert.equal(capability.support,'supported');
+  assert.equal(capability.component,'sensitive-input');
+  const emissions=[];
+  for(let run=0;run<2;run++){
+    const build=fs.mkdtempSync(path.resolve(`.kumo-vue-sensitive-input-${run}-`)); t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+    const manifest=generateVueLibrary(output), model=library.models.find(model=>model.component===capability.component);
+    const entry=manifest.components.find(entry=>entry.modelDigest===model.modelDigest);
+    const source=fs.readFileSync(path.join(output,entry.file),'utf8');
+    assert.match(source,/<div v-bind="\$attrs" data-kumo-component="SensitiveInput">/);
+    assert.match(source,/<div data-kumo-part="masked-container" @click="revealValue">/);
+    assert.match(source,/<input ref="sensitiveInputRef" type="password" :value="sensitiveValue" @input="updateSensitiveValue" \/>/);
+    assert.equal((source.match(/<button type="button"/g)??[]).length,2);
+    assert.match(source,/<div aria-live="polite">\{\{ copyAnnouncement \}\}<\/div>/);
+    assert.match(source,/props\.onValueChange\?\.\(sensitiveValue\.value\)/);
+    assert.match(source,/navigator\.clipboard\.writeText\(sensitiveValue\.value\)/);
+    assert.match(source,/props\.onCopy\?\.\(\)/);
+    assert.doesNotMatch(source,/innerHTML|@html|dispatchEvent|new Event/);
+    const Component=await compileSSRComponent(entry,build);
+    const html=await renderToString(createSSRApp({setup:()=>()=>h(Component,{label:'Secret',defaultValue:'alpha'})}));
+    assert.match(html,/^<div data-kumo-component="SensitiveInput">/);
+    assert.match(html,/data-kumo-part="masked-container">Value hidden<\/div>/);
+    assert.match(html,/<input type="password" value="alpha">/);
+    assert.equal((html.match(/<button/g)??[]).length,2);
+    assert.match(html,/<div aria-live="polite"><\/div><\/div>$/);
+    assert.equal(manifest.components.flatMap(x=>x.semanticVariants).length,66);
+    emissions.push({source,html});
+  }
+  assert.deepEqual(emissions[1],emissions[0]);
+});
+
 test('Vue input-group capability lowers canonical compound fixture deterministically', async t => {
   const library=loadLibrary(), capability=library.inputGroupComposition;
   assert.equal(capability.support,'supported');

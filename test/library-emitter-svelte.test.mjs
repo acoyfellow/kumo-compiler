@@ -102,7 +102,7 @@ test('supported native input controls lower from capabilities with reactive Svel
  }
  for(const name of ['field','sensitive-input']){
   const source=fs.readFileSync(path.join(output,`components/${name}.svelte`),'utf8');
-  assert.doesNotMatch(source,/handleNativeInput|oninput=\{handleNativeInput\}|defaultValue = undefined/);
+  assert.doesNotMatch(source,/handleNativeInput|oninput=\{handleNativeInput\}/);
  }
 });
 
@@ -334,6 +334,25 @@ test('supported input-group composition lowers canonical compound fixtures deter
  const id=html.match(/<label for="([^"]+)"/)?.[1];
  assert.ok(id);
  assert.match(html,new RegExp(`^<div data-kumo-component="InputGroup"><label for="${id}">Search</label><p>Help</p><span data-kumo-part="Addon">\\$</span><input id="${id}" aria-label="Search" value=""\/?><button type="button" data-variant="secondary">Go</button><span data-kumo-part="Suffix">USD</span></div>$`));
+});
+
+test('supported sensitive-input lowers generically and deterministically',()=>{
+ const {sensitiveInput}=loadLibrary();
+ const first=emitSvelteLibrary({output});
+ assert.equal(first.components.flatMap(x=>x.semanticVariants).length,66);
+ const source=fs.readFileSync(path.join(output,`components/${sensitiveInput.component}.svelte`),'utf8');
+ const second=emitSvelteLibrary({output});
+ assert.equal(second.components.flatMap(x=>x.semanticVariants).length,66);
+ assert.equal(fs.readFileSync(path.join(output,`components/${sensitiveInput.component}.svelte`),'utf8'),source);
+ assert.match(source,/<div data-kumo-component="SensitiveInput"><div data-kumo-part="masked-container"/);
+ assert.match(source,/<input bind:this=\{sensitiveInputElement\} type="password"/);
+ assert.equal((source.match(/<button type="button"/g)??[]).length,2);
+ assert.match(source,/<div aria-live="polite">\{sensitiveStatus\}<\/div>/);
+ assert.match(source,/navigator\.clipboard\.writeText\(sensitiveValue\)/);
+ assert.match(source,/sensitiveStatus = 'Copied to clipboard'/);
+ assert.doesNotMatch(source,/function\s+\w+\([^)]*\w+\?:/);
+ assert.doesNotMatch(source,/model\.component\s*===?\s*["']sensitive-input["']|@html|innerHTML|dispatchEvent/);
+ compile(source,{filename:'sensitive-input.svelte',generate:'client'});
 });
 
 test('supported dialog-layer lowers generically with a deterministic portal and focus lifecycle',async t=>{

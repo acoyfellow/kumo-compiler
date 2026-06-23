@@ -8,6 +8,10 @@
   export type Props = {
   observable?: unknown;
   children?: Snippet;
+  label?: unknown;
+  defaultValue?: string;
+  onValueChange?: (value: string) => void;
+  onCopy?: () => void;
   styles?: Record<string, string>;
   fixture?: unknown;
   [key: string]: unknown;
@@ -15,6 +19,10 @@
 
   let {
     observable = undefined,
+    label = undefined,
+    defaultValue = undefined,
+    onValueChange = undefined,
+    onCopy = undefined,
     children,
     fixture = undefined,
     __consumerContent = undefined,
@@ -23,6 +31,14 @@
   }: Props = $props();
   let state_source = $state("props/native state");
 
+  let sensitiveValue = $state(String(defaultValue ?? ''));
+  let sensitiveRevealed = $state(false);
+  let sensitiveStatus = $state('');
+  let sensitiveInputElement: HTMLInputElement | undefined = $state();
+  function revealSensitive() { sensitiveRevealed = true; queueMicrotask(() => sensitiveInputElement?.focus()); }
+  function editSensitive(event: Event) { sensitiveValue = (event.currentTarget as HTMLInputElement).value; onValueChange?.(sensitiveValue); }
+  function hideSensitiveOnEscape(event: KeyboardEvent) { if (event.key === 'Escape') sensitiveRevealed = false; }
+  async function copySensitive() { await navigator.clipboard.writeText(sensitiveValue); sensitiveStatus = 'Copied to clipboard'; onCopy?.(); }
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "observable": observable, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;
@@ -43,8 +59,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if Object.prototype.hasOwnProperty.call(semanticValues, "defaultValue") && semanticEqual(semanticValues.defaultValue, "alpha") && Object.prototype.hasOwnProperty.call(semanticValues, "label") && semanticEqual(semanticValues.label, "Secret")}
-  <div></div>
-{:else}
-<input class={cx(styles["root"])}>
-{/if}
+<div data-kumo-component="SensitiveInput"><div data-kumo-part="masked-container" onclick={revealSensitive}>{#if sensitiveRevealed}{sensitiveValue}{:else}Value hidden{/if}</div><input bind:this={sensitiveInputElement} type="password" value={sensitiveValue} aria-label={label as string | undefined} oninput={editSensitive} onkeydown={hideSensitiveOnEscape}><button type="button" onclick={revealSensitive}>Reveal</button><button type="button" onclick={copySensitive}>Copy</button><div aria-live="polite">{sensitiveStatus}</div></div>
