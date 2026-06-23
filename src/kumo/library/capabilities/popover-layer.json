@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "kumo.popover-layer/v1",
+  "component": "popover",
+  "support": "supported",
+  "trigger": {
+    "tag": "button",
+    "attributes": {
+      "type": "button",
+      "tabindex": "0",
+      "aria-haspopup": "dialog",
+      "data-kumo-component": "Popover",
+      "data-kumo-part": "trigger"
+    }
+  },
+  "open": {
+    "event": "open-change:<bool>",
+    "role": "dialog"
+  },
+  "dismiss": {
+    "key": "Escape",
+    "restoresFocus": "trigger"
+  },
+  "controlled": {
+    "openRemainsAuthoritative": true,
+    "dismissRequestsFalse": true
+  },
+  "positioning": {
+    "assertedFixture": {
+      "requestedSide": "top",
+      "resolvedSide": "bottom",
+      "align": "start",
+      "positionMethod": "fixed"
+    },
+    "collisionRule": "flip top to bottom when available space above is insufficient"
+  },
+  "unknowns": [
+    {
+      "field": "positioningGeneralization",
+      "status": "unknown",
+      "reason": "Collision order, RTL, zoom, virtual anchors, arrows, and available-size variables outside the asserted fixture remain unknown."
+    },
+    {
+      "field": "dismissalFocusGeneralization",
+      "status": "unknown",
+      "reason": "Outside-pointer phase, nested layers, Tab containment, and preventDefault ordering remain unknown."
+    },
+    {
+      "field": "portalHydrationGeneralization",
+      "status": "unknown",
+      "reason": "Custom portal-container precedence and open SSR relocation remain unknown."
+    }
+  ],
+  "vectorIds": [
+    "closed-trigger-ssr",
+    "pointer-open-close-outside",
+    "controlled-open"
+  ],
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/popover.json",
+    "contractDigest": "4ed87b192b9060dd60e8e86efa01860761dbc5714e39b1778be23b79a25f8e22",
+    "vectorIds": [
+      "closed-trigger-ssr",
+      "pointer-open-close-outside",
+      "controlled-open"
+    ]
+  },
+  "capabilityDigest": "7de42ca915fa388231d6b07230fabafe583264c0242bba4ae362367239ff76d8"
+}

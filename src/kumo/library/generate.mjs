@@ -32,6 +32,7 @@ import {deriveSensitiveInput, SENSITIVE_INPUT_COMPONENTS} from './sensitive-inpu
 import {deriveComboboxCollection, COMBOBOX_COLLECTION_COMPONENTS} from './combobox-collection.mjs';
 import {deriveAutocompleteCollection, AUTOCOMPLETE_COLLECTION_COMPONENTS} from './autocomplete-collection.mjs';
 import {deriveCommandPalette, COMMAND_PALETTE_COMPONENTS} from './command-palette.mjs';
+import {derivePopoverLayer, POPOVER_LAYER_COMPONENTS} from './popover-layer.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '../../..');
@@ -142,6 +143,7 @@ const sensitiveInput = deriveSensitiveInput(canonicalContracts.filter(contract =
 const comboboxCollection = deriveComboboxCollection(canonicalContracts.filter(contract => COMBOBOX_COLLECTION_COMPONENTS.includes(contract.component)));
 const autocompleteCollection = deriveAutocompleteCollection(canonicalContracts.filter(contract => AUTOCOMPLETE_COLLECTION_COMPONENTS.includes(contract.component)));
 const commandPalette = deriveCommandPalette(canonicalContracts.filter(contract => COMMAND_PALETTE_COMPONENTS.includes(contract.component)));
+const popoverLayer = derivePopoverLayer(canonicalContracts.filter(contract => POPOVER_LAYER_COMPONENTS.includes(contract.component)));
 const nativeControlContracts = canonicalContracts.filter(contract => ['checkbox','switch','radio','input','input-area','sensitive-input'].includes(contract.component));
 const controlledState = deriveControlledState(nativeControlContracts.filter(contract => ['checkbox','switch','radio'].includes(contract.component)));
 const nativeControls = deriveNativeControls(nativeControlContracts);
@@ -200,6 +202,7 @@ fs.writeFileSync(path.join(here, 'capabilities/sensitive-input.json'), `${JSON.s
 fs.writeFileSync(path.join(here, 'capabilities/combobox-collection.json'), `${JSON.stringify(comboboxCollection,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/autocomplete-collection.json'), `${JSON.stringify(autocompleteCollection,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/command-palette.json'), `${JSON.stringify(commandPalette,null,2)}\n`);
+fs.writeFileSync(path.join(here, 'capabilities/popover-layer.json'), `${JSON.stringify(popoverLayer,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/controlled-state.json'), `${JSON.stringify(controlledState,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/native-controls.json'), `${JSON.stringify(nativeControls,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/native-field.json'), `${JSON.stringify(nativeField,null,2)}\n`);
