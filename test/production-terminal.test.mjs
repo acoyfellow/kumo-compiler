@@ -1,0 +1,8 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {spawnSync} from 'node:child_process';
+import {compareRuns,normalize,validateObservation} from '../scripts/production-terminal-proof.mjs';
+const valid=()=>({observedAt:'2026-01-01T00:00:00Z',identity:{},http:{},artifacts:[{hashMatch:true,gzip:true,disposition:true,immutable:true}],browser:{widths:[390,768,1440].map(width=>({width,loaded:true,overflow:false})),frameworks:['vue','svelte','solid'],trustedInput:true,iframe:{sameOrigin:true}},pwa:{manifest:true,lifecycle:true,offlineShell:true},seo:Object.fromEntries(['canonical','description','og','twitter','jsonLd','favicon','shareImage'].map(x=>[x,true])),discovery:{claim:41},diagnostics:[]});
+test('normalization removes only timestamp and comparison is byte-exact',()=>{const a=valid(),b=valid();b.observedAt='2027-01-01T00:00:00Z';assert.deepEqual(normalize(a),normalize(b));assert.equal(compareRuns(a,b).equal,true);b.discovery.claim=40;assert.throws(()=>compareRuns(a,b),/differ/)});
+test('validation is fail closed',()=>{assert.equal(validateObservation(valid()),true);for(const field of ['identity','http','artifacts','browser','pwa','seo','discovery','diagnostics']){const x=valid();delete x[field];assert.throws(()=>validateObservation(x),/missing/)}const x=valid();x.diagnostics.push({error:'boom'});assert.throws(()=>validateObservation(x),/diagnostics/)});
+test('live production proof (opt in)',{skip:process.env.KUMO_LIVE_PRODUCTION_PROOF!=='1'},()=>{const r=spawnSync(process.execPath,['scripts/production-terminal-proof.mjs'],{encoding:'utf8',timeout:300000});assert.equal(r.status,0,r.stderr)});

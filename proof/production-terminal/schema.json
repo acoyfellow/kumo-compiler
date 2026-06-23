@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://kumo-compiler.coey.dev/proof/production-terminal/schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "status", "createdAt", "origin", "identity", "runs", "comparison", "receiptHash"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "status": {"const": "passed"},
+    "createdAt": {"type": "string", "format": "date-time"},
+    "origin": {"type": "string", "pattern": "^https://"},
+    "identity": {"type": "object", "additionalProperties": false, "required": ["commit", "manifestHash"], "properties": {"commit": {"type": "string", "minLength": 7}, "manifestHash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}},
+    "runs": {"type": "array", "minItems": 2, "maxItems": 2, "items": {"type": "object", "additionalProperties": false, "required": ["sha256", "path"], "properties": {"sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "path": {"type": "string", "pattern": "^runs/[a-f0-9]{64}\\.json$"}}}},
+    "comparison": {"type": "object", "additionalProperties": false, "required": ["equal", "sha256", "path"], "properties": {"equal": {"const": true}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "path": {"type": "string", "pattern": "^comparisons/[a-f0-9]{64}\\.json$"}}},
+    "receiptHash": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+  }
+}
