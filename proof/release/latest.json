@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "kumo.release-twice/v1",
+  "status": "passed",
+  "commit": "c3f1d766db179ebf0226017c3b1fa1d48f47022f",
+  "runMode": "verify-current-artifacts",
+  "command": "npm run release:check",
+  "environment": {
+    "node": "24.17.0",
+    "npm": "11.13.0"
+  },
+  "independentRuns": 2,
+  "observation": {
+    "packages": [
+      {
+        "file": "kumo-solid-0.0.1.tgz",
+        "sha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0"
+      },
+      {
+        "file": "kumo-svelte-0.0.1.tgz",
+        "sha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed"
+      },
+      {
+        "file": "kumo-vue-0.0.1.tgz",
+        "sha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab"
+      }
+    ],
+    "githubReleaseAssets": [
+      {
+        "file": "kumo-solid-0.0.1.tgz",
+        "sha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0"
+      },
+      {
+        "file": "kumo-svelte-0.0.1.tgz",
+        "sha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed"
+      },
+      {
+        "file": "kumo-vue-0.0.1.tgz",
+        "sha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab"
+      }
+    ],
+    "deployManifestSourceSha256": "ac61d56903e1a78c4d62ee9cda0ff1ffa63a7a2697c8dc1046b4d12dab34381a",
+    "deployPayloadSha256": "42310f916c045ce4c5d5541fe1402ffed70601306b31a072f07004d3ac30feea"
+  },
+  "publication": {
+    "npm": false,
+    "github": false,
+    "deploy": false,
+    "gitPush": false
+  },
+  "receiptSha256": "5de6531aa733ad2b17ee0fff78d50015e3e53cba32f8542da50af87e100fffed"
+}
