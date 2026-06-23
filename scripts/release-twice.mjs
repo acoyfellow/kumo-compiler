@@ -17,7 +17,7 @@ const canonical = (value) => JSON.stringify(value, Object.keys(value).sort());
 function run(command, args, options = {}) {
   const result = spawnSync(command, args, { encoding: 'utf8', ...options });
   if (result.status !== 0) throw new Error(`${command} ${args.join(' ')} failed (${result.status}): ${result.stderr || result.stdout}`);
-  return result.stdout.trim();
+  return (result.stdout ?? '').trim();
 }
 
 export function compareReleaseObservations(first, second) {
