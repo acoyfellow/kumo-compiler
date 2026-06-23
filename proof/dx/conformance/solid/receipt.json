@@ -246,8 +246,8 @@
     "toggleExecutor": "proof/dx/conformance/shared/toggle-executor.mjs"
   },
   "counts": {
-    "blocked": 20,
-    "passed": 104
+    "passed": 105,
+    "blocked": 19
   },
   "totalVectors": 124,
   "diagnostics": [],
@@ -255,13 +255,35 @@
     {
       "component": "autocomplete",
       "vector": "filter-and-select",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "e5acb719a5e5ab89d4f32acd54beaee4585d461fc561bbc0c83fdcbffc715ccb"
+      },
+      "observation": {
+        "dom": {
+          "tag": "input"
+        },
+        "state": {
+          "value": "Apple",
+          "open": false
+        },
+        "events": [
+          "value:B",
+          "open:true",
+          "value:Ba",
+          "value:Ban",
+          "value:Apple",
+          "open:false"
+        ],
+        "focus": "input",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "badge",
@@ -3201,5 +3223,5 @@
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     }
   ],
-  "receiptHash": "1e2f50472dfce2e567b9106722c5fc24425f861d24b2e71b18eb07d33e8519e2"
+  "receiptHash": "f0d1b077fc6476294f32d387da0ea86d9ab74211ded0041781898551d7a10d23"
 }

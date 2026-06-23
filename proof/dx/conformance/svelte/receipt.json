@@ -1303,8 +1303,8 @@
     "fixtureSource": "proof/dx/conformance/shared/packed-fixtures.json"
   },
   "counts": {
-    "blocked": 20,
-    "passed": 104
+    "passed": 105,
+    "blocked": 19
   },
   "staticPassed": 64,
   "browserPassed": 34,
@@ -1314,13 +1314,35 @@
     {
       "component": "autocomplete",
       "vector": "filter-and-select",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "e5acb719a5e5ab89d4f32acd54beaee4585d461fc561bbc0c83fdcbffc715ccb"
+      },
+      "observation": {
+        "dom": {
+          "tag": "input"
+        },
+        "state": {
+          "value": "Apple",
+          "open": false
+        },
+        "events": [
+          "value:B",
+          "open:true",
+          "value:Ba",
+          "value:Ban",
+          "value:Apple",
+          "open:false"
+        ],
+        "focus": "input",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "badge",
@@ -4212,5 +4234,5 @@
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     }
   ],
-  "receiptHash": "e9f990a9a9b86ba454fd987bea8fe7926ad1e824d83634443b5f0a24eef591e5"
+  "receiptHash": "d89831ab7260398eb6656bc2b560f8ec70016c8369e8e753b8f338279f84f4f0"
 }

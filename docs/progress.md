@@ -11,7 +11,7 @@ Machine receipt: `proof/progress/latest.json`
   `░░░░░░░░░░░░░░░░░░░░`
 - ✓ **Components in all three packages** — 41/41
   `████████████████████`
-- → **Four-framework package conformance** — 32/41
+- → **Four-framework package conformance** — 33/41
   `████████████████░░░░`
 - → **Complete component examples and docs** — 2/41
   `█░░░░░░░░░░░░░░░░░░░`
@@ -26,6 +26,7 @@ Machine receipt: `proof/progress/latest.json`
 
 ## Complete four-framework packed conformance
 
+- autocomplete
 - badge
 - banner
 - breadcrumbs
