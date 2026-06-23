@@ -1303,8 +1303,8 @@
     "fixtureSource": "proof/dx/conformance/shared/packed-fixtures.json"
   },
   "counts": {
-    "blocked": 26,
-    "passed": 98
+    "blocked": 25,
+    "passed": 99
   },
   "staticPassed": 64,
   "browserPassed": 34,
@@ -2091,29 +2091,73 @@
       "component": "dialog",
       "vector": "closed-trigger",
       "status": "passed",
-      "mode": "ssr",
+      "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
+      "hydration": "passed",
       "assertion": {
         "status": "passed",
-        "digest": "71789b60baea35fc579965938dbafd270a08620213b5c887073268cbbc393d85"
+        "digest": "4f61c0e932e457849fa293b35cd3e8e7300a689c147a0ad9b543e098d8528ffd"
       },
       "observation": {
-        "markupSha256": "a33e3b4a4234c743d70ff6acc952cd2361ec26e37c4dec252bb20776abf5c5fa"
+        "dom": {
+          "tag": "button",
+          "text": "Open settings",
+          "attributes": {
+            "includes": {
+              "type": "button",
+              "data-kumo-component": "Dialog",
+              "data-kumo-part": "trigger",
+              "aria-haspopup": "dialog"
+            }
+          }
+        },
+        "descendants": [
+          {
+            "selector": "[role=dialog]",
+            "count": 0
+          }
+        ],
+        "node-identity": "preserved"
       }
     },
     {
       "component": "dialog",
       "vector": "open-and-close",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "622f217ceb636a786ca35f22e1c965d4b885caa96d1352647db7704fa833f202"
+      },
+      "observation": {
+        "dom": {
+          "tag": "button",
+          "text": "Open",
+          "attributes": {
+            "includes": {
+              "type": "button",
+              "data-kumo-component": "Dialog",
+              "data-kumo-part": "trigger",
+              "aria-haspopup": "dialog"
+            }
+          }
+        },
+        "state": {
+          "open": false
+        },
+        "events": [
+          "open:true",
+          "open:false"
+        ],
+        "focus": "button",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "dropdown-menu",
@@ -4056,5 +4100,5 @@
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     }
   ],
-  "receiptHash": "e9920569e7b3ffec527d08c6a9428195ada140ff97f4a78cc57f2e4a2ac146c6"
+  "receiptHash": "e69a9ebfa4d55d9bacedd5b87a165af57db16de8c953392b6cb311d0a7ad24f7"
 }

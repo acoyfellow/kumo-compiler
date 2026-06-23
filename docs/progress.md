@@ -11,7 +11,7 @@ Machine receipt: `proof/progress/latest.json`
   `░░░░░░░░░░░░░░░░░░░░`
 - ✓ **Components in all three packages** — 41/41
   `████████████████████`
-- → **Four-framework package conformance** — 28/41
+- → **Four-framework package conformance** — 29/41
   `██████████████░░░░░░`
 - → **Complete component examples and docs** — 2/41
   `█░░░░░░░░░░░░░░░░░░░`
@@ -34,6 +34,7 @@ Machine receipt: `proof/progress/latest.json`
 - clipboard-text
 - cloudflare-logo
 - code
+- dialog
 - empty
 - field
 - grid
