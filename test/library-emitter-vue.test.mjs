@@ -104,17 +104,17 @@ test('Vue radio-group capability lowers generically to deterministic single-sele
     const entry=manifest.components.find(entry=>entry.modelDigest===model.modelDigest);
     const source=fs.readFileSync(path.join(output,entry.file),'utf8');
     assert.match(source,/<div ref="groupRef" v-bind="\$attrs" role="radiogroup"/);
-    assert.match(source,/role="radio" tabindex="0" :aria-checked="item\.value === selectedValue"/);
+    assert.match(source,/role="radio" :tabindex="\(radioFixture\.disabled \|\| item\.disabled\) \? undefined : 0" :aria-checked="item\.value === selectedValue"/);
     assert.match(source,/if \(radioFixture\.value\?\.disabled \|\| item\.disabled\) return/);
     assert.match(source,/\(props\.setValue \?\? props\.onValueChange\)\?\.\(item\.value\)/);
     assert.doesNotMatch(source,/innerHTML|@html|dispatchEvent|new Event/);
     const Component=await compileSSRComponent(entry,build);
     const fixture={kind:'radio-group',legend:'Options',items:[{label:'One',value:'one'},{label:'Two',value:'two',disabled:true},{label:'Three',value:'three'}],defaultValue:'one'};
     const html=await renderToString(createSSRApp({setup:()=>()=>h(Component,{fixture})}));
-    assert.match(html,/^<div role="radiogroup" tabindex="-1" aria-label="Options">/);
+    assert.match(html,/^<div role="radiogroup" aria-label="Options">/);
     assert.equal((html.match(/role="radio"/g)??[]).length,3);
     assert.match(html,/role="radio" tabindex="0" aria-checked="true" aria-label="One"/);
-    assert.match(html,/role="radio" tabindex="0" aria-checked="false" aria-label="Two" aria-disabled="true"/);
+    assert.match(html,/role="radio" aria-checked="false" aria-label="Two" aria-disabled="true"/);
     emissions.push({source,html});
   }
   assert.deepEqual(emissions[1],emissions[0]);

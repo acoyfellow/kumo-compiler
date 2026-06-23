@@ -4,7 +4,7 @@
   "framework": "vue",
   "package": "@acoyfellow/kumo-vue@0.0.1",
   "artifact": "proof/dx/conformance/vue/kumo-vue-0.0.1.tgz",
-  "packageSha256": "690d8502c17e40ed356e3fd174aab73dbb108ec73be8832e94f7fca3e6bd3163",
+  "packageSha256": "a488efd8128b24c68fc7e0b93904c3ebef57e1f3bb5dfe71a45ad96a7c13ebf3",
   "contract": {
     "schemaVersion": "kumo.observable/v1",
     "provenanceDigest": "a7fe3efce7677deb02df5635e1c9541b8e618d67763a5ef8ca11f6ef950aeebf"
@@ -14,7 +14,7 @@
     "digest": "e8d7f17985b6ca2c3abf69b69c482d9efcbc63f18ae35760e3673df9aecc2f77",
     "sha256": "3153cc2e780cd7b7de2262f53dbac6886ae3ac61179ffe58ac52ec419dc3efe7"
   },
-  "modelHash": "6030046a27d9a38ca04be6d3b0c93437a999988646b2ed3e3691d2d6e0338dba",
+  "modelHash": "f4ccd2d2498262fa22f1dcd1fae0d0bca6c92b5ae2b6bc978eac3871a10ad79b",
   "node": {
     "version": "v24.17.0",
     "platform": "darwin",
@@ -22,7 +22,7 @@
   },
   "runner": "scripts/observable-browser-runner.mjs",
   "browser": {
-    "browserCells": 32,
+    "browserCells": 37,
     "diagnostics": [],
     "telemetry": [
       {
@@ -184,6 +184,31 @@
         "id": "pagination/compound-dropdown-size",
         "phases": {},
         "vectors": []
+      },
+      {
+        "id": "radio/default-click",
+        "phases": {},
+        "vectors": []
+      },
+      {
+        "id": "radio/controlled-click",
+        "phases": {},
+        "vectors": []
+      },
+      {
+        "id": "radio/arrow",
+        "phases": {},
+        "vectors": []
+      },
+      {
+        "id": "radio/disabled-item",
+        "phases": {},
+        "vectors": []
+      },
+      {
+        "id": "radio/disabled-group",
+        "phases": {},
+        "vectors": []
       }
     ],
     "capabilities": [
@@ -196,7 +221,8 @@
       "field-composition-fixtures",
       "clipboard-boundary",
       "clipboard-fixtures",
-      "pagination-fixtures"
+      "pagination-fixtures",
+      "radio-fixtures"
     ]
   },
   "policy": {
@@ -208,8 +234,8 @@
     "fixtureSource": "proof/dx/conformance/shared/packed-fixtures.json"
   },
   "counts": {
-    "blocked": 35,
-    "passed": 89
+    "blocked": 30,
+    "passed": 94
   },
   "totalVectors": 124,
   "diagnostics": [],
@@ -1964,57 +1990,181 @@
     {
       "component": "radio",
       "vector": "default-click",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "0ef504c851f2bfbbbece96c38fb4055087e22902ff64d674dbb15f412b505d4a"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "role": "radiogroup",
+              "aria-label": "Plan",
+              "tabindex": "-1"
+            }
+          }
+        },
+        "state": {
+          "checked": [
+            false,
+            true
+          ]
+        },
+        "events": [
+          "value:pro"
+        ],
+        "focus": "root",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "radio",
       "vector": "controlled-click",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "0ef504c851f2bfbbbece96c38fb4055087e22902ff64d674dbb15f412b505d4a"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "role": "radiogroup",
+              "aria-label": "Plan",
+              "tabindex": "-1"
+            }
+          }
+        },
+        "state": {
+          "checked": [
+            false,
+            true
+          ]
+        },
+        "events": [
+          "value:pro"
+        ],
+        "focus": "root",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "radio",
       "vector": "arrow",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "0ef504c851f2bfbbbece96c38fb4055087e22902ff64d674dbb15f412b505d4a"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "role": "radiogroup",
+              "aria-label": "Plan",
+              "tabindex": "-1"
+            }
+          }
+        },
+        "state": {
+          "checked": [
+            false,
+            true
+          ]
+        },
+        "events": [
+          "value:pro"
+        ],
+        "focus": "root",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "radio",
       "vector": "disabled-item",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "7df9f1b1f74b636229a237e06b99190353fbe2d2282376864391ae376bfb5aa6"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "role": "radiogroup",
+              "aria-label": "Plan"
+            }
+          }
+        },
+        "state": {
+          "checked": [
+            true,
+            false
+          ]
+        },
+        "events": [],
+        "focus": "none",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "radio",
       "vector": "disabled-group",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "7df9f1b1f74b636229a237e06b99190353fbe2d2282376864391ae376bfb5aa6"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "role": "radiogroup",
+              "aria-label": "Plan"
+            }
+          }
+        },
+        "state": {
+          "checked": [
+            true,
+            false
+          ]
+        },
+        "events": [],
+        "focus": "none",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "select",
@@ -2680,5 +2830,5 @@
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     }
   ],
-  "receiptHash": "8bf984cbd0d98b1f905ed4b3dc42611818689f0b453e54eb92a9bc7248686691"
+  "receiptHash": "ff1288882480b48c3bed7882c7e404693317b27dda02c1dd6d0ed40c90b0041c"
 }

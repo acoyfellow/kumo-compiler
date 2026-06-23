@@ -29,7 +29,7 @@ function selectRadio(item: RadioFixture['items'][number]) {
   if (radioFixture.value?.disabled || item.disabled) return
   if (!controlled.value) internalValue.value = item.value
   ;(props.setValue ?? props.onValueChange)?.(item.value)
-  nextTick(() => groupRef.value?.focus())
+  nextTick(() => { if (groupRef.value) { groupRef.value.setAttribute('tabindex', '-1'); groupRef.value.focus() } })
 }
 function selectNext(index: number, event: KeyboardEvent) {
   if (event.key !== 'ArrowDown' || radioFixture.value?.disabled) return
@@ -51,5 +51,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <div ref="groupRef" v-bind="$attrs" role="radiogroup" tabindex="-1" :aria-label="radioFixture.legend"><div v-for="(item, index) in radioFixture.items" :key="String(item.value)" role="radio" tabindex="0" :aria-checked="item.value === selectedValue" :aria-label="item.label" :aria-disabled="radioFixture.disabled || item.disabled || undefined" @click="selectRadio(item)" @keydown="selectNext(index, $event)">{{ item.label }}</div></div>
+  <div ref="groupRef" v-bind="$attrs" role="radiogroup" :aria-label="radioFixture.legend"><div v-for="(item, index) in radioFixture.items" :key="String(item.value)" role="radio" :tabindex="(radioFixture.disabled || item.disabled) ? undefined : 0" :aria-checked="item.value === selectedValue" :aria-label="item.label" :aria-disabled="radioFixture.disabled || item.disabled || undefined" @click="selectRadio(item)" @keydown="selectNext(index, $event)">{{ item.label }}</div></div>
 </template>
