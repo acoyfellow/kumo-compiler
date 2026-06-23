@@ -148,7 +148,13 @@ Cloudflare Browser Rendering session (click item 1 → `checked:["false","true"]
 runs (focus moves to the group root) and the change callback fires, but the per-item
 `aria-checked` bindings inside the hydrated `v-for` do not re-render on the `selectedValue`
 computed change, so observed state stays `[true,false]`. This is a hydration-time
-reactivity gap (client-render works; hydration does not), analogous to the earlier Solid
-`mergeProps` and `hydrate(App)` findings. Next: make the radio item selection state
-hydration-reactive (e.g. ensure the selection signal participates in hydration) and prove
-across all three frameworks; no gate is weakened in the interim and radio remains blocked.
+shared-consumer-app/build-cache contamination, NOT an emitter or hydration bug. Proven:
+the Vue Radio component passes through the EXACT live code path (runObservableBrowser +
+radio adapter runVector + KUMO_BROWSER_POOL) when radio runs ALONE (returns
+`checked:[false,true]`, `events:[value:pro]`, focus root). It fails (`[true,false]`) only
+in the full sequential conformance run after the button/toggle/native-input/field/clipboard/
+pagination slices have built into the shared consumer app. SSR sent is correct in both cases.
+Likely cause: a stale vite transform/cache or shared-output contamination in the reused
+consumer app dir across sequential slice builds. Next fix: isolate each slice's build
+(per-slice cacheDir or fresh consumer) so the radio client bundle is not contaminated; then
+radio should pass across all three frameworks. Radio remains blocked, no gate weakened.
