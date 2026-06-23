@@ -94,6 +94,33 @@ test('Vue SSR renders all 66 semantic variants through canonical root and descen
   assert.equal(rendered,66); assert.equal(manifest.components.flatMap(x=>x.unresolvedSemanticOperations).length,0);
 });
 
+test('Vue input-group capability lowers canonical compound fixture deterministically', async t => {
+  const library=loadLibrary(), capability=library.inputGroupComposition;
+  assert.equal(capability.support,'supported');
+  const fixture=JSON.parse(fs.readFileSync('contracts/kumo.observable/v1/components/input-group.json','utf8')).vectors[0].fixture;
+  const emissions=[];
+  for(let run=0;run<2;run++){
+    const build=fs.mkdtempSync(path.resolve(`.kumo-vue-input-group-${run}-`)); t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+    const manifest=generateVueLibrary(output), model=library.models.find(model=>model.component===capability.component);
+    const entry=manifest.components.find(entry=>entry.modelDigest===model.modelDigest);
+    const source=fs.readFileSync(path.join(output,entry.file),'utf8');
+    assert.match(source,/<div v-bind="\$attrs" data-kumo-component="InputGroup">/);
+    assert.match(source,/<label v-if="inputGroupProps\.label !== undefined" :for="inputId">/);
+    assert.match(source,/:id="inputId"/); assert.match(source,/@input="trackInput"/);
+    assert.match(source,/\.Addon/); assert.match(source,/\.Input/); assert.match(source,/\.Button/); assert.match(source,/\.Suffix/);
+    assert.doesNotMatch(source,/innerHTML|@html|dispatchEvent|new Event/);
+    const Component=await compileSSRComponent(entry,build);
+    const html=await renderToString(createSSRApp({setup:()=>()=>h(Component,{fixture})}));
+    assert.match(html,/^<div data-kumo-component="InputGroup">/);
+    const ids=html.match(/<label for="([^"]+)">Search<\/label>.*<input id="([^"]+)"/);
+    assert.ok(ids,html); assert.equal(ids[1],ids[2]);
+    assert.match(html,/\$<\/span>.*<input/); assert.match(html,/>Go<\/button>.*<span[^>]*>USD<\/span>/);
+    assert.equal(manifest.components.flatMap(x=>x.semanticVariants).length,66);
+    emissions.push({source,html});
+  }
+  assert.deepEqual(emissions[1],emissions[0]);
+});
+
 test('Vue dialog-layer capability lowers compound fixtures to a deterministic trigger and Teleport', async t => {
   const library=loadLibrary(), capability=library.dialogLayer;
   assert.equal(capability.support,'supported');

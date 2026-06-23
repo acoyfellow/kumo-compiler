@@ -1,0 +1,392 @@
+{
+  "schemaVersion": "kumo.input-group-fixtures/v1",
+  "plans": [
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "input-group",
+      "vector": "composition",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/input-group.json",
+        "sha256": "d44c3c3bad1045de330eaa7ccc9ca1a6e94f38d100671a7a376ea65686b839ff",
+        "vectorSha256": "6e45371439d15c075ddaf6726ea6ce96caf48dc7e4962b7dbd5ede371f0dd26a"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "InputGroup",
+        "props": {
+          "label": "Search",
+          "description": "Help",
+          "required": true
+        },
+        "children": [
+          {
+            "kind": "component",
+            "ref": "InputGroup.Addon",
+            "props": {},
+            "children": [
+              {
+                "kind": "text",
+                "value": "$"
+              }
+            ]
+          },
+          {
+            "kind": "component",
+            "ref": "InputGroup.Input",
+            "props": {
+              "aria-label": "Search"
+            },
+            "children": []
+          },
+          {
+            "kind": "component",
+            "ref": "InputGroup.Button",
+            "props": {
+              "variant": "secondary"
+            },
+            "children": [
+              {
+                "kind": "text",
+                "value": "Go"
+              }
+            ]
+          },
+          {
+            "kind": "component",
+            "ref": "InputGroup.Suffix",
+            "props": {},
+            "children": [
+              {
+                "kind": "text",
+                "value": "USD"
+              }
+            ]
+          }
+        ]
+      },
+      "setup": [],
+      "actions": [],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "input-group-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "7d199d7bb580d830035d4a8ca1a1aeb5e182e3be02139106ad99ddfdf7e9d01a"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "input-group",
+      "vector": "field-focus",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/input-group.json",
+        "sha256": "d44c3c3bad1045de330eaa7ccc9ca1a6e94f38d100671a7a376ea65686b839ff",
+        "vectorSha256": "ceca7dc8e4ecf47c349ded827f9ac14c1b0d68dc2951448571259e688b2fa78f"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "InputGroup",
+        "props": {
+          "label": "Search",
+          "description": "Help",
+          "required": true
+        },
+        "children": [
+          {
+            "kind": "component",
+            "ref": "InputGroup.Addon",
+            "props": {},
+            "children": [
+              {
+                "kind": "text",
+                "value": "$"
+              }
+            ]
+          },
+          {
+            "kind": "component",
+            "ref": "InputGroup.Input",
+            "props": {
+              "aria-label": "Search"
+            },
+            "children": []
+          },
+          {
+            "kind": "component",
+            "ref": "InputGroup.Button",
+            "props": {
+              "variant": "secondary"
+            },
+            "children": [
+              {
+                "kind": "text",
+                "value": "Go"
+              }
+            ]
+          },
+          {
+            "kind": "component",
+            "ref": "InputGroup.Suffix",
+            "props": {},
+            "children": [
+              {
+                "kind": "text",
+                "value": "USD"
+              }
+            ]
+          }
+        ]
+      },
+      "setup": [],
+      "actions": [
+        {
+          "type": "click",
+          "selector": "label"
+        },
+        {
+          "type": "type",
+          "selector": "input",
+          "text": "q",
+          "editMode": "append"
+        },
+        {
+          "type": "focus",
+          "selector": "button"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "values": [
+              "q"
+            ]
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "button"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "input-group-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "state-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "84492b1e48c25b19ec3e8abb54fa8260439c51c939f3fb89c5a8a953bfea187a"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "input-group",
+      "vector": "disabled-error",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/input-group.json",
+        "sha256": "d44c3c3bad1045de330eaa7ccc9ca1a6e94f38d100671a7a376ea65686b839ff",
+        "vectorSha256": "9e0e71f999d5ec1ea77e38aaa906a9f74da4627c5edb1387687ede4c10d3ce45"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "InputGroup",
+        "props": {
+          "label": "Search",
+          "description": "Help",
+          "required": true
+        },
+        "children": [
+          {
+            "kind": "component",
+            "ref": "InputGroup.Addon",
+            "props": {},
+            "children": [
+              {
+                "kind": "text",
+                "value": "$"
+              }
+            ]
+          },
+          {
+            "kind": "component",
+            "ref": "InputGroup.Input",
+            "props": {
+              "aria-label": "Search"
+            },
+            "children": []
+          },
+          {
+            "kind": "component",
+            "ref": "InputGroup.Button",
+            "props": {
+              "variant": "secondary"
+            },
+            "children": [
+              {
+                "kind": "text",
+                "value": "Go"
+              }
+            ]
+          },
+          {
+            "kind": "component",
+            "ref": "InputGroup.Suffix",
+            "props": {},
+            "children": [
+              {
+                "kind": "text",
+                "value": "USD"
+              }
+            ]
+          }
+        ]
+      },
+      "setup": [],
+      "actions": [
+        {
+          "type": "focus",
+          "selector": "input"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "values": [
+              ""
+            ]
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "input"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "input-group-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "state-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "785548351a5dd18333777006035dd1705d374bc89f4f764338364a5c1acf5faa"
+    }
+  ],
+  "digest": "0512b17e9196fd21e355d0218c34b91b32cb09ff0ccdbf0cef4d741ae77162cc"
+}

@@ -5,13 +5,24 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 </script>
 
 <script setup lang="ts">
-import { computed, useAttrs, useSlots } from 'vue'
+defineOptions({ inheritAttrs: false })
+import { computed, ref, useAttrs, useId, useSlots } from 'vue'
 interface InputGroupProps {
   "observable"?: unknown
   fixture?: unknown
   semanticContent?: unknown
 }
 const props = withDefaults(defineProps<InputGroupProps>(), {})
+type InputGroupFixtureNode = { export?: string; text?: string; props?: Record<string, unknown>; children?: InputGroupFixtureNode[] }
+const inputGroupFixture = computed(() => props.fixture as InputGroupFixtureNode | undefined)
+const fixtureChildren = (node?: InputGroupFixtureNode) => node?.children ?? []
+const fixturePart = (name: string) => fixtureChildren(inputGroupFixture.value).find(node => node.export === name)
+const partText = (node?: InputGroupFixtureNode): string => node ? String(node.text ?? '') + fixtureChildren(node).map(partText).join('') : ''
+const inputGroupProps = computed(() => inputGroupFixture.value?.props ?? {})
+const inputPart = computed(() => fixturePart('.Input'))
+const inputId = useId()
+const inputValue = ref('')
+function trackInput(event: Event) { inputValue.value = (event.currentTarget as HTMLInputElement).value }
 const slots = useSlots()
 const styles: Record<string,string> = {}
 const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
@@ -23,5 +34,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template v-if="semanticEqual(fixture, {&quot;export&quot;:&quot;root&quot;,&quot;props&quot;:{&quot;label&quot;:&quot;Search&quot;,&quot;description&quot;:&quot;Help&quot;,&quot;required&quot;:true},&quot;children&quot;:[{&quot;export&quot;:&quot;.Addon&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;text&quot;:&quot;$&quot;}]},{&quot;export&quot;:&quot;.Input&quot;,&quot;props&quot;:{&quot;aria-label&quot;:&quot;Search&quot;},&quot;children&quot;:[]},{&quot;export&quot;:&quot;.Button&quot;,&quot;props&quot;:{&quot;variant&quot;:&quot;secondary&quot;},&quot;children&quot;:[{&quot;text&quot;:&quot;Go&quot;}]},{&quot;export&quot;:&quot;.Suffix&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;text&quot;:&quot;USD&quot;}]}]})"><div></div></template><template v-else><input-group :class="[styles[&quot;root&quot;]]"></input-group></template>
+  <div v-bind="$attrs" data-kumo-component="InputGroup"><label v-if="inputGroupProps.label !== undefined" :for="inputId">{{ inputGroupProps.label }}</label><p v-if="inputGroupProps.description !== undefined">{{ inputGroupProps.description }}</p><template v-for="(part, index) in fixtureChildren(inputGroupFixture)" :key="part.export ?? index"><span v-if="part.export === '.Addon'" data-kumo-part="Addon">{{ partText(part) }}</span><input v-else-if="part.export === '.Input'" :id="inputId" :aria-label="inputPart?.props?.['aria-label'] as string | undefined" :disabled="props.disabled || undefined" :required="inputGroupProps.required as boolean | undefined" :value="inputValue" @input="trackInput" /><button v-else-if="part.export === '.Button'" type="button" :data-variant="part.props?.variant">{{ partText(part) }}</button><span v-else-if="part.export === '.Suffix'" data-kumo-part="Suffix">{{ partText(part) }}</span></template></div>
 </template>

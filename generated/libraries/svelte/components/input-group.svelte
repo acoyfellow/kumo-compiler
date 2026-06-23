@@ -23,6 +23,13 @@
   }: Props = $props();
   let state_source = $state("props/native state");
 
+  type InputGroupFixtureNode = { export?: string; text?: string; props?: Record<string, unknown>; children?: InputGroupFixtureNode[] };
+  type InputGroupFixture = { props?: { label?: unknown; description?: unknown; required?: boolean }; children?: InputGroupFixtureNode[] };
+  const inputGroupFixture = $derived.by(() => { const root = fixture as InputGroupFixture | undefined; return { label: root?.props?.label, description: root?.props?.description, required: root?.props?.required, children: root?.children ?? [] }; });
+  const inputGroupId = "kumo-e828cc80d749";
+  let inputGroupValue = $state('');
+  function inputGroupText(node: InputGroupFixtureNode | undefined): string { return node ? String(node.text ?? '') + (node.children ?? []).map(inputGroupText).join('') : ''; }
+  function handleInputGroupInput(event: Event) { inputGroupValue = (event.currentTarget as HTMLInputElement).value; }
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "observable": observable, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;
@@ -43,8 +50,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if semanticEqual(fixture, {"export":"root","props":{"label":"Search","description":"Help","required":true},"children":[{"export":".Addon","props":{},"children":[{"text":"$"}]},{"export":".Input","props":{"aria-label":"Search"},"children":[]},{"export":".Button","props":{"variant":"secondary"},"children":[{"text":"Go"}]},{"export":".Suffix","props":{},"children":[{"text":"USD"}]}]})}
-  <div></div>
-{:else}
-<input-group class={cx(styles["root"])}></input-group>
-{/if}
+<div data-kumo-component="InputGroup"><label for={inputGroupId}>{inputGroupFixture.label}</label>{#if inputGroupFixture.description !== undefined}<p>{inputGroupFixture.description}</p>{/if}{#each inputGroupFixture.children as part, index (part.export ?? index)}{#if part.export === '.Addon'}<span data-kumo-part="Addon">{inputGroupText(part)}</span>{:else if part.export === '.Input'}<input id={inputGroupId} aria-label={part.props?.['aria-label'] as string | undefined} disabled={Boolean(part.props?.disabled)} value={inputGroupValue} oninput={handleInputGroupInput}>{:else if part.export === '.Button'}<button type="button" data-variant={part.props?.variant as string | undefined}>{inputGroupText(part)}</button>{:else if part.export === '.Suffix'}<span data-kumo-part="Suffix">{inputGroupText(part)}</span>{/if}{/each}</div>

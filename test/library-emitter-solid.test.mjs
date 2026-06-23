@@ -161,6 +161,16 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   assert.match(dialogDeclaration, /"defaultOpen"\?: boolean;/);
   assert.match(dialogDeclaration, /"onOpenChange"\?: \(open: boolean\) => void;/);
 
+  const inputGroupSource = fs.readFileSync(path.join(first, 'input-group.tsx'), 'utf8');
+  assert.match(inputGroupSource, /<div data-kumo-component="InputGroup">/);
+  assert.match(inputGroupSource, /<label for=\{inputGroupId\}>/);
+  assert.match(inputGroupSource, /compoundFixtureText\(props\.fixture, "\.Addon"\)/);
+  assert.match(inputGroupSource, /<input id=\{inputGroupId\}/);
+  assert.match(inputGroupSource, /<button type="button" data-variant=/);
+  assert.match(inputGroupSource, /compoundFixtureText\(props\.fixture, "\.Suffix"\)/);
+  assert.match(inputGroupSource, /const \[inputGroupValue, setInputGroupValue\] = createSignal\(""\)/);
+  assert.doesNotMatch(inputGroupSource, /semanticEqual\(normalizedFixture/);
+
   const paginationSource = fs.readFileSync(path.join(first, 'pagination.tsx'), 'utf8');
   assert.match(paginationSource, /<div data-slot="pagination"><nav ref=\{navEl\} aria-label=/);
   assert.match(paginationSource, /props\.fixtureMode !== "simple"/);

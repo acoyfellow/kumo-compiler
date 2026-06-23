@@ -308,6 +308,34 @@ test('supported menubar-navigation lowers generically to canonical native button
  assert.equal((clean({options:[]}).match(/<button\b/g)??[]).length,0);
 });
 
+test('supported input-group composition lowers canonical compound fixtures deterministically',async t=>{
+ const build=fs.mkdtempSync(path.join(os.tmpdir(),'kumo-svelte-input-group-'));
+ t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+ fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
+ const {inputGroupComposition}=loadLibrary();
+ const first=emitSvelteLibrary({output});
+ assert.equal(first.components.flatMap(x=>x.semanticVariants).length,66);
+ const source=fs.readFileSync(path.join(output,`components/${inputGroupComposition.component}.svelte`),'utf8');
+ const second=emitSvelteLibrary({output});
+ assert.equal(second.components.flatMap(x=>x.semanticVariants).length,66);
+ assert.equal(fs.readFileSync(path.join(output,`components/${inputGroupComposition.component}.svelte`),'utf8'),source);
+ assert.match(source,/<div data-kumo-component="InputGroup"><label for=\{inputGroupId\}>/);
+ assert.match(source,/part\.export === '\.Addon'[\s\S]*part\.export === '\.Input'[\s\S]*part\.export === '\.Button'[\s\S]*part\.export === '\.Suffix'/);
+ assert.match(source,/<input id=\{inputGroupId\} aria-label=/);
+ assert.match(source,/<button type="button" data-variant=/);
+ assert.match(source,/let inputGroupValue = \$state\(''\)/);
+ assert.doesNotMatch(source,/function\s+\w+\([^)]*\w+\?:/);
+ assert.doesNotMatch(source,/model\.component\s*===?\s*["']input-group["']|@html|innerHTML|dispatchEvent/);
+ const fixture=JSON.parse(fs.readFileSync(path.resolve('contracts/kumo.observable/v1/components/input-group.json'),'utf8')).vectors[0].fixture;
+ const compiled=compile(source,{filename:'input-group.svelte',generate:'server'});
+ const target=path.join(build,'input-group.mjs');fs.writeFileSync(target,compiled.js.code);
+ const InputGroup=(await import(pathToFileURL(target)+`?${Date.now()}`)).default;
+ const html=render(InputGroup,{props:{fixture}}).body.replace(/<!--[\s\S]*?-->/g,'');
+ const id=html.match(/<label for="([^"]+)"/)?.[1];
+ assert.ok(id);
+ assert.match(html,new RegExp(`^<div data-kumo-component="InputGroup"><label for="${id}">Search</label><p>Help</p><span data-kumo-part="Addon">\\$</span><input id="${id}" aria-label="Search" value=""\/?><button type="button" data-variant="secondary">Go</button><span data-kumo-part="Suffix">USD</span></div>$`));
+});
+
 test('supported dialog-layer lowers generically with a deterministic portal and focus lifecycle',async t=>{
  const build=fs.mkdtempSync(path.join(os.tmpdir(),'kumo-svelte-dialog-'));
  t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
