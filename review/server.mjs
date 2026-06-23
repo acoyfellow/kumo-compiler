@@ -79,6 +79,13 @@ app.get('/packages/:artifact',c=>{
  const file=resolve(root,'library-artifacts',artifact);if(!existsSync(file)||!statSync(file).isFile())return c.notFound();
  return c.body(readFileSync(file),200,{'Content-Type':artifact.endsWith('.json')?'application/json; charset=utf-8':'application/gzip'});
 });
+const astroStatic=c=>{
+ const requestPath=decodeURIComponent(new URL(c.req.url).pathname);if(requestPath.includes('..'))return c.notFound();
+ const relative=requestPath.replace(/^\/+|\/+$/g,''),base=resolve(root,'astro/dist'),candidates=[resolve(base,relative),resolve(base,relative,'index.html')];
+ for(const file of candidates){if(!existsSync(file)||!statSync(file).isFile())continue;const ext=file.split('.').pop(),contentType={html:'text/html; charset=utf-8',css:'text/css; charset=utf-8',js:'text/javascript; charset=utf-8',json:'application/json; charset=utf-8',svg:'image/svg+xml',txt:'text/plain; charset=utf-8',xml:'application/xml; charset=utf-8'}[ext]||'application/octet-stream';return c.body(readFileSync(file),200,{'Content-Type':contentType})}
+ return c.notFound();
+};
+for(const prefix of ['/docs/*','/examples/*','/libraries/*','/typescript/','/go/','/rust/','/zig/','/comparison/','/mitosis/','/shared-core/','/bakeoff/','/engine-language/','/output-architecture/','/select-pilot/','/receipts/*','/sitemap.xml','/llms.txt','/kumo.css','/_astro/*'])app.get(prefix,astroStatic);
 // Catalog-wide proof route: always serves the actual Vite build, never a fixture.
 const builtRuntime=c=>{
  const {component,framework}=c.req.param();if(!frameworks.has(framework)||!/^[-\w]+$/.test(component))return c.notFound();
