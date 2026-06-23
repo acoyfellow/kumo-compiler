@@ -134,7 +134,7 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   assert.match(tabsSource, /event\.key === "ArrowRight"/);
   assert.match(tabsSource, /props\.activateOnFocus/);
   assert.match(tabsSource, /event\.key === "Enter" \|\| event\.key === " "/);
-  assert.match(tabsSource, /'value:' \+ value/);
+  assert.match(tabsSource, /onValueChange as \(\(value: string\) => void\) \| undefined\)\?\.\(value\)/);
 
   const paginationSource = fs.readFileSync(path.join(first, 'pagination.tsx'), 'utf8');
   assert.match(paginationSource, /<div data-slot="pagination"><nav ref=\{navEl\} aria-label=/);

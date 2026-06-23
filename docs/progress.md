@@ -11,7 +11,7 @@ Machine receipt: `proof/progress/latest.json`
   `░░░░░░░░░░░░░░░░░░░░`
 - ✓ **Components in all three packages** — 41/41
   `████████████████████`
-- → **Four-framework package conformance** — 26/41
+- → **Four-framework package conformance** — 27/41
   `█████████████░░░░░░░`
 - → **Complete component examples and docs** — 2/41
   `█░░░░░░░░░░░░░░░░░░░`
@@ -51,6 +51,7 @@ Machine receipt: `proof/progress/latest.json`
 - switch
 - table
 - table-of-contents
+- tabs
 - text
 
 ## Current package surface

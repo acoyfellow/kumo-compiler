@@ -169,7 +169,7 @@ function source(model, toggle, nativeInput, fieldControl, clipboardCopy, paginat
   const selectedIndex = () => Math.max(0, tabs().findIndex(item => item.value === selectedValue()));
   const [focusedIndex, setFocusedIndex] = createSignal(selectedIndex());
   const tabElements: HTMLButtonElement[] = [];
-  const commitTab = (value: string) => { if (!controlled()) setCommittedValue(value); (props.onValueChange as ((value: string) => void) | undefined)?.('value:' + value); };
+  const commitTab = (value: string) => { if (!controlled()) setCommittedValue(value); (props.onValueChange as ((value: string) => void) | undefined)?.(value); };
   const tabKeyDown = (event: KeyboardEvent & {currentTarget: HTMLButtonElement}, index: number) => {
     if (event.key === "ArrowRight") { event.preventDefault(); const next = Math.min(index + 1, tabs().length - 1); setFocusedIndex(next); tabElements[next]?.focus(); if (props.activateOnFocus) commitTab(tabs()[next].value); }
     else if (event.key === "Enter" || event.key === " ") { event.preventDefault(); commitTab(tabs()[index].value); }
