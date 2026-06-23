@@ -246,8 +246,8 @@
     "toggleExecutor": "proof/dx/conformance/shared/toggle-executor.mjs"
   },
   "counts": {
-    "passed": 114,
-    "blocked": 10
+    "passed": 116,
+    "blocked": 8
   },
   "totalVectors": 124,
   "diagnostics": [],
@@ -2373,40 +2373,111 @@
       "component": "popover",
       "vector": "closed-trigger-ssr",
       "status": "passed",
-      "mode": "ssr",
+      "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
+      "hydration": "passed",
       "assertion": {
         "status": "passed",
-        "digest": "dc8904a159c34278ddf574941e036a244631be322d76623aac438e1c3432805b"
+        "digest": "8669fe94e80535837c68381fa692d88e6d2e70105026678c0f864e81945a56eb"
       },
       "observation": {
-        "markupSha256": "5aa9229c78de32e9c1b513d33858e46884c874236d4d6a282b6243e43013c414"
+        "dom": {
+          "tag": "button",
+          "text": "Open",
+          "attributes": {
+            "includes": {
+              "data-hk": "kumo-10",
+              "type": "button",
+              "tabindex": "0",
+              "aria-haspopup": "dialog",
+              "aria-expanded": "false",
+              "data-kumo-component": "Popover",
+              "data-kumo-part": "trigger"
+            }
+          }
+        },
+        "node-identity": "preserved"
       }
     },
     {
       "component": "popover",
       "vector": "pointer-open-close-outside",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "8c71d6f751783a9f0f66d5b7b5abded5c5403dc82d3976d129457221aae1efe1"
+      },
+      "observation": {
+        "dom": {
+          "tag": "button",
+          "text": "Open",
+          "attributes": {
+            "includes": {
+              "data-hk": "kumo-10",
+              "type": "button",
+              "tabindex": "0",
+              "aria-haspopup": "dialog",
+              "aria-expanded": "false",
+              "data-kumo-component": "Popover",
+              "data-kumo-part": "trigger"
+            }
+          }
+        },
+        "state": {
+          "open": false
+        },
+        "events": [
+          "open-change:true",
+          "open-change:false"
+        ],
+        "focus": "button"
+      }
     },
     {
       "component": "popover",
       "vector": "controlled-open",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "76024b2c34938077be80ddc0cfff3389375b1eeb0b2f9f08805c7d811296feb4"
+      },
+      "observation": {
+        "dom": {
+          "tag": "button",
+          "text": "Open",
+          "attributes": {
+            "includes": {
+              "data-hk": "kumo-10",
+              "type": "button",
+              "tabindex": "0",
+              "aria-haspopup": "dialog",
+              "aria-expanded": "true",
+              "data-kumo-component": "Popover",
+              "data-kumo-part": "trigger"
+            }
+          }
+        },
+        "state": {
+          "open": true,
+          "controlled": true
+        },
+        "events": [
+          "open-change:false"
+        ],
+        "focus": "button"
+      }
     },
     {
       "component": "radio",
@@ -3545,5 +3616,5 @@
       }
     }
   ],
-  "receiptHash": "4ec859312786d7d8d0c63c59e3f4f91a11a5c2a860a63c0e93f80ee71d21cee1"
+  "receiptHash": "a9a6b4ab7e0273034d58a7f16006d0bb5ef31baa3da9bf7d71574212382ebf64"
 }

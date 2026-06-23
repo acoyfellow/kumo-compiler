@@ -186,7 +186,7 @@ const compoundFixtureText = (value: unknown, exported: string): string => {
   let popoverTrigger: HTMLButtonElement | undefined;
   let popoverContent: HTMLDivElement | undefined;
   const setPopoverOpen = (next: boolean) => { if (!controlled) setUncontrolledOpen(next); (props.onOpenChange as ((open: boolean) => void) | undefined)?.(next); if (!next) queueMicrotask(() => popoverTrigger?.focus()); };
-  const popoverSide = () => { const requested = String(popoverContentProps().side ?? "bottom"); if (requested !== "top" || !popoverTrigger) return requested; const rect = popoverTrigger.getBoundingClientRect(); return rect.top < (popoverContent?.getBoundingClientRect().height ?? 1) ? "bottom" : "top"; };
+  const popoverSide = () => { const requested = String(popoverContentProps().side ?? "bottom"); if (requested !== "top" || !popoverTrigger) return requested; const rect = popoverTrigger.getBoundingClientRect(); const offset = Number(popoverContentProps().sideOffset ?? 8); return rect.top < offset + 48 ? "bottom" : "top"; };
   const popoverKeyDown = (event: KeyboardEvent) => { if (event.key !== ${JSON.stringify(popoverLayer.dismiss.key)}) return; event.preventDefault(); setPopoverOpen(false); };
 ` : ''}${responsiveSidebar ? `  type SidebarFixtureNode = {export?: string; props?: Record<string, unknown>; text?: string; children?: SidebarFixtureNode[]};
   const sidebarFixture = () => props.fixture as SidebarFixtureNode;

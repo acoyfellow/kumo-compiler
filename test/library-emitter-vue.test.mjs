@@ -334,7 +334,7 @@ test('Vue popover capability lowers canonical fixture, ownership, dismissal, and
   const closed=await renderToString(createSSRApp({setup:()=>()=>h(Component,{fixture})}));
   assert.equal(closed.replace('<!---->',''),'<button type="button" tabindex="0" aria-haspopup="dialog" aria-expanded="false" data-kumo-component="Popover" data-kumo-part="trigger">Open</button>');
   const controlled=await renderToString(createSSRApp({setup:()=>()=>h(Component,{fixture,open:true})}));
-  assert.match(controlled,/aria-expanded="true"/); assert.match(source,/<Teleport v-if="currentOpen" to="body">/);
+  assert.match(controlled,/aria-expanded="true"/); assert.match(source,/<Teleport v-if="mounted && currentOpen" to="body">/);
 });
 
 test('Vue radio-group capability lowers generically to deterministic single-select radio markup', async t => {

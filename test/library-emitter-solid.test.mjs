@@ -291,7 +291,7 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   assert.match(popoverSource, /role="dialog" data-side=\{popoverSide\(\)\} data-align=\{popoverContentProps\(\)\.align/);
   assert.match(popoverSource, /data-position-method=\{popoverContentProps\(\)\.positionMethod/);
   assert.match(popoverSource, /requested !== "top"/);
-  assert.match(popoverSource, /rect\.top < \(popoverContent\?\.getBoundingClientRect\(\)\.height \?\? 1\) \? "bottom" : "top"/);
+  assert.match(popoverSource, /rect\.top < offset \+ 48 \? "bottom" : "top"/);
   assert.match(popoverSource, /event\.key !== "Escape"/);
   assert.match(popoverSource, /if \(!controlled\) setUncontrolledOpen\(next\)/);
   assert.match(popoverSource, /props\.onOpenChange/);

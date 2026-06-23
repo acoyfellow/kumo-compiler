@@ -1303,8 +1303,8 @@
     "fixtureSource": "proof/dx/conformance/shared/packed-fixtures.json"
   },
   "counts": {
-    "passed": 114,
-    "blocked": 10
+    "passed": 116,
+    "blocked": 8
   },
   "staticPassed": 64,
   "browserPassed": 34,
@@ -3392,40 +3392,108 @@
       "component": "popover",
       "vector": "closed-trigger-ssr",
       "status": "passed",
-      "mode": "ssr",
+      "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
+      "hydration": "passed",
       "assertion": {
         "status": "passed",
-        "digest": "dc8904a159c34278ddf574941e036a244631be322d76623aac438e1c3432805b"
+        "digest": "8669fe94e80535837c68381fa692d88e6d2e70105026678c0f864e81945a56eb"
       },
       "observation": {
-        "markupSha256": "7478379bea0bd6aec3653b8d5c93fd1f0168cb5fc502f7fd635cd9026b115cd4"
+        "dom": {
+          "tag": "button",
+          "text": "Open",
+          "attributes": {
+            "includes": {
+              "type": "button",
+              "tabindex": "0",
+              "aria-haspopup": "dialog",
+              "aria-expanded": "false",
+              "data-kumo-component": "Popover",
+              "data-kumo-part": "trigger"
+            }
+          }
+        },
+        "node-identity": "preserved"
       }
     },
     {
       "component": "popover",
       "vector": "pointer-open-close-outside",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "8c71d6f751783a9f0f66d5b7b5abded5c5403dc82d3976d129457221aae1efe1"
+      },
+      "observation": {
+        "dom": {
+          "tag": "button",
+          "text": "Open",
+          "attributes": {
+            "includes": {
+              "type": "button",
+              "tabindex": "0",
+              "aria-haspopup": "dialog",
+              "aria-expanded": "false",
+              "data-kumo-component": "Popover",
+              "data-kumo-part": "trigger"
+            }
+          }
+        },
+        "state": {
+          "open": false
+        },
+        "events": [
+          "open-change:true",
+          "open-change:false"
+        ],
+        "focus": "button"
+      }
     },
     {
       "component": "popover",
       "vector": "controlled-open",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "76024b2c34938077be80ddc0cfff3389375b1eeb0b2f9f08805c7d811296feb4"
+      },
+      "observation": {
+        "dom": {
+          "tag": "button",
+          "text": "Open",
+          "attributes": {
+            "includes": {
+              "type": "button",
+              "tabindex": "0",
+              "aria-haspopup": "dialog",
+              "aria-expanded": "true",
+              "data-kumo-component": "Popover",
+              "data-kumo-part": "trigger"
+            }
+          }
+        },
+        "state": {
+          "open": true,
+          "controlled": true
+        },
+        "events": [
+          "open-change:false"
+        ],
+        "focus": "button"
+      }
     },
     {
       "component": "radio",
@@ -4544,5 +4612,5 @@
       }
     }
   ],
-  "receiptHash": "594af9c7025b3316c5ab32a94e19764fa240aa0bed84cc854d540e5401189b9a"
+  "receiptHash": "7f54b8a2c86421958333f926756438517a3908f8cb019de2f01faed23a64f99d"
 }

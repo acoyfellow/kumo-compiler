@@ -50,7 +50,7 @@ export function Popover(incoming: PopoverProps): JSX.Element {
   let popoverTrigger: HTMLButtonElement | undefined;
   let popoverContent: HTMLDivElement | undefined;
   const setPopoverOpen = (next: boolean) => { if (!controlled) setUncontrolledOpen(next); (props.onOpenChange as ((open: boolean) => void) | undefined)?.(next); if (!next) queueMicrotask(() => popoverTrigger?.focus()); };
-  const popoverSide = () => { const requested = String(popoverContentProps().side ?? "bottom"); if (requested !== "top" || !popoverTrigger) return requested; const rect = popoverTrigger.getBoundingClientRect(); return rect.top < (popoverContent?.getBoundingClientRect().height ?? 1) ? "bottom" : "top"; };
+  const popoverSide = () => { const requested = String(popoverContentProps().side ?? "bottom"); if (requested !== "top" || !popoverTrigger) return requested; const rect = popoverTrigger.getBoundingClientRect(); const offset = Number(popoverContentProps().sideOffset ?? 8); return rect.top < offset + 48 ? "bottom" : "top"; };
   const popoverKeyDown = (event: KeyboardEvent) => { if (event.key !== "Escape") return; event.preventDefault(); setPopoverOpen(false); };
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as PopoverProps & Record<string, unknown>, []);

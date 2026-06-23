@@ -6,7 +6,7 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 
 <script setup lang="ts">
 defineOptions({ inheritAttrs: false })
-import { computed, getCurrentInstance, nextTick, ref, useAttrs, useSlots } from 'vue'
+import { computed, getCurrentInstance, nextTick, onMounted, ref, useAttrs, useSlots } from 'vue'
 interface PopoverProps {
   "Close"?: unknown
   "Content"?: unknown
@@ -33,6 +33,7 @@ const triggerPart = computed(() => fixturePart('.Trigger'))
 const contentPart = computed(() => fixturePart('.Content'))
 const triggerRef = ref<HTMLButtonElement | null>(null)
 const contentRef = ref<HTMLElement | null>(null)
+const mounted = ref(false)
 const resolvedSide = ref('bottom')
 const requestedSide = computed(() => String(contentPart.value?.props?.side ?? 'bottom'))
 const align = computed(() => String(contentPart.value?.props?.align ?? 'center'))
@@ -45,6 +46,7 @@ function resolveCollision() {
   const offset = Number(contentPart.value?.props?.sideOffset ?? 8)
   if (trigger && trigger.top < contentHeight + offset) resolvedSide.value = 'bottom'
 }
+onMounted(() => { mounted.value = true; if (currentOpen.value) nextTick(resolveCollision) })
 function setOpen(next: boolean) {
   if (!controlled.value) internalOpen.value = next
   props.onOpenChange?.(next)
@@ -68,5 +70,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <button ref="triggerRef" v-bind="$attrs" type="button" tabindex="0" aria-haspopup="dialog" :aria-expanded="currentOpen" data-kumo-component="Popover" data-kumo-part="trigger" @click="setOpen(true)" @keydown="handleKey">{{ partText(triggerPart) }}<Teleport v-if="currentOpen" to="body"><div ref="contentRef" role="dialog" :data-side="resolvedSide" :data-align="align" :data-position-method="positionMethod" @keydown="handleKey"><template v-for="(child, index) in fixtureChildren(contentPart)" :key="index"><h2 v-if="child.export === '.Title'">{{ partText(child) }}</h2><p v-else-if="child.export === '.Description'">{{ partText(child) }}</p><button v-else-if="child.export === '.Close'" type="button" @click.stop="setOpen(false)">{{ partText(child) }}</button><template v-else>{{ partText(child) }}</template></template></div></Teleport></button>
+  <button ref="triggerRef" v-bind="$attrs" type="button" tabindex="0" aria-haspopup="dialog" :aria-expanded="currentOpen" data-kumo-component="Popover" data-kumo-part="trigger" @click="setOpen(true)" @keydown="handleKey">{{ partText(triggerPart) }}<Teleport v-if="mounted && currentOpen" to="body"><div ref="contentRef" role="dialog" :data-side="resolvedSide" :data-align="align" :data-position-method="positionMethod" @keydown="handleKey"><template v-for="(child, index) in fixtureChildren(contentPart)" :key="index"><h2 v-if="child.export === '.Title'">{{ partText(child) }}</h2><p v-else-if="child.export === '.Description'">{{ partText(child) }}</p><button v-else-if="child.export === '.Close'" type="button" @click.stop="setOpen(false)">{{ partText(child) }}</button><template v-else>{{ partText(child) }}</template></template></div></Teleport></button>
 </template>
