@@ -154,7 +154,13 @@ radio adapter runVector + KUMO_BROWSER_POOL) when radio runs ALONE (returns
 `checked:[false,true]`, `events:[value:pro]`, focus root). It fails (`[true,false]`) only
 in the full sequential conformance run after the button/toggle/native-input/field/clipboard/
 pagination slices have built into the shared consumer app. SSR sent is correct in both cases.
-Likely cause: a stale vite transform/cache or shared-output contamination in the reused
-consumer app dir across sequential slice builds. Next fix: isolate each slice's build
-(per-slice cacheDir or fresh consumer) so the radio client bundle is not contaminated; then
-radio should pass across all three frameworks. Radio remains blocked, no gate weakened.
+Further isolated (run 67-68): NOT accumulation/ordering (fails even as the 2nd browser slice),
+NOT vite cache (per-build cacheDir isolation added, no effect), NOT pool session reuse
+(fresh BrowserContext per request, no effect). Radio passes through the EXACT live path
+(runObservableBrowser + radio adapter runVector + pool) when invoked from a standalone
+script, but fails (`[true,false]`) when the identical call runs inside
+proof/dx/conformance/vue/run.mjs. The differentiator is something in run.mjs's invocation
+scope not yet identified by inspection. Recommended next approach: a standalone
+per-component cloud prover (proven to work) that produces cells independently of the
+monolithic run.mjs, OR byte-diff the radio client bundle produced inside run.mjs vs the
+standalone path. Radio remains blocked, no gate weakened, component proven correct.

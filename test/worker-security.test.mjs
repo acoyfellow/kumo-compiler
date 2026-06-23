@@ -6,7 +6,7 @@ import manifest from '../deploy-manifest.json' with { type: 'json' };
 const env = { WORKER_VERSION: 'test-version', GIT_COMMIT: 'a'.repeat(40), ASSETS: { fetch: async () => new Response('asset') } };
 
 test('health and version expose deployment identity with security headers', async () => {
-  for (const endpoint of ['/_health', '/_version']) {
+  for (const endpoint of ['/_health', '/_version', '/health', '/version']) {
     const response = await app.request(`https://example.test${endpoint}`, {}, env);
     assert.equal(response.status, 200);
     assert.equal(response.headers.get('x-content-type-options'), 'nosniff');

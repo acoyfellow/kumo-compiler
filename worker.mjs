@@ -18,7 +18,7 @@ app.use('*', async (c, next) => {
   await next();
   for (const [name, value] of Object.entries(securityHeaders)) c.header(name, value);
   if (!c.res.headers.has('Cache-Control')) {
-    c.header('Cache-Control', c.req.path.startsWith('/_') ? 'no-store' : 'public, max-age=300');
+    c.header('Cache-Control', (c.req.path.startsWith('/_') || c.req.path === '/health' || c.req.path === '/version') ? 'no-store' : 'public, max-age=300');
   }
 });
 
@@ -39,6 +39,8 @@ async function identity(c) {
 }
 app.get('/_health', async (c) => c.json({ ok: true, ...await identity(c) }));
 app.get('/_version', async (c) => c.json(await identity(c)));
+app.get('/health', async (c) => c.json({ ok: true, ...await identity(c) }));
+app.get('/version', async (c) => c.json(await identity(c)));
 app.get('/favicon.ico', (c) => c.body(null, 204));
 app.get('/packages/*', async (c) => {
   const route = runtimeRoute(c.req.path);
