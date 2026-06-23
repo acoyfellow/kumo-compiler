@@ -1303,8 +1303,8 @@
     "fixtureSource": "proof/dx/conformance/shared/packed-fixtures.json"
   },
   "counts": {
-    "passed": 111,
-    "blocked": 13
+    "passed": 112,
+    "blocked": 12
   },
   "staticPassed": 64,
   "browserPassed": 34,
@@ -2177,46 +2177,102 @@
       "component": "date-range-picker",
       "vector": "default-layout",
       "status": "passed",
-      "mode": "ssr",
+      "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
+      "hydration": "passed",
       "assertion": {
         "status": "passed",
-        "digest": "85bfa0d377fb8d9858cfb46d9637519c420f1f4afe4a2ad41887d5d948e2fbc6"
+        "digest": "c1b500deb17179cba32a231ae00ae5faaef96e417c11738f36a3ee88e7b04a05"
       },
       "observation": {
-        "markupSha256": "1b2decd480d254b65b352b0b7294f3b77fb7811b5ab754b2792842a32b7d5d0e"
+        "dom": {
+          "tag": "div",
+          "classes": {
+            "includes": [
+              "p-4",
+              "bg-kumo-overlay"
+            ]
+          }
+        },
+        "descendants": [
+          {
+            "selector": "button",
+            "count": 87
+          }
+        ],
+        "node-identity": "preserved"
       }
     },
     {
       "component": "date-range-picker",
       "vector": "small-subtle-timezone",
       "status": "passed",
-      "mode": "ssr",
+      "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
+      "hydration": "passed",
       "assertion": {
         "status": "passed",
-        "digest": "76f7e414cf7b0adbe09b06046f9b72e15354b721c31d9d772aec5223e69d5c31"
+        "digest": "4d696aa111c3ea7d5ace97af2c4cbe9e4de3328b60b51d092a7263e04436ad6b"
       },
       "observation": {
-        "markupSha256": "3b4ddffc39abbf77b2af3df8628e19020d902e3d7e734ba9cc0efebc4015ecc5"
+        "dom": {
+          "tag": "div",
+          "classes": {
+            "includes": [
+              "p-3",
+              "bg-kumo-base"
+            ]
+          }
+        },
+        "descendants": [
+          {
+            "selector": "button",
+            "count": 87
+          }
+        ],
+        "node-identity": "preserved"
       }
     },
     {
       "component": "date-range-picker",
       "vector": "select-range-reset",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "c51393b737a6aa3de66513c8bf68026f5d7531541d5a91bed3468a3735efc234"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "classes": {
+            "includes": [
+              "p-4",
+              "bg-kumo-overlay"
+            ]
+          }
+        },
+        "state": {
+          "start": null,
+          "end": null
+        },
+        "events": [
+          "start:date",
+          "end:date",
+          "start:null",
+          "end:null"
+        ],
+        "focus": "root",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "dialog",
@@ -4384,5 +4440,5 @@
       }
     }
   ],
-  "receiptHash": "7828e57b1cbc73c4641bbd009356fdc0a850d1591cc3e0ebc4f1cbaf9b5d5fc4"
+  "receiptHash": "554c44fa7fa419f37b5ef453a993b378987193b2363a640cb7331a2129cbc5df"
 }

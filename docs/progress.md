@@ -11,7 +11,7 @@ Machine receipt: `proof/progress/latest.json`
   `░░░░░░░░░░░░░░░░░░░░`
 - ✓ **Components in all three packages** — 41/41
   `████████████████████`
-- → **Four-framework package conformance** — 36/41
+- → **Four-framework package conformance** — 37/41
   `██████████████████░░`
 - → **Complete component examples and docs** — 2/41
   `█░░░░░░░░░░░░░░░░░░░`
@@ -38,6 +38,7 @@ Machine receipt: `proof/progress/latest.json`
 - combobox
 - command-palette
 - date-picker
+- date-range-picker
 - dialog
 - empty
 - field
