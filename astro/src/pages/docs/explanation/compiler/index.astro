@@ -1,0 +1,50 @@
+---
+import DocsLayout from '../../../../layouts/DocsLayout.astro';
+const source = 'https://github.com/acoyfellow/kumo-compiler/blob/main';
+---
+<DocsLayout title="How the compiler works" description="How canonical React Kumo observations become native framework packages with packed SSR, hydration, and browser receipts.">
+<p class="eyebrow">Explanation</p>
+<h1>How the compiler works</h1>
+<p class="lede">The compiler ports recorded Kumo behavior. It does not translate arbitrary React source.</p>
+
+<h2>What it does</h2>
+<ol>
+<li>Observe the pinned canonical React package and record executable <code>kumo.observable/v1</code> contracts.</li>
+<li>Derive framework-neutral component models and behavior capabilities.</li>
+<li>Emit native Vue, Svelte, and Solid source under fixed downstream package identities.</li>
+<li>Install each packed tarball and run SSR, hydration, trusted browser interaction, node-identity, and diagnostic checks.</li>
+<li>Record every component-by-target result as <code>passed</code>, <code>failed</code>, <code>blocked</code>, or <code>not-run</code>.</li>
+</ol>
+<p><strong>A generated file or successful build is not parity.</strong> Only a <code>passed</code> packed-package receipt supports a parity claim.</p>
+
+<h2>How it is built</h2>
+<div class="source-grid">
+<a href={`${source}/contracts/kumo.observable/v1/`}><strong>Observable contracts</strong><span>Executable behavior and provenance.</span></a>
+<a href={`${source}/src/kumo/library/`}><strong>Library algebra</strong><span>Framework-neutral state and behavior capabilities.</span></a>
+<a href={`${source}/src/kumo/emitters/`}><strong>Native emitters</strong><span>Vue, Svelte, and Solid source generation.</span></a>
+<a href={`${source}/scripts/observable-browser-runner.mjs`}><strong>Browser runner</strong><span>Trusted CDP input, hydration, diagnostics, and receipts.</span></a>
+<a href={`${source}/proof/dx/conformance/`}><strong>Conformance fixtures</strong><span>Neutral vectors and target receipts.</span></a>
+</div>
+<p>Generated files are disposable. Fixes belong in a contract, shared capability, emitter, fixture, or runner, then flow through regeneration and packed proof.</p>
+
+<h2>Where it is useful</h2>
+<ul>
+<li>Preserving one pinned behavioral authority while native targets evolve independently.</li>
+<li>Separating shared behavior from framework syntax.</li>
+<li>Locating failures at the contract, emitter, package, hydration, or browser boundary.</li>
+<li>Adding a target without weakening the component-by-target evidence matrix.</li>
+</ul>
+<p>Components outside the recorded contracts are outside the compiler's claim.</p>
+
+<h2>Adding a target</h2>
+<ol>
+<li>Define an adapter and native emitter against the existing contracts and algebra.</li>
+<li>Add target comparison pages.</li>
+<li>Earn the complete executable component-by-target matrix with the same packed SSR, hydration, and browser receipts.</li>
+</ol>
+<p>An adapter, emitted tree, build, or comparison page alone does not establish support.</p>
+</DocsLayout>
+<style>
+.eyebrow{margin:0 0 10px;color:#b45309;font-size:13px;font-weight:850;text-transform:uppercase;letter-spacing:.09em}
+.source-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:20px 0}.source-grid a{display:block;padding:16px;border:1px solid #d8dde5;border-radius:9px;color:#111827;text-decoration:none}.source-grid strong,.source-grid span{display:block}.source-grid span{margin-top:5px;color:#64748b;line-height:1.45}@media(max-width:680px){.source-grid{grid-template-columns:1fr}}
+</style>
