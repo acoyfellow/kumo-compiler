@@ -234,8 +234,8 @@
     "fixtureSource": "proof/dx/conformance/shared/packed-fixtures.json"
   },
   "counts": {
-    "blocked": 28,
-    "passed": 96
+    "blocked": 26,
+    "passed": 98
   },
   "totalVectors": 124,
   "diagnostics": [],
@@ -1570,40 +1570,127 @@
       "component": "menu-bar",
       "vector": "empty-nav-ssr",
       "status": "passed",
-      "mode": "ssr",
+      "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
+      "hydration": "passed",
       "assertion": {
         "status": "passed",
-        "digest": "ebd5559f579a567fe0e7bb5610fbf5cf008ed4bef1772bac95baf1e7593ccd70"
+        "digest": "d52c041e2bdad4d46d9efc29e1a1bde30ee4a35a58223ac8930b4c2f74e7e653"
       },
       "observation": {
-        "markupSha256": "b6761443ec3df1f04de5a2a696b40f46379802cca3f3a2f52beeb23a3415041f"
+        "dom": {
+          "tag": "nav",
+          "classes": {
+            "includes": [
+              "isolate",
+              "flex",
+              "rounded-lg",
+              "ring-kumo-line",
+              "bg-kumo-recessed"
+            ]
+          },
+          "text": "",
+          "attributes": {
+            "includes": {
+              "class": "isolate flex rounded-lg ring-kumo-line bg-kumo-recessed"
+            }
+          }
+        },
+        "descendants": [
+          {
+            "selector": "button",
+            "count": 0
+          }
+        ],
+        "node-identity": "preserved"
       }
     },
     {
       "component": "menu-bar",
       "vector": "buttons-active-index",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "9aca8ad88364d954199d219203cfbb1d8d9200fd19ffbbe3811174599262292b"
+      },
+      "observation": {
+        "dom": {
+          "tag": "nav",
+          "classes": {
+            "includes": [
+              "isolate",
+              "flex",
+              "rounded-lg",
+              "ring-kumo-line",
+              "bg-kumo-recessed"
+            ]
+          },
+          "text": "ListGrid",
+          "attributes": {
+            "includes": {
+              "class": "isolate flex rounded-lg ring-kumo-line bg-kumo-recessed"
+            }
+          }
+        },
+        "state": {
+          "active": 0,
+          "allButtonsNativeTabbable": true,
+          "activeSelectionAriaAbsent": true
+        },
+        "events": [
+          "click:0"
+        ],
+        "focus": "button",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "menu-bar",
       "vector": "active-by-id",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "bbd8f118142fc1e605113a74efa09ea138d1ae86791fb176b766257cf746549c"
+      },
+      "observation": {
+        "dom": {
+          "tag": "nav",
+          "classes": {
+            "includes": [
+              "isolate",
+              "flex",
+              "rounded-lg",
+              "ring-kumo-line",
+              "bg-kumo-recessed"
+            ]
+          },
+          "text": "ListGrid",
+          "attributes": {
+            "includes": {
+              "class": "isolate flex rounded-lg ring-kumo-line bg-kumo-recessed"
+            }
+          }
+        },
+        "state": {
+          "active": "grid",
+          "activeSelectionAriaAbsent": true
+        },
+        "events": [],
+        "focus": "button",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "meter",
@@ -2894,5 +2981,5 @@
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     }
   ],
-  "receiptHash": "fce7b42f2859124bfe3375f6baf50e7434dbf8b4a9a816103011805fb488ad0e"
+  "receiptHash": "798cf6c2b2b54390da0210222b0d6bb83f5d5669d500d63a1dadf27061d408b0"
 }
