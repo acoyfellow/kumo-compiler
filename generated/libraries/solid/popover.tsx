@@ -51,11 +51,11 @@ export function Popover(incoming: PopoverProps): JSX.Element {
   let popoverContent: HTMLDivElement | undefined;
   const setPopoverOpen = (next: boolean) => { if (!controlled) setUncontrolledOpen(next); (props.onOpenChange as ((open: boolean) => void) | undefined)?.(next); if (!next) queueMicrotask(() => popoverTrigger?.focus()); };
   const popoverSide = () => { const requested = String(popoverContentProps().side ?? "bottom"); if (requested !== "top" || !popoverTrigger) return requested; const rect = popoverTrigger.getBoundingClientRect(); return rect.top < (popoverContent?.getBoundingClientRect().height ?? 1) ? "bottom" : "top"; };
-  const popoverKeyDown: JSX.EventHandlerUnion<HTMLDivElement, KeyboardEvent> = event => { if (event.key !== "Escape") return; event.preventDefault(); setPopoverOpen(false); };
+  const popoverKeyDown = (event: KeyboardEvent) => { if (event.key !== "Escape") return; event.preventDefault(); setPopoverOpen(false); };
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as PopoverProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  return (<><button ref={popoverTrigger} type="button" tabindex="0" aria-haspopup="dialog" aria-expanded={popoverOpen()} data-kumo-component="Popover" data-kumo-part="trigger" onClick={() => setPopoverOpen(!popoverOpen())}>{popoverTriggerText()}</button><Show when={popoverOpen()} children={<div ref={popoverContent} role="dialog" data-side={popoverSide()} data-align={popoverContentProps().align as string ?? "center"} data-position-method={popoverContentProps().positionMethod as string ?? "absolute"} onKeyDown={popoverKeyDown}>{popoverContentText()}</div>} /></>);
+  return (<><button ref={popoverTrigger} type="button" tabindex="0" aria-haspopup="dialog" aria-expanded={popoverOpen()} data-kumo-component="Popover" data-kumo-part="trigger" onClick={() => setPopoverOpen(!popoverOpen())} onKeyDown={popoverKeyDown}>{popoverTriggerText()}</button><Show when={popoverOpen()} children={<div ref={popoverContent} role="dialog" data-side={popoverSide()} data-align={popoverContentProps().align as string ?? "center"} data-position-method={popoverContentProps().positionMethod as string ?? "absolute"} onKeyDown={popoverKeyDown}>{popoverContentText()}</div>} /></>);
 }
 
 export function PopoverClose(props: CompoundPartProps): JSX.Element {
