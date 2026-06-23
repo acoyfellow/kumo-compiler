@@ -246,8 +246,8 @@
     "toggleExecutor": "proof/dx/conformance/shared/toggle-executor.mjs"
   },
   "counts": {
-    "passed": 105,
-    "blocked": 19
+    "passed": 106,
+    "blocked": 18
   },
   "totalVectors": 124,
   "diagnostics": [],
@@ -964,29 +964,59 @@
       "component": "command-palette",
       "vector": "highlighted-text",
       "status": "passed",
-      "mode": "ssr",
+      "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
+      "hydration": "passed",
       "assertion": {
         "status": "passed",
-        "digest": "2e80fef2335d8d9dd11942d7c52120b37fca05902a2e48c680b8833b7ffd8f2b"
+        "digest": "0b59b2beddb3863ef743f4a146ca7d23da741a00cf281187db9d61ace4cd4134"
       },
       "observation": {
-        "markupSha256": "00bd759646c4df70db9d426ba65b6663c11f3b37a00892ab7f4960f937b5e376"
+        "dom": {
+          "tag": "span"
+        },
+        "descendants": [
+          {
+            "selector": "mark",
+            "count": 1,
+            "text": "Cloud"
+          }
+        ],
+        "node-identity": "preserved"
       }
     },
     {
       "component": "command-palette",
       "vector": "open-search-close",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "1035966c3318945227400d09af6dd53b9c64ede209babf72fe5acc11270b913f"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div"
+        },
+        "state": {
+          "value": "W",
+          "open": false
+        },
+        "events": [
+          "highlight:Workers",
+          "value:W",
+          "highlight:Pages",
+          "open:false"
+        ],
+        "focus": "none",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "date-picker",
@@ -3223,5 +3253,5 @@
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     }
   ],
-  "receiptHash": "f0d1b077fc6476294f32d387da0ea86d9ab74211ded0041781898551d7a10d23"
+  "receiptHash": "23b70e90724f00222bb2d81f20ac296807c6ecc8da760973050970400da4851e"
 }
