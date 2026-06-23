@@ -169,7 +169,7 @@ function component(model,capabilities){
   void activeMenuIndex;
 `:''}${dialog?`  type DialogFixtureNode = { export?: string; text?: string; children?: DialogFixtureNode[] };
   type DialogFixture = { children?: DialogFixtureNode[] };
-  const dialogFixture = $derived.by(() => { const root = fixture as DialogFixture | undefined; const nodes = root?.children ?? []; const find = (part: string) => nodes.flatMap(node => node.children ?? []).find(node => node.export === part); const text = (node?: DialogFixtureNode): string | undefined => node?.children?.map(child => child.text ?? text(child) ?? '').join(''); return { triggerText: text(nodes.find(node => node.export === '.Trigger')), title: text(find('.Title')), description: text(find('.Description')), closeText: text(find('.Close')) }; });
+  const dialogFixture = $derived.by(() => { const root = fixture as DialogFixture | undefined; const nodes = root?.children ?? []; const find = (part: string) => nodes.flatMap(node => node.children ?? []).find(node => node.export === part); const text = (node: DialogFixtureNode | undefined): string | undefined => node?.children?.map(child => child.text ?? text(child) ?? '').join(''); return { triggerText: text(nodes.find(node => node.export === '.Trigger')), title: text(find('.Title')), description: text(find('.Description')), closeText: text(find('.Close')) }; });
   const controlledDialog = $derived(open !== undefined);
   let uncontrolledDialogOpen = $state(Boolean(defaultOpen));
   const currentDialogOpen = $derived(controlledDialog ? Boolean(open) : uncontrolledDialogOpen);
