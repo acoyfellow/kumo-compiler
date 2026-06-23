@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "kumo.sensitive-input/v1",
+  "component": "sensitive-input",
+  "support": "supported",
+  "root": {
+    "tag": "div"
+  },
+  "parts": [
+    "masked-container",
+    "input",
+    "reveal",
+    "copy"
+  ],
+  "input": {
+    "type": "password",
+    "holdsValue": true,
+    "defaultValueProp": "defaultValue"
+  },
+  "reveal": {
+    "trigger": "click masked-container",
+    "focuses": "input"
+  },
+  "edit": {
+    "event": "value:<next>",
+    "staysType": "password"
+  },
+  "copy": {
+    "writesClipboard": "current value",
+    "announcesLiveRegion": true,
+    "event": "copy"
+  },
+  "unknowns": [
+    {
+      "field": "inheritedVendorBehavior",
+      "status": "unknown",
+      "reason": "Vendor behavior beyond the asserted masked/reveal/edit/copy observable surface is not established by the canonical contract."
+    }
+  ],
+  "vectorIds": [
+    "masked",
+    "reveal-edit-escape",
+    "copy"
+  ],
+  "provenance": {
+    "component": "sensitive-input",
+    "contractPath": "contracts/kumo.observable/v1/components/sensitive-input.json",
+    "contractDigest": "1be275166efac270e45a2672b8313927fe15d0409fcc9ba113c7fc5a6c46a8f0",
+    "vectorIds": [
+      "masked",
+      "reveal-edit-escape",
+      "copy"
+    ]
+  },
+  "capabilityDigest": "109320aa1a7c17f482922c029d1776f9c58d3dd4f337b443bfc8216eddcc8678"
+}
