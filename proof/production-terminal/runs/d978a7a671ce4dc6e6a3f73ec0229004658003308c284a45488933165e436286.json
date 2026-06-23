@@ -1,0 +1,309 @@
+{
+  "observedAt": "2026-06-23T17:43:50.407Z",
+  "identity": {
+    "commit": "3177298bf23480601b030e12e1fba33574fcfb8b",
+    "manifestHash": "184713091e3fccfde8eee935e01cdd16c729b76a42d5582fd2d3a7659f18f3e3",
+    "service": "kumo-compiler-proof",
+    "version": "2026.06.20"
+  },
+  "http": {
+    "/": {
+      "body": "<!DOCTYPE html><html lang=\"en\" data-astro-cid-sckkx6r4><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><meta name=\"color-scheme\" content=\"light\"><title>Kumo native framework packages</title><meta name=\"description\" content=\"A receipt-backed application composed from installed native Vue, Svelte, and Solid Kumo packages.\"><link rel=\"canonical\" href=\"https://kumo-compiler.coey.dev/\"><meta name=\"robots\" content=\"index,follow,max-image-preview:large\"><meta property=\"og:type\" content=\"website\"><meta property=\"og:site_name\" content=\"Kumo compiler\"><meta property=\"og:title\" content=\"Kumo native framework packages\"><meta property=\"og:description\" content=\"A receipt-backed application composed from installed native Vue, Svelte, and Solid Kumo packages.\"><meta property=\"og:url\" content=\"https://kumo-compiler.coey.dev/\"><meta property=\"og:image\" content=\"https://kumo-compiler.coey.dev/og-card.svg\"><meta property=\"og:image:alt\" content=\"Kumo framework libraries — receipt-proven native packages for Vue, Svelte, and Solid\"><meta name=\"twitter:card\" content=\"summary_large_image\"><meta name=\"twitter:title\" content=\"Kumo native framework packages\"><meta name=\"twitter:description\" content=\"A receipt-backed application composed from installed native Vue, Svelte, and Solid Kumo packages.\"><meta name=\"twitter:image\" content=\"https://kumo-compiler.coey.dev/og-card.svg\"><meta name=\"theme-color\" content=\"#f5f6f8\"><link rel=\"icon\" href=\"/favicon.svg\" type=\"image/svg+xml\"><link rel=\"apple-touch-icon\" href=\"/icon-192.png\"><link rel=\"manifest\" href=\"/manifest.webmanifest\"><script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"SoftwareApplication\",\"name\":\"Kumo framework libraries\",\"applicationCategory\":\"DeveloperApplication\",\"operatingSystem\":\"Web\",\"url\":\"https://kumo-compiler.coey.dev\",\"description\":\"A receipt-backed application composed from installed native Vue, Svelte, and Solid Kumo packages.\",\"softwareVersion\":\"0.0.1\",\"offers\":{\"@type\":\"Offer\",\"price\":\"0\",\"priceCurrency\":\"USD\"}}</script><script>if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'));</script><link rel=\"stylesheet\" href=\"/kumo.css\"><style>.site-nav[data-astro-cid-4lunwx2e]{position:sticky;top:0;z-index:50;border-bottom:1px solid #d8dde5;background:#fff}.site-nav__inner[data-astro-cid-4lunwx2e]{display:flex;align-items:center;justify-content:space-between;width:min(100%,1200px);min-height:64px;margin:auto;padding:8px clamp(18px,4vw,40px)}.site-nav__brand[data-astro-cid-4lunwx2e]{color:#111827;font-size:15px;font-weight:850;letter-spacing:-.015em;text-decoration:none}.site-nav__brand[data-astro-cid-4lunwx2e]:after{content:\"\";display:inline-block;width:6px;height:6px;margin-left:5px;background:#f48120}.site-nav__desktop[data-astro-cid-4lunwx2e]{display:flex;gap:6px}.site-nav__desktop[data-astro-cid-4lunwx2e] a[data-astro-cid-4lunwx2e]{display:inline-flex;align-items:center;min-height:44px;padding:0 11px;border-radius:7px;color:#334155;font-size:14px;font-weight:750;text-decoration:none}.site-nav__desktop[data-astro-cid-4lunwx2e] a[data-astro-cid-4lunwx2e][aria-current=page]{background:#e8eef8;color:#111827}.site-nav__toggle[data-astro-cid-4lunwx2e]{display:none;width:44px;height:44px;padding:10px;border:0;border-radius:7px;background:#f1f5f9}.site-nav__toggle[data-astro-cid-4lunwx2e] span[data-astro-cid-4lunwx2e]:not(.sr-only){display:block;width:22px;height:2px;margin:4px auto;background:#111827}.sr-only[data-astro-cid-4lunwx2e]{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.site-nav__backdrop[data-astro-cid-4lunwx2e]{position:fixed;inset:0;z-index:51;background:#0f172a99}.site-nav__drawer[data-astro-cid-4lunwx2e]{position:fixed;top:0;right:0;z-index:52;width:min(88vw,360px);height:100dvh;padding:18px;background:#fff;box-shadow:-12px 0 40px #0f172a33}.site-nav__drawer-head[data-astro-cid-4lunwx2e]{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid #d8dde5}.site-nav__drawer-head[data-astro-cid-4lunwx2e] button[data-astro-cid-4lunwx2e]{width:44px;height:44px;border:0;border-radius:7px;background:#f1f5f9;font-size:30px}.site-nav__drawer[data-astro-cid-4lunwx2e]>a[data-astro-cid-4lunwx2e]{display:flex;align-items:center;min-height:48px;padding:8px 12px;border-radius:7px;color:#111827;font-weight:750;text-decoration:none}.site-nav__drawer[data-astro-cid-4lunwx2e]>a[data-astro-cid-4lunwx2e][aria-current=page]{background:#e8eef8}.site-nav[data-astro-cid-4lunwx2e] a[data-astro-cid-4lunwx2e]:focus-visible,.site-nav[data-astro-cid-4lunwx2e] button[data-astro-cid-4lunwx2e]:focus-visible{outline:3px solid #2563eb;outline-offset:2px}@media(max-width:700px){.site-nav__desktop[data-astro-cid-4lunwx2e]{display:none}.site-nav__toggle[data-astro-cid-4lunwx2e]{display:block}}@media(min-width:701px){.site-nav__drawer[data-astro-cid-4lunwx2e],.site-nav__backdrop[data-astro-cid-4lunwx2e]{display:none!important}}\n.sink[data-astro-cid-6fexkowe]{padding:clamp(32px,6vw,70px) 0}.intro[data-astro-cid-6fexkowe]{max-width:900px}.eyebrow[data-astro-cid-6fexkowe]{margin:0 0 10px;color:#b45309;font-size:12px;font-weight:850;letter-spacing:.1em;text-transform:uppercase}h1[data-astro-cid-6fexkowe]{margin:0;font-size:clamp(40px,7vw,76px);line-height:1;letter-spacing:-.05em}.intro[data-astro-cid-6fexkowe]>p[data-astro-cid-6fexkowe]:last-child{max-width:760px;color:#475569;font-size:19px;line-height:1.55}.controls[data-astro-cid-6fexkowe]{position:sticky;z-index:5;top:0;margin-top:28px;padding:8px 0;background:var(--page-background,#fff)}.switcher[data-astro-cid-6fexkowe]{display:flex;gap:6px;padding:6px;border:1px solid #cbd5e1;border-radius:12px;background:#f8fafc}.switcher[data-astro-cid-6fexkowe] button[data-astro-cid-6fexkowe]{flex:1;min-height:44px;border:0;border-radius:8px;background:transparent;color:#475569;font-weight:800}.switcher[data-astro-cid-6fexkowe] button[data-astro-cid-6fexkowe][aria-selected=true]{background:#111827;color:#fff}.section-index[data-astro-cid-6fexkowe]{display:flex;gap:16px;padding:10px 4px 2px;overflow:auto;white-space:nowrap}.section-index[data-astro-cid-6fexkowe] a[data-astro-cid-6fexkowe]{color:#075fc7;font-size:13px;text-transform:capitalize}.panel[data-astro-cid-6fexkowe]{margin-top:12px;border:1px solid #cbd5e1;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 20px 60px #0f172a12}.panel[data-astro-cid-6fexkowe] iframe[data-astro-cid-6fexkowe]{display:block;width:100%;height:min(78vh,920px);min-height:660px;border:0;color-scheme:light dark}.evidence[data-astro-cid-6fexkowe]{margin:14px 0 0;padding:14px;border-left:4px solid #f48120;background:#fff7ed;color:#475569;line-height:1.5}.evidence[data-astro-cid-6fexkowe] a[data-astro-cid-6fexkowe]{color:#075fc7}@media(prefers-color-scheme:dark){.controls[data-astro-cid-6fexkowe]{background:#111827}.switcher[data-astro-cid-6fexkowe]{border-color:#475569;background:#1e293b}.switcher[data-astro-cid-6fexkowe] button[data-astro-cid-6fexkowe]{color:#cbd5e1}.switcher[data-astro-cid-6fexkowe] button[data-astro-cid-6fexkowe][aria-selected=true]{background:#f8fafc;color:#111827}.section-index[data-astro-cid-6fexkowe] a[data-astro-cid-6fexkowe]{color:#80bfff}.panel[data-astro-cid-6fexkowe]{border-color:#475569;background:#0f172a}.evidence[data-astro-cid-6fexkowe]{background:#292219;color:#e2e8f0}}@media(max-width:600px){.panel[data-astro-cid-6fexkowe] iframe[data-astro-cid-6fexkowe]{height:78vh;min-height:700px}.evidence[data-astro-cid-6fexkowe]{font-size:14px}}\n:root{--gutter:clamp(18px,4vw,40px);color-scheme:light}[data-astro-cid-sckkx6r4]{box-sizing:border-box}html{overflow-x:hidden;background:#f5f6f8}body{min-width:0;margin:0;background:#f5f6f8;color:#111827;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;-webkit-font-smoothing:antialiased;overflow-wrap:anywhere}.nav[data-astro-cid-sckkx6r4]{border-bottom:1px solid #d8dde5;background:#fff}.nav-inner[data-astro-cid-sckkx6r4]{display:flex;align-items:center;justify-content:space-between;width:min(100%,1200px);margin:auto;padding:10px var(--gutter)}.nav-links[data-astro-cid-sckkx6r4]{display:flex;gap:12px}.nav-links[data-astro-cid-sckkx6r4] a[data-astro-cid-sckkx6r4]{display:inline-flex;align-items:center;min-height:44px;color:#334155;font-size:14px;font-weight:750;text-decoration:none}.brand[data-astro-cid-sckkx6r4],.back[data-astro-cid-sckkx6r4]{display:inline-flex;align-items:center;min-height:44px;color:#111827;font-size:15px;font-weight:800;letter-spacing:-.015em;text-decoration:none}.brand[data-astro-cid-sckkx6r4]:after{content:\"\";display:inline-block;width:6px;height:6px;margin-left:5px;border-radius:1px;background:#f48120}.shell[data-astro-cid-sckkx6r4]{width:min(100%,1200px);min-width:0;margin:auto;padding:34px var(--gutter) 64px}a[data-astro-cid-sckkx6r4]{text-underline-offset:.18em}.touch-link[data-astro-cid-sckkx6r4]{display:inline-flex;align-items:center;min-height:44px;padding-inline:4px}.touch-link[data-astro-cid-sckkx6r4]:has(+.touch-link){margin-right:4px}a[data-astro-cid-sckkx6r4]:focus-visible,button[data-astro-cid-sckkx6r4]:focus-visible,summary[data-astro-cid-sckkx6r4]:focus-visible{outline:3px solid #2563eb;outline-offset:3px;border-radius:2px}.table,.table-scroll{display:block;width:100%;min-width:0;max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-gutter:stable}.table:focus-visible,.table-scroll:focus-visible{outline:3px solid #2563eb;outline-offset:2px}@media(max-width:600px){.nav-inner[data-astro-cid-sckkx6r4]{padding-block:8px}.shell[data-astro-cid-sckkx6r4]{padding-top:24px;padding-bottom:48px}}\n</style></head><body data-astro-cid-sckkx6r4><header class=\"site-nav\" data-astro-cid-4lunwx2e><div class=\"site-nav__inner\" data-astro-cid-4lunwx2e><a class=\"site-nav__brand\" href=\"/\" aria-label=\"Kumo compiler home\" data-astro-cid-4lunwx2e>Kumo compiler</a><nav class=\"site-nav__desktop\" aria-label=\"Primary\" data-astro-cid-4lunwx2e><a href=\"/\" aria-current=\"page\" data-astro-cid-4lunwx2e>Home</a><a href=\"/examples/\" data-astro-cid-4lunwx2e>Examples</a><a href=\"/docs/\" data-astro-cid-4lunwx2e>Docs</a><a href=\"/docs/progress/\" data-astro-cid-4lunwx2e>Progress</a><a href=\"/docs/reference/packages/\" data-astro-cid-4lunwx2e>Packages</a></nav><button class=\"site-nav__toggle\" type=\"button\" aria-expanded=\"false\" aria-controls=\"mobile-navigation\" data-astro-cid-4lunwx2e><span class=\"sr-only\" data-astro-cid-4lunwx2e>Open navigation</span><span data-astro-cid-4lunwx2e></span><span data-astro-cid-4lunwx2e></span><span data-astro-cid-4lunwx2e></span></button></div><div class=\"site-nav__backdrop\" hidden data-astro-cid-4lunwx2e></div><nav id=\"mobile-navigation\" class=\"site-nav__drawer\" aria-label=\"Mobile\" hidden data-astro-cid-4lunwx2e><div class=\"site-nav__drawer-head\" data-astro-cid-4lunwx2e><strong data-astro-cid-4lunwx2e>Navigate</strong><button type=\"button\" data-close aria-label=\"Close navigation\" data-astro-cid-4lunwx2e>×</button></div><a href=\"/\" aria-current=\"page\" data-astro-cid-4lunwx2e>Home</a><a href=\"/examples/\" data-astro-cid-4lunwx2e>Examples</a><a href=\"/docs/\" data-astro-cid-4lunwx2e>Docs</a><a href=\"/docs/progress/\" data-astro-cid-4lunwx2e>Progress</a><a href=\"/docs/reference/packages/\" data-astro-cid-4lunwx2e>Packages</a><a href=\"/libraries/vue/\" data-astro-cid-4lunwx2e>Vue library</a><a href=\"/libraries/svelte/\" data-astro-cid-4lunwx2e>Svelte library</a><a href=\"/libraries/solid/\" data-astro-cid-4lunwx2e>Solid library</a></nav></header> <script type=\"module\">const d=document.querySelector(\".site-nav\"),r=d?.querySelector(\".site-nav__toggle\"),c=d?.querySelector(\".site-nav__drawer\"),n=d?.querySelector(\".site-nav__backdrop\"),i=d?.querySelector(\"[data-close]\");let a;const t=e=>{!r||!c||!n||(r.setAttribute(\"aria-expanded\",String(e)),c.hidden=!e,n.hidden=!e,document.body.style.overflow=e?\"hidden\":\"\",e?(a=document.activeElement,i?.focus()):a instanceof HTMLElement&&a.focus())};r?.addEventListener(\"click\",()=>t(r.getAttribute(\"aria-expanded\")!==\"true\"));i?.addEventListener(\"click\",()=>t(!1));n?.addEventListener(\"click\",()=>t(!1));c?.querySelectorAll(\"a\").forEach(e=>e.addEventListener(\"click\",()=>t(!1)));document.addEventListener(\"keydown\",e=>{e.key===\"Escape\"&&t(!1)});</script> <main class=\"shell\" data-astro-cid-sckkx6r4> <section class=\"sink\" aria-labelledby=\"sink-title\" data-astro-cid-6fexkowe> <header class=\"intro\" data-astro-cid-6fexkowe><p class=\"eyebrow\" data-astro-cid-6fexkowe>41 / 41 · receipts passed</p><h1 id=\"sink-title\" data-astro-cid-6fexkowe>The complete native component catalog.</h1><p data-astro-cid-6fexkowe>Every card below is rendered by the selected framework’s installed package tarball, with its contract unknowns and evidence links kept visible.</p></header> <div class=\"controls\" data-astro-cid-6fexkowe> <div class=\"switcher\" role=\"tablist\" aria-label=\"Catalog framework\" data-astro-cid-6fexkowe> <button type=\"button\" role=\"tab\" id=\"sink-tab-vue\" aria-controls=\"sink-vue\" aria-selected=\"true\" tabindex=\"0\" data-sink-tab=\"vue\" data-astro-cid-6fexkowe>Vue</button><button type=\"button\" role=\"tab\" id=\"sink-tab-svelte\" aria-controls=\"sink-svelte\" aria-selected=\"false\" tabindex=\"-1\" data-sink-tab=\"svelte\" data-astro-cid-6fexkowe>Svelte</button><button type=\"button\" role=\"tab\" id=\"sink-tab-solid\" aria-controls=\"sink-solid\" aria-selected=\"false\" tabindex=\"-1\" data-sink-tab=\"solid\" data-astro-cid-6fexkowe>Solid</button> </div> <nav class=\"section-index\" aria-label=\"Component categories\" data-astro-cid-6fexkowe><a href=\"#foundations\" data-section-link=\"foundations\" data-astro-cid-6fexkowe>foundations</a><a href=\"#forms\" data-section-link=\"forms\" data-astro-cid-6fexkowe>forms</a><a href=\"#navigation\" data-section-link=\"navigation\" data-astro-cid-6fexkowe>navigation</a><a href=\"#collections\" data-section-link=\"collections\" data-astro-cid-6fexkowe>collections</a><a href=\"#layers\" data-section-link=\"layers\" data-astro-cid-6fexkowe>layers</a><a href=\"#data-layout\" data-section-link=\"data-layout\" data-astro-cid-6fexkowe>data &amp; layout</a><a href=\"#dates\" data-section-link=\"dates\" data-astro-cid-6fexkowe>dates</a></nav> </div> <div class=\"panel\" role=\"tabpanel\" id=\"sink-vue\" aria-labelledby=\"sink-tab-vue\" data-sink-panel=\"vue\" data-astro-cid-6fexkowe><iframe title=\"vue installed-package all 41 component catalog\" src=\"/library-gallery/vue/\" loading=\"eager\" data-astro-cid-6fexkowe></iframe></div><div class=\"panel\" role=\"tabpanel\" id=\"sink-svelte\" aria-labelledby=\"sink-tab-svelte\" hidden data-sink-panel=\"svelte\" data-astro-cid-6fexkowe><iframe title=\"svelte installed-package all 41 component catalog\" src=\"/library-gallery/svelte/\" loading=\"lazy\" data-astro-cid-6fexkowe></iframe></div><div class=\"panel\" role=\"tabpanel\" id=\"sink-solid\" aria-labelledby=\"sink-tab-solid\" hidden data-sink-panel=\"solid\" data-astro-cid-6fexkowe><iframe title=\"solid installed-package all 41 component catalog\" src=\"/library-gallery/solid/\" loading=\"lazy\" data-astro-cid-6fexkowe></iframe></div> <p class=\"evidence\" data-astro-cid-6fexkowe><strong data-astro-cid-6fexkowe>Rendered:</strong> all 41 components, using 123 package subpath imports. <strong data-astro-cid-6fexkowe>Omissions:</strong> none. <a href=\"/packages/manifest.json\" data-astro-cid-6fexkowe>Inspect package provenance.</a></p> </section> <script type=\"module\">const a=[...document.querySelectorAll(\"[data-sink-tab]\")],c=[...document.querySelectorAll(\"[data-sink-panel]\")];function r(t){a.forEach(e=>{const n=e.dataset.sinkTab===t;e.setAttribute(\"aria-selected\",String(n)),e.tabIndex=n?0:-1}),c.forEach(e=>e.hidden=e.dataset.sinkPanel!==t)}a.forEach((t,e)=>{t.addEventListener(\"click\",()=>r(t.dataset.sinkTab)),t.addEventListener(\"keydown\",n=>{if(![\"ArrowLeft\",\"ArrowRight\",\"Home\",\"End\"].includes(n.key))return;n.preventDefault();const o=n.key===\"Home\"?0:n.key===\"End\"?a.length-1:(e+(n.key===\"ArrowRight\"?1:-1)+a.length)%a.length;r(a[o].dataset.sinkTab),a[o].focus()})});document.querySelectorAll(\"[data-section-link]\").forEach(t=>t.addEventListener(\"click\",e=>{e.preventDefault(),document.querySelector(\"[data-sink-panel]:not([hidden])\")?.querySelector(\"iframe\")?.contentWindow?.document.getElementById(t.dataset.sectionLink)?.scrollIntoView({behavior:\"smooth\"})}));</script>  </main></body></html>",
+      "contentType": "text/html",
+      "security": {
+        "content-security-policy": "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://static-staging.cloudflareinsights.com; connect-src 'self' https://cloudflareinsights.com https://*.cloudflareinsights.com; img-src 'self' data:; font-src 'self' data:; object-src 'none'; base-uri 'none'; frame-ancestors 'self'",
+        "strict-transport-security": "max-age=31536000; includeSubDomains",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer"
+      }
+    },
+    "/packages/manifest.json": {
+      "body": "{\n  \"schemaVersion\": 1,\n  \"packages\": [\n    {\n      \"package\": \"@acoyfellow/kumo-vue\",\n      \"version\": \"0.0.1\",\n      \"framework\": \"vue\",\n      \"sha256\": \"e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab\",\n      \"integrity\": \"sha512-+CqPoHMsQ1uxFEdRD+Jq4uYWJyw3mj/4aIN/fCzkm1npwsbYzBdbMC2m2TKf5z/jAp9BswHkqDkGkdVjLt7Ryw==\",\n      \"bytes\": 53057,\n      \"components\": [\n        \"autocomplete\",\n        \"badge\",\n        \"banner\",\n        \"breadcrumbs\",\n        \"button\",\n        \"checkbox\",\n        \"clipboard-text\",\n        \"cloudflare-logo\",\n        \"code\",\n        \"combobox\",\n        \"command-palette\",\n        \"date-picker\",\n        \"date-range-picker\",\n        \"dialog\",\n        \"dropdown-menu\",\n        \"empty\",\n        \"field\",\n        \"grid\",\n        \"grid-item\",\n        \"input\",\n        \"input-area\",\n        \"input-group\",\n        \"label\",\n        \"layer-card\",\n        \"link\",\n        \"loader\",\n        \"menu-bar\",\n        \"meter\",\n        \"pagination\",\n        \"popover\",\n        \"radio\",\n        \"select\",\n        \"sensitive-input\",\n        \"sidebar\",\n        \"surface\",\n        \"switch\",\n        \"table\",\n        \"table-of-contents\",\n        \"tabs\",\n        \"text\",\n        \"toasty\"\n      ],\n      \"installUrl\": \"/packages/kumo-vue-0.0.1.tgz\",\n      \"artifact\": \"e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab.tgz\",\n      \"friendlyName\": \"kumo-vue-0.0.1.tgz\",\n      \"receiptDigest\": \"ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543\",\n      \"sourceTree\": \"c30aadd78d45e2f01aca2bc4ce7a03a4f16c32f5\",\n      \"sourceTreeDigest\": \"449adec482b8374970dd7b78c934a94c2e4e80afb1a552da0bd7d4ee1ade8576\"\n    },\n    {\n      \"package\": \"@acoyfellow/kumo-svelte\",\n      \"version\": \"0.0.1\",\n      \"framework\": \"svelte\",\n      \"sha256\": \"a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed\",\n      \"integrity\": \"sha512-RC+GbRCmGZPFyiJM86lY9qourCiBu11ThNrZFVWFsxbwvp8xGkCqB771RALAkx+kTjMtdWMXta+iwspbokiRtg==\",\n      \"bytes\": 75255,\n      \"components\": [\n        \"autocomplete\",\n        \"badge\",\n        \"banner\",\n        \"breadcrumbs\",\n        \"button\",\n        \"checkbox\",\n        \"clipboard-text\",\n        \"cloudflare-logo\",\n        \"code\",\n        \"combobox\",\n        \"command-palette\",\n        \"date-picker\",\n        \"date-range-picker\",\n        \"dialog\",\n        \"dropdown-menu\",\n        \"empty\",\n        \"field\",\n        \"grid\",\n        \"grid-item\",\n        \"input\",\n        \"input-area\",\n        \"input-group\",\n        \"label\",\n        \"layer-card\",\n        \"link\",\n        \"loader\",\n        \"menu-bar\",\n        \"meter\",\n        \"pagination\",\n        \"popover\",\n        \"radio\",\n        \"select\",\n        \"sensitive-input\",\n        \"sidebar\",\n        \"surface\",\n        \"switch\",\n        \"table\",\n        \"table-of-contents\",\n        \"tabs\",\n        \"text\",\n        \"toasty\"\n      ],\n      \"installUrl\": \"/packages/kumo-svelte-0.0.1.tgz\",\n      \"artifact\": \"a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed.tgz\",\n      \"friendlyName\": \"kumo-svelte-0.0.1.tgz\",\n      \"receiptDigest\": \"012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7\",\n      \"sourceTree\": \"c30aadd78d45e2f01aca2bc4ce7a03a4f16c32f5\",\n      \"sourceTreeDigest\": \"146de44df84bbf92a5d40d85c8442b3b0070a0ca4b2369344dd85035954ccd24\"\n    },\n    {\n      \"package\": \"@acoyfellow/kumo-solid\",\n      \"version\": \"0.0.1\",\n      \"framework\": \"solid\",\n      \"sha256\": \"eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0\",\n      \"integrity\": \"sha512-/k5Qi3ejlq9FRjuBQ4zZ9FwH6CS6NXrSj2bZ8uutTH38UHXFHfRi5omg7ZudjqKpoCk0ePmLZeLzM96slgVCNw==\",\n      \"bytes\": 45797,\n      \"components\": [\n        \"autocomplete\",\n        \"badge\",\n        \"banner\",\n        \"breadcrumbs\",\n        \"button\",\n        \"checkbox\",\n        \"clipboard-text\",\n        \"cloudflare-logo\",\n        \"code\",\n        \"combobox\",\n        \"command-palette\",\n        \"date-picker\",\n        \"date-range-picker\",\n        \"dialog\",\n        \"dropdown-menu\",\n        \"empty\",\n        \"field\",\n        \"grid\",\n        \"grid-item\",\n        \"input\",\n        \"input-area\",\n        \"input-group\",\n        \"label\",\n        \"layer-card\",\n        \"link\",\n        \"loader\",\n        \"menu-bar\",\n        \"meter\",\n        \"pagination\",\n        \"popover\",\n        \"radio\",\n        \"select\",\n        \"sensitive-input\",\n        \"sidebar\",\n        \"surface\",\n        \"switch\",\n        \"table\",\n        \"table-of-contents\",\n        \"tabs\",\n        \"text\",\n        \"toasty\"\n      ],\n      \"installUrl\": \"/packages/kumo-solid-0.0.1.tgz\",\n      \"artifact\": \"eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0.tgz\",\n      \"friendlyName\": \"kumo-solid-0.0.1.tgz\",\n      \"receiptDigest\": \"cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a\",\n      \"sourceTree\": \"209de54a856d0b900b32685434ffbb98a42b5d8c\",\n      \"sourceTreeDigest\": \"9a150891a1ca757a5463b97e1c56c1d911113c58bc5bfb42a6e9b28d1f461ad3\"\n    }\n  ]\n}\n",
+      "contentType": "application/json",
+      "security": {
+        "content-security-policy": "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://static-staging.cloudflareinsights.com; connect-src 'self' https://cloudflareinsights.com https://*.cloudflareinsights.com; img-src 'self' data:; font-src 'self' data:; object-src 'none'; base-uri 'none'; frame-ancestors 'self'",
+        "strict-transport-security": "max-age=31536000; includeSubDomains",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer"
+      }
+    },
+    "/health": {
+      "body": "{\"ok\":true,\"service\":\"kumo-compiler-proof\",\"version\":\"2026.06.20\",\"gitCommit\":\"3177298bf23480601b030e12e1fba33574fcfb8b\",\"manifestSchemaVersion\":1,\"manifestHash\":\"184713091e3fccfde8eee935e01cdd16c729b76a42d5582fd2d3a7659f18f3e3\"}",
+      "contentType": "application/json",
+      "security": {
+        "content-security-policy": "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://static-staging.cloudflareinsights.com; connect-src 'self' https://cloudflareinsights.com https://*.cloudflareinsights.com; img-src 'self' data:; font-src 'self' data:; object-src 'none'; base-uri 'none'; frame-ancestors 'self'",
+        "strict-transport-security": "max-age=31536000; includeSubDomains",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer"
+      }
+    },
+    "/version": {
+      "body": "{\"service\":\"kumo-compiler-proof\",\"version\":\"2026.06.20\",\"gitCommit\":\"3177298bf23480601b030e12e1fba33574fcfb8b\",\"manifestSchemaVersion\":1,\"manifestHash\":\"184713091e3fccfde8eee935e01cdd16c729b76a42d5582fd2d3a7659f18f3e3\"}",
+      "contentType": "application/json",
+      "security": {
+        "content-security-policy": "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://static-staging.cloudflareinsights.com; connect-src 'self' https://cloudflareinsights.com https://*.cloudflareinsights.com; img-src 'self' data:; font-src 'self' data:; object-src 'none'; base-uri 'none'; frame-ancestors 'self'",
+        "strict-transport-security": "max-age=31536000; includeSubDomains",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer"
+      }
+    },
+    "/_health": {
+      "body": "{\"ok\":true,\"service\":\"kumo-compiler-proof\",\"version\":\"2026.06.20\",\"gitCommit\":\"3177298bf23480601b030e12e1fba33574fcfb8b\",\"manifestSchemaVersion\":1,\"manifestHash\":\"184713091e3fccfde8eee935e01cdd16c729b76a42d5582fd2d3a7659f18f3e3\"}",
+      "contentType": "application/json",
+      "security": {
+        "content-security-policy": "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://static-staging.cloudflareinsights.com; connect-src 'self' https://cloudflareinsights.com https://*.cloudflareinsights.com; img-src 'self' data:; font-src 'self' data:; object-src 'none'; base-uri 'none'; frame-ancestors 'self'",
+        "strict-transport-security": "max-age=31536000; includeSubDomains",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer"
+      }
+    },
+    "/_version": {
+      "body": "{\"service\":\"kumo-compiler-proof\",\"version\":\"2026.06.20\",\"gitCommit\":\"3177298bf23480601b030e12e1fba33574fcfb8b\",\"manifestSchemaVersion\":1,\"manifestHash\":\"184713091e3fccfde8eee935e01cdd16c729b76a42d5582fd2d3a7659f18f3e3\"}",
+      "contentType": "application/json",
+      "security": {
+        "content-security-policy": "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://static-staging.cloudflareinsights.com; connect-src 'self' https://cloudflareinsights.com https://*.cloudflareinsights.com; img-src 'self' data:; font-src 'self' data:; object-src 'none'; base-uri 'none'; frame-ancestors 'self'",
+        "strict-transport-security": "max-age=31536000; includeSubDomains",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer"
+      }
+    },
+    "/llms.txt": {
+      "body": "# Kumo framework libraries\n\nVue, Svelte, and Solid packages derived from canonical @cloudflare/kumo@2.5.2 observations.\n\n- Documentation: https://kumo-compiler.coey.dev/docs/\n- Compiler explanation: https://kumo-compiler.coey.dev/docs/explanation/compiler/\n- Examples: https://kumo-compiler.coey.dev/examples/\n- Package reference: https://kumo-compiler.coey.dev/docs/reference/packages/\n- Evidence results: https://kumo-compiler.coey.dev/docs/evidence/compiler-results/\n- Progress: https://kumo-compiler.coey.dev/docs/progress/\n- Artifact manifest: https://kumo-compiler.coey.dev/packages/manifest.json\n\nAll 41 executable components have packed React, Vue, Svelte, and Solid receipts. Builds alone do not establish parity; consult the component and progress receipts. GitHub release assets are prepared in the single kumo-compiler repository. Public npm publication is not performed.\n",
+      "contentType": "text/plain",
+      "security": {
+        "content-security-policy": "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://static-staging.cloudflareinsights.com; connect-src 'self' https://cloudflareinsights.com https://*.cloudflareinsights.com; img-src 'self' data:; font-src 'self' data:; object-src 'none'; base-uri 'none'; frame-ancestors 'self'",
+        "strict-transport-security": "max-age=31536000; includeSubDomains",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer"
+      }
+    },
+    "/manifest.webmanifest": {
+      "body": "{\"name\":\"Kumo framework libraries\",\"short_name\":\"Kumo\",\"description\":\"Framework-native Vue, Svelte, and Solid libraries derived from Cloudflare Kumo.\",\"start_url\":\"/\",\"scope\":\"/\",\"display\":\"standalone\",\"background_color\":\"#f5f6f8\",\"theme_color\":\"#f5f6f8\",\"icons\":[{\"src\":\"/favicon.svg\",\"sizes\":\"any\",\"type\":\"image/svg+xml\",\"purpose\":\"any maskable\"},{\"src\":\"/icon-192.png\",\"sizes\":\"192x192\",\"type\":\"image/png\"},{\"src\":\"/icon-512.png\",\"sizes\":\"512x512\",\"type\":\"image/png\"}]}\n",
+      "contentType": "application/manifest+json",
+      "security": {
+        "content-security-policy": "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://static-staging.cloudflareinsights.com; connect-src 'self' https://cloudflareinsights.com https://*.cloudflareinsights.com; img-src 'self' data:; font-src 'self' data:; object-src 'none'; base-uri 'none'; frame-ancestors 'self'",
+        "strict-transport-security": "max-age=31536000; includeSubDomains",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer"
+      }
+    },
+    "/sw.js": {
+      "body": "const CACHE='kumo-shell-v1';const SHELL=['/','/docs/','/examples/','/manifest.webmanifest','/favicon.svg','/kumo.css'];self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL)).then(()=>self.skipWaiting())));self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));self.addEventListener('fetch',event=>{if(event.request.method!=='GET'||new URL(event.request.url).origin!==location.origin)return;event.respondWith(fetch(event.request).then(response=>{if(response.ok){const copy=response.clone();caches.open(CACHE).then(cache=>cache.put(event.request,copy))}return response}).catch(()=>caches.match(event.request).then(hit=>hit||caches.match('/'))))});\n",
+      "contentType": "text/javascript",
+      "security": {
+        "content-security-policy": "default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://static-staging.cloudflareinsights.com; connect-src 'self' https://cloudflareinsights.com https://*.cloudflareinsights.com; img-src 'self' data:; font-src 'self' data:; object-src 'none'; base-uri 'none'; frame-ancestors 'self'",
+        "strict-transport-security": "max-age=31536000; includeSubDomains",
+        "x-content-type-options": "nosniff",
+        "referrer-policy": "no-referrer"
+      }
+    }
+  },
+  "artifacts": [
+    {
+      "name": "kumo-vue-0.0.1.tgz",
+      "sha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+      "hashMatch": true,
+      "gzip": true,
+      "disposition": true,
+      "contentAddressed": false,
+      "cacheCorrect": true
+    },
+    {
+      "name": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab.tgz",
+      "sha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+      "hashMatch": true,
+      "gzip": true,
+      "disposition": true,
+      "contentAddressed": true,
+      "cacheCorrect": true
+    },
+    {
+      "name": "kumo-svelte-0.0.1.tgz",
+      "sha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+      "hashMatch": true,
+      "gzip": true,
+      "disposition": true,
+      "contentAddressed": false,
+      "cacheCorrect": true
+    },
+    {
+      "name": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed.tgz",
+      "sha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+      "hashMatch": true,
+      "gzip": true,
+      "disposition": true,
+      "contentAddressed": true,
+      "cacheCorrect": true
+    },
+    {
+      "name": "kumo-solid-0.0.1.tgz",
+      "sha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+      "hashMatch": true,
+      "gzip": true,
+      "disposition": true,
+      "contentAddressed": false,
+      "cacheCorrect": true
+    },
+    {
+      "name": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0.tgz",
+      "sha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+      "hashMatch": true,
+      "gzip": true,
+      "disposition": true,
+      "contentAddressed": true,
+      "cacheCorrect": true
+    }
+  ],
+  "browser": {
+    "widths": [
+      {
+        "width": 390,
+        "loaded": true,
+        "overflow": false
+      },
+      {
+        "width": 768,
+        "loaded": true,
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "loaded": true,
+        "overflow": false
+      }
+    ],
+    "frameworks": [
+      "vue",
+      "svelte",
+      "solid"
+    ],
+    "frameworkDetails": [
+      {
+        "name": "vue",
+        "visible": true,
+        "sameOrigin": true,
+        "cardCount": 41,
+        "filledFixtures": 41,
+        "packageDom": true
+      },
+      {
+        "name": "svelte",
+        "visible": true,
+        "sameOrigin": true,
+        "cardCount": 41,
+        "filledFixtures": 41,
+        "packageDom": true
+      },
+      {
+        "name": "solid",
+        "visible": true,
+        "sameOrigin": true,
+        "cardCount": 41,
+        "filledFixtures": 41,
+        "packageDom": true
+      }
+    ],
+    "trustedInput": true,
+    "packageInteractions": 3,
+    "iframe": {
+      "sameOrigin": true
+    }
+  },
+  "pwa": {
+    "manifest": true,
+    "lifecycle": true,
+    "controlled": true,
+    "offlineShell": true
+  },
+  "seo": {
+    "canonical": true,
+    "description": true,
+    "og": true,
+    "twitter": true,
+    "jsonLd": true,
+    "favicon": true,
+    "shareImage": "https://kumo-compiler.coey.dev/og-card.svg"
+  },
+  "discovery": {
+    "robotsSitemap": true,
+    "sitemapRoutes": [
+      "https://kumo-compiler.coey.dev/",
+      "https://kumo-compiler.coey.dev/docs/",
+      "https://kumo-compiler.coey.dev/docs/tutorials/first-library/",
+      "https://kumo-compiler.coey.dev/docs/how-to/install/",
+      "https://kumo-compiler.coey.dev/docs/how-to/github/",
+      "https://kumo-compiler.coey.dev/docs/how-to/svelte-playground/",
+      "https://kumo-compiler.coey.dev/docs/how-to/forms/",
+      "https://kumo-compiler.coey.dev/docs/reference/packages/",
+      "https://kumo-compiler.coey.dev/docs/reference/button/",
+      "https://kumo-compiler.coey.dev/docs/reference/field/",
+      "https://kumo-compiler.coey.dev/docs/reference/styles/",
+      "https://kumo-compiler.coey.dev/docs/explanation/distribution/",
+      "https://kumo-compiler.coey.dev/docs/explanation/evidence/",
+      "https://kumo-compiler.coey.dev/docs/evidence/compiler-results/",
+      "https://kumo-compiler.coey.dev/examples/",
+      "https://kumo-compiler.coey.dev/examples/vue/",
+      "https://kumo-compiler.coey.dev/examples/svelte/",
+      "https://kumo-compiler.coey.dev/examples/solid/",
+      "https://kumo-compiler.coey.dev/libraries/vue/",
+      "https://kumo-compiler.coey.dev/libraries/svelte/",
+      "https://kumo-compiler.coey.dev/libraries/solid/",
+      "https://kumo-compiler.coey.dev/engine-language/",
+      "https://kumo-compiler.coey.dev/output-architecture/",
+      "https://kumo-compiler.coey.dev/comparison/",
+      "https://kumo-compiler.coey.dev/select-pilot/",
+      "https://kumo-compiler.coey.dev/typescript/",
+      "https://kumo-compiler.coey.dev/go/",
+      "https://kumo-compiler.coey.dev/rust/",
+      "https://kumo-compiler.coey.dev/zig/",
+      "https://kumo-compiler.coey.dev/mitosis/",
+      "https://kumo-compiler.coey.dev/shared-core/",
+      "https://kumo-compiler.coey.dev/bakeoff/",
+      "https://kumo-compiler.coey.dev/components/select/",
+      "https://kumo-compiler.coey.dev/components/button/",
+      "https://kumo-compiler.coey.dev/components/dialog/",
+      "https://kumo-compiler.coey.dev/components/popover/",
+      "https://kumo-compiler.coey.dev/components/checkbox/",
+      "https://kumo-compiler.coey.dev/components/switch/",
+      "https://kumo-compiler.coey.dev/components/field/",
+      "https://kumo-compiler.coey.dev/components/input/",
+      "https://kumo-compiler.coey.dev/components/input-group/",
+      "https://kumo-compiler.coey.dev/components/input-area/",
+      "https://kumo-compiler.coey.dev/components/sensitive-input/",
+      "https://kumo-compiler.coey.dev/components/clipboard-text/",
+      "https://kumo-compiler.coey.dev/components/tabs/",
+      "https://kumo-compiler.coey.dev/components/menu-bar/",
+      "https://kumo-compiler.coey.dev/components/sidebar/",
+      "https://kumo-compiler.coey.dev/components/breadcrumbs/",
+      "https://kumo-compiler.coey.dev/components/table-of-contents/",
+      "https://kumo-compiler.coey.dev/components/badge/",
+      "https://kumo-compiler.coey.dev/components/banner/",
+      "https://kumo-compiler.coey.dev/components/surface/",
+      "https://kumo-compiler.coey.dev/components/layer-card/",
+      "https://kumo-compiler.coey.dev/components/grid/",
+      "https://kumo-compiler.coey.dev/components/grid-item/",
+      "https://kumo-compiler.coey.dev/components/loader/",
+      "https://kumo-compiler.coey.dev/components/meter/",
+      "https://kumo-compiler.coey.dev/components/empty/",
+      "https://kumo-compiler.coey.dev/components/label/",
+      "https://kumo-compiler.coey.dev/components/link/",
+      "https://kumo-compiler.coey.dev/components/text/",
+      "https://kumo-compiler.coey.dev/components/cloudflare-logo/",
+      "https://kumo-compiler.coey.dev/components/code/",
+      "https://kumo-compiler.coey.dev/components/table/",
+      "https://kumo-compiler.coey.dev/components/radio/",
+      "https://kumo-compiler.coey.dev/components/autocomplete/",
+      "https://kumo-compiler.coey.dev/components/combobox/",
+      "https://kumo-compiler.coey.dev/components/command-palette/",
+      "https://kumo-compiler.coey.dev/components/date-picker/",
+      "https://kumo-compiler.coey.dev/components/date-range-picker/",
+      "https://kumo-compiler.coey.dev/components/dropdown-menu/",
+      "https://kumo-compiler.coey.dev/components/toasty/",
+      "https://kumo-compiler.coey.dev/components/pagination/"
+    ],
+    "llmsContentType": "text/plain",
+    "claim": 41,
+    "links": 7
+  },
+  "diagnostics": []
+}
