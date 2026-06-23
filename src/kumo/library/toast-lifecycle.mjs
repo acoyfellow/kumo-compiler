@@ -19,6 +19,15 @@ export function deriveToastLifecycle(contract) {
     schemaVersion: TOAST_LIFECYCLE_VERSION,
     component: 'toasty',
     support: 'requirements-only',
+    observableImplementation: {
+      support: 'supported',
+      provider: {root:'div',preservesChildren:true},
+      notify: {title:notify.expected.state.title,description:notify.expected.state.description,visible:notify.expected.state.visible,event:notify.expected.events[0]},
+      action: {event:action.expected.events[1],dismisses:false,focus:action.expected.focus},
+      close: {label:'Close',announcementPersistsDuringDismissal:true,visibleAfterWait:close.expected.state.visible,focusAfterRemoval:close.expected.focus},
+      announcement: action.expected.state.announcement,
+      vectorIds: REQUIRED_VECTORS
+    },
     provenance: {
       contractPath: 'contracts/kumo.observable/v1/components/toasty.json',
       contractDigest: digest(contract),
@@ -74,6 +83,11 @@ function validateClaim(claim,name) {
 
 export function validateToastLifecycle(value) {
   if (value?.schemaVersion !== TOAST_LIFECYCLE_VERSION || value.component !== 'toasty' || value.support !== 'requirements-only') throw new Error('invalid toast lifecycle capability');
+  const implementation=value.observableImplementation;
+  if (implementation?.support!=='supported'||implementation.provider?.root!=='div'||implementation.provider.preservesChildren!==true) throw new Error('toast lifecycle observable implementation required');
+  if (implementation.notify?.event!=='notify'||implementation.action?.event!=='action'||implementation.action.dismisses!==false) throw new Error('toast lifecycle observable notify/action invalid');
+  if (implementation.close?.label!=='Close'||implementation.close.visibleAfterWait!==false||implementation.close.focusAfterRemoval!=='none') throw new Error('toast lifecycle observable close invalid');
+  if (implementation.vectorIds?.join(',')!==REQUIRED_VECTORS.join(',')) throw new Error('toast lifecycle observable vectors invalid');
   const provenance = value.provenance;
   if (provenance?.contractPath !== 'contracts/kumo.observable/v1/components/toasty.json' || !/^[a-f0-9]{64}$/.test(provenance.contractDigest ?? '') || provenance.vectorIds?.join(',') !== REQUIRED_VECTORS.join(',')) throw new Error('toast lifecycle provenance required');
   validateClaim(value.identity?.returnedId,'identity.returnedId'); validateClaim(value.identity?.callerSuppliedId,'identity.callerSuppliedId');

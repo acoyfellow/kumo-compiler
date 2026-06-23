@@ -2,6 +2,37 @@
   "schemaVersion": "kumo.toast-lifecycle/v1",
   "component": "toasty",
   "support": "requirements-only",
+  "observableImplementation": {
+    "support": "supported",
+    "provider": {
+      "root": "div",
+      "preservesChildren": true
+    },
+    "notify": {
+      "title": "Saved",
+      "description": "Changes saved",
+      "visible": true,
+      "event": "notify"
+    },
+    "action": {
+      "event": "action",
+      "dismisses": false,
+      "focus": "[data-toast-action]"
+    },
+    "close": {
+      "label": "Close",
+      "announcementPersistsDuringDismissal": true,
+      "visibleAfterWait": false,
+      "focusAfterRemoval": "none"
+    },
+    "announcement": "Saved Changes saved",
+    "vectorIds": [
+      "provider-ssr",
+      "notify-default",
+      "action-remains-visible",
+      "close-dismiss"
+    ]
+  },
   "provenance": {
     "contractPath": "contracts/kumo.observable/v1/components/toasty.json",
     "contractDigest": "35460d33f6056c8b070637ba6ed0fc22d0e3ddd9f7a907602154399466c045f5",
@@ -214,5 +245,5 @@
     "pause-resume",
     "provider-unmount-cleanup"
   ],
-  "capabilityDigest": "9214fd41cec484ccd22431e623a66a50a204977a8923a32735a04624b7ac6f1e"
+  "capabilityDigest": "83973ebd43dc9a24506ccf0c240d78e24f26072df01c19e0743dc3e15419f7c1"
 }

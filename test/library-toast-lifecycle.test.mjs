@@ -22,6 +22,11 @@ test('only observed create, action, dismissal, portal and live-region behavior i
   assert.equal(value.liveRegion.value.priority,'polite');
   assert.equal(value.liveRegion.value.closeCheckpointRetainsAnnouncement,'Saved Changes saved');
   assert.equal(value.cleanup.explicitClose.supported,true);
+  assert.equal(value.observableImplementation.support,'supported');
+  assert.equal(value.observableImplementation.provider.root,'div');
+  assert.equal(value.observableImplementation.notify.event,'notify');
+  assert.equal(value.observableImplementation.action.dismisses,false);
+  assert.equal(value.observableImplementation.close.visibleAfterWait,false);
 });
 
 test('stable IDs, queue, timers, pause/resume and vendor cleanup remain explicit unknowns',()=>{
