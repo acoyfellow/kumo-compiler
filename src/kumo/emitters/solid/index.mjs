@@ -281,7 +281,7 @@ const compoundFixtureText = (value: unknown, exported: string): string => {
     const text = String(props.text ?? "");
     const ranges = [...((props.highlights as Array<[number, number]> | undefined) ?? [])].sort((a, b) => a[0] - b[0]);
     const segments: HighlightSegment[] = []; let cursor = 0;
-    for (const [start, end] of ranges) { if (start > cursor) segments.push({text:text.slice(cursor, start), mark:false}); if (end > start) segments.push({text:text.slice(start, end), mark:true}); cursor = Math.max(cursor, end); }
+    for (const [start, end] of ranges) { if (start > cursor) segments.push({text:text.slice(cursor, start), mark:false}); if (end >= start) segments.push({text:text.slice(start, end + 1), mark:true}); cursor = Math.max(cursor, end + 1); }
     if (cursor < text.length) segments.push({text:text.slice(cursor), mark:false});
     return segments;
   };

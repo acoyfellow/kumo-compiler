@@ -19,6 +19,7 @@ test('highlighted text uses span root with mark ranges', () => {
   const v = loadCommandPalette();
   assert.equal(v.highlightedText.root, 'span');
   assert.equal(v.highlightedText.rangeTag, 'mark');
+  assert.equal(v.highlightedText.ranges, 'inclusive [start,end]');
 });
 
 test('open palette highlights first, input emits value, ArrowDown advances, Escape closes with no focus', () => {

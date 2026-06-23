@@ -451,6 +451,33 @@ test('resolution receipt canonically binds capability and generated manifest has
  assert.match(receipt.svelteManifestSha256,/^[a-f0-9]{64}$/);
 });
 
+test('supported command-palette lowers highlighted text and open palette deterministically',async t=>{
+ const build=fs.mkdtempSync(path.join(os.tmpdir(),'kumo-svelte-command-palette-'));
+ t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+ fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
+ const {commandPalette}=loadLibrary();
+ const first=emitSvelteLibrary({output});
+ assert.equal(first.components.flatMap(x=>x.semanticVariants).length,66);
+ const source=fs.readFileSync(path.join(output,`components/${commandPalette.component}.svelte`),'utf8');
+ emitSvelteLibrary({output});
+ assert.equal(fs.readFileSync(path.join(output,`components/${commandPalette.component}.svelte`),'utf8'),source);
+ assert.match(source,/data-kumo-component="CommandPalette"/);
+ assert.match(source,/<mark>\{segment\.text\}<\/mark>/);
+ assert.match(source,/slice\(start,end\+1\)/);
+ assert.match(source,/onHighlightChange\?\.\(first\.value\)/);
+ assert.doesNotMatch(source,/model\.component\s*===?\s*["']command-palette["']|@html|innerHTML|dispatchEvent|\([A-Za-z_]+\?:/);
+ const compiled=compile(source,{filename:'command-palette.svelte',generate:'server'});
+ const target=path.join(build,'command-palette.mjs');fs.writeFileSync(target,compiled.js.code);
+ const CommandPalette=(await import(pathToFileURL(target)+`?${Date.now()}`)).default;
+ const highlighted={export:'.HighlightedText',props:{text:'Cloudflare',highlights:[[0,4]]},children:[]};
+ const highlightedHtml=render(CommandPalette,{props:{fixture:highlighted}}).body.replace(/<!--[\s\S]*?-->/g,'');
+ assert.match(highlightedHtml,/^<span><mark>Cloud<\/mark>flare<\/span>$/);
+ const palette={export:'.Root',props:{open:true,items:['Workers','Pages']},children:[{export:'.Input',props:{placeholder:'Search'},children:[]},{export:'.List',props:{},children:[{export:'.Item',props:{value:'Workers'},children:[{text:'Workers'}]},{export:'.Item',props:{value:'Pages'},children:[{text:'Pages'}]}]}]};
+ const paletteHtml=render(CommandPalette,{props:{fixture:palette}}).body.replace(/<!--[\s\S]*?-->/g,'');
+ assert.match(paletteHtml,/^<div data-kumo-component="CommandPalette"><input placeholder="Search" value=""\/><ul role="listbox">/);
+ assert.equal((paletteHtml.match(/role="option"/g)??[]).length,2);
+});
+
 test('binds model digests and publishes root and per-component metadata',()=>{
  const {models}=loadLibrary();
  const manifest=JSON.parse(fs.readFileSync(path.join(output,'manifest.json'),'utf8'));

@@ -14,6 +14,9 @@
   collection?: Snippet;
   root?: Snippet;
   children?: Snippet;
+  onOpenChange?: (value: boolean) => void;
+  onValueChange?: (value: string) => void;
+  onHighlightChange?: (value: string) => void;
   styles?: Record<string, string>;
   fixture?: unknown;
   [key: string]: unknown;
@@ -27,6 +30,9 @@
     Root = undefined,
     collection = undefined,
     root = undefined,
+    onOpenChange = undefined,
+    onValueChange = undefined,
+    onHighlightChange = undefined,
     children,
     fixture = undefined,
     __consumerContent = undefined,
@@ -38,6 +44,19 @@
   let state_open = $state("required controlled boolean");
   let state_query = $state("controlled value or empty");
 
+  type PaletteFixtureNode = { export?: string; text?: string; props?: Record<string, unknown>; children?: PaletteFixtureNode[] };
+  type PaletteFixture = { export?: string; props?: Record<string, unknown>; children?: PaletteFixtureNode[] };
+  function paletteText(node: PaletteFixtureNode | undefined): string { return node ? String(node.text ?? '') + (node.children ?? []).map(paletteText).join('') : ''; }
+  const paletteFixture = $derived.by(() => { const root = fixture as PaletteFixture | undefined; if (root?.export === '.HighlightedText') return { kind: 'highlighted' as const, text: String(root.props?.text ?? ''), highlights: (root.props?.highlights as Array<[number,number]> | undefined) ?? [], placeholder: undefined, items: [] }; const input = root?.children?.find(node => node.export === '.Input'); const list = root?.children?.find(node => node.export === '.List'); return { kind: 'root' as const, text: '', highlights: [] as Array<[number,number]>, placeholder: input?.props?.placeholder as string | undefined, items: (list?.children ?? []).filter(node => node.export === '.Item').map(node => ({value:String(node.props?.value ?? ''), label:paletteText(node)})), open: Boolean(root?.props?.open) }; });
+  const paletteSegments = $derived.by(() => { const segments: Array<{text:string;mark:boolean}> = []; let cursor = 0; for (const [start,end] of [...paletteFixture.highlights].sort((a,b)=>a[0]-b[0])) { if (start > cursor) segments.push({text:paletteFixture.text.slice(cursor,start),mark:false}); if (end >= start) segments.push({text:paletteFixture.text.slice(start,end+1),mark:true}); cursor = Math.max(cursor,end+1); } if (cursor < paletteFixture.text.length) segments.push({text:paletteFixture.text.slice(cursor),mark:false}); return segments; });
+  let paletteOpen = $state(Boolean((fixture as PaletteFixture | undefined)?.props?.open));
+  let paletteValue = $state('');
+  let paletteHighlightedIndex = $state(0);
+  let paletteInput: HTMLInputElement | undefined = $state();
+  let paletteInitialNotified = false;
+  $effect(() => { const first = paletteFixture.items[0]; if (browser && paletteFixture.kind === 'root' && paletteOpen && !paletteInitialNotified && first) { paletteInitialNotified = true; onHighlightChange?.(first.value); } });
+  function handlePaletteInput(event: Event) { paletteValue = (event.currentTarget as HTMLInputElement).value; onValueChange?.(paletteValue); }
+  function handlePaletteKey(event: KeyboardEvent) { if (event.key === 'ArrowDown') { event.preventDefault(); paletteHighlightedIndex = Math.min(paletteHighlightedIndex + 1, paletteFixture.items.length - 1); const item = paletteFixture.items[paletteHighlightedIndex]; if (item) onHighlightChange?.(item.value); return; } if (event.key === 'Escape') { event.preventDefault(); paletteOpen = false; onOpenChange?.(false); queueMicrotask(() => paletteInput?.blur()); } }
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "compound": compound, "Dialog": Dialog, "Input": Input, "Panel": Panel, "Root": Root, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;
@@ -62,17 +81,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if Object.prototype.hasOwnProperty.call(semanticValues, "highlights") && semanticEqual(semanticValues.highlights, [[0,4]]) && Object.prototype.hasOwnProperty.call(semanticValues, "text") && semanticEqual(semanticValues.text, "Cloudflare") && semanticEqual(fixture, {"export":".HighlightedText","props":{"text":"Cloudflare","highlights":[[0,4]]},"children":[]})}
-  <span>
-    <mark>
-      {"Cloud"}
-    </mark>
-  </span>
-{:else}
-<section data-kumo-part="root">
-  {#if root}{@render root()}{/if}
-</section>
-<section data-kumo-part="collection">
-  {#if collection}{@render collection()}{/if}
-</section>
-{/if}
+{#if paletteFixture.kind === 'highlighted'}<span>{#each paletteSegments as segment, index (index)}{#if segment.mark}<mark>{segment.text}</mark>{:else}{segment.text}{/if}{/each}</span>{:else}<div data-kumo-component="CommandPalette">{#if paletteOpen}<input bind:this={paletteInput} placeholder={paletteFixture.placeholder} value={paletteValue} oninput={handlePaletteInput} onkeydown={handlePaletteKey}><ul role="listbox">{#each paletteFixture.items as item, index (item.value)}<li role="option" data-value={item.value} aria-selected={paletteHighlightedIndex === index}>{item.label}</li>{/each}</ul>{/if}</div>{/if}

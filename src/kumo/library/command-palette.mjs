@@ -31,7 +31,7 @@ export function deriveCommandPalette(contracts) {
     component: 'command-palette',
     support: 'supported',
     api: {compound: ['.Root', '.Input', '.List', '.Item', '.HighlightedText']},
-    highlightedText: {root: 'span', rangeTag: 'mark', ranges: 'half-open [start,end]'},
+    highlightedText: {root: 'span', rangeTag: 'mark', ranges: 'inclusive [start,end]'},
     palette: {
       root: 'div',
       open: {initialHighlight: 'first item', event: 'highlight:<item>'},
