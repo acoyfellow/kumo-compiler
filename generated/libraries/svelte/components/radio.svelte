@@ -41,7 +41,7 @@
 
   type RadioItem = { label: string; value: unknown; disabled?: boolean };
   type RadioFixture = { kind: 'radio-group'; legend: string; items: RadioItem[]; defaultValue?: unknown; value?: unknown; disabled?: boolean };
-  const radioFixture = fixture as RadioFixture;
+  const radioFixture = $derived(fixture as RadioFixture);
   const controlledRadio = Object.prototype.hasOwnProperty.call(radioFixture, 'value');
   let uncontrolledRadioValue = $state(radioFixture.defaultValue);
   const selectedRadioValue = $derived(controlledRadio ? radioFixture.value : uncontrolledRadioValue);
