@@ -1303,8 +1303,8 @@
     "fixtureSource": "proof/dx/conformance/shared/packed-fixtures.json"
   },
   "counts": {
-    "blocked": 23,
-    "passed": 101
+    "blocked": 21,
+    "passed": 103
   },
   "staticPassed": 64,
   "browserPassed": 34,
@@ -3506,40 +3506,86 @@
       "component": "sensitive-input",
       "vector": "masked",
       "status": "passed",
-      "mode": "ssr",
+      "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
+      "hydration": "passed",
       "assertion": {
         "status": "passed",
-        "digest": "f91886042e2bc1c5a3ecbbe7e01d4bbb019083f6e2a0d07e2157863f82b7fb64"
+        "digest": "2283269a071f45ce28b1a95cb6a0f0f9f2c0143b076ecba574a92b10d15784fb"
       },
       "observation": {
-        "markupSha256": "f11dc076aa54e8cda86399581210947991636727c29465deea703f8536f8aa15"
+        "dom": {
+          "tag": "div"
+        },
+        "node-identity": "preserved"
       }
     },
     {
       "component": "sensitive-input",
       "vector": "reveal-edit-escape",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "70b77d0120cb7a0344d7843ac7e79b24d5eeaaa1954243f0a282aa9ef0393be4"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div"
+        },
+        "state": {
+          "values": [
+            "alphaz"
+          ],
+          "types": [
+            "password"
+          ]
+        },
+        "events": [
+          "value:alphaz"
+        ],
+        "focus": "input",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "sensitive-input",
       "vector": "copy",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "8434e771a04bf7786dde7c0fdf6251aae28c339e2a912ed333a976a6dadb994e"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div"
+        },
+        "state": {
+          "clipboard": [
+            "payload",
+            "keyboard",
+            "alpha"
+          ],
+          "live": [
+            "Value hiddenCopied to clipboard"
+          ]
+        },
+        "events": [
+          "copy"
+        ],
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "sidebar",
@@ -4148,5 +4194,5 @@
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     }
   ],
-  "receiptHash": "628838261b4f664ed16f518e50491ca45ae16dd739ef64d34d3cd09ecddaba65"
+  "receiptHash": "96fb5b3c818aa7fc1a0164d7a9a60f2a4a146610f109e8204e9097cc861f6feb"
 }

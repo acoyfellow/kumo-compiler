@@ -11,7 +11,7 @@ Machine receipt: `proof/progress/latest.json`
   `░░░░░░░░░░░░░░░░░░░░`
 - ✓ **Components in all three packages** — 41/41
   `████████████████████`
-- → **Four-framework package conformance** — 30/41
+- → **Four-framework package conformance** — 31/41
   `███████████████░░░░░`
 - → **Complete component examples and docs** — 2/41
   `█░░░░░░░░░░░░░░░░░░░`
@@ -50,6 +50,7 @@ Machine receipt: `proof/progress/latest.json`
 - meter
 - pagination
 - radio
+- sensitive-input
 - surface
 - switch
 - table
