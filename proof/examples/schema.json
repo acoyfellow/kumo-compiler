@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kumo.component-examples/v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "componentCount", "targetCount", "passedCount", "status", "readinessDigest", "sourceAliases", "targets", "contentDigest"],
+  "properties": {
+    "schemaVersion": {"const": "kumo.component-examples/v1"},
+    "componentCount": {"const": 41},
+    "targetCount": {"const": 3},
+    "passedCount": {"const": 123},
+    "status": {"const": "passed"},
+    "readinessDigest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "sourceAliases": {"const": false},
+    "contentDigest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "targets": {
+      "type": "array", "minItems": 3, "maxItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["framework", "package", "packageSha256", "artifact", "receiptDigest", "componentCount", "status", "entries"],
+        "properties": {
+          "framework": {"enum": ["vue", "svelte", "solid"]},
+          "packageSha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "receiptDigest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "componentCount": {"const": 41}, "status": {"const": "passed"},
+          "entries": {"type": "array", "minItems": 41, "maxItems": 41, "items": {"type": "object", "required": ["component", "status", "output"], "properties": {"status": {"const": "passed"}}}}
+        }
+      }
+    }
+  }
+}
