@@ -234,8 +234,8 @@
     "fixtureSource": "proof/dx/conformance/shared/packed-fixtures.json"
   },
   "counts": {
-    "blocked": 30,
-    "passed": 94
+    "blocked": 28,
+    "passed": 96
   },
   "totalVectors": 124,
   "diagnostics": [],
@@ -2676,57 +2676,121 @@
       "component": "tabs",
       "vector": "segmented-uncontrolled-first",
       "status": "passed",
-      "mode": "ssr",
+      "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
+      "hydration": "passed",
       "assertion": {
         "status": "passed",
-        "digest": "622141402471ac3bc2d79e2692a1391fb8c3106fe42546b3892e9ea0d36244b2"
+        "digest": "b954e2de5bc421896ef2e4e6538eb47b182c0ade9de35d0a5d5e360bb4001fff"
       },
       "observation": {
-        "markupSha256": "59a9649ed6eb01bb585b7b6489e4c231c6b2cb7ce4ee975a58c2db671821139b"
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {}
+          }
+        },
+        "descendants": [
+          {
+            "selector": "button",
+            "count": 2
+          }
+        ],
+        "node-identity": "preserved"
       }
     },
     {
       "component": "tabs",
       "vector": "underline-selected-value",
       "status": "passed",
-      "mode": "ssr",
+      "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
+      "hydration": "passed",
       "assertion": {
         "status": "passed",
-        "digest": "622141402471ac3bc2d79e2692a1391fb8c3106fe42546b3892e9ea0d36244b2"
+        "digest": "b954e2de5bc421896ef2e4e6538eb47b182c0ade9de35d0a5d5e360bb4001fff"
       },
       "observation": {
-        "markupSha256": "59a9649ed6eb01bb585b7b6489e4c231c6b2cb7ce4ee975a58c2db671821139b"
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {}
+          }
+        },
+        "descendants": [
+          {
+            "selector": "button",
+            "count": 2
+          }
+        ],
+        "node-identity": "preserved"
       }
     },
     {
       "component": "tabs",
       "vector": "manual-arrow-then-enter",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "c6917fc2a884a3825ee51c77456ec8791b82d6d9974b469b05627affd2032893"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {}
+          }
+        },
+        "state": {
+          "value": "settings",
+          "activation": "manual"
+        },
+        "events": [
+          "value:settings"
+        ],
+        "focus": "[aria-selected=true]",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "tabs",
       "vector": "automatic-arrow",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "1322940abbf314c008a29b8cd0b197702f0e508f07d1696e801df559b89a6c4c"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {}
+          }
+        },
+        "state": {
+          "value": "settings",
+          "activation": "automatic"
+        },
+        "events": [
+          "value:settings"
+        ],
+        "focus": "[aria-selected=true]",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "text",
@@ -2830,5 +2894,5 @@
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     }
   ],
-  "receiptHash": "ff1288882480b48c3bed7882c7e404693317b27dda02c1dd6d0ed40c90b0041c"
+  "receiptHash": "fce7b42f2859124bfe3375f6baf50e7434dbf8b4a9a816103011805fb488ad0e"
 }
