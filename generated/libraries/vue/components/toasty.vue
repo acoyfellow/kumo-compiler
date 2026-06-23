@@ -5,16 +5,43 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 </script>
 
 <script setup lang="ts">
-import { computed, useAttrs, useSlots } from 'vue'
+defineOptions({ inheritAttrs: false })
+import { computed, nextTick, onBeforeUnmount, ref, useAttrs, useSlots } from 'vue'
 interface ToastyProps {
   "children"?: unknown
   "container"?: unknown
   "toastManager"?: unknown
   "variant"?: unknown
+  "onNotify"?: unknown
+  "onAction"?: unknown
   fixture?: unknown
   semanticContent?: unknown
 }
 const props = withDefaults(defineProps<ToastyProps>(), {"container":"provider container or document.body","variant":"default"})
+type ToastFixtureNode = { text?: string; props?: Record<string, unknown>; children?: ToastFixtureNode[] }
+const visible = ref(false)
+const title = ref('')
+const description = ref('')
+const announcement = computed(() => visible.value ? [title.value, description.value].filter(Boolean).join(' ') : '')
+let removalTimer: ReturnType<typeof setTimeout> | undefined
+const toastFixtureText = (node?: ToastFixtureNode): string => node ? String(node.text ?? node.props?.children ?? '') + (node.children ?? []).map(toastFixtureText).join('') : ''
+const providerText = computed(() => renderContent() || toastFixtureText(props.fixture as ToastFixtureNode | undefined) || 'Application')
+function notify() {
+  if (removalTimer !== undefined) clearTimeout(removalTimer)
+  title.value = "Saved"
+  description.value = "Changes saved"
+  visible.value = true
+  props.onNotify?.()
+}
+function act() { props.onAction?.() }
+function closeToast() {
+  if (removalTimer !== undefined) clearTimeout(removalTimer)
+  removalTimer = setTimeout(() => {
+    visible.value = false
+    nextTick(() => { (document.activeElement as HTMLElement | null)?.blur?.(); document.body.focus() })
+  }, 300)
+}
+onBeforeUnmount(() => { if (removalTimer !== undefined) clearTimeout(removalTimer) })
 const slots = useSlots()
 const styles: Record<string,string> = {}
 const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
@@ -26,5 +53,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template v-if="semanticEqual(renderContent(), &quot;Application&quot;)"><div>{{ renderContent() }}</div></template><template v-else><div data-kumo-compound="toasty" :class="styles.root"><section data-kumo-part="root"><slot name="root"></slot></section><section data-kumo-part="collection"><slot name="collection"></slot></section></div></template>
+  <div v-bind="$attrs" data-kumo-component="Toasty">{{ providerText }}<button type="button" data-notify @click="notify">Notify</button><div v-if="visible" role="status" aria-live="polite" data-toast><div data-toast-title>{{ title }}</div><div data-toast-description>{{ description }}</div><button type="button" data-toast-action @click="act">Action</button><button type="button" aria-label="Close" @click="closeToast">Close</button></div></div>
 </template>

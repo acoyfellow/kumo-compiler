@@ -12,6 +12,8 @@
   variant?: unknown;
   collection?: Snippet;
   root?: Snippet;
+  onNotify?: () => void;
+  onAction?: () => void;
   styles?: Record<string, string>;
   fixture?: unknown;
   [key: string]: unknown;
@@ -23,6 +25,8 @@
     variant = "default",
     collection = undefined,
     root = undefined,
+    onNotify = undefined,
+    onAction = undefined,
     children,
     fixture = undefined,
     __consumerContent = undefined,
@@ -31,6 +35,11 @@
   }: Props = $props();
   let state_toasts = $state("manager state");
   let state_viewport = $state("portaled after hydration");
+  let toastVisible = $state(false);
+  let toastClose: HTMLButtonElement | undefined = $state();
+  function notifyToast() { toastVisible = true; onNotify?.(); }
+  function activateToast(event: MouseEvent) { onAction?.(); (event.currentTarget as HTMLButtonElement).focus(); }
+  function closeToast() { const close = toastClose; setTimeout(() => { toastVisible = false; if (document.activeElement === close) close?.blur(); }, 300); }
 
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "container": container, "toastManager": toastManager, "variant": variant, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
@@ -55,15 +64,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if semanticEqual(renderContent, "Application")}
-  <div>
-    {renderContent}
-  </div>
-{:else}
-<section data-kumo-part="root">
-  {#if root}{@render root()}{/if}
-</section>
-<section data-kumo-part="collection">
-  {#if collection}{@render collection()}{/if}
-</section>
-{/if}
+<div data-kumo-component="Toasty">{#if children}{@render children()}{/if}<button type="button" data-notify onclick={notifyToast}>Notify</button>{#if toastVisible}<div role="status" aria-live="polite"><strong>Saved</strong><span>Changes saved</span><button type="button" data-toast-action onclick={activateToast}>Action</button><button bind:this={toastClose} type="button" aria-label="Close" onclick={closeToast}>Close</button></div>{/if}</div>

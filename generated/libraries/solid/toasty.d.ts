@@ -5,6 +5,8 @@ export interface ToastyProps {
   "container"?: unknown;
   "toastManager"?: unknown;
   "variant"?: unknown;
+  "onNotify"?: () => void;
+  "onAction"?: () => void;
   children?: JSX.Element;
   fixture?: unknown;
   styles?: Record<string, string>;

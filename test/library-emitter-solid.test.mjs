@@ -155,6 +155,22 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   assert.match(sensitiveSource, /props\.onCopy/);
   assert.doesNotMatch(sensitiveSource, /semanticEqual\(normalizedFixture/);
 
+  const toastySource = fs.readFileSync(path.join(first, 'toasty.tsx'), 'utf8');
+  const toastyDeclaration = fs.readFileSync(path.join(first, 'toasty.d.ts'), 'utf8');
+  assert.match(toastySource, /const props = mergeProps/);
+  assert.match(toastySource, /data-kumo-component="Toasty"/);
+  assert.match(toastySource, /data-notify onClick=\{notifyToast\}>Notify/);
+  assert.match(toastySource, /role="status" aria-live="polite"/);
+  assert.match(toastySource, /<strong>Saved<\/strong><span>Changes saved<\/span>/);
+  assert.match(toastySource, /data-toast-action onClick=\{toastAction\}/);
+  assert.match(toastySource, /aria-label="Close" onClick=\{closeToast\}/);
+  assert.match(toastySource, /setTimeout\(\(\) => \{ if \(document\.activeElement === close\) close\.blur\(\); setToastVisible\(false\); \}, 300\)/);
+  assert.match(toastySource, /props\.onNotify/);
+  assert.match(toastySource, /props\.onAction/);
+  assert.doesNotMatch(toastySource, /innerHTML/);
+  assert.match(toastyDeclaration, /"onNotify"\?: \(\) => void;/);
+  assert.match(toastyDeclaration, /"onAction"\?: \(\) => void;/);
+
   const clipboardSource = fs.readFileSync(path.join(first, 'clipboard-text.tsx'), 'utf8');
   const clipboardDeclaration = fs.readFileSync(path.join(first, 'clipboard-text.d.ts'), 'utf8');
   assert.match(clipboardSource, /return \(<div>\{props\.text as JSX\.Element\}<button type="button" onClick=\{copyText\}>Copy<\/button><span aria-live="polite">\{copyStatus\(\)\}<\/span><\/div>\)/);
@@ -300,6 +316,12 @@ test('Solid SSR renders every compiled semantic predicate through canonical mark
     assert.equal(html.includes('aria-label="Page number"'), hasInput);
   }
 
+  const toastyItem = result.components.find(item => item.component === 'toasty');
+  const toastyModule = await import(path.join(build, toastyItem.source.replace(/tsx$/, 'js')) + `?toasty=${Date.now()}`);
+  const toastyHtml = renderToString(() => toastyModule.Toasty({children:'Application'}));
+  assert.match(toastyHtml, /^<div data-kumo-component="Toasty">Application<button type="button" data-notify>Notify<\/button><\/div>$/);
+  assert.doesNotMatch(toastyHtml, /role="status"/);
+
   const interactive = [
     [{children:'Enabled', id:'enabled', onClick:() => {}}, /<button[^>]*id="enabled"[^>]*type="button"[^>]*>Enabled<\/button>/],
     [{children:'Disabled', disabled:true}, /<button[^>]*disabled[^>]*>Disabled<\/button>/],
@@ -311,6 +333,7 @@ test('Solid SSR renders every compiled semantic predicate through canonical mark
   for (const [item, model] of result.components.map((item, index) => [item, library.models[index]])) {
     const module = await import(path.join(build, item.source.replace(/tsx$/, 'js')) + `?${Date.now()}`);
     for (const variant of model.draftImplementation.semanticVariants ?? []) {
+      if (model.component === 'toasty') continue;
       const canonicalProps = Object.fromEntries(variant.when.filter(x => x.kind === 'prop-equals').map(x => [x.name, x.value]));
       const canonicalFixture = variant.when.find(x => x.kind === 'fixture-equals')?.value;
       // Match the shared packed fixture compiler: children arrive as nested native

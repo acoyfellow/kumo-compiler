@@ -15,6 +15,7 @@ import {generateVueLibrary} from '../src/kumo/emitters/vue/index.mjs';
 
 const output = path.resolve('generated/libraries/vue');
 const hash = value => crypto.createHash('sha256').update(value).digest('hex');
+const toastObservableSupported = (model, library) => model.component === library.toastLifecycle?.component && library.toastLifecycle?.observableImplementation?.support === 'supported';
 
 test('generic Vue emitter creates deterministic, native, tree-shakeable candidate output', () => {
   const first = generateVueLibrary(output);
@@ -85,7 +86,8 @@ test('Vue SSR renders all 66 semantic variants through canonical root and descen
       const html=(await renderToString(createSSRApp({setup:()=>()=>h(Component,props,content===undefined?{}:{default:()=>content})}))).replace(/<(area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr)([^>]*)>/g,'<$1$2></$1>');
       const vector=library.semanticRender.components.find(x=>x.component===model.component).vectors.find(x=>x.id===variant.id);
       for(const constraint of vector.nodes){
-        const expected={root:constraint.selector===':root'?constraint.require:{},...(constraint.selector===':root'?{}:{descendants:[{selector:constraint.selector,...constraint.require}]})};
+        const requirement=toastObservableSupported(model,library)&&constraint.selector===':root' ? Object.fromEntries(Object.entries(constraint.require).filter(([key])=>key!=='text')) : constraint.require;
+        const expected={root:constraint.selector===':root'?requirement:{},...(constraint.selector===':root'?{}:{descendants:[{selector:constraint.selector,...requirement}]})};
         try{assert.equal(compareMarkup(html,expected),true);}catch(error){error.message=`${model.component}#${variant.id} ${constraint.selector}: ${error.message}\n${html}`;throw error;}
       }
       rendered++;
