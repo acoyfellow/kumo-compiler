@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "kumo.autocomplete-collection/v1",
+  "component": "autocomplete",
+  "support": "supported",
+  "root": {
+    "tag": "input"
+  },
+  "api": {
+    "compound": [
+      ".InputGroup",
+      ".Content",
+      ".List",
+      ".Item"
+    ]
+  },
+  "type": {
+    "event": "value:<input>",
+    "opensOnFirstChar": true
+  },
+  "navigate": {
+    "key": "ArrowDown",
+    "model": "highlight first then next option"
+  },
+  "select": {
+    "key": "Enter",
+    "event": "value:<item>",
+    "closesList": true
+  },
+  "focus": {
+    "retains": "input"
+  },
+  "unknowns": [
+    {
+      "field": "portal.container",
+      "status": "unknown",
+      "reason": "Portal container target is not asserted by the canonical contract."
+    },
+    {
+      "field": "ssr.popup",
+      "status": "unknown",
+      "reason": "Whether the popup is present in SSR is not asserted by the canonical contract."
+    },
+    {
+      "field": "defaultFiltering",
+      "status": "unknown",
+      "reason": "The default filtering algorithm is not asserted by the canonical contract."
+    }
+  ],
+  "vectorIds": [
+    "filter-and-select"
+  ],
+  "provenance": {
+    "component": "autocomplete",
+    "contractPath": "contracts/kumo.observable/v1/components/autocomplete.json",
+    "contractDigest": "ec76d75c3cb1e5d949e1f02e80b7482c913b188554bc0c235d67b38a77abe585",
+    "vectorIds": [
+      "filter-and-select"
+    ]
+  },
+  "capabilityDigest": "2bcb8a7431fa59efc075b9a7f8906cbd5e17f5544da2036d7de2fe4d371176db"
+}
