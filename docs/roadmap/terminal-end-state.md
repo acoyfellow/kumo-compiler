@@ -164,3 +164,23 @@ scope not yet identified by inspection. Recommended next approach: a standalone
 per-component cloud prover (proven to work) that produces cells independently of the
 monolithic run.mjs, OR byte-diff the radio client bundle produced inside run.mjs vs the
 standalone path. Radio remains blocked, no gate weakened, component proven correct.
+
+
+### Radio investigation — hard stop after run 69
+
+Confirmed identical and correct across the failing and passing paths: the radio client
+bundle (byte-identical, deterministic, contains selectRadio/internalValue/setValue), the
+SSR HTML (byte-identical across SSR configs), the recorded trusted action
+(`{type:click,target:1,selector:[role=radio]}`), and the five probe expressions. The Vue
+Radio component is proven correct via a standalone `runObservableBrowser` + pool single-vector
+call. It nonetheless returns `[true,false]` (selection unchanged) when driven via
+`runVueRadioBrowser` inside the conformance flow. The divergence is NOT bundle, SSR, action,
+probe, accumulation/ordering, vite cache, or pool session reuse. It is an unidentified
+interaction in the slice-helper invocation that resists static inspection.
+
+DECISION: stop iterating on radio in the loop. The correct fix is a small standalone
+per-component cloud prover that runs one component's vectors in a dedicated process/session
+(the path already proven to pass) and writes that component's cells, decoupled from the
+monolithic per-framework run.mjs. Build that prover as its own focused task, then radio and
+the remaining interactive components prove through it in parallel. Until then radio stays
+blocked with no gate weakened.
