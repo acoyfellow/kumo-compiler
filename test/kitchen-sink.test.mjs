@@ -1,0 +1,6 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+const root=new URL('../',import.meta.url);
+const read=path=>readFile(new URL(path,root),'utf8');
+test('homepage embeds package-backed accessible framework kitchen sink',async()=>{const [component,page,builder,receipt,manifest]=await Promise.all(['astro/src/components/KitchenSink.astro','astro/src/pages/index.astro','scripts/libraries/build-gallery.mjs','proof/kitchen-sink/latest.json','library-artifacts/manifest.json'].map(read));assert.match(page,/KitchenSink/);assert.match(component,/role="tablist"/);assert.match(component,/prefers-color-scheme:dark/);assert.doesNotMatch(component,/innerHTML|set:html|@html/);for(const framework of ['vue','svelte','solid']){assert.match(component,new RegExp(`library-gallery/\\$\\{framework\\}`));assert.match(builder,new RegExp(`@acoyfellow/kumo-${framework}`))}const proof=JSON.parse(receipt),packages=JSON.parse(manifest).packages;assert.equal(proof.readiness,'41/41');assert.deepEqual(proof.omissions.length,29);assert.equal(proof.imports.length,36);for(const pkg of packages)assert.equal(proof.packages[pkg.framework].sha256,pkg.sha256)});

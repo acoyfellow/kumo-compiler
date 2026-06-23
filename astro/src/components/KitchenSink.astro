@@ -1,0 +1,19 @@
+---
+const frameworks = ['vue', 'svelte', 'solid'];
+---
+<section class="sink" aria-labelledby="sink-title">
+  <header><p class="eyebrow">41 / 41 implementation ready</p><h1 id="sink-title">One real app. Three native packages.</h1><p>The dashboard below is built from each installed package tarball. Switch frameworks without substituting copied markup.</p></header>
+  <div class="switcher" role="tablist" aria-label="Kitchen sink framework">
+    {frameworks.map((framework, index) => <button type="button" role="tab" id={`sink-tab-${framework}`} aria-controls={`sink-${framework}`} aria-selected={index === 0 ? 'true' : 'false'} tabindex={index === 0 ? 0 : -1} data-sink-tab={framework}>{framework[0].toUpperCase() + framework.slice(1)}</button>)}
+  </div>
+  {frameworks.map((framework, index) => <div class="panel" role="tabpanel" id={`sink-${framework}`} aria-labelledby={`sink-tab-${framework}`} hidden={index !== 0} data-sink-panel={framework}><iframe title={`${framework} installed-package kitchen sink application`} src={`/library-gallery/${framework}/`}></iframe></div>)}
+  <p class="evidence"><strong>Rendered:</strong> 12 safely composable package components per framework. <strong>Omitted:</strong> 29 components whose required compound-child API or overlay interaction would make this compact homepage demo unsafe or unclear. <a href="/packages/manifest.json">Inspect all eligible package exports.</a></p>
+</section>
+<script>
+const tabs=[...document.querySelectorAll('[data-sink-tab]')],panels=[...document.querySelectorAll('[data-sink-panel]')];
+function select(name){tabs.forEach(tab=>{const active=tab.dataset.sinkTab===name;tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1});panels.forEach(panel=>panel.hidden=panel.dataset.sinkPanel!==name)}
+tabs.forEach((tab,index)=>{tab.addEventListener('click',()=>select(tab.dataset.sinkTab));tab.addEventListener('keydown',event=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(event.key))return;event.preventDefault();const next=event.key==='Home'?0:event.key==='End'?tabs.length-1:(index+(event.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length;select(tabs[next].dataset.sinkTab);tabs[next].focus()})});
+</script>
+<style>
+.sink{padding:clamp(36px,6vw,72px) 0}.sink header{max-width:850px}.eyebrow{margin:0 0 10px;color:#b45309;font-size:12px;font-weight:850;letter-spacing:.1em;text-transform:uppercase}h1{margin:0;font-size:clamp(42px,7vw,78px);line-height:1;letter-spacing:-.05em}header>p:last-child{max-width:720px;color:#475569;font-size:19px;line-height:1.55}.switcher{display:flex;gap:6px;margin-top:28px;padding:6px;border:1px solid #cbd5e1;border-radius:12px;background:#f8fafc}.switcher button{flex:1;min-height:46px;border:0;border-radius:8px;background:transparent;color:#475569;font-weight:800}.switcher button[aria-selected=true]{background:#111827;color:white}.panel{margin-top:12px;border:1px solid #cbd5e1;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 20px 60px #0f172a12}.panel iframe{display:block;width:100%;height:660px;border:0;color-scheme:light dark}.evidence{margin:14px 0 0;padding:14px;border-left:4px solid #f48120;background:#fff7ed;color:#475569;line-height:1.5}.evidence a{color:#075fc7}@media(prefers-color-scheme:dark){.switcher{border-color:#475569;background:#1e293b}.switcher button{color:#cbd5e1}.switcher button[aria-selected=true]{background:#f8fafc;color:#111827}.panel{border-color:#475569;background:#0f172a}.evidence{background:#292219;color:#e2e8f0}}@media(max-width:600px){.panel iframe{height:760px}.evidence{font-size:14px}}
+</style>

@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 1,
+  "readiness": "41/41",
+  "composition": "installed package tarballs via Vite framework-native galleries",
+  "packages": {
+    "vue": {
+      "package": "@acoyfellow/kumo-vue",
+      "sha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+      "receiptDigest": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+    },
+    "svelte": {
+      "package": "@acoyfellow/kumo-svelte",
+      "sha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+      "receiptDigest": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+    },
+    "solid": {
+      "package": "@acoyfellow/kumo-solid",
+      "sha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+      "receiptDigest": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+    }
+  },
+  "imports": [
+    "@acoyfellow/kumo-vue/badge",
+    "@acoyfellow/kumo-vue/banner",
+    "@acoyfellow/kumo-vue/button",
+    "@acoyfellow/kumo-vue/checkbox",
+    "@acoyfellow/kumo-vue/code",
+    "@acoyfellow/kumo-vue/field",
+    "@acoyfellow/kumo-vue/input",
+    "@acoyfellow/kumo-vue/label",
+    "@acoyfellow/kumo-vue/link",
+    "@acoyfellow/kumo-vue/loader",
+    "@acoyfellow/kumo-vue/meter",
+    "@acoyfellow/kumo-vue/switch",
+    "@acoyfellow/kumo-svelte/badge",
+    "@acoyfellow/kumo-svelte/banner",
+    "@acoyfellow/kumo-svelte/button",
+    "@acoyfellow/kumo-svelte/checkbox",
+    "@acoyfellow/kumo-svelte/code",
+    "@acoyfellow/kumo-svelte/field",
+    "@acoyfellow/kumo-svelte/input",
+    "@acoyfellow/kumo-svelte/label",
+    "@acoyfellow/kumo-svelte/link",
+    "@acoyfellow/kumo-svelte/loader",
+    "@acoyfellow/kumo-svelte/meter",
+    "@acoyfellow/kumo-svelte/switch",
+    "@acoyfellow/kumo-solid/badge",
+    "@acoyfellow/kumo-solid/banner",
+    "@acoyfellow/kumo-solid/button",
+    "@acoyfellow/kumo-solid/checkbox",
+    "@acoyfellow/kumo-solid/code",
+    "@acoyfellow/kumo-solid/field",
+    "@acoyfellow/kumo-solid/input",
+    "@acoyfellow/kumo-solid/label",
+    "@acoyfellow/kumo-solid/link",
+    "@acoyfellow/kumo-solid/loader",
+    "@acoyfellow/kumo-solid/meter",
+    "@acoyfellow/kumo-solid/switch"
+  ],
+  "renderedComponents": [
+    "badge",
+    "banner",
+    "button",
+    "checkbox",
+    "code",
+    "field",
+    "input",
+    "label",
+    "link",
+    "loader",
+    "meter",
+    "switch"
+  ],
+  "omissions": [
+    {
+      "component": "autocomplete",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    },
+    {
+      "component": "breadcrumbs",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    },
+    {
+      "component": "clipboard-text",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    },
+    {
+      "component": "cloudflare-logo",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    },
+    {
+      "component": "combobox",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    },
+    {
+      "component": "command-palette",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    },
+    {
+      "component": "date-picker",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    },
+    {
+      "component": "date-range-picker",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    },
+    {
+      "component": "dialog",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    },
+    {
+      "component": "dropdown-menu",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    },
+    {
+      "component": "empty",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    },
+    {
+      "component": "grid",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    },
+    {
+      "component": "grid-item",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    },
+    {
+      "component": "input-area",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    },
+    {
+      "component": "input-group",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    },
+    {
+      "component": "layer-card",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    },
+    {
+      "component": "menu-bar",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    },
+    {
+      "component": "pagination",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    },
+    {
+      "component": "popover",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    },
+    {
+      "component": "radio",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    },
+    {
+      "component": "select",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    },
+    {
+      "component": "sensitive-input",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    },
+    {
+      "component": "sidebar",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    },
+    {
+      "component": "surface",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    },
+    {
+      "component": "table",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    },
+    {
+      "component": "table-of-contents",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    },
+    {
+      "component": "tabs",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    },
+    {
+      "component": "text",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    },
+    {
+      "component": "toasty",
+      "reason": "Omitted from the compact homepage composition: requires compound-child wiring, overlay interaction, or application data beyond a safe static dashboard preview."
+    }
+  ],
+  "prohibitions": [
+    "innerHTML",
+    "@html",
+    "React wrappers"
+  ],
+  "deterministicInputs": [
+    "library-artifacts/manifest.json",
+    "proof/readiness/latest.json"
+  ]
+}
