@@ -246,8 +246,8 @@
     "toggleExecutor": "proof/dx/conformance/shared/toggle-executor.mjs"
   },
   "counts": {
-    "blocked": 25,
-    "passed": 99
+    "blocked": 23,
+    "passed": 101
   },
   "totalVectors": 124,
   "diagnostics": [],
@@ -1367,40 +1367,91 @@
       "component": "input-group",
       "vector": "composition",
       "status": "passed",
-      "mode": "ssr",
+      "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
+      "hydration": "passed",
       "assertion": {
         "status": "passed",
-        "digest": "f91886042e2bc1c5a3ecbbe7e01d4bbb019083f6e2a0d07e2157863f82b7fb64"
+        "digest": "2283269a071f45ce28b1a95cb6a0f0f9f2c0143b076ecba574a92b10d15784fb"
       },
       "observation": {
-        "markupSha256": "5fc60732c47adf0b7a2357dc81967b9758ad07405e969b2d8c3e93c75384ab1c"
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-hk": "kumo-11",
+              "data-kumo-component": "InputGroup"
+            }
+          }
+        },
+        "node-identity": "preserved"
       }
     },
     {
       "component": "input-group",
       "vector": "field-focus",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "1979d20a23110205ed3c91dc9c74c1f29b40c77e922ccf9c05872752616b2bd7"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-hk": "kumo-11",
+              "data-kumo-component": "InputGroup"
+            }
+          }
+        },
+        "state": {
+          "values": [
+            "q"
+          ]
+        },
+        "focus": "button",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "input-group",
       "vector": "disabled-error",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "9af0ef80bfe795e1160163d1cb07a8decda6717162c99c5b0538dcaa2d7a7bd4"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-hk": "kumo-11",
+              "data-kumo-component": "InputGroup"
+            }
+          }
+        },
+        "state": {
+          "values": [
+            ""
+          ]
+        },
+        "focus": "input",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "input",
@@ -3086,5 +3137,5 @@
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     }
   ],
-  "receiptHash": "9f3fc7ce0c855c609b6da25042f2c1d4ac84fad160ff018caf0b3c5a59fe12b8"
+  "receiptHash": "c856d5cf569ddabeb1fbf7e15bfa9802d348e4caf10a0275f05c352db8b324df"
 }
