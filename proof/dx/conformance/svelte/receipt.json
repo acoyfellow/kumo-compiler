@@ -4,7 +4,7 @@
   "framework": "svelte",
   "package": "@acoyfellow/kumo-svelte@0.0.1",
   "artifact": "library-artifacts/kumo-svelte-0.0.1.tgz",
-  "packageSha256": "fb7e29ce01106036ba08462e55f9115de6f166f25bce73a89278a8f8249ae665",
+  "packageSha256": "f15ab4df30976455036369c52e9977bd93d7bdb4a52b1d6fc29c2ead88a779f2",
   "contract": {
     "schemaVersion": "kumo.observable/v1",
     "provenanceDigest": "a7fe3efce7677deb02df5635e1c9541b8e618d67763a5ef8ca11f6ef950aeebf"
@@ -14,7 +14,7 @@
     "digest": "e8d7f17985b6ca2c3abf69b69c482d9efcbc63f18ae35760e3673df9aecc2f77",
     "sha256": "3153cc2e780cd7b7de2262f53dbac6886ae3ac61179ffe58ac52ec419dc3efe7"
   },
-  "modelHash": "4bdb2a73a2626bbad77c065f70fcb7d6092dc6c593b33d8d052c105d101d5824",
+  "modelHash": "af26176db5ec218ccca0063c1ed68d389674d1ebd872df46d6758c43c1c878a8",
   "runner": "scripts/observable-browser-runner.mjs",
   "browser": {
     "results": [
@@ -696,348 +696,704 @@
           },
           "node-identity": "preserved"
         }
+      },
+      {
+        "component": "pagination",
+        "id": "legacy-page-one",
+        "passed": true,
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodeIdentity": "preserved",
+        "observation": {
+          "dom": {
+            "tag": "div",
+            "attributes": {
+              "includes": {
+                "data-slot": "pagination"
+              }
+            }
+          },
+          "descendants": [
+            {
+              "selector": "nav",
+              "count": 1,
+              "attributes": {
+                "includes": {
+                  "aria-label": "Pagination"
+                }
+              }
+            },
+            {
+              "selector": "button",
+              "count": 4
+            },
+            {
+              "selector": "input",
+              "count": 1,
+              "attributes": {
+                "includes": {
+                  "aria-label": "Page number",
+                  "value": "1"
+                }
+              }
+            }
+          ],
+          "node-identity": "preserved"
+        }
+      },
+      {
+        "component": "pagination",
+        "id": "next-controlled",
+        "passed": true,
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodeIdentity": "preserved",
+        "observation": {
+          "dom": {
+            "tag": "div",
+            "attributes": {
+              "includes": {
+                "data-slot": "pagination"
+              }
+            }
+          },
+          "state": {
+            "page": 3
+          },
+          "events": [
+            "page:3"
+          ],
+          "focus": "[aria-label=\"Next page\"]",
+          "node-identity": "preserved"
+        }
+      },
+      {
+        "component": "pagination",
+        "id": "boundaries",
+        "passed": true,
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodeIdentity": "preserved",
+        "observation": {
+          "dom": {
+            "tag": "div",
+            "attributes": {
+              "includes": {
+                "data-slot": "pagination"
+              }
+            }
+          },
+          "state": {
+            "page": 4,
+            "nextDisabled": true,
+            "lastDisabled": true
+          },
+          "events": [],
+          "focus": "none",
+          "node-identity": "preserved"
+        }
+      },
+      {
+        "component": "pagination",
+        "id": "input-enter-clamp",
+        "passed": true,
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodeIdentity": "preserved",
+        "observation": {
+          "dom": {
+            "tag": "div",
+            "attributes": {
+              "includes": {
+                "data-slot": "pagination"
+              }
+            }
+          },
+          "state": {
+            "page": 4,
+            "input": "4"
+          },
+          "events": [
+            "page:4"
+          ],
+          "focus": "input",
+          "node-identity": "preserved"
+        }
+      },
+      {
+        "component": "pagination",
+        "id": "input-blur-clamp",
+        "passed": true,
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodeIdentity": "preserved",
+        "observation": {
+          "dom": {
+            "tag": "div",
+            "attributes": {
+              "includes": {
+                "data-slot": "pagination"
+              }
+            }
+          },
+          "state": {
+            "page": 1,
+            "input": "1"
+          },
+          "events": [
+            "page:1"
+          ],
+          "focus": "nav",
+          "node-identity": "preserved"
+        }
+      },
+      {
+        "component": "pagination",
+        "id": "legacy-page-three-ssr",
+        "passed": true,
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodeIdentity": "preserved",
+        "observation": {
+          "dom": {
+            "tag": "div",
+            "attributes": {
+              "includes": {
+                "data-slot": "pagination"
+              }
+            }
+          },
+          "descendants": [
+            {
+              "selector": "input",
+              "count": 1,
+              "attributes": {
+                "includes": {
+                  "value": "1"
+                }
+              }
+            }
+          ],
+          "state": {
+            "hydratedValue": "3",
+            "nodeIdentity": true
+          },
+          "events": [],
+          "node-identity": "preserved"
+        }
+      },
+      {
+        "component": "pagination",
+        "id": "compound-simple-labels",
+        "passed": true,
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodeIdentity": "preserved",
+        "observation": {
+          "dom": {
+            "tag": "div",
+            "attributes": {
+              "includes": {
+                "data-slot": "pagination"
+              }
+            }
+          },
+          "descendants": [
+            {
+              "selector": "nav",
+              "count": 1,
+              "attributes": {
+                "includes": {
+                  "aria-label": "Results pages"
+                }
+              }
+            },
+            {
+              "selector": "button",
+              "count": 2
+            }
+          ],
+          "node-identity": "preserved"
+        }
+      },
+      {
+        "component": "pagination",
+        "id": "compound-dropdown-size",
+        "passed": true,
+        "ssr": "passed",
+        "hydration": "passed",
+        "nodeIdentity": "preserved",
+        "observation": {
+          "dom": {
+            "tag": "div",
+            "attributes": {
+              "includes": {
+                "data-slot": "pagination"
+              }
+            }
+          },
+          "descendants": [
+            {
+              "selector": "button",
+              "count": 6
+            }
+          ],
+          "node-identity": "preserved"
+        }
       }
     ],
-    "browserCells": 24,
+    "browserCells": 32,
     "diagnostics": [],
     "telemetry": [
       {
         "id": "disabled-click",
         "phases": {
-          "build": 931.0852909982204,
-          "serve": 3.292167007923126,
-          "chrome": 1446.0145830065012
+          "build": 833.0404170006514,
+          "serve": 6.006582990288734,
+          "chrome": 1511.160667002201
         },
         "vectors": [
           {
             "component": "button",
             "id": "disabled-click",
-            "ms": 92.69858299195766
+            "ms": 90.60379199683666
           }
         ]
       },
       {
         "id": "loading-click",
         "phases": {
-          "build": 868.1148750036955,
-          "serve": 1.4062910079956055,
-          "chrome": 747.3635420054197
+          "build": 918.2369589954615,
+          "serve": 1.4972500056028366,
+          "chrome": 776.2574999928474
         },
         "vectors": [
           {
             "component": "button",
             "id": "loading-click",
-            "ms": 88.4692919999361
+            "ms": 89.63254199922085
           }
         ]
       },
       {
         "id": "enabled-click",
         "phases": {
-          "build": 883.4994580000639,
-          "serve": 0.14833399653434753,
-          "chrome": 829.5883750021458
+          "build": 980.5592080056667,
+          "serve": 0.18137499690055847,
+          "chrome": 850.2924159914255
         },
         "vectors": [
           {
             "component": "button",
             "id": "enabled-click",
-            "ms": 88.66245800256729
+            "ms": 88.01237501204014
           }
         ]
       },
       {
         "id": "submit-form",
         "phases": {
-          "build": 931.9844999909401,
-          "serve": 0.16295799612998962,
-          "chrome": 837.5738749951124
+          "build": 1065.0329589992762,
+          "serve": 0.15799999237060547,
+          "chrome": 993.1002919971943
         },
         "vectors": [
           {
             "component": "button",
             "id": "submit-form",
-            "ms": 88.14312499761581
+            "ms": 89.91433300077915
           }
         ]
       },
       {
         "id": "checkbox/unchecked-click",
         "phases": {
-          "build": 1045.5498329997063,
-          "serve": 0.1421249955892563,
-          "chrome": 920.6005409955978
+          "build": 303.9089169949293,
+          "serve": 0.16962499916553497,
+          "chrome": 684.100166991353
         },
         "vectors": [
           {
             "component": "checkbox",
-            "ms": 119.16845799982548
+            "ms": 90.42666700482368
           }
         ]
       },
       {
         "id": "checkbox/checked-controlled-click",
         "phases": {
-          "build": 590.7354580014944,
-          "serve": 0.1440420001745224,
-          "chrome": 801.8476669937372
+          "build": 768.3046669960022,
+          "serve": 0.15358299016952515,
+          "chrome": 881.3061250001192
         },
         "vectors": [
           {
             "component": "checkbox",
-            "ms": 90.9204580038786
+            "ms": 89.8910000026226
           }
         ]
       },
       {
         "id": "checkbox/indeterminate-space",
         "phases": {
-          "build": 832.9703329950571,
-          "serve": 0.1378750056028366,
-          "chrome": 794.8860830068588
+          "build": 1073.4706249982119,
+          "serve": 0.13283400237560272,
+          "chrome": 999.268041998148
         },
         "vectors": [
           {
             "component": "checkbox",
-            "ms": 88.9626669883728
+            "ms": 87.65295898914337
           }
         ]
       },
       {
         "id": "checkbox/disabled",
         "phases": {
-          "build": 946.3819589912891,
-          "serve": 0.1704999953508377,
-          "chrome": 757.1294589936733
+          "build": 1041.276416003704,
+          "serve": 0.1617089956998825,
+          "chrome": 881.6489999890327
         },
         "vectors": [
           {
             "component": "checkbox",
-            "ms": 90.0797079950571
+            "ms": 89.89833401143551
           }
         ]
       },
       {
         "id": "checkbox/group-default",
         "phases": {
-          "build": 1021.9962500035763,
-          "serve": 0.14516599476337433,
-          "chrome": 698.8032080084085
+          "build": 733.8176250010729,
+          "serve": 0.1932079941034317,
+          "chrome": 828.9674170017242
         },
         "vectors": [
           {
             "component": "checkbox",
-            "ms": 90.19383299350739
+            "ms": 90.23499999940395
           }
         ]
       },
       {
         "id": "switch/unchecked-click",
         "phases": {
-          "build": 279.41879200935364,
-          "serve": 0.16062499582767487,
-          "chrome": 559.500624999404
+          "build": 737.5364580005407,
+          "serve": 0.19637499749660492,
+          "chrome": 917.5726669877768
         },
         "vectors": [
           {
             "component": "switch",
-            "ms": 90.52258299291134
+            "ms": 92.77316699922085
           }
         ]
       },
       {
         "id": "switch/checked-controlled-space",
         "phases": {
-          "build": 399.0797920078039,
-          "serve": 0.12583400309085846,
-          "chrome": 820.1510840058327
+          "build": 1113.4227499961853,
+          "serve": 0.12958300113677979,
+          "chrome": 889.2187919914722
         },
         "vectors": [
           {
             "component": "switch",
-            "ms": 100.62316699326038
+            "ms": 90.53495799005032
           }
         ]
       },
       {
         "id": "switch/small",
         "phases": {
-          "build": 1061.556708008051,
-          "serve": 0.1340000033378601,
-          "chrome": 804.139166995883
+          "build": 1105.7287909984589,
+          "serve": 0.13520799577236176,
+          "chrome": 915.4561249911785
         },
         "vectors": [
           {
             "component": "switch",
-            "ms": 2.5197080075740814
+            "ms": 2.139292001724243
           }
         ]
       },
       {
         "id": "switch/large-disabled",
         "phases": {
-          "build": 882.4627089947462,
-          "serve": 0.13112500309944153,
-          "chrome": 791.4195840060711
+          "build": 766.3554159998894,
+          "serve": 0.14891700446605682,
+          "chrome": 765.6539999991655
         },
         "vectors": [
           {
             "component": "switch",
-            "ms": 89.94283299148083
+            "ms": 90.33595798909664
           }
         ]
       },
       {
         "id": "switch/group",
         "phases": {
-          "build": 989.6531250029802,
-          "serve": 0.15308301150798798,
-          "chrome": 830.8482920080423
+          "build": 763.336624994874,
+          "serve": 0.1401669979095459,
+          "chrome": 862.2238750010729
         },
         "vectors": [
           {
             "component": "switch",
-            "ms": 90.69245800375938
+            "ms": 90.10787500441074
           }
         ]
       },
       {
         "id": "input/bare-disabled",
         "phases": {
-          "build": 635.1680410057306,
-          "serve": 0.203125,
-          "chrome": 744.3047080039978
+          "build": 1099.3835419863462,
+          "serve": 0.14116699993610382,
+          "chrome": 947.522957995534
         },
         "vectors": [
           {
             "component": "input",
-            "ms": 1.5388749986886978
+            "ms": 1.799457997083664
           }
         ]
       },
       {
         "id": "input/type",
         "phases": {
-          "build": 980.3352089971304,
-          "serve": 0.12083300948143005,
-          "chrome": 869.7170000076294
+          "build": 1104.9192920029163,
+          "serve": 0.12229201197624207,
+          "chrome": 803.9671249985695
         },
         "vectors": [
           {
             "component": "input",
-            "ms": 91.01999999582767
+            "ms": 91.0081669986248
           }
         ]
       },
       {
         "id": "input-area/bare",
         "phases": {
-          "build": 963.4888750016689,
-          "serve": 0.12204200029373169,
-          "chrome": 830.636749997735
+          "build": 707.1380829960108,
+          "serve": 0.12133300304412842,
+          "chrome": 660.6261250078678
         },
         "vectors": [
           {
             "component": "input-area",
-            "ms": 1.0682910084724426
+            "ms": 1.1054159998893738
           }
         ]
       },
       {
         "id": "input-area/type",
         "phases": {
-          "build": 1033.3828330039978,
-          "serve": 0.14362499117851257,
-          "chrome": 870.2875420004129
+          "build": 311.0768750011921,
+          "serve": 0.12962499260902405,
+          "chrome": 519.6389160007238
         },
         "vectors": [
           {
             "component": "input-area",
-            "ms": 90.85549999773502
+            "ms": 90.79762499034405
           }
         ]
       },
       {
         "id": "input/field-label",
         "phases": {
-          "build": 755.2753750085831,
-          "serve": 0.2318750023841858,
-          "chrome": 676.295834004879
+          "build": 449.93533401191235,
+          "serve": 0.19070900976657867,
+          "chrome": 680.7072499990463
         },
         "vectors": [
           {
             "component": "input",
-            "ms": 88.47854100167751
+            "ms": 89.4461669921875
           }
         ]
       },
       {
         "id": "input-area/field-error",
         "phases": {
-          "build": 820.8448750078678,
-          "serve": 0.1321670114994049,
-          "chrome": 785.990457996726
+          "build": 1094.6682920008898,
+          "serve": 0.1651660054922104,
+          "chrome": 903.1392910033464
         },
         "vectors": [
           {
             "component": "input-area",
-            "ms": 89.69029200077057
+            "ms": 89.02525000274181
           }
         ]
       },
       {
         "id": "field/optional",
         "phases": {
-          "build": 924.2268330007792,
-          "serve": 0.11516599357128143,
-          "chrome": 767.1178340017796
+          "build": 1097.4902089983225,
+          "serve": 0.1142909973859787,
+          "chrome": 845.5651250034571
         },
         "vectors": [
           {
             "component": "field",
-            "ms": 1.1818329989910126
+            "ms": 1.2533750087022781
           }
         ]
       },
       {
         "id": "clipboard-text/click-copy",
         "phases": {
-          "build": 986.6106249988079,
-          "serve": 0.11345899105072021,
-          "chrome": 810.6258749961853
+          "build": 1072.7730419933796,
+          "serve": 0.11800000071525574,
+          "chrome": 804.3517909944057
         },
         "vectors": [
           {
             "component": "clipboard-text",
-            "ms": 114.70375001430511
+            "ms": 92.37720799446106
           }
         ]
       },
       {
         "id": "clipboard-text/keyboard",
         "phases": {
-          "build": 846.5731659978628,
-          "serve": 0.12745800614356995,
-          "chrome": 891.539749994874
+          "build": 764.5949169993401,
+          "serve": 0.11995799839496613,
+          "chrome": 771.5852089971304
         },
         "vectors": [
           {
             "component": "clipboard-text",
-            "ms": 86.87233300507069
+            "ms": 86.03529199957848
           }
         ]
       },
       {
         "id": "clipboard-text/ssr",
         "phases": {
-          "build": 873.2509170025587,
-          "serve": 0.09362499415874481,
-          "chrome": 862.0079579949379
+          "build": 1099.055999994278,
+          "serve": 0.12133300304412842,
+          "chrome": 855.3486669957638
         },
         "vectors": [
           {
             "component": "clipboard-text",
-            "ms": 1.0390830039978027
+            "ms": 1.017999991774559
+          }
+        ]
+      },
+      {
+        "id": "pagination/legacy-page-one",
+        "phases": {
+          "build": 1059.1439580023289,
+          "serve": 0.11837500333786011,
+          "chrome": 874.6747500002384
+        },
+        "vectors": [
+          {
+            "component": "pagination",
+            "ms": 1.7381670027971268
+          }
+        ]
+      },
+      {
+        "id": "pagination/next-controlled",
+        "phases": {
+          "build": 894.1815840005875,
+          "serve": 0.11262500286102295,
+          "chrome": 719.9476670026779
+        },
+        "vectors": [
+          {
+            "component": "pagination",
+            "ms": 90.50170800089836
+          }
+        ]
+      },
+      {
+        "id": "pagination/boundaries",
+        "phases": {
+          "build": 639.2419590055943,
+          "serve": 0.11504200100898743,
+          "chrome": 762.2591660022736
+        },
+        "vectors": [
+          {
+            "component": "pagination",
+            "ms": 88.20966699719429
+          }
+        ]
+      },
+      {
+        "id": "pagination/input-enter-clamp",
+        "phases": {
+          "build": 1068.7061659991741,
+          "serve": 0.13004200160503387,
+          "chrome": 893.6657499969006
+        },
+        "vectors": [
+          {
+            "component": "pagination",
+            "ms": 256.572791993618
+          }
+        ]
+      },
+      {
+        "id": "pagination/input-blur-clamp",
+        "phases": {
+          "build": 1063.3105829954147,
+          "serve": 0.11516600847244263,
+          "chrome": 916.913291990757
+        },
+        "vectors": [
+          {
+            "component": "pagination",
+            "ms": 307.7402500063181
+          }
+        ]
+      },
+      {
+        "id": "pagination/legacy-page-three-ssr",
+        "phases": {
+          "build": 1060.2292499989271,
+          "serve": 0.125791996717453,
+          "chrome": 882.9052920043468
+        },
+        "vectors": [
+          {
+            "component": "pagination",
+            "ms": 2.3990000039339066
+          }
+        ]
+      },
+      {
+        "id": "pagination/compound-simple-labels",
+        "phases": {
+          "build": 943.5781660079956,
+          "serve": 0.12299999594688416,
+          "chrome": 839.7440410107374
+        },
+        "vectors": [
+          {
+            "component": "pagination",
+            "ms": 1.5773749947547913
+          }
+        ]
+      },
+      {
+        "id": "pagination/compound-dropdown-size",
+        "phases": {
+          "build": 1087.64954200387,
+          "serve": 0.12066599726676941,
+          "chrome": 1007.0510419905186
+        },
+        "vectors": [
+          {
+            "component": "pagination",
+            "ms": 1.479750007390976
           }
         ]
       }
@@ -1053,7 +1409,8 @@
       "native-input-fixtures",
       "field-composition-fixtures",
       "clipboard-boundary",
-      "clipboard-fixtures"
+      "clipboard-fixtures",
+      "pagination-fixtures"
     ]
   },
   "policy": {
@@ -1063,11 +1420,11 @@
     "fixtureSource": "proof/dx/conformance/shared/packed-fixtures.json"
   },
   "counts": {
-    "passed": 84,
-    "blocked": 40
+    "passed": 89,
+    "blocked": 35
   },
   "staticPassed": 64,
-  "browserPassed": 24,
+  "browserPassed": 29,
   "totalVectors": 124,
   "diagnostics": [],
   "cells": [
@@ -2494,112 +2851,292 @@
       "component": "pagination",
       "vector": "legacy-page-one",
       "status": "passed",
-      "mode": "ssr",
+      "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
+      "hydration": "passed",
       "assertion": {
         "status": "passed",
         "digest": "25280acd3e1d9aea30a6d34b9b6697dbfac64d24ddffee5945fd6cf5fb8c50a0"
       },
       "observation": {
-        "markupSha256": "7574b4cc79550860a03bca29fe4c3ff3f58af9e723978b7a68c662ab89f5ccd7"
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-slot": "pagination"
+            }
+          }
+        },
+        "descendants": [
+          {
+            "selector": "nav",
+            "count": 1,
+            "attributes": {
+              "includes": {
+                "aria-label": "Pagination"
+              }
+            }
+          },
+          {
+            "selector": "button",
+            "count": 4
+          },
+          {
+            "selector": "input",
+            "count": 1,
+            "attributes": {
+              "includes": {
+                "aria-label": "Page number",
+                "value": "1"
+              }
+            }
+          }
+        ],
+        "node-identity": "preserved"
       }
     },
     {
       "component": "pagination",
       "vector": "legacy-page-three-ssr",
-      "status": "blocked",
-      "mode": "ssr",
+      "status": "passed",
+      "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
+      "hydration": "passed",
       "assertion": {
         "status": "passed",
         "digest": "8bf800aa3bc98a8fd5131e6525761ed910421eb62309b0555113bf980eff6884"
       },
       "observation": {
-        "markupSha256": "0f2420ad3e4945d3407302609df79da6d4df5da40063c575893219a4a615587f"
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-slot": "pagination"
+            }
+          }
+        },
+        "descendants": [
+          {
+            "selector": "input",
+            "count": 1,
+            "attributes": {
+              "includes": {
+                "value": "1"
+              }
+            }
+          }
+        ],
+        "state": {
+          "hydratedValue": "3",
+          "nodeIdentity": true
+        },
+        "events": [],
+        "node-identity": "preserved"
       }
     },
     {
       "component": "pagination",
       "vector": "next-controlled",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "0ca697a8b5d2363724938e591b1e4fa407218a5b2a9accee3bf9e4c391d2ed36"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-slot": "pagination"
+            }
+          }
+        },
+        "state": {
+          "page": 3
+        },
+        "events": [
+          "page:3"
+        ],
+        "focus": "[aria-label=\"Next page\"]",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "pagination",
       "vector": "boundaries",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "7077bffdc061d27363b99f6d72acfc2feb689b1ca570f4bee097f4c7f995f6f4"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-slot": "pagination"
+            }
+          }
+        },
+        "state": {
+          "page": 4,
+          "nextDisabled": true,
+          "lastDisabled": true
+        },
+        "events": [],
+        "focus": "none",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "pagination",
       "vector": "input-enter-clamp",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "e6297d79f12c8d278c609ff7ac74031853445c5507118199d1c6514f05f405ec"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-slot": "pagination"
+            }
+          }
+        },
+        "state": {
+          "page": 4,
+          "input": "4"
+        },
+        "events": [
+          "page:4"
+        ],
+        "focus": "input",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "pagination",
       "vector": "input-blur-clamp",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "3790417a59586aefa6e9b5708df1c9f9d670d06d23906468cb3d3469c3fe91a7"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-slot": "pagination"
+            }
+          }
+        },
+        "state": {
+          "page": 1,
+          "input": "1"
+        },
+        "events": [
+          "page:1"
+        ],
+        "focus": "nav",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "pagination",
       "vector": "compound-simple-labels",
       "status": "passed",
-      "mode": "ssr",
+      "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
+      "hydration": "passed",
       "assertion": {
         "status": "passed",
         "digest": "3a43db5d7f7112543620d33b9a34af625309d3e7800bdfa5bad176961a49d8f8"
       },
       "observation": {
-        "markupSha256": "5efad9a53ef4db3d3ee641def416d5b11444d30893861040116bc7b7762043c4"
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-slot": "pagination"
+            }
+          }
+        },
+        "descendants": [
+          {
+            "selector": "nav",
+            "count": 1,
+            "attributes": {
+              "includes": {
+                "aria-label": "Results pages"
+              }
+            }
+          },
+          {
+            "selector": "button",
+            "count": 2
+          }
+        ],
+        "node-identity": "preserved"
       }
     },
     {
       "component": "pagination",
       "vector": "compound-dropdown-size",
       "status": "passed",
-      "mode": "ssr",
+      "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
+      "hydration": "passed",
       "assertion": {
         "status": "passed",
         "digest": "9c2da72ad011f6aa451b8759e5e15187d18ce8917a7dc95948a4766e704ea720"
       },
       "observation": {
-        "markupSha256": "764f7b791613e483947c9274582501b78e8a3dad8757bee780b721b3a78b23fa"
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-slot": "pagination"
+            }
+          }
+        },
+        "descendants": [
+          {
+            "selector": "button",
+            "count": 6
+          }
+        ],
+        "node-identity": "preserved"
       }
     },
     {
@@ -3361,5 +3898,5 @@
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     }
   ],
-  "receiptHash": "94f77d4d44aa9dbd3e3476067693ca0ce29633be74c3bde6ba5135c27487e7e7"
+  "receiptHash": "41cc6d12083902e4e045909440a580729da911416994ba6d88e9dba4c5677e71"
 }

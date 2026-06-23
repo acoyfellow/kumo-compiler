@@ -113,7 +113,7 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   assert.match(clipboardDeclaration, /"onCopy"\?: \(\) => void;/);
 
   const paginationSource = fs.readFileSync(path.join(first, 'pagination.tsx'), 'utf8');
-  assert.match(paginationSource, /<div data-slot="pagination"><nav aria-label=/);
+  assert.match(paginationSource, /<div data-slot="pagination"><nav ref=\{navEl\} aria-label=/);
   assert.match(paginationSource, /props\.fixtureMode !== "simple"/);
   assert.match(paginationSource, /props\.fixtureMode === "dropdown"/);
   assert.equal((paginationSource.match(/<button/g) ?? []).length, 6);
