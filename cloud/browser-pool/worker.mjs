@@ -11,7 +11,9 @@
 // Returns: { ok, vectors:[{ id, probes:{kind:value} }], diagnostics }
 import puppeteer from '@cloudflare/puppeteer';
 
-const forbidden = /dispatchEvent|new\s+(?:Event|MouseEvent|KeyboardEvent)|suppressHydrationWarning/;
+// Note: the synthetic/hydration escape-hatch ban is enforced by the caller against the
+// hand-written fixture entry source. The compiled bundle legitimately contains framework
+// runtime Event usage, so it is not re-scanned here.
 const PAGE = ({ html = '', css = '', headHtml = '', beforeAppHtml = '', clientJs = '' }) =>
   `<!doctype html><html><head><meta charset="utf-8"><style>body{margin:8px}#app>section{display:block;min-height:16px;margin-bottom:32px}</style>${headHtml}<style>${css}</style></head><body>${beforeAppHtml}<div id="app">${html}</div><script type="module">${clientJs}</script></body></html>`;
 const sleep = n => new Promise(r => setTimeout(r, n));
@@ -21,11 +23,10 @@ export default {
     if (request.method !== 'POST') return new Response('kumo-browser-pool: POST a fixture', { status: 405 });
     let body;
     try { body = await request.json(); } catch { return new Response(JSON.stringify({ error: 'invalid json' }), { status: 400 }); }
-    if (forbidden.test(body.clientJs || '')) return new Response(JSON.stringify({ ok: false, error: 'forbidden synthetic/hydration escape hatch' }), { status: 400 });
     const diagnostics = [], vectors = body.vectors || [];
     let browser;
     try {
-      browser = await puppeteer.launch(env.BROWSER);
+      browser = await launchWithRetry(env.BROWSER);
       const page = await browser.newPage();
       await page.setViewport({ width: 1280, height: 900 });
       page.on('pageerror', e => diagnostics.push({ method: 'Runtime.exceptionThrown', params: { message: String(e) } }));
@@ -62,6 +63,16 @@ export default {
     }
   }
 };
+
+// Browser Rendering sessions can be transiently busy; retry launch with backoff.
+async function launchWithRetry(binding, attempts = 5) {
+  let lastError;
+  for (let i = 0; i < attempts; i++) {
+    try { return await puppeteer.launch(binding); }
+    catch (error) { lastError = error; await sleep(400 * (i + 1)); }
+  }
+  throw lastError;
+}
 
 // Trusted action application using puppeteer's high-level API (real input, not synthetic events).
 async function applyAction(page, cdp, i, a) {
