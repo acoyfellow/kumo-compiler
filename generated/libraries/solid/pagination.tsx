@@ -30,13 +30,15 @@ export function Pagination(incoming: PaginationProps): JSX.Element {
   const state: Record<string, () => unknown> = {};
   const maxPage = () => Math.max(1, Math.ceil((props.totalCount as number) / (props.perPage as number)));
   const clampPage = (page: number) => Math.min(maxPage(), Math.max(1, page));
-  const [currentPage, setCurrentPage] = createSignal(1);
-  const [inputValue, setInputValue] = createSignal("1");
-  if (typeof window !== "undefined") { const initial = clampPage(props.page as number); setCurrentPage(initial); setInputValue(String(initial)); }
-  const proposePage = (page: number) => { const proposal = clampPage(page); setCurrentPage(proposal); setInputValue(String(proposal)); (props.setPage as ((page: number) => void) | undefined)?.(proposal); };
+  const hydrated = createSignal(false);
+  if (typeof window !== "undefined") queueMicrotask(() => hydrated[1](true));
+  const currentPage = () => hydrated[0]() ? clampPage(props.page as number) : 1;
+  const [editing, setEditing] = createSignal<string | null>(null);
+  const inputValue = () => editing() ?? String(currentPage());
+  const proposePage = (page: number) => { const proposal = clampPage(page); setEditing(null); (props.setPage as ((page: number) => void) | undefined)?.(proposal); };
   let navEl: HTMLElement | undefined;
-  const commitInput = (element: HTMLInputElement, blur = false) => { const focusNav = () => { if (blur && navEl) { navEl.setAttribute("tabindex", "-1"); navEl.focus(); } }; const value = element.value.trim(); if (!/^\d+$/.test(value)) { setInputValue(String(currentPage())); element.value = String(currentPage()); focusNav(); return; } proposePage(Number.parseInt(value, 10)); focusNav(); };
-  const pageInput: JSX.EventHandlerUnion<HTMLInputElement, InputEvent> = event => setInputValue(event.currentTarget.value);
+  const commitInput = (element: HTMLInputElement, blur = false) => { const focusNav = () => { if (blur && navEl) { navEl.setAttribute("tabindex", "-1"); navEl.focus(); } }; const value = element.value.trim(); if (!/^\d+$/.test(value)) { setEditing(null); element.value = String(currentPage()); focusNav(); return; } proposePage(Number.parseInt(value, 10)); element.value = String(clampPage(Number.parseInt(value, 10))); focusNav(); };
+  const pageInput: JSX.EventHandlerUnion<HTMLInputElement, InputEvent> = event => setEditing(event.currentTarget.value);
   const pageKeyDown: JSX.EventHandlerUnion<HTMLInputElement, KeyboardEvent> = event => { if (event.key === "Enter") commitInput(event.currentTarget); };
   const pageBlur: JSX.EventHandlerUnion<HTMLInputElement, FocusEvent> = event => commitInput(event.currentTarget, true);
   const refs: Record<string, HTMLElement | undefined> = {};
