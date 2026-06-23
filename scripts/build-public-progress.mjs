@@ -3,12 +3,14 @@ import{createHash}from'node:crypto';
 import{resolve}from'node:path';
 const root=resolve(import.meta.dirname,'..');
 const json=async p=>JSON.parse(await readFile(resolve(root,p),'utf8'));
-const [status,canonical,readiness,packages,libraryPages,...downstream]=await Promise.all([
+const [status,canonical,readiness,packages,libraryPages,examples,docs,...downstream]=await Promise.all([
  json('proof/observable-contracts/status.json'),
  json('proof/observable-contracts/canonical.json'),
  json('proof/readiness/latest.json'),
  json('library-artifacts/manifest.json'),
  json('proof/library-pages/receipt.json'),
+ json('proof/examples/latest.json'),
+ json('proof/docs/latest.json'),
  json('proof/dx/conformance/vue/receipt.json'),
  json('proof/dx/conformance/svelte/receipt.json'),
  json('proof/dx/conformance/solid/receipt.json'),
@@ -16,7 +18,9 @@ const [status,canonical,readiness,packages,libraryPages,...downstream]=await Pro
 const componentId=x=>x.replace(/([a-z0-9])([A-Z])/g,'$1-$2').toLowerCase();
 const packaged=[...new Set(packages.packages.flatMap(x=>x.components).map(componentId))].sort();
 const allFrameworks=packages.packages.length===3;
-const documented=libraryPages.cells?.every(x=>x.observations?.selectAbsent===true)?2:0;
+const examplesComplete=examples.status==='passed'&&examples.componentCount===41&&examples.targetCount===3&&examples.passedCount===123;
+const docsComplete=docs.status==='passed'&&docs.componentReferenceCoverage?.covered===41&&docs.componentReferenceCoverage?.total===41&&docs.diataxis?.covered===4&&docs.diataxis?.total===4;
+const documented=examplesComplete&&docsComplete?41:0;
 const completeComponents=receipt=>{
  const groups=new Map();
  for(const cell of receipt.cells??[]){const id=componentId(cell.component);const group=groups.get(id)??[];group.push(cell);groups.set(id,group)}
