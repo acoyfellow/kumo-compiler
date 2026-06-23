@@ -3,10 +3,10 @@ import{createHash}from'node:crypto';
 import{resolve}from'node:path';
 const root=resolve(import.meta.dirname,'..');
 const json=async p=>JSON.parse(await readFile(resolve(root,p),'utf8'));
-const [status,canonical,library,packages,libraryPages,...downstream]=await Promise.all([
+const [status,canonical,readiness,packages,libraryPages,...downstream]=await Promise.all([
  json('proof/observable-contracts/status.json'),
  json('proof/observable-contracts/canonical.json'),
- json('src/kumo/library/manifest.json'),
+ json('proof/readiness/latest.json'),
  json('library-artifacts/manifest.json'),
  json('proof/library-pages/receipt.json'),
  json('proof/dx/conformance/vue/receipt.json'),
@@ -28,7 +28,7 @@ const conformedComponents=packaged.filter(id=>canonicalComplete.has(id)&&downstr
 const phases=[
  {id:'contracts',label:'Canonical contracts',done:status.counts.contracted,total:41,status:status.counts.contracted===41?'passed':'in-progress'},
  {id:'canonical',label:'Canonical browser vectors',done:canonical.counts.passed??0,total:canonical.cells.length,status:canonical.status},
- {id:'library-ir',label:'Implementation-ready library models',done:library.components.filter(x=>x.implementationReady===true).length,total:41,status:library.components.every(x=>x.implementationReady===true)?'passed':'in-progress'},
+ {id:'library-ir',label:'Implementation-ready library models',done:readiness.count===41&&readiness.components.every(x=>x.implementationReady===true)?41:0,total:41,status:readiness.count===41&&readiness.components.every(x=>x.implementationReady===true)?'passed':'in-progress'},
  {id:'packages',label:'Components in all three packages',done:allFrameworks?packaged.length:0,total:41,status:allFrameworks&&packaged.length===41?'passed':'in-progress'},
  {id:'packed-conformance',label:'Four-framework package conformance',done:conformedComponents.length,total:41,status:conformedComponents.length===41?'passed':conformedComponents.length?'in-progress':'not-run'},
  {id:'examples-docs',label:'Complete component examples and docs',done:documented,total:41,status:documented===41?'passed':'in-progress'},

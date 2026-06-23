@@ -1,0 +1,5154 @@
+{
+  "schemaVersion": "kumo.readiness/v1",
+  "count": 41,
+  "implementationReadyCount": 41,
+  "dimensions": [
+    "root",
+    "subpath",
+    "types",
+    "client",
+    "ssr",
+    "hydration",
+    "nodeIdentity",
+    "dom",
+    "aria",
+    "pointer",
+    "keyboard",
+    "focus",
+    "portal",
+    "responsive",
+    "assets",
+    "styles",
+    "treeShaking",
+    "workspace",
+    "freshConsumer"
+  ],
+  "components": [
+    {
+      "component": "autocomplete",
+      "modelDigest": "eaaaeaa276ea71e352f24eb85a16563be59a8a5b44e3b3e57a29ef9c3c6e125b",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/autocomplete"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted pointer actions passed"
+        },
+        "keyboard": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted keyboard actions passed"
+        },
+        "focus": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "focus assertions passed"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "eaaaeaa276ea71e352f24eb85a16563be59a8a5b44e3b3e57a29ef9c3c6e125b",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 1,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "eaaaeaa276ea71e352f24eb85a16563be59a8a5b44e3b3e57a29ef9c3c6e125b",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 1,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "eaaaeaa276ea71e352f24eb85a16563be59a8a5b44e3b3e57a29ef9c3c6e125b",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 1,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "badge",
+      "modelDigest": "d61594f3236e8d7e4602671f3db5548b0873d563cfc52c9d9249597042a2cf31",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/badge"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no ARIA-specific behavior declared"
+        },
+        "pointer": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no pointer transition declared"
+        },
+        "keyboard": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no keyboard behavior declared"
+        },
+        "focus": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "not focusable and no focus contract"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "d61594f3236e8d7e4602671f3db5548b0873d563cfc52c9d9249597042a2cf31",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 2,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "d61594f3236e8d7e4602671f3db5548b0873d563cfc52c9d9249597042a2cf31",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 2,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "d61594f3236e8d7e4602671f3db5548b0873d563cfc52c9d9249597042a2cf31",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 2,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "banner",
+      "modelDigest": "e57b4fc419d2b1310d0ea4963a5181380a89060415280931c0e7698f1cd2ede2",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/banner"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no ARIA-specific behavior declared"
+        },
+        "pointer": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no pointer transition declared"
+        },
+        "keyboard": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no keyboard behavior declared"
+        },
+        "focus": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "not focusable and no focus contract"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "e57b4fc419d2b1310d0ea4963a5181380a89060415280931c0e7698f1cd2ede2",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 2,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "e57b4fc419d2b1310d0ea4963a5181380a89060415280931c0e7698f1cd2ede2",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 2,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "e57b4fc419d2b1310d0ea4963a5181380a89060415280931c0e7698f1cd2ede2",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 2,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "breadcrumbs",
+      "modelDigest": "eba5829a500fbcf08243716c059636b3da146dba33d31b0340db71d035587a01",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/breadcrumbs"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no pointer transition declared"
+        },
+        "keyboard": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no keyboard behavior declared"
+        },
+        "focus": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "not focusable and no focus contract"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "eba5829a500fbcf08243716c059636b3da146dba33d31b0340db71d035587a01",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 2,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "eba5829a500fbcf08243716c059636b3da146dba33d31b0340db71d035587a01",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 2,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "eba5829a500fbcf08243716c059636b3da146dba33d31b0340db71d035587a01",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 2,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "button",
+      "modelDigest": "3614020190406e3bafd01ba171c5adfb78201450b686e1a54f441c5f554a5d4e",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/button"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted pointer actions passed"
+        },
+        "keyboard": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted keyboard actions passed"
+        },
+        "focus": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "focus assertions passed"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "3614020190406e3bafd01ba171c5adfb78201450b686e1a54f441c5f554a5d4e",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 8,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "3614020190406e3bafd01ba171c5adfb78201450b686e1a54f441c5f554a5d4e",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 8,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "3614020190406e3bafd01ba171c5adfb78201450b686e1a54f441c5f554a5d4e",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 8,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "checkbox",
+      "modelDigest": "9bed87c38c3dc76bca19c327b60bc4264efc797aacdce1a4e06e08b722ca4c65",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/checkbox"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted pointer actions passed"
+        },
+        "keyboard": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted keyboard actions passed"
+        },
+        "focus": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "focus assertions passed"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "9bed87c38c3dc76bca19c327b60bc4264efc797aacdce1a4e06e08b722ca4c65",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 5,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "9bed87c38c3dc76bca19c327b60bc4264efc797aacdce1a4e06e08b722ca4c65",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 5,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "9bed87c38c3dc76bca19c327b60bc4264efc797aacdce1a4e06e08b722ca4c65",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 5,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "clipboard-text",
+      "modelDigest": "b0a8634b18904bafb4a3ad9eb78bc40c9142397d8869bcc94a88c6a372265e25",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/clipboard-text"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted pointer actions passed"
+        },
+        "keyboard": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted keyboard actions passed"
+        },
+        "focus": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "focus assertions passed"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "b0a8634b18904bafb4a3ad9eb78bc40c9142397d8869bcc94a88c6a372265e25",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 3,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "b0a8634b18904bafb4a3ad9eb78bc40c9142397d8869bcc94a88c6a372265e25",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 3,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "b0a8634b18904bafb4a3ad9eb78bc40c9142397d8869bcc94a88c6a372265e25",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 3,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "cloudflare-logo",
+      "modelDigest": "b2674fc7e38cace5a90134bb36e79807b0f150548237eb9c09d8398b0c1fa228",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/cloudflare-logo"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no pointer transition declared"
+        },
+        "keyboard": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no keyboard behavior declared"
+        },
+        "focus": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "not focusable and no focus contract"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "b2674fc7e38cace5a90134bb36e79807b0f150548237eb9c09d8398b0c1fa228",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 2,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "b2674fc7e38cace5a90134bb36e79807b0f150548237eb9c09d8398b0c1fa228",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 2,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "b2674fc7e38cace5a90134bb36e79807b0f150548237eb9c09d8398b0c1fa228",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 2,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "code",
+      "modelDigest": "abe340a97570aaf2d55b46c6015819101f40daa70452db116f62bad2a5ff7ced",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/code"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no ARIA-specific behavior declared"
+        },
+        "pointer": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no pointer transition declared"
+        },
+        "keyboard": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no keyboard behavior declared"
+        },
+        "focus": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "not focusable and no focus contract"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "abe340a97570aaf2d55b46c6015819101f40daa70452db116f62bad2a5ff7ced",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 2,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "abe340a97570aaf2d55b46c6015819101f40daa70452db116f62bad2a5ff7ced",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 2,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "abe340a97570aaf2d55b46c6015819101f40daa70452db116f62bad2a5ff7ced",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 2,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "combobox",
+      "modelDigest": "99992dbcf413455a2229fb3d1cda459e1b2723adfeb2204db400829a901edf36",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/combobox"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted pointer actions passed"
+        },
+        "keyboard": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted keyboard actions passed"
+        },
+        "focus": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "focus assertions passed"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "99992dbcf413455a2229fb3d1cda459e1b2723adfeb2204db400829a901edf36",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 1,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "99992dbcf413455a2229fb3d1cda459e1b2723adfeb2204db400829a901edf36",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 1,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "99992dbcf413455a2229fb3d1cda459e1b2723adfeb2204db400829a901edf36",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 1,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "command-palette",
+      "modelDigest": "4aabec222bec5b00f25388a2bb017b36c91349e55fa3ba6cb97fdc3d0afee0c0",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/command-palette"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted pointer actions passed"
+        },
+        "keyboard": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted keyboard actions passed"
+        },
+        "focus": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "focus assertions passed"
+        },
+        "portal": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "portal/layer vectors passed"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "4aabec222bec5b00f25388a2bb017b36c91349e55fa3ba6cb97fdc3d0afee0c0",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 2,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "4aabec222bec5b00f25388a2bb017b36c91349e55fa3ba6cb97fdc3d0afee0c0",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 2,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "4aabec222bec5b00f25388a2bb017b36c91349e55fa3ba6cb97fdc3d0afee0c0",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 2,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "date-picker",
+      "modelDigest": "5f335d94261bdac9b04be13a3684f1d47504a43360cb208c4a84231a1d259fce",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/date-picker"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted pointer actions passed"
+        },
+        "keyboard": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted keyboard actions passed"
+        },
+        "focus": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "focus assertions passed"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "5f335d94261bdac9b04be13a3684f1d47504a43360cb208c4a84231a1d259fce",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 3,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "5f335d94261bdac9b04be13a3684f1d47504a43360cb208c4a84231a1d259fce",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 3,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "5f335d94261bdac9b04be13a3684f1d47504a43360cb208c4a84231a1d259fce",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 3,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "date-range-picker",
+      "modelDigest": "3cfb56490eb493fd3a522a1fdf7ba0b041d91576a3c454046059939ae2aae977",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/date-range-picker"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted pointer actions passed"
+        },
+        "keyboard": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted keyboard actions passed"
+        },
+        "focus": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "focus assertions passed"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "3cfb56490eb493fd3a522a1fdf7ba0b041d91576a3c454046059939ae2aae977",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 3,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "3cfb56490eb493fd3a522a1fdf7ba0b041d91576a3c454046059939ae2aae977",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 3,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "3cfb56490eb493fd3a522a1fdf7ba0b041d91576a3c454046059939ae2aae977",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 3,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "dialog",
+      "modelDigest": "bbb9a5923924fd49391fbcee50197c821eda77610c050fb355e378e852397b0d",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/dialog"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted pointer actions passed"
+        },
+        "keyboard": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted keyboard actions passed"
+        },
+        "focus": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "focus assertions passed"
+        },
+        "portal": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "portal/layer vectors passed"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "bbb9a5923924fd49391fbcee50197c821eda77610c050fb355e378e852397b0d",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 2,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "bbb9a5923924fd49391fbcee50197c821eda77610c050fb355e378e852397b0d",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 2,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "bbb9a5923924fd49391fbcee50197c821eda77610c050fb355e378e852397b0d",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 2,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "dropdown-menu",
+      "modelDigest": "b7a7a7552e372c2e1ea240ec06c7dce7aef9118128e29322f995167f2f63016d",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/dropdown"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted pointer actions passed"
+        },
+        "keyboard": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted keyboard actions passed"
+        },
+        "focus": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "focus assertions passed"
+        },
+        "portal": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "portal/layer vectors passed"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "b7a7a7552e372c2e1ea240ec06c7dce7aef9118128e29322f995167f2f63016d",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 3,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "b7a7a7552e372c2e1ea240ec06c7dce7aef9118128e29322f995167f2f63016d",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 3,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "b7a7a7552e372c2e1ea240ec06c7dce7aef9118128e29322f995167f2f63016d",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 3,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "empty",
+      "modelDigest": "7c44f85a5193723c0aa68789e6ac8207071d68aca9e4b9d56bc93a57b3ecf50e",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/empty"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no ARIA-specific behavior declared"
+        },
+        "pointer": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no pointer transition declared"
+        },
+        "keyboard": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no keyboard behavior declared"
+        },
+        "focus": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "not focusable and no focus contract"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "7c44f85a5193723c0aa68789e6ac8207071d68aca9e4b9d56bc93a57b3ecf50e",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 2,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "7c44f85a5193723c0aa68789e6ac8207071d68aca9e4b9d56bc93a57b3ecf50e",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 2,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "7c44f85a5193723c0aa68789e6ac8207071d68aca9e4b9d56bc93a57b3ecf50e",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 2,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "field",
+      "modelDigest": "6680d3b6e5ef5e85c4340fd8369a05f55c9a388c2bfb7ada7da9eeb0eccd29f3",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/field"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted pointer actions passed"
+        },
+        "keyboard": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted keyboard actions passed"
+        },
+        "focus": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "focus assertions passed"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "6680d3b6e5ef5e85c4340fd8369a05f55c9a388c2bfb7ada7da9eeb0eccd29f3",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 1,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "6680d3b6e5ef5e85c4340fd8369a05f55c9a388c2bfb7ada7da9eeb0eccd29f3",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 1,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "6680d3b6e5ef5e85c4340fd8369a05f55c9a388c2bfb7ada7da9eeb0eccd29f3",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 1,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "grid",
+      "modelDigest": "77368ecd52b54b2d85a270ad010c77b8e23e8c0be9b82414610908b3a84f636d",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/grid"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no ARIA-specific behavior declared"
+        },
+        "pointer": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no pointer transition declared"
+        },
+        "keyboard": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no keyboard behavior declared"
+        },
+        "focus": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "not focusable and no focus contract"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "77368ecd52b54b2d85a270ad010c77b8e23e8c0be9b82414610908b3a84f636d",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 2,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "77368ecd52b54b2d85a270ad010c77b8e23e8c0be9b82414610908b3a84f636d",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 2,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "77368ecd52b54b2d85a270ad010c77b8e23e8c0be9b82414610908b3a84f636d",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 2,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "grid-item",
+      "modelDigest": "40f49eae26c10cb50f9eff28ca613e0eb9e5cf415f57f0b763ec8e8cc46f2a16",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/grid"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no ARIA-specific behavior declared"
+        },
+        "pointer": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no pointer transition declared"
+        },
+        "keyboard": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no keyboard behavior declared"
+        },
+        "focus": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "not focusable and no focus contract"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "40f49eae26c10cb50f9eff28ca613e0eb9e5cf415f57f0b763ec8e8cc46f2a16",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 2,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "40f49eae26c10cb50f9eff28ca613e0eb9e5cf415f57f0b763ec8e8cc46f2a16",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 2,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "40f49eae26c10cb50f9eff28ca613e0eb9e5cf415f57f0b763ec8e8cc46f2a16",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 2,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "input",
+      "modelDigest": "ccce2fdcca8c5218c94732f83446c137e03d4b7dd9548ffde312605374734e2f",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/input"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted pointer actions passed"
+        },
+        "keyboard": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted keyboard actions passed"
+        },
+        "focus": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "focus assertions passed"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "ccce2fdcca8c5218c94732f83446c137e03d4b7dd9548ffde312605374734e2f",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 3,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "ccce2fdcca8c5218c94732f83446c137e03d4b7dd9548ffde312605374734e2f",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 3,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "ccce2fdcca8c5218c94732f83446c137e03d4b7dd9548ffde312605374734e2f",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 3,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "input-area",
+      "modelDigest": "3f2ca47762723bd72e47c5da8490058c226bbee67e5518d548fc19ba2c467f14",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/input"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted pointer actions passed"
+        },
+        "keyboard": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted keyboard actions passed"
+        },
+        "focus": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "focus assertions passed"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "3f2ca47762723bd72e47c5da8490058c226bbee67e5518d548fc19ba2c467f14",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 3,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "3f2ca47762723bd72e47c5da8490058c226bbee67e5518d548fc19ba2c467f14",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 3,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "3f2ca47762723bd72e47c5da8490058c226bbee67e5518d548fc19ba2c467f14",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 3,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "input-group",
+      "modelDigest": "aec5871cdfdf97c938fb06aeb6a15dedd413550ce59bca231f5fe2e61f6d347c",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/input-group"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted pointer actions passed"
+        },
+        "keyboard": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted keyboard actions passed"
+        },
+        "focus": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "focus assertions passed"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "aec5871cdfdf97c938fb06aeb6a15dedd413550ce59bca231f5fe2e61f6d347c",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 3,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "aec5871cdfdf97c938fb06aeb6a15dedd413550ce59bca231f5fe2e61f6d347c",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 3,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "aec5871cdfdf97c938fb06aeb6a15dedd413550ce59bca231f5fe2e61f6d347c",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 3,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "label",
+      "modelDigest": "5095f41d10b4171b26a76054676cdd46240c352d0283a678dedfe13047e9ca2f",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/label"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no ARIA-specific behavior declared"
+        },
+        "pointer": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no pointer transition declared"
+        },
+        "keyboard": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no keyboard behavior declared"
+        },
+        "focus": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "not focusable and no focus contract"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "5095f41d10b4171b26a76054676cdd46240c352d0283a678dedfe13047e9ca2f",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 3,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "5095f41d10b4171b26a76054676cdd46240c352d0283a678dedfe13047e9ca2f",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 3,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "5095f41d10b4171b26a76054676cdd46240c352d0283a678dedfe13047e9ca2f",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 3,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "layer-card",
+      "modelDigest": "18db983088868d26659f87134e6b676f4803d0cdb1e56652f53a7b3203005d2e",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/layer-card"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no ARIA-specific behavior declared"
+        },
+        "pointer": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no pointer transition declared"
+        },
+        "keyboard": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no keyboard behavior declared"
+        },
+        "focus": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "not focusable and no focus contract"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "18db983088868d26659f87134e6b676f4803d0cdb1e56652f53a7b3203005d2e",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 2,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "18db983088868d26659f87134e6b676f4803d0cdb1e56652f53a7b3203005d2e",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 2,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "18db983088868d26659f87134e6b676f4803d0cdb1e56652f53a7b3203005d2e",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 2,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "link",
+      "modelDigest": "66e89c0778455462b2e0f570cd8e93d03c70b2080ad1568935860a9da97e5065",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/link"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no ARIA-specific behavior declared"
+        },
+        "pointer": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no pointer transition declared"
+        },
+        "keyboard": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no keyboard behavior declared"
+        },
+        "focus": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "not focusable and no focus contract"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "66e89c0778455462b2e0f570cd8e93d03c70b2080ad1568935860a9da97e5065",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 2,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "66e89c0778455462b2e0f570cd8e93d03c70b2080ad1568935860a9da97e5065",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 2,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "66e89c0778455462b2e0f570cd8e93d03c70b2080ad1568935860a9da97e5065",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 2,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "loader",
+      "modelDigest": "d7a0bf207268a5aec0eb6f604d50f666d06e022e0d21891ef527bc11a76785b3",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/loader"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no pointer transition declared"
+        },
+        "keyboard": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no keyboard behavior declared"
+        },
+        "focus": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "not focusable and no focus contract"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "d7a0bf207268a5aec0eb6f604d50f666d06e022e0d21891ef527bc11a76785b3",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 2,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "d7a0bf207268a5aec0eb6f604d50f666d06e022e0d21891ef527bc11a76785b3",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 2,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "d7a0bf207268a5aec0eb6f604d50f666d06e022e0d21891ef527bc11a76785b3",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 2,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "menu-bar",
+      "modelDigest": "188bad4486283b6daed15b228465d53415f5e138ecb140a8de65b390602a0a22",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/menubar"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted pointer actions passed"
+        },
+        "keyboard": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted keyboard actions passed"
+        },
+        "focus": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "focus assertions passed"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "188bad4486283b6daed15b228465d53415f5e138ecb140a8de65b390602a0a22",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 3,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "188bad4486283b6daed15b228465d53415f5e138ecb140a8de65b390602a0a22",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 3,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "188bad4486283b6daed15b228465d53415f5e138ecb140a8de65b390602a0a22",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 3,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "meter",
+      "modelDigest": "d7c24a30d265bd1b44ca6435eaae57e7dc8e1881766e9f60e32fcb1fa115c603",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/meter"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no pointer transition declared"
+        },
+        "keyboard": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no keyboard behavior declared"
+        },
+        "focus": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "not focusable and no focus contract"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "d7c24a30d265bd1b44ca6435eaae57e7dc8e1881766e9f60e32fcb1fa115c603",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 3,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "d7c24a30d265bd1b44ca6435eaae57e7dc8e1881766e9f60e32fcb1fa115c603",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 3,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "d7c24a30d265bd1b44ca6435eaae57e7dc8e1881766e9f60e32fcb1fa115c603",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 3,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "pagination",
+      "modelDigest": "e429308d31e783f621359d7f7497bbae2ce32cc82be5a9a21f42a3664d712efb",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/pagination"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted pointer actions passed"
+        },
+        "keyboard": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted keyboard actions passed"
+        },
+        "focus": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "focus assertions passed"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "e429308d31e783f621359d7f7497bbae2ce32cc82be5a9a21f42a3664d712efb",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 8,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "e429308d31e783f621359d7f7497bbae2ce32cc82be5a9a21f42a3664d712efb",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 8,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "e429308d31e783f621359d7f7497bbae2ce32cc82be5a9a21f42a3664d712efb",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 8,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "popover",
+      "modelDigest": "cc912e264b579e2ed770a09131e4874ada9d948fefc9f1dc9be0b0a9d038de4d",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/popover"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted pointer actions passed"
+        },
+        "keyboard": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted keyboard actions passed"
+        },
+        "focus": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "focus assertions passed"
+        },
+        "portal": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "portal/layer vectors passed"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "cc912e264b579e2ed770a09131e4874ada9d948fefc9f1dc9be0b0a9d038de4d",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 3,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "cc912e264b579e2ed770a09131e4874ada9d948fefc9f1dc9be0b0a9d038de4d",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 3,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "cc912e264b579e2ed770a09131e4874ada9d948fefc9f1dc9be0b0a9d038de4d",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 3,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "radio",
+      "modelDigest": "851f6bb506c384c8d6d8ec9583d3ec05a0cf060d5d9192464a29ba55e1185844",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/radio"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted pointer actions passed"
+        },
+        "keyboard": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted keyboard actions passed"
+        },
+        "focus": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "focus assertions passed"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "851f6bb506c384c8d6d8ec9583d3ec05a0cf060d5d9192464a29ba55e1185844",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 5,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "851f6bb506c384c8d6d8ec9583d3ec05a0cf060d5d9192464a29ba55e1185844",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 5,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "851f6bb506c384c8d6d8ec9583d3ec05a0cf060d5d9192464a29ba55e1185844",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 5,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "select",
+      "modelDigest": "0c3f889199eb1006a83fb3d1f7315e54f420dbb14327c8661decd4eb1b7a3215",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/select"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted pointer actions passed"
+        },
+        "keyboard": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted keyboard actions passed"
+        },
+        "focus": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "focus assertions passed"
+        },
+        "portal": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "portal/layer vectors passed"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "0c3f889199eb1006a83fb3d1f7315e54f420dbb14327c8661decd4eb1b7a3215",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 7,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "0c3f889199eb1006a83fb3d1f7315e54f420dbb14327c8661decd4eb1b7a3215",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 7,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "0c3f889199eb1006a83fb3d1f7315e54f420dbb14327c8661decd4eb1b7a3215",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 7,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "sensitive-input",
+      "modelDigest": "929d4c3eecd153af78d2db33ff8ba69333a6f6f39415ee3c65cb1d8f9eabcc3c",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/sensitive-input"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted pointer actions passed"
+        },
+        "keyboard": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted keyboard actions passed"
+        },
+        "focus": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "focus assertions passed"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "929d4c3eecd153af78d2db33ff8ba69333a6f6f39415ee3c65cb1d8f9eabcc3c",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 3,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "929d4c3eecd153af78d2db33ff8ba69333a6f6f39415ee3c65cb1d8f9eabcc3c",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 3,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "929d4c3eecd153af78d2db33ff8ba69333a6f6f39415ee3c65cb1d8f9eabcc3c",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 3,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "sidebar",
+      "modelDigest": "25a19cbe99e84a9f4daf06d56a4f43a039827812a3623bc39919eb4683550b77",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/sidebar"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted pointer actions passed"
+        },
+        "keyboard": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted keyboard actions passed"
+        },
+        "focus": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "focus assertions passed"
+        },
+        "portal": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "portal/layer vectors passed"
+        },
+        "responsive": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "responsive vectors passed"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "25a19cbe99e84a9f4daf06d56a4f43a039827812a3623bc39919eb4683550b77",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 4,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "25a19cbe99e84a9f4daf06d56a4f43a039827812a3623bc39919eb4683550b77",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 4,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "25a19cbe99e84a9f4daf06d56a4f43a039827812a3623bc39919eb4683550b77",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 4,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "surface",
+      "modelDigest": "bcb4aa3e592b9584d7e18fe498c9d2cfaad66ee570e649a81bfcf73eeccac950",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/surface"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no ARIA-specific behavior declared"
+        },
+        "pointer": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no pointer transition declared"
+        },
+        "keyboard": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no keyboard behavior declared"
+        },
+        "focus": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "not focusable and no focus contract"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "bcb4aa3e592b9584d7e18fe498c9d2cfaad66ee570e649a81bfcf73eeccac950",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 2,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "bcb4aa3e592b9584d7e18fe498c9d2cfaad66ee570e649a81bfcf73eeccac950",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 2,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "bcb4aa3e592b9584d7e18fe498c9d2cfaad66ee570e649a81bfcf73eeccac950",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 2,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "switch",
+      "modelDigest": "70db6933357de8ee3d47759cd14f5ca8cab2cc88427a19740a54a5f4d65377b3",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/switch"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted pointer actions passed"
+        },
+        "keyboard": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted keyboard actions passed"
+        },
+        "focus": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "focus assertions passed"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "70db6933357de8ee3d47759cd14f5ca8cab2cc88427a19740a54a5f4d65377b3",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 5,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "70db6933357de8ee3d47759cd14f5ca8cab2cc88427a19740a54a5f4d65377b3",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 5,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "70db6933357de8ee3d47759cd14f5ca8cab2cc88427a19740a54a5f4d65377b3",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 5,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "table",
+      "modelDigest": "2cdb90ceb5108dea275b1e150e3868126326b95d7efef9ed8459d14ef57345b9",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/table"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no ARIA-specific behavior declared"
+        },
+        "pointer": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no pointer transition declared"
+        },
+        "keyboard": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no keyboard behavior declared"
+        },
+        "focus": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "not focusable and no focus contract"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "2cdb90ceb5108dea275b1e150e3868126326b95d7efef9ed8459d14ef57345b9",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 2,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "2cdb90ceb5108dea275b1e150e3868126326b95d7efef9ed8459d14ef57345b9",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 2,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "2cdb90ceb5108dea275b1e150e3868126326b95d7efef9ed8459d14ef57345b9",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 2,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "table-of-contents",
+      "modelDigest": "81f51f73fcb15fac9412c9a30a06ea03f1e2fa2292ec5b6197d72c106554a466",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/table-of-contents"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no pointer transition declared"
+        },
+        "keyboard": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted keyboard actions passed"
+        },
+        "focus": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "focus assertions passed"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "81f51f73fcb15fac9412c9a30a06ea03f1e2fa2292ec5b6197d72c106554a466",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 2,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "81f51f73fcb15fac9412c9a30a06ea03f1e2fa2292ec5b6197d72c106554a466",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 2,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "81f51f73fcb15fac9412c9a30a06ea03f1e2fa2292ec5b6197d72c106554a466",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 2,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "tabs",
+      "modelDigest": "79ef8064a09f0913da0ed4e2cceaee0c9227ca5a0bfd2311b29c281595691791",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/tabs"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted pointer actions passed"
+        },
+        "keyboard": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted keyboard actions passed"
+        },
+        "focus": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "focus assertions passed"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "79ef8064a09f0913da0ed4e2cceaee0c9227ca5a0bfd2311b29c281595691791",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 4,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "79ef8064a09f0913da0ed4e2cceaee0c9227ca5a0bfd2311b29c281595691791",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 4,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "79ef8064a09f0913da0ed4e2cceaee0c9227ca5a0bfd2311b29c281595691791",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 4,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "text",
+      "modelDigest": "19772bcfdc866198d1b6f48413057aaede6eb359bfb324e0ee9f1aa353f1b630",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/text"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no ARIA-specific behavior declared"
+        },
+        "pointer": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no pointer transition declared"
+        },
+        "keyboard": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no keyboard behavior declared"
+        },
+        "focus": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "not focusable and no focus contract"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "19772bcfdc866198d1b6f48413057aaede6eb359bfb324e0ee9f1aa353f1b630",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 3,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "19772bcfdc866198d1b6f48413057aaede6eb359bfb324e0ee9f1aa353f1b630",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 3,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "19772bcfdc866198d1b6f48413057aaede6eb359bfb324e0ee9f1aa353f1b630",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 3,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    },
+    {
+      "component": "toasty",
+      "modelDigest": "f05e8c2389dfb02ca23049e0fc5aa80b2797a0b63cb9c09a9603acb5d07c79bf",
+      "implementationReady": true,
+      "dimensions": {
+        "root": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "exact root imports and symbols"
+        },
+        "subpath": {
+          "status": "passed",
+          "source": "manifests/library receipts",
+          "detail": "./components/toast"
+        },
+        "types": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed declarations/typecheck"
+        },
+        "client": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "Vite client builds"
+        },
+        "ssr": {
+          "status": "passed",
+          "source": "library and conformance receipts",
+          "detail": "SSR build/render and every cell"
+        },
+        "hydration": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "every browser cell hydrated"
+        },
+        "nodeIdentity": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "server node identity preserved"
+        },
+        "dom": {
+          "status": "passed",
+          "source": "conformance receipts",
+          "detail": "asserted DOM observations"
+        },
+        "aria": {
+          "status": "passed",
+          "source": "contract + conformance",
+          "detail": "applicable ARIA assertions passed"
+        },
+        "pointer": {
+          "status": "passed",
+          "source": "trusted conformance",
+          "detail": "trusted pointer actions passed"
+        },
+        "keyboard": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no keyboard behavior declared"
+        },
+        "focus": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "not focusable and no focus contract"
+        },
+        "portal": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no portal or layer capability"
+        },
+        "responsive": {
+          "status": "not-applicable",
+          "source": "component contract",
+          "reason": "no responsive behavior declared"
+        },
+        "assets": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed asset audit"
+        },
+        "styles": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "packed CSS/style audit"
+        },
+        "treeShaking": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "isolated production build"
+        },
+        "workspace": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "workspace consumer build"
+        },
+        "freshConsumer": {
+          "status": "passed",
+          "source": "library receipts",
+          "detail": "fresh packed install"
+        }
+      },
+      "targets": {
+        "vue": {
+          "modelDigest": "f05e8c2389dfb02ca23049e0fc5aa80b2797a0b63cb9c09a9603acb5d07c79bf",
+          "packageSha256": "e0dae896f44b16c493b16dcbde8fd1f5bbdf20e4c196132813bad80d400838ab",
+          "cellCount": 4,
+          "receiptHash": "c2b68e258e45e94595a1fded5b4594dd81bd07d02ffb2dc749c92cc35b8766ef",
+          "libraryReceiptHash": "ea26d0f3fb8c56596dc19fa914092b04b2f7c01d5fc2a30f7b321afc562f6543"
+        },
+        "svelte": {
+          "modelDigest": "f05e8c2389dfb02ca23049e0fc5aa80b2797a0b63cb9c09a9603acb5d07c79bf",
+          "packageSha256": "a3ecfadaf266ca7febb642f3ed079485fb294cf5b71e037b5b27fba0ae6487ed",
+          "cellCount": 4,
+          "receiptHash": "8461a2a6e7f6c1928d9e1506be4fbb799784e397eca03e7744f1ade4f719fd04",
+          "libraryReceiptHash": "012effcd4c77a97a9e261951bd6fe9e3211c28cfe23b565d1533726bbeeefdb7"
+        },
+        "solid": {
+          "modelDigest": "f05e8c2389dfb02ca23049e0fc5aa80b2797a0b63cb9c09a9603acb5d07c79bf",
+          "packageSha256": "eb6764344e4d97ddccc1bff5699b5a6b1cf1f77c6719284605f0336f5f4fb1f0",
+          "cellCount": 4,
+          "receiptHash": "3188c9d13ae2d3729414949c338787636cc151763ec37c40ac721d76340c67ad",
+          "libraryReceiptHash": "cf60e72bc4004967659c22dbdaa6b486098b17bc06c64f9e34815ee3ea416a2a"
+        }
+      }
+    }
+  ],
+  "digest": "953016333c5702c6fd072131541da65c3d7d87afb9cc0e01992dffcdac46b464"
+}

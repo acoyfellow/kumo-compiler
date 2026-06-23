@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kumo.readiness/v1",
+  "type": "object",
+  "required": ["schemaVersion", "count", "implementationReadyCount", "dimensions", "components", "digest"],
+  "properties": {
+    "schemaVersion": {"const": "kumo.readiness/v1"},
+    "count": {"const": 41},
+    "implementationReadyCount": {"type": "integer", "minimum": 0, "maximum": 41},
+    "dimensions": {"type": "array", "minItems": 19, "maxItems": 19, "uniqueItems": true},
+    "components": {
+      "type": "array", "minItems": 41, "maxItems": 41,
+      "items": {
+        "type": "object", "required": ["component", "modelDigest", "implementationReady", "dimensions", "targets"],
+        "properties": {
+          "component": {"type": "string"}, "modelDigest": {"pattern": "^[a-f0-9]{64}$"}, "implementationReady": {"type": "boolean"},
+          "dimensions": {"type": "object", "additionalProperties": {"type": "object", "required": ["status", "source"], "properties": {"status": {"enum": ["passed", "not-applicable"]}, "source": {"type": "string"}}}},
+          "targets": {"type": "object", "required": ["vue", "svelte", "solid"]}
+        }
+      }
+    },
+    "digest": {"pattern": "^[a-f0-9]{64}$"}
+  }
+}
