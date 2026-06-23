@@ -234,8 +234,8 @@
     "fixtureSource": "proof/dx/conformance/shared/packed-fixtures.json"
   },
   "counts": {
-    "passed": 109,
-    "blocked": 15
+    "passed": 111,
+    "blocked": 13
   },
   "totalVectors": 124,
   "diagnostics": [],
@@ -1002,40 +1002,101 @@
       "component": "date-picker",
       "vector": "single-selected",
       "status": "passed",
-      "mode": "ssr",
+      "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
+      "hydration": "passed",
       "assertion": {
         "status": "passed",
-        "digest": "9cea995353847f88c8c98c2888ba09a0736407ab2e47999521f1c43bf922fc14"
+        "digest": "31ade392f665ab18ac5bc54c3c9b3f2c63bc6d4d13c017772fb24135cbe84b83"
       },
       "observation": {
-        "markupSha256": "c387ae607e8afee5decf74762a68952ec8dd50b94d8d52aad299f2a5861e660e"
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "aria-label": "Choose date"
+            }
+          }
+        },
+        "descendants": [
+          {
+            "selector": "table",
+            "count": 1,
+            "attributes": {
+              "includes": {
+                "role": "grid"
+              }
+            }
+          },
+          {
+            "selector": "button",
+            "count": 37
+          }
+        ],
+        "node-identity": "preserved"
       }
     },
     {
       "component": "date-picker",
       "vector": "single-change",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "84566a0229480052f1f0db76aa7ee9221b81bdb18fc3ed0f1e9a8e443b56f276"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {}
+          }
+        },
+        "state": {
+          "value": "2025-01-20"
+        },
+        "events": [
+          "change:2025-01-20"
+        ],
+        "focus": "[data-day=\"2025-01-20\"]",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "date-picker",
       "vector": "bounded-day",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "16a70c22c7f503e4feb57961e3a83400b3a65d877960806854294727c8a597bb"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {}
+          }
+        },
+        "state": {
+          "value": null,
+          "disabledBefore": true,
+          "disabledAfter": true
+        },
+        "events": [],
+        "focus": "none",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "date-range-picker",
@@ -3248,5 +3309,5 @@
       }
     }
   ],
-  "receiptHash": "9d2bee85c1b2d176352766b96ef9273b2ab9eef65f318c5e47afbd62e3d98aef"
+  "receiptHash": "2adad5ddeb87c14a8e49f4bb51e8d4e94063934cc3d8858460b454f4bc3913d7"
 }

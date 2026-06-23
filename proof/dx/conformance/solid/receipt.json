@@ -246,8 +246,8 @@
     "toggleExecutor": "proof/dx/conformance/shared/toggle-executor.mjs"
   },
   "counts": {
-    "passed": 109,
-    "blocked": 15
+    "passed": 111,
+    "blocked": 13
   },
   "totalVectors": 124,
   "diagnostics": [],
@@ -1022,40 +1022,106 @@
       "component": "date-picker",
       "vector": "single-selected",
       "status": "passed",
-      "mode": "ssr",
+      "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
+      "hydration": "passed",
       "assertion": {
         "status": "passed",
-        "digest": "9cea995353847f88c8c98c2888ba09a0736407ab2e47999521f1c43bf922fc14"
+        "digest": "31ade392f665ab18ac5bc54c3c9b3f2c63bc6d4d13c017772fb24135cbe84b83"
       },
       "observation": {
-        "markupSha256": "08f6aacf57a1d53fb58093104b92a677c2d4045a8f9ff2cf63e9d79e03e4b29d"
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-hk": "kumo-10",
+              "aria-label": "Choose date"
+            }
+          }
+        },
+        "descendants": [
+          {
+            "selector": "table",
+            "count": 1,
+            "attributes": {
+              "includes": {
+                "role": "grid"
+              }
+            }
+          },
+          {
+            "selector": "button",
+            "count": 37
+          }
+        ],
+        "node-identity": "preserved"
       }
     },
     {
       "component": "date-picker",
       "vector": "single-change",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "84566a0229480052f1f0db76aa7ee9221b81bdb18fc3ed0f1e9a8e443b56f276"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-hk": "kumo-10"
+            }
+          }
+        },
+        "state": {
+          "value": "2025-01-20"
+        },
+        "events": [
+          "change:2025-01-20"
+        ],
+        "focus": "[data-day=\"2025-01-20\"]",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "date-picker",
       "vector": "bounded-day",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "16a70c22c7f503e4feb57961e3a83400b3a65d877960806854294727c8a597bb"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-hk": "kumo-10"
+            }
+          }
+        },
+        "state": {
+          "value": null,
+          "disabledBefore": true,
+          "disabledAfter": true
+        },
+        "events": [],
+        "focus": "none",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "date-range-picker",
@@ -3312,5 +3378,5 @@
       }
     }
   ],
-  "receiptHash": "b108454c26f564452f80e906517686f0c188349c60bdcd8a21223a1b96bf83af"
+  "receiptHash": "28a05f97314302045c1fdbc6fa21966a4edbeb2ecdeac5c7d54f759610d3d822"
 }
