@@ -138,3 +138,17 @@ The four-framework `packed-conformance` intersection still excludes `input` and
 capability. Those components join the intersection only after field wiring is
 implemented and browser-proven across all three frameworks. The gate is not
 weakened: no skip, allowlist, filtered diagnostic, or fabricated result is used.
+
+### Vue radio hydration reactivity (in progress)
+
+radio-group capability, lowering (Vue/Svelte/Solid), and neutral fixtures are committed.
+The Vue Radio component is proven correct under client-only render via an isolated
+Cloudflare Browser Rendering session (click item 1 → `checked:["false","true"]`,
+`events:["value:pro"]`). Under SSR + hydration in the conformance harness, `selectRadio`
+runs (focus moves to the group root) and the change callback fires, but the per-item
+`aria-checked` bindings inside the hydrated `v-for` do not re-render on the `selectedValue`
+computed change, so observed state stays `[true,false]`. This is a hydration-time
+reactivity gap (client-render works; hydration does not), analogous to the earlier Solid
+`mergeProps` and `hydrate(App)` findings. Next: make the radio item selection state
+hydration-reactive (e.g. ensure the selection signal participates in hydration) and prove
+across all three frameworks; no gate is weakened in the interim and radio remains blocked.
