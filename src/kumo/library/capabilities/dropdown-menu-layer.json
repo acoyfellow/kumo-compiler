@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "kumo.dropdown-menu-layer/v1",
+  "component": "dropdown-menu",
+  "support": "supported",
+  "trigger": {
+    "tag": "button",
+    "text": "Actions",
+    "attributes": {
+      "type": "button",
+      "tabindex": "0",
+      "aria-haspopup": "menu"
+    }
+  },
+  "pointer": {
+    "openEvent": "open-change:true",
+    "selectionEvent": "select:<item>",
+    "closeEvents": 2,
+    "focusAfterSelection": "body"
+  },
+  "keyboard": {
+    "openKey": "ArrowDown",
+    "typeahead": "first-letter",
+    "disabledSkipped": true,
+    "submenuKey": "ArrowRight",
+    "dismissKey": "Escape",
+    "dismissEvent": "open-change:false",
+    "restoreFocus": "trigger"
+  },
+  "unknowns": [
+    {
+      "field": "positioningPortalHydration",
+      "status": "unknown",
+      "reason": "Placement, portal relocation, generated IDs, and open SSR hydration outside the asserted vectors remain unknown."
+    },
+    {
+      "field": "typeaheadGeneralization",
+      "status": "unknown",
+      "reason": "Diacritics, repeated-letter cycling, timeout, and locale matching remain unknown."
+    },
+    {
+      "field": "dismissalOrderingGeneralization",
+      "status": "unknown",
+      "reason": "Nested-layer and outside interaction ordering beyond the asserted event sequence remain unknown."
+    }
+  ],
+  "vectorIds": [
+    "closed-trigger-ssr",
+    "pointer-item-selection",
+    "keyboard-typeahead-submenu-dismissal"
+  ],
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/dropdown-menu.json",
+    "contractDigest": "21bf29e0898604231db71d5016c69c94b69a55ee8696e7f7de611e17818e2de5",
+    "vectorIds": [
+      "closed-trigger-ssr",
+      "pointer-item-selection",
+      "keyboard-typeahead-submenu-dismissal"
+    ]
+  },
+  "capabilityDigest": "db4f33a376fa7b9535b3d8e8e2462d4cfe803b07cc13c20574d474fdd39159df"
+}
