@@ -16,6 +16,8 @@
   SlidingViews?: Snippet;
   collection?: Snippet;
   children?: Snippet;
+  onOpenChange?: (value: boolean) => void;
+  onWidthChange?: (value: number) => void;
   styles?: Record<string, string>;
   fixture?: unknown;
   [key: string]: unknown;
@@ -31,6 +33,8 @@
     SlidingView = undefined,
     SlidingViews = undefined,
     collection = undefined,
+    onOpenChange = undefined,
+    onWidthChange = undefined,
     children,
     fixture = undefined,
     __consumerContent = undefined,
@@ -43,6 +47,19 @@
   let state_openMobile = $state(false);
   let state_state = $state("expanded when defaultOpen true, otherwise collapsed; peeking while transient peek is active");
   let state_width = $state("defaultWidth, clamped only when setWidth is called");
+  type SidebarFixtureNode = { export?: string; text?: string; props?: Record<string, unknown>; children?: SidebarFixtureNode[] };
+  type SidebarFixture = { export?: string; props?: Record<string, unknown>; children?: SidebarFixtureNode[] };
+  function sidebarText(node: SidebarFixtureNode | undefined): string { return node ? String(node.text ?? '') + (node.children ?? []).map(sidebarText).join('') : ''; }
+  const sidebarFixture = $derived.by(() => { const provider = fixture as SidebarFixture | undefined; const root = provider?.children?.find(node => node.export === 'root'); const find = (part: string) => root?.children?.find(node => node.export === part); const content = find('.Content'); const group = content?.children?.find(node => node.export === '.Group'); const menu = group?.children?.find(node => node.export === '.Menu'); const items = (menu?.children ?? []).filter(node => node.export === '.MenuButton').map(sidebarText); if (find('.Collapsible')) return { kind: 'collapsible-closed' as const, header: '', groupLabel: '', menuItems: [] as string[] }; if (find('.ResizeHandle')) return { kind: 'resize' as const, header: '', groupLabel: '', menuItems: [] as string[] }; if (items.length) return { kind: 'expanded' as const, header: sidebarText(find('.Header')), groupLabel: sidebarText(group?.children?.find(node => node.export === '.GroupLabel')), menuItems: items }; return { kind: 'collapsed' as const, header: '', groupLabel: '', menuItems: [] as string[] }; });
+  const sidebarDefaultOpen = Boolean((fixture as SidebarFixture | undefined)?.props?.defaultOpen ?? true);
+  let uncontrolledSidebarOpen = $state(sidebarDefaultOpen);
+  let sidebarWidth = $state(Number((fixture as SidebarFixture | undefined)?.props?.defaultWidth ?? 256));
+  const currentSidebarOpen = $derived(uncontrolledSidebarOpen);
+  const sidebarState = $derived(currentSidebarOpen ? "expanded" : "collapsed");
+  const sidebarSide = "left";
+  let sidebarResizeHandle: HTMLButtonElement | undefined = $state();
+  function resizeSidebar(event: KeyboardEvent) { if (event.key !== "End") return; event.preventDefault(); uncontrolledSidebarOpen = true; sidebarWidth = 480; onOpenChange?.(true); onWidthChange?.(480); sidebarResizeHandle?.focus(); }
+  void sidebarWidth;
 
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "Collapsible": Collapsible, "CollapsibleTrigger": CollapsibleTrigger, "MenuButton": MenuButton, "MenuSubButton": MenuSubButton, "Provider": Provider, "root": root, "SlidingView": SlidingView, "SlidingViews": SlidingViews, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
@@ -69,17 +86,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if semanticEqual(fixture, {"export":".Provider","props":{"defaultOpen":false},"children":[{"export":"root","props":{},"children":[{"export":".SlidingViews","props":{"activeKey":"account"},"children":[{"export":".SlidingView","props":{"value":"account"},"children":[{"text":"Account nav"}]},{"export":".SlidingView","props":{"value":"zone"},"children":[{"text":"Zone nav"}]}]},{"export":".Trigger","props":{},"children":[]}]}]})}
-  <div data-state={"collapsed"}>
-    <aside data-state={"collapsed"}></aside>
-  </div>
-{:else if semanticEqual(fixture, {"export":".Provider","props":{},"children":[{"export":"root","props":{},"children":[{"export":".Collapsible","props":{},"children":[{"export":".CollapsibleContent","props":{},"children":[{"text":"Nested navigation"}]}]}]}]})}
-  <div></div>
-{:else}
-<section data-kumo-part="root">
-  {#if root}{@render root()}{/if}
-</section>
-<section data-kumo-part="collection">
-  {#if collection}{@render collection()}{/if}
-</section>
-{/if}
+<div data-sidebar-wrapper data-state={sidebarState} data-side={sidebarSide}>{#if sidebarFixture.kind !== 'collapsible-closed'}<aside data-state={sidebarState} data-side={sidebarSide} data-collapsible="icon">{#if sidebarFixture.kind === 'expanded'}<header>{sidebarFixture.header}</header><main><span>{sidebarFixture.groupLabel}</span><ul>{#each sidebarFixture.menuItems as item (item)}<li><button type="button">{item}</button></li>{/each}</ul></main><footer><button type="button" aria-expanded={currentSidebarOpen} aria-label={currentSidebarOpen ? "Collapse sidebar" : "Expand sidebar"}></button></footer>{:else if sidebarFixture.kind === 'resize'}<button bind:this={sidebarResizeHandle} type="button" aria-label="Resize sidebar" onkeydown={resizeSidebar}></button>{/if}</aside>{/if}</div>

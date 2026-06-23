@@ -116,6 +116,40 @@ test('supported date-range-picker lowers its observable 87-button interaction su
  assert.match(clean({size:'sm',variant:'subtle'}),new RegExp(`^<div tabindex="-1" class="${capability.classes.smallSubtle.join(' ')}">`));
 });
 
+test('supported responsive sidebar lowers canonical desktop fixtures and resize surface',async t=>{
+ const build=fs.mkdtempSync(path.join(os.tmpdir(),'kumo-svelte-sidebar-'));
+ t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+ fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
+ const {models,responsiveSidebar}=loadLibrary();
+ const model=models.find(item=>item.component==='sidebar');
+ const fixtures=Object.fromEntries(model.draftImplementation.semanticVariants.map(variant=>[variant.id,variant.when.find(item=>item.kind==='fixture-equals').value]));
+ const contract=JSON.parse(fs.readFileSync(path.resolve('contracts/kumo.observable/v1/components/sidebar.json')));
+ for(const vector of contract.vectors)fixtures[vector.id]??=vector.fixture;
+ emitSvelteLibrary({output});
+ const source=fs.readFileSync(path.join(output,'components/sidebar.svelte'),'utf8');
+ const emitter=fs.readFileSync(path.resolve('src/kumo/emitters/svelte/index.mjs'),'utf8');
+ assert.match(emitter,/responsiveSidebar\.observableImplementation/);
+ assert.match(source,/data-sidebar-wrapper/);
+ assert.match(source,/aria-label="Resize sidebar"/);
+ assert.doesNotMatch(source,/@html|innerHTML|dispatchEvent|function\s+\w+\([^)]*\w+\?:|matchMedia|portal|\binert\b/);
+ const compiled=compile(source,{filename:'sidebar.svelte',generate:'server'});
+ const target=path.join(build,'sidebar.mjs');fs.writeFileSync(target,compiled.js.code);
+ const Sidebar=(await import(pathToFileURL(target)+`?${Date.now()}`)).default;
+ const clean=fixture=>render(Sidebar,{props:{fixture}}).body.replace(/<!--[\s\S]*?-->/g,'');
+ const expanded=clean(fixtures['desktop-expanded-compound']);
+ assert.match(expanded,/^<div data-sidebar-wrapper="" data-state="expanded" data-side="left"><aside data-state="expanded" data-side="left" data-collapsible="icon">/);
+ assert.equal((expanded.match(/<ul\b/g)??[]).length,1);
+ assert.equal((expanded.match(/<li\b/g)??[]).length,responsiveSidebar.observableImplementation.expanded.menuItems);
+ assert.equal((expanded.match(/<button\b/g)??[]).length,responsiveSidebar.observableImplementation.expanded.buttons);
+ assert.match(expanded,/aria-expanded="true" aria-label="Collapse sidebar"/);
+ const collapsed=clean(fixtures['desktop-collapsed-sliding-inert-intent']);
+ assert.match(collapsed,/data-state="collapsed" data-side="left"><aside data-state="collapsed"/);
+ const closed=clean(fixtures['collapsible-closed-mounted']);
+ assert.match(closed,/^<div data-sidebar-wrapper="" data-state="expanded" data-side="left"><\/div>$/);
+ const resize=clean(fixtures['resize-keyboard-expand']);
+ assert.match(resize,/aria-label="Resize sidebar"/);
+});
+
 test('supported toggle-control bindings lower to native Svelte 5 state and initial SSR',async t=>{
  const build=fs.mkdtempSync(path.join(os.tmpdir(),'kumo-svelte-toggle-'));
  t.after(()=>fs.rmSync(build,{recursive:true,force:true}));

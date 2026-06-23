@@ -5,7 +5,8 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 </script>
 
 <script setup lang="ts">
-import { computed, useAttrs, useSlots } from 'vue'
+defineOptions({ inheritAttrs: false })
+import { computed, nextTick, ref, useAttrs, useSlots } from 'vue'
 interface SidebarProps {
   "Collapsible"?: unknown
   "CollapsibleTrigger"?: unknown
@@ -15,10 +16,40 @@ interface SidebarProps {
   "root"?: unknown
   "SlidingView"?: unknown
   "SlidingViews"?: unknown
+  "onOpenChange"?: unknown
+  "onWidthChange"?: unknown
   fixture?: unknown
   semanticContent?: unknown
 }
 const props = withDefaults(defineProps<SidebarProps>(), {})
+type SidebarFixtureNode = { export?: string; text?: string; props?: Record<string, unknown>; children?: SidebarFixtureNode[] }
+const sidebarFixture = computed(() => props.fixture as SidebarFixtureNode | undefined)
+const fixtureChildren = (node?: SidebarFixtureNode) => node?.children ?? []
+const part = (node: SidebarFixtureNode | undefined, name: string) => fixtureChildren(node).find(child => child.export === name)
+const partText = (node?: SidebarFixtureNode): string => node ? String(node.text ?? '') + fixtureChildren(node).map(partText).join('') : ''
+const providerProps = computed(() => sidebarFixture.value?.props ?? {})
+const sidebarRoot = computed(() => part(sidebarFixture.value, 'root'))
+const header = computed(() => part(sidebarRoot.value, '.Header'))
+const content = computed(() => part(sidebarRoot.value, '.Content'))
+const group = computed(() => part(content.value, '.Group'))
+const menu = computed(() => part(group.value, '.Menu'))
+const menuButtons = computed(() => fixtureChildren(menu.value).filter(node => node.export === '.MenuButton'))
+const collapsible = computed(() => part(sidebarRoot.value, '.Collapsible'))
+const resizeHandle = computed(() => part(sidebarRoot.value, '.ResizeHandle'))
+const open = ref(providerProps.value.defaultOpen !== false)
+const width = ref(Number(providerProps.value.defaultWidth ?? 256))
+const state = computed(() => open.value ? 'expanded' : 'collapsed')
+const resizeRef = ref<HTMLButtonElement | null>(null)
+function toggleSidebar() { open.value = !open.value; props.onOpenChange?.(open.value) }
+function resizeKey(event: KeyboardEvent) {
+  if (event.key !== 'End') return
+  event.preventDefault()
+  open.value = true
+  width.value = Number(providerProps.value.maxWidth ?? 480)
+  props.onOpenChange?.(true)
+  props.onWidthChange?.(width.value)
+  nextTick(() => resizeRef.value?.focus())
+}
 const slots = useSlots()
 const styles: Record<string,string> = {}
 const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
@@ -30,5 +61,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template v-if="semanticEqual(fixture, {&quot;export&quot;:&quot;.Provider&quot;,&quot;props&quot;:{&quot;defaultOpen&quot;:false},&quot;children&quot;:[{&quot;export&quot;:&quot;root&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;export&quot;:&quot;.SlidingViews&quot;,&quot;props&quot;:{&quot;activeKey&quot;:&quot;account&quot;},&quot;children&quot;:[{&quot;export&quot;:&quot;.SlidingView&quot;,&quot;props&quot;:{&quot;value&quot;:&quot;account&quot;},&quot;children&quot;:[{&quot;text&quot;:&quot;Account nav&quot;}]},{&quot;export&quot;:&quot;.SlidingView&quot;,&quot;props&quot;:{&quot;value&quot;:&quot;zone&quot;},&quot;children&quot;:[{&quot;text&quot;:&quot;Zone nav&quot;}]}]},{&quot;export&quot;:&quot;.Trigger&quot;,&quot;props&quot;:{},&quot;children&quot;:[]}]}]})"><div data-state="collapsed"><aside data-state="collapsed"></aside></div></template><template v-else-if="semanticEqual(fixture, {&quot;export&quot;:&quot;.Provider&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;export&quot;:&quot;root&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;export&quot;:&quot;.Collapsible&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;export&quot;:&quot;.CollapsibleContent&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;text&quot;:&quot;Nested navigation&quot;}]}]}]}]})"><div></div></template><template v-else><div data-kumo-compound="sidebar" :class="styles.root"><section data-kumo-part="root"><slot name="root"></slot></section><section data-kumo-part="collection"><slot name="collection"></slot></section></div></template>
+  <div v-bind="$attrs" data-sidebar-wrapper="" :data-state="state" data-side="left" :style="{ '--sidebar-width': width + 'px', width: width + 'px' }"><aside :data-state="state" data-side="left" data-collapsible="icon"><template v-if="collapsible"></template><template v-else><header v-if="header">{{ partText(header) }}</header><div v-if="content"><div v-if="group"><span>{{ partText(part(group, '.GroupLabel')) }}</span><ul v-if="menu"><li v-for="(item, index) in menuButtons" :key="index"><button type="button">{{ partText(item) }}</button></li></ul></div></div><footer v-if="part(sidebarRoot, '.Footer')"><button type="button" :aria-expanded="open" :aria-label="open ? 'Collapse sidebar' : 'Expand sidebar'" @click="toggleSidebar">{{ open ? 'Collapse sidebar' : 'Expand sidebar' }}</button></footer><button v-if="resizeHandle" ref="resizeRef" type="button" aria-label="Resize sidebar" @keydown="resizeKey"></button></template></aside></div>
 </template>

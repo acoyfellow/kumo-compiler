@@ -1,0 +1,561 @@
+{
+  "schemaVersion": "kumo.sidebar-fixtures/v1",
+  "plans": [
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "sidebar",
+      "vector": "desktop-expanded-compound",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/sidebar.json",
+        "sha256": "0e7618e635187ab8f3adec30a7e80aad464c6cd9ac55ed0ca5e1c0b0a43e3642",
+        "vectorSha256": "74e8f21398a7e8a8ba6505e39b95becfdaf1efa713c323360ce763bce5667a7d"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Sidebar.Provider",
+        "props": {},
+        "children": [
+          {
+            "kind": "component",
+            "ref": "Sidebar",
+            "props": {},
+            "children": [
+              {
+                "kind": "component",
+                "ref": "Sidebar.Header",
+                "props": {},
+                "children": [
+                  {
+                    "kind": "text",
+                    "value": "Product"
+                  }
+                ]
+              },
+              {
+                "kind": "component",
+                "ref": "Sidebar.Content",
+                "props": {},
+                "children": [
+                  {
+                    "kind": "component",
+                    "ref": "Sidebar.Group",
+                    "props": {},
+                    "children": [
+                      {
+                        "kind": "component",
+                        "ref": "Sidebar.GroupLabel",
+                        "props": {},
+                        "children": [
+                          {
+                            "kind": "text",
+                            "value": "Build"
+                          }
+                        ]
+                      },
+                      {
+                        "kind": "component",
+                        "ref": "Sidebar.Menu",
+                        "props": {},
+                        "children": [
+                          {
+                            "kind": "component",
+                            "ref": "Sidebar.MenuButton",
+                            "props": {
+                              "active": true
+                            },
+                            "children": [
+                              {
+                                "kind": "text",
+                                "value": "Home"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "component",
+                            "ref": "Sidebar.MenuButton",
+                            "props": {},
+                            "children": [
+                              {
+                                "kind": "text",
+                                "value": "Domains"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "component",
+                "ref": "Sidebar.Footer",
+                "props": {},
+                "children": [
+                  {
+                    "kind": "component",
+                    "ref": "Sidebar.Trigger",
+                    "props": {},
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "setup": [],
+      "actions": [
+        {
+          "type": "focus",
+          "selector": "button"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "descendants",
+          "path": "descendants"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "attributes": {
+              "includes": {
+                "data-sidebar-wrapper": "",
+                "data-state": "expanded",
+                "data-side": "left"
+              }
+            }
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "descendants",
+          "expected": [
+            {
+              "selector": "aside",
+              "count": 1,
+              "attributes": {
+                "includes": {
+                  "data-state": "expanded",
+                  "data-side": "left",
+                  "data-collapsible": "icon"
+                }
+              }
+            },
+            {
+              "selector": "ul",
+              "count": 1
+            },
+            {
+              "selector": "li",
+              "count": 2
+            },
+            {
+              "selector": "button",
+              "count": 3
+            },
+            {
+              "selector": "[aria-expanded=true]",
+              "count": 1,
+              "attributes": {
+                "includes": {
+                  "aria-label": "Collapse sidebar"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "sidebar-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "descendant-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "ddc19aa1ecd0a4f93e848707f526019e3be1ab997073c71aa10e3d85747f7e6b"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "sidebar",
+      "vector": "desktop-collapsed-sliding-inert-intent",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/sidebar.json",
+        "sha256": "0e7618e635187ab8f3adec30a7e80aad464c6cd9ac55ed0ca5e1c0b0a43e3642",
+        "vectorSha256": "d022920588494b3347c041e393e006224ebdf74ed9949b688782984a76cfcec7"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Sidebar.Provider",
+        "props": {
+          "defaultOpen": false
+        },
+        "children": [
+          {
+            "kind": "component",
+            "ref": "Sidebar",
+            "props": {},
+            "children": [
+              {
+                "kind": "component",
+                "ref": "Sidebar.SlidingViews",
+                "props": {
+                  "activeKey": "account"
+                },
+                "children": [
+                  {
+                    "kind": "component",
+                    "ref": "Sidebar.SlidingView",
+                    "props": {
+                      "value": "account"
+                    },
+                    "children": [
+                      {
+                        "kind": "text",
+                        "value": "Account nav"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "component",
+                    "ref": "Sidebar.SlidingView",
+                    "props": {
+                      "value": "zone"
+                    },
+                    "children": [
+                      {
+                        "kind": "text",
+                        "value": "Zone nav"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "component",
+                "ref": "Sidebar.Trigger",
+                "props": {},
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      "setup": [],
+      "actions": [],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "descendants",
+          "path": "descendants"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div",
+            "attributes": {
+              "includes": {
+                "data-state": "collapsed"
+              }
+            }
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "descendants",
+          "expected": [
+            {
+              "selector": "aside",
+              "count": 1,
+              "attributes": {
+                "includes": {
+                  "data-state": "collapsed"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "sidebar-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "descendant-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "8073ad7d9ccbb0e2ec94ee9b8a0851bdefeb6021537a5789a1f5701f02454ac7"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "sidebar",
+      "vector": "collapsible-closed-mounted",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/sidebar.json",
+        "sha256": "0e7618e635187ab8f3adec30a7e80aad464c6cd9ac55ed0ca5e1c0b0a43e3642",
+        "vectorSha256": "9319837b412803be51898105d2c39a9542e54f8f8492bf9f14fe604e766e10b0"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Sidebar.Provider",
+        "props": {},
+        "children": [
+          {
+            "kind": "component",
+            "ref": "Sidebar",
+            "props": {},
+            "children": [
+              {
+                "kind": "component",
+                "ref": "Sidebar.Collapsible",
+                "props": {},
+                "children": [
+                  {
+                    "kind": "component",
+                    "ref": "Sidebar.CollapsibleContent",
+                    "props": {},
+                    "children": [
+                      {
+                        "kind": "text",
+                        "value": "Nested navigation"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "setup": [],
+      "actions": [],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "descendants",
+          "path": "descendants"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "descendants",
+          "expected": []
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "sidebar-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "descendant-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "5f9ce29f04d0a7c24093e2dcf6416eebfc049225e2d4e19f09cdad1477d1dbf6"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "sidebar",
+      "vector": "resize-keyboard-expand",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/sidebar.json",
+        "sha256": "0e7618e635187ab8f3adec30a7e80aad464c6cd9ac55ed0ca5e1c0b0a43e3642",
+        "vectorSha256": "9fd44fdce7f01cdb61b7c588444b6fd012919b3a48b98ceee531c5fe44d24de3"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Sidebar.Provider",
+        "props": {
+          "defaultOpen": false,
+          "resizable": true,
+          "defaultWidth": 256,
+          "minWidth": 200,
+          "maxWidth": 480
+        },
+        "children": [
+          {
+            "kind": "component",
+            "ref": "Sidebar",
+            "props": {},
+            "children": [
+              {
+                "kind": "component",
+                "ref": "Sidebar.ResizeHandle",
+                "props": {},
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      "setup": [],
+      "actions": [
+        {
+          "type": "key",
+          "selector": "[aria-label=\"Resize sidebar\"]",
+          "key": "End"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "open": true,
+            "width": 480
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "events",
+          "expected": []
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "[aria-label=\"Resize sidebar\"]"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "sidebar-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "descendant-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "281a806ba6cbf3942aaf0df416d5878df8c50ee2d0982207be8c419909e96ae5"
+    }
+  ],
+  "digest": "4517fbd5853ad53d5192dbb095669f1fb1523041623136e082b77d50f103556d"
+}

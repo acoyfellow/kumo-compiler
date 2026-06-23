@@ -139,6 +139,21 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   assert.match(dateRangePickerDeclaration, /"onStartChange"\?: \(value: string \| null\) => void;/);
   assert.match(dateRangePickerDeclaration, /"onEndChange"\?: \(value: string \| null\) => void;/);
 
+  const sidebarSource = fs.readFileSync(path.join(first, 'sidebar.tsx'), 'utf8');
+  assert.match(sidebarSource, /import \{ For, createSignal, mergeProps, splitProps \} from "solid-js"/);
+  assert.match(sidebarSource, /const props = mergeProps/);
+  assert.match(sidebarSource, /sidebarFixture\(\)\?\.export === "\.Provider"/);
+  assert.match(sidebarSource, /data-sidebar-wrapper="" data-state=\{sidebarState\(\)\} data-side="left"/);
+  assert.match(sidebarSource, /<aside data-state=\{sidebarState\(\)\} data-side="left" data-collapsible="icon">/);
+  assert.match(sidebarSource, /<ul><For each=\{sidebarMenuButtons\(\)\}/);
+  assert.match(sidebarSource, /<li><button type="button">/);
+  assert.match(sidebarSource, /aria-expanded=\{sidebarOpen\(\)\} aria-label=\{sidebarOpen\(\) \? "Collapse sidebar" : "Expand sidebar"\}/);
+  assert.match(sidebarSource, /sidebarKind\(\) === "collapsible" \? <div><\/div>/);
+  assert.match(sidebarSource, /aria-label="Resize sidebar" onKeyDown=\{sidebarResizeKeyDown\}/);
+  assert.match(sidebarSource, /event\.key !== "End"/);
+  assert.match(sidebarSource, /setSidebarOpen\(true\); setSidebarWidth\(480\); sidebarResizeHandle\?\.focus\(\)/);
+  assert.doesNotMatch(sidebarSource, /semanticEqual\(normalizedFixture|innerHTML|<Portal|matchMedia/);
+
   const autocompleteSource = fs.readFileSync(path.join(first, 'autocomplete.tsx'), 'utf8');
   assert.match(autocompleteSource, /const props = mergeProps/);
   assert.match(autocompleteSource, /<input ref=\{autocompleteInput\} placeholder=\{autocompleteInputGroup\(\)\.props\.placeholder as string\}/);
