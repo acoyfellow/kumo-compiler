@@ -12,7 +12,7 @@
       "Flow"
     ]
   },
-  "currentPhase": "production",
+  "currentPhase": "complete",
   "phases": [
     {
       "id": "contracts",
@@ -59,9 +59,9 @@
     {
       "id": "production",
       "label": "Final production proof",
-      "done": 0,
+      "done": 1,
       "total": 1,
-      "status": "not-run"
+      "status": "passed"
     }
   ],
   "conformedComponents": [
@@ -116,5 +116,5 @@
     "Git remote and GitHub release upload",
     "Optional npm authentication and publish"
   ],
-  "digest": "b82502601c9e6577343b85e8063d2c5cacae0ba91622e58589993b0cc429a423"
+  "digest": "930b3bf5b9dfd88d9651f94ee8992dd1accb49fde0d6f679733d87d4b7b536fe"
 }

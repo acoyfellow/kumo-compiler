@@ -3,7 +3,7 @@ import{createHash}from'node:crypto';
 import{resolve}from'node:path';
 const root=resolve(import.meta.dirname,'..');
 const json=async p=>JSON.parse(await readFile(resolve(root,p),'utf8'));
-const [status,canonical,readiness,packages,libraryPages,examples,docs,...downstream]=await Promise.all([
+const [status,canonical,readiness,packages,libraryPages,examples,docs,vueReceipt,svelteReceipt,solidReceipt,production]=await Promise.all([
  json('proof/observable-contracts/status.json'),
  json('proof/observable-contracts/canonical.json'),
  json('proof/readiness/latest.json'),
@@ -14,6 +14,7 @@ const [status,canonical,readiness,packages,libraryPages,examples,docs,...downstr
  json('proof/dx/conformance/vue/receipt.json'),
  json('proof/dx/conformance/svelte/receipt.json'),
  json('proof/dx/conformance/solid/receipt.json'),
+ json('proof/production-terminal/latest.json').catch(()=>({status:'not-run'})),
 ]);
 const componentId=x=>x.replace(/([a-z0-9])([A-Z])/g,'$1-$2').toLowerCase();
 const packaged=[...new Set(packages.packages.flatMap(x=>x.components).map(componentId))].sort();
@@ -27,7 +28,7 @@ const completeComponents=receipt=>{
  return new Set([...groups].filter(([,cells])=>cells.length>0&&cells.every(cell=>cell.status==='passed')).map(([id])=>id));
 };
 const canonicalComplete=completeComponents(canonical);
-const downstreamComplete=downstream.map(completeComponents);
+const downstreamComplete=[vueReceipt,svelteReceipt,solidReceipt].map(completeComponents);
 const conformedComponents=packaged.filter(id=>canonicalComplete.has(id)&&downstreamComplete.every(set=>set.has(id)));
 const phases=[
  {id:'contracts',label:'Canonical contracts',done:status.counts.contracted,total:41,status:status.counts.contracted===41?'passed':'in-progress'},
@@ -36,7 +37,7 @@ const phases=[
  {id:'packages',label:'Components in all three packages',done:allFrameworks?packaged.length:0,total:41,status:allFrameworks&&packaged.length===41?'passed':'in-progress'},
  {id:'packed-conformance',label:'Four-framework package conformance',done:conformedComponents.length,total:41,status:conformedComponents.length===41?'passed':conformedComponents.length?'in-progress':'not-run'},
  {id:'examples-docs',label:'Complete component examples and docs',done:documented,total:41,status:documented===41?'passed':'in-progress'},
- {id:'production',label:'Final production proof',done:0,total:1,status:'not-run'},
+ {id:'production',label:'Final production proof',done:production.status==='passed'?1:0,total:1,status:production.status==='passed'?'passed':'not-run'},
 ];
 const current=phases.find(x=>x.status!=='passed')?.id??'complete';
 const report={schemaVersion:1,scope:{classified:45,executable:41,upstreamBlocked:['PageHeader','ResourceListPage'],supplemental:['Chart','Flow']},currentPhase:current,phases,conformedComponents,packageNames:packages.packages.map(x=>x.package),humanOnly:['Git remote and GitHub release upload','Optional npm authentication and publish']};
