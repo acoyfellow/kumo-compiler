@@ -11,8 +11,8 @@ Machine receipt: `proof/progress/latest.json`
   `░░░░░░░░░░░░░░░░░░░░`
 - ✓ **Components in all three packages** — 41/41
   `████████████████████`
-- → **Four-framework package conformance** — 39/41
-  `███████████████████░`
+- → **Four-framework package conformance** — 40/41
+  `████████████████████`
 - → **Complete component examples and docs** — 2/41
   `█░░░░░░░░░░░░░░░░░░░`
 - ○ **Final production proof** — 0/1
@@ -40,6 +40,7 @@ Machine receipt: `proof/progress/latest.json`
 - date-picker
 - date-range-picker
 - dialog
+- dropdown-menu
 - empty
 - field
 - grid

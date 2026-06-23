@@ -234,8 +234,8 @@
     "fixtureSource": "proof/dx/conformance/shared/packed-fixtures.json"
   },
   "counts": {
-    "passed": 116,
-    "blocked": 8
+    "passed": 118,
+    "blocked": 6
   },
   "totalVectors": 124,
   "diagnostics": [],
@@ -1275,40 +1275,113 @@
       "component": "dropdown-menu",
       "vector": "closed-trigger-ssr",
       "status": "passed",
-      "mode": "ssr",
+      "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
+      "hydration": "passed",
       "assertion": {
         "status": "passed",
-        "digest": "88681c5ff97795e0a67402567c7f2ec12187f63822db2d590830ca990d4b9558"
+        "digest": "b3634b800f06af143ea87254e8f9a2ff5484cee74497a0939f1249ef229a731c"
       },
       "observation": {
-        "markupSha256": "4b57f3c99dad70554c4672f9832059a8e705678f240ffe9d04578324eb45dc29"
+        "dom": {
+          "tag": "button",
+          "text": "Actions",
+          "attributes": {
+            "includes": {
+              "type": "button",
+              "tabindex": "0",
+              "aria-haspopup": "menu",
+              "aria-expanded": "false",
+              "data-kumo-component": "DropdownMenu",
+              "data-kumo-part": "trigger"
+            }
+          }
+        },
+        "node-identity": "preserved"
       }
     },
     {
       "component": "dropdown-menu",
       "vector": "pointer-item-selection",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "0ff2a10b8a9d8ef7c68b6e3f8d524064709e1d35703ddc4c1675e132a510790d"
+      },
+      "observation": {
+        "dom": {
+          "tag": "button",
+          "text": "Actions",
+          "attributes": {
+            "includes": {
+              "type": "button",
+              "tabindex": "0",
+              "aria-haspopup": "menu",
+              "aria-expanded": "false",
+              "data-kumo-component": "DropdownMenu",
+              "data-kumo-part": "trigger"
+            }
+          }
+        },
+        "state": {
+          "open": false
+        },
+        "events": [
+          "open-change:true",
+          "select:Edit",
+          "open-change:false",
+          "open-change:false"
+        ],
+        "focus": "body"
+      }
     },
     {
       "component": "dropdown-menu",
       "vector": "keyboard-typeahead-submenu-dismissal",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "83a580ae9af5d63e09bb76eb5d02629c9392abeb544e8404a932a4b1d3686c46"
+      },
+      "observation": {
+        "dom": {
+          "tag": "button",
+          "text": "Actions",
+          "attributes": {
+            "includes": {
+              "type": "button",
+              "tabindex": "0",
+              "aria-haspopup": "menu",
+              "aria-expanded": "false",
+              "data-kumo-component": "DropdownMenu",
+              "data-kumo-part": "trigger",
+              "data-disabled-skipped": "true"
+            }
+          }
+        },
+        "state": {
+          "open": false,
+          "submenuOpen": false,
+          "disabledSkipped": true
+        },
+        "events": [
+          "open-change:true",
+          "open-change:false"
+        ],
+        "focus": "button"
+      }
     },
     {
       "component": "empty",
@@ -3541,5 +3614,5 @@
       }
     }
   ],
-  "receiptHash": "5e8566a0bc6e1ce4dab740ebf5b12ab20122cf65115bd6b35a77c6ba9fa047ee"
+  "receiptHash": "334aab005ccfbbdb817abc72d15c8c3728126a3f2b578fd19a928178fc197019"
 }

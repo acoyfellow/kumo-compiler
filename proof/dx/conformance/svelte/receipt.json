@@ -1303,8 +1303,8 @@
     "fixtureSource": "proof/dx/conformance/shared/packed-fixtures.json"
   },
   "counts": {
-    "passed": 116,
-    "blocked": 8
+    "passed": 118,
+    "blocked": 6
   },
   "staticPassed": 64,
   "browserPassed": 34,
@@ -2350,40 +2350,106 @@
       "component": "dropdown-menu",
       "vector": "closed-trigger-ssr",
       "status": "passed",
-      "mode": "ssr",
+      "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
+      "hydration": "passed",
       "assertion": {
         "status": "passed",
-        "digest": "88681c5ff97795e0a67402567c7f2ec12187f63822db2d590830ca990d4b9558"
+        "digest": "b3634b800f06af143ea87254e8f9a2ff5484cee74497a0939f1249ef229a731c"
       },
       "observation": {
-        "markupSha256": "3d24f47d74a11f36f0518341c297c3f84af3fbb1e8a387193984af0afff6a978"
+        "dom": {
+          "tag": "button",
+          "text": "Actions",
+          "attributes": {
+            "includes": {
+              "type": "button",
+              "tabindex": "0",
+              "aria-haspopup": "menu",
+              "aria-expanded": "false"
+            }
+          }
+        },
+        "node-identity": "preserved"
       }
     },
     {
       "component": "dropdown-menu",
       "vector": "pointer-item-selection",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "0ff2a10b8a9d8ef7c68b6e3f8d524064709e1d35703ddc4c1675e132a510790d"
+      },
+      "observation": {
+        "dom": {
+          "tag": "button",
+          "text": "Actions",
+          "attributes": {
+            "includes": {
+              "type": "button",
+              "tabindex": "0",
+              "aria-haspopup": "menu",
+              "aria-expanded": "false"
+            }
+          }
+        },
+        "state": {
+          "open": false
+        },
+        "events": [
+          "open-change:true",
+          "select:Edit",
+          "open-change:false",
+          "open-change:false"
+        ],
+        "focus": "body"
+      }
     },
     {
       "component": "dropdown-menu",
       "vector": "keyboard-typeahead-submenu-dismissal",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "83a580ae9af5d63e09bb76eb5d02629c9392abeb544e8404a932a4b1d3686c46"
+      },
+      "observation": {
+        "dom": {
+          "tag": "button",
+          "text": "Actions",
+          "attributes": {
+            "includes": {
+              "type": "button",
+              "tabindex": "0",
+              "aria-haspopup": "menu",
+              "aria-expanded": "false"
+            }
+          }
+        },
+        "state": {
+          "open": false,
+          "submenuOpen": false,
+          "disabledSkipped": true
+        },
+        "events": [
+          "open-change:true",
+          "open-change:false"
+        ],
+        "focus": "button"
+      }
     },
     {
       "component": "empty",
@@ -4612,5 +4678,5 @@
       }
     }
   ],
-  "receiptHash": "7f54b8a2c86421958333f926756438517a3908f8cb019de2f01faed23a64f99d"
+  "receiptHash": "ed6405de1d1808bdaafc5eed86b3af2912651d29d4fb5dba804502017ffa54d0"
 }
