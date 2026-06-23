@@ -234,8 +234,8 @@
     "fixtureSource": "proof/dx/conformance/shared/packed-fixtures.json"
   },
   "counts": {
-    "passed": 106,
-    "blocked": 18
+    "passed": 109,
+    "blocked": 15
   },
   "totalVectors": 124,
   "diagnostics": [],
@@ -3142,52 +3142,111 @@
       "component": "toasty",
       "vector": "provider-ssr",
       "status": "passed",
-      "mode": "ssr",
+      "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
+      "hydration": "passed",
       "assertion": {
         "status": "passed",
-        "digest": "4502edf2f5cc17fbd89624e09cb708707c9a03635fe1dda0cd89a7d3456933a8"
+        "digest": "14ce6f3e9657dfd42e71ffc607fd86a476ca617224a5595b3c4ed6a81fb6833f"
       },
       "observation": {
-        "markupSha256": "6874a89c010f102dcb3bdefa64e63055bf237f23c0bef5fe93b95f211b127cb6"
+        "dom": {
+          "tag": "div",
+          "text": "Application"
+        },
+        "node-identity": "preserved"
       }
     },
     {
       "component": "toasty",
       "vector": "notify-default",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "f18c1f622c115693dd294c75d11306e5fafb969bbccce395002a03f81f31d85d"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "text": "ApplicationSavedChanges savedActionClose"
+        },
+        "state": {
+          "visible": true,
+          "title": "Saved",
+          "description": "Changes saved"
+        },
+        "events": [
+          "notify"
+        ],
+        "focus": "[data-notify]",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "toasty",
       "vector": "action-remains-visible",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "1a59ddd1b9c2e12c56132c5b97135716c7053b39434578c8b3145423d3dba985"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "text": "ApplicationSavedChanges savedActionClose"
+        },
+        "state": {
+          "visible": true,
+          "announcement": "Saved Changes saved"
+        },
+        "events": [
+          "notify",
+          "action"
+        ],
+        "focus": "[data-toast-action]",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "toasty",
       "vector": "close-dismiss",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "6f3b70fa7693b2ad9de76ec4ff7e1c025b5c67b5023b7f772d5fceeae553afcf"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "text": "Application"
+        },
+        "state": {
+          "visible": false
+        },
+        "events": [
+          "notify"
+        ],
+        "focus": "none",
+        "node-identity": "preserved"
+      }
     }
   ],
-  "receiptHash": "afad0c15b786048600b5703ffe8f10eb239b5a894b9247e2111fa10227d3e6ab"
+  "receiptHash": "9d2bee85c1b2d176352766b96ef9273b2ab9eef65f318c5e47afbd62e3d98aef"
 }
