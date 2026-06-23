@@ -246,8 +246,8 @@
     "toggleExecutor": "proof/dx/conformance/shared/toggle-executor.mjs"
   },
   "counts": {
-    "blocked": 35,
-    "passed": 89
+    "blocked": 30,
+    "passed": 94
   },
   "totalVectors": 124,
   "diagnostics": [],
@@ -2032,57 +2032,186 @@
     {
       "component": "radio",
       "vector": "default-click",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "64a67d4a8370b678e3dcca0b84c518ef06a4dfecbb6c98e0a2d6584185dad85c"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-hk": "kumo-10",
+              "role": "radiogroup",
+              "aria-label": "Plan",
+              "tabindex": "-1"
+            }
+          }
+        },
+        "state": {
+          "checked": [
+            false,
+            true
+          ]
+        },
+        "events": [
+          "value:pro"
+        ],
+        "focus": "root",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "radio",
       "vector": "controlled-click",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "64a67d4a8370b678e3dcca0b84c518ef06a4dfecbb6c98e0a2d6584185dad85c"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-hk": "kumo-10",
+              "role": "radiogroup",
+              "aria-label": "Plan",
+              "tabindex": "-1"
+            }
+          }
+        },
+        "state": {
+          "checked": [
+            false,
+            true
+          ]
+        },
+        "events": [
+          "value:pro"
+        ],
+        "focus": "root",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "radio",
       "vector": "arrow",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "64a67d4a8370b678e3dcca0b84c518ef06a4dfecbb6c98e0a2d6584185dad85c"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-hk": "kumo-10",
+              "role": "radiogroup",
+              "aria-label": "Plan",
+              "tabindex": "-1"
+            }
+          }
+        },
+        "state": {
+          "checked": [
+            false,
+            true
+          ]
+        },
+        "events": [
+          "value:pro"
+        ],
+        "focus": "root",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "radio",
       "vector": "disabled-item",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "da5d97d39538b8359809310d60351609081f912d9a5b8e4415384862165e9717"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-hk": "kumo-10",
+              "role": "radiogroup",
+              "aria-label": "Plan"
+            }
+          }
+        },
+        "state": {
+          "checked": [
+            true,
+            false
+          ]
+        },
+        "events": [],
+        "focus": "none",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "radio",
       "vector": "disabled-group",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "da5d97d39538b8359809310d60351609081f912d9a5b8e4415384862165e9717"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-hk": "kumo-10",
+              "role": "radiogroup",
+              "aria-label": "Plan"
+            }
+          }
+        },
+        "state": {
+          "checked": [
+            true,
+            false
+          ]
+        },
+        "events": [],
+        "focus": "none",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "select",
@@ -2749,5 +2878,5 @@
       "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
     }
   ],
-  "receiptHash": "784f517b40bb09bbb5afeba3c5019f0c32814b6482b8b5979fa21779e5d32e8b"
+  "receiptHash": "3984f53b5305e8f7d82346f29e5880b24c6fa09d6e401b5080ce8378a5c21ec3"
 }
