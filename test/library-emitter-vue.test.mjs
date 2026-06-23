@@ -103,7 +103,7 @@ test('Vue pagination-controls capability lowers full, simple, and dropdown butto
     const manifest=generateVueLibrary(output), model=library.models.find(model=>model.component===capability.component);
     const entry=manifest.components.find(entry=>entry.modelDigest===model.modelDigest);
     const source=fs.readFileSync(path.join(output,entry.file),'utf8');
-    assert.match(source,/<div data-slot="pagination"><nav :aria-label=/);
+    assert.match(source,/<div data-slot="pagination"><nav ref="navRef" :aria-label=/);
     assert.doesNotMatch(source,/innerHTML|@html|dispatchEvent|new Event|\.blur\(/);
     const Component=await compileSSRComponent(entry,build), markup=[];
     for(const [fixtureMode,count] of [[undefined,4],['simple',2],['dropdown',6]]){

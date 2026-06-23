@@ -190,6 +190,7 @@ function paginationSource() {
     setup:`const maximumPage = computed(() => Math.max(1, Math.ceil(props.totalCount / props.perPage)))
 const currentPage = ref(1)
 const editingPage = ref('1')
+const navRef = ref<HTMLElement | null>(null)
 onMounted(() => { currentPage.value = Math.min(maximumPage.value, Math.max(1, props.page)); editingPage.value = String(currentPage.value) })
 watch(() => props.page, value => { currentPage.value = Math.min(maximumPage.value, Math.max(1, value)); editingPage.value = String(currentPage.value) })
 function proposePage(target: number) {
@@ -198,16 +199,19 @@ function proposePage(target: number) {
 }
 function commitInput(trigger: 'Enter' | 'blur') {
   const text = editingPage.value.trim()
-  if (!/^[0-9]+$/.test(text)) { editingPage.value = String(currentPage.value); return }
+  const restore = () => { editingPage.value = String(currentPage.value) }
+  const focusNav = () => { if (trigger === 'blur' && navRef.value) { navRef.value.setAttribute('tabindex', '-1'); navRef.value.focus() } }
+  if (!/^[0-9]+$/.test(text)) { restore(); focusNav(); return }
   const parsed = Number(text)
-  if (!Number.isSafeInteger(parsed)) { editingPage.value = String(currentPage.value); return }
+  if (!Number.isSafeInteger(parsed)) { restore(); focusNav(); return }
   const proposal = Math.min(maximumPage.value, Math.max(1, parsed))
   editingPage.value = String(proposal)
   if (proposal !== currentPage.value) props.setPage?.(proposal)
+  focusNav()
 }
 function enterInput(event: KeyboardEvent) { if (event.key === 'Enter') commitInput('Enter') }
 `,
-    template:`<div data-slot="pagination"><nav :aria-label="props.labels?.navigation ?? 'Pagination'" tabindex="-1"><template v-if="props.fixtureMode !== 'simple'"><button type="button" aria-label="First page" :disabled="currentPage === 1" @click="proposePage(1)"></button><button type="button" aria-label="Previous page" :disabled="currentPage === 1" @click="proposePage(currentPage - 1)"></button><input aria-label="Page number" :value="editingPage" @input="editingPage = ($event.currentTarget as HTMLInputElement).value" @keydown="enterInput" @blur="commitInput('blur')" /><button type="button" aria-label="Next page" :disabled="currentPage === maximumPage" @click="proposePage(currentPage + 1)"></button><button type="button" aria-label="Last page" :disabled="currentPage === maximumPage" @click="proposePage(maximumPage)"></button><template v-if="props.fixtureMode === 'dropdown'"><button type="button" aria-label="Page size"></button><button type="button" aria-label="Open page size options"></button></template></template><template v-else><button type="button" :aria-label="props.labels?.previousPage ?? 'Previous page'" :disabled="currentPage === 1" @click="proposePage(currentPage - 1)"></button><button type="button" :aria-label="props.labels?.nextPage ?? 'Next page'" :disabled="currentPage === maximumPage" @click="proposePage(currentPage + 1)"></button></template></nav></div>`
+    template:`<div data-slot="pagination"><nav ref="navRef" :aria-label="props.labels?.navigation ?? 'Pagination'"><template v-if="props.fixtureMode !== 'simple'"><button type="button" aria-label="First page" :disabled="currentPage === 1" @click="proposePage(1)"></button><button type="button" aria-label="Previous page" :disabled="currentPage === 1" @click="proposePage(currentPage - 1)"></button><input aria-label="Page number" :value="editingPage" @input="editingPage = ($event.currentTarget as HTMLInputElement).value" @keydown="enterInput" @blur="commitInput('blur')" /><button type="button" aria-label="Next page" :disabled="currentPage === maximumPage" @click="proposePage(currentPage + 1)"></button><button type="button" aria-label="Last page" :disabled="currentPage === maximumPage" @click="proposePage(maximumPage)"></button><template v-if="props.fixtureMode === 'dropdown'"><button type="button" aria-label="Page size"></button><button type="button" aria-label="Open page size options"></button></template></template><template v-else><button type="button" :aria-label="props.labels?.previousPage ?? 'Previous page'" :disabled="currentPage === 1" @click="proposePage(currentPage - 1)"></button><button type="button" :aria-label="props.labels?.nextPage ?? 'Next page'" :disabled="currentPage === maximumPage" @click="proposePage(currentPage + 1)"></button></template></nav></div>`
   };
 }
 function emitComponent(model, library) {
