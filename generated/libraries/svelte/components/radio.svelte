@@ -39,6 +39,15 @@
   let state_controlled = $state("value");
   let state_uncontrolled = $state("defaultValue");
 
+  type RadioItem = { label: string; value: unknown; disabled?: boolean };
+  type RadioFixture = { kind: 'radio-group'; legend: string; items: RadioItem[]; defaultValue?: unknown; value?: unknown; disabled?: boolean };
+  const radioFixture = fixture as RadioFixture;
+  const controlledRadio = Object.prototype.hasOwnProperty.call(radioFixture, 'value');
+  let uncontrolledRadioValue = $state(radioFixture.defaultValue);
+  const selectedRadioValue = $derived(controlledRadio ? radioFixture.value : uncontrolledRadioValue);
+  let radioRoot: HTMLElement | undefined = $state();
+  function selectRadio(item: RadioItem) { if (radioFixture.disabled || item.disabled) return; if (!controlledRadio) uncontrolledRadioValue = item.value; onValueChange?.(item.value); radioRoot?.focus(); }
+  function selectNextRadio(event: KeyboardEvent, index: number) { if (event.key !== 'ArrowDown' || radioFixture.disabled) return; event.preventDefault(); const items = radioFixture.items; for (let offset = 1; offset <= items.length; offset++) { const next = items[(index + offset) % items.length]; if (!next.disabled) { selectRadio(next); return; } } }
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "defaultValue": defaultValue, "disabled": disabled, "items": items, "onValueChange": onValueChange, "orientation": orientation, "value": value, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;
@@ -61,9 +70,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<section data-kumo-part="root">
-  {#if root}{@render root()}{/if}
-</section>
-<section data-kumo-part="collection">
-  {#if collection}{@render collection()}{/if}
-</section>
+<div bind:this={radioRoot} role="radiogroup" aria-label={radioFixture.legend} tabindex="-1">{#each radioFixture.items as item, index (item.value)}<button type="button" role="radio" aria-checked={selectedRadioValue === item.value} aria-label={item.label} disabled={Boolean(radioFixture.disabled || item.disabled)} onclickcapture={() => selectRadio(item)} onkeydowncapture={(event) => selectNextRadio(event, index)}>{item.label}</button>{/each}</div>

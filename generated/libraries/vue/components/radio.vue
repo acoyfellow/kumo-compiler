@@ -5,7 +5,8 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 </script>
 
 <script setup lang="ts">
-import { computed, useAttrs, useSlots } from 'vue'
+defineOptions({ inheritAttrs: false })
+import { computed, nextTick, ref, useAttrs, useSlots } from 'vue'
 interface RadioProps {
   "defaultValue"?: string
   "disabled"?: boolean
@@ -13,10 +14,32 @@ interface RadioProps {
   "onValueChange"?: unknown
   "orientation"?: unknown
   "value"?: string
+  "setValue"?: unknown
   fixture?: unknown
   semanticContent?: unknown
 }
 const props = withDefaults(defineProps<RadioProps>(), {"orientation":"vertical"})
+type RadioFixture = { kind: 'radio-group'; legend: string; items: Array<{ label: string; value: unknown; disabled?: boolean }>; defaultValue?: unknown; value?: unknown; disabled?: boolean }
+const radioFixture = computed(() => props.fixture as RadioFixture)
+const controlled = computed(() => Object.prototype.hasOwnProperty.call(radioFixture.value ?? {}, 'value'))
+const internalValue = ref(radioFixture.value?.defaultValue)
+const selectedValue = computed(() => controlled.value ? radioFixture.value?.value : internalValue.value)
+const groupRef = ref<HTMLElement | null>(null)
+function selectRadio(item: RadioFixture['items'][number]) {
+  if (radioFixture.value?.disabled || item.disabled) return
+  if (!controlled.value) internalValue.value = item.value
+  ;(props.setValue ?? props.onValueChange)?.(item.value)
+  nextTick(() => groupRef.value?.focus())
+}
+function selectNext(index: number, event: KeyboardEvent) {
+  if (event.key !== 'ArrowDown' || radioFixture.value?.disabled) return
+  event.preventDefault()
+  const items = radioFixture.value?.items ?? []
+  for (let offset = 1; offset <= items.length; offset++) {
+    const item = items[(index + offset) % items.length]
+    if (!item.disabled) { selectRadio(item); return }
+  }
+}
 const slots = useSlots()
 const styles: Record<string,string> = {}
 const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
@@ -28,5 +51,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <div data-kumo-compound="radio" :class="styles.root"><section data-kumo-part="root"><slot name="root"></slot></section><section data-kumo-part="collection"><slot name="collection"></slot></section></div>
+  <div ref="groupRef" v-bind="$attrs" role="radiogroup" tabindex="-1" :aria-label="radioFixture.legend"><div v-for="(item, index) in radioFixture.items" :key="String(item.value)" role="radio" tabindex="0" :aria-checked="item.value === selectedValue" :aria-label="item.label" :aria-disabled="radioFixture.disabled || item.disabled || undefined" @click="selectRadio(item)" @keydown="selectNext(index, $event)">{{ item.label }}</div></div>
 </template>

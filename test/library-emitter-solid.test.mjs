@@ -112,6 +112,16 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   assert.match(clipboardDeclaration, /"text"\?: string;/);
   assert.match(clipboardDeclaration, /"onCopy"\?: \(\) => void;/);
 
+  const radioSource = fs.readFileSync(path.join(first, 'radio.tsx'), 'utf8');
+  assert.match(radioSource, /<div ref=\{radioRoot\} role="radiogroup" aria-label=\{radioFixture\(\)\.legend\}>/);
+  assert.match(radioSource, /<For each=\{radioFixture\(\)\.items\} children=/);
+  assert.match(radioSource, /role="radio" aria-checked=\{selectedValue\(\) === item\.value\} aria-label=\{item\.label\}/);
+  assert.match(radioSource, /if \(radioFixture\(\)\.disabled \|\| item\.disabled\) return/);
+  assert.match(radioSource, /props\.onValueChange/);
+  assert.match(radioSource, /radioRoot\?\.focus\(\)/);
+  assert.match(radioSource, /event\.key !== "ArrowDown"/);
+  assert.match(radioSource, /const props = mergeProps/);
+
   const paginationSource = fs.readFileSync(path.join(first, 'pagination.tsx'), 'utf8');
   assert.match(paginationSource, /<div data-slot="pagination"><nav ref=\{navEl\} aria-label=/);
   assert.match(paginationSource, /props\.fixtureMode !== "simple"/);

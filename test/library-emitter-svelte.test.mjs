@@ -228,6 +228,33 @@ test('supported pagination controls lower generically with deterministic fixture
  assert.equal((clean({fixtureMode:'dropdown',page:1,perPage:10,totalCount:40}).match(/<button\b/g)??[]).length,6);
 });
 
+test('supported radio-group lowers generically with deterministic single-select SSR',async t=>{
+ const build=fs.mkdtempSync(path.join(os.tmpdir(),'kumo-svelte-radio-'));
+ t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+ fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
+ const {radioGroup}=loadLibrary();
+ const first=emitSvelteLibrary({output});
+ assert.equal(first.components.flatMap(x=>x.semanticVariants).length,66);
+ const source=fs.readFileSync(path.join(output,`components/${radioGroup.component}.svelte`),'utf8');
+ emitSvelteLibrary({output});
+ assert.equal(fs.readFileSync(path.join(output,`components/${radioGroup.component}.svelte`),'utf8'),source);
+ assert.match(source,/<div bind:this=\{radioRoot\} role="radiogroup" aria-label=\{radioFixture\.legend\}/);
+ assert.match(source,/role="radio" aria-checked=\{selectedRadioValue === item\.value\} aria-label=\{item\.label\}/);
+ assert.match(source,/onclickcapture=\{\(\) => selectRadio\(item\)\} onkeydowncapture=/);
+ assert.match(source,/if \(radioFixture\.disabled \|\| item\.disabled\) return/);
+ assert.match(source,/if \(!controlledRadio\) uncontrolledRadioValue = item\.value; onValueChange\?\.\(item\.value\); radioRoot\?\.focus\(\)/);
+ assert.doesNotMatch(source,/model\.component\s*===?\s*["']radio["']|@html|innerHTML|dispatchEvent/);
+ const compiled=compile(source,{filename:'radio.svelte',generate:'server'});
+ const target=path.join(build,'radio.mjs');fs.writeFileSync(target,compiled.js.code);
+ const Radio=(await import(pathToFileURL(target)+`?${Date.now()}`)).default;
+ const fixture={kind:'radio-group',legend:'Plan',items:[{label:'Free',value:'free'},{label:'Pro',value:'pro',disabled:true}],defaultValue:'free'};
+ const html=render(Radio,{props:{fixture}}).body.replace(/<!--[\s\S]*?-->/g,'');
+ assert.match(html,/^<div role="radiogroup" aria-label="Plan" tabindex="-1">/);
+ assert.equal((html.match(/role="radio"/g)??[]).length,2);
+ assert.match(html,/role="radio" aria-checked="true" aria-label="Free"/);
+ assert.match(html,/role="radio" aria-checked="false" aria-label="Pro" disabled/);
+});
+
 test('resolution receipt canonically binds capability and generated manifest hashes',()=>{
  const receiptPath=path.resolve('proof/dx/conformance/diagnostics/semantic-emitter-svelte-resolution.json');
  const receipt=JSON.parse(fs.readFileSync(receiptPath,'utf8'));

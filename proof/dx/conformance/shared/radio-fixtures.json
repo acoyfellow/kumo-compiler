@@ -1,0 +1,651 @@
+{
+  "schemaVersion": "kumo.radio-fixtures/v1",
+  "plans": [
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "radio",
+      "vector": "default-click",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/radio.json",
+        "sha256": "9c7f5e00c6ff6b1e706de5cd52823bb4e7642f4b9c69a4bca97728165fd3057a",
+        "vectorSha256": "d82c31a3a4003d5d1e8c593323b3efe94c77f49c3ccb3c407e82b273c74b275b"
+      },
+      "fixture": {
+        "kind": "family-fixture",
+        "family": "radio-group",
+        "adapterRequirement": "radio-group-adapter",
+        "payload": {
+          "kind": "radio-group",
+          "legend": "Plan",
+          "items": [
+            {
+              "label": "Free",
+              "value": "free"
+            },
+            {
+              "label": "Pro",
+              "value": "pro"
+            }
+          ],
+          "defaultValue": "free"
+        }
+      },
+      "setup": [
+        {
+          "kind": "uncontrolled-state",
+          "mode": "uncontrolled",
+          "initial": "free"
+        },
+        {
+          "kind": "event-recorder"
+        }
+      ],
+      "actions": [
+        {
+          "type": "click",
+          "target": 1
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div",
+            "attributes": {
+              "includes": {
+                "role": "radiogroup"
+              }
+            }
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "checked": [
+              false,
+              true
+            ]
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "value:pro"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "root"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "radio-fixture",
+        "radio-group-adapter",
+        "trusted-actions",
+        "dom-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "1080022b74ab73eac041343d7f605213d50449eff2756f64e189d668bdf4527a"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "radio",
+      "vector": "controlled-click",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/radio.json",
+        "sha256": "9c7f5e00c6ff6b1e706de5cd52823bb4e7642f4b9c69a4bca97728165fd3057a",
+        "vectorSha256": "b356301a967619f84acf657b13b6fc37d70dcfbca92e9dc2761a80a9946951a2"
+      },
+      "fixture": {
+        "kind": "family-fixture",
+        "family": "radio-group",
+        "adapterRequirement": "radio-group-adapter",
+        "payload": {
+          "kind": "radio-group",
+          "legend": "Plan",
+          "items": [
+            {
+              "label": "Free",
+              "value": "free"
+            },
+            {
+              "label": "Pro",
+              "value": "pro"
+            }
+          ],
+          "value": "free"
+        }
+      },
+      "setup": [
+        {
+          "kind": "controlled-state",
+          "mode": "controlled",
+          "initial": "free"
+        },
+        {
+          "kind": "event-recorder",
+          "callback": "value"
+        }
+      ],
+      "actions": [
+        {
+          "type": "click",
+          "target": 1
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div",
+            "attributes": {
+              "includes": {
+                "role": "radiogroup"
+              }
+            }
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "checked": [
+              false,
+              true
+            ]
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "value:pro"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "root"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "radio-fixture",
+        "radio-group-adapter",
+        "trusted-actions",
+        "dom-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "e31680b991999fdd3df42bd81c5776e130728f463308eb42c7616995878f411d"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "radio",
+      "vector": "arrow",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/radio.json",
+        "sha256": "9c7f5e00c6ff6b1e706de5cd52823bb4e7642f4b9c69a4bca97728165fd3057a",
+        "vectorSha256": "32b61f538853afbfd69bd302806a62eb25710a56481fb2dafb59b90dd06fa7b7"
+      },
+      "fixture": {
+        "kind": "family-fixture",
+        "family": "radio-group",
+        "adapterRequirement": "radio-group-adapter",
+        "payload": {
+          "kind": "radio-group",
+          "legend": "Plan",
+          "items": [
+            {
+              "label": "Free",
+              "value": "free"
+            },
+            {
+              "label": "Pro",
+              "value": "pro"
+            }
+          ],
+          "defaultValue": "free"
+        }
+      },
+      "setup": [
+        {
+          "kind": "uncontrolled-state",
+          "mode": "uncontrolled",
+          "initial": "free"
+        },
+        {
+          "kind": "event-recorder"
+        }
+      ],
+      "actions": [
+        {
+          "type": "key",
+          "key": "ArrowDown",
+          "target": 0
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div",
+            "attributes": {
+              "includes": {
+                "role": "radiogroup"
+              }
+            }
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "checked": [
+              false,
+              true
+            ]
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "value:pro"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "root"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "radio-fixture",
+        "radio-group-adapter",
+        "trusted-actions",
+        "dom-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "c777985a68dd753006291d94035b64a4bc808ea70ebb6272a846058f17f8d2f1"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "radio",
+      "vector": "disabled-item",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/radio.json",
+        "sha256": "9c7f5e00c6ff6b1e706de5cd52823bb4e7642f4b9c69a4bca97728165fd3057a",
+        "vectorSha256": "f68ca98f2ced03fd80bf2d34b558bc1290ab111e936e8a71252809a0cb75d3c7"
+      },
+      "fixture": {
+        "kind": "family-fixture",
+        "family": "radio-group",
+        "adapterRequirement": "radio-group-adapter",
+        "payload": {
+          "kind": "radio-group",
+          "legend": "Plan",
+          "items": [
+            {
+              "label": "Free",
+              "value": "free"
+            },
+            {
+              "label": "Gone",
+              "value": "gone",
+              "disabled": true
+            }
+          ],
+          "defaultValue": "free"
+        }
+      },
+      "setup": [
+        {
+          "kind": "uncontrolled-state",
+          "mode": "uncontrolled",
+          "initial": "free"
+        },
+        {
+          "kind": "event-recorder"
+        }
+      ],
+      "actions": [
+        {
+          "type": "click",
+          "target": 1
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div",
+            "attributes": {
+              "includes": {
+                "role": "radiogroup"
+              }
+            }
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "checked": [
+              true,
+              false
+            ]
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": []
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "none"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "radio-fixture",
+        "radio-group-adapter",
+        "trusted-actions",
+        "dom-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "38478288a70e86004798b20a1dd8705229a02a95b01c7e59ef22e151b1d6e5f8"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "radio",
+      "vector": "disabled-group",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/radio.json",
+        "sha256": "9c7f5e00c6ff6b1e706de5cd52823bb4e7642f4b9c69a4bca97728165fd3057a",
+        "vectorSha256": "bc75f5f423b912c8fbeb3ed62a859b9469c77ddeccccbe905eb5396c31f30c86"
+      },
+      "fixture": {
+        "kind": "family-fixture",
+        "family": "radio-group",
+        "adapterRequirement": "radio-group-adapter",
+        "payload": {
+          "kind": "radio-group",
+          "legend": "Plan",
+          "items": [
+            {
+              "label": "Free",
+              "value": "free"
+            },
+            {
+              "label": "Pro",
+              "value": "pro"
+            }
+          ],
+          "defaultValue": "free",
+          "disabled": true
+        }
+      },
+      "setup": [
+        {
+          "kind": "uncontrolled-state",
+          "mode": "uncontrolled",
+          "initial": "free"
+        },
+        {
+          "kind": "event-recorder"
+        }
+      ],
+      "actions": [
+        {
+          "type": "click",
+          "target": 1
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div",
+            "attributes": {
+              "includes": {
+                "role": "radiogroup"
+              }
+            }
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "checked": [
+              true,
+              false
+            ]
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": []
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "none"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "radio-fixture",
+        "radio-group-adapter",
+        "trusted-actions",
+        "dom-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "cf76b50557b01d2e382743140891902cfe2a54343a3286d06d5b958400a8de9c"
+    }
+  ],
+  "digest": "083a851a2c52c5086bdeb36d1b05915b7776cf55651da7c9a73955258bd48606"
+}
