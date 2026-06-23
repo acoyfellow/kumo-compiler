@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "kumo.combobox-collection/v1",
+  "component": "combobox",
+  "support": "supported",
+  "root": {
+    "tag": "input"
+  },
+  "api": {
+    "compound": [
+      ".TriggerInput",
+      ".Content",
+      ".List",
+      ".Item"
+    ]
+  },
+  "open": {
+    "trigger": "click input",
+    "event": "open:<bool>"
+  },
+  "navigate": {
+    "key": "ArrowDown",
+    "model": "highlight first then next option"
+  },
+  "select": {
+    "key": "Enter",
+    "event": "value:<item>",
+    "closesList": true
+  },
+  "focus": {
+    "retains": "input"
+  },
+  "events": [
+    "open:true",
+    "value:<item>",
+    "open:false"
+  ],
+  "unknowns": [
+    {
+      "field": "generatedIds",
+      "status": "unknown",
+      "reason": "Option/list association ids are generated and are not stable contract surface."
+    },
+    {
+      "field": "multipleChipDom",
+      "status": "unknown",
+      "reason": "Multi-select chip DOM is not asserted by the canonical single-select vector."
+    }
+  ],
+  "vectorIds": [
+    "single-select"
+  ],
+  "provenance": {
+    "component": "combobox",
+    "contractPath": "contracts/kumo.observable/v1/components/combobox.json",
+    "contractDigest": "ab7a671638e44e5e7257fe76f4da0592d07ff7fbfad8c0802b7114a3234f58f9",
+    "vectorIds": [
+      "single-select"
+    ]
+  },
+  "capabilityDigest": "a6b1176bdaef749dd839ddabcab79d6638883692b75598c5f423d53865121107"
+}

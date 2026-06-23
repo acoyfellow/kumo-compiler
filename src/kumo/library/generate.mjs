@@ -29,6 +29,7 @@ import {deriveMenubarNavigation, MENUBAR_NAVIGATION_COMPONENTS} from './menubar-
 import {deriveDialogLayer, DIALOG_LAYER_COMPONENTS} from './dialog-layer.mjs';
 import {deriveInputGroupComposition, INPUT_GROUP_COMPOSITION_COMPONENTS} from './input-group-composition.mjs';
 import {deriveSensitiveInput, SENSITIVE_INPUT_COMPONENTS} from './sensitive-input.mjs';
+import {deriveComboboxCollection, COMBOBOX_COLLECTION_COMPONENTS} from './combobox-collection.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '../../..');
@@ -136,6 +137,7 @@ const menubarNavigation = deriveMenubarNavigation(canonicalContracts.filter(cont
 const dialogLayer = deriveDialogLayer(canonicalContracts.filter(contract => DIALOG_LAYER_COMPONENTS.includes(contract.component)));
 const inputGroupComposition = deriveInputGroupComposition(canonicalContracts.filter(contract => INPUT_GROUP_COMPOSITION_COMPONENTS.includes(contract.component)));
 const sensitiveInput = deriveSensitiveInput(canonicalContracts.filter(contract => SENSITIVE_INPUT_COMPONENTS.includes(contract.component)));
+const comboboxCollection = deriveComboboxCollection(canonicalContracts.filter(contract => COMBOBOX_COLLECTION_COMPONENTS.includes(contract.component)));
 const nativeControlContracts = canonicalContracts.filter(contract => ['checkbox','switch','radio','input','input-area','sensitive-input'].includes(contract.component));
 const controlledState = deriveControlledState(nativeControlContracts.filter(contract => ['checkbox','switch','radio'].includes(contract.component)));
 const nativeControls = deriveNativeControls(nativeControlContracts);
@@ -191,6 +193,7 @@ fs.writeFileSync(path.join(here, 'capabilities/menubar-navigation.json'), `${JSO
 fs.writeFileSync(path.join(here, 'capabilities/dialog-layer.json'), `${JSON.stringify(dialogLayer,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/input-group-composition.json'), `${JSON.stringify(inputGroupComposition,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/sensitive-input.json'), `${JSON.stringify(sensitiveInput,null,2)}\n`);
+fs.writeFileSync(path.join(here, 'capabilities/combobox-collection.json'), `${JSON.stringify(comboboxCollection,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/controlled-state.json'), `${JSON.stringify(controlledState,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/native-controls.json'), `${JSON.stringify(nativeControls,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/native-field.json'), `${JSON.stringify(nativeField,null,2)}\n`);
