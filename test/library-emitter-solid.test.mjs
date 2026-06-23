@@ -121,7 +121,7 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   assert.doesNotMatch(radioSource, /role="radiogroup"[^>]*tabindex/);
   assert.match(radioSource, /if \(radioFixture\(\)\.disabled \|\| item\.disabled\) return/);
   assert.match(radioSource, /props\.onValueChange/);
-  assert.match(radioSource, /radioRoot\?\.focus\(\)/);
+  assert.match(radioSource, /radioRoot\.setAttribute\('tabindex', '-1'\); radioRoot\.focus\(\)/);
   assert.match(radioSource, /event\.key !== "ArrowDown"/);
   assert.match(radioSource, /const props = mergeProps/);
 

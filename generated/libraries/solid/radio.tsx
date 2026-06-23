@@ -39,7 +39,7 @@ export function Radio(incoming: RadioProps): JSX.Element {
     if (radioFixture().disabled || item.disabled) return;
     if (!radioControlled()) setRadioValue(item.value);
     (props.onValueChange as ((value: string) => void) | undefined)?.(item.value);
-    radioRoot?.focus();
+    if (radioRoot) { radioRoot.setAttribute('tabindex', '-1'); radioRoot.focus(); }
   };
   const radioKeyDown = (event: KeyboardEvent & {currentTarget: HTMLDivElement}, index: number) => {
     if (event.key !== "ArrowDown" || radioFixture().disabled) return;
