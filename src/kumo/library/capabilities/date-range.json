@@ -1,5 +1,21 @@
 {
   "schemaVersion": "kumo.date-range/v1",
+  "observableImplementation": {
+    "datePicker": {
+      "support": "supported",
+      "root": "div",
+      "gridRole": "grid",
+      "navigationButtons": 2,
+      "monthGrid": "complete-weeks",
+      "selectionEvent": "change:<date>",
+      "blockedSelection": "no-event-no-focus",
+      "vectorIds": [
+        "single-selected",
+        "single-change",
+        "bounded-day"
+      ]
+    }
+  },
   "calendar": {
     "dateSyntax": "YYYY-MM-DD",
     "arithmetic": "proleptic-gregorian-utc-epoch-day",
@@ -106,5 +122,5 @@
       "contractDigest": "8bf64900e34b9202e3faac509ab5f10e270940ec56849078cade3f07f4b192c7"
     }
   ],
-  "capabilityDigest": "1e5a01863b2e7431c3d750bca031e3627d383d0cbb0d394f9f91c45453afa7d9"
+  "capabilityDigest": "1c0f0e22c993538c422f37c6e5858c3cdd496ff9ed2f481e4ca192b0d6927009"
 }

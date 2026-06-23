@@ -28,6 +28,12 @@ export function calendarGrid(monthISO, {weekStartsOn=0}={}) {
   const start = month.epochDay-offset;
   return Object.freeze(Array.from({length:42},(_,index)=>{const iso=formatISODate(start+index);const d=parseISODate(iso);return Object.freeze({iso,row:Math.floor(index/7),column:index%7,inMonth:d.month===month.month&&d.year===month.year});}));
 }
+export function calendarMonthGrid(monthISO,{weekStartsOn=0}={}) {
+  const month=parseISODate(monthISO);if(month.day!==1)throw new Error('month must be first day');
+  const first=new Date(Date.UTC(month.year,month.month-1,1)),offset=(first.getUTCDay()-weekStartsOn+7)%7;
+  const nextMonth=new Date(Date.UTC(month.year,month.month,1)),daysInMonth=Math.round((nextMonth-first)/86400000),cells=Math.ceil((offset+daysInMonth)/7)*7,start=month.epochDay-offset;
+  return Object.freeze(Array.from({length:cells},(_,index)=>{const iso=formatISODate(start+index),d=parseISODate(iso);return Object.freeze({iso,row:Math.floor(index/7),column:index%7,inMonth:d.month===month.month&&d.year===month.year});}));
+}
 export function isDateDisabled(iso,{min=null,max=null,disabled=[]}={}) {
   const day=parseISODate(iso).epochDay;
   if (min!==null && day<parseISODate(min).epochDay) return true;
@@ -47,11 +53,11 @@ export function createSelection({controlled=false,value=null}={}) { let internal
 export function deriveDateRange(contracts) {
   const picker=contracts.find(x=>x.component==='date-picker'), range=contracts.find(x=>x.component==='date-range-picker');
   if(!picker||!range) throw new Error('canonical date contracts required');
-  const value={schemaVersion:DATE_RANGE_VERSION,calendar:{dateSyntax:'YYYY-MM-DD',arithmetic:'proleptic-gregorian-utc-epoch-day',grid:{cells:42,rows:6,columns:7,weekStartsOn:'explicit-0-through-6'}},boundaries:{min:'inclusive',max:'inclusive',disabled:'exact-ISO-date',blockedEffect:'no-proposal-no-commit'},selection:{single:'replace',range:['start','end','restart-when-before-start','reset'],ownership:'controlled-proposes-uncontrolled-commits'},keyboard:{'date-picker':['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Enter','Space'],'date-range-picker':['Enter','Space']},unknowns:[...picker.unknowns,...range.unknowns,{field:'timezoneConversion',status:'unknown',reason:'Canonical contracts do not define conversion of ISO calendar dates through the timezone prop.'},{field:'vendorCalendarInternals',status:'unknown',reason:'react-day-picker/browser behavior beyond observed vectors remains vendor-owned.'}],provenance:[picker,range].map(c=>({component:c.component,contractPath:`contracts/kumo.observable/v1/components/${c.component}.json`,contractSchema:c.schemaVersion,canonical:c.canonical,vectorIds:c.vectors.map(v=>v.id),contractDigest:sha(c)}))};
+  const value={schemaVersion:DATE_RANGE_VERSION,observableImplementation:{datePicker:{support:'supported',root:'div',gridRole:'grid',navigationButtons:2,monthGrid:'complete-weeks',selectionEvent:'change:<date>',blockedSelection:'no-event-no-focus',vectorIds:picker.vectors.map(v=>v.id)}},calendar:{dateSyntax:'YYYY-MM-DD',arithmetic:'proleptic-gregorian-utc-epoch-day',grid:{cells:42,rows:6,columns:7,weekStartsOn:'explicit-0-through-6'}},boundaries:{min:'inclusive',max:'inclusive',disabled:'exact-ISO-date',blockedEffect:'no-proposal-no-commit'},selection:{single:'replace',range:['start','end','restart-when-before-start','reset'],ownership:'controlled-proposes-uncontrolled-commits'},keyboard:{'date-picker':['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Enter','Space'],'date-range-picker':['Enter','Space']},unknowns:[...picker.unknowns,...range.unknowns,{field:'timezoneConversion',status:'unknown',reason:'Canonical contracts do not define conversion of ISO calendar dates through the timezone prop.'},{field:'vendorCalendarInternals',status:'unknown',reason:'react-day-picker/browser behavior beyond observed vectors remains vendor-owned.'}],provenance:[picker,range].map(c=>({component:c.component,contractPath:`contracts/kumo.observable/v1/components/${c.component}.json`,contractSchema:c.schemaVersion,canonical:c.canonical,vectorIds:c.vectors.map(v=>v.id),contractDigest:sha(c)}))};
   return {...value,capabilityDigest:sha(value)};
 }
 export function validateDateRange(value) {
-  if(!value || value.schemaVersion!==DATE_RANGE_VERSION || !Array.isArray(value.provenance) || value.provenance.length!==2 || !Array.isArray(value.unknowns) || value.calendar?.grid?.cells!==42) throw new Error('invalid date range capability');
+  if(!value || value.schemaVersion!==DATE_RANGE_VERSION || value.observableImplementation?.datePicker?.support!=='supported' || value.observableImplementation.datePicker.navigationButtons!==2 || !Array.isArray(value.provenance) || value.provenance.length!==2 || !Array.isArray(value.unknowns) || value.calendar?.grid?.cells!==42) throw new Error('invalid date range capability');
   for(const p of value.provenance) if(!p.component||!p.contractPath||p.contractSchema!=='kumo.observable/v1'||!p.canonical?.typesSha256||!p.canonical?.runtimeSha256||!p.vectorIds?.length||!p.contractDigest) throw new Error('date range provenance required');
   const {capabilityDigest,...unsigned}=value;if(capabilityDigest!==sha(unsigned))throw new Error('date range capability digest mismatch');return value;
 }
