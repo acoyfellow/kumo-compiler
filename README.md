@@ -1,18 +1,18 @@
 # Kumo compiler
 
-A contract-first portability and conformance kit for Cloudflare Kumo.
+This repository observes canonical React Kumo behavior, records it as framework-neutral contracts and component algebra, emits native framework packages, and proves each output through SSR, hydration, and trusted browser receipts.
 
 Start with the **[seven-minute repository guide](docs/architecture/seven-minute-guide.md)**.
 
 ## Scope
 
 ```text
-canonical @cloudflare/kumo@2.5.2
+canonical React @cloudflare/kumo@2.5.2 observations
 → kumo.observable/v1 contracts
 → framework-neutral library algebra
-→ native Vue, Svelte, and Solid packages
-→ packed browser receipts
-→ public Astro catalog
+→ native Vue, Svelte, and Solid package emitters
+→ packed-package SSR, hydration, and browser receipts
+→ public Astro catalog and comparison pages
 ```
 
 - **45 classified** components
@@ -59,13 +59,28 @@ Compatibility aliases remain for CI and focused debugging, but these six are the
 
 ## Evidence rules
 
-A successful build is not parity. Claims require a receipt with one of:
+A successful build proves only that output was generated or packaged; it does not prove behavioral parity. Parity claims require target-specific SSR, hydration, and trusted browser evidence recorded as:
 
 ```text
 passed | failed | blocked | not-run
 ```
 
+- `passed` means the asserted behavior ran and matched its contract.
+- `failed` means it ran and did not match.
+- `blocked` means a named dependency or missing authority prevents execution.
+- `not-run` means no execution evidence exists.
+
 Missing evidence never passes. Browser behavior must run through `scripts/observable-browser-runner.mjs` using trusted CDP input, one-tree SSR/hydration, canonical CSS, node identity, and unfiltered diagnostics.
+
+## Adding another target
+
+Future language or framework targets follow the same sequence:
+
+1. Define a target adapter and native emitter against the existing contracts and algebra.
+2. Add target comparison pages to the Astro catalog.
+3. Earn the complete executable component-by-target matrix with the same packed-package receipts before claiming support.
+
+An emitter, build, or comparison page alone does not make a target supported.
 
 ## Current product status
 

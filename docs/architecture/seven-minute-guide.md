@@ -2,13 +2,13 @@
 
 ## 0:00–1:00 — what it is
 
-This repository turns canonical `@cloudflare/kumo@2.5.2` behavior into native Vue, Svelte, and Solid packages and proves them in browsers.
+This repository observes canonical React `@cloudflare/kumo@2.5.2` behavior, records framework-neutral contracts and component algebra, emits native Vue, Svelte, and Solid packages, then proves each packed output through SSR, hydration, and trusted browser receipts.
 
 ```text
-41 canonical contracts → shared algebra → 3 emitters → packed packages → receipts → Astro catalog
+canonical React observations → 41 contracts → shared algebra → native emitters → packed SSR/hydration/browser receipts → Astro catalog
 ```
 
-React is the immutable canonical control, not another downstream package. The exact scope is 45 classified, 41 executable, two upstream blocked, and two supplemental.
+React is the immutable canonical control, not another downstream package. The exact scope is 45 classified, 41 executable, two upstream blocked, and two supplemental. A generated tree or successful build is an output, not a parity claim.
 
 ## 1:00–2:00 — five files to open
 
@@ -84,7 +84,14 @@ Statuses are:
 passed | failed | blocked | not-run
 ```
 
-Only `passed` supports a claim. Missing evidence remains missing. Browser execution must use the shared runner, trusted CDP input, canonical CSS, UTF-8, one-tree hydration, node identity, and unfiltered console/network/HTTP diagnostics.
+Only `passed` supports a claim:
+
+- `passed` — the behavior ran and matched its contract.
+- `failed` — it ran and did not match.
+- `blocked` — a named dependency or missing authority prevents execution.
+- `not-run` — no execution evidence exists.
+
+Builds and package installation do not promote these states. Missing evidence remains missing. Browser execution must use the shared runner, trusted CDP input, canonical CSS, UTF-8, one-tree hydration, node identity, and unfiltered console/network/HTTP diagnostics.
 
 Package identities are permanently:
 
@@ -94,8 +101,14 @@ Package identities are permanently:
 @acoyfellow/kumo-solid@0.0.1
 ```
 
-## 6:00–7:00 — current roadmap
+## 6:00–7:00 — roadmap and new targets
 
 Canonical contracts and browser vectors are complete. Package export surfaces are complete. Remaining work is trusted packed browser conformance, promotion of truly implementation-ready models, examples/reference coverage for all 41 components, and exhaustive production proof.
 
-Read `docs/progress.md` for the human view and `proof/progress/latest.json` for machine facts. Historical engine and architecture campaigns are inventoried in [`docs/archive/README.md`](../archive/README.md); they are context, not active authority.
+A future framework or language target expands in three steps:
+
+1. Define its adapter and native emitter against the existing contracts and algebra.
+2. Add target comparison pages to the Astro catalog.
+3. Earn the same complete executable component-by-target matrix and packed SSR/hydration/browser receipts before support is claimed.
+
+Do not infer support from an adapter, emitted source, successful build, or comparison page. Read `docs/progress.md` for the human view and `proof/progress/latest.json` for machine facts. Historical engine and architecture campaigns are inventoried in [`docs/archive/README.md`](../archive/README.md); they are context, not active authority.
