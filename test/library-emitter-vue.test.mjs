@@ -313,6 +313,30 @@ test('Vue dialog-layer capability lowers compound fixtures to a deterministic tr
   assert.deepEqual(emissions[1],emissions[0]);
 });
 
+test('Vue popover capability lowers canonical fixture, ownership, dismissal, and measured collision', async t => {
+  const library=loadLibrary(), capability=library.popoverLayer;
+  assert.equal(capability.support,'supported');
+  const contract=JSON.parse(fs.readFileSync('contracts/kumo.observable/v1/components/popover.json','utf8'));
+  const fixture=contract.vectors.find(vector=>vector.id==='pointer-open-close-outside').fixture;
+  const build=fs.mkdtempSync(path.resolve('.kumo-vue-popover-')); t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+  const manifest=generateVueLibrary(output), model=library.models.find(model=>model.component===capability.component);
+  const entry=manifest.components.find(entry=>entry.modelDigest===model.modelDigest);
+  const source=fs.readFileSync(path.join(output,entry.file),'utf8');
+  assert.match(source,/<button ref="triggerRef" v-bind="\$attrs" type="button" tabindex="0" aria-haspopup="dialog" :aria-expanded="currentOpen" data-kumo-component="Popover" data-kumo-part="trigger"/);
+  assert.match(source,/const contentPart = computed/); assert.match(source,/positionMethod/);
+  assert.match(source,/trigger\.top < contentHeight \+ offset/);
+  assert.match(source,/resolvedSide\.value = 'bottom'/);
+  assert.match(source,/if \(!controlled\.value\) internalOpen\.value = next/);
+  assert.match(source,/props\.onOpenChange\?\.\(next\)/);
+  assert.match(source,/triggerRef\.value\?\.focus\(\)/);
+  assert.doesNotMatch(source,/innerHTML|@html|dispatchEvent|new Event/);
+  const Component=await compileSSRComponent(entry,build);
+  const closed=await renderToString(createSSRApp({setup:()=>()=>h(Component,{fixture})}));
+  assert.equal(closed.replace('<!---->',''),'<button type="button" tabindex="0" aria-haspopup="dialog" aria-expanded="false" data-kumo-component="Popover" data-kumo-part="trigger">Open</button>');
+  const controlled=await renderToString(createSSRApp({setup:()=>()=>h(Component,{fixture,open:true})}));
+  assert.match(controlled,/aria-expanded="true"/); assert.match(controlled,/role="dialog" data-side="bottom" data-align="start" data-position-method="fixed"/);
+});
+
 test('Vue radio-group capability lowers generically to deterministic single-select radio markup', async t => {
   const library=loadLibrary(), capability=library.radioGroup;
   assert.equal(capability.support,'supported');

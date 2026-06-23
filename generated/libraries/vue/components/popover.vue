@@ -5,17 +5,58 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 </script>
 
 <script setup lang="ts">
-import { computed, useAttrs, useSlots } from 'vue'
+defineOptions({ inheritAttrs: false })
+import { computed, getCurrentInstance, nextTick, ref, useAttrs, useSlots } from 'vue'
 interface PopoverProps {
   "Close"?: unknown
   "Content"?: unknown
   "Root"?: unknown
   "Title/Description"?: unknown
   "Trigger"?: unknown
+  "open"?: boolean
+  "onOpenChange"?: unknown
+  "defaultOpen"?: boolean
   fixture?: unknown
   semanticContent?: unknown
 }
 const props = withDefaults(defineProps<PopoverProps>(), {})
+type PopoverFixtureNode = { export?: string; text?: string; props?: Record<string, any>; children?: PopoverFixtureNode[] }
+const instance = getCurrentInstance()
+const controlled = computed(() => Object.prototype.hasOwnProperty.call(instance?.vnode.props ?? {}, 'open'))
+const internalOpen = ref(Boolean(props.defaultOpen))
+const currentOpen = computed(() => controlled.value ? Boolean(props.open) : internalOpen.value)
+const popoverFixture = computed(() => props.fixture as PopoverFixtureNode | undefined)
+const fixtureChildren = (node?: PopoverFixtureNode) => node?.children ?? []
+const fixturePart = (name: string) => fixtureChildren(popoverFixture.value).find(node => node.export === name)
+const partText = (node?: PopoverFixtureNode): string => node ? String(node.text ?? '') + fixtureChildren(node).map(partText).join('') : ''
+const triggerPart = computed(() => fixturePart('.Trigger'))
+const contentPart = computed(() => fixturePart('.Content'))
+const triggerRef = ref<HTMLButtonElement | null>(null)
+const contentRef = ref<HTMLElement | null>(null)
+const resolvedSide = ref('bottom')
+const requestedSide = computed(() => String(contentPart.value?.props?.side ?? 'bottom'))
+const align = computed(() => String(contentPart.value?.props?.align ?? 'center'))
+const positionMethod = computed(() => String(contentPart.value?.props?.positionMethod ?? 'absolute'))
+function resolveCollision() {
+  resolvedSide.value = requestedSide.value
+  if (requestedSide.value !== 'top') return
+  const trigger = triggerRef.value?.getBoundingClientRect()
+  const contentHeight = contentRef.value?.getBoundingClientRect().height ?? 0
+  const offset = Number(contentPart.value?.props?.sideOffset ?? 8)
+  if (trigger && trigger.top < contentHeight + offset) resolvedSide.value = 'bottom'
+}
+function setOpen(next: boolean) {
+  if (!controlled.value) internalOpen.value = next
+  props.onOpenChange?.(next)
+  if (next) nextTick(resolveCollision)
+  else nextTick(() => triggerRef.value?.focus())
+}
+function handleKey(event: KeyboardEvent) {
+  if (event.key !== 'Escape' || !currentOpen.value) return
+  event.preventDefault()
+  setOpen(false)
+  nextTick(() => triggerRef.value?.focus())
+}
 const slots = useSlots()
 const styles: Record<string,string> = {}
 const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
@@ -27,5 +68,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template v-if="semanticEqual(fixture, {&quot;export&quot;:&quot;root&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;export&quot;:&quot;.Trigger&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;text&quot;:&quot;Open&quot;}]}]})"><button type="button" tabindex="0" aria-haspopup="dialog" aria-expanded="false" data-kumo-component="Popover" data-kumo-part="trigger">{{ "Open" }}</button></template><template v-else><Teleport :to="&quot;document-body&quot;"><div data-kumo-layer="popover"><div data-kumo-compound="popover" :class="styles.root"><section data-kumo-part="popover"><slot name="popover"></slot></section></div></div></Teleport></template>
+  <button ref="triggerRef" v-bind="$attrs" type="button" tabindex="0" aria-haspopup="dialog" :aria-expanded="currentOpen" data-kumo-component="Popover" data-kumo-part="trigger" @click="setOpen(true)" @keydown="handleKey">{{ partText(triggerPart) }}<div v-if="currentOpen" ref="contentRef" role="dialog" :data-side="resolvedSide" :data-align="align" :data-position-method="positionMethod" @keydown="handleKey"><template v-for="(child, index) in fixtureChildren(contentPart)" :key="index"><h2 v-if="child.export === '.Title'">{{ partText(child) }}</h2><p v-else-if="child.export === '.Description'">{{ partText(child) }}</p><button v-else-if="child.export === '.Close'" type="button" @click.stop="setOpen(false)">{{ partText(child) }}</button><template v-else>{{ partText(child) }}</template></template></div></button>
 </template>

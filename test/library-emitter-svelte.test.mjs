@@ -526,6 +526,32 @@ test('supported dialog-layer lowers generically with a deterministic portal and 
  assert.doesNotMatch(html,/role="dialog"/);
 });
 
+test('supported popover-layer lowers canonical fixture, controlled ownership, dismissal, and collision data',async t=>{
+ const build=fs.mkdtempSync(path.join(os.tmpdir(),'kumo-svelte-popover-'));
+ t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+ fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
+ const {popoverLayer}=loadLibrary();
+ emitSvelteLibrary({output});
+ const source=fs.readFileSync(path.join(output,`components/${popoverLayer.component}.svelte`),'utf8');
+ assert.match(source,/<button bind:this=\{popoverTrigger\} type="button" tabindex="0" aria-haspopup="dialog" aria-expanded=\{currentPopoverOpen\} data-kumo-component="Popover" data-kumo-part="trigger"/);
+ assert.match(source,/role="dialog" data-side=\{resolvedPopoverSide\} data-align=\{popoverFixture\.align\} data-position-method=\{popoverFixture\.positionMethod\}/);
+ assert.match(source,/const controlledPopover = \$derived\(open !== undefined\)/);
+ assert.match(source,/popoverTrigger\.getBoundingClientRect\(\)/);
+ assert.match(source,/onOpenChange\?\.\(next\)/);
+ assert.match(source,/onkeydown=\{dismissPopover\}/);
+ assert.doesNotMatch(source,/function\s+\w+\([^)]*\w+\?:|@html|innerHTML|dispatchEvent/);
+ const compiled=compile(source,{filename:'popover.svelte',generate:'server'});
+ const target=path.join(build,'popover.mjs');fs.writeFileSync(target,compiled.js.code);
+ const Popover=(await import(pathToFileURL(target)+`?${Date.now()}`)).default;
+ const contract=JSON.parse(fs.readFileSync(path.resolve('contracts/kumo.observable/v1/components/popover.json'),'utf8'));
+ const closed=render(Popover,{props:{fixture:contract.vectors[0].fixture}}).body.replace(/<!--[\s\S]*?-->/g,'');
+ assert.match(closed,/^<button type="button" tabindex="0" aria-haspopup="dialog" aria-expanded="false" data-kumo-component="Popover" data-kumo-part="trigger">Open<\/button>$/);
+ assert.doesNotMatch(closed,/role="dialog"/);
+ const controlled=render(Popover,{props:{fixture:contract.vectors[1].fixture,open:true}}).body.replace(/<!--[\s\S]*?-->/g,'');
+ assert.match(controlled,/role="dialog" data-side="bottom" data-align="start" data-position-method="fixed"/);
+ assert.match(controlled,/<h2>Notifications<\/h2><p>All caught up<\/p><button type="button">Close<\/button>/);
+});
+
 test('resolution receipt canonically binds capability and generated manifest hashes',()=>{
  const receiptPath=path.resolve('proof/dx/conformance/diagnostics/semantic-emitter-svelte-resolution.json');
  const receipt=JSON.parse(fs.readFileSync(receiptPath,'utf8'));

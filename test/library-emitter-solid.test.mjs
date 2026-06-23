@@ -282,6 +282,25 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   assert.match(dialogDeclaration, /"defaultOpen"\?: boolean;/);
   assert.match(dialogDeclaration, /"onOpenChange"\?: \(open: boolean\) => void;/);
 
+  const popoverSource = fs.readFileSync(path.join(first, 'popover.tsx'), 'utf8');
+  const popoverDeclaration = fs.readFileSync(path.join(first, 'popover.d.ts'), 'utf8');
+  assert.match(popoverSource, /const props = mergeProps/);
+  assert.match(popoverSource, /const controlled = incoming\.open !== undefined/);
+  assert.match(popoverSource, /createSignal\(Boolean\(incoming\.defaultOpen\)\)/);
+  assert.match(popoverSource, /type="button" tabindex="0" aria-haspopup="dialog" aria-expanded=\{popoverOpen\(\)\} data-kumo-component="Popover" data-kumo-part="trigger"/);
+  assert.match(popoverSource, /role="dialog" data-side=\{popoverSide\(\)\} data-align=\{popoverContentProps\(\)\.align/);
+  assert.match(popoverSource, /data-position-method=\{popoverContentProps\(\)\.positionMethod/);
+  assert.match(popoverSource, /requested !== "top"/);
+  assert.match(popoverSource, /rect\.top < \(popoverContent\?\.getBoundingClientRect\(\)\.height \?\? 1\) \? "bottom" : "top"/);
+  assert.match(popoverSource, /event\.key !== "Escape"/);
+  assert.match(popoverSource, /if \(!controlled\) setUncontrolledOpen\(next\)/);
+  assert.match(popoverSource, /props\.onOpenChange/);
+  assert.match(popoverSource, /popoverTrigger\?\.focus\(\)/);
+  assert.doesNotMatch(popoverSource, /innerHTML|<Portal|semanticEqual\(normalizedFixture/);
+  assert.match(popoverDeclaration, /"open"\?: boolean;/);
+  assert.match(popoverDeclaration, /"defaultOpen"\?: boolean;/);
+  assert.match(popoverDeclaration, /"onOpenChange"\?: \(open: boolean\) => void;/);
+
   const inputGroupSource = fs.readFileSync(path.join(first, 'input-group.tsx'), 'utf8');
   assert.match(inputGroupSource, /<div data-kumo-component="InputGroup">/);
   assert.match(inputGroupSource, /<label for=\{inputGroupId\}>/);
@@ -393,6 +412,16 @@ test('Solid SSR renders every compiled semantic predicate through canonical mark
   assert.match(dateRangePickerHtml, /<button type="button" data-reset>Reset<\/button>/);
   const smallRangePickerHtml = renderToString(() => dateRangePickerModule.DateRangePicker({size:'sm', variant:'subtle'}));
   assert.match(smallRangePickerHtml, /^<div tabindex="-1" class="p-3 bg-kumo-base">/);
+
+  const popoverItem = result.components.find(item => item.component === 'popover');
+  const popoverModule = await import(path.join(build, popoverItem.source.replace(/tsx$/, 'js')) + `?popover=${Date.now()}`);
+  const popoverContract = JSON.parse(fs.readFileSync(path.resolve('contracts/kumo.observable/v1/components/popover.json')));
+  const closedPopover = renderToString(() => popoverModule.Popover({fixture:popoverContract.vectors[0].fixture}));
+  assert.match(closedPopover, /^<button[^>]*type="button"[^>]*tabindex="0"[^>]*aria-haspopup="dialog"[^>]*aria-expanded="false"[^>]*data-kumo-component="Popover"[^>]*data-kumo-part="trigger"[^>]*>Open<\/button>$/);
+  assert.doesNotMatch(closedPopover, /role="dialog"/);
+  const openPopover = renderToString(() => popoverModule.Popover({open:true, fixture:popoverContract.vectors[1].fixture}));
+  assert.match(openPopover, /aria-expanded="true"/);
+  assert.match(openPopover, /<div role="dialog" data-side="top" data-align="start" data-position-method="fixed">NotificationsAll caught upClose<\/div>/);
 
   const toastyItem = result.components.find(item => item.component === 'toasty');
   const toastyModule = await import(path.join(build, toastyItem.source.replace(/tsx$/, 'js')) + `?toasty=${Date.now()}`);

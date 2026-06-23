@@ -13,6 +13,9 @@
   Trigger?: Snippet;
   popover?: Snippet;
   children?: Snippet;
+  open?: boolean;
+  defaultOpen?: boolean;
+  onOpenChange?: (value: boolean) => void;
   styles?: Record<string, string>;
   fixture?: unknown;
   [key: string]: unknown;
@@ -25,6 +28,9 @@
     Title_Description = undefined,
     Trigger = undefined,
     popover = undefined,
+    open = undefined,
+    defaultOpen = false,
+    onOpenChange = undefined,
     children,
     fixture = undefined,
     __consumerContent = undefined,
@@ -35,6 +41,22 @@
   let state_focus = $state("trigger remains focusable");
   let state_open = $state("defaultOpen or controlled open; otherwise false");
 
+  type PopoverFixtureNode = { export?: string; text?: string; props?: Record<string, unknown>; children?: PopoverFixtureNode[] };
+  type PopoverFixture = { children?: PopoverFixtureNode[] };
+  function popoverText(node: PopoverFixtureNode | undefined): string | undefined { if (!node) return undefined; return String(node.text ?? '') + (node.children ?? []).map(child => popoverText(child) ?? '').join(''); }
+  const popoverFixture = $derived.by(() => { const root = fixture as PopoverFixture | undefined; const nodes = root?.children ?? []; const trigger = nodes.find(node => node.export === '.Trigger'); const content = nodes.find(node => node.export === '.Content'); const find = (part: string) => content?.children?.find(node => node.export === part); const body = (content?.children ?? []).filter(node => !node.export).map(node => popoverText(node) ?? '').join('') || undefined; return { triggerText: popoverText(trigger) ?? 'Open', title: popoverText(find('.Title')), description: popoverText(find('.Description')), closeText: popoverText(find('.Close')), body, side: String(content?.props?.side ?? 'bottom'), align: String(content?.props?.align ?? 'center'), positionMethod: String(content?.props?.positionMethod ?? 'absolute') }; });
+  const controlledPopover = $derived(open !== undefined);
+  let uncontrolledPopoverOpen = $state(Boolean(defaultOpen));
+  const currentPopoverOpen = $derived(controlledPopover ? Boolean(open) : uncontrolledPopoverOpen);
+  let popoverTrigger: HTMLButtonElement | undefined = $state();
+  let popoverContent: HTMLElement | undefined = $state();
+  let resolvedPopoverSide = $state('bottom');
+  function setPopoverOpen(next: boolean) { if (!controlledPopover) uncontrolledPopoverOpen = next; onOpenChange?.(next); }
+  function resolvePopoverSide() { const requested = popoverFixture.side; if (requested !== 'top' || !popoverTrigger) { resolvedPopoverSide = requested; return; } const rect = popoverTrigger.getBoundingClientRect(); resolvedPopoverSide = rect.top < 1 ? 'bottom' : 'top'; }
+  function togglePopover() { const next = !currentPopoverOpen; if (next) resolvePopoverSide(); setPopoverOpen(next); popoverTrigger?.focus(); }
+  function closePopover() { setPopoverOpen(false); queueMicrotask(() => popoverTrigger?.focus()); }
+  function dismissPopover(event: KeyboardEvent) { if (event.key !== 'Escape') return; event.preventDefault(); closePopover(); }
+  void popoverContent;
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "Close": Close, "Content": Content, "Root": Root, "Title/Description": Title_Description, "Trigger": Trigger, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;
@@ -58,16 +80,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if semanticEqual(fixture, {"export":"root","props":{},"children":[{"export":".Trigger","props":{},"children":[{"text":"Open"}]}]})}
-  <button type={"button"} tabindex={"0"} aria-haspopup={"dialog"} aria-expanded={"false"} data-kumo-component={"Popover"} data-kumo-part={"trigger"}>
-    {"Open"}
-  </button>
-{:else}
-{#if browser}
-  <div data-kumo-portal-target={"document-body"} data-kumo-layer="popover">
-    <section data-kumo-part="popover">
-      {#if popover}{@render popover()}{/if}
-    </section>
-  </div>
-{/if}
-{/if}
+<button bind:this={popoverTrigger} type="button" tabindex="0" aria-haspopup="dialog" aria-expanded={currentPopoverOpen} data-kumo-component="Popover" data-kumo-part="trigger" onclick={togglePopover} onkeydown={dismissPopover}>{popoverFixture.triggerText}</button>{#if currentPopoverOpen}<div bind:this={popoverContent} role="dialog" data-side={resolvedPopoverSide} data-align={popoverFixture.align} data-position-method={popoverFixture.positionMethod} onkeydown={dismissPopover}>{#if popoverFixture.title !== undefined}<h2>{popoverFixture.title}</h2>{/if}{#if popoverFixture.description !== undefined}<p>{popoverFixture.description}</p>{/if}{#if popoverFixture.closeText !== undefined}<button type="button" onclick={closePopover}>{popoverFixture.closeText}</button>{/if}{#if popoverFixture.body !== undefined}{popoverFixture.body}{/if}</div>{/if}
