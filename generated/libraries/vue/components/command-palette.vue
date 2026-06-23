@@ -5,19 +5,64 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 </script>
 
 <script setup lang="ts">
-import { computed, useAttrs, useSlots } from 'vue'
+defineOptions({ inheritAttrs: false })
+import { computed, nextTick, onMounted, ref, useAttrs, useSlots } from 'vue'
 interface CommandPaletteProps {
   "compound"?: unknown
   "Dialog"?: unknown
   "Input"?: unknown
   "Panel"?: string
   "Root"?: string
+  "onHighlightChange"?: unknown
+  "onValueChange"?: unknown
+  "onOpenChange"?: unknown
   "highlights"?: unknown
   "text"?: unknown
   fixture?: unknown
   semanticContent?: unknown
 }
 const props = withDefaults(defineProps<CommandPaletteProps>(), {})
+type CommandPaletteFixtureNode = { export?: string; text?: string; props?: Record<string, any>; children?: CommandPaletteFixtureNode[] }
+const paletteFixture = computed(() => props.fixture as CommandPaletteFixtureNode | undefined)
+const fixtureChildren = (node?: CommandPaletteFixtureNode) => node?.children ?? []
+const fixturePart = (node: CommandPaletteFixtureNode | undefined, name: string) => fixtureChildren(node).find(child => child.export === name)
+const partText = (node?: CommandPaletteFixtureNode): string => node ? String(node.text ?? '') + fixtureChildren(node).map(partText).join('') : ''
+const highlightedText = computed(() => paletteFixture.value?.export === '.HighlightedText')
+const highlightSegments = computed(() => {
+  const text = String(paletteFixture.value?.props?.text ?? '')
+  const ranges = (paletteFixture.value?.props?.highlights ?? []) as Array<[number, number]>
+  const segments: Array<{ text: string; marked: boolean }> = []
+  let cursor = 0
+  for (const [start, end] of ranges.toSorted((a, b) => a[0] - b[0])) {
+    if (start > cursor) segments.push({text: text.slice(cursor, start), marked: false})
+    segments.push({text: text.slice(start, end + 1), marked: true})
+    cursor = Math.max(cursor, end + 1)
+  }
+  if (cursor < text.length) segments.push({text: text.slice(cursor), marked: false})
+  return segments
+})
+const inputPart = computed(() => fixturePart(paletteFixture.value, '.Input'))
+const listPart = computed(() => fixturePart(paletteFixture.value, '.List'))
+const items = computed(() => fixtureChildren(listPart.value).filter(item => item.export === '.Item'))
+const inputRef = ref<HTMLInputElement | null>(null)
+const open = ref(Boolean(paletteFixture.value?.props?.open))
+const value = ref('')
+const highlightedIndex = ref(items.value.length ? 0 : -1)
+onMounted(() => { if (!highlightedText.value && highlightedIndex.value >= 0) props.onHighlightChange?.(String(items.value[highlightedIndex.value]?.props?.value ?? partText(items.value[highlightedIndex.value]))) })
+function handleInput(event: Event) { value.value = (event.currentTarget as HTMLInputElement).value; props.onValueChange?.(value.value) }
+function handlePaletteKey(event: KeyboardEvent) {
+  if (event.key === 'ArrowDown' && items.value.length) {
+    event.preventDefault()
+    highlightedIndex.value = Math.min(highlightedIndex.value + 1, items.value.length - 1)
+    props.onHighlightChange?.(String(items.value[highlightedIndex.value]?.props?.value ?? partText(items.value[highlightedIndex.value])))
+  } else if (event.key === 'Escape') {
+    event.preventDefault()
+    open.value = false
+    props.onOpenChange?.(false)
+    inputRef.value?.blur()
+    nextTick(() => (document.activeElement as HTMLElement | null)?.blur?.())
+  }
+}
 const slots = useSlots()
 const styles: Record<string,string> = {}
 const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
@@ -29,5 +74,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;highlights&quot;) &amp;&amp; semanticEqual(semanticValues.highlights, [[0,4]]) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;text&quot;) &amp;&amp; semanticEqual(semanticValues.text, &quot;Cloudflare&quot;) &amp;&amp; semanticEqual(fixture, {&quot;export&quot;:&quot;.HighlightedText&quot;,&quot;props&quot;:{&quot;text&quot;:&quot;Cloudflare&quot;,&quot;highlights&quot;:[[0,4]]},&quot;children&quot;:[]})"><span><mark>{{ "Cloud" }}</mark></span></template><template v-else><div data-kumo-compound="command-palette" :class="styles.root"><section data-kumo-part="root"><slot name="root"></slot></section><section data-kumo-part="collection"><slot name="collection"></slot></section></div></template>
+  <span v-if="highlightedText"><template v-for="(segment, index) in highlightSegments" :key="index"><mark v-if="segment.marked">{{ segment.text }}</mark><template v-else>{{ segment.text }}</template></template></span><div v-else v-bind="$attrs" data-kumo-component="CommandPalette"><input ref="inputRef" :placeholder="inputPart?.props?.placeholder" :value="value" @input="handleInput" @keydown="handlePaletteKey" /><ul :hidden="!open"><li v-for="(item, index) in items" :key="String(item.props?.value ?? index)" :data-highlighted="index === highlightedIndex || undefined">{{ partText(item) }}</li></ul></div>
 </template>

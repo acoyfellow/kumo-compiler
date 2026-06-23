@@ -182,6 +182,35 @@ test('Vue autocomplete capability lowers canonical input root and option items d
   assert.deepEqual(emissions[1],emissions[0]);
 });
 
+test('Vue command-palette capability lowers canonical highlighted text and palette fixtures deterministically', async t => {
+  const library=loadLibrary(), capability=library.commandPalette;
+  assert.equal(capability.support,'supported'); assert.equal(capability.component,'command-palette');
+  const fixtures=JSON.parse(fs.readFileSync('contracts/kumo.observable/v1/components/command-palette.json','utf8')).vectors.map(vector=>vector.fixture);
+  const emissions=[];
+  for(let run=0;run<2;run++){
+    const build=fs.mkdtempSync(path.resolve(`.kumo-vue-command-palette-${run}-`)); t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+    const manifest=generateVueLibrary(output), model=library.models.find(model=>model.component===capability.component);
+    const entry=manifest.components.find(entry=>entry.modelDigest===model.modelDigest);
+    const source=fs.readFileSync(path.join(output,entry.file),'utf8');
+    assert.match(source,/<span v-if="highlightedText">/);
+    assert.match(source,/<mark v-if="segment\.marked">/);
+    assert.match(source,/<div v-else v-bind="\$attrs" data-kumo-component="CommandPalette">/);
+    assert.match(source,/<input ref="inputRef"/); assert.match(source,/<li v-for="\(item, index\) in items"/);
+    assert.match(source,/onMounted\(\(\) =>/); assert.match(source,/props\.onHighlightChange\?\./);
+    assert.match(source,/props\.onValueChange\?\.\(value\.value\)/); assert.match(source,/props\.onOpenChange\?\.\(false\)/);
+    assert.doesNotMatch(source,/innerHTML|@html|dispatchEvent|new Event/);
+    const Component=await compileSSRComponent(entry,build);
+    const highlighted=await renderToString(createSSRApp({setup:()=>()=>h(Component,{fixture:fixtures[0]})}));
+    assert.equal(highlighted.replace(/<!--\[-->|<!--\]-->/g,''),'<span><mark>Cloud</mark>flare</span>'); assert.equal((highlighted.match(/<mark>/g)??[]).length,1);
+    const palette=await renderToString(createSSRApp({setup:()=>()=>h(Component,{fixture:fixtures[1]})}));
+    assert.match(palette,/^<div data-kumo-component="CommandPalette">/); assert.match(palette,/<input placeholder="Search"/);
+    assert.equal((palette.match(/<li/g)??[]).length,2); assert.match(palette,/>Workers<\/li>/); assert.match(palette,/>Pages<\/li>/);
+    assert.equal(manifest.components.flatMap(x=>x.semanticVariants).length,66);
+    emissions.push({source,highlighted,palette});
+  }
+  assert.deepEqual(emissions[1],emissions[0]);
+});
+
 test('Vue input-group capability lowers canonical compound fixture deterministically', async t => {
   const library=loadLibrary(), capability=library.inputGroupComposition;
   assert.equal(capability.support,'supported');

@@ -128,6 +128,20 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   assert.match(comboboxSource, /props\.onValueChange/);
   assert.doesNotMatch(comboboxSource, /semanticEqual\(normalizedFixture/);
 
+  const commandPaletteSource = fs.readFileSync(path.join(first, 'command-palette.tsx'), 'utf8');
+  const commandPaletteDeclaration = fs.readFileSync(path.join(first, 'command-palette.d.ts'), 'utf8');
+  assert.match(commandPaletteSource, /import \{ For, Show, createSignal, mergeProps, onMount, splitProps \} from "solid-js"/);
+  assert.match(commandPaletteSource, /props\.text !== undefined \? <span><For each=\{highlightSegments\(\)\}/);
+  assert.match(commandPaletteSource, /segment\.mark \? <mark>\{segment\.text\}<\/mark> : segment\.text/);
+  assert.match(commandPaletteSource, /data-kumo-component="CommandPalette"/);
+  assert.match(commandPaletteSource, /onMount\(\(\) => \{ if \(paletteOpen\(\) && paletteItems\(\)\[0\]\)/);
+  assert.match(commandPaletteSource, /event\.key === "ArrowDown"/);
+  assert.match(commandPaletteSource, /event\.key === "Escape"/);
+  assert.match(commandPaletteSource, /commandPaletteInput\?\.blur\(\)/);
+  assert.doesNotMatch(commandPaletteSource, /semanticEqual\(normalizedFixture/);
+  assert.match(commandPaletteDeclaration, /"highlights"\?: Array<\[number, number\]>;/);
+  assert.match(commandPaletteDeclaration, /"onHighlightChange"\?: \(value: string\) => void;/);
+
   const sensitiveSource = fs.readFileSync(path.join(first, 'sensitive-input.tsx'), 'utf8');
   assert.match(sensitiveSource, /const props = mergeProps/);
   assert.match(sensitiveSource, /<div data-kumo-component="SensitiveInput">/);
