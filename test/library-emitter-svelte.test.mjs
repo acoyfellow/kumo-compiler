@@ -336,6 +336,34 @@ test('supported input-group composition lowers canonical compound fixtures deter
  assert.match(html,new RegExp(`^<div data-kumo-component="InputGroup"><label for="${id}">Search</label><p>Help</p><span data-kumo-part="Addon">\\$</span><input id="${id}" aria-label="Search" value=""\/?><button type="button" data-variant="secondary">Go</button><span data-kumo-part="Suffix">USD</span></div>$`));
 });
 
+test('supported combobox collection lowers canonical compound fixture deterministically',async t=>{
+ const build=fs.mkdtempSync(path.join(os.tmpdir(),'kumo-svelte-combobox-'));
+ t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+ fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
+ const {comboboxCollection}=loadLibrary();
+ const first=emitSvelteLibrary({output});
+ assert.equal(first.components.flatMap(x=>x.semanticVariants).length,66);
+ const source=fs.readFileSync(path.join(output,`components/${comboboxCollection.component}.svelte`),'utf8');
+ const second=emitSvelteLibrary({output});
+ assert.equal(second.components.flatMap(x=>x.semanticVariants).length,66);
+ assert.equal(fs.readFileSync(path.join(output,`components/${comboboxCollection.component}.svelte`),'utf8'),source);
+ assert.match(source,/<input bind:this=\{comboboxInput\} role="combobox"/);
+ assert.match(source,/<ul role="listbox">/);
+ assert.match(source,/<li role="option" data-value=\{item\.value\}/);
+ assert.match(source,/let comboboxOpen = \$state\(false\)/);
+ assert.match(source,/let highlightedIndex = \$state\(-1\)/);
+ assert.match(source,/let comboboxValue = \$state\(''\)/);
+ assert.doesNotMatch(source,/function\s+\w+\([^)]*\w+\?:/);
+ assert.doesNotMatch(source,/model\.component\s*===?\s*["']combobox["']|@html|innerHTML|dispatchEvent/);
+ const fixture=JSON.parse(fs.readFileSync(path.resolve('contracts/kumo.observable/v1/components/combobox.json'),'utf8')).vectors[0].fixture;
+ const compiled=compile(source,{filename:'combobox.svelte',generate:'server'});
+ const target=path.join(build,'combobox.mjs');fs.writeFileSync(target,compiled.js.code);
+ const Combobox=(await import(pathToFileURL(target)+`?${Date.now()}`)).default;
+ const html=render(Combobox,{props:{fixture}}).body.replace(/<!--[\s\S]*?-->/g,'');
+ assert.match(html,/^<div data-kumo-component="Combobox"><input role="combobox" aria-expanded="false" placeholder="Fruit" value=""\/?><\/div>$/);
+ assert.doesNotMatch(html,/role="listbox"|role="option"/);
+});
+
 test('supported sensitive-input lowers generically and deterministically',()=>{
  const {sensitiveInput}=loadLibrary();
  const first=emitSvelteLibrary({output});

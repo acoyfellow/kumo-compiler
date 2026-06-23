@@ -102,6 +102,18 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   assert.match(fieldSource, /<div><label for=\{props\.controlId as string \?\? "field-control"\}>\{props\.label as JSX\.Element\}<\/label>\{props\.children\}<\/div>/);
   assert.doesNotMatch(fieldSource, /nativeInputHandler|event\.currentTarget\.value/);
 
+  const comboboxSource = fs.readFileSync(path.join(first, 'combobox.tsx'), 'utf8');
+  assert.match(comboboxSource, /const props = mergeProps/);
+  assert.match(comboboxSource, /<input ref=\{comboboxInput\} placeholder=\{comboboxTrigger\(\)\.props\.placeholder as string\}/);
+  assert.match(comboboxSource, /<Show when=\{comboboxOpen\(\)\} children=/);
+  assert.match(comboboxSource, /<ul role="listbox"><For each=\{comboboxItems\(\)\} children=/);
+  assert.match(comboboxSource, /<li role="option" data-value=\{item\.value\}/);
+  assert.match(comboboxSource, /event\.key === "ArrowDown"/);
+  assert.match(comboboxSource, /event\.key === "Enter"/);
+  assert.match(comboboxSource, /props\.onOpenChange/);
+  assert.match(comboboxSource, /props\.onValueChange/);
+  assert.doesNotMatch(comboboxSource, /semanticEqual\(normalizedFixture/);
+
   const sensitiveSource = fs.readFileSync(path.join(first, 'sensitive-input.tsx'), 'utf8');
   assert.match(sensitiveSource, /const props = mergeProps/);
   assert.match(sensitiveSource, /<div data-kumo-component="SensitiveInput">/);
@@ -222,9 +234,17 @@ test('Solid SSR renders every compiled semantic predicate through canonical mark
     fs.writeFileSync(path.join(build, item.source.replace(/tsx$/, 'js')), transformed.code);
   }
   const library = loadLibrary();
+  const {renderToString} = await import('solid-js/web');
+  const comboboxItem = result.components.find(item => item.component === 'combobox');
+  const comboboxModule = await import(path.join(build, comboboxItem.source.replace(/tsx$/, 'js')) + `?combobox=${Date.now()}`);
+  const comboboxContract = JSON.parse(fs.readFileSync(path.resolve('contracts/kumo.observable/v1/components/combobox.json')));
+  const comboboxFixture = comboboxContract.vectors[0].fixture;
+  const closedCombobox = renderToString(() => comboboxModule.Combobox({fixture:comboboxFixture}));
+  assert.match(closedCombobox, /^<input[^>]*placeholder="Fruit"/);
+  assert.doesNotMatch(closedCombobox, /role="listbox"|role="option"/);
+
   const buttonItem = result.components.find(item => item.component === 'button');
   const buttonModule = await import(path.join(build, buttonItem.source.replace(/tsx$/, 'js')) + `?interactive=${Date.now()}`);
-  const {renderToString} = await import('solid-js/web');
   const menuBarItem = result.components.find(item => item.component === 'menu-bar');
   const menuBarModule = await import(path.join(build, menuBarItem.source.replace(/tsx$/, 'js')) + `?menubar=${Date.now()}`);
   const menuClasses = library.menubarNavigation.root.classes.join(' ');

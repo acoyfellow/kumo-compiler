@@ -14,6 +14,8 @@
   variants?: unknown;
   collection?: Snippet;
   children?: Snippet;
+  onOpenChange?: (value: boolean) => void;
+  onValueChange?: (value: string) => void;
   styles?: Record<string, string>;
   fixture?: unknown;
   [key: string]: unknown;
@@ -27,6 +29,8 @@
     TriggerMultipleWithInput = undefined,
     variants = undefined,
     collection = undefined,
+    onOpenChange = undefined,
+    onValueChange = undefined,
     children,
     fixture = undefined,
     __consumerContent = undefined,
@@ -38,6 +42,17 @@
   let state_open = $state("closed unless controlled/default-open");
   let state_selection = $state("value/defaultValue according to Base UI controlled mode");
 
+  type ComboboxFixtureNode = { export?: string; text?: string; props?: Record<string, unknown>; children?: ComboboxFixtureNode[] };
+  type ComboboxFixture = { children?: ComboboxFixtureNode[] };
+  function comboboxText(node: ComboboxFixtureNode | undefined): string { return node ? String(node.text ?? '') + (node.children ?? []).map(comboboxText).join('') : ''; }
+  const comboboxFixture = $derived.by(() => { const root = fixture as ComboboxFixture | undefined; const trigger = root?.children?.find(node => node.export === '.TriggerInput'); const content = root?.children?.find(node => node.export === '.Content'); const list = content?.children?.find(node => node.export === '.List'); return { placeholder: trigger?.props?.placeholder as string | undefined, items: (list?.children ?? []).filter(node => node.export === '.Item').map(node => ({ value: String(node.props?.value ?? ''), label: comboboxText(node) })) }; });
+  let comboboxOpen = $state(false);
+  let highlightedIndex = $state(-1);
+  let comboboxValue = $state('');
+  let comboboxInput: HTMLInputElement | undefined = $state();
+  function setComboboxOpen(next: boolean) { comboboxOpen = next; onOpenChange?.(next); }
+  function openCombobox() { if (!comboboxOpen) setComboboxOpen(true); }
+  function handleComboboxKey(event: KeyboardEvent) { if (event.key === 'ArrowDown') { event.preventDefault(); if (!comboboxOpen) setComboboxOpen(true); highlightedIndex = Math.min(highlightedIndex + 1, comboboxFixture.items.length - 1); return; } if (event.key === 'Enter' && highlightedIndex >= 0) { event.preventDefault(); const item = comboboxFixture.items[highlightedIndex]; if (!item) return; comboboxValue = item.value; onValueChange?.(item.value); setComboboxOpen(false); comboboxInput?.focus(); } }
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "compound": compound, "Content": Content, "root": root, "TriggerInput": TriggerInput, "TriggerMultipleWithInput": TriggerMultipleWithInput, "variants": variants, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;
@@ -60,9 +75,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<section data-kumo-part="root">
-  {#if root}{@render root()}{/if}
-</section>
-<section data-kumo-part="collection">
-  {#if collection}{@render collection()}{/if}
-</section>
+<div data-kumo-component="Combobox"><input bind:this={comboboxInput} role="combobox" aria-expanded={comboboxOpen} placeholder={comboboxFixture.placeholder} value={comboboxValue} onclick={openCombobox} onkeydown={handleComboboxKey}>{#if comboboxOpen}<ul role="listbox">{#each comboboxFixture.items as item, index (item.value)}<li role="option" data-value={item.value} aria-selected={highlightedIndex === index}>{item.label}</li>{/each}</ul>{/if}</div>

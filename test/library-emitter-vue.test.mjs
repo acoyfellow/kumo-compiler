@@ -126,6 +126,33 @@ test('Vue sensitive-input capability lowers deterministic masked, editable, and 
   assert.deepEqual(emissions[1],emissions[0]);
 });
 
+test('Vue combobox capability lowers canonical compound fixture with input root and options deterministically', async t => {
+  const library=loadLibrary(), capability=library.comboboxCollection;
+  assert.equal(capability.support,'supported'); assert.equal(capability.component,'combobox');
+  const fixture=JSON.parse(fs.readFileSync('contracts/kumo.observable/v1/components/combobox.json','utf8')).vectors[0].fixture;
+  const emissions=[];
+  for(let run=0;run<2;run++){
+    const build=fs.mkdtempSync(path.resolve(`.kumo-vue-combobox-${run}-`)); t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+    const manifest=generateVueLibrary(output), model=library.models.find(model=>model.component===capability.component);
+    const entry=manifest.components.find(entry=>entry.modelDigest===model.modelDigest);
+    const source=fs.readFileSync(path.join(output,entry.file),'utf8');
+    assert.match(source,/<input ref="inputRef" v-bind="\$attrs" role="combobox"/);
+    assert.match(source,/<ul role="listbox" :hidden="!open">/);
+    assert.match(source,/role="option" :data-value="item\.props\?\.value"/);
+    assert.match(source,/props\.onOpenChange\?\.\(next\)/); assert.match(source,/props\.onValueChange\?\.\(value\.value\)/);
+    assert.doesNotMatch(source,/innerHTML|@html|dispatchEvent|new Event/);
+    const Component=await compileSSRComponent(entry,build);
+    const html=await renderToString(createSSRApp({setup:()=>()=>h(Component,{fixture})}));
+    assert.match(html,/^(?:<!--\[-->)?<input role="combobox" placeholder="Fruit" value(?:="")? aria-expanded="false">/);
+    assert.equal((html.match(/role="option"/g)??[]).length,2);
+    assert.match(html,/role="option" data-value="Apple" aria-selected="false">Apple<\/li>/);
+    assert.match(html,/role="option" data-value="Banana" aria-selected="false">Banana<\/li>/);
+    assert.equal(manifest.components.flatMap(x=>x.semanticVariants).length,66);
+    emissions.push({source,html});
+  }
+  assert.deepEqual(emissions[1],emissions[0]);
+});
+
 test('Vue input-group capability lowers canonical compound fixture deterministically', async t => {
   const library=loadLibrary(), capability=library.inputGroupComposition;
   assert.equal(capability.support,'supported');
