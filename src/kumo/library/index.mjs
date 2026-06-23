@@ -24,6 +24,7 @@ import {loadPaginationControls} from './pagination-controls.mjs';
 import {loadRadioGroup} from './radio-group.mjs';
 import {loadTabsNavigation} from './tabs-navigation.mjs';
 import {loadMenubarNavigation} from './menubar-navigation.mjs';
+import {loadDialogLayer} from './dialog-layer.mjs';
 
 export const LIBRARY_SCHEMA_VERSION = 'kumo.library/v1';
 export const CAPABILITIES = Object.freeze([
@@ -146,6 +147,7 @@ export function loadLibrary(base = here) {
   const radioGroup = loadRadioGroup(path.join(base,'capabilities/radio-group.json'));
   const tabsNavigation = loadTabsNavigation(path.join(base,'capabilities/tabs-navigation.json'));
   const menubarNavigation = loadMenubarNavigation(path.join(base,'capabilities/menubar-navigation.json'));
+  const dialogLayer = loadDialogLayer(path.join(base,'capabilities/dialog-layer.json'));
   const semanticRender = validateSemanticRender(JSON.parse(fs.readFileSync(path.join(base, 'capabilities/semantic-render.json'), 'utf8')));
   const manifest = JSON.parse(fs.readFileSync(path.join(base, 'manifest.json'), 'utf8'));
   if (manifest.count !== 41 || manifest.components.length !== 41) throw new Error('library inventory must contain exactly 41 models');
@@ -171,5 +173,5 @@ export function loadLibrary(base = here) {
     const semantic = semanticComponents.get(model.component);
     if (!semantic || model.semanticRender.capabilityDigest !== semanticRender.capabilityDigest || model.semanticRender.vectorIds.join('\0') !== semantic.vectors.map(vector => vector.id).join('\0')) throw new Error(`${model.component}: semantic render binding mismatch`);
   }
-  return {manifest, models, semanticRender, contentBindings, nativeButton, behaviorCapabilities, controlledState, nativeControls, nativeField, clipboardLiveRegion, focusNavigation, collectionListbox, layerLifecycle, dateRange, responsiveSidebar, paginationState, toastLifecycle, fieldComposition, clipboardCopy, paginationControls, radioGroup, tabsNavigation, menubarNavigation};
+  return {manifest, models, semanticRender, contentBindings, nativeButton, behaviorCapabilities, controlledState, nativeControls, nativeField, clipboardLiveRegion, focusNavigation, collectionListbox, layerLifecycle, dateRange, responsiveSidebar, paginationState, toastLifecycle, fieldComposition, clipboardCopy, paginationControls, radioGroup, tabsNavigation, menubarNavigation, dialogLayer};
 }
