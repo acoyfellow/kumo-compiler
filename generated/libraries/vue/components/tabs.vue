@@ -5,13 +5,14 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 </script>
 
 <script setup lang="ts">
-import { computed, useAttrs, useSlots } from 'vue'
+defineOptions({ inheritAttrs: false })
+import { computed, getCurrentInstance, nextTick, ref, useAttrs, useSlots, watch } from 'vue'
 interface TabsProps {
   "activateOnFocus"?: boolean
   "className"?: unknown
   "indicatorClassName"?: unknown
   "listClassName"?: unknown
-  "onValueChange"?: string
+  "onValueChange"?: unknown
   "selectedValue"?: string
   "size"?: string
   "tabs"?: unknown
@@ -21,6 +22,33 @@ interface TabsProps {
   semanticContent?: unknown
 }
 const props = withDefaults(defineProps<TabsProps>(), {"activateOnFocus":false,"selectedValue":"first tab value when uncontrolled and selectedValue omitted","size":"base","tabs":[],"variant":"segmented"})
+type TabItem = { value: string; label: string }
+const instance = getCurrentInstance()
+const controlled = computed(() => Object.prototype.hasOwnProperty.call(instance?.vnode.props ?? {}, "selectedValue"))
+const internalValue = ref(props.selectedValue ?? props.tabs?.[0]?.value)
+const committedValue = computed(() => controlled.value ? props.selectedValue : internalValue.value)
+const focusedIndex = ref(Math.max(0, props.tabs?.findIndex((tab: TabItem) => tab.value === committedValue.value) ?? 0))
+const tabButtons = ref<HTMLButtonElement[]>([])
+watch(committedValue, value => { const index = props.tabs?.findIndex((tab: TabItem) => tab.value === value) ?? -1; if (index >= 0) focusedIndex.value = index })
+function commit(value: string) {
+  if (!controlled.value) internalValue.value = value
+  props.onValueChange?.(value)
+  nextTick(() => tabButtons.value.find(button => button.getAttribute('aria-selected') === 'true')?.focus())
+}
+function moveNext(index: number, event: KeyboardEvent) {
+  if (event.key !== 'ArrowRight') return
+  const next = Math.min(index + 1, (props.tabs?.length ?? 1) - 1)
+  if (next === index) return
+  event.preventDefault()
+  focusedIndex.value = next
+  nextTick(() => tabButtons.value[next]?.focus())
+  if (props.activateOnFocus) commit(props.tabs[next].value)
+}
+function activate(tab: TabItem, event: KeyboardEvent) {
+  if (event.key !== 'Enter' && event.key !== ' ' && event.code !== 'Space') return
+  event.preventDefault()
+  commit(tab.value)
+}
 const slots = useSlots()
 const styles: Record<string,string> = {}
 const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
@@ -32,5 +60,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;selectedValue&quot;) &amp;&amp; semanticEqual(semanticValues.selectedValue, &quot;settings&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;size&quot;) &amp;&amp; semanticEqual(semanticValues.size, &quot;sm&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;tabs&quot;) &amp;&amp; semanticEqual(semanticValues.tabs, [{&quot;value&quot;:&quot;overview&quot;,&quot;label&quot;:&quot;Overview&quot;},{&quot;value&quot;:&quot;settings&quot;,&quot;label&quot;:&quot;Settings&quot;}]) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;variant&quot;) &amp;&amp; semanticEqual(semanticValues.variant, &quot;underline&quot;) &amp;&amp; semanticEqual(fixture, {&quot;export&quot;:&quot;root&quot;,&quot;props&quot;:{},&quot;children&quot;:[]})"><div><button></button><button></button></div></template><template v-else-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;tabs&quot;) &amp;&amp; semanticEqual(semanticValues.tabs, [{&quot;value&quot;:&quot;overview&quot;,&quot;label&quot;:&quot;Overview&quot;},{&quot;value&quot;:&quot;settings&quot;,&quot;label&quot;:&quot;Settings&quot;}]) &amp;&amp; semanticEqual(fixture, {&quot;export&quot;:&quot;root&quot;,&quot;props&quot;:{},&quot;children&quot;:[]})"><div><button></button><button></button></div></template><template v-else><div data-kumo-compound="tabs" :class="styles.root"><section data-kumo-part="root"><slot name="root"></slot></section><section data-kumo-part="collection"><slot name="collection"></slot></section></div></template>
+  <div><div role="tablist"><button v-for="(tab, index) in props.tabs" :key="tab.value" :ref="element => { if (element) tabButtons[index] = element as HTMLButtonElement }" type="button" role="tab" :tabindex="index === focusedIndex ? 0 : -1" :aria-selected="tab.value === committedValue" @click="commit(tab.value)" @keydown="moveNext(index, $event); activate(tab, $event)">{{ tab.label }}</button></div></div>
 </template>

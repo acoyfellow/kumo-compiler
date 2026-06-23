@@ -1,0 +1,447 @@
+{
+  "schemaVersion": "kumo.tabs-fixtures/v1",
+  "plans": [
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "tabs",
+      "vector": "segmented-uncontrolled-first",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/tabs.json",
+        "sha256": "c0b52c8a03cf713de6d0c1b33548d797889078ac73ad7818aec9a06a7e672fc1",
+        "vectorSha256": "4c28ce5acb13dab74211c0db92747e112c70ef53d80cf407c0214f3844111b8c"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Tabs",
+        "props": {
+          "tabs": [
+            {
+              "value": "overview",
+              "label": "Overview"
+            },
+            {
+              "value": "settings",
+              "label": "Settings"
+            }
+          ]
+        },
+        "children": []
+      },
+      "setup": [],
+      "actions": [],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "dom",
+          "path": "descendants",
+          "name": "descendants"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "descendants",
+          "expected": [
+            {
+              "selector": "button",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "tabs-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "descendant-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "f19d83b0920f13053fae65c3dcb7708c4a8a4f23e4c84303e83cfc5f55f603ff"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "tabs",
+      "vector": "underline-selected-value",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/tabs.json",
+        "sha256": "c0b52c8a03cf713de6d0c1b33548d797889078ac73ad7818aec9a06a7e672fc1",
+        "vectorSha256": "d2b140f866d385a0eed11ae603cfdfbb3ca887d5bc45ca070a3951f851f552c2"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Tabs",
+        "props": {
+          "variant": "underline",
+          "size": "sm",
+          "selectedValue": "settings",
+          "tabs": [
+            {
+              "value": "overview",
+              "label": "Overview"
+            },
+            {
+              "value": "settings",
+              "label": "Settings"
+            }
+          ]
+        },
+        "children": []
+      },
+      "setup": [],
+      "actions": [],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "dom",
+          "path": "descendants",
+          "name": "descendants"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "descendants",
+          "expected": [
+            {
+              "selector": "button",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "tabs-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "descendant-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "82c9cdfaf1bd6f3e3d2cefbe64c0a450716ac52a469e2c0dfebe7ac9a5586904"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "tabs",
+      "vector": "manual-arrow-then-enter",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/tabs.json",
+        "sha256": "c0b52c8a03cf713de6d0c1b33548d797889078ac73ad7818aec9a06a7e672fc1",
+        "vectorSha256": "d34e0e5ec19f610a3b1d8802f1e61b52390ba3352a0647859915d4982f16feb2"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Tabs",
+        "props": {
+          "selectedValue": "overview",
+          "tabs": [
+            {
+              "value": "overview",
+              "label": "Overview"
+            },
+            {
+              "value": "settings",
+              "label": "Settings"
+            }
+          ]
+        },
+        "children": []
+      },
+      "setup": [
+        {
+          "kind": "uncontrolled-state",
+          "mode": "uncontrolled",
+          "initial": "overview"
+        },
+        {
+          "kind": "event-recorder",
+          "callback": "value"
+        }
+      ],
+      "actions": [
+        {
+          "type": "focus",
+          "selector": "[aria-selected=true]"
+        },
+        {
+          "type": "key",
+          "selector": "[aria-selected=true]",
+          "key": "ArrowRight",
+          "checkpoint": {
+            "root": {
+              "tag": "div"
+            },
+            "state": {
+              "value": "overview",
+              "focused": "settings"
+            },
+            "events": [],
+            "focus": "[role=tab]"
+          }
+        },
+        {
+          "type": "key",
+          "selector": "[role=tab]",
+          "key": "Enter",
+          "target": 1
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "value": "settings",
+            "activation": "manual"
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "value:settings"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "[aria-selected=true]"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "tabs-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "6950216ff9140793761d98cf8efec43b91d393918bf54fde4690ba559f6e76eb"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "tabs",
+      "vector": "automatic-arrow",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/tabs.json",
+        "sha256": "c0b52c8a03cf713de6d0c1b33548d797889078ac73ad7818aec9a06a7e672fc1",
+        "vectorSha256": "6cbdb27ee678a5bac2cf3c0e8d23548c17ca0c5c0b991b1e37a2d83b9519a878"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Tabs",
+        "props": {
+          "activateOnFocus": true,
+          "selectedValue": "overview",
+          "tabs": [
+            {
+              "value": "overview",
+              "label": "Overview"
+            },
+            {
+              "value": "settings",
+              "label": "Settings"
+            }
+          ]
+        },
+        "children": []
+      },
+      "setup": [
+        {
+          "kind": "uncontrolled-state",
+          "mode": "uncontrolled",
+          "initial": "overview"
+        },
+        {
+          "kind": "event-recorder",
+          "callback": "value"
+        }
+      ],
+      "actions": [
+        {
+          "type": "focus",
+          "selector": "[aria-selected=true]"
+        },
+        {
+          "type": "key",
+          "selector": "[aria-selected=true]",
+          "key": "ArrowRight"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "value": "settings",
+            "activation": "automatic"
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "value:settings"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "[aria-selected=true]"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "tabs-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "1168fc37440f045835040386329d7b24b7bd456b1a6baee99467ab7f495796c9"
+    }
+  ],
+  "digest": "b602ed09eb528efc4dd4a665b628bcc5411f43b0a175152f51705df5c592e980"
+}

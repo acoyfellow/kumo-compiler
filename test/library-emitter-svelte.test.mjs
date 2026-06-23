@@ -256,6 +256,31 @@ test('supported radio-group lowers generically with deterministic single-select 
  assert.match(html,/role="radio" aria-checked="false" aria-label="Pro" disabled/);
 });
 
+test('supported tabs-navigation lowers generically with deterministic reactive selection SSR',async t=>{
+ const build=fs.mkdtempSync(path.join(os.tmpdir(),'kumo-svelte-tabs-'));
+ t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+ fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
+ const {tabsNavigation}=loadLibrary();
+ const first=emitSvelteLibrary({output});
+ assert.equal(first.components.flatMap(x=>x.semanticVariants).length,66);
+ const source=fs.readFileSync(path.join(output,`components/${tabsNavigation.component}.svelte`),'utf8');
+ emitSvelteLibrary({output});
+ assert.equal(fs.readFileSync(path.join(output,`components/${tabsNavigation.component}.svelte`),'utf8'),source);
+ assert.match(source,/const tabItems = \$derived\(\(tabs \?\? \[\]\) as TabItem\[\]\)/);
+ assert.match(source,/const selectedTabValue = \$derived\(controlledTab \? selectedValue : uncontrolledTabValue\)/);
+ assert.match(source,/role="tab" aria-selected=\{selectedTabValue === item\.value\}/);
+ assert.match(source,/onclickcapture=.*onkeydowncapture=/);
+ assert.doesNotMatch(source,/model\.component\s*===?\s*["']tabs["']|@html|innerHTML|dispatchEvent/);
+ const compiled=compile(source,{filename:'tabs.svelte',generate:'server'});
+ const target=path.join(build,'tabs.mjs');fs.writeFileSync(target,compiled.js.code);
+ const Tabs=(await import(pathToFileURL(target)+`?${Date.now()}`)).default;
+ const html=render(Tabs,{props:{tabs:[{value:'one',label:'One'},{value:'two',label:'Two'}],selectedValue:'two'}}).body.replace(/<!--[\s\S]*?-->/g,'');
+ assert.match(html,/^<div>/);
+ assert.equal((html.match(/role="tab"/g)??[]).length,2);
+ assert.match(html,/role="tab" aria-selected="false"/);
+ assert.match(html,/role="tab" aria-selected="true"/);
+});
+
 test('resolution receipt canonically binds capability and generated manifest hashes',()=>{
  const receiptPath=path.resolve('proof/dx/conformance/diagnostics/semantic-emitter-svelte-resolution.json');
  const receipt=JSON.parse(fs.readFileSync(receiptPath,'utf8'));

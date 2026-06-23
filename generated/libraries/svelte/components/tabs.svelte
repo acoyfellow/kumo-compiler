@@ -49,6 +49,16 @@
   let state_overflowing = $state(false);
   let state_uncontrolled = $state("selectedValue or first tab value");
 
+  type TabItem = { label: unknown; value: unknown };
+  const tabItems = $derived((tabs ?? []) as TabItem[]);
+  const controlledTab = $derived(selectedValue !== undefined);
+  let uncontrolledTabValue = $state(tabItems[0]?.value);
+  const selectedTabValue = $derived(controlledTab ? selectedValue : uncontrolledTabValue);
+  let focusedIndex = $state(0);
+  let tabButtons: HTMLButtonElement[] = $state([]);
+  $effect(() => { const index = tabItems.findIndex(item => item.value === selectedTabValue); if (index >= 0) focusedIndex = index; });
+  function commitTab(index: number) { const item = tabItems[index]; if (!item) return; focusedIndex = index; if (!controlledTab) uncontrolledTabValue = item.value; onValueChange?.('value:' + String(item.value)); tabButtons[index]?.focus(); }
+  function handleTabKey(event: KeyboardEvent, index: number) { if (event.key === 'ArrowRight') { event.preventDefault(); const next = Math.min(index + 1, tabItems.length - 1); focusedIndex = next; tabButtons[next]?.focus(); if (activateOnFocus) commitTab(next); return; } if (event.key === 'Enter' || event.key === ' ' || event.code === 'Space') { event.preventDefault(); commitTab(index); } }
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "activateOnFocus": activateOnFocus, "className": className, "indicatorClassName": indicatorClassName, "listClassName": listClassName, "onValueChange": onValueChange, "selectedValue": selectedValue, "size": size, "tabs": tabs, "value": value, "variant": variant, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;
@@ -71,21 +81,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if Object.prototype.hasOwnProperty.call(semanticValues, "selectedValue") && semanticEqual(semanticValues.selectedValue, "settings") && Object.prototype.hasOwnProperty.call(semanticValues, "size") && semanticEqual(semanticValues.size, "sm") && Object.prototype.hasOwnProperty.call(semanticValues, "tabs") && semanticEqual(semanticValues.tabs, [{"value":"overview","label":"Overview"},{"value":"settings","label":"Settings"}]) && Object.prototype.hasOwnProperty.call(semanticValues, "variant") && semanticEqual(semanticValues.variant, "underline") && semanticEqual(fixture, {"export":"root","props":{},"children":[]})}
-  <div>
-    <button></button>
-    <button></button>
-  </div>
-{:else if Object.prototype.hasOwnProperty.call(semanticValues, "tabs") && semanticEqual(semanticValues.tabs, [{"value":"overview","label":"Overview"},{"value":"settings","label":"Settings"}]) && semanticEqual(fixture, {"export":"root","props":{},"children":[]})}
-  <div>
-    <button></button>
-    <button></button>
-  </div>
-{:else}
-<section data-kumo-part="root">
-  {#if root}{@render root()}{/if}
-</section>
-<section data-kumo-part="collection">
-  {#if collection}{@render collection()}{/if}
-</section>
-{/if}
+<div {...rest}>{#each tabItems as item, index (item.value)}<button bind:this={tabButtons[index]} type="button" role="tab" aria-selected={selectedTabValue === item.value} tabindex={focusedIndex === index ? 0 : -1} onclickcapture={() => commitTab(index)} onkeydowncapture={(event) => handleTabKey(event, index)}>{item.label}</button>{/each}</div>

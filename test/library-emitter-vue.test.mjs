@@ -120,6 +120,31 @@ test('Vue radio-group capability lowers generically to deterministic single-sele
   assert.deepEqual(emissions[1],emissions[0]);
 });
 
+test('Vue tabs-navigation capability lowers to deterministic accessible tab markup', async t => {
+  const library=loadLibrary(), capability=library.tabsNavigation;
+  assert.equal(capability.support,'supported');
+  const emissions=[];
+  for(let run=0;run<2;run++){
+    const build=fs.mkdtempSync(path.resolve(`.kumo-vue-tabs-${run}-`)); t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+    const manifest=generateVueLibrary(output), model=library.models.find(model=>model.component===capability.component);
+    const entry=manifest.components.find(entry=>entry.modelDigest===model.modelDigest);
+    const source=fs.readFileSync(path.join(output,entry.file),'utf8');
+    assert.match(source,/<div><div role="tablist"><button v-for=/);
+    assert.match(source,/role="tab"[^>]+:aria-selected="tab\.value === committedValue"/);
+    assert.match(source,/const controlled = computed\(\(\) => Object\.prototype\.hasOwnProperty\.call\(instance\?\.vnode\.props/);
+    assert.match(source,/if \(props\.activateOnFocus\) commit\(props\.tabs\[next\]\.value\)/);
+    assert.doesNotMatch(source,/innerHTML|@html|dispatchEvent|new Event/);
+    const Component=await compileSSRComponent(entry,build);
+    const html=await renderToString(createSSRApp({setup:()=>()=>h(Component,{tabs:[{value:'one',label:'One'},{value:'two',label:'Two'}],selectedValue:'two'})}));
+    assert.match(html,/^<div><div role="tablist">/);
+    assert.equal((html.match(/role="tab"/g)??[]).length,2);
+    assert.equal((html.match(/aria-selected="(?:true|false)"/g)??[]).length,2);
+    assert.match(html,/aria-selected="true"[^>]*>Two<\/button>/);
+    emissions.push({source,html});
+  }
+  assert.deepEqual(emissions[1],emissions[0]);
+});
+
 test('Vue pagination-controls capability lowers full, simple, and dropdown button counts deterministically', async t => {
   const library=loadLibrary(), capability=library.paginationControls;
   assert.equal(capability.support,'supported');

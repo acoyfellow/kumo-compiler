@@ -125,6 +125,17 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   assert.match(radioSource, /event\.key !== "ArrowDown"/);
   assert.match(radioSource, /const props = mergeProps/);
 
+  const tabsSource = fs.readFileSync(path.join(first, 'tabs.tsx'), 'utf8');
+  assert.match(tabsSource, /const props = mergeProps/);
+  assert.match(tabsSource, /return \(<div><For each=\{props\.tabs as TabItem\[\]\}/);
+  assert.equal((tabsSource.match(/role="tab"/g) ?? []).length, 1);
+  assert.match(tabsSource, /aria-selected=\{selectedValue\(\) === item\.value\}/);
+  assert.match(tabsSource, /const \[focusedIndex, setFocusedIndex\] = createSignal\(selectedIndex\(\)\)/);
+  assert.match(tabsSource, /event\.key === "ArrowRight"/);
+  assert.match(tabsSource, /props\.activateOnFocus/);
+  assert.match(tabsSource, /event\.key === "Enter" \|\| event\.key === " "/);
+  assert.match(tabsSource, /'value:' \+ value/);
+
   const paginationSource = fs.readFileSync(path.join(first, 'pagination.tsx'), 'utf8');
   assert.match(paginationSource, /<div data-slot="pagination"><nav ref=\{navEl\} aria-label=/);
   assert.match(paginationSource, /props\.fixtureMode !== "simple"/);

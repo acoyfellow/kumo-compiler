@@ -210,6 +210,46 @@ function selectNext(index: number, event: KeyboardEvent) {
     template:`<div ref="groupRef" v-bind="$attrs" role="radiogroup" :aria-label="radioFixture.legend"><div v-for="(item, index) in radioFixture.items" :key="String(item.value)" role="radio" :tabindex="(radioFixture.disabled || item.disabled) ? undefined : 0" :aria-checked="item.value === selectedValue" :aria-label="item.label" :aria-disabled="radioFixture.disabled || item.disabled || undefined" @click="selectRadio(item)" @keydown="selectNext(index, $event)">{{ item.label }}</div></div>`
   };
 }
+function tabsNavigationBinding(model, library) {
+  const capability = library.tabsNavigation;
+  if (capability?.support !== 'supported' || model.component !== capability.component) return null;
+  return capability;
+}
+function tabsNavigationSource(capability) {
+  return {
+    options:`defineOptions({ inheritAttrs: false })\n`,
+    imports:'computed, getCurrentInstance, nextTick, ref, useAttrs, useSlots, watch',
+    setup:`type TabItem = { value: string; label: string }
+const instance = getCurrentInstance()
+const controlled = computed(() => Object.prototype.hasOwnProperty.call(instance?.vnode.props ?? {}, ${JSON.stringify(capability.selection.controlledProp)}))
+const internalValue = ref(props.selectedValue ?? props.tabs?.[0]?.value)
+const committedValue = computed(() => controlled.value ? props.selectedValue : internalValue.value)
+const focusedIndex = ref(Math.max(0, props.tabs?.findIndex((tab: TabItem) => tab.value === committedValue.value) ?? 0))
+const tabButtons = ref<HTMLButtonElement[]>([])
+watch(committedValue, value => { const index = props.tabs?.findIndex((tab: TabItem) => tab.value === value) ?? -1; if (index >= 0) focusedIndex.value = index })
+function commit(value: string) {
+  if (!controlled.value) internalValue.value = value
+  props.onValueChange?.(value)
+  nextTick(() => tabButtons.value.find(button => button.getAttribute('aria-selected') === 'true')?.focus())
+}
+function moveNext(index: number, event: KeyboardEvent) {
+  if (event.key !== 'ArrowRight') return
+  const next = Math.min(index + 1, (props.tabs?.length ?? 1) - 1)
+  if (next === index) return
+  event.preventDefault()
+  focusedIndex.value = next
+  nextTick(() => tabButtons.value[next]?.focus())
+  if (props.activateOnFocus) commit(props.tabs[next].value)
+}
+function activate(tab: TabItem, event: KeyboardEvent) {
+  if (event.key !== 'Enter' && event.key !== ' ' && event.code !== 'Space') return
+  event.preventDefault()
+  commit(tab.value)
+}
+`,
+    template:`<div><div role="tablist"><button v-for="(tab, index) in props.tabs" :key="tab.value" :ref="element => { if (element) tabButtons[index] = element as HTMLButtonElement }" type="button" role="tab" :tabindex="index === focusedIndex ? 0 : -1" :aria-selected="tab.value === committedValue" @click="commit(tab.value)" @keydown="moveNext(index, $event); activate(tab, $event)">{{ tab.label }}</button></div></div>`
+  };
+}
 function paginationBinding(model, library) {
   const capability = library.paginationControls;
   if (capability?.support !== 'supported' || model.component !== capability.component) return null;
@@ -261,29 +301,32 @@ function emitComponent(model, library) {
   const loweredClipboardCopy = clipboardCopy && clipboardCopySource(clipboardCopy);
   const pagination = paginationBinding(model, library);
   const loweredPagination = pagination && paginationSource();
+  const tabsNavigation = tabsNavigationBinding(model, library);
+  const loweredTabsNavigation = tabsNavigation && tabsNavigationSource(tabsNavigation);
   const radioGroup = radioGroupBinding(model, library);
   const loweredRadioGroup = radioGroup && radioGroupSource();
   if (toggleBinding(model, library)) declaredProps.set('defaultChecked',{name:'defaultChecked',required:false,type:'boolean'});
   if (pagination) { declaredProps.set('fixtureMode',{name:'fixtureMode',required:false,type:'string'}); declaredProps.set('labels',{name:'labels',required:false,type:'unknown'}); declaredProps.set('setPage',{name:'setPage',required:false,type:'unknown'}); }
   if (radioGroup) { declaredProps.set('setValue',{name:'setValue',required:false,type:'unknown'}); declaredProps.set('onValueChange',{name:'onValueChange',required:false,type:'unknown'}); }
+  if (tabsNavigation) declaredProps.set('onValueChange',{name:'onValueChange',required:false,type:'unknown'});
   for (const prop of loweredNativeInput?.props ?? []) declaredProps.set(prop.name, prop);
   if (clipboardCopy) { declaredProps.set(clipboardCopy.copySource.fallback,{name:clipboardCopy.copySource.fallback,required:false,type:'string'}); declaredProps.set(clipboardCopy.copySource.prop,{name:clipboardCopy.copySource.prop,required:false,type:'string'}); declaredProps.set('onCopy',{name:'onCopy',required:false,type:'unknown'}); }
   for (const variant of variants) for (const predicate of variant.when) if (predicate.kind === 'prop-equals' && predicate.name !== 'children' && !declaredProps.has(predicate.name)) declaredProps.set(predicate.name,{name:predicate.name,required:false,type:'unknown'});
   if (nativeInput) for (const variant of variants) for (const predicate of variant.when) if (predicate.kind === 'prop-equals' && predicate.name !== 'children' && !declaredProps.has(vuePropName(predicate.name))) declaredProps.set(vuePropName(predicate.name),{name:vuePropName(predicate.name),required:false,type:'unknown'});
   const props = [...declaredProps.values()].map(p => `  ${JSON.stringify(p.name)}${p.required && p.name !== 'children' ? '' : '?'}: ${vueType(p.type)}`).join('\n');
   const predicates = variants.map(v => v.when.map(x => semanticPredicate(x.kind === 'prop-equals' && x.name !== 'children' ? {...x,name:vuePropName(x.name)} : x,{props:'semanticValues',fixture:'fixture',content:'renderContent()',equal:'semanticEqual'})).join(' && ') || 'true');
-  const semantic = (nativeInput || clipboardCopy || pagination || radioGroup) ? '' : variants.map((v,i) => `<template ${i?'v-else-if':'v-if'}="${directive(predicates[i])}">${semanticNode(v.tree)}</template>`).join('');
+  const semantic = (nativeInput || clipboardCopy || pagination || radioGroup || tabsNavigation) ? '' : variants.map((v,i) => `<template ${i?'v-else-if':'v-if'}="${directive(predicates[i])}">${semanticNode(v.tree)}</template>`).join('');
   const nativeButton = model.interactions?.nativeButton;
   const toggle = toggleBinding(model, library);
   const loweredToggle = toggle && toggleSource(toggle);
-  const fallback = loweredRadioGroup?.template ?? loweredPagination?.template ?? loweredClipboardCopy?.template ?? loweredToggle?.template ?? loweredNativeInput?.template ?? (nativeButton
+  const fallback = loweredTabsNavigation?.template ?? loweredRadioGroup?.template ?? loweredPagination?.template ?? loweredClipboardCopy?.template ?? loweredToggle?.template ?? loweredNativeInput?.template ?? (nativeButton
     ? `<button v-bind="$attrs" :type="($attrs.type as any) ?? 'button'" :disabled="props.disabled || props.loading"><svg v-if="props.loading" aria-hidden="true"></svg><slot /></button>`
     : node(implementation.componentRoot));
   const composedField = composition && !composition.ownsControl
     ? `<${composition.container}><label :for="String((props as any).childId ?? $attrs['child-id'] ?? 'field-control')">{{ (props as any).label }}</label><slot /></${composition.container}>`
     : null;
   const template = composedField ?? (semantic ? `${semantic}<template v-else>${fallback}</template>` : fallback);
-  return `<!-- @generated by src/kumo/emitters/vue/index.mjs; do not edit -->\n<script lang="ts">\nexport const modelDigest = ${JSON.stringify(model.modelDigest)}\nexport const contentBindingDigest = ${JSON.stringify(contentBindingDigest)}\n</script>\n\n<script setup lang="ts">\n${loweredRadioGroup?.options ?? loweredToggle?.options ?? loweredNativeInput?.options ?? (nativeButton ? 'defineOptions({ inheritAttrs: false })\n' : '')}import { ${loweredRadioGroup?.imports ?? loweredPagination?.imports ?? loweredClipboardCopy?.imports ?? loweredToggle?.imports ?? (composition?.ownsControl ? 'computed, useAttrs, useId, useSlots' : 'computed, useAttrs, useSlots')} } from 'vue'\ninterface ${model.public.symbol}Props {\n${props}\n  fixture?: unknown\n  semanticContent?: unknown\n}\nconst props = withDefaults(defineProps<${model.public.symbol}Props>(), ${JSON.stringify(defaults)})\n${loweredRadioGroup?.setup ?? loweredPagination?.setup ?? loweredClipboardCopy?.setup ?? loweredToggle?.setup ?? loweredNativeInput?.setup ?? ''}const slots = useSlots()\nconst styles: Record<string,string> = {}\nconst normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
+  return `<!-- @generated by src/kumo/emitters/vue/index.mjs; do not edit -->\n<script lang="ts">\nexport const modelDigest = ${JSON.stringify(model.modelDigest)}\nexport const contentBindingDigest = ${JSON.stringify(contentBindingDigest)}\n</script>\n\n<script setup lang="ts">\n${loweredTabsNavigation?.options ?? loweredRadioGroup?.options ?? loweredToggle?.options ?? loweredNativeInput?.options ?? (nativeButton ? 'defineOptions({ inheritAttrs: false })\n' : '')}import { ${loweredTabsNavigation?.imports ?? loweredRadioGroup?.imports ?? loweredPagination?.imports ?? loweredClipboardCopy?.imports ?? loweredToggle?.imports ?? (composition?.ownsControl ? 'computed, useAttrs, useId, useSlots' : 'computed, useAttrs, useSlots')} } from 'vue'\ninterface ${model.public.symbol}Props {\n${props}\n  fixture?: unknown\n  semanticContent?: unknown\n}\nconst props = withDefaults(defineProps<${model.public.symbol}Props>(), ${JSON.stringify(defaults)})\n${loweredTabsNavigation?.setup ?? loweredRadioGroup?.setup ?? loweredPagination?.setup ?? loweredClipboardCopy?.setup ?? loweredToggle?.setup ?? loweredNativeInput?.setup ?? ''}const slots = useSlots()\nconst styles: Record<string,string> = {}\nconst normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
 const renderContent = () => props.semanticContent ?? normalizeSlotContent(slots.default?.())\nconst fixture = computed(() => props.fixture)\nconst semanticValues = Object.assign({}, useAttrs(), props) as Record<string, unknown>\nconst semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right)\nconst fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : ''\n</script>\n\n<template>\n  ${template}\n</template>\n`;
 }
 export function generateVueLibrary(output = path.join(root, 'generated/libraries/vue')) {
