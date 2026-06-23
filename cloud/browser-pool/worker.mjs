@@ -27,7 +27,9 @@ export default {
     let browser;
     try {
       browser = await launchWithRetry(env.BROWSER);
-      const page = await browser.newPage();
+      // Fresh isolated context per request so no DOM/global state leaks across reused sessions.
+      const context = await browser.createBrowserContext();
+      const page = await context.newPage();
       await page.setViewport({ width: 1280, height: 900 });
       page.on('pageerror', e => diagnostics.push({ method: 'Runtime.exceptionThrown', params: { message: String(e) } }));
       page.on('console', m => { if (['error', 'warning'].includes(m.type())) diagnostics.push({ method: 'Runtime.consoleAPICalled', params: { type: m.type(), text: m.text() } }); });
