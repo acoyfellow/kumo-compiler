@@ -76,7 +76,8 @@ function selectItem(item: SelectOption, index: number) {
   if (!valueControlled) internalValue.value = item.value
   ;(props as any).onValueChange?.(item.value)
   emitOpen(false)
-  nextTick(() => triggerRef.value?.focus())
+  if (openControlled) focusOption(index)
+  else nextTick(() => triggerRef.value?.focus())
 }
 function optionKey(event: KeyboardEvent) {
   let index = -1
