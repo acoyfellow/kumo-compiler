@@ -301,6 +301,19 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   assert.match(popoverDeclaration, /"defaultOpen"\?: boolean;/);
   assert.match(popoverDeclaration, /"onOpenChange"\?: \(open: boolean\) => void;/);
 
+  const dropdownSource = fs.readFileSync(path.join(first, 'dropdown-menu.tsx'), 'utf8');
+  const dropdownDeclaration = fs.readFileSync(path.join(first, 'dropdown-menu.d.ts'), 'utf8');
+  assert.match(dropdownSource, /import \{ For, Show, createSignal, mergeProps, splitProps \} from "solid-js"/);
+  assert.match(dropdownSource, /type="button" tabindex="0" aria-haspopup="menu" aria-expanded=\{dropdownOpen\(\)\}/);
+  assert.match(dropdownSource, /role="menu"/);
+  assert.match(dropdownSource, /role="menuitem" disabled=\{item\.disabled\} aria-disabled=\{item\.disabled \|\| undefined\}/);
+  assert.match(dropdownSource, /setDropdownOpen\(false\); setDropdownOpen\(false\)/);
+  assert.match(dropdownSource, /event\.key === "ArrowRight"/);
+  assert.match(dropdownSource, /event\.key === "Escape"/);
+  assert.doesNotMatch(dropdownSource, /semanticEqual\(normalizedFixture/);
+  assert.match(dropdownDeclaration, /"onOpenChange"\?: \(open: boolean\) => void;/);
+  assert.match(dropdownDeclaration, /"onSelect"\?: \(value: string\) => void;/);
+
   const inputGroupSource = fs.readFileSync(path.join(first, 'input-group.tsx'), 'utf8');
   assert.match(inputGroupSource, /<div data-kumo-component="InputGroup">/);
   assert.match(inputGroupSource, /<label for=\{inputGroupId\}>/);

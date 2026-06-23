@@ -552,6 +552,35 @@ test('supported popover-layer lowers canonical fixture, controlled ownership, di
  assert.match(controlled,/<h2>Notifications<\/h2><p>All caught up<\/p><button type="button">Close<\/button>/);
 });
 
+test('supported dropdown-menu layer lowers pointer, typeahead, submenu, dismissal and callbacks',async t=>{
+ const build=fs.mkdtempSync(path.join(os.tmpdir(),'kumo-svelte-dropdown-'));
+ t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+ fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
+ const {dropdownMenuLayer}=loadLibrary();
+ const first=emitSvelteLibrary({output});
+ const source=fs.readFileSync(path.join(output,`components/${dropdownMenuLayer.component}.svelte`),'utf8');
+ const second=emitSvelteLibrary({output});
+ assert.equal(fs.readFileSync(path.join(output,`components/${dropdownMenuLayer.component}.svelte`),'utf8'),source);
+ assert.equal(first.components.flatMap(x=>x.semanticVariants).length,second.components.flatMap(x=>x.semanticVariants).length);
+ assert.match(source,/<button bind:this=\{dropdownTrigger\} type="button" tabindex="0" aria-haspopup="menu"/);
+ assert.match(source,/<div role="menu">/);
+ assert.match(source,/role="menuitem" tabindex="-1" disabled=\{item\.disabled\}/);
+ assert.match(source,/onSelect\?\.\(item\.label\)/);
+ assert.match(source,/setDropdownOpen\(false\); onOpenChange\?\.\(false\)/);
+ assert.match(source,/startsWith\(event\.key\.toLocaleLowerCase\(\)\)/);
+ assert.match(source,/if \(item\.submenu\) dropdownSubmenuOpen = true/);
+ assert.match(source,/dropdownSubmenuOpen = false; dropdownOpen = false; onOpenChange\?\.\(false\)/);
+ assert.match(source,/queueMicrotask\(\(\) => dropdownTrigger\?\.focus\(\)\)/);
+ assert.doesNotMatch(source,/function\s+\w+\([^)]*\w+\?:|@html|innerHTML|dispatchEvent/);
+ const compiled=compile(source,{filename:'dropdown-menu.svelte',generate:'server'});
+ const target=path.join(build,'dropdown-menu.mjs');fs.writeFileSync(target,compiled.js.code);
+ const DropdownMenu=(await import(pathToFileURL(target)+`?${Date.now()}`)).default;
+ const contract=JSON.parse(fs.readFileSync(path.resolve('contracts/kumo.observable/v1/components/dropdown-menu.json'),'utf8'));
+ const closed=render(DropdownMenu,{props:{fixture:contract.vectors[0].fixture}}).body.replace(/<!--[\s\S]*?-->/g,'');
+ assert.match(closed,/^<button type="button" tabindex="0" aria-haspopup="menu" aria-expanded="false">Actions<\/button>$/);
+ assert.doesNotMatch(closed,/role="menu"/);
+});
+
 test('resolution receipt canonically binds capability and generated manifest hashes',()=>{
  const receiptPath=path.resolve('proof/dx/conformance/diagnostics/semantic-emitter-svelte-resolution.json');
  const receipt=JSON.parse(fs.readFileSync(receiptPath,'utf8'));

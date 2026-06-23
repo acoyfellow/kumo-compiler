@@ -18,6 +18,8 @@
   collection?: Snippet;
   root?: Snippet;
   children?: Snippet;
+  onOpenChange?: (value: boolean) => void;
+  onSelect?: (value: string) => void;
   styles?: Record<string, string>;
   fixture?: unknown;
   [key: string]: unknown;
@@ -35,6 +37,8 @@
     Trigger = undefined,
     collection = undefined,
     root = undefined,
+    onOpenChange = undefined,
+    onSelect = undefined,
     children,
     fixture = undefined,
     __consumerContent = undefined,
@@ -46,6 +50,22 @@
   let state_open = $state("controlled/uncontrolled Base UI root state");
   let state_submenuOpen = $state("controlled/uncontrolled Base UI state");
 
+  type DropdownFixtureNode = { export?: string; text?: string; props?: Record<string, unknown>; children?: DropdownFixtureNode[] };
+  type DropdownItem = { label: string; disabled: boolean; submenu?: DropdownItem[] };
+  function dropdownText(node: DropdownFixtureNode | undefined): string { return node ? String(node.text ?? '') + (node.children ?? []).map(dropdownText).join('') : ''; }
+  function dropdownItem(node: DropdownFixtureNode): DropdownItem { const sub = node.children?.find(child => child.export === '.SubContent'); return { label: dropdownText(node.children?.find(child => child.export === '.SubTrigger') ?? node), disabled: Boolean(node.props?.disabled), submenu: sub?.children?.filter(child => child.export === '.Item').map(dropdownItem) }; }
+  const dropdownFixture = $derived.by(() => { const root = fixture as DropdownFixtureNode | undefined; const trigger = root?.children?.find(node => node.export === '.Trigger'); const content = root?.children?.find(node => node.export === '.Content'); return { trigger: dropdownText(trigger) || "Actions", items: (content?.children ?? []).filter(node => node.export === '.Item' || node.export === '.Sub').map(dropdownItem) }; });
+  let dropdownOpen = $state(false);
+  let dropdownSubmenuOpen = $state(false);
+  let dropdownTrigger: HTMLButtonElement | undefined = $state();
+  let dropdownItems: HTMLButtonElement[] = $state([]);
+  function setDropdownOpen(next: boolean) { dropdownOpen = next; onOpenChange?.(next); }
+  function focusDropdownItem(index: number) { queueMicrotask(() => dropdownItems[index]?.focus()); }
+  function openDropdown() { setDropdownOpen(true); const first = dropdownFixture.items.findIndex(item => !item.disabled); focusDropdownItem(first); }
+  function toggleDropdown() { if (dropdownOpen) setDropdownOpen(false); else openDropdown(); }
+  function handleDropdownTriggerKey(event: KeyboardEvent) { if (event.key !== "ArrowDown") return; event.preventDefault(); openDropdown(); }
+  function selectDropdownItem(event: MouseEvent, item: DropdownItem) { if (item.disabled || item.submenu) return; onSelect?.(item.label); setDropdownOpen(false); onOpenChange?.(false); dropdownSubmenuOpen = false; (event.currentTarget as HTMLButtonElement).blur(); }
+  function handleDropdownItemKey(event: KeyboardEvent, index: number) { const item = dropdownFixture.items[index]; if (event.key.length === 1) { const match = dropdownFixture.items.findIndex(candidate => !candidate.disabled && candidate.label.toLocaleLowerCase().startsWith(event.key.toLocaleLowerCase())); if (match >= 0) { event.preventDefault(); focusDropdownItem(match); } return; } if (event.key === "ArrowRight" && item) { event.preventDefault(); if (item.submenu) dropdownSubmenuOpen = true; return; } if (event.key === "Escape") { event.preventDefault(); dropdownSubmenuOpen = false; dropdownOpen = false; onOpenChange?.(false); queueMicrotask(() => dropdownTrigger?.focus()); } }
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "CheckboxItem": CheckboxItem, "Content/SubContent": Content_SubContent, "Item": Item, "Label/Separator/Shortcut/Group": Label_Separator_Shortcut_Group, "LinkItem": LinkItem, "RadioGroup/RadioItem/RadioItemIndicator": RadioGroup_RadioItem_RadioItemIndicator, "Root": Root, "Sub/SubTrigger": Sub_SubTrigger, "Trigger": Trigger, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;
@@ -70,15 +90,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if semanticEqual(fixture, {"export":"root","props":{},"children":[{"export":".Trigger","props":{},"children":[{"text":"Actions"}]}]})}
-  <button type={"button"} tabindex={"0"} aria-haspopup={"menu"}>
-    {"Actions"}
-  </button>
-{:else}
-<section data-kumo-part="root">
-  {#if root}{@render root()}{/if}
-</section>
-<section data-kumo-part="collection">
-  {#if collection}{@render collection()}{/if}
-</section>
-{/if}
+<button bind:this={dropdownTrigger} type="button" tabindex="0" aria-haspopup="menu" aria-expanded={dropdownOpen} onclick={toggleDropdown} onkeydown={handleDropdownTriggerKey}>{dropdownFixture.trigger}</button>{#if dropdownOpen}<div role="menu">{#each dropdownFixture.items as item, index (item.label)}<button bind:this={dropdownItems[index]} type="button" role="menuitem" tabindex="-1" disabled={item.disabled} onclick={(event) => selectDropdownItem(event, item)} onkeydown={(event) => handleDropdownItemKey(event, index)}>{item.label}</button>{#if item.submenu && dropdownSubmenuOpen}<div role="menu">{#each item.submenu as nested (nested.label)}<button type="button" role="menuitem" tabindex="-1" disabled={nested.disabled}>{nested.label}</button>{/each}</div>{/if}{/each}</div>{/if}

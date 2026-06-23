@@ -1,0 +1,400 @@
+{
+  "schemaVersion": "kumo.dropdown-menu-fixtures/v1",
+  "plans": [
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "dropdown-menu",
+      "vector": "closed-trigger-ssr",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/dropdown-menu.json",
+        "sha256": "11b17f0249756c1106a1861df503ea58ac6f9c84a4eb7ad17c8bf9898a171a35",
+        "vectorSha256": "28e4119adb7096d0337f683086effd3c8bbe49923d26bad1d4c0f4508c989324"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "DropdownMenu",
+        "props": {},
+        "children": [
+          {
+            "kind": "component",
+            "ref": "DropdownMenu.Trigger",
+            "props": {},
+            "children": [
+              {
+                "kind": "text",
+                "value": "Actions"
+              }
+            ]
+          }
+        ]
+      },
+      "setup": [],
+      "actions": [],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "button",
+            "text": "Actions",
+            "attributes": {
+              "includes": {
+                "type": "button",
+                "tabindex": "0",
+                "aria-haspopup": "menu"
+              }
+            }
+          }
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "dropdown-menu-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "6e4b820f1a81b41f7c88453df242da2bdb4b23d4624e08c88380f29ba26326bc"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "dropdown-menu",
+      "vector": "pointer-item-selection",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/dropdown-menu.json",
+        "sha256": "11b17f0249756c1106a1861df503ea58ac6f9c84a4eb7ad17c8bf9898a171a35",
+        "vectorSha256": "5c13aa42fa184ef7098a2a0f199685af840b0351cb83699010a0c9391b63c5a3"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "DropdownMenu",
+        "props": {},
+        "children": [
+          {
+            "kind": "component",
+            "ref": "DropdownMenu.Trigger",
+            "props": {},
+            "children": [
+              {
+                "kind": "text",
+                "value": "Actions"
+              }
+            ]
+          },
+          {
+            "kind": "component",
+            "ref": "DropdownMenu.Content",
+            "props": {},
+            "children": [
+              {
+                "kind": "component",
+                "ref": "DropdownMenu.Item",
+                "props": {},
+                "children": [
+                  {
+                    "kind": "text",
+                    "value": "Edit"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "setup": [],
+      "actions": [
+        {
+          "type": "click",
+          "selector": "button"
+        },
+        {
+          "type": "click",
+          "selector": "[role=menuitem]"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "button"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "open": false
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "open-change:true",
+            "select:Edit",
+            "open-change:false",
+            "open-change:false"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "body"
+        }
+      ],
+      "capabilities": [
+        "dropdown-menu-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "f87e7785a44b49aad1ae69cf40d37c748b9d7a6ce58bbcf1fd4bacecbd8b9296"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "dropdown-menu",
+      "vector": "keyboard-typeahead-submenu-dismissal",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/dropdown-menu.json",
+        "sha256": "11b17f0249756c1106a1861df503ea58ac6f9c84a4eb7ad17c8bf9898a171a35",
+        "vectorSha256": "c265e22f2a40c53e17b1aee5d25eda0cc01adf2e7a2f8e03b267a4532cf26dc5"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "DropdownMenu",
+        "props": {},
+        "children": [
+          {
+            "kind": "component",
+            "ref": "DropdownMenu.Trigger",
+            "props": {},
+            "children": [
+              {
+                "kind": "text",
+                "value": "Actions"
+              }
+            ]
+          },
+          {
+            "kind": "component",
+            "ref": "DropdownMenu.Content",
+            "props": {},
+            "children": [
+              {
+                "kind": "component",
+                "ref": "DropdownMenu.Item",
+                "props": {},
+                "children": [
+                  {
+                    "kind": "text",
+                    "value": "Alpha"
+                  }
+                ]
+              },
+              {
+                "kind": "component",
+                "ref": "DropdownMenu.Item",
+                "props": {
+                  "disabled": true
+                },
+                "children": [
+                  {
+                    "kind": "text",
+                    "value": "Blocked"
+                  }
+                ]
+              },
+              {
+                "kind": "component",
+                "ref": "DropdownMenu.Sub",
+                "props": {},
+                "children": [
+                  {
+                    "kind": "component",
+                    "ref": "DropdownMenu.SubTrigger",
+                    "props": {},
+                    "children": [
+                      {
+                        "kind": "text",
+                        "value": "More"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "component",
+                    "ref": "DropdownMenu.SubContent",
+                    "props": {},
+                    "children": [
+                      {
+                        "kind": "component",
+                        "ref": "DropdownMenu.Item",
+                        "props": {},
+                        "children": [
+                          {
+                            "kind": "text",
+                            "value": "Nested"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "setup": [],
+      "actions": [
+        {
+          "type": "key",
+          "key": "ArrowDown"
+        },
+        {
+          "type": "key",
+          "key": "m",
+          "selector": "[role=menuitem]",
+          "scope": "document"
+        },
+        {
+          "type": "key",
+          "key": "ArrowRight",
+          "selector": "[role=menuitem]",
+          "scope": "document"
+        },
+        {
+          "type": "key",
+          "key": "Escape",
+          "selector": "[role=menuitem]",
+          "scope": "document"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "button"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "open": false,
+            "submenuOpen": false,
+            "disabledSkipped": true
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "open-change:true",
+            "open-change:false"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "button"
+        }
+      ],
+      "capabilities": [
+        "dropdown-menu-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "cb60e995b65f5a72f64dae52f0e4d852eb62e09d2a9a6c04fdf2238ef031291d"
+    }
+  ],
+  "digest": "54db83c9d0339c92aeed5d5c4035b9302b17b6dc23816661f84738f7cde4509c"
+}

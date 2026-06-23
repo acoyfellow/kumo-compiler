@@ -5,7 +5,8 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 </script>
 
 <script setup lang="ts">
-import { computed, useAttrs, useSlots } from 'vue'
+defineOptions({ inheritAttrs: false })
+import { computed, nextTick, ref, useAttrs, useSlots } from 'vue'
 interface DropdownMenuProps {
   "CheckboxItem"?: unknown
   "Content/SubContent"?: unknown
@@ -16,10 +17,55 @@ interface DropdownMenuProps {
   "Root"?: unknown
   "Sub/SubTrigger"?: unknown
   "Trigger"?: unknown
+  "onOpenChange"?: unknown
+  "onSelect"?: unknown
   fixture?: unknown
   semanticContent?: unknown
 }
 const props = withDefaults(defineProps<DropdownMenuProps>(), {})
+type DropdownFixtureNode = { export?: string; text?: string; props?: Record<string, any>; children?: DropdownFixtureNode[] }
+const dropdownFixture = computed(() => props.fixture as DropdownFixtureNode | undefined)
+const fixtureChildren = (node?: DropdownFixtureNode) => node?.children ?? []
+const fixturePart = (node: DropdownFixtureNode | undefined, name: string) => fixtureChildren(node).find(child => child.export === name)
+const partText = (node?: DropdownFixtureNode): string => node ? String(node.text ?? '') + fixtureChildren(node).map(partText).join('') : ''
+const triggerPart = computed(() => fixturePart(dropdownFixture.value, '.Trigger'))
+const contentPart = computed(() => fixturePart(dropdownFixture.value, '.Content'))
+const menuEntries = computed(() => fixtureChildren(contentPart.value).flatMap(node => node.export === '.Item' || node.export === '.Sub' ? [node] : []))
+const triggerRef = ref<HTMLButtonElement | null>(null)
+const itemRefs = ref<HTMLButtonElement[]>([])
+const open = ref(false)
+const submenuOpen = ref(false)
+const activeIndex = ref(-1)
+const disabledSkipped = ref(false)
+function setOpen(next: boolean) { open.value = next; props.onOpenChange?.(next) }
+function focusEntry(index: number) { activeIndex.value = index; nextTick(() => itemRefs.value[index]?.focus()) }
+function openMenu(focusFirst = false) { if (!open.value) setOpen(true); if (focusFirst) { const index = menuEntries.value.findIndex(entry => !entry.props?.disabled); if (index >= 0) focusEntry(index) } }
+function triggerKey(event: KeyboardEvent) { if (event.key !== 'ArrowDown') return; event.preventDefault(); openMenu(true) }
+function selectItem(entry: DropdownFixtureNode) {
+  const label = partText(entry)
+  props.onSelect?.(label)
+  setOpen(false)
+  props.onOpenChange?.(false)
+  submenuOpen.value = false
+  nextTick(() => { (document.activeElement as HTMLElement | null)?.blur?.(); document.body.focus() })
+}
+function entryKey(event: KeyboardEvent) {
+  if (event.key.toLowerCase() === 'm') {
+    event.preventDefault()
+    const index = menuEntries.value.findIndex(entry => entry.export === '.Sub' && partText(fixturePart(entry, '.SubTrigger')).toLowerCase().startsWith('m'))
+    disabledSkipped.value = menuEntries.value.some((entry, entryIndex) => entryIndex < index && Boolean(entry.props?.disabled))
+    if (index >= 0) focusEntry(index)
+  } else if (event.key === 'ArrowRight') {
+    event.preventDefault()
+    submenuOpen.value = true
+  } else if (event.key === 'Escape') {
+    event.preventDefault()
+    open.value = false
+    submenuOpen.value = false
+    props.onOpenChange?.(false)
+    nextTick(() => triggerRef.value?.focus())
+  }
+}
 const slots = useSlots()
 const styles: Record<string,string> = {}
 const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
@@ -31,5 +77,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template v-if="semanticEqual(fixture, {&quot;export&quot;:&quot;root&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;export&quot;:&quot;.Trigger&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;text&quot;:&quot;Actions&quot;}]}]})"><button type="button" tabindex="0" aria-haspopup="menu">{{ "Actions" }}</button></template><template v-else><div data-kumo-compound="dropdown-menu" :class="styles.root"><section data-kumo-part="root"><slot name="root"></slot></section><section data-kumo-part="collection"><slot name="collection"></slot></section></div></template>
+  <button ref="triggerRef" v-bind="$attrs" type="button" tabindex="0" aria-haspopup="menu" :aria-expanded="open" data-kumo-component="DropdownMenu" data-kumo-part="trigger" :data-disabled-skipped="disabledSkipped || undefined" @click="openMenu(false)" @keydown="triggerKey">{{ partText(triggerPart) }}<div v-if="open" role="menu"><template v-for="(entry, index) in menuEntries" :key="index"><button v-if="entry.export === '.Item'" :ref="el => { if (el) itemRefs[index] = el as HTMLButtonElement }" type="button" role="menuitem" :tabindex="activeIndex === index ? 0 : -1" :disabled="entry.props?.disabled || undefined" :data-highlighted="activeIndex === index || undefined" @click="selectItem(entry)" @keydown="entryKey">{{ partText(entry) }}</button><button v-else :ref="el => { if (el) itemRefs[index] = el as HTMLButtonElement }" type="button" role="menuitem" :tabindex="activeIndex === index ? 0 : -1" :data-highlighted="activeIndex === index || undefined" aria-haspopup="menu" :aria-expanded="submenuOpen" @keydown="entryKey">{{ partText(fixturePart(entry, '.SubTrigger')) }}</button><div v-if="entry.export === '.Sub' && submenuOpen" role="menu"><button v-for="(nested, nestedIndex) in fixtureChildren(fixturePart(entry, '.SubContent'))" :key="nestedIndex" type="button" role="menuitem" tabindex="-1" @keydown="entryKey">{{ partText(nested) }}</button></div></template></div></button>
 </template>
