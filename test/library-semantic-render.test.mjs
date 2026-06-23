@@ -9,12 +9,11 @@ test('semantic inventory is exactly all non-browser contract vectors',()=>{
   assert.deepEqual(capability,derived);
   assert.equal(capability.components.flatMap(x=>x.vectors).length,66);
 });
-test('current semantic failure families are represented',()=>{
+test('every semantic vector is represented by a passing packed Solid receipt cell',()=>{
   const receipt=JSON.parse(fs.readFileSync('proof/dx/conformance/solid/receipt.json','utf8'));
-  const failures=receipt.cells.filter(x=>x.status==='failed'&&/^(?:root|descendant)/.test(x.reason));
-  const ids=new Set(capability.components.flatMap(c=>c.vectors.map(v=>`${c.component}#${v.id}`)));
-  assert.ok(failures.length>=52);
-  for(const failure of failures) assert.ok(ids.has(`${failure.component}#${failure.vector}`));
+  const cells=new Map(receipt.cells.map(cell=>[`${cell.component}#${cell.vector}`,cell]));
+  for(const component of capability.components)for(const vector of component.vectors){const cell=cells.get(`${component.component}#${vector.id}`);assert.ok(cell,`${component.component}#${vector.id}`);assert.equal(cell.status,'passed',`${component.component}#${vector.id}`)}
+  assert.equal(receipt.cells.filter(cell=>cell.status==='failed'&&/^(?:root|descendant)/.test(cell.reason??'')).length,0);
 });
 test('generation is deterministic',()=>{
   assert.deepEqual(deriveSemanticRender('contracts/kumo.observable/v1/components'),deriveSemanticRender('contracts/kumo.observable/v1/components'));

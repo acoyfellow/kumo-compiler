@@ -59,7 +59,7 @@
     "deploy": "npm run deploy:prepare && node scripts/deploy.mjs --execute",
     "rollback:dry-run": "node scripts/rollback.mjs",
     "rollback": "node scripts/rollback.mjs --execute",
-    "release:check": "npm run release:install && npm run generate && npm run libraries:build && npm run libraries:gallery && npm run examples:build && npm run progress:build && npm run release:github && npm run release:github:verify && npm run release:npm:preflight && npm test && npm run artifact:check && npm run package:verify && npm run evidence:validate && npm run build:migration-status && npm run deploy:prepare && npm run catalog:validate && npm run docs:links",
+    "release:check": "npm run release:install && npm run generate && npm run libraries:build && npm run libraries:gallery && npm run examples:build && npm run progress:build && npm run release:github && npm run release:github:verify && npm run release:npm:preflight && npm --prefix astro run build && npm test && npm run artifact:check && npm run package:verify && npm run evidence:validate && npm run build:migration-status && npm run deploy:prepare && npm run catalog:validate && npm run docs:links",
     "workflow:plan": "node scripts/workflow-plan.mjs",
     "contract": "node tools/command.mjs contract",
     "generate": "node tools/command.mjs generate",

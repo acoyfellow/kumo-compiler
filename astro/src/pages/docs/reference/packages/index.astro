@@ -6,12 +6,12 @@ import artifacts from '../../../../../../library-artifacts/manifest.json';
 <p class="eyebrow">Reference</p><h1>Packages</h1><p class="lede">Three framework-native packages share the same supported component surface. Readiness is attached to receipts and artifact identity, not a prerelease label.</p>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Package inventory; scroll horizontally if needed"><table><thead><tr><th>Package</th><th>Version</th><th>SHA-256</th><th>Install</th></tr></thead><tbody>{artifacts.packages.map(pkg=><tr><td><code>{pkg.package}</code></td><td>{pkg.version}</td><td><code>{pkg.sha256}</code></td><td><a href={pkg.installUrl}>tarball</a></td></tr>)}</tbody></table></div>
 <h2>Exports</h2><pre><code>{`.
-./button
-./field
+./<component>
+./<compound-part>
 ./styles.css
 ./tokens.css
-./manifest`}</code></pre><p>Each package exports Button and Field from the root and dedicated subpaths. Select and Tabs are absent.</p>
+./manifest`}</code></pre><p>Each package exports all 41 executable components from the root and dedicated component subpaths, plus the contract-declared compound paths.</p>
 <h2>Peer dependencies</h2><div class="table-scroll" tabindex="0" role="region" aria-label="Peer dependencies"><table><thead><tr><th>Framework</th><th>Peer</th></tr></thead><tbody><tr><td>Vue</td><td><code>vue ^3.5.0</code></td></tr><tr><td>Svelte</td><td><code>svelte ^5.0.0</code></td></tr><tr><td>Solid</td><td><code>solid-js ^1.9.0</code></td></tr></tbody></table></div>
 <h2>Distribution</h2><p>Friendly tarballs use five-minute caching. Content-addressed tarballs use immutable one-year caching. All package responses use <code>application/gzip</code> and attachment disposition. The manifest is available at <a href="/packages/manifest.json"><code>/packages/manifest.json</code></a>.</p>
-<h2>Current non-goals</h2><ul><li>No public npm registry publication yet.</li><li>No compatibility promise for components outside Button and Field.</li><li>No claim that the package version itself expresses readiness.</li></ul>
+<h2>Current non-goals</h2><ul><li>No public npm registry publication yet.</li><li>No support claim for components outside the 41-component executable scope.</li><li>No claim that the package version itself expresses readiness.</li></ul>
 </DocsLayout><style>.eyebrow{margin:0 0 10px;color:#b45309;font-size:13px;font-weight:850;text-transform:uppercase;letter-spacing:.09em}</style>
