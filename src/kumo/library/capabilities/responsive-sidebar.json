@@ -8,6 +8,51 @@
     "collapsible-closed-mounted",
     "resize-keyboard-expand"
   ],
+  "observableImplementation": {
+    "support": "supported",
+    "scope": "desktop canonical vectors only",
+    "root": {
+      "tag": "div",
+      "attributes": [
+        "data-sidebar-wrapper",
+        "data-state",
+        "data-side"
+      ]
+    },
+    "expanded": {
+      "state": "expanded",
+      "side": "left",
+      "aside": true,
+      "collapsible": "icon",
+      "menuList": true,
+      "menuItems": 2,
+      "buttons": 3,
+      "trigger": {
+        "expanded": true,
+        "label": "Collapse sidebar"
+      }
+    },
+    "collapsed": {
+      "state": "collapsed",
+      "aside": true
+    },
+    "collapsibleClosed": {
+      "descendants": 0
+    },
+    "resize": {
+      "label": "Resize sidebar",
+      "key": "End",
+      "open": true,
+      "width": 480,
+      "focus": "handle"
+    },
+    "vectorIds": [
+      "desktop-expanded-compound",
+      "desktop-collapsed-sliding-inert-intent",
+      "collapsible-closed-mounted",
+      "resize-keyboard-expand"
+    ]
+  },
   "viewport": {
     "breakpoint": {
       "supported": true,
@@ -190,5 +235,5 @@
       "reason": "The public direction prop is declared and defaults left, but canonical runtime computes translation solely from active child index; no direction-dependent observable effect is invented."
     }
   ],
-  "capabilityDigest": "532b7bf12a22848a5dc90c2dbace9de9b3014cd9ddf00d979acd3115eb426580"
+  "capabilityDigest": "c0c83c39c88378cb1fe253f79535e43c038ca95448f1478dba65f9165b71f0c9"
 }

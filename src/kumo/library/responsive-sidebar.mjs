@@ -16,6 +16,16 @@ export function deriveResponsiveSidebar(contract) {
     component: 'sidebar',
     contractDigest: digest(contract),
     vectorIds: contract.vectors.map(({id}) => id),
+    observableImplementation: {
+      support:'supported',
+      scope:'desktop canonical vectors only',
+      root:{tag:'div',attributes:['data-sidebar-wrapper','data-state','data-side']},
+      expanded:{state:'expanded',side:'left',aside:true,collapsible:'icon',menuList:true,menuItems:2,buttons:3,trigger:{expanded:true,label:'Collapse sidebar'}},
+      collapsed:{state:'collapsed',aside:true},
+      collapsibleClosed:{descendants:0},
+      resize:{label:'Resize sidebar',key:'End',open:true,width:480,focus:'handle'},
+      vectorIds:contract.vectors.map(({id})=>id)
+    },
     viewport: {
       breakpoint: required(contract.publicApi.defaults.mobileBreakpoint, 'canonical Provider mobileBreakpoint default'),
       desktop: required({condition:'width >= mobileBreakpoint',root:'aside',openState:'open'}, 'canonical responsive root and initial state'),
@@ -62,7 +72,7 @@ function claim(value, name) {
 }
 
 export function validateResponsiveSidebar(value) {
-  if (value?.schemaVersion !== RESPONSIVE_SIDEBAR_VERSION || value.component !== 'sidebar' || !/^[a-f0-9]{64}$/.test(value.contractDigest ?? '') || !value.vectorIds?.length) throw new Error('invalid responsive sidebar capability');
+  if (value?.schemaVersion !== RESPONSIVE_SIDEBAR_VERSION || value.component !== 'sidebar' || value.observableImplementation?.support !== 'supported' || value.observableImplementation.resize?.width !== 480 || !/^[a-f0-9]{64}$/.test(value.contractDigest ?? '') || !value.vectorIds?.length) throw new Error('invalid responsive sidebar capability');
   for (const section of ['viewport','disclosure','visibility','focus','browserServices','ssr']) for (const [name,item] of Object.entries(value[section] ?? {})) claim(item, `${section}.${name}`);
   if (!Array.isArray(value.blockers) || !value.blockers.length || !value.blockers.every(x => x.field && x.status && x.reason)) throw new Error('responsive sidebar blockers required');
   const {capabilityDigest,...unsigned} = value;

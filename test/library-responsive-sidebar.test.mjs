@@ -32,6 +32,8 @@ test('mounted hidden content, focus migration, and service boundaries are explic
   assert.equal(value.ssr.initialViewport.value, 'desktop (isMobile=false when window is absent)');
 });
 
+test('desktop observable implementation preserves expanded, collapsed, closed-collapsible, and resize vectors',()=>{const x=loadResponsiveSidebar().observableImplementation;assert.equal(x.support,'supported');assert.equal(x.expanded.buttons,3);assert.equal(x.expanded.menuItems,2);assert.equal(x.collapsibleClosed.descendants,0);assert.deepEqual(x.resize,{label:'Resize sidebar',key:'End',open:true,width:480,focus:'handle'});});
+
 test('unknown browser behavior fails closed and digest mutation is rejected', () => {
   const value = loadResponsiveSidebar();
   assert.equal(value.visibility.inertSerialization.supported, false);
