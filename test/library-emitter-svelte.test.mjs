@@ -281,6 +281,33 @@ test('supported tabs-navigation lowers generically with deterministic reactive s
  assert.match(html,/role="tab" aria-selected="true"/);
 });
 
+test('supported menubar-navigation lowers generically to canonical native buttons',async t=>{
+ const build=fs.mkdtempSync(path.join(os.tmpdir(),'kumo-svelte-menubar-'));
+ t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+ fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
+ const {menubarNavigation}=loadLibrary();
+ const first=emitSvelteLibrary({output});
+ assert.equal(first.components.flatMap(x=>x.semanticVariants).length,66);
+ const source=fs.readFileSync(path.join(output,`components/${menubarNavigation.component}.svelte`),'utf8');
+ const second=emitSvelteLibrary({output});
+ assert.equal(second.components.flatMap(x=>x.semanticVariants).length,66);
+ assert.equal(fs.readFileSync(path.join(output,`components/${menubarNavigation.component}.svelte`),'utf8'),source);
+ assert.match(source,/const menuOptions = \$derived\(\(options \?\? \[\]\) as MenuOption\[\]\)/);
+ assert.match(source,/onkeydowncapture=\{\(event\) => handleMenuKey\(event, index\)\}/);
+ assert.doesNotMatch(source,/model\.component\s*===?\s*["']menu-bar["']|aria-selected|aria-pressed|aria-current|@html|innerHTML|dispatchEvent/);
+ const compiled=compile(source,{filename:'menu-bar.svelte',generate:'server'});
+ const target=path.join(build,'menu-bar.mjs');fs.writeFileSync(target,compiled.js.code);
+ const MenuBar=(await import(pathToFileURL(target)+`?${Date.now()}`)).default;
+ const clean=props=>render(MenuBar,{props}).body.replace(/<!--[\s\S]*?-->/g,'');
+ const rootClass=menubarNavigation.root.classes.join(' ');
+ const html=clean({options:[{id:'one',tooltip:'One',icon:'1',onClick(){}},{id:'two',tooltip:'Two',icon:'2',onClick(){}}],isActive:'two',optionIds:true});
+ assert.match(html,new RegExp(`^<nav class="${rootClass}">`));
+ assert.equal((html.match(/<button\b/g)??[]).length,2);
+ assert.match(html,/<button type="button" aria-label="One" title="One"><span aria-hidden="true">1<\/span><\/button>/);
+ assert.doesNotMatch(html,/aria-(?:selected|pressed|current)=/);
+ assert.equal((clean({options:[]}).match(/<button\b/g)??[]).length,0);
+});
+
 test('resolution receipt canonically binds capability and generated manifest hashes',()=>{
  const receiptPath=path.resolve('proof/dx/conformance/diagnostics/semantic-emitter-svelte-resolution.json');
  const receipt=JSON.parse(fs.readFileSync(receiptPath,'utf8'));

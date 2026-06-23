@@ -136,6 +136,17 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   assert.match(tabsSource, /event\.key === "Enter" \|\| event\.key === " "/);
   assert.match(tabsSource, /onValueChange as \(\(value: string\) => void\) \| undefined\)\?\.\(value\)/);
 
+  const menuBarSource = fs.readFileSync(path.join(first, 'menu-bar.tsx'), 'utf8');
+  const menuBarClasses = library.menubarNavigation.root.classes.join(' ');
+  assert.match(menuBarSource, new RegExp(`<nav class=${JSON.stringify(menuBarClasses)}`));
+  assert.match(menuBarSource, /<For each=\{props\.options as MenuBarOption\[\]\}/);
+  assert.equal((menuBarSource.match(/<button/g) ?? []).length, 1);
+  assert.match(menuBarSource, /type="button" aria-label=\{item\.tooltip\} title=\{item\.tooltip\}/);
+  assert.match(menuBarSource, /<span aria-hidden="true">\{item\.icon\}<\/span>/);
+  assert.doesNotMatch(menuBarSource, /aria-(?:selected|pressed|current)/);
+  assert.match(menuBarSource, /event\.key !== "ArrowLeft" && event\.key !== "ArrowRight"/);
+  assert.match(menuBarSource, /const props = mergeProps/);
+
   const paginationSource = fs.readFileSync(path.join(first, 'pagination.tsx'), 'utf8');
   assert.match(paginationSource, /<div data-slot="pagination"><nav ref=\{navEl\} aria-label=/);
   assert.match(paginationSource, /props\.fixtureMode !== "simple"/);
@@ -177,6 +188,16 @@ test('Solid SSR renders every compiled semantic predicate through canonical mark
   const buttonItem = result.components.find(item => item.component === 'button');
   const buttonModule = await import(path.join(build, buttonItem.source.replace(/tsx$/, 'js')) + `?interactive=${Date.now()}`);
   const {renderToString} = await import('solid-js/web');
+  const menuBarItem = result.components.find(item => item.component === 'menu-bar');
+  const menuBarModule = await import(path.join(build, menuBarItem.source.replace(/tsx$/, 'js')) + `?menubar=${Date.now()}`);
+  const menuClasses = library.menubarNavigation.root.classes.join(' ');
+  const emptyMenu = renderToString(() => menuBarModule.MenuBar({options:[]}));
+  assert.match(emptyMenu, new RegExp(`<nav class="${menuClasses}"></nav>`));
+  assert.equal((emptyMenu.match(/<button/g) ?? []).length, 0);
+  const populatedMenu = renderToString(() => menuBarModule.MenuBar({options:[{id:'one', tooltip:'One', icon:'1'}, {id:'two', tooltip:'Two', icon:'2'}], isActive:1}));
+  assert.equal((populatedMenu.match(/<button/g) ?? []).length, 2);
+  assert.doesNotMatch(populatedMenu, /aria-(?:selected|pressed|current)/);
+
   const paginationItem = result.components.find(item => item.component === 'pagination');
   const paginationModule = await import(path.join(build, paginationItem.source.replace(/tsx$/, 'js')) + `?pagination=${Date.now()}`);
   for (const [fixtureMode, count, hasInput] of [[undefined, 4, true], ['simple', 2, false], ['dropdown', 6, true]]) {

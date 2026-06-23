@@ -145,6 +145,32 @@ test('Vue tabs-navigation capability lowers to deterministic accessible tab mark
   assert.deepEqual(emissions[1],emissions[0]);
 });
 
+test('Vue menu-bar capability lowers canonical nav and option buttons deterministically', async t => {
+  const library=loadLibrary(), capability=library.menubarNavigation;
+  assert.equal(capability.support,'supported');
+  const emissions=[];
+  for(let run=0;run<2;run++){
+    const build=fs.mkdtempSync(path.resolve(`.kumo-vue-menubar-${run}-`)); t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+    const manifest=generateVueLibrary(output), model=library.models.find(model=>model.component===capability.component);
+    const entry=manifest.components.find(entry=>entry.modelDigest===model.modelDigest);
+    const source=fs.readFileSync(path.join(output,entry.file),'utf8');
+    assert.match(source,new RegExp(`<nav class="${capability.root.classes.join(' ')}">`));
+    assert.match(source,/@keydown="moveFocus\(index, \$event\)" @click="activate\(option\)"/);
+    assert.doesNotMatch(source,/aria-selected|aria-pressed|aria-current|innerHTML|@html|dispatchEvent|new Event/);
+    const Component=await compileSSRComponent(entry,build);
+    const options=[{id:'one',tooltip:'First',icon:'one'},{id:'two',tooltip:'Second',icon:'two'}];
+    const html=await renderToString(createSSRApp({setup:()=>()=>h(Component,{options,isActive:1})}));
+    assert.match(html,new RegExp(`^<nav class="${capability.root.classes.join(' ')}">`));
+    assert.equal((html.match(/<button/g)??[]).length,2);
+    assert.doesNotMatch(html,/aria-selected|aria-pressed|aria-current/);
+    const empty=await renderToString(createSSRApp({setup:()=>()=>h(Component,{options:[]})}));
+    assert.equal((empty.match(/<button/g)??[]).length,0);
+    assert.equal(empty.replace(/<!--\[-->|<!--\]-->/g,''),`<nav class="${capability.root.classes.join(' ')}"></nav>`);
+    emissions.push({source,html,empty});
+  }
+  assert.deepEqual(emissions[1],emissions[0]);
+});
+
 test('Vue pagination-controls capability lowers full, simple, and dropdown button counts deterministically', async t => {
   const library=loadLibrary(), capability=library.paginationControls;
   assert.equal(capability.support,'supported');

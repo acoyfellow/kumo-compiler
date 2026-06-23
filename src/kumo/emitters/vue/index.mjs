@@ -250,6 +250,33 @@ function activate(tab: TabItem, event: KeyboardEvent) {
     template:`<div><div role="tablist"><button v-for="(tab, index) in props.tabs" :key="tab.value" :ref="element => { if (element) tabButtons[index] = element as HTMLButtonElement }" type="button" role="tab" :tabindex="index === focusedIndex ? 0 : -1" :aria-selected="tab.value === committedValue" @click="commit(tab.value)" @keydown="moveNext(index, $event); activate(tab, $event)">{{ tab.label }}</button></div></div>`
   };
 }
+function menubarNavigationBinding(model, library) {
+  const capability = library.menubarNavigation;
+  if (capability?.support !== 'supported' || model.component !== capability.component) return null;
+  return capability;
+}
+function menubarNavigationSource(capability) {
+  return {
+    options:`defineOptions({ inheritAttrs: false })\n`,
+    imports:'computed, nextTick, ref, useAttrs, useSlots',
+    setup:`type MenuBarOption = { id: string; tooltip: string; icon: string; onClick?: () => void }
+const menuButtons = ref<HTMLButtonElement[]>([])
+const activeIndex = computed(() => typeof props.isActive === 'string' && props.optionIds
+  ? (props.options?.findIndex((option: MenuBarOption) => option.id === props.isActive) ?? -1)
+  : typeof props.isActive === 'number' ? props.isActive : -1)
+function moveFocus(index: number, event: KeyboardEvent) {
+  if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return
+  const count = props.options?.length ?? 0
+  if (!count) return
+  event.preventDefault()
+  const next = (index + (event.key === 'ArrowRight' ? 1 : -1) + count) % count
+  nextTick(() => menuButtons.value[next]?.focus())
+}
+function activate(option: MenuBarOption) { option.onClick?.() }
+`,
+    template:`<nav class="${esc(capability.root.classes.join(' '))}"><button v-for="(option, index) in props.options" :key="option.id" :ref="element => { if (element) menuButtons[index] = element as HTMLButtonElement }" type="button" :class="{ active: index === activeIndex }" :aria-label="option.tooltip" :title="option.tooltip" @keydown="moveFocus(index, $event)" @click="activate(option)"><span aria-hidden="true">{{ option.icon }}</span></button></nav>`
+  };
+}
 function paginationBinding(model, library) {
   const capability = library.paginationControls;
   if (capability?.support !== 'supported' || model.component !== capability.component) return null;
@@ -301,6 +328,8 @@ function emitComponent(model, library) {
   const loweredClipboardCopy = clipboardCopy && clipboardCopySource(clipboardCopy);
   const pagination = paginationBinding(model, library);
   const loweredPagination = pagination && paginationSource();
+  const menubarNavigation = menubarNavigationBinding(model, library);
+  const loweredMenubarNavigation = menubarNavigation && menubarNavigationSource(menubarNavigation);
   const tabsNavigation = tabsNavigationBinding(model, library);
   const loweredTabsNavigation = tabsNavigation && tabsNavigationSource(tabsNavigation);
   const radioGroup = radioGroupBinding(model, library);
@@ -309,24 +338,25 @@ function emitComponent(model, library) {
   if (pagination) { declaredProps.set('fixtureMode',{name:'fixtureMode',required:false,type:'string'}); declaredProps.set('labels',{name:'labels',required:false,type:'unknown'}); declaredProps.set('setPage',{name:'setPage',required:false,type:'unknown'}); }
   if (radioGroup) { declaredProps.set('setValue',{name:'setValue',required:false,type:'unknown'}); declaredProps.set('onValueChange',{name:'onValueChange',required:false,type:'unknown'}); }
   if (tabsNavigation) declaredProps.set('onValueChange',{name:'onValueChange',required:false,type:'unknown'});
+  if (menubarNavigation) { declaredProps.set('options',{name:'options',required:false,type:'unknown'}); declaredProps.set('isActive',{name:'isActive',required:false,type:'unknown'}); declaredProps.set('optionIds',{name:'optionIds',required:false,type:'boolean'}); }
   for (const prop of loweredNativeInput?.props ?? []) declaredProps.set(prop.name, prop);
   if (clipboardCopy) { declaredProps.set(clipboardCopy.copySource.fallback,{name:clipboardCopy.copySource.fallback,required:false,type:'string'}); declaredProps.set(clipboardCopy.copySource.prop,{name:clipboardCopy.copySource.prop,required:false,type:'string'}); declaredProps.set('onCopy',{name:'onCopy',required:false,type:'unknown'}); }
   for (const variant of variants) for (const predicate of variant.when) if (predicate.kind === 'prop-equals' && predicate.name !== 'children' && !declaredProps.has(predicate.name)) declaredProps.set(predicate.name,{name:predicate.name,required:false,type:'unknown'});
   if (nativeInput) for (const variant of variants) for (const predicate of variant.when) if (predicate.kind === 'prop-equals' && predicate.name !== 'children' && !declaredProps.has(vuePropName(predicate.name))) declaredProps.set(vuePropName(predicate.name),{name:vuePropName(predicate.name),required:false,type:'unknown'});
   const props = [...declaredProps.values()].map(p => `  ${JSON.stringify(p.name)}${p.required && p.name !== 'children' ? '' : '?'}: ${vueType(p.type)}`).join('\n');
   const predicates = variants.map(v => v.when.map(x => semanticPredicate(x.kind === 'prop-equals' && x.name !== 'children' ? {...x,name:vuePropName(x.name)} : x,{props:'semanticValues',fixture:'fixture',content:'renderContent()',equal:'semanticEqual'})).join(' && ') || 'true');
-  const semantic = (nativeInput || clipboardCopy || pagination || radioGroup || tabsNavigation) ? '' : variants.map((v,i) => `<template ${i?'v-else-if':'v-if'}="${directive(predicates[i])}">${semanticNode(v.tree)}</template>`).join('');
+  const semantic = (nativeInput || clipboardCopy || pagination || radioGroup || tabsNavigation || menubarNavigation) ? '' : variants.map((v,i) => `<template ${i?'v-else-if':'v-if'}="${directive(predicates[i])}">${semanticNode(v.tree)}</template>`).join('');
   const nativeButton = model.interactions?.nativeButton;
   const toggle = toggleBinding(model, library);
   const loweredToggle = toggle && toggleSource(toggle);
-  const fallback = loweredTabsNavigation?.template ?? loweredRadioGroup?.template ?? loweredPagination?.template ?? loweredClipboardCopy?.template ?? loweredToggle?.template ?? loweredNativeInput?.template ?? (nativeButton
+  const fallback = loweredMenubarNavigation?.template ?? loweredTabsNavigation?.template ?? loweredRadioGroup?.template ?? loweredPagination?.template ?? loweredClipboardCopy?.template ?? loweredToggle?.template ?? loweredNativeInput?.template ?? (nativeButton
     ? `<button v-bind="$attrs" :type="($attrs.type as any) ?? 'button'" :disabled="props.disabled || props.loading"><svg v-if="props.loading" aria-hidden="true"></svg><slot /></button>`
     : node(implementation.componentRoot));
   const composedField = composition && !composition.ownsControl
     ? `<${composition.container}><label :for="String((props as any).childId ?? $attrs['child-id'] ?? 'field-control')">{{ (props as any).label }}</label><slot /></${composition.container}>`
     : null;
   const template = composedField ?? (semantic ? `${semantic}<template v-else>${fallback}</template>` : fallback);
-  return `<!-- @generated by src/kumo/emitters/vue/index.mjs; do not edit -->\n<script lang="ts">\nexport const modelDigest = ${JSON.stringify(model.modelDigest)}\nexport const contentBindingDigest = ${JSON.stringify(contentBindingDigest)}\n</script>\n\n<script setup lang="ts">\n${loweredTabsNavigation?.options ?? loweredRadioGroup?.options ?? loweredToggle?.options ?? loweredNativeInput?.options ?? (nativeButton ? 'defineOptions({ inheritAttrs: false })\n' : '')}import { ${loweredTabsNavigation?.imports ?? loweredRadioGroup?.imports ?? loweredPagination?.imports ?? loweredClipboardCopy?.imports ?? loweredToggle?.imports ?? (composition?.ownsControl ? 'computed, useAttrs, useId, useSlots' : 'computed, useAttrs, useSlots')} } from 'vue'\ninterface ${model.public.symbol}Props {\n${props}\n  fixture?: unknown\n  semanticContent?: unknown\n}\nconst props = withDefaults(defineProps<${model.public.symbol}Props>(), ${JSON.stringify(defaults)})\n${loweredTabsNavigation?.setup ?? loweredRadioGroup?.setup ?? loweredPagination?.setup ?? loweredClipboardCopy?.setup ?? loweredToggle?.setup ?? loweredNativeInput?.setup ?? ''}const slots = useSlots()\nconst styles: Record<string,string> = {}\nconst normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
+  return `<!-- @generated by src/kumo/emitters/vue/index.mjs; do not edit -->\n<script lang="ts">\nexport const modelDigest = ${JSON.stringify(model.modelDigest)}\nexport const contentBindingDigest = ${JSON.stringify(contentBindingDigest)}\n</script>\n\n<script setup lang="ts">\n${loweredMenubarNavigation?.options ?? loweredTabsNavigation?.options ?? loweredRadioGroup?.options ?? loweredToggle?.options ?? loweredNativeInput?.options ?? (nativeButton ? 'defineOptions({ inheritAttrs: false })\n' : '')}import { ${loweredMenubarNavigation?.imports ?? loweredTabsNavigation?.imports ?? loweredRadioGroup?.imports ?? loweredPagination?.imports ?? loweredClipboardCopy?.imports ?? loweredToggle?.imports ?? (composition?.ownsControl ? 'computed, useAttrs, useId, useSlots' : 'computed, useAttrs, useSlots')} } from 'vue'\ninterface ${model.public.symbol}Props {\n${props}\n  fixture?: unknown\n  semanticContent?: unknown\n}\nconst props = withDefaults(defineProps<${model.public.symbol}Props>(), ${JSON.stringify(defaults)})\n${loweredMenubarNavigation?.setup ?? loweredTabsNavigation?.setup ?? loweredRadioGroup?.setup ?? loweredPagination?.setup ?? loweredClipboardCopy?.setup ?? loweredToggle?.setup ?? loweredNativeInput?.setup ?? ''}const slots = useSlots()\nconst styles: Record<string,string> = {}\nconst normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
 const renderContent = () => props.semanticContent ?? normalizeSlotContent(slots.default?.())\nconst fixture = computed(() => props.fixture)\nconst semanticValues = Object.assign({}, useAttrs(), props) as Record<string, unknown>\nconst semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right)\nconst fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : ''\n</script>\n\n<template>\n  ${template}\n</template>\n`;
 }
 export function generateVueLibrary(output = path.join(root, 'generated/libraries/vue')) {

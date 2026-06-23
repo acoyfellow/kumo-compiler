@@ -34,6 +34,13 @@
   let state_active = $state("isActive prop compared to index, or option id when optionIds=true");
   let state_focus = $state("native tab order; every option button is tabbable");
 
+  type MenuOption = { id?: unknown; tooltip: string; icon: unknown; onClick?: () => void };
+  const menuOptions = $derived((options ?? []) as MenuOption[]);
+  const activeMenuIndex = $derived(optionIds && typeof isActive === 'string' ? menuOptions.findIndex(option => option.id === isActive) : typeof isActive === 'number' ? isActive : -1);
+  let menuButtons: HTMLButtonElement[] = $state([]);
+  function activateMenuOption(index: number) { menuOptions[index]?.onClick?.(); }
+  function handleMenuKey(event: KeyboardEvent, index: number) { if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return; event.preventDefault(); const count = menuOptions.length; if (!count) return; const next = (index + (event.key === 'ArrowRight' ? 1 : -1) + count) % count; menuButtons[next]?.focus(); }
+  void activeMenuIndex;
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "className": className, "isActive": isActive, "optionIds": optionIds, "options": options, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;
@@ -56,13 +63,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if Object.prototype.hasOwnProperty.call(semanticValues, "isActive") && semanticEqual(semanticValues.isActive, 0) && Object.prototype.hasOwnProperty.call(semanticValues, "options") && semanticEqual(semanticValues.options, [])}
-  <nav class="isolate flex rounded-lg ring-kumo-line bg-kumo-recessed"></nav>
-{:else}
-<section data-kumo-part="root">
-  {#if root}{@render root()}{/if}
-</section>
-<section data-kumo-part="collection">
-  {#if collection}{@render collection()}{/if}
-</section>
-{/if}
+<nav class="isolate flex rounded-lg ring-kumo-line bg-kumo-recessed">{#each menuOptions as option, index (option.id ?? index)}<button bind:this={menuButtons[index]} type="button" aria-label={option.tooltip} title={option.tooltip} onclickcapture={() => activateMenuOption(index)} onkeydowncapture={(event) => handleMenuKey(event, index)}><span aria-hidden="true">{option.icon}</span></button>{/each}</nav>

@@ -1,0 +1,337 @@
+{
+  "schemaVersion": "kumo.menubar-fixtures/v1",
+  "plans": [
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "menu-bar",
+      "vector": "empty-nav-ssr",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/menu-bar.json",
+        "sha256": "70d74946f066254c8a62a954f4881891f934a62bb0f49c1777f0db91ca93ec9e",
+        "vectorSha256": "4c889d577299894742d97f9b16176653cee107e4df1410f296959f612bacbd6b"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "MenuBar",
+        "props": {
+          "isActive": 0,
+          "options": []
+        },
+        "children": []
+      },
+      "setup": [],
+      "actions": [],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "dom",
+          "path": "descendants",
+          "name": "descendants"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "nav",
+            "classes": {
+              "includes": [
+                "isolate",
+                "flex",
+                "rounded-lg",
+                "ring-kumo-line",
+                "bg-kumo-recessed"
+              ]
+            },
+            "text": ""
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "descendants",
+          "expected": [
+            {
+              "selector": "button",
+              "count": 0
+            }
+          ]
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "menubar-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "descendant-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "92248301bc6b83a6ba9082202a4fc42e9df240ffb6759367a1e1dfde7e3d98d4"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "menu-bar",
+      "vector": "buttons-active-index",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/menu-bar.json",
+        "sha256": "70d74946f066254c8a62a954f4881891f934a62bb0f49c1777f0db91ca93ec9e",
+        "vectorSha256": "1385563116e06614c77c4c084f0f0de7d7686152ea5cc3240818588cb8bbbc03"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "MenuBar",
+        "props": {
+          "isActive": 0,
+          "options": [
+            {
+              "id": "list",
+              "tooltip": "List view",
+              "icon": "List",
+              "onClick": "fixture-callback"
+            },
+            {
+              "id": "grid",
+              "tooltip": "Grid view",
+              "icon": "Grid",
+              "onClick": "fixture-callback"
+            }
+          ]
+        },
+        "children": []
+      },
+      "setup": [],
+      "actions": [
+        {
+          "type": "focus",
+          "selector": "button"
+        },
+        {
+          "type": "key",
+          "key": "ArrowLeft"
+        },
+        {
+          "type": "key",
+          "key": "ArrowRight"
+        },
+        {
+          "type": "click",
+          "selector": "button"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "nav"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "active": 0,
+            "allButtonsNativeTabbable": true,
+            "activeSelectionAriaAbsent": true
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "click:0"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "button"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "menubar-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "19584b0b8e15f4f2ffc90e10f33b3be7b120366a3f0b13db6cfb232fc6ae8dd8"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "menu-bar",
+      "vector": "active-by-id",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/menu-bar.json",
+        "sha256": "70d74946f066254c8a62a954f4881891f934a62bb0f49c1777f0db91ca93ec9e",
+        "vectorSha256": "e7cf15bd73abc98fe736f664538dd74e4a31de3e20fc34efa9f0ff23709662c8"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "MenuBar",
+        "props": {
+          "isActive": "grid",
+          "optionIds": true,
+          "options": [
+            {
+              "id": "list",
+              "tooltip": "List view",
+              "icon": "List",
+              "onClick": "fixture-callback"
+            },
+            {
+              "id": "grid",
+              "tooltip": "Grid view",
+              "icon": "Grid",
+              "onClick": "fixture-callback"
+            }
+          ]
+        },
+        "children": []
+      },
+      "setup": [],
+      "actions": [
+        {
+          "type": "focus",
+          "selector": "button"
+        },
+        {
+          "type": "key",
+          "key": "ArrowLeft"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "nav"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "active": "grid",
+            "activeSelectionAriaAbsent": true
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": []
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "button"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "menubar-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "885f3b487c4279f403f3d2d10060a5c03ff6bc710eb2b7ba72adf2c84082a82d"
+    }
+  ],
+  "digest": "5f0e87b82e40420ee71bd4c240afa4418bdf8037743f8b477c206ae56e3d3f2f"
+}

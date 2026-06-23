@@ -5,7 +5,8 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 </script>
 
 <script setup lang="ts">
-import { computed, useAttrs, useSlots } from 'vue'
+defineOptions({ inheritAttrs: false })
+import { computed, nextTick, ref, useAttrs, useSlots } from 'vue'
 interface MenuBarProps {
   "className"?: string
   "isActive"?: unknown
@@ -15,6 +16,20 @@ interface MenuBarProps {
   semanticContent?: unknown
 }
 const props = withDefaults(defineProps<MenuBarProps>(), {"optionIds":false})
+type MenuBarOption = { id: string; tooltip: string; icon: string; onClick?: () => void }
+const menuButtons = ref<HTMLButtonElement[]>([])
+const activeIndex = computed(() => typeof props.isActive === 'string' && props.optionIds
+  ? (props.options?.findIndex((option: MenuBarOption) => option.id === props.isActive) ?? -1)
+  : typeof props.isActive === 'number' ? props.isActive : -1)
+function moveFocus(index: number, event: KeyboardEvent) {
+  if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return
+  const count = props.options?.length ?? 0
+  if (!count) return
+  event.preventDefault()
+  const next = (index + (event.key === 'ArrowRight' ? 1 : -1) + count) % count
+  nextTick(() => menuButtons.value[next]?.focus())
+}
+function activate(option: MenuBarOption) { option.onClick?.() }
 const slots = useSlots()
 const styles: Record<string,string> = {}
 const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
@@ -26,5 +41,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;isActive&quot;) &amp;&amp; semanticEqual(semanticValues.isActive, 0) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;options&quot;) &amp;&amp; semanticEqual(semanticValues.options, [])"><nav class="isolate flex rounded-lg ring-kumo-line bg-kumo-recessed"></nav></template><template v-else><div data-kumo-compound="menu-bar" :class="styles.root"><section data-kumo-part="root"><slot name="root"></slot></section><section data-kumo-part="collection"><slot name="collection"></slot></section></div></template>
+  <nav class="isolate flex rounded-lg ring-kumo-line bg-kumo-recessed"><button v-for="(option, index) in props.options" :key="option.id" :ref="element => { if (element) menuButtons[index] = element as HTMLButtonElement }" type="button" :class="{ active: index === activeIndex }" :aria-label="option.tooltip" :title="option.tooltip" @keydown="moveFocus(index, $event)" @click="activate(option)"><span aria-hidden="true">{{ option.icon }}</span></button></nav>
 </template>
