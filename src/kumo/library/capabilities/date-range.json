@@ -14,6 +14,38 @@
         "single-change",
         "bounded-day"
       ]
+    },
+    "dateRangePicker": {
+      "support": "supported",
+      "root": "div",
+      "calendarButtons": 84,
+      "navigationButtons": 2,
+      "resetButtons": 1,
+      "totalButtons": 87,
+      "selectionEvents": [
+        "start:<date>",
+        "end:<date>"
+      ],
+      "resetEvents": [
+        "start:null",
+        "end:null"
+      ],
+      "resetFocus": "root",
+      "classes": {
+        "default": [
+          "p-4",
+          "bg-kumo-overlay"
+        ],
+        "smallSubtle": [
+          "p-3",
+          "bg-kumo-base"
+        ]
+      },
+      "vectorIds": [
+        "default-layout",
+        "small-subtle-timezone",
+        "select-range-reset"
+      ]
     }
   },
   "calendar": {
@@ -122,5 +154,5 @@
       "contractDigest": "8bf64900e34b9202e3faac509ab5f10e270940ec56849078cade3f07f4b192c7"
     }
   ],
-  "capabilityDigest": "1c0f0e22c993538c422f37c6e5858c3cdd496ff9ed2f481e4ca192b0d6927009"
+  "capabilityDigest": "c2010dc00d379db1e2dabdb98521c757c29cc2dbe862331fdf56ac393b315f5a"
 }
