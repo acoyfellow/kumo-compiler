@@ -2,7 +2,7 @@
 import type { JSX } from "solid-js";
 export interface RadioProps {
   "defaultValue"?: unknown;
-  "disabled"?: unknown;
+  "disabled"?: boolean;
   "items"?: unknown;
   "onValueChange"?: (...args: unknown[]) => void;
   "orientation"?: unknown;

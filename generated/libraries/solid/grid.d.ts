@@ -4,7 +4,7 @@ export interface GridProps {
   "children"?: unknown;
   "className"?: unknown;
   "gap"?: unknown;
-  "mobileDivider"?: unknown;
+  "mobileDivider"?: boolean;
   "variant"?: unknown;
   children?: JSX.Element;
   fixture?: unknown;

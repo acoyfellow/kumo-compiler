@@ -737,6 +737,74 @@ function resizeKey(event: KeyboardEvent) {
     template:`<div v-bind="$attrs" data-sidebar-wrapper="" :data-state="state" data-side="left" :style="{ '--sidebar-width': width + 'px', width: width + 'px' }"><aside :data-state="state" data-side="left" data-collapsible="icon"><template v-if="collapsible"></template><template v-else><header v-if="header">{{ partText(header) }}</header><div v-if="content"><div v-if="group"><span>{{ partText(part(group, '.GroupLabel')) }}</span><ul v-if="menu"><li v-for="(item, index) in menuButtons" :key="index"><button type="button">{{ partText(item) }}</button></li></ul></div></div><footer v-if="part(sidebarRoot, '.Footer')"><button type="button" :aria-expanded="open" :aria-label="open ? 'Collapse sidebar' : 'Expand sidebar'" @click="toggleSidebar">{{ open ? 'Collapse sidebar' : 'Expand sidebar' }}</button></footer><button v-if="resizeHandle" ref="resizeRef" type="button" aria-label="Resize sidebar" @keydown="resizeKey"></button></template></aside></div>`
   };
 }
+function selectBinding(model, library) {
+  const capability = library.collectionListbox?.observableImplementation?.select;
+  if (capability?.support !== 'supported' || model.component !== 'select') return null;
+  return capability;
+}
+function selectSource() {
+  return {
+    options:`defineOptions({ inheritAttrs: false })\n`,
+    imports:'computed, getCurrentInstance, nextTick, ref, useAttrs, useSlots',
+    setup:`type SelectFixtureNode = { export?: string; text?: string; props?: Record<string, any>; children?: SelectFixtureNode[] }
+type SelectOption = { value: any; label: string; disabled: boolean }
+const instance = getCurrentInstance()
+const supplied = (name: string) => Object.prototype.hasOwnProperty.call(instance?.vnode.props ?? {}, name)
+const fixtureRoot = computed(() => props.fixture as SelectFixtureNode | undefined)
+const fixtureTextContent = (node?: SelectFixtureNode): string => node ? String(node.text ?? '') + (node.children ?? []).map(fixtureTextContent).join('') : ''
+const selectOptions = computed<SelectOption[]>(() => (fixtureRoot.value?.children ?? []).filter(node => node.export === '.Option').map(node => ({ value: node.props?.value, label: fixtureTextContent(node), disabled: node.props?.disabled === true })))
+const multiple = computed(() => Boolean((props as any).multiple))
+const valueControlled = supplied('value')
+const openControlled = supplied('open')
+const internalValue = ref<any>(supplied('defaultValue') ? (props as any).defaultValue : (multiple.value ? [] : null))
+const internalOpen = ref(supplied('defaultOpen') ? Boolean((props as any).defaultOpen) : false)
+const selectedValue = computed(() => valueControlled ? (props as any).value : internalValue.value)
+const selectOpen = computed(() => openControlled ? Boolean((props as any).open) : internalOpen.value)
+const triggerRef = ref<HTMLButtonElement | null>(null)
+const optionRefs = ref<HTMLElement[]>([])
+const activeIndex = ref(-1)
+const highlightScrolled = ref(false)
+const selectLabel = computed(() => (props as any).ariaLabel ?? (props as any)['aria-label'])
+const equalValue = (a: any, b: any) => a === b || JSON.stringify(a) === JSON.stringify(b)
+const isSelected = (value: any) => multiple.value ? (Array.isArray(selectedValue.value) && selectedValue.value.some(item => equalValue(item, value))) : equalValue(selectedValue.value, value)
+function emitOpen(next: boolean) { if (!openControlled) internalOpen.value = next; (props as any).onOpenChange?.(next) }
+function focusOption(index: number) {
+  activeIndex.value = index
+  nextTick(() => { const element = optionRefs.value[index]; element?.focus(); if (element) { element.scrollIntoView?.({ block: 'nearest' }); highlightScrolled.value = true } })
+}
+function firstEnabled() { return selectOptions.value.findIndex(item => !item.disabled) }
+function lastEnabled() { for (let i = selectOptions.value.length - 1; i >= 0; i--) if (!selectOptions.value[i].disabled) return i; return -1 }
+function openSelect() { if (selectOpen.value) return; emitOpen(true); const index = firstEnabled(); if (index >= 0) focusOption(index) }
+function triggerKey(event: KeyboardEvent) { if (event.key === 'ArrowDown') { event.preventDefault(); openSelect(); if (selectOpen.value) { const index = firstEnabled(); if (index >= 0) focusOption(index) } } }
+function selectItem(item: SelectOption, index: number) {
+  if (item.disabled) return
+  if (multiple.value) {
+    const current = Array.isArray(selectedValue.value) ? selectedValue.value : []
+    const next = current.some(value => equalValue(value, item.value)) ? current : [...current, item.value]
+    if (!valueControlled) internalValue.value = next
+    ;(props as any).onValueChange?.(next)
+    focusOption(index)
+    return
+  }
+  if (!valueControlled) internalValue.value = item.value
+  ;(props as any).onValueChange?.(item.value)
+  emitOpen(false)
+  nextTick(() => triggerRef.value?.focus())
+}
+function optionKey(event: KeyboardEvent) {
+  let index = -1
+  if (event.key === 'Home') index = firstEnabled()
+  else if (event.key === 'End') index = lastEnabled()
+  else if (event.key.length === 1) index = selectOptions.value.findIndex(item => !item.disabled && item.label.toLocaleLowerCase().startsWith(event.key.toLocaleLowerCase()))
+  else if (event.key === 'Escape') { event.preventDefault(); emitOpen(false); nextTick(() => triggerRef.value?.focus()); return }
+  else if (event.key === 'Tab') { emitOpen(false); nextTick(() => triggerRef.value?.focus()); return }
+  else return
+  if (index >= 0) { event.preventDefault(); focusOption(index) }
+}
+`,
+    template:`<div v-bind="$attrs"><button ref="triggerRef" type="button" tabindex="0" role="combobox" :aria-expanded="String(selectOpen)" aria-haspopup="listbox" :aria-label="selectLabel" data-kumo-component="Select" data-kumo-part="trigger" :data-placeholder="selectedValue == null || (multiple && selectedValue.length === 0) ? '' : undefined" @click="openSelect" @keydown="triggerKey"></button><Teleport v-if="selectOpen" to="body"><div role="listbox" :aria-multiselectable="multiple || undefined" :data-highlight-scrolled="highlightScrolled || undefined"><div v-for="(item, index) in selectOptions" :key="index" :ref="element => { if (element) optionRefs[index] = element as HTMLElement }" role="option" tabindex="-1" :aria-selected="isSelected(item.value)" :aria-disabled="item.disabled || undefined" :data-value="typeof item.value === 'object' ? item.value?.id : item.value" :data-highlighted="activeIndex === index || undefined" :data-selected="isSelected(item.value) || undefined" @click="selectItem(item, index)" @keydown="optionKey">{{ item.label }}</div></div></Teleport></div>`
+  };
+}
 function toastLifecycleBinding(model, library) {
   const capability = library.toastLifecycle;
   if (capability?.observableImplementation?.support !== 'supported' || model.component !== capability.component) return null;
@@ -827,6 +895,8 @@ function emitComponent(model, library) {
   const loweredDatePicker = datePicker && datePickerSource();
   const dateRangePicker = dateRangePickerBinding(model, library);
   const loweredDateRangePicker = dateRangePicker && dateRangePickerSource(dateRangePicker);
+  const select = selectBinding(model, library);
+  const loweredSelect = select && selectSource();
   const toastLifecycle = toastLifecycleBinding(model, library);
   const loweredToastLifecycle = toastLifecycle && toastLifecycleSource(toastLifecycle);
   const responsiveSidebar = responsiveSidebarBinding(model, library);
@@ -865,6 +935,9 @@ function emitComponent(model, library) {
     declaredProps.set('onChange',{name:'onChange',required:false,type:'unknown'});
   }
   if (dateRangePicker) { declaredProps.set('onStartChange',{name:'onStartChange',required:false,type:'unknown'}); declaredProps.set('onEndChange',{name:'onEndChange',required:false,type:'unknown'}); }
+  if (select) {
+    for (const [name,type] of [['ariaLabel','string'],['placeholder','string'],['defaultValue','unknown'],['value','unknown'],['defaultOpen','boolean'],['open','boolean'],['multiple','boolean'],['onOpenChange','unknown'],['onValueChange','unknown']]) declaredProps.set(name,{name,required:false,type});
+  }
   if (toastLifecycle) { declaredProps.set('onNotify',{name:'onNotify',required:false,type:'unknown'}); declaredProps.set('onAction',{name:'onAction',required:false,type:'unknown'}); }
   if (responsiveSidebar) { declaredProps.set('onOpenChange',{name:'onOpenChange',required:false,type:'unknown'}); declaredProps.set('onWidthChange',{name:'onWidthChange',required:false,type:'unknown'}); }
   if (pagination) { declaredProps.set('fixtureMode',{name:'fixtureMode',required:false,type:'string'}); declaredProps.set('labels',{name:'labels',required:false,type:'unknown'}); declaredProps.set('setPage',{name:'setPage',required:false,type:'unknown'}); }
@@ -883,18 +956,18 @@ function emitComponent(model, library) {
   if (nativeInput) for (const variant of variants) for (const predicate of variant.when) if (predicate.kind === 'prop-equals' && predicate.name !== 'children' && !declaredProps.has(vuePropName(predicate.name))) declaredProps.set(vuePropName(predicate.name),{name:vuePropName(predicate.name),required:false,type:'unknown'});
   const props = [...declaredProps.values()].map(p => `  ${JSON.stringify(p.name)}${p.required && p.name !== 'children' ? '' : '?'}: ${vueType(p.type)}`).join('\n');
   const predicates = variants.map(v => v.when.map(x => semanticPredicate(x.kind === 'prop-equals' && x.name !== 'children' ? {...x,name:vuePropName(x.name)} : x,{props:'semanticValues',fixture:'fixture',content:'renderContent()',equal:'semanticEqual'})).join(' && ') || 'true');
-  const semantic = (datePicker || dateRangePicker || toastLifecycle || responsiveSidebar || nativeInput || clipboardCopy || pagination || radioGroup || tabsNavigation || menubarNavigation || dialogLayer || popoverLayer || dropdownMenuLayer || inputGroup || sensitiveInput || combobox || autocomplete || commandPalette) ? '' : variants.map((v,i) => `<template ${i?'v-else-if':'v-if'}="${directive(predicates[i])}">${semanticNode(v.tree)}</template>`).join('');
+  const semantic = (select || datePicker || dateRangePicker || toastLifecycle || responsiveSidebar || nativeInput || clipboardCopy || pagination || radioGroup || tabsNavigation || menubarNavigation || dialogLayer || popoverLayer || dropdownMenuLayer || inputGroup || sensitiveInput || combobox || autocomplete || commandPalette) ? '' : variants.map((v,i) => `<template ${i?'v-else-if':'v-if'}="${directive(predicates[i])}">${semanticNode(v.tree)}</template>`).join('');
   const nativeButton = model.interactions?.nativeButton;
   const toggle = toggleBinding(model, library);
   const loweredToggle = toggle && toggleSource(toggle);
-  const fallback = loweredDatePicker?.template ?? loweredDateRangePicker?.template ?? loweredToastLifecycle?.template ?? loweredResponsiveSidebar?.template ?? loweredCommandPalette?.template ?? loweredAutocomplete?.template ?? loweredCombobox?.template ?? loweredSensitiveInput?.template ?? loweredInputGroup?.template ?? loweredDropdownMenuLayer?.template ?? loweredPopoverLayer?.template ?? loweredDialogLayer?.template ?? loweredMenubarNavigation?.template ?? loweredTabsNavigation?.template ?? loweredRadioGroup?.template ?? loweredPagination?.template ?? loweredClipboardCopy?.template ?? loweredToggle?.template ?? loweredNativeInput?.template ?? (nativeButton
+  const fallback = loweredSelect?.template ?? loweredDatePicker?.template ?? loweredDateRangePicker?.template ?? loweredToastLifecycle?.template ?? loweredResponsiveSidebar?.template ?? loweredCommandPalette?.template ?? loweredAutocomplete?.template ?? loweredCombobox?.template ?? loweredSensitiveInput?.template ?? loweredInputGroup?.template ?? loweredDropdownMenuLayer?.template ?? loweredPopoverLayer?.template ?? loweredDialogLayer?.template ?? loweredMenubarNavigation?.template ?? loweredTabsNavigation?.template ?? loweredRadioGroup?.template ?? loweredPagination?.template ?? loweredClipboardCopy?.template ?? loweredToggle?.template ?? loweredNativeInput?.template ?? (nativeButton
     ? `<button v-bind="$attrs" :type="($attrs.type as any) ?? 'button'" :disabled="props.disabled || props.loading"><svg v-if="props.loading" aria-hidden="true"></svg><slot /></button>`
     : node(implementation.componentRoot));
   const composedField = composition && !composition.ownsControl
     ? `<${composition.container}><label :for="String((props as any).childId ?? $attrs['child-id'] ?? 'field-control')">{{ (props as any).label }}</label><slot /></${composition.container}>`
     : null;
   const template = composedField ?? (semantic ? `${semantic}<template v-else>${fallback}</template>` : fallback);
-  return `<!-- @generated by src/kumo/emitters/vue/index.mjs; do not edit -->\n<script lang="ts">\nexport const modelDigest = ${JSON.stringify(model.modelDigest)}\nexport const contentBindingDigest = ${JSON.stringify(contentBindingDigest)}\n</script>\n\n<script setup lang="ts">\n${loweredDatePicker?.options ?? loweredDateRangePicker?.options ?? loweredToastLifecycle?.options ?? loweredResponsiveSidebar?.options ?? loweredCommandPalette?.options ?? loweredAutocomplete?.options ?? loweredCombobox?.options ?? loweredSensitiveInput?.options ?? loweredInputGroup?.options ?? loweredDropdownMenuLayer?.options ?? loweredPopoverLayer?.options ?? loweredDialogLayer?.options ?? loweredMenubarNavigation?.options ?? loweredTabsNavigation?.options ?? loweredRadioGroup?.options ?? loweredToggle?.options ?? loweredNativeInput?.options ?? (nativeButton ? 'defineOptions({ inheritAttrs: false })\n' : '')}import { ${loweredDatePicker?.imports ?? loweredDateRangePicker?.imports ?? loweredToastLifecycle?.imports ?? loweredResponsiveSidebar?.imports ?? loweredCommandPalette?.imports ?? loweredAutocomplete?.imports ?? loweredCombobox?.imports ?? loweredSensitiveInput?.imports ?? loweredInputGroup?.imports ?? loweredDropdownMenuLayer?.imports ?? loweredPopoverLayer?.imports ?? loweredDialogLayer?.imports ?? loweredMenubarNavigation?.imports ?? loweredTabsNavigation?.imports ?? loweredRadioGroup?.imports ?? loweredPagination?.imports ?? loweredClipboardCopy?.imports ?? loweredToggle?.imports ?? (composition?.ownsControl ? 'computed, useAttrs, useId, useSlots' : 'computed, useAttrs, useSlots')} } from 'vue'\ninterface ${model.public.symbol}Props {\n${props}\n  fixture?: unknown\n  semanticContent?: unknown\n}\nconst props = withDefaults(defineProps<${model.public.symbol}Props>(), ${JSON.stringify(defaults)})\n${loweredDatePicker?.setup ?? loweredDateRangePicker?.setup ?? loweredToastLifecycle?.setup ?? loweredResponsiveSidebar?.setup ?? loweredCommandPalette?.setup ?? loweredAutocomplete?.setup ?? loweredCombobox?.setup ?? loweredSensitiveInput?.setup ?? loweredInputGroup?.setup ?? loweredDropdownMenuLayer?.setup ?? loweredPopoverLayer?.setup ?? loweredDialogLayer?.setup ?? loweredMenubarNavigation?.setup ?? loweredTabsNavigation?.setup ?? loweredRadioGroup?.setup ?? loweredPagination?.setup ?? loweredClipboardCopy?.setup ?? loweredToggle?.setup ?? loweredNativeInput?.setup ?? ''}const slots = useSlots()\nconst styles: Record<string,string> = {}\nconst normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
+  return `<!-- @generated by src/kumo/emitters/vue/index.mjs; do not edit -->\n<script lang="ts">\nexport const modelDigest = ${JSON.stringify(model.modelDigest)}\nexport const contentBindingDigest = ${JSON.stringify(contentBindingDigest)}\n</script>\n\n<script setup lang="ts">\n${loweredSelect?.options ?? loweredDatePicker?.options ?? loweredDateRangePicker?.options ?? loweredToastLifecycle?.options ?? loweredResponsiveSidebar?.options ?? loweredCommandPalette?.options ?? loweredAutocomplete?.options ?? loweredCombobox?.options ?? loweredSensitiveInput?.options ?? loweredInputGroup?.options ?? loweredDropdownMenuLayer?.options ?? loweredPopoverLayer?.options ?? loweredDialogLayer?.options ?? loweredMenubarNavigation?.options ?? loweredTabsNavigation?.options ?? loweredRadioGroup?.options ?? loweredToggle?.options ?? loweredNativeInput?.options ?? (nativeButton ? 'defineOptions({ inheritAttrs: false })\n' : '')}import { ${loweredSelect?.imports ?? loweredDatePicker?.imports ?? loweredDateRangePicker?.imports ?? loweredToastLifecycle?.imports ?? loweredResponsiveSidebar?.imports ?? loweredCommandPalette?.imports ?? loweredAutocomplete?.imports ?? loweredCombobox?.imports ?? loweredSensitiveInput?.imports ?? loweredInputGroup?.imports ?? loweredDropdownMenuLayer?.imports ?? loweredPopoverLayer?.imports ?? loweredDialogLayer?.imports ?? loweredMenubarNavigation?.imports ?? loweredTabsNavigation?.imports ?? loweredRadioGroup?.imports ?? loweredPagination?.imports ?? loweredClipboardCopy?.imports ?? loweredToggle?.imports ?? (composition?.ownsControl ? 'computed, useAttrs, useId, useSlots' : 'computed, useAttrs, useSlots')} } from 'vue'\ninterface ${model.public.symbol}Props {\n${props}\n  fixture?: unknown\n  semanticContent?: unknown\n}\nconst props = withDefaults(defineProps<${model.public.symbol}Props>(), ${JSON.stringify(defaults)})\n${loweredSelect?.setup ?? loweredDatePicker?.setup ?? loweredDateRangePicker?.setup ?? loweredToastLifecycle?.setup ?? loweredResponsiveSidebar?.setup ?? loweredCommandPalette?.setup ?? loweredAutocomplete?.setup ?? loweredCombobox?.setup ?? loweredSensitiveInput?.setup ?? loweredInputGroup?.setup ?? loweredDropdownMenuLayer?.setup ?? loweredPopoverLayer?.setup ?? loweredDialogLayer?.setup ?? loweredMenubarNavigation?.setup ?? loweredTabsNavigation?.setup ?? loweredRadioGroup?.setup ?? loweredPagination?.setup ?? loweredClipboardCopy?.setup ?? loweredToggle?.setup ?? loweredNativeInput?.setup ?? ''}const slots = useSlots()\nconst styles: Record<string,string> = {}\nconst normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
 const renderContent = () => props.semanticContent ?? normalizeSlotContent(slots.default?.())\nconst fixture = computed(() => props.fixture)\nconst semanticValues = Object.assign({}, useAttrs(), props) as Record<string, unknown>\nconst semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right)\nconst fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : ''\n</script>\n\n<template>\n  ${template}\n</template>\n`;
 }
 export function generateVueLibrary(output = path.join(root, 'generated/libraries/vue')) {

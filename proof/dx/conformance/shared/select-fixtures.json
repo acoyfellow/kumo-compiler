@@ -1,0 +1,1079 @@
+{
+  "schemaVersion": "kumo.select-fixtures/v1",
+  "plans": [
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "select",
+      "vector": "closed-placeholder-ssr",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/select.json",
+        "sha256": "f5679ffa41c8249d04df08a6aa7c7e5eb1c358eb032779b36a46f4415a52e4a8",
+        "vectorSha256": "0e2dff96fc5f0d65b9227df6da3f56bd6b06e13b473a0a1642a72da37fcc8386"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Select",
+        "props": {
+          "aria-label": "Fruit",
+          "placeholder": "Choose"
+        },
+        "children": []
+      },
+      "setup": [],
+      "actions": [],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "descendants",
+          "path": "descendants"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "includes",
+          "probe": "descendants",
+          "expected": [
+            {
+              "selector": "button",
+              "count": 1,
+              "tag": "button",
+              "attributes": {
+                "includes": {
+                  "type": "button",
+                  "tabindex": "0",
+                  "role": "combobox",
+                  "aria-expanded": "false",
+                  "aria-haspopup": "listbox",
+                  "aria-label": "Fruit",
+                  "data-kumo-component": "Select",
+                  "data-kumo-part": "trigger"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "select-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "d947a3aa89302201989cfbcca9a4f7c716a2b3892265e83f61f00ca486138e06"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "select",
+      "vector": "pointer-open-select-disabled",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/select.json",
+        "sha256": "f5679ffa41c8249d04df08a6aa7c7e5eb1c358eb032779b36a46f4415a52e4a8",
+        "vectorSha256": "703b3314f6a10889134b5cb600e2ddb25d0d06b318bcb3a357e1eb2614a28849"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Select",
+        "props": {
+          "aria-label": "Choice",
+          "placeholder": "Choose"
+        },
+        "children": [
+          {
+            "kind": "component",
+            "ref": "Select.Option",
+            "props": {
+              "value": "alpha"
+            },
+            "children": [
+              {
+                "kind": "text",
+                "value": "Alpha"
+              }
+            ]
+          },
+          {
+            "kind": "component",
+            "ref": "Select.Option",
+            "props": {
+              "value": "blocked",
+              "disabled": true
+            },
+            "children": [
+              {
+                "kind": "text",
+                "value": "Blocked"
+              }
+            ]
+          },
+          {
+            "kind": "component",
+            "ref": "Select.Option",
+            "props": {
+              "value": "charlie"
+            },
+            "children": [
+              {
+                "kind": "text",
+                "value": "Charlie"
+              }
+            ]
+          }
+        ]
+      },
+      "setup": [],
+      "actions": [
+        {
+          "type": "click",
+          "selector": "button"
+        },
+        {
+          "type": "click",
+          "selector": "[role=option]"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "value": "alpha",
+            "open": false,
+            "disabledOptionSelectable": false
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "open-change:true",
+            "value-change:alpha",
+            "open-change:false"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "button"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "select-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "ffe5c4e422ca6b02f147e39ddfa09e03b0bbfde19480fa96bb0e8c92d82c9641"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "select",
+      "vector": "keyboard-end-dismissal",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/select.json",
+        "sha256": "f5679ffa41c8249d04df08a6aa7c7e5eb1c358eb032779b36a46f4415a52e4a8",
+        "vectorSha256": "777cf5780926d62eaec8fc05f99d5f5368a7a73f3042d548e24fa243828d9e03"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Select",
+        "props": {
+          "aria-label": "Choice",
+          "defaultValue": "alpha"
+        },
+        "children": [
+          {
+            "kind": "component",
+            "ref": "Select.Option",
+            "props": {
+              "value": "alpha"
+            },
+            "children": [
+              {
+                "kind": "text",
+                "value": "Alpha"
+              }
+            ]
+          },
+          {
+            "kind": "component",
+            "ref": "Select.Option",
+            "props": {
+              "value": "blocked",
+              "disabled": true
+            },
+            "children": [
+              {
+                "kind": "text",
+                "value": "Blocked"
+              }
+            ]
+          },
+          {
+            "kind": "component",
+            "ref": "Select.Option",
+            "props": {
+              "value": "charlie"
+            },
+            "children": [
+              {
+                "kind": "text",
+                "value": "Charlie"
+              }
+            ]
+          },
+          {
+            "kind": "component",
+            "ref": "Select.Option",
+            "props": {
+              "value": "delta"
+            },
+            "children": [
+              {
+                "kind": "text",
+                "value": "Delta"
+              }
+            ]
+          },
+          {
+            "kind": "component",
+            "ref": "Select.Option",
+            "props": {
+              "value": "echo"
+            },
+            "children": [
+              {
+                "kind": "text",
+                "value": "Éclair"
+              }
+            ]
+          }
+        ]
+      },
+      "setup": [],
+      "actions": [
+        {
+          "type": "key",
+          "key": "ArrowDown"
+        },
+        {
+          "type": "key",
+          "key": "End",
+          "scope": "active"
+        },
+        {
+          "type": "key",
+          "key": "Escape",
+          "scope": "active"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "value": "alpha",
+            "open": false,
+            "disabledSkipped": true,
+            "highlightScrolled": true
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "open-change:true",
+            "open-change:false"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "button"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "select-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "9a7d13491dd25ff7ce72b8d40ec8670b79a8c89d3861027eff860e07c6e37164"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "select",
+      "vector": "keyboard-home-dismissal",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/select.json",
+        "sha256": "f5679ffa41c8249d04df08a6aa7c7e5eb1c358eb032779b36a46f4415a52e4a8",
+        "vectorSha256": "4cb3f7fde57d5ab2ed3f6fd1b277b6dc08b4e2f262bb781f7177708949bacede"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Select",
+        "props": {
+          "aria-label": "Choice",
+          "defaultValue": "alpha"
+        },
+        "children": [
+          {
+            "kind": "component",
+            "ref": "Select.Option",
+            "props": {
+              "value": "alpha"
+            },
+            "children": [
+              {
+                "kind": "text",
+                "value": "Alpha"
+              }
+            ]
+          },
+          {
+            "kind": "component",
+            "ref": "Select.Option",
+            "props": {
+              "value": "blocked",
+              "disabled": true
+            },
+            "children": [
+              {
+                "kind": "text",
+                "value": "Blocked"
+              }
+            ]
+          },
+          {
+            "kind": "component",
+            "ref": "Select.Option",
+            "props": {
+              "value": "charlie"
+            },
+            "children": [
+              {
+                "kind": "text",
+                "value": "Charlie"
+              }
+            ]
+          },
+          {
+            "kind": "component",
+            "ref": "Select.Option",
+            "props": {
+              "value": "delta"
+            },
+            "children": [
+              {
+                "kind": "text",
+                "value": "Delta"
+              }
+            ]
+          },
+          {
+            "kind": "component",
+            "ref": "Select.Option",
+            "props": {
+              "value": "echo"
+            },
+            "children": [
+              {
+                "kind": "text",
+                "value": "Éclair"
+              }
+            ]
+          }
+        ]
+      },
+      "setup": [],
+      "actions": [
+        {
+          "type": "key",
+          "key": "ArrowDown"
+        },
+        {
+          "type": "key",
+          "key": "End",
+          "scope": "active"
+        },
+        {
+          "type": "key",
+          "key": "Home",
+          "scope": "active"
+        },
+        {
+          "type": "key",
+          "key": "Escape",
+          "scope": "active"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "value": "alpha",
+            "open": false,
+            "disabledSkipped": true,
+            "highlightScrolled": true
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "open-change:true",
+            "open-change:false"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "button"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "select-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "10ab8e289c1130b2695534638b247ef9cd51c0aabeb3559697a5c15254d1766a"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "select",
+      "vector": "keyboard-typeahead-dismissal",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/select.json",
+        "sha256": "f5679ffa41c8249d04df08a6aa7c7e5eb1c358eb032779b36a46f4415a52e4a8",
+        "vectorSha256": "934f7dd9904e2e7d946442c6d67aed577dec549a160a7a7bb661bffe2b500b87"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Select",
+        "props": {
+          "aria-label": "Choice",
+          "defaultValue": "alpha"
+        },
+        "children": [
+          {
+            "kind": "component",
+            "ref": "Select.Option",
+            "props": {
+              "value": "alpha"
+            },
+            "children": [
+              {
+                "kind": "text",
+                "value": "Alpha"
+              }
+            ]
+          },
+          {
+            "kind": "component",
+            "ref": "Select.Option",
+            "props": {
+              "value": "blocked",
+              "disabled": true
+            },
+            "children": [
+              {
+                "kind": "text",
+                "value": "Blocked"
+              }
+            ]
+          },
+          {
+            "kind": "component",
+            "ref": "Select.Option",
+            "props": {
+              "value": "charlie"
+            },
+            "children": [
+              {
+                "kind": "text",
+                "value": "Charlie"
+              }
+            ]
+          },
+          {
+            "kind": "component",
+            "ref": "Select.Option",
+            "props": {
+              "value": "delta"
+            },
+            "children": [
+              {
+                "kind": "text",
+                "value": "Delta"
+              }
+            ]
+          },
+          {
+            "kind": "component",
+            "ref": "Select.Option",
+            "props": {
+              "value": "echo"
+            },
+            "children": [
+              {
+                "kind": "text",
+                "value": "Éclair"
+              }
+            ]
+          }
+        ]
+      },
+      "setup": [],
+      "actions": [
+        {
+          "type": "key",
+          "key": "ArrowDown"
+        },
+        {
+          "type": "key",
+          "key": "d",
+          "scope": "active"
+        },
+        {
+          "type": "key",
+          "key": "Escape",
+          "scope": "active"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "value": "alpha",
+            "open": false,
+            "disabledSkipped": true,
+            "highlightScrolled": true
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "open-change:true",
+            "open-change:false"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "button"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "select-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "9db71aeda798ed1d0c93fa843ca0d4623106724d729314671697f0fdfa1a2381"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "select",
+      "vector": "controlled-value-open-order",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/select.json",
+        "sha256": "f5679ffa41c8249d04df08a6aa7c7e5eb1c358eb032779b36a46f4415a52e4a8",
+        "vectorSha256": "530a3c0b69c19f11d4a344e332b571302eb2b984800460ee01dd3def87950b10"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Select",
+        "props": {
+          "aria-label": "Controlled",
+          "value": "alpha",
+          "open": true
+        },
+        "children": [
+          {
+            "kind": "component",
+            "ref": "Select.Option",
+            "props": {
+              "value": "alpha"
+            },
+            "children": [
+              {
+                "kind": "text",
+                "value": "Alpha"
+              }
+            ]
+          },
+          {
+            "kind": "component",
+            "ref": "Select.Option",
+            "props": {
+              "value": "charlie"
+            },
+            "children": [
+              {
+                "kind": "text",
+                "value": "Charlie"
+              }
+            ]
+          }
+        ]
+      },
+      "setup": [],
+      "actions": [
+        {
+          "type": "click",
+          "selector": "[role=option]",
+          "target": 1
+        },
+        {
+          "type": "key",
+          "key": "Tab"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "value": "alpha",
+            "open": true,
+            "controlled": true
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "value-change:charlie",
+            "open-change:false",
+            "open-change:false"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "button"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "select-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "040ece36d95b320d5b5300c52cd31d6f3425a13699edc1e1d887f3bf111ac933"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "select",
+      "vector": "multiple-object-selection",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/select.json",
+        "sha256": "f5679ffa41c8249d04df08a6aa7c7e5eb1c358eb032779b36a46f4415a52e4a8",
+        "vectorSha256": "de19c22e7c2b7c55af8db15b2cd5ac38379fa1f7339e7b41e1d43836bb4671c6"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Select",
+        "props": {
+          "aria-label": "People",
+          "multiple": true
+        },
+        "children": [
+          {
+            "kind": "component",
+            "ref": "Select.Option",
+            "props": {
+              "value": {
+                "id": "ada",
+                "name": "Ada"
+              }
+            },
+            "children": [
+              {
+                "kind": "text",
+                "value": "Ada"
+              }
+            ]
+          },
+          {
+            "kind": "component",
+            "ref": "Select.Option",
+            "props": {
+              "value": {
+                "id": "grace",
+                "name": "Grace"
+              }
+            },
+            "children": [
+              {
+                "kind": "text",
+                "value": "Grace"
+              }
+            ]
+          }
+        ]
+      },
+      "setup": [],
+      "actions": [
+        {
+          "type": "click",
+          "selector": "button"
+        },
+        {
+          "type": "click",
+          "selector": "[role=option]"
+        },
+        {
+          "type": "click",
+          "selector": "[role=option]",
+          "target": 1
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "selectedIds": [
+              "ada",
+              "grace"
+            ],
+            "open": true
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "open-change:true",
+            "value-change:ada",
+            "value-change:ada,grace"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "[role=option]"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "select-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "60319c24a15ca58a429e46b6daf66add3425d0e4e4ffc30904b56cf295541dcf"
+    }
+  ],
+  "digest": "86f18df5a5e6d496e2ecdad7ac860f270c5c4920983b0abf5044f20e20069b9c"
+}

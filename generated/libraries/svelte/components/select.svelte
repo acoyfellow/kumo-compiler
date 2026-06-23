@@ -19,6 +19,13 @@
   size?: unknown;
   collection?: Snippet;
   root?: Snippet;
+  value?: unknown;
+  defaultValue?: unknown;
+  open?: boolean;
+  defaultOpen?: boolean;
+  multiple?: boolean;
+  onValueChange?: (value: unknown) => void;
+  onOpenChange?: (value: boolean) => void;
   styles?: Record<string, string>;
   fixture?: unknown;
   [key: string]: unknown;
@@ -37,6 +44,13 @@
     size = "base",
     collection = undefined,
     root = undefined,
+    value = undefined,
+    defaultValue = undefined,
+    open = undefined,
+    defaultOpen = false,
+    multiple = false,
+    onValueChange = undefined,
+    onOpenChange = undefined,
     children,
     fixture = undefined,
     __consumerContent = undefined,
@@ -47,6 +61,28 @@
   let state_highlightedOption = $state(null);
   let state_open = $state("controlled open, else defaultOpen, else false");
   let state_value = $state("controlled value, else defaultValue, else null or [] in multiple mode");
+  type SelectFixtureNode = { export?: string; text?: string; props?: Record<string, unknown>; children?: SelectFixtureNode[] };
+  type SelectOption = { value: unknown; disabled: boolean; text: string };
+  function selectText(node: SelectFixtureNode | undefined): string { return node ? String(node.text ?? '') + (node.children ?? []).map(selectText).join('') : ''; }
+  const selectOptions = $derived.by(() => { const root = fixture as SelectFixtureNode | undefined; const source = root?.export === 'root' ? root : root?.children?.find(node => node.export === 'root') ?? root; return (source?.children ?? []).filter(node => node.export === '.Option').map(node => ({ value: node.props?.value, disabled: Boolean(node.props?.disabled), text: selectText(node) })); });
+  const controlledSelectValue = $derived(Object.prototype.hasOwnProperty.call(rest, 'value') || value !== undefined);
+  const controlledSelectOpen = $derived(Object.prototype.hasOwnProperty.call(rest, 'open') || open !== undefined);
+  let uncontrolledSelectValue = $state(defaultValue ?? (multiple ? [] : null));
+  let uncontrolledSelectOpen = $state(Boolean(defaultOpen));
+  const currentSelectValue = $derived(controlledSelectValue ? value : uncontrolledSelectValue);
+  const currentSelectOpen = $derived(controlledSelectOpen ? Boolean(open) : uncontrolledSelectOpen);
+  const selectDisplay = $derived.by(() => { const values = multiple ? (Array.isArray(currentSelectValue) ? currentSelectValue : []) : [currentSelectValue]; return selectOptions.filter(option => values.some(item => JSON.stringify(item) === JSON.stringify(option.value))).map(option => option.text).join(', ') || String(rest.placeholder ?? ''); });
+  let highlightedSelectIndex = $state(-1);
+  let selectTrigger: HTMLButtonElement | undefined = $state();
+  let selectOptionElements: HTMLButtonElement[] = $state([]);
+  function selectIsSelected(value: unknown): boolean { return multiple ? (Array.isArray(currentSelectValue) && currentSelectValue.some(item => JSON.stringify(item) === JSON.stringify(value))) : JSON.stringify(currentSelectValue) === JSON.stringify(value); }
+  function setSelectOpen(next: boolean) { if (!controlledSelectOpen) uncontrolledSelectOpen = next; onOpenChange?.(next); }
+  function focusSelectOption(index: number) { highlightedSelectIndex = index; queueMicrotask(() => { const element = selectOptionElements[index]; element?.focus(); element?.scrollIntoView({ block: 'nearest' }); if (element) element.dataset.highlightScrolled = 'true'; }); }
+  function firstEnabled(): number { return selectOptions.findIndex(option => !option.disabled); }
+  function lastEnabled(): number { for (let index = selectOptions.length - 1; index >= 0; index--) if (!selectOptions[index].disabled) return index; return -1; }
+  function toggleSelect() { const next = !currentSelectOpen; setSelectOpen(next); if (next) focusSelectOption(firstEnabled()); }
+  function selectOption(option: SelectOption, index: number) { if (option.disabled) return; if (multiple) { const values = Array.isArray(currentSelectValue) ? currentSelectValue : []; const exists = values.some(item => JSON.stringify(item) === JSON.stringify(option.value)); const next = exists ? values.filter(item => JSON.stringify(item) !== JSON.stringify(option.value)) : [...values, option.value]; if (!controlledSelectValue) uncontrolledSelectValue = next; onValueChange?.(next); focusSelectOption(index); return; } if (!controlledSelectValue) uncontrolledSelectValue = option.value; onValueChange?.(option.value); setSelectOpen(false); queueMicrotask(() => selectTrigger?.focus()); }
+  function handleSelectKey(event: KeyboardEvent) { if (event.key === 'Tab') { if (currentSelectOpen) { setSelectOpen(false); queueMicrotask(() => selectTrigger?.focus()); } return; } if (event.key === 'Escape') { if (!currentSelectOpen) return; event.preventDefault(); setSelectOpen(false); queueMicrotask(() => selectTrigger?.focus()); return; } if (event.key === 'ArrowDown') { event.preventDefault(); if (!currentSelectOpen) { setSelectOpen(true); const selected = selectOptions.findIndex(option => selectIsSelected(option.value)); focusSelectOption(selected >= 0 && !selectOptions[selected].disabled ? selected : firstEnabled()); return; } for (let index = highlightedSelectIndex + 1; index < selectOptions.length; index++) if (!selectOptions[index].disabled) { focusSelectOption(index); return; } return; } if (event.key === 'Home' || event.key === 'End') { event.preventDefault(); focusSelectOption(event.key === 'Home' ? firstEnabled() : lastEnabled()); return; } if (event.key.length === 1) { const key = event.key.toLocaleLowerCase(); const index = selectOptions.findIndex(option => !option.disabled && option.text.toLocaleLowerCase().startsWith(key)); if (index >= 0) { event.preventDefault(); focusSelectOption(index); } } }
 
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "aria-label/aria-labelledby": aria_label_aria_labelledby, "container": container, "hideLabel": hideLabel, "items": items, "label": label, "labelTooltip/description/error": labelTooltip_description_error, "placeholder/loading/disabled/required": placeholder_loading_disabled_required, "renderValue": renderValue, "Root": Root, "size": size, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
@@ -72,15 +108,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if Object.prototype.hasOwnProperty.call(semanticValues, "aria-label") && semanticEqual(semanticValues["aria-label"], "Fruit") && Object.prototype.hasOwnProperty.call(semanticValues, "placeholder") && semanticEqual(semanticValues.placeholder, "Choose")}
-  <div>
-    <button type={"button"} tabindex={"0"} role={"combobox"} aria-expanded={"false"} aria-haspopup={"listbox"} aria-label={"Fruit"} data-kumo-component={"Select"} data-kumo-part={"trigger"}></button>
-  </div>
-{:else}
-<section data-kumo-part="root">
-  {#if root}{@render root()}{/if}
-</section>
-<section data-kumo-part="collection">
-  {#if collection}{@render collection()}{/if}
-</section>
-{/if}
+<div><button bind:this={selectTrigger} type="button" tabindex="0" role="combobox" aria-expanded={currentSelectOpen} aria-haspopup="listbox" aria-label={rest["aria-label"] as string | undefined} data-kumo-component="Select" data-kumo-part="trigger" onclick={toggleSelect} onkeydown={handleSelectKey}>{selectDisplay}</button>{#if currentSelectOpen}<div role="listbox" aria-multiselectable={multiple || undefined} onkeydown={handleSelectKey}>{#each selectOptions as option, index (index)}<button bind:this={selectOptionElements[index]} type="button" role="option" aria-selected={selectIsSelected(option.value)} aria-disabled={option.disabled || undefined} disabled={option.disabled} data-highlighted={highlightedSelectIndex === index || undefined} onclick={() => selectOption(option, index)}>{option.text}</button>{/each}</div>{/if}</div>

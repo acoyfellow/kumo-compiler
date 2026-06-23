@@ -2,12 +2,12 @@
 import type { JSX } from "solid-js";
 export interface TextProps {
   "as"?: unknown;
-  "bold"?: unknown;
+  "bold"?: boolean;
   "children"?: unknown;
   "DANGEROUS_className"?: unknown;
   "DANGEROUS_style"?: unknown;
   "size"?: unknown;
-  "truncate"?: unknown;
+  "truncate"?: boolean;
   "variant"?: unknown;
   "DANGEROUS_className"?: JSX.Element;
   "DANGEROUS_style"?: JSX.Element;

@@ -7,7 +7,7 @@ export interface MeterProps {
   "label": unknown;
   "max"?: number;
   "min"?: number;
-  "showValue"?: unknown;
+  "showValue"?: boolean;
   "trackClassName"?: unknown;
   "value"?: number;
   children?: JSX.Element;

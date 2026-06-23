@@ -5,7 +5,8 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 </script>
 
 <script setup lang="ts">
-import { computed, useAttrs, useSlots } from 'vue'
+defineOptions({ inheritAttrs: false })
+import { computed, getCurrentInstance, nextTick, ref, useAttrs, useSlots } from 'vue'
 interface SelectProps {
   "aria-label/aria-labelledby"?: unknown
   "children"?: unknown
@@ -18,12 +19,75 @@ interface SelectProps {
   "renderValue"?: unknown
   "Root"?: unknown
   "size"?: string
+  "ariaLabel"?: string
+  "placeholder"?: string
+  "defaultValue"?: unknown
+  "value"?: unknown
+  "defaultOpen"?: boolean
+  "open"?: boolean
+  "multiple"?: boolean
+  "onOpenChange"?: unknown
+  "onValueChange"?: unknown
   "aria-label"?: unknown
-  "placeholder"?: unknown
   fixture?: unknown
   semanticContent?: unknown
 }
 const props = withDefaults(defineProps<SelectProps>(), {"size":"base"})
+type SelectFixtureNode = { export?: string; text?: string; props?: Record<string, any>; children?: SelectFixtureNode[] }
+type SelectOption = { value: any; label: string; disabled: boolean }
+const instance = getCurrentInstance()
+const supplied = (name: string) => Object.prototype.hasOwnProperty.call(instance?.vnode.props ?? {}, name)
+const fixtureRoot = computed(() => props.fixture as SelectFixtureNode | undefined)
+const fixtureTextContent = (node?: SelectFixtureNode): string => node ? String(node.text ?? '') + (node.children ?? []).map(fixtureTextContent).join('') : ''
+const selectOptions = computed<SelectOption[]>(() => (fixtureRoot.value?.children ?? []).filter(node => node.export === '.Option').map(node => ({ value: node.props?.value, label: fixtureTextContent(node), disabled: node.props?.disabled === true })))
+const multiple = computed(() => Boolean((props as any).multiple))
+const valueControlled = supplied('value')
+const openControlled = supplied('open')
+const internalValue = ref<any>(supplied('defaultValue') ? (props as any).defaultValue : (multiple.value ? [] : null))
+const internalOpen = ref(supplied('defaultOpen') ? Boolean((props as any).defaultOpen) : false)
+const selectedValue = computed(() => valueControlled ? (props as any).value : internalValue.value)
+const selectOpen = computed(() => openControlled ? Boolean((props as any).open) : internalOpen.value)
+const triggerRef = ref<HTMLButtonElement | null>(null)
+const optionRefs = ref<HTMLElement[]>([])
+const activeIndex = ref(-1)
+const highlightScrolled = ref(false)
+const selectLabel = computed(() => (props as any).ariaLabel ?? (props as any)['aria-label'])
+const equalValue = (a: any, b: any) => a === b || JSON.stringify(a) === JSON.stringify(b)
+const isSelected = (value: any) => multiple.value ? (Array.isArray(selectedValue.value) && selectedValue.value.some(item => equalValue(item, value))) : equalValue(selectedValue.value, value)
+function emitOpen(next: boolean) { if (!openControlled) internalOpen.value = next; (props as any).onOpenChange?.(next) }
+function focusOption(index: number) {
+  activeIndex.value = index
+  nextTick(() => { const element = optionRefs.value[index]; element?.focus(); if (element) { element.scrollIntoView?.({ block: 'nearest' }); highlightScrolled.value = true } })
+}
+function firstEnabled() { return selectOptions.value.findIndex(item => !item.disabled) }
+function lastEnabled() { for (let i = selectOptions.value.length - 1; i >= 0; i--) if (!selectOptions.value[i].disabled) return i; return -1 }
+function openSelect() { if (selectOpen.value) return; emitOpen(true); const index = firstEnabled(); if (index >= 0) focusOption(index) }
+function triggerKey(event: KeyboardEvent) { if (event.key === 'ArrowDown') { event.preventDefault(); openSelect(); if (selectOpen.value) { const index = firstEnabled(); if (index >= 0) focusOption(index) } } }
+function selectItem(item: SelectOption, index: number) {
+  if (item.disabled) return
+  if (multiple.value) {
+    const current = Array.isArray(selectedValue.value) ? selectedValue.value : []
+    const next = current.some(value => equalValue(value, item.value)) ? current : [...current, item.value]
+    if (!valueControlled) internalValue.value = next
+    ;(props as any).onValueChange?.(next)
+    focusOption(index)
+    return
+  }
+  if (!valueControlled) internalValue.value = item.value
+  ;(props as any).onValueChange?.(item.value)
+  emitOpen(false)
+  nextTick(() => triggerRef.value?.focus())
+}
+function optionKey(event: KeyboardEvent) {
+  let index = -1
+  if (event.key === 'Home') index = firstEnabled()
+  else if (event.key === 'End') index = lastEnabled()
+  else if (event.key.length === 1) index = selectOptions.value.findIndex(item => !item.disabled && item.label.toLocaleLowerCase().startsWith(event.key.toLocaleLowerCase()))
+  else if (event.key === 'Escape') { event.preventDefault(); emitOpen(false); nextTick(() => triggerRef.value?.focus()); return }
+  else if (event.key === 'Tab') { emitOpen(false); nextTick(() => triggerRef.value?.focus()); return }
+  else return
+  if (index >= 0) { event.preventDefault(); focusOption(index) }
+}
 const slots = useSlots()
 const styles: Record<string,string> = {}
 const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
@@ -35,5 +99,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;ariaLabel&quot;) &amp;&amp; semanticEqual(semanticValues.ariaLabel, &quot;Fruit&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;placeholder&quot;) &amp;&amp; semanticEqual(semanticValues.placeholder, &quot;Choose&quot;)"><div><button type="button" tabindex="0" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-label="Fruit" data-kumo-component="Select" data-kumo-part="trigger"></button></div></template><template v-else><div data-kumo-compound="select" :class="styles.root"><section data-kumo-part="root"><slot name="root"></slot></section><section data-kumo-part="collection"><slot name="collection"></slot></section></div></template>
+  <div v-bind="$attrs"><button ref="triggerRef" type="button" tabindex="0" role="combobox" :aria-expanded="String(selectOpen)" aria-haspopup="listbox" :aria-label="selectLabel" data-kumo-component="Select" data-kumo-part="trigger" :data-placeholder="selectedValue == null || (multiple && selectedValue.length === 0) ? '' : undefined" @click="openSelect" @keydown="triggerKey"></button><Teleport v-if="selectOpen" to="body"><div role="listbox" :aria-multiselectable="multiple || undefined" :data-highlight-scrolled="highlightScrolled || undefined"><div v-for="(item, index) in selectOptions" :key="index" :ref="element => { if (element) optionRefs[index] = element as HTMLElement }" role="option" tabindex="-1" :aria-selected="isSelected(item.value)" :aria-disabled="item.disabled || undefined" :data-value="typeof item.value === 'object' ? item.value?.id : item.value" :data-highlighted="activeIndex === index || undefined" :data-selected="isSelected(item.value) || undefined" @click="selectItem(item, index)" @keydown="optionKey">{{ item.label }}</div></div></Teleport></div>
 </template>
