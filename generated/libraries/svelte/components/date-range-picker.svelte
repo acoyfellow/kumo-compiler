@@ -16,6 +16,8 @@
   onEndDateChange?: (value: unknown) => void;
   onStartDateChange?: (value: unknown) => void;
   children?: Snippet;
+  onStartChange?: (value: string | null) => void;
+  onEndChange?: (value: string | null) => void;
   styles?: Record<string, string>;
   fixture?: unknown;
   [key: string]: unknown;
@@ -29,6 +31,8 @@
     timezone = "New York, NY, USA (GMT-4)",
     variant = "default",
     date_range_picker = undefined,
+    onStartChange = undefined,
+    onEndChange = undefined,
     children,
     fixture = undefined,
     __consumerContent = undefined,
@@ -38,6 +42,13 @@
   let state_endDate = $state(null);
   let state_months = $state("current and next month");
   let state_startDate = $state(null);
+  type DateRangeDay = { iso: string; label: number };
+  const dateRangeDays: DateRangeDay[] = Array.from({ length: 84 }, (_, index) => { const date = new Date(Date.UTC(2000, 0, index + 1)); return { iso: date.toISOString().slice(0, 10), label: date.getUTCDate() }; });
+  let dateRangeStart = $state<string | null>(null);
+  let dateRangeEnd = $state<string | null>(null);
+  let dateRangeRoot: HTMLElement | undefined = $state();
+  function selectDateRangeDay(iso: string) { if (dateRangeStart === null || dateRangeEnd !== null || iso < dateRangeStart) { dateRangeStart = iso; dateRangeEnd = null; onStartChange?.(iso); return; } dateRangeEnd = iso; onEndChange?.(iso); }
+  function resetDateRange() { dateRangeStart = null; dateRangeEnd = null; onStartChange?.(null); onEndChange?.(null); dateRangeRoot?.focus(); }
 
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "className": className, "onEndDateChange": onEndDateChange, "onStartDateChange": onStartDateChange, "size": size, "timezone": timezone, "variant": variant, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
@@ -59,192 +70,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if Object.prototype.hasOwnProperty.call(semanticValues, "size") && semanticEqual(semanticValues.size, "sm") && Object.prototype.hasOwnProperty.call(semanticValues, "timezone") && semanticEqual(semanticValues.timezone, "UTC") && Object.prototype.hasOwnProperty.call(semanticValues, "variant") && semanticEqual(semanticValues.variant, "subtle")}
-  <div class="p-3 bg-kumo-base">
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-  </div>
-{:else if true}
-  <div class="p-4 bg-kumo-overlay">
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-  </div>
-{:else}
-{#if browser}
-  <div data-kumo-portal-target={"document-body"} data-kumo-layer="date-range-picker">
-    <section data-kumo-part="date-range-picker">
-      {#if date_range_picker}{@render date_range_picker()}{/if}
-    </section>
-  </div>
-{/if}
-{/if}
+<div bind:this={dateRangeRoot} tabindex="-1" class={size === 'sm' && variant === 'subtle' ? "p-3 bg-kumo-base" : "p-4 bg-kumo-overlay"}><button type="button" data-nav="previous"></button><button type="button" data-nav="next"></button>{#each dateRangeDays as day (day.iso)}<button type="button" data-day={day.iso} onclick={() => selectDateRangeDay(day.iso)}>{day.label}</button>{/each}<button type="button" data-reset onclick={resetDateRange}></button></div>

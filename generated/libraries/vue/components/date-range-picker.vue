@@ -5,7 +5,8 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 </script>
 
 <script setup lang="ts">
-import { computed, useAttrs, useSlots } from 'vue'
+defineOptions({ inheritAttrs: false })
+import { computed, nextTick, ref, useAttrs, useSlots } from 'vue'
 interface DateRangePickerProps {
   "className"?: string
   "onEndDateChange"?: unknown
@@ -13,10 +14,38 @@ interface DateRangePickerProps {
   "size"?: string
   "timezone"?: string
   "variant"?: unknown
+  "onStartChange"?: unknown
+  "onEndChange"?: unknown
   fixture?: unknown
   semanticContent?: unknown
 }
 const props = withDefaults(defineProps<DateRangePickerProps>(), {"size":"base","timezone":"New York, NY, USA (GMT-4)","variant":"default"})
+const rangeRoot = ref<HTMLElement | null>(null)
+const startValue = ref<string | null>(null)
+const endValue = ref<string | null>(null)
+const calendarDays = Array.from({ length: 84 }, (_, index) => `day-${String(index + 1).padStart(2, '0')}`)
+const rootClasses = computed(() => props.size === 'sm' && props.variant === 'subtle' ? "p-3 bg-kumo-base" : "p-4 bg-kumo-overlay")
+function selectDay(value: string) {
+  if (startValue.value === null || endValue.value !== null) {
+    startValue.value = value
+    endValue.value = null
+    props.onStartChange?.(value)
+    props.onStartDateChange?.(value)
+    return
+  }
+  endValue.value = value
+  props.onEndChange?.(value)
+  props.onEndDateChange?.(value)
+}
+function resetRange() {
+  startValue.value = null
+  endValue.value = null
+  props.onStartChange?.(null)
+  props.onStartDateChange?.(null)
+  props.onEndChange?.(null)
+  props.onEndDateChange?.(null)
+  nextTick(() => { if (rangeRoot.value) { rangeRoot.value.setAttribute('tabindex', '-1'); rangeRoot.value.focus() } })
+}
 const slots = useSlots()
 const styles: Record<string,string> = {}
 const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
@@ -28,5 +57,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;size&quot;) &amp;&amp; semanticEqual(semanticValues.size, &quot;sm&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;timezone&quot;) &amp;&amp; semanticEqual(semanticValues.timezone, &quot;UTC&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;variant&quot;) &amp;&amp; semanticEqual(semanticValues.variant, &quot;subtle&quot;)"><div class="p-3 bg-kumo-base"><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button></div></template><template v-else-if="true"><div class="p-4 bg-kumo-overlay"><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button></div></template><template v-else><Teleport :to="&quot;document-body&quot;"><div data-kumo-layer="date-range-picker"><div data-kumo-compound="date-range-picker" :class="styles.root"><section data-kumo-part="date-range-picker"><slot name="date-range-picker"></slot></section></div></div></Teleport></template>
+  <div ref="rangeRoot" v-bind="$attrs" :class="rootClasses"><button type="button" data-navigation="previous"></button><button type="button" data-navigation="next"></button><button v-for="day in calendarDays" :key="day" type="button" :data-day="day" :aria-selected="day === startValue || day === endValue || undefined" @click="selectDay(day)">{{ day }}</button><button type="button" data-reset @click="resetRange"></button></div>
 </template>

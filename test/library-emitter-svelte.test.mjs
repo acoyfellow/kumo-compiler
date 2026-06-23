@@ -87,6 +87,35 @@ test('supported date-picker lowers a deterministic complete-week UTC grid',async
  assert.match(html,/data-day="2025-02-01"[^>]*disabled/);
 });
 
+test('supported date-range-picker lowers its observable 87-button interaction surface',async t=>{
+ const build=fs.mkdtempSync(path.join(os.tmpdir(),'kumo-svelte-date-range-picker-'));
+ t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+ fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
+ const {dateRange}=loadLibrary();
+ const capability=dateRange.observableImplementation.dateRangePicker;
+ const manifest=emitSvelteLibrary({output});
+ assert.equal(manifest.components.flatMap(x=>x.semanticVariants).length,66);
+ const source=fs.readFileSync(path.join(output,'components/date-range-picker.svelte'),'utf8');
+ const emitter=fs.readFileSync(path.resolve('src/kumo/emitters/svelte/index.mjs'),'utf8');
+ assert.match(emitter,/dateRange\.observableImplementation\?\.dateRangePicker/);
+ assert.match(source,/data-reset onclick=\{resetDateRange\}/);
+ assert.match(source,/onStartChange\?: \(value: string \| null\) => void/);
+ assert.match(source,/onEndChange\?: \(value: string \| null\) => void/);
+ assert.match(source,/dateRangeRoot\?\.focus\(\)/);
+ assert.doesNotMatch(source,/function\s+\w+\([^)]*\w+\?:|@html|innerHTML|dispatchEvent|toLocale/);
+ const compiled=compile(source,{filename:'date-range-picker.svelte',generate:'server'});
+ const target=path.join(build,'date-range-picker.mjs');fs.writeFileSync(target,compiled.js.code);
+ const DateRangePicker=(await import(pathToFileURL(target)+`?${Date.now()}`)).default;
+ const clean=props=>render(DateRangePicker,{props}).body.replace(/<!--[\s\S]*?-->/g,'');
+ const normal=clean({});
+ assert.match(normal,new RegExp(`^<div tabindex="-1" class="${capability.classes.default.join(' ')}">`));
+ assert.equal((normal.match(/<button\b/g)??[]).length,87);
+ assert.equal((normal.match(/data-day=/g)??[]).length,84);
+ assert.equal((normal.match(/data-nav=/g)??[]).length,2);
+ assert.equal((normal.match(/data-reset/g)??[]).length,1);
+ assert.match(clean({size:'sm',variant:'subtle'}),new RegExp(`^<div tabindex="-1" class="${capability.classes.smallSubtle.join(' ')}">`));
+});
+
 test('supported toggle-control bindings lower to native Svelte 5 state and initial SSR',async t=>{
  const build=fs.mkdtempSync(path.join(os.tmpdir(),'kumo-svelte-toggle-'));
  t.after(()=>fs.rmSync(build,{recursive:true,force:true}));

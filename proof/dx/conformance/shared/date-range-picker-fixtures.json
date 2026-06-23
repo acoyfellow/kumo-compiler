@@ -1,0 +1,284 @@
+{
+  "schemaVersion": "kumo.date-range-picker-fixtures/v1",
+  "plans": [
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "date-range-picker",
+      "vector": "default-layout",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/date-range-picker.json",
+        "sha256": "fa3aaa60dae398b1ba8201537a25cbefc4131389895d5fb457d2589704570257",
+        "vectorSha256": "d3f0a6ab0e576e4872928f28ac99098a6f609d8d957a6fec7d0ec5bdb3d1237a"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "DateRangePicker",
+        "props": {},
+        "children": []
+      },
+      "setup": [],
+      "actions": [],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "descendants",
+          "path": "descendants"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div",
+            "classes": {
+              "includes": [
+                "p-4",
+                "bg-kumo-overlay"
+              ]
+            }
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "descendants",
+          "expected": [
+            {
+              "selector": "button",
+              "count": 87
+            }
+          ]
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "date-range-picker-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "descendant-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "b011f062119992a8fd6e7f60579008ffd3e3cc896f285b8831a8f1f074e7573f"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "date-range-picker",
+      "vector": "small-subtle-timezone",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/date-range-picker.json",
+        "sha256": "fa3aaa60dae398b1ba8201537a25cbefc4131389895d5fb457d2589704570257",
+        "vectorSha256": "10a220415624ac8218ea6dff9357b8593379c28710fa52bf5e73f43aaaa3d329"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "DateRangePicker",
+        "props": {
+          "size": "sm",
+          "variant": "subtle",
+          "timezone": "UTC"
+        },
+        "children": []
+      },
+      "setup": [],
+      "actions": [],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "descendants",
+          "path": "descendants"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div",
+            "classes": {
+              "includes": [
+                "p-3",
+                "bg-kumo-base"
+              ]
+            }
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "descendants",
+          "expected": [
+            {
+              "selector": "button",
+              "count": 87
+            }
+          ]
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "date-range-picker-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "descendant-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "0a87b8d2a8c62603bce6f41ebfea82e1b547750143f4d842560783b272212f5f"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "date-range-picker",
+      "vector": "select-range-reset",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/date-range-picker.json",
+        "sha256": "fa3aaa60dae398b1ba8201537a25cbefc4131389895d5fb457d2589704570257",
+        "vectorSha256": "1bede55ddf6e5c1eb1ebb4966bcb56fde454ea865a8d1bf49da1c0047b29b4ae"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "DateRangePicker",
+        "props": {},
+        "children": []
+      },
+      "setup": [],
+      "actions": [
+        {
+          "type": "click",
+          "target": 10
+        },
+        {
+          "type": "click",
+          "target": 12
+        },
+        {
+          "type": "click",
+          "selector": "[data-reset]"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "start": null,
+            "end": null
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "start:date",
+            "end:date",
+            "start:null",
+            "end:null"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "root"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "date-range-picker-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "descendant-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "f2b9f4d5f1e9280ecb0b2dc2162b99cdd2bb39c5deb5f7ed573ba578a78196ad"
+    }
+  ],
+  "digest": "eb2bd69ade0e1af59a32d03ea557caf18a998af179aa5be91b60c80aa43d5ec4"
+}

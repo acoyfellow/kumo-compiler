@@ -547,6 +547,46 @@ function selectDay(iso: string) {
     template:`<div v-bind="$attrs" :aria-label="props.ariaLabel"><button type="button" @click="changeMonth(-1)">Previous</button><button type="button" @click="changeMonth(1)">Next</button><table role="grid"><tbody><tr v-for="(row, rowIndex) in calendarRows" :key="rowIndex"><td v-for="day in row" :key="day.iso"><button type="button" :data-day="day.iso" :disabled="isDisabled(day.iso) || undefined" :aria-selected="day.iso === selectedDate || undefined" @click="selectDay(day.iso)">{{ day.day }}</button></td></tr></tbody></table></div>`
   };
 }
+function dateRangePickerBinding(model, library) {
+  const capability = library.dateRange?.observableImplementation?.dateRangePicker;
+  if (capability?.support !== 'supported' || model.component !== 'date-range-picker') return null;
+  return capability;
+}
+function dateRangePickerSource(capability) {
+  if (capability.navigationButtons !== 2 || capability.calendarButtons !== 84 || capability.resetButtons !== 1 || capability.totalButtons !== 87) throw new Error('unsupported date-range-picker button contract');
+  return {
+    options:`defineOptions({ inheritAttrs: false })\n`,
+    imports:'computed, nextTick, ref, useAttrs, useSlots',
+    setup:`const rangeRoot = ref<HTMLElement | null>(null)
+const startValue = ref<string | null>(null)
+const endValue = ref<string | null>(null)
+const calendarDays = Array.from({ length: 84 }, (_, index) => \`day-\${String(index + 1).padStart(2, '0')}\`)
+const rootClasses = computed(() => props.size === 'sm' && props.variant === 'subtle' ? ${JSON.stringify(capability.classes.smallSubtle.join(' '))} : ${JSON.stringify(capability.classes.default.join(' '))})
+function selectDay(value: string) {
+  if (startValue.value === null || endValue.value !== null) {
+    startValue.value = value
+    endValue.value = null
+    props.onStartChange?.(value)
+    props.onStartDateChange?.(value)
+    return
+  }
+  endValue.value = value
+  props.onEndChange?.(value)
+  props.onEndDateChange?.(value)
+}
+function resetRange() {
+  startValue.value = null
+  endValue.value = null
+  props.onStartChange?.(null)
+  props.onStartDateChange?.(null)
+  props.onEndChange?.(null)
+  props.onEndDateChange?.(null)
+  nextTick(() => { if (rangeRoot.value) { rangeRoot.value.setAttribute('tabindex', '-1'); rangeRoot.value.focus() } })
+}
+`,
+    template:`<div ref="rangeRoot" v-bind="$attrs" :class="rootClasses"><button type="button" data-navigation="previous"></button><button type="button" data-navigation="next"></button><button v-for="day in calendarDays" :key="day" type="button" :data-day="day" :aria-selected="day === startValue || day === endValue || undefined" @click="selectDay(day)">{{ day }}</button><button type="button" data-reset @click="resetRange"></button></div>`
+  };
+}
 function toastLifecycleBinding(model, library) {
   const capability = library.toastLifecycle;
   if (capability?.observableImplementation?.support !== 'supported' || model.component !== capability.component) return null;
@@ -635,6 +675,8 @@ function emitComponent(model, library) {
   const loweredClipboardCopy = clipboardCopy && clipboardCopySource(clipboardCopy);
   const datePicker = datePickerBinding(model, library);
   const loweredDatePicker = datePicker && datePickerSource();
+  const dateRangePicker = dateRangePickerBinding(model, library);
+  const loweredDateRangePicker = dateRangePicker && dateRangePickerSource(dateRangePicker);
   const toastLifecycle = toastLifecycleBinding(model, library);
   const loweredToastLifecycle = toastLifecycle && toastLifecycleSource(toastLifecycle);
   const pagination = paginationBinding(model, library);
@@ -666,6 +708,7 @@ function emitComponent(model, library) {
     declaredProps.set('disabledAfterDate',{name:'disabledAfterDate',required:false,type:'string'});
     declaredProps.set('onChange',{name:'onChange',required:false,type:'unknown'});
   }
+  if (dateRangePicker) { declaredProps.set('onStartChange',{name:'onStartChange',required:false,type:'unknown'}); declaredProps.set('onEndChange',{name:'onEndChange',required:false,type:'unknown'}); }
   if (toastLifecycle) { declaredProps.set('onNotify',{name:'onNotify',required:false,type:'unknown'}); declaredProps.set('onAction',{name:'onAction',required:false,type:'unknown'}); }
   if (pagination) { declaredProps.set('fixtureMode',{name:'fixtureMode',required:false,type:'string'}); declaredProps.set('labels',{name:'labels',required:false,type:'unknown'}); declaredProps.set('setPage',{name:'setPage',required:false,type:'unknown'}); }
   if (radioGroup) { declaredProps.set('setValue',{name:'setValue',required:false,type:'unknown'}); declaredProps.set('onValueChange',{name:'onValueChange',required:false,type:'unknown'}); }
@@ -681,18 +724,18 @@ function emitComponent(model, library) {
   if (nativeInput) for (const variant of variants) for (const predicate of variant.when) if (predicate.kind === 'prop-equals' && predicate.name !== 'children' && !declaredProps.has(vuePropName(predicate.name))) declaredProps.set(vuePropName(predicate.name),{name:vuePropName(predicate.name),required:false,type:'unknown'});
   const props = [...declaredProps.values()].map(p => `  ${JSON.stringify(p.name)}${p.required && p.name !== 'children' ? '' : '?'}: ${vueType(p.type)}`).join('\n');
   const predicates = variants.map(v => v.when.map(x => semanticPredicate(x.kind === 'prop-equals' && x.name !== 'children' ? {...x,name:vuePropName(x.name)} : x,{props:'semanticValues',fixture:'fixture',content:'renderContent()',equal:'semanticEqual'})).join(' && ') || 'true');
-  const semantic = (datePicker || toastLifecycle || nativeInput || clipboardCopy || pagination || radioGroup || tabsNavigation || menubarNavigation || dialogLayer || inputGroup || sensitiveInput || combobox || autocomplete || commandPalette) ? '' : variants.map((v,i) => `<template ${i?'v-else-if':'v-if'}="${directive(predicates[i])}">${semanticNode(v.tree)}</template>`).join('');
+  const semantic = (datePicker || dateRangePicker || toastLifecycle || nativeInput || clipboardCopy || pagination || radioGroup || tabsNavigation || menubarNavigation || dialogLayer || inputGroup || sensitiveInput || combobox || autocomplete || commandPalette) ? '' : variants.map((v,i) => `<template ${i?'v-else-if':'v-if'}="${directive(predicates[i])}">${semanticNode(v.tree)}</template>`).join('');
   const nativeButton = model.interactions?.nativeButton;
   const toggle = toggleBinding(model, library);
   const loweredToggle = toggle && toggleSource(toggle);
-  const fallback = loweredDatePicker?.template ?? loweredToastLifecycle?.template ?? loweredCommandPalette?.template ?? loweredAutocomplete?.template ?? loweredCombobox?.template ?? loweredSensitiveInput?.template ?? loweredInputGroup?.template ?? loweredDialogLayer?.template ?? loweredMenubarNavigation?.template ?? loweredTabsNavigation?.template ?? loweredRadioGroup?.template ?? loweredPagination?.template ?? loweredClipboardCopy?.template ?? loweredToggle?.template ?? loweredNativeInput?.template ?? (nativeButton
+  const fallback = loweredDatePicker?.template ?? loweredDateRangePicker?.template ?? loweredToastLifecycle?.template ?? loweredCommandPalette?.template ?? loweredAutocomplete?.template ?? loweredCombobox?.template ?? loweredSensitiveInput?.template ?? loweredInputGroup?.template ?? loweredDialogLayer?.template ?? loweredMenubarNavigation?.template ?? loweredTabsNavigation?.template ?? loweredRadioGroup?.template ?? loweredPagination?.template ?? loweredClipboardCopy?.template ?? loweredToggle?.template ?? loweredNativeInput?.template ?? (nativeButton
     ? `<button v-bind="$attrs" :type="($attrs.type as any) ?? 'button'" :disabled="props.disabled || props.loading"><svg v-if="props.loading" aria-hidden="true"></svg><slot /></button>`
     : node(implementation.componentRoot));
   const composedField = composition && !composition.ownsControl
     ? `<${composition.container}><label :for="String((props as any).childId ?? $attrs['child-id'] ?? 'field-control')">{{ (props as any).label }}</label><slot /></${composition.container}>`
     : null;
   const template = composedField ?? (semantic ? `${semantic}<template v-else>${fallback}</template>` : fallback);
-  return `<!-- @generated by src/kumo/emitters/vue/index.mjs; do not edit -->\n<script lang="ts">\nexport const modelDigest = ${JSON.stringify(model.modelDigest)}\nexport const contentBindingDigest = ${JSON.stringify(contentBindingDigest)}\n</script>\n\n<script setup lang="ts">\n${loweredDatePicker?.options ?? loweredToastLifecycle?.options ?? loweredCommandPalette?.options ?? loweredAutocomplete?.options ?? loweredCombobox?.options ?? loweredSensitiveInput?.options ?? loweredInputGroup?.options ?? loweredDialogLayer?.options ?? loweredMenubarNavigation?.options ?? loweredTabsNavigation?.options ?? loweredRadioGroup?.options ?? loweredToggle?.options ?? loweredNativeInput?.options ?? (nativeButton ? 'defineOptions({ inheritAttrs: false })\n' : '')}import { ${loweredDatePicker?.imports ?? loweredToastLifecycle?.imports ?? loweredCommandPalette?.imports ?? loweredAutocomplete?.imports ?? loweredCombobox?.imports ?? loweredSensitiveInput?.imports ?? loweredInputGroup?.imports ?? loweredDialogLayer?.imports ?? loweredMenubarNavigation?.imports ?? loweredTabsNavigation?.imports ?? loweredRadioGroup?.imports ?? loweredPagination?.imports ?? loweredClipboardCopy?.imports ?? loweredToggle?.imports ?? (composition?.ownsControl ? 'computed, useAttrs, useId, useSlots' : 'computed, useAttrs, useSlots')} } from 'vue'\ninterface ${model.public.symbol}Props {\n${props}\n  fixture?: unknown\n  semanticContent?: unknown\n}\nconst props = withDefaults(defineProps<${model.public.symbol}Props>(), ${JSON.stringify(defaults)})\n${loweredDatePicker?.setup ?? loweredToastLifecycle?.setup ?? loweredCommandPalette?.setup ?? loweredAutocomplete?.setup ?? loweredCombobox?.setup ?? loweredSensitiveInput?.setup ?? loweredInputGroup?.setup ?? loweredDialogLayer?.setup ?? loweredMenubarNavigation?.setup ?? loweredTabsNavigation?.setup ?? loweredRadioGroup?.setup ?? loweredPagination?.setup ?? loweredClipboardCopy?.setup ?? loweredToggle?.setup ?? loweredNativeInput?.setup ?? ''}const slots = useSlots()\nconst styles: Record<string,string> = {}\nconst normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
+  return `<!-- @generated by src/kumo/emitters/vue/index.mjs; do not edit -->\n<script lang="ts">\nexport const modelDigest = ${JSON.stringify(model.modelDigest)}\nexport const contentBindingDigest = ${JSON.stringify(contentBindingDigest)}\n</script>\n\n<script setup lang="ts">\n${loweredDatePicker?.options ?? loweredDateRangePicker?.options ?? loweredToastLifecycle?.options ?? loweredCommandPalette?.options ?? loweredAutocomplete?.options ?? loweredCombobox?.options ?? loweredSensitiveInput?.options ?? loweredInputGroup?.options ?? loweredDialogLayer?.options ?? loweredMenubarNavigation?.options ?? loweredTabsNavigation?.options ?? loweredRadioGroup?.options ?? loweredToggle?.options ?? loweredNativeInput?.options ?? (nativeButton ? 'defineOptions({ inheritAttrs: false })\n' : '')}import { ${loweredDatePicker?.imports ?? loweredDateRangePicker?.imports ?? loweredToastLifecycle?.imports ?? loweredCommandPalette?.imports ?? loweredAutocomplete?.imports ?? loweredCombobox?.imports ?? loweredSensitiveInput?.imports ?? loweredInputGroup?.imports ?? loweredDialogLayer?.imports ?? loweredMenubarNavigation?.imports ?? loweredTabsNavigation?.imports ?? loweredRadioGroup?.imports ?? loweredPagination?.imports ?? loweredClipboardCopy?.imports ?? loweredToggle?.imports ?? (composition?.ownsControl ? 'computed, useAttrs, useId, useSlots' : 'computed, useAttrs, useSlots')} } from 'vue'\ninterface ${model.public.symbol}Props {\n${props}\n  fixture?: unknown\n  semanticContent?: unknown\n}\nconst props = withDefaults(defineProps<${model.public.symbol}Props>(), ${JSON.stringify(defaults)})\n${loweredDatePicker?.setup ?? loweredDateRangePicker?.setup ?? loweredToastLifecycle?.setup ?? loweredCommandPalette?.setup ?? loweredAutocomplete?.setup ?? loweredCombobox?.setup ?? loweredSensitiveInput?.setup ?? loweredInputGroup?.setup ?? loweredDialogLayer?.setup ?? loweredMenubarNavigation?.setup ?? loweredTabsNavigation?.setup ?? loweredRadioGroup?.setup ?? loweredPagination?.setup ?? loweredClipboardCopy?.setup ?? loweredToggle?.setup ?? loweredNativeInput?.setup ?? ''}const slots = useSlots()\nconst styles: Record<string,string> = {}\nconst normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
 const renderContent = () => props.semanticContent ?? normalizeSlotContent(slots.default?.())\nconst fixture = computed(() => props.fixture)\nconst semanticValues = Object.assign({}, useAttrs(), props) as Record<string, unknown>\nconst semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right)\nconst fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : ''\n</script>\n\n<template>\n  ${template}\n</template>\n`;
 }
 export function generateVueLibrary(output = path.join(root, 'generated/libraries/vue')) {

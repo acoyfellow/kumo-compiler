@@ -122,6 +122,29 @@ test('Vue date-picker capability lowers a complete-week January grid with canoni
   assert.equal(manifest.components.flatMap(x=>x.semanticVariants).length,66);
 });
 
+test('Vue date-range-picker capability lowers exactly 87 deterministic buttons and contract classes', async t => {
+  const library=loadLibrary(), capability=library.dateRange.observableImplementation.dateRangePicker;
+  assert.equal(capability.support,'supported');
+  const build=fs.mkdtempSync(path.resolve('.kumo-vue-date-range-picker-')); t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+  const manifest=generateVueLibrary(output), model=library.models.find(model=>model.component==='date-range-picker');
+  const entry=manifest.components.find(entry=>entry.modelDigest===model.modelDigest);
+  const source=fs.readFileSync(path.join(output,entry.file),'utf8');
+  assert.match(source,/data-reset/);
+  assert.match(source,/props\.onStartChange\?\.\(null\)/);
+  assert.match(source,/props\.onEndChange\?\.\(null\)/);
+  assert.doesNotMatch(source,/Intl|toLocale|innerHTML|@html|dispatchEvent|new Event/);
+  const Component=await compileSSRComponent(entry,build);
+  const render=props=>renderToString(createSSRApp({setup:()=>()=>h(Component,props)}));
+  const defaultHtml=await render({});
+  assert.match(defaultHtml,/^<div class="p-4 bg-kumo-overlay">/);
+  assert.equal((defaultHtml.match(/<button/g)??[]).length,87);
+  assert.equal((defaultHtml.match(/data-day=/g)??[]).length,84);
+  assert.equal((defaultHtml.match(/data-navigation=/g)??[]).length,2);
+  assert.equal((defaultHtml.match(/data-reset/g)??[]).length,1);
+  assert.match(await render({size:'sm',variant:'subtle'}),/^<div class="p-3 bg-kumo-base">/);
+  assert.equal(manifest.components.flatMap(x=>x.semanticVariants).length,66);
+});
+
 test('Vue sensitive-input capability lowers deterministic masked, editable, and copy markup', async t => {
   const library=loadLibrary(), capability=library.sensitiveInput;
   assert.equal(capability.support,'supported');

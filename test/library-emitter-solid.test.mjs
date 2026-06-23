@@ -122,6 +122,23 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   assert.match(datePickerDeclaration, /"disabledAfterDate"\?: string;/);
   assert.match(datePickerDeclaration, /"onChange"\?: \(value: string\) => void;/);
 
+  const dateRangePickerSource = fs.readFileSync(path.join(first, 'date-range-picker.tsx'), 'utf8');
+  const dateRangePickerDeclaration = fs.readFileSync(path.join(first, 'date-range-picker.d.ts'), 'utf8');
+  assert.match(dateRangePickerSource, /const props = mergeProps/);
+  assert.match(dateRangePickerSource, /createSignal<string \| null>/);
+  assert.match(dateRangePickerSource, /Array\.from\(\{length:84\}/);
+  assert.equal((dateRangePickerSource.match(/<button/g) ?? []).length, 4);
+  assert.match(dateRangePickerSource, /data-reset onClick=\{resetDateRange\}/);
+  assert.match(dateRangePickerSource, /tabindex="-1" class=\{rangeClasses\(\)\}/);
+  assert.match(dateRangePickerSource, /"p-4 bg-kumo-overlay"/);
+  assert.match(dateRangePickerSource, /"p-3 bg-kumo-base"/);
+  assert.match(dateRangePickerSource, /props\.onStartChange/);
+  assert.match(dateRangePickerSource, /props\.onEndChange/);
+  assert.match(dateRangePickerSource, /dateRangeRoot\?\.focus\(\)/);
+  assert.doesNotMatch(dateRangePickerSource, /semanticEqual\(normalizedFixture|innerHTML|Intl|locale/);
+  assert.match(dateRangePickerDeclaration, /"onStartChange"\?: \(value: string \| null\) => void;/);
+  assert.match(dateRangePickerDeclaration, /"onEndChange"\?: \(value: string \| null\) => void;/);
+
   const autocompleteSource = fs.readFileSync(path.join(first, 'autocomplete.tsx'), 'utf8');
   assert.match(autocompleteSource, /const props = mergeProps/);
   assert.match(autocompleteSource, /<input ref=\{autocompleteInput\} placeholder=\{autocompleteInputGroup\(\)\.props\.placeholder as string\}/);
@@ -349,6 +366,18 @@ test('Solid SSR renders every compiled semantic predicate through canonical mark
   assert.match(boundedDatePickerHtml, /data-day="2025-01-20"[^>]*>20<\/button>/);
   assert.doesNotMatch(boundedDatePickerHtml.match(/<button[^>]*data-day="2025-01-20"[^>]*>/)?.[0] ?? '', /disabled/);
   assert.match(boundedDatePickerHtml, /data-day="2025-01-21" disabled/);
+
+  const dateRangePickerItem = result.components.find(item => item.component === 'date-range-picker');
+  const dateRangePickerModule = await import(path.join(build, dateRangePickerItem.source.replace(/tsx$/, 'js')) + `?dateRangePicker=${Date.now()}`);
+  const dateRangePickerHtml = renderToString(() => dateRangePickerModule.DateRangePicker({}));
+  assert.equal((dateRangePickerHtml.match(/<button/g) ?? []).length, 87);
+  assert.match(dateRangePickerHtml, /^<div tabindex="-1" class="p-4 bg-kumo-overlay">/);
+  assert.equal((dateRangePickerHtml.match(/data-day=/g) ?? []).length, 84);
+  assert.equal((dateRangePickerHtml.match(/data-navigation=/g) ?? []).length, 2);
+  assert.equal((dateRangePickerHtml.match(/data-reset/g) ?? []).length, 1);
+  assert.match(dateRangePickerHtml, /<button type="button" data-reset>Reset<\/button>/);
+  const smallRangePickerHtml = renderToString(() => dateRangePickerModule.DateRangePicker({size:'sm', variant:'subtle'}));
+  assert.match(smallRangePickerHtml, /^<div tabindex="-1" class="p-3 bg-kumo-base">/);
 
   const toastyItem = result.components.find(item => item.component === 'toasty');
   const toastyModule = await import(path.join(build, toastyItem.source.replace(/tsx$/, 'js')) + `?toasty=${Date.now()}`);
