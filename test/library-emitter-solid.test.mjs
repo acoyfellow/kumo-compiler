@@ -147,6 +147,20 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   assert.match(menuBarSource, /event\.key !== "ArrowLeft" && event\.key !== "ArrowRight"/);
   assert.match(menuBarSource, /const props = mergeProps/);
 
+  const dialogSource = fs.readFileSync(path.join(first, 'dialog.tsx'), 'utf8');
+  const dialogDeclaration = fs.readFileSync(path.join(first, 'dialog.d.ts'), 'utf8');
+  assert.match(dialogSource, /const props = mergeProps/);
+  assert.match(dialogSource, /<button ref=\{triggerElement\} type="button" data-kumo-component="Dialog" data-kumo-part="trigger" aria-haspopup="dialog"/);
+  assert.match(dialogSource, /<Show when=\{dialogOpen\(\)\} children=/);
+  assert.match(dialogSource, /<Portal mount=\{document\.body\} children=/);
+  assert.match(dialogSource, /role="dialog" tabindex="-1"/);
+  assert.match(dialogSource, /data-kumo-part="close"/);
+  assert.match(dialogSource, /props\.onOpenChange/);
+  assert.match(dialogSource, /dialogElement\?\.focus\(\) : triggerElement\?\.focus\(\)/);
+  assert.match(dialogDeclaration, /"open"\?: boolean;/);
+  assert.match(dialogDeclaration, /"defaultOpen"\?: boolean;/);
+  assert.match(dialogDeclaration, /"onOpenChange"\?: \(open: boolean\) => void;/);
+
   const paginationSource = fs.readFileSync(path.join(first, 'pagination.tsx'), 'utf8');
   assert.match(paginationSource, /<div data-slot="pagination"><nav ref=\{navEl\} aria-label=/);
   assert.match(paginationSource, /props\.fixtureMode !== "simple"/);

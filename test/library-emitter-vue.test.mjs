@@ -94,6 +94,30 @@ test('Vue SSR renders all 66 semantic variants through canonical root and descen
   assert.equal(rendered,66); assert.equal(manifest.components.flatMap(x=>x.unresolvedSemanticOperations).length,0);
 });
 
+test('Vue dialog-layer capability lowers compound fixtures to a deterministic trigger and Teleport', async t => {
+  const library=loadLibrary(), capability=library.dialogLayer;
+  assert.equal(capability.support,'supported');
+  const emissions=[];
+  for(let run=0;run<2;run++){
+    const build=fs.mkdtempSync(path.resolve(`.kumo-vue-dialog-${run}-`)); t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+    const manifest=generateVueLibrary(output), model=library.models.find(model=>model.component===capability.component);
+    const entry=manifest.components.find(entry=>entry.modelDigest===model.modelDigest);
+    const source=fs.readFileSync(path.join(output,entry.file),'utf8');
+    assert.match(source,/<button ref="triggerRef" type="button" data-kumo-component="Dialog" data-kumo-part="trigger" aria-haspopup="dialog"/);
+    assert.match(source,/<Teleport v-if="currentOpen" to="body"><div ref="dialogRef" role="dialog" tabindex="-1">/);
+    assert.match(source,/props\.onOpenChange\?\.\(next\)/);
+    assert.match(source,/next \? dialogRef\.value\?\.focus\(\) : triggerRef\.value\?\.focus\(\)/);
+    assert.doesNotMatch(source,/innerHTML|@html|dispatchEvent|new Event/);
+    const Component=await compileSSRComponent(entry,build);
+    const fixture={export:'.Root',props:{},children:[{export:'.Trigger',props:{},children:[{text:'Open settings'}]},{export:'root',props:{},children:[{export:'.Title',props:{},children:[{text:'Settings'}]}]}]};
+    const html=await renderToString(createSSRApp({setup:()=>()=>h(Component,{fixture})}));
+    assert.match(html,/^<button type="button" data-kumo-component="Dialog" data-kumo-part="trigger" aria-haspopup="dialog">Open settings/);
+    assert.doesNotMatch(html,/role="dialog"/);
+    emissions.push({source,html});
+  }
+  assert.deepEqual(emissions[1],emissions[0]);
+});
+
 test('Vue radio-group capability lowers generically to deterministic single-select radio markup', async t => {
   const library=loadLibrary(), capability=library.radioGroup;
   assert.equal(capability.support,'supported');

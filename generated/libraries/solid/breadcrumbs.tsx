@@ -20,6 +20,15 @@ const normalizeRenderContent = (value: unknown, accessors = false): string => {
 };
 const normalizeFixture = (value: unknown): unknown => Array.isArray(value) ? value.map(normalizeFixture) : value && typeof value === "object" ? Object.fromEntries(Object.entries(value).map(([key, item]) => [key, normalizeFixture(item)])) : value;
 const fixtureText = (value: unknown): string => normalizeRenderContent(value);
+const compoundFixtureText = (value: unknown, exported: string): string => {
+  const visit = (item: unknown): string => {
+    if (!item || typeof item !== "object") return "";
+    const node = item as {export?: unknown; text?: unknown; children?: unknown[]};
+    if (node.export === exported) return fixtureText(node);
+    return Array.isArray(node.children) ? node.children.map(visit).join("") : "";
+  };
+  return visit(value);
+};
 const resolvePortalTarget = (target: unknown) => target === "document-body" && typeof document !== "undefined" ? document.body : target as Node;
 
 export function Breadcrumbs(incoming: BreadcrumbsProps): JSX.Element {

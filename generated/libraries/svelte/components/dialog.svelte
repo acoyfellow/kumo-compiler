@@ -14,6 +14,13 @@
   Trigger?: Snippet;
   dialog?: Snippet;
   children?: Snippet;
+  open?: boolean;
+  defaultOpen?: boolean;
+  onOpenChange?: (value: boolean) => void;
+  triggerText?: unknown;
+  title?: unknown;
+  description?: unknown;
+  closeText?: unknown;
   styles?: Record<string, string>;
   fixture?: unknown;
   [key: string]: unknown;
@@ -27,6 +34,13 @@
     Title = undefined,
     Trigger = undefined,
     dialog = undefined,
+    open = undefined,
+    defaultOpen = false,
+    onOpenChange = undefined,
+    triggerText = "Open",
+    title = "Dialog",
+    description = undefined,
+    closeText = "Close",
     children,
     fixture = undefined,
     __consumerContent = undefined,
@@ -37,6 +51,19 @@
   let state_role = $state("dialog");
   let state_size = $state("base");
 
+  type DialogFixtureNode = { export?: string; text?: string; children?: DialogFixtureNode[] };
+  type DialogFixture = { children?: DialogFixtureNode[] };
+  const dialogFixture = $derived.by(() => { const root = fixture as DialogFixture | undefined; const nodes = root?.children ?? []; const find = (part: string) => nodes.flatMap(node => node.children ?? []).find(node => node.export === part); const text = (node?: DialogFixtureNode): string | undefined => node?.children?.map(child => child.text ?? text(child) ?? '').join(''); return { triggerText: text(nodes.find(node => node.export === '.Trigger')), title: text(find('.Title')), description: text(find('.Description')), closeText: text(find('.Close')) }; });
+  const controlledDialog = $derived(open !== undefined);
+  let uncontrolledDialogOpen = $state(Boolean(defaultOpen));
+  const currentDialogOpen = $derived(controlledDialog ? Boolean(open) : uncontrolledDialogOpen);
+  let dialogTrigger: HTMLButtonElement | undefined = $state();
+  let dialogContent: HTMLElement | undefined = $state();
+  function portal(node: HTMLElement) { document.body.appendChild(node); return { destroy() { node.remove(); } }; }
+  function setDialogOpen(next: boolean) { if (!controlledDialog) uncontrolledDialogOpen = next; onOpenChange?.(next); }
+  function openDialog() { setDialogOpen(true); }
+  function closeDialog() { setDialogOpen(false); queueMicrotask(() => dialogTrigger?.focus()); }
+  $effect(() => { if (currentDialogOpen && dialogContent) queueMicrotask(() => dialogContent?.focus()); });
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "Close": Close, "Description": Description, "Dialog": Dialog, "Root": Root, "Title": Title, "Trigger": Trigger, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;
@@ -61,16 +88,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if Object.prototype.hasOwnProperty.call(semanticValues, "role") && semanticEqual(semanticValues.role, "dialog") && semanticEqual(fixture, {"export":".Root","props":{},"children":[{"export":".Trigger","props":{},"children":[{"text":"Open settings"}]},{"export":"root","props":{},"children":[{"export":".Title","props":{},"children":[{"text":"Settings"}]}]}]})}
-  <button data-kumo-component={"Dialog"} data-kumo-part={"trigger"}>
-    {"Open settings"}
-  </button>
-{:else}
-{#if browser}
-  <div data-kumo-portal-target={"document-body"} data-kumo-layer="dialog">
-    <section data-kumo-part="dialog">
-      {#if dialog}{@render dialog()}{/if}
-    </section>
-  </div>
-{/if}
-{/if}
+<button bind:this={dialogTrigger} type="button" data-kumo-component="Dialog" data-kumo-part="trigger" aria-haspopup="dialog" onclickcapture={openDialog}>{dialogFixture.triggerText ?? triggerText}</button>{#if currentDialogOpen}<div use:portal role="dialog" tabindex="-1" bind:this={dialogContent}><h2>{dialogFixture.title ?? title}</h2>{#if (dialogFixture.description ?? description) !== undefined}<p>{dialogFixture.description ?? description}</p>{/if}<button type="button" data-kumo-part="close" onclickcapture={closeDialog}>{dialogFixture.closeText ?? closeText}</button></div>{/if}

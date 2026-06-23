@@ -308,6 +308,31 @@ test('supported menubar-navigation lowers generically to canonical native button
  assert.equal((clean({options:[]}).match(/<button\b/g)??[]).length,0);
 });
 
+test('supported dialog-layer lowers generically with a deterministic portal and focus lifecycle',async t=>{
+ const build=fs.mkdtempSync(path.join(os.tmpdir(),'kumo-svelte-dialog-'));
+ t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+ fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
+ const {dialogLayer}=loadLibrary();
+ const first=emitSvelteLibrary({output});
+ assert.equal(first.components.flatMap(x=>x.semanticVariants).length,66);
+ const source=fs.readFileSync(path.join(output,`components/${dialogLayer.component}.svelte`),'utf8');
+ const second=emitSvelteLibrary({output});
+ assert.equal(second.components.flatMap(x=>x.semanticVariants).length,66);
+ assert.equal(fs.readFileSync(path.join(output,`components/${dialogLayer.component}.svelte`),'utf8'),source);
+ assert.match(source,/<button bind:this=\{dialogTrigger\} type="button" data-kumo-component="Dialog" data-kumo-part="trigger" aria-haspopup="dialog"/);
+ assert.match(source,/<div use:portal role="dialog" tabindex="-1" bind:this=\{dialogContent\}>/);
+ assert.match(source,/function portal\(node: HTMLElement\) \{ document\.body\.appendChild\(node\); return \{ destroy\(\) \{ node\.remove\(\); \} \}; \}/);
+ assert.match(source,/queueMicrotask\(\(\) => dialogTrigger\?\.focus\(\)\)/);
+ assert.match(source,/\$effect\(\(\) => \{ if \(currentDialogOpen && dialogContent\) queueMicrotask\(\(\) => dialogContent\?\.focus\(\)\); \}\)/);
+ assert.doesNotMatch(source,/model\.component\s*===?\s*["']dialog["']|@html|innerHTML|dispatchEvent/);
+ const compiled=compile(source,{filename:'dialog.svelte',generate:'server'});
+ const target=path.join(build,'dialog.mjs');fs.writeFileSync(target,compiled.js.code);
+ const Dialog=(await import(pathToFileURL(target)+`?${Date.now()}`)).default;
+ const html=render(Dialog,{props:{triggerText:'Open settings',title:'Settings'}}).body.replace(/<!--[\s\S]*?-->/g,'');
+ assert.match(html,/^<button type="button" data-kumo-component="Dialog" data-kumo-part="trigger" aria-haspopup="dialog">Open settings<\/button>$/);
+ assert.doesNotMatch(html,/role="dialog"/);
+});
+
 test('resolution receipt canonically binds capability and generated manifest hashes',()=>{
  const receiptPath=path.resolve('proof/dx/conformance/diagnostics/semantic-emitter-svelte-resolution.json');
  const receipt=JSON.parse(fs.readFileSync(receiptPath,'utf8'));

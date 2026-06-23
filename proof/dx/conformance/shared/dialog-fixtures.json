@@ -1,0 +1,284 @@
+{
+  "schemaVersion": "kumo.dialog-fixtures/v1",
+  "plans": [
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "dialog",
+      "vector": "closed-trigger",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/dialog.json",
+        "sha256": "43cc64bb1064120c087d913d4aa8aeaeb5ae5d7311c9daa34927f55e7dde1ecd",
+        "vectorSha256": "0ca8c64b23e67ad06ccbc334da8982cf87907734d32aee013edd7797da2f5449"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Dialog.Root",
+        "props": {},
+        "children": [
+          {
+            "kind": "component",
+            "ref": "Dialog.Trigger",
+            "props": {},
+            "children": [
+              {
+                "kind": "text",
+                "value": "Open settings"
+              }
+            ]
+          },
+          {
+            "kind": "component",
+            "ref": "Dialog",
+            "props": {},
+            "children": [
+              {
+                "kind": "component",
+                "ref": "Dialog.Title",
+                "props": {},
+                "children": [
+                  {
+                    "kind": "text",
+                    "value": "Settings"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "setup": [],
+      "actions": [],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "dom",
+          "path": "descendants",
+          "name": "descendants"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "button",
+            "attributes": {
+              "includes": {
+                "data-kumo-component": "Dialog",
+                "data-kumo-part": "trigger"
+              }
+            },
+            "text": "Open settings"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "descendants",
+          "expected": [
+            {
+              "selector": "[role=dialog]",
+              "count": 0
+            }
+          ]
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "dialog-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "ef2e4fcb37b9c4a70cb7811bd84b9c5bba63ca0b4babe658d38a90dcd23fcd09"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "dialog",
+      "vector": "open-and-close",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/dialog.json",
+        "sha256": "43cc64bb1064120c087d913d4aa8aeaeb5ae5d7311c9daa34927f55e7dde1ecd",
+        "vectorSha256": "d93e96119c22556a2b37340ac0bcdfc39f642e17f1a0a54ef015a6a5a81c72fd"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Dialog.Root",
+        "props": {},
+        "children": [
+          {
+            "kind": "component",
+            "ref": "Dialog.Trigger",
+            "props": {},
+            "children": [
+              {
+                "kind": "text",
+                "value": "Open"
+              }
+            ]
+          },
+          {
+            "kind": "component",
+            "ref": "Dialog",
+            "props": {
+              "size": "sm"
+            },
+            "children": [
+              {
+                "kind": "component",
+                "ref": "Dialog.Title",
+                "props": {},
+                "children": [
+                  {
+                    "kind": "text",
+                    "value": "Confirm"
+                  }
+                ]
+              },
+              {
+                "kind": "component",
+                "ref": "Dialog.Description",
+                "props": {},
+                "children": [
+                  {
+                    "kind": "text",
+                    "value": "Continue?"
+                  }
+                ]
+              },
+              {
+                "kind": "component",
+                "ref": "Dialog.Close",
+                "props": {},
+                "children": [
+                  {
+                    "kind": "text",
+                    "value": "Cancel"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "setup": [],
+      "actions": [
+        {
+          "type": "click",
+          "selector": "button",
+          "checkpoint": {
+            "root": {
+              "tag": "button"
+            },
+            "descendants": [
+              {
+                "selector": "[role=dialog]",
+                "count": 1
+              }
+            ]
+          }
+        },
+        {
+          "type": "click",
+          "selector": "[data-kumo-part=close]",
+          "scope": "document"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "button"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "open": false
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "open:true",
+            "open:false"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "button"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "dialog-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "2185711773bbdca97261080aa4efe8fc8f0fcd5c9ead3cff115092163f92508c"
+    }
+  ],
+  "digest": "47c0c4e75f3d81089dcc660e248e933775e2b824b232e2298218bd8674bd0e3f"
+}

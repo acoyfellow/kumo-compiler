@@ -5,7 +5,8 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 </script>
 
 <script setup lang="ts">
-import { computed, useAttrs, useSlots } from 'vue'
+defineOptions({ inheritAttrs: false })
+import { computed, getCurrentInstance, nextTick, ref, useAttrs, useSlots } from 'vue'
 interface DialogProps {
   "Close"?: unknown
   "Description"?: unknown
@@ -13,11 +14,35 @@ interface DialogProps {
   "Root"?: string
   "Title"?: unknown
   "Trigger"?: unknown
+  "open"?: boolean
+  "onOpenChange"?: unknown
   "role"?: unknown
   fixture?: unknown
   semanticContent?: unknown
 }
 const props = withDefaults(defineProps<DialogProps>(), {})
+type DialogFixtureNode = { export?: string; text?: string; children?: DialogFixtureNode[] }
+const instance = getCurrentInstance()
+const controlled = computed(() => Object.prototype.hasOwnProperty.call(instance?.vnode.props ?? {}, 'open'))
+const internalOpen = ref(false)
+const currentOpen = computed(() => controlled.value ? Boolean(props.open) : internalOpen.value)
+const triggerRef = ref<HTMLButtonElement | null>(null)
+const dialogRef = ref<HTMLElement | null>(null)
+const dialogFixture = computed(() => props.fixture as DialogFixtureNode | undefined)
+const fixtureChildren = (node?: DialogFixtureNode) => node?.children ?? []
+const fixturePart = (name: string) => fixtureChildren(dialogFixture.value).find(node => node.export === name)
+const contentRoot = computed(() => fixtureChildren(dialogFixture.value).find(node => node.export === 'root'))
+const contentPart = (name: string) => fixtureChildren(contentRoot.value).find(node => node.export === name)
+const partText = (node?: DialogFixtureNode): string => node ? String(node.text ?? '') + fixtureChildren(node).map(partText).join('') : ''
+const triggerText = computed(() => partText(fixturePart('.Trigger')))
+const titleText = computed(() => partText(contentPart('.Title')))
+const descriptionText = computed(() => partText(contentPart('.Description')))
+const closeText = computed(() => partText(contentPart('.Close')))
+function setOpen(next: boolean) {
+  if (!controlled.value) internalOpen.value = next
+  props.onOpenChange?.(next)
+  nextTick(() => next ? dialogRef.value?.focus() : triggerRef.value?.focus())
+}
 const slots = useSlots()
 const styles: Record<string,string> = {}
 const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
@@ -29,5 +54,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;role&quot;) &amp;&amp; semanticEqual(semanticValues.role, &quot;dialog&quot;) &amp;&amp; semanticEqual(fixture, {&quot;export&quot;:&quot;.Root&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;export&quot;:&quot;.Trigger&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;text&quot;:&quot;Open settings&quot;}]},{&quot;export&quot;:&quot;root&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;export&quot;:&quot;.Title&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;text&quot;:&quot;Settings&quot;}]}]}]})"><button data-kumo-component="Dialog" data-kumo-part="trigger">{{ "Open settings" }}</button></template><template v-else><Teleport :to="&quot;document-body&quot;"><div data-kumo-layer="dialog"><div data-kumo-compound="dialog" :class="styles.root"><section data-kumo-part="dialog"><slot name="dialog"></slot></section></div></div></Teleport></template>
+  <button ref="triggerRef" type="button" data-kumo-component="Dialog" data-kumo-part="trigger" aria-haspopup="dialog" @click="setOpen(true)">{{ triggerText }}<Teleport v-if="currentOpen" to="body"><div ref="dialogRef" role="dialog" tabindex="-1"><h2 v-if="titleText">{{ titleText }}</h2><p v-if="descriptionText">{{ descriptionText }}</p><button v-if="closeText" type="button" data-kumo-part="close" @click="setOpen(false)">{{ closeText }}</button></div></Teleport></button>
 </template>
