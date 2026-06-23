@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "kumo.command-palette/v1",
+  "component": "command-palette",
+  "support": "supported",
+  "api": {
+    "compound": [
+      ".Root",
+      ".Input",
+      ".List",
+      ".Item",
+      ".HighlightedText"
+    ]
+  },
+  "highlightedText": {
+    "root": "span",
+    "rangeTag": "mark",
+    "ranges": "half-open [start,end]"
+  },
+  "palette": {
+    "root": "div",
+    "open": {
+      "initialHighlight": "first item",
+      "event": "highlight:<item>"
+    },
+    "input": {
+      "event": "value:<input>"
+    },
+    "navigate": {
+      "key": "ArrowDown",
+      "event": "highlight:<item>"
+    },
+    "dismiss": {
+      "key": "Escape",
+      "event": "open:false",
+      "focus": "none"
+    }
+  },
+  "unknowns": [
+    {
+      "field": "closedRootPlaceholder",
+      "status": "unknown",
+      "reason": "Closed root placeholder DOM is not asserted by the canonical contract."
+    },
+    {
+      "field": "selectionOnPlainEnter",
+      "status": "unknown",
+      "reason": "Plain-Enter selection semantics are not asserted by the canonical vectors."
+    },
+    {
+      "field": "ssrOpenPortal",
+      "status": "unknown",
+      "reason": "SSR open-portal behavior is not asserted by the canonical contract."
+    }
+  ],
+  "vectorIds": [
+    "highlighted-text",
+    "open-search-close"
+  ],
+  "provenance": {
+    "component": "command-palette",
+    "contractPath": "contracts/kumo.observable/v1/components/command-palette.json",
+    "contractDigest": "002e8d68fdb91b46f3b9081d6cba7c0eb4dffcff4ae5c02d18abf9c830bf1320",
+    "vectorIds": [
+      "highlighted-text",
+      "open-search-close"
+    ]
+  },
+  "capabilityDigest": "bf896da4cb6682d1e3c0ce3d738657be917cad1a5cfe503e5e52e2710e16367c"
+}
