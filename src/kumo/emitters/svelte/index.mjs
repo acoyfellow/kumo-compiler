@@ -154,7 +154,7 @@ function component(model,capabilities){
   let focusedIndex = $state(0);
   let tabButtons: HTMLButtonElement[] = $state([]);
   $effect(() => { const index = tabItems.findIndex(item => item.value === selectedTabValue); if (index >= 0) focusedIndex = index; });
-  function commitTab(index: number) { const item = tabItems[index]; if (!item) return; focusedIndex = index; if (!controlledTab) uncontrolledTabValue = item.value; onValueChange?.('value:' + String(item.value)); tabButtons[index]?.focus(); }
+  function commitTab(index: number) { const item = tabItems[index]; if (!item) return; focusedIndex = index; if (!controlledTab) uncontrolledTabValue = item.value; onValueChange?.(item.value); tabButtons[index]?.focus(); }
   function handleTabKey(event: KeyboardEvent, index: number) { if (event.key === 'ArrowRight') { event.preventDefault(); const next = Math.min(index + 1, tabItems.length - 1); focusedIndex = next; tabButtons[next]?.focus(); if (activateOnFocus) commitTab(next); return; } if (event.key === 'Enter' || event.key === ' ' || event.code === 'Space') { event.preventDefault(); commitTab(index); } }
 `:''}${radio?`  type RadioItem = { label: string; value: unknown; disabled?: boolean };
   type RadioFixture = { kind: 'radio-group'; legend: string; items: RadioItem[]; defaultValue?: unknown; value?: unknown; disabled?: boolean };
