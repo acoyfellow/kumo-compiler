@@ -1,0 +1,305 @@
+{
+  "schemaVersion": "kumo.date-picker-fixtures/v1",
+  "plans": [
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "date-picker",
+      "vector": "single-selected",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/date-picker.json",
+        "sha256": "46026f45480ab0c5d335b5c00590f41cdebe37d8f0c276449ef1fd2a6636eca2",
+        "vectorSha256": "f0c9e3085051695910c2cc48995c814baeac20a14d833f1976f74d5eb593dcf6"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "DatePicker",
+        "props": {
+          "mode": "single",
+          "selectedDate": "2025-01-15",
+          "defaultMonthDate": "2025-01-01",
+          "aria-label": "Choose date"
+        },
+        "children": []
+      },
+      "setup": [],
+      "actions": [],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "descendants",
+          "path": "descendants"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div",
+            "attributes": {
+              "includes": {
+                "aria-label": "Choose date"
+              }
+            }
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "descendants",
+          "expected": [
+            {
+              "selector": "table",
+              "count": 1,
+              "attributes": {
+                "includes": {
+                  "role": "grid"
+                }
+              }
+            },
+            {
+              "selector": "button",
+              "count": 37
+            }
+          ]
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "date-picker-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "descendant-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "6c7072e30dea2e455611dd839f33bf2455828a006c2e19f8ec17d44d70ad7ce7"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "date-picker",
+      "vector": "single-change",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/date-picker.json",
+        "sha256": "46026f45480ab0c5d335b5c00590f41cdebe37d8f0c276449ef1fd2a6636eca2",
+        "vectorSha256": "565bc38f14f550aaaf09673c373f1efd8acd2771b87819645a052e72b7e2ec7b"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "DatePicker",
+        "props": {
+          "mode": "single",
+          "defaultMonthDate": "2025-01-01"
+        },
+        "children": []
+      },
+      "setup": [],
+      "actions": [
+        {
+          "type": "click",
+          "selector": "[data-day=\"2025-01-20\"]"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "value": "2025-01-20"
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "change:2025-01-20"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "[data-day=\"2025-01-20\"]"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "date-picker-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "descendant-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "dbcec8864f96eb728d6cacf4a0921985588ac933c447d63f6971fcc632d8a68e"
+    },
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "date-picker",
+      "vector": "bounded-day",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/date-picker.json",
+        "sha256": "46026f45480ab0c5d335b5c00590f41cdebe37d8f0c276449ef1fd2a6636eca2",
+        "vectorSha256": "4d97466392251e18a854296707d8df141088fbb7c7897cd7d5397e7e36552056"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "DatePicker",
+        "props": {
+          "mode": "single",
+          "defaultMonthDate": "2025-01-01",
+          "disabledBeforeDate": "2025-01-10",
+          "disabledAfterDate": "2025-01-20"
+        },
+        "children": []
+      },
+      "setup": [],
+      "actions": [
+        {
+          "type": "click",
+          "selector": "[data-day=\"2025-01-05\"]"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "div"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "value": null,
+            "disabledBefore": true,
+            "disabledAfter": true
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": []
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "none"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "date-picker-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "descendant-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "59ee214e82a2529803ae3b9f0344f1493dd9206cb788e9c8f41039b17c210abd"
+    }
+  ],
+  "digest": "e7326e29f5b50cdb9d8bab5de3f18a06ad043dfc8e76fea8c625baa7d8af4217"
+}

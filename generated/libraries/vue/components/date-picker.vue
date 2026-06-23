@@ -5,7 +5,8 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 </script>
 
 <script setup lang="ts">
-import { computed, useAttrs, useSlots } from 'vue'
+defineOptions({ inheritAttrs: false })
+import { computed, getCurrentInstance, ref, useAttrs, useSlots } from 'vue'
 interface DatePickerProps {
   "aria-label"?: string
   "fromDate"?: unknown
@@ -14,12 +15,48 @@ interface DatePickerProps {
   "reactDayPickerProps"?: unknown
   "selected"?: unknown
   "toDate"?: unknown
-  "defaultMonthDate"?: unknown
-  "selectedDate"?: unknown
+  "ariaLabel"?: string
+  "selectedDate"?: string
+  "defaultMonthDate"?: string
+  "disabledBeforeDate"?: string
+  "disabledAfterDate"?: string
   fixture?: unknown
   semanticContent?: unknown
 }
 const props = withDefaults(defineProps<DatePickerProps>(), {})
+type CalendarDay = { iso: string; day: number }
+const instance = getCurrentInstance()
+const controlled = computed(() => Object.prototype.hasOwnProperty.call(instance?.vnode.props ?? {}, 'selectedDate'))
+const internalSelectedDate = ref(props.selectedDate)
+const selectedDate = computed(() => controlled.value ? props.selectedDate : internalSelectedDate.value)
+const padDatePart = (value: number) => String(value).padStart(2, '0')
+const isoDate = (date: Date) => `${String(date.getUTCFullYear()).padStart(4, '0')}-${padDatePart(date.getUTCMonth() + 1)}-${padDatePart(date.getUTCDate())}`
+const parseDate = (value: unknown, fallback: string) => {
+  const match = typeof value === 'string' && /^([0-9]{4})-([0-9]{2})-([0-9]{2})$/.exec(value)
+  if (!match) return new Date(fallback + 'T00:00:00.000Z')
+  const date = new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3])))
+  return Number.isNaN(date.getTime()) ? new Date(fallback + 'T00:00:00.000Z') : date
+}
+const initialMonth = parseDate(props.defaultMonthDate, '2025-01-01')
+const monthDate = ref(new Date(Date.UTC(initialMonth.getUTCFullYear(), initialMonth.getUTCMonth(), 1)))
+const calendarDays = computed<CalendarDay[]>(() => {
+  const first = monthDate.value
+  const start = new Date(Date.UTC(first.getUTCFullYear(), first.getUTCMonth(), 1 - first.getUTCDay()))
+  const daysInMonth = new Date(Date.UTC(first.getUTCFullYear(), first.getUTCMonth() + 1, 0)).getUTCDate()
+  const count = Math.ceil((first.getUTCDay() + daysInMonth) / 7) * 7
+  return Array.from({ length: count }, (_, index) => {
+    const date = new Date(start.getTime() + index * 86400000)
+    return { iso: isoDate(date), day: date.getUTCDate() }
+  })
+})
+const calendarRows = computed(() => Array.from({ length: calendarDays.value.length / 7 }, (_, row) => calendarDays.value.slice(row * 7, row * 7 + 7)))
+function isDisabled(iso: string) { return Boolean((props.disabledBeforeDate && iso < props.disabledBeforeDate) || (props.disabledAfterDate && iso > props.disabledAfterDate)) }
+function changeMonth(offset: number) { monthDate.value = new Date(Date.UTC(monthDate.value.getUTCFullYear(), monthDate.value.getUTCMonth() + offset, 1)) }
+function selectDay(iso: string) {
+  if (isDisabled(iso)) return
+  if (!controlled.value) internalSelectedDate.value = iso
+  props.onChange?.(iso)
+}
 const slots = useSlots()
 const styles: Record<string,string> = {}
 const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
@@ -31,5 +68,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;ariaLabel&quot;) &amp;&amp; semanticEqual(semanticValues.ariaLabel, &quot;Choose date&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;defaultMonthDate&quot;) &amp;&amp; semanticEqual(semanticValues.defaultMonthDate, &quot;2025-01-01&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;mode&quot;) &amp;&amp; semanticEqual(semanticValues.mode, &quot;single&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;selectedDate&quot;) &amp;&amp; semanticEqual(semanticValues.selectedDate, &quot;2025-01-15&quot;)"><div aria-label="Choose date"><table role="grid"></table><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button><button></button></div></template><template v-else><Teleport :to="&quot;document-body&quot;"><div data-kumo-layer="date-picker"><div data-kumo-compound="date-picker" :class="styles.root"><section data-kumo-part="date-picker"><slot name="date-picker"></slot></section></div></div></Teleport></template>
+  <div v-bind="$attrs" :aria-label="props.ariaLabel"><button type="button" @click="changeMonth(-1)">Previous</button><button type="button" @click="changeMonth(1)">Next</button><table role="grid"><tbody><tr v-for="(row, rowIndex) in calendarRows" :key="rowIndex"><td v-for="day in row" :key="day.iso"><button type="button" :data-day="day.iso" :disabled="isDisabled(day.iso) || undefined" :aria-selected="day.iso === selectedDate || undefined" @click="selectDay(day.iso)">{{ day.day }}</button></td></tr></tbody></table></div>
 </template>

@@ -102,6 +102,26 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   assert.match(fieldSource, /<div><label for=\{props\.controlId as string \?\? "field-control"\}>\{props\.label as JSX\.Element\}<\/label>\{props\.children\}<\/div>/);
   assert.doesNotMatch(fieldSource, /nativeInputHandler|event\.currentTarget\.value/);
 
+  const datePickerSource = fs.readFileSync(path.join(first, 'date-picker.tsx'), 'utf8');
+  const datePickerDeclaration = fs.readFileSync(path.join(first, 'date-picker.d.ts'), 'utf8');
+  assert.match(datePickerSource, /const props = mergeProps/);
+  assert.match(datePickerSource, /type DatePickerDay = \{iso: string; day: number; disabled: boolean\}/);
+  assert.match(datePickerSource, /Date\.UTC\(monthDate\.getUTCFullYear\(\), monthDate\.getUTCMonth\(\), 1\)/);
+  assert.match(datePickerSource, /<div aria-label=\{props\["aria-label"\] as string\}>/);
+  assert.equal((datePickerSource.match(/<button/g) ?? []).length, 3);
+  assert.match(datePickerSource, /<table role="grid">/);
+  assert.match(datePickerSource, /data-day=\{day\.iso\} disabled=\{day\.disabled\}/);
+  assert.match(datePickerSource, /if \(day\.disabled\) return/);
+  assert.match(datePickerSource, /setUncontrolledSelectedDate\(day\.iso\)/);
+  assert.match(datePickerSource, /props\.onChange/);
+  assert.match(datePickerSource, /event\.currentTarget\.focus\(\)/);
+  assert.doesNotMatch(datePickerSource, /semanticEqual\(normalizedFixture|innerHTML|Intl/);
+  assert.match(datePickerDeclaration, /"selectedDate"\?: string;/);
+  assert.match(datePickerDeclaration, /"defaultMonthDate"\?: string;/);
+  assert.match(datePickerDeclaration, /"disabledBeforeDate"\?: string;/);
+  assert.match(datePickerDeclaration, /"disabledAfterDate"\?: string;/);
+  assert.match(datePickerDeclaration, /"onChange"\?: \(value: string\) => void;/);
+
   const autocompleteSource = fs.readFileSync(path.join(first, 'autocomplete.tsx'), 'utf8');
   assert.match(autocompleteSource, /const props = mergeProps/);
   assert.match(autocompleteSource, /<input ref=\{autocompleteInput\} placeholder=\{autocompleteInputGroup\(\)\.props\.placeholder as string\}/);
@@ -315,6 +335,20 @@ test('Solid SSR renders every compiled semantic predicate through canonical mark
     assert.equal((html.match(/<button/g) ?? []).length, count);
     assert.equal(html.includes('aria-label="Page number"'), hasInput);
   }
+
+  const datePickerItem = result.components.find(item => item.component === 'date-picker');
+  const datePickerModule = await import(path.join(build, datePickerItem.source.replace(/tsx$/, 'js')) + `?datePicker=${Date.now()}`);
+  const datePickerHtml = renderToString(() => datePickerModule.DatePicker({defaultMonthDate:'2025-01-01', selectedDate:'2025-01-15', 'aria-label':'Choose date'}));
+  assert.equal((datePickerHtml.match(/<button/g) ?? []).length, 37);
+  assert.match(datePickerHtml, /^<div aria-label="Choose date"><button/);
+  assert.match(datePickerHtml, /<table role="grid">/);
+  assert.match(datePickerHtml, /data-day="2024-12-29"/);
+  assert.match(datePickerHtml, /data-day="2025-02-01"/);
+  const boundedDatePickerHtml = renderToString(() => datePickerModule.DatePicker({defaultMonthDate:'2025-01-01', disabledBeforeDate:'2025-01-10', disabledAfterDate:'2025-01-20'}));
+  assert.match(boundedDatePickerHtml, /data-day="2025-01-05" disabled/);
+  assert.match(boundedDatePickerHtml, /data-day="2025-01-20"[^>]*>20<\/button>/);
+  assert.doesNotMatch(boundedDatePickerHtml.match(/<button[^>]*data-day="2025-01-20"[^>]*>/)?.[0] ?? '', /disabled/);
+  assert.match(boundedDatePickerHtml, /data-day="2025-01-21" disabled/);
 
   const toastyItem = result.components.find(item => item.component === 'toasty');
   const toastyModule = await import(path.join(build, toastyItem.source.replace(/tsx$/, 'js')) + `?toasty=${Date.now()}`);

@@ -62,6 +62,31 @@ test('Svelte SSR renders all 66 semantic variants through canonical root and des
  assert.equal(manifest.components.flatMap(x=>x.unresolvedSemanticOperations).length,0);
 });
 
+test('supported date-picker lowers a deterministic complete-week UTC grid',async t=>{
+ const build=fs.mkdtempSync(path.join(os.tmpdir(),'kumo-svelte-date-picker-'));
+ t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+ fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
+ emitSvelteLibrary({output});
+ const source=fs.readFileSync(path.join(output,'components/date-picker.svelte'),'utf8');
+ assert.match(source,/\$derived\.by/);
+ assert.match(source,/role="grid"/);
+ assert.match(source,/data-day=\{day\.iso\}/);
+ assert.doesNotMatch(source,/@html|innerHTML|selectedDate\?:|defaultMonthDate\?:|disabledBeforeDate\?:|disabledAfterDate\?:/);
+ const compiled=compile(source,{filename:'date-picker.svelte',generate:'server'});
+ const target=path.join(build,'date-picker.mjs');fs.writeFileSync(target,compiled.js.code);
+ const DatePicker=(await import(pathToFileURL(target)+`?${Date.now()}`)).default;
+ const html=render(DatePicker,{props:{defaultMonthDate:'2025-01-15','aria-label':'Calendar',disabledBeforeDate:'2025-01-10',disabledAfterDate:'2025-01-20'}}).body;
+ assert.match(html,/aria-label="Calendar"/);
+ assert.match(html,/role="grid"/);
+ assert.equal((html.match(/<button\b/g)??[]).length,37);
+ assert.equal((html.match(/data-day=/g)??[]).length,35);
+ assert.match(html,/data-day="2024-12-29"[^>]*disabled/);
+ assert.match(html,/data-day="2025-01-10"/);
+ assert.doesNotMatch(html,/data-day="2025-01-10"[^>]*disabled/);
+ assert.match(html,/data-day="2025-01-21"[^>]*disabled/);
+ assert.match(html,/data-day="2025-02-01"[^>]*disabled/);
+});
+
 test('supported toggle-control bindings lower to native Svelte 5 state and initial SSR',async t=>{
  const build=fs.mkdtempSync(path.join(os.tmpdir(),'kumo-svelte-toggle-'));
  t.after(()=>fs.rmSync(build,{recursive:true,force:true}));

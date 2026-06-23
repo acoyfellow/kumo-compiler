@@ -14,8 +14,12 @@
   selected?: number;
   toDate?: number;
   "date-picker"?: Snippet;
-  onChange?: (value: unknown) => void;
   children?: Snippet;
+  selectedDate: string | undefined;
+  defaultMonthDate: string | undefined;
+  disabledBeforeDate: string | undefined;
+  disabledAfterDate: string | undefined;
+  onChange?: (value: string) => void;
   styles?: Record<string, string>;
   fixture?: unknown;
   [key: string]: unknown;
@@ -30,6 +34,10 @@
     selected = undefined,
     toDate = undefined,
     date_picker = undefined,
+    selectedDate = undefined,
+    defaultMonthDate = undefined,
+    disabledBeforeDate = undefined,
+    disabledAfterDate = undefined,
     children,
     fixture = undefined,
     __consumerContent = undefined,
@@ -38,6 +46,22 @@
   }: Props = $props();
   let state_displayMonth = $state("from selected/defaultMonth/current date");
   let state_selected = $state("from selected prop");
+  type DatePickerDay = { iso: string; day: number; disabled: boolean };
+  const initialDatePickerMonth = String(defaultMonthDate ?? selectedDate ?? '1970-01-01').slice(0, 7) + '-01';
+  let datePickerMonth = $state(initialDatePickerMonth);
+  let uncontrolledDatePickerValue = $state(selectedDate);
+  const currentDatePickerValue = $derived(selectedDate !== undefined ? selectedDate : uncontrolledDatePickerValue);
+  let datePickerButtons: Record<string, HTMLButtonElement> = $state({});
+  const datePickerDays = $derived.by(() => {
+    const month = new Date(datePickerMonth + 'T00:00:00.000Z');
+    const start = new Date(month); start.setUTCDate(1 - start.getUTCDay());
+    const end = new Date(Date.UTC(month.getUTCFullYear(), month.getUTCMonth() + 1, 0));
+    const count = Math.ceil((start.getUTCDay() + end.getUTCDate()) / 7) * 7;
+    return Array.from({ length: count }, (_, index): DatePickerDay => { const date = new Date(start); date.setUTCDate(start.getUTCDate() + index); const iso = date.toISOString().slice(0, 10); return { iso, day: date.getUTCDate(), disabled: Boolean((disabledBeforeDate !== undefined && iso < disabledBeforeDate) || (disabledAfterDate !== undefined && iso > disabledAfterDate)) }; });
+  });
+  const datePickerWeeks = $derived(Array.from({ length: datePickerDays.length / 7 }, (_, index) => datePickerDays.slice(index * 7, index * 7 + 7)));
+  function moveDatePickerMonth(delta: number) { const date = new Date(datePickerMonth + 'T00:00:00.000Z'); date.setUTCMonth(date.getUTCMonth() + delta); datePickerMonth = date.toISOString().slice(0, 7) + '-01'; }
+  function selectDatePickerDay(day: DatePickerDay) { if (day.disabled) return; if (selectedDate === undefined) uncontrolledDatePickerValue = day.iso; onChange?.(day.iso); datePickerButtons[day.iso]?.focus(); }
 
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "aria-label": aria_label, "fromDate": fromDate, "mode": mode, "onChange": onChange, "reactDayPickerProps": reactDayPickerProps, "selected": selected, "toDate": toDate, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
@@ -59,53 +83,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if Object.prototype.hasOwnProperty.call(semanticValues, "aria-label") && semanticEqual(semanticValues["aria-label"], "Choose date") && Object.prototype.hasOwnProperty.call(semanticValues, "defaultMonthDate") && semanticEqual(semanticValues.defaultMonthDate, "2025-01-01") && Object.prototype.hasOwnProperty.call(semanticValues, "mode") && semanticEqual(semanticValues.mode, "single") && Object.prototype.hasOwnProperty.call(semanticValues, "selectedDate") && semanticEqual(semanticValues.selectedDate, "2025-01-15")}
-  <div aria-label={"Choose date"}>
-    <table role={"grid"}></table>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-  </div>
-{:else}
-{#if browser}
-  <div data-kumo-portal-target={"document-body"} data-kumo-layer="date-picker">
-    <section data-kumo-part="date-picker">
-      {#if date_picker}{@render date_picker()}{/if}
-    </section>
-  </div>
-{/if}
-{/if}
+<div {...rest} aria-label={rest["aria-label"] as string}><button type="button" onclick={() => moveDatePickerMonth(-1)}>Previous</button><button type="button" onclick={() => moveDatePickerMonth(1)}>Next</button><table role="grid"><tbody>{#each datePickerWeeks as week (week[0].iso)}<tr>{#each week as day (day.iso)}<td><button bind:this={datePickerButtons[day.iso]} type="button" data-day={day.iso} disabled={day.disabled} aria-selected={currentDatePickerValue === day.iso} onclick={() => selectDatePickerDay(day)}>{day.day}</button></td>{/each}</tr>{/each}</tbody></table></div>

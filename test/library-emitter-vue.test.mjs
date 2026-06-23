@@ -96,6 +96,32 @@ test('Vue SSR renders all 66 semantic variants through canonical root and descen
   assert.equal(rendered,66); assert.equal(manifest.components.flatMap(x=>x.unresolvedSemanticOperations).length,0);
 });
 
+test('Vue date-picker capability lowers a complete-week January grid with canonical bounds', async t => {
+  const library=loadLibrary(), capability=library.dateRange.observableImplementation.datePicker;
+  assert.equal(capability.support,'supported');
+  const build=fs.mkdtempSync(path.resolve('.kumo-vue-date-picker-')); t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+  const manifest=generateVueLibrary(output), model=library.models.find(model=>model.component==='date-picker');
+  const entry=manifest.components.find(entry=>entry.modelDigest===model.modelDigest);
+  const source=fs.readFileSync(path.join(output,entry.file),'utf8');
+  assert.match(source,/<div v-bind="\$attrs" :aria-label="props\.ariaLabel">/);
+  assert.match(source,/<table role="grid">/);
+  assert.match(source,/:data-day="day\.iso"/);
+  assert.match(source,/:disabled="isDisabled\(day\.iso\) \|\| undefined"/);
+  assert.doesNotMatch(source,/Intl|innerHTML|@html|dispatchEvent|new Event/);
+  const Component=await compileSSRComponent(entry,build);
+  const html=await renderToString(createSSRApp({setup:()=>()=>h(Component,{ariaLabel:'Calendar',disabledBeforeDate:'2025-01-10',disabledAfterDate:'2025-01-20',selectedDate:'2025-01-15'})}));
+  assert.match(html,/^<div aria-label="Calendar">/);
+  assert.equal((html.match(/<button/g)??[]).length,37);
+  assert.equal((html.match(/data-day=/g)??[]).length,35);
+  assert.match(html,/data-day="2024-12-29" disabled/);
+  assert.match(html,/data-day="2025-01-10"/);
+  assert.doesNotMatch(html,/data-day="2025-01-10" disabled/);
+  assert.match(html,/data-day="2025-01-15" aria-selected="true"/);
+  assert.match(html,/data-day="2025-01-21" disabled/);
+  assert.match(html,/data-day="2025-02-01" disabled/);
+  assert.equal(manifest.components.flatMap(x=>x.semanticVariants).length,66);
+});
+
 test('Vue sensitive-input capability lowers deterministic masked, editable, and copy markup', async t => {
   const library=loadLibrary(), capability=library.sensitiveInput;
   assert.equal(capability.support,'supported');
