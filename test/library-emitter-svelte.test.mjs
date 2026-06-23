@@ -364,6 +364,35 @@ test('supported combobox collection lowers canonical compound fixture determinis
  assert.doesNotMatch(html,/role="listbox"|role="option"/);
 });
 
+test('supported autocomplete collection lowers canonical compound fixture deterministically',async t=>{
+ const build=fs.mkdtempSync(path.join(os.tmpdir(),'kumo-svelte-autocomplete-'));
+ t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
+ fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
+ const {autocompleteCollection}=loadLibrary();
+ const first=emitSvelteLibrary({output});
+ assert.equal(first.components.flatMap(x=>x.semanticVariants).length,66);
+ const source=fs.readFileSync(path.join(output,`components/${autocompleteCollection.component}.svelte`),'utf8');
+ const second=emitSvelteLibrary({output});
+ assert.equal(second.components.flatMap(x=>x.semanticVariants).length,66);
+ assert.equal(fs.readFileSync(path.join(output,`components/${autocompleteCollection.component}.svelte`),'utf8'),source);
+ assert.match(source,/^<!--[\s\S]*?<input bind:this=\{autocompleteInput\} role="combobox"/);
+ assert.match(source,/<ul role="listbox">/);
+ assert.match(source,/<li role="option" data-value=\{item\.value\}/);
+ assert.match(source,/let autocompleteOpen = \$state\(false\)/);
+ assert.match(source,/let autocompleteHighlightedIndex = \$state\(-1\)/);
+ assert.match(source,/let autocompleteValue = \$state\(''\)/);
+ assert.match(source,/oninput=\{handleAutocompleteInput\} onkeydown=\{handleAutocompleteKey\}/);
+ assert.doesNotMatch(source,/function\s+\w+\([^)]*\w+\?:/);
+ assert.doesNotMatch(source,/model\.component\s*===?\s*["']autocomplete["']|@html|innerHTML|dispatchEvent/);
+ const fixture=JSON.parse(fs.readFileSync(path.resolve('contracts/kumo.observable/v1/components/autocomplete.json'),'utf8')).vectors[0].fixture;
+ const compiled=compile(source,{filename:'autocomplete.svelte',generate:'server'});
+ const target=path.join(build,'autocomplete.mjs');fs.writeFileSync(target,compiled.js.code);
+ const Autocomplete=(await import(pathToFileURL(target)+`?${Date.now()}`)).default;
+ const html=render(Autocomplete,{props:{fixture}}).body.replace(/<!--[\s\S]*?-->/g,'');
+ assert.match(html,/^<input role="combobox" aria-expanded="false" placeholder="Fruit" value=""\/?>(?:<\/input>)?$/);
+ assert.doesNotMatch(html,/role="listbox"|role="option"/);
+});
+
 test('supported sensitive-input lowers generically and deterministically',()=>{
  const {sensitiveInput}=loadLibrary();
  const first=emitSvelteLibrary({output});

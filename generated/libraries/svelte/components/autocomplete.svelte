@@ -12,6 +12,8 @@
   root?: Snippet;
   collection?: Snippet;
   children?: Snippet;
+  onOpenChange?: (value: boolean) => void;
+  onValueChange?: (value: string) => void;
   styles?: Record<string, string>;
   fixture?: unknown;
   [key: string]: unknown;
@@ -23,6 +25,8 @@
     InputGroup = undefined,
     root = undefined,
     collection = undefined,
+    onOpenChange = undefined,
+    onValueChange = undefined,
     children,
     fixture = undefined,
     __consumerContent = undefined,
@@ -34,6 +38,17 @@
   let state_open = $state("controlled open or Base UI default closed");
   let state_value = $state("value, otherwise defaultValue");
 
+  type AutocompleteFixtureNode = { export?: string; text?: string; props?: Record<string, unknown>; children?: AutocompleteFixtureNode[] };
+  type AutocompleteFixture = { export?: string; children?: AutocompleteFixtureNode[] };
+  function autocompleteText(node: AutocompleteFixtureNode | undefined): string { return node ? String(node.text ?? '') + (node.children ?? []).map(autocompleteText).join('') : ''; }
+  const autocompleteFixture = $derived.by(() => { const root = fixture as AutocompleteFixture | undefined; const inputGroup = root?.children?.find(node => node.export === '.InputGroup'); const content = root?.children?.find(node => node.export === '.Content'); const list = content?.children?.find(node => node.export === '.List'); return { placeholder: inputGroup?.props?.placeholder as string | undefined, items: (list?.children ?? []).filter(node => node.export === '.Item').map(node => ({ value: String(node.props?.value ?? ''), label: autocompleteText(node) })) }; });
+  let autocompleteOpen = $state(false);
+  let autocompleteHighlightedIndex = $state(-1);
+  let autocompleteValue = $state('');
+  let autocompleteInput: HTMLInputElement | undefined = $state();
+  function setAutocompleteOpen(next: boolean) { if (autocompleteOpen === next) return; autocompleteOpen = next; onOpenChange?.(next); }
+  function handleAutocompleteInput(event: Event) { autocompleteValue = (event.currentTarget as HTMLInputElement).value; onValueChange?.(autocompleteValue); if (autocompleteValue.length > 0) setAutocompleteOpen(true); }
+  function handleAutocompleteKey(event: KeyboardEvent) { if (event.key === 'ArrowDown') { event.preventDefault(); if (!autocompleteOpen) setAutocompleteOpen(true); autocompleteHighlightedIndex = Math.min(autocompleteHighlightedIndex + 1, autocompleteFixture.items.length - 1); return; } if (event.key === 'Enter' && autocompleteHighlightedIndex >= 0) { event.preventDefault(); const item = autocompleteFixture.items[autocompleteHighlightedIndex]; if (!item) return; autocompleteValue = item.value; onValueChange?.(item.value); setAutocompleteOpen(false); autocompleteInput?.focus(); } }
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "compound": compound, "Content": Content, "InputGroup": InputGroup, "root": root, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;
@@ -56,9 +71,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<section data-kumo-part="root">
-  {#if root}{@render root()}{/if}
-</section>
-<section data-kumo-part="collection">
-  {#if collection}{@render collection()}{/if}
-</section>
+<input bind:this={autocompleteInput} role="combobox" aria-expanded={autocompleteOpen} placeholder={autocompleteFixture.placeholder} value={autocompleteValue} oninput={handleAutocompleteInput} onkeydown={handleAutocompleteKey}>{#if autocompleteOpen}<ul role="listbox">{#each autocompleteFixture.items as item, index (item.value)}<li role="option" data-value={item.value} aria-selected={autocompleteHighlightedIndex === index}>{item.label}</li>{/each}</ul>{/if}

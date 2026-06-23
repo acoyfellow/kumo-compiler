@@ -5,16 +5,49 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 </script>
 
 <script setup lang="ts">
-import { computed, useAttrs, useSlots } from 'vue'
+defineOptions({ inheritAttrs: false })
+import { computed, nextTick, ref, useAttrs, useSlots } from 'vue'
 interface AutocompleteProps {
   "compound"?: unknown
   "Content"?: unknown
   "InputGroup"?: unknown
   "root"?: unknown
+  "onOpenChange"?: unknown
+  "onValueChange"?: unknown
   fixture?: unknown
   semanticContent?: unknown
 }
 const props = withDefaults(defineProps<AutocompleteProps>(), {})
+type AutocompleteFixtureNode = { export?: string; text?: string; props?: Record<string, unknown>; children?: AutocompleteFixtureNode[] }
+const autocompleteFixture = computed(() => props.fixture as AutocompleteFixtureNode | undefined)
+const fixtureChildren = (node?: AutocompleteFixtureNode) => node?.children ?? []
+const fixturePart = (node: AutocompleteFixtureNode | undefined, name: string) => fixtureChildren(node).find(child => child.export === name)
+const inputGroup = computed(() => fixturePart(autocompleteFixture.value, '.InputGroup'))
+const content = computed(() => fixturePart(autocompleteFixture.value, '.Content'))
+const list = computed(() => fixturePart(content.value, '.List'))
+const options = computed(() => fixtureChildren(list.value).filter(item => item.export === '.Item'))
+const partText = (node?: AutocompleteFixtureNode): string => node ? String(node.text ?? '') + fixtureChildren(node).map(partText).join('') : ''
+const inputRef = ref<HTMLInputElement | null>(null)
+const open = ref(false)
+const highlightedIndex = ref(-1)
+const value = ref('')
+function setOpen(next: boolean) { open.value = next; if (!next) highlightedIndex.value = -1; props.onOpenChange?.(next) }
+function handleInput(event: Event) {
+  value.value = (event.currentTarget as HTMLInputElement).value
+  props.onValueChange?.(value.value)
+  if (!open.value) setOpen(true)
+}
+function handleKey(event: KeyboardEvent) {
+  if (event.key === 'ArrowDown') { event.preventDefault(); highlightedIndex.value = options.value.length ? 0 : -1 }
+  else if (event.key === 'Enter' && open.value && highlightedIndex.value >= 0) {
+    event.preventDefault()
+    const selected = options.value[highlightedIndex.value]
+    value.value = String(selected?.props?.value ?? partText(selected))
+    props.onValueChange?.(value.value)
+    setOpen(false)
+    nextTick(() => inputRef.value?.focus())
+  }
+}
 const slots = useSlots()
 const styles: Record<string,string> = {}
 const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
@@ -26,5 +59,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <div data-kumo-compound="autocomplete" :class="styles.root"><section data-kumo-part="root"><slot name="root"></slot></section><section data-kumo-part="collection"><slot name="collection"></slot></section></div>
+  <input ref="inputRef" v-bind="$attrs" role="combobox" :placeholder="inputGroup?.props?.placeholder as string | undefined" :value="value" :aria-expanded="open" @input="handleInput" @keydown="handleKey" /><ul role="listbox" :hidden="!open"><li v-for="(item, index) in options" :key="String(item.props?.value ?? index)" role="option" :data-value="item.props?.value" :aria-selected="index === highlightedIndex">{{ partText(item) }}</li></ul>
 </template>

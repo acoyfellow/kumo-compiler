@@ -102,6 +102,20 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   assert.match(fieldSource, /<div><label for=\{props\.controlId as string \?\? "field-control"\}>\{props\.label as JSX\.Element\}<\/label>\{props\.children\}<\/div>/);
   assert.doesNotMatch(fieldSource, /nativeInputHandler|event\.currentTarget\.value/);
 
+  const autocompleteSource = fs.readFileSync(path.join(first, 'autocomplete.tsx'), 'utf8');
+  assert.match(autocompleteSource, /const props = mergeProps/);
+  assert.match(autocompleteSource, /<input ref=\{autocompleteInput\} placeholder=\{autocompleteInputGroup\(\)\.props\.placeholder as string\}/);
+  assert.match(autocompleteSource, /onInput=\{autocompleteOnInput\} onKeyDown=\{autocompleteKeyDown\}/);
+  assert.match(autocompleteSource, /<Show when=\{autocompleteOpen\(\)\} children=/);
+  assert.match(autocompleteSource, /<ul role="listbox"><For each=\{autocompleteItems\(\)\} children=/);
+  assert.match(autocompleteSource, /<li role="option" data-value=\{item\.value\}/);
+  assert.match(autocompleteSource, /if \(value\.length > 0 && !autocompleteOpen\(\)\) setAutocompleteOpen\(true\)/);
+  assert.match(autocompleteSource, /event\.key === "ArrowDown"/);
+  assert.match(autocompleteSource, /event\.key === "Enter"/);
+  assert.match(autocompleteSource, /props\.onOpenChange/);
+  assert.match(autocompleteSource, /props\.onValueChange/);
+  assert.doesNotMatch(autocompleteSource, /semanticEqual\(normalizedFixture/);
+
   const comboboxSource = fs.readFileSync(path.join(first, 'combobox.tsx'), 'utf8');
   assert.match(comboboxSource, /const props = mergeProps/);
   assert.match(comboboxSource, /<input ref=\{comboboxInput\} placeholder=\{comboboxTrigger\(\)\.props\.placeholder as string\}/);
@@ -235,6 +249,14 @@ test('Solid SSR renders every compiled semantic predicate through canonical mark
   }
   const library = loadLibrary();
   const {renderToString} = await import('solid-js/web');
+  const autocompleteItem = result.components.find(item => item.component === 'autocomplete');
+  const autocompleteModule = await import(path.join(build, autocompleteItem.source.replace(/tsx$/, 'js')) + `?autocomplete=${Date.now()}`);
+  const autocompleteContract = JSON.parse(fs.readFileSync(path.resolve('contracts/kumo.observable/v1/components/autocomplete.json')));
+  const autocompleteFixture = autocompleteContract.vectors[0].fixture;
+  const closedAutocomplete = renderToString(() => autocompleteModule.Autocomplete({fixture:autocompleteFixture}));
+  assert.match(closedAutocomplete, /^<input[^>]*placeholder="Fruit"/);
+  assert.doesNotMatch(closedAutocomplete, /role="listbox"|role="option"/);
+
   const comboboxItem = result.components.find(item => item.component === 'combobox');
   const comboboxModule = await import(path.join(build, comboboxItem.source.replace(/tsx$/, 'js')) + `?combobox=${Date.now()}`);
   const comboboxContract = JSON.parse(fs.readFileSync(path.resolve('contracts/kumo.observable/v1/components/combobox.json')));

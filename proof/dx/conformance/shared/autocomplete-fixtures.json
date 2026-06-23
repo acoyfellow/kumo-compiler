@@ -1,0 +1,179 @@
+{
+  "schemaVersion": "kumo.autocomplete-fixtures/v1",
+  "plans": [
+    {
+      "schemaVersion": "kumo.fixture-plan/v1",
+      "component": "autocomplete",
+      "vector": "filter-and-select",
+      "contract": {
+        "schemaVersion": "kumo.observable/v1",
+        "path": "contracts/kumo.observable/v1/components/autocomplete.json",
+        "sha256": "ce29ae0356d19738e364e22dfb06e1a518a374584e5f800ecc0fbbf6eb2d557f",
+        "vectorSha256": "245153f11e0530df3d17289f7c8fe5fd8f202567faca620e9baa5f4a4e7e5d6f"
+      },
+      "fixture": {
+        "kind": "component",
+        "ref": "Autocomplete",
+        "props": {
+          "items": [
+            "Apple",
+            "Banana"
+          ]
+        },
+        "children": [
+          {
+            "kind": "component",
+            "ref": "Autocomplete.InputGroup",
+            "props": {
+              "placeholder": "Fruit"
+            },
+            "children": []
+          },
+          {
+            "kind": "component",
+            "ref": "Autocomplete.Content",
+            "props": {},
+            "children": [
+              {
+                "kind": "component",
+                "ref": "Autocomplete.List",
+                "props": {},
+                "children": [
+                  {
+                    "kind": "component",
+                    "ref": "Autocomplete.Item",
+                    "props": {
+                      "value": "Apple"
+                    },
+                    "children": [
+                      {
+                        "kind": "text",
+                        "value": "Apple"
+                      }
+                    ]
+                  },
+                  {
+                    "kind": "component",
+                    "ref": "Autocomplete.Item",
+                    "props": {
+                      "value": "Banana"
+                    },
+                    "children": [
+                      {
+                        "kind": "text",
+                        "value": "Banana"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "setup": [],
+      "actions": [
+        {
+          "type": "focus",
+          "selector": "input"
+        },
+        {
+          "type": "type",
+          "selector": "input",
+          "text": "Ban",
+          "editMode": "append"
+        },
+        {
+          "type": "key",
+          "selector": "input",
+          "key": "ArrowDown"
+        },
+        {
+          "type": "key",
+          "selector": "input",
+          "key": "Enter"
+        }
+      ],
+      "probes": [
+        {
+          "kind": "dom",
+          "path": "root"
+        },
+        {
+          "kind": "state",
+          "path": "state"
+        },
+        {
+          "kind": "events",
+          "path": "events"
+        },
+        {
+          "kind": "focus",
+          "path": "focus"
+        },
+        {
+          "kind": "node-identity",
+          "path": "root"
+        }
+      ],
+      "assertions": [
+        {
+          "kind": "includes",
+          "probe": "dom",
+          "expected": {
+            "tag": "input"
+          }
+        },
+        {
+          "kind": "equals",
+          "probe": "state",
+          "expected": {
+            "value": "Apple",
+            "open": false
+          }
+        },
+        {
+          "kind": "sequence",
+          "probe": "events",
+          "expected": [
+            "value:B",
+            "open:true",
+            "value:Ba",
+            "value:Ban",
+            "value:Apple",
+            "open:false"
+          ]
+        },
+        {
+          "kind": "equals",
+          "probe": "focus",
+          "expected": "input"
+        },
+        {
+          "kind": "identity",
+          "probe": "node-identity",
+          "expected": "preserved"
+        }
+      ],
+      "capabilities": [
+        "autocomplete-fixture",
+        "trusted-actions",
+        "dom-probes",
+        "state-probes",
+        "event-probes",
+        "focus-probes",
+        "node-identity"
+      ],
+      "bundle": {
+        "entry": "client.js",
+        "viteConfig": "vite.config.mjs",
+        "files": {},
+        "headHtml": "",
+        "beforeAppHtml": "",
+        "buildEnv": {}
+      },
+      "digest": "c447fc167f8fcc25e8905493b18c8ef111cf49734ce34555d68de2c9fb8c276d"
+    }
+  ],
+  "digest": "172a622844cffacfabc6527ff4314b77bed9245256de7d884c05d626517d5549"
+}
