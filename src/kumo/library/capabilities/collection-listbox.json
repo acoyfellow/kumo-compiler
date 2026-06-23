@@ -63,6 +63,49 @@
       ]
     }
   ],
+  "observableImplementation": {
+    "select": {
+      "support": "supported",
+      "root": "div",
+      "trigger": {
+        "tag": "button",
+        "role": "combobox",
+        "haspopup": "listbox"
+      },
+      "pointer": {
+        "disabledSelectable": false,
+        "closesSingle": true
+      },
+      "keyboard": {
+        "keys": [
+          "ArrowDown",
+          "Home",
+          "End",
+          "Escape"
+        ],
+        "disabledSkipped": true,
+        "highlightScrolled": true,
+        "typeahead": "prefix"
+      },
+      "controlled": {
+        "valueAndOpenAuthoritative": true,
+        "dismissRequestsStillEmit": true
+      },
+      "multiple": {
+        "orderedUniqueObjects": true,
+        "staysOpen": true
+      },
+      "vectorIds": [
+        "closed-placeholder-ssr",
+        "pointer-open-select-disabled",
+        "keyboard-end-dismissal",
+        "keyboard-home-dismissal",
+        "keyboard-typeahead-dismissal",
+        "controlled-value-open-order",
+        "multiple-object-selection"
+      ]
+    }
+  },
   "collection": {
     "key": "consumer-supplied stable value; duplicate keys invalid",
     "order": "declaration or items-array order; filtering preserves relative order",
@@ -118,5 +161,5 @@
     "vendor callback ordering",
     "vendor dismissal policy"
   ],
-  "capabilityDigest": "9742f8f594aba288c1b47bccdca292cf12795b5fdd5d01399eb6da0975960462"
+  "capabilityDigest": "b870481b6ec58f7a72d7b75966983ba650683551f4856562dc7144a135656b56"
 }
