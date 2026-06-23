@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "kumo.input-group-composition/v1",
+  "component": "input-group",
+  "support": "supported",
+  "root": {
+    "tag": "div"
+  },
+  "slots": [
+    ".Addon",
+    ".Input",
+    ".Button",
+    ".Suffix"
+  ],
+  "label": {
+    "association": "label for grouped input",
+    "click": "focuses the grouped input"
+  },
+  "state": {
+    "values": "observable input values",
+    "tracked": "input value"
+  },
+  "focus": {
+    "targets": [
+      "input",
+      "button"
+    ]
+  },
+  "unknowns": [
+    {
+      "field": "inheritedVendorBehavior",
+      "status": "unknown",
+      "reason": "Vendor behavior beyond the asserted composition, label association, value tracking, and focus targets is not established by the canonical contract."
+    }
+  ],
+  "vectorIds": [
+    "composition",
+    "field-focus",
+    "disabled-error"
+  ],
+  "provenance": {
+    "component": "input-group",
+    "contractPath": "contracts/kumo.observable/v1/components/input-group.json",
+    "contractDigest": "8132f95d8159f27a104585a5a781a9230d374b8e0d3f08010a506237ec2b2d69",
+    "vectorIds": [
+      "composition",
+      "field-focus",
+      "disabled-error"
+    ]
+  },
+  "capabilityDigest": "918695fe85f6addac2e258d2e7c3a817338634826093dff4a22ce18916092484"
+}
