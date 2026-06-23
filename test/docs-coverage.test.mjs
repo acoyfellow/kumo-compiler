@@ -1,0 +1,10 @@
+import test from'node:test';
+import assert from'node:assert/strict';
+import{mkdtemp,cp,readFile,writeFile}from'node:fs/promises';
+import{tmpdir}from'node:os';
+import{join}from'node:path';
+import{createHash}from'node:crypto';
+import{buildDocsCoverage}from'../scripts/build-docs-coverage.mjs';
+const canonical=x=>Array.isArray(x)?`[${x.map(canonical).join(',')}]`:x&&typeof x==='object'?`{${Object.keys(x).filter(k=>x[k]!==undefined).sort().map(k=>`${JSON.stringify(k)}:${canonical(x[k])}`).join(',')}}`:JSON.stringify(x);
+test('docs coverage is receipt-derived, complete, and content-addressed',async()=>{const r=await buildDocsCoverage({build:false});assert.equal(r.componentReferenceCoverage.covered,41);assert.equal(r.componentReferenceCoverage.total,41);assert.equal(r.diataxis.covered,4);assert.deepEqual(Object.keys(r.diataxis.categories).sort(),['explanation','howTo','reference','tutorial']);const copy=structuredClone(r);delete copy.digest;assert.equal(r.digest,createHash('sha256').update(canonical(copy)).digest('hex'))});
+test('docs coverage fails closed when a generated component route is mutated',async()=>{const root=await mkdtemp(join(tmpdir(),'kumo-docs-'));for(const p of ['proof/readiness','src/kumo/library','generated/libraries','astro/dist'])await cp(p,join(root,p),{recursive:true});const path=join(root,'astro/dist/components/autocomplete/index.html'),html=await readFile(path,'utf8');await writeFile(path,html.replaceAll('Autocomplete','RemovedIdentity').replaceAll('autocomplete','removed-identity'));await assert.rejects(buildDocsCoverage({root,write:false,build:false}),/autocomplete identity missing/) });

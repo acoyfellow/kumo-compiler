@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kumo.docs-coverage/v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "status", "sources", "componentReferenceCoverage", "diataxis", "digest"],
+  "properties": {
+    "schemaVersion": {"const": "kumo.docs-coverage/v1"},
+    "status": {"const": "passed"},
+    "sources": {
+      "type": "object",
+      "required": ["readinessDigest", "libraryManifestDigest", "frameworkManifestDigests"],
+      "properties": {
+        "readinessDigest": {"pattern": "^[a-f0-9]{64}$"},
+        "libraryManifestDigest": {"pattern": "^[a-f0-9]{64}$"},
+        "frameworkManifestDigests": {"type": "object", "required": ["vue", "svelte", "solid"]}
+      }
+    },
+    "componentReferenceCoverage": {
+      "type": "object",
+      "required": ["covered", "total", "components"],
+      "properties": {
+        "covered": {"const": 41},
+        "total": {"const": 41},
+        "components": {"type": "array", "minItems": 41, "maxItems": 41}
+      }
+    },
+    "diataxis": {
+      "type": "object",
+      "required": ["covered", "total", "categories"],
+      "properties": {
+        "covered": {"const": 4},
+        "total": {"const": 4},
+        "categories": {"type": "object", "required": ["tutorial", "howTo", "reference", "explanation"]}
+      }
+    },
+    "digest": {"pattern": "^[a-f0-9]{64}$"}
+  }
+}
