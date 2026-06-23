@@ -234,8 +234,8 @@
     "fixtureSource": "proof/dx/conformance/shared/packed-fixtures.json"
   },
   "counts": {
-    "passed": 112,
-    "blocked": 12
+    "passed": 114,
+    "blocked": 10
   },
   "totalVectors": 124,
   "diagnostics": [],
@@ -2703,58 +2703,166 @@
     {
       "component": "sidebar",
       "vector": "desktop-expanded-compound",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "46e80f4d5e138859bb19e3bf66c933ea07116908646aee5179b122e69e511448"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-sidebar-wrapper": "",
+              "data-state": "expanded",
+              "data-side": "left",
+              "style": "--sidebar-width:256px;width:256px;"
+            }
+          }
+        },
+        "descendants": [
+          {
+            "selector": "aside",
+            "count": 1,
+            "attributes": {
+              "includes": {
+                "data-state": "expanded",
+                "data-side": "left",
+                "data-collapsible": "icon"
+              }
+            }
+          },
+          {
+            "selector": "ul",
+            "count": 1
+          },
+          {
+            "selector": "li",
+            "count": 2
+          },
+          {
+            "selector": "button",
+            "count": 3
+          },
+          {
+            "selector": "[aria-expanded=true]",
+            "count": 1,
+            "attributes": {
+              "includes": {
+                "aria-label": "Collapse sidebar"
+              }
+            }
+          }
+        ],
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "sidebar",
       "vector": "desktop-collapsed-sliding-inert-intent",
       "status": "passed",
-      "mode": "ssr",
+      "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
+      "hydration": "passed",
       "assertion": {
         "status": "passed",
-        "digest": "71a7e6d0dc977f882f73008e736ecbab8271d965de43603364fbdcf22ecbe691"
+        "digest": "be7b929ff166b9e7c3cc58f66f36227939ee337be9f64d20b84dc0cf5d222fa9"
       },
       "observation": {
-        "markupSha256": "ff77b6316c839b19942087d086a9292b7b3cb43262dd4ee82a093b1b1e449486"
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-sidebar-wrapper": "",
+              "data-state": "collapsed",
+              "data-side": "left",
+              "style": "--sidebar-width:256px;width:256px;"
+            }
+          }
+        },
+        "descendants": [
+          {
+            "selector": "aside",
+            "count": 1,
+            "attributes": {
+              "includes": {
+                "data-state": "collapsed"
+              }
+            }
+          }
+        ],
+        "node-identity": "preserved"
       }
     },
     {
       "component": "sidebar",
       "vector": "collapsible-closed-mounted",
       "status": "passed",
-      "mode": "ssr",
+      "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
+      "hydration": "passed",
       "assertion": {
         "status": "passed",
-        "digest": "a35984bee12a3bd8c8b6e5673b32db9f5c7f3d6b35dcb5db34354371454b9763"
+        "digest": "230400d320f2daa1eaf119c1006082e8882cc6c8475f7ba333f1d7e43e22eb74"
       },
       "observation": {
-        "markupSha256": "93636fa047400919d3a6fa2c57a114596546d97c9681645ed857fb014fb8fb18"
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-sidebar-wrapper": "",
+              "data-state": "expanded",
+              "data-side": "left",
+              "style": "--sidebar-width:256px;width:256px;"
+            }
+          }
+        },
+        "descendants": [],
+        "node-identity": "preserved"
       }
     },
     {
       "component": "sidebar",
       "vector": "resize-keyboard-expand",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "not-run",
-      "ssr": "not-run",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "nodeIdentity": "preserved",
+      "ssr": "passed",
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "f26e28bc3d4d6481b35f5c2d79967dbc6f0713530de1c73de85b9df2ec00fbf4"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-sidebar-wrapper": "",
+              "data-state": "expanded",
+              "data-side": "left",
+              "style": "--sidebar-width: 480px; width: 480px;"
+            }
+          }
+        },
+        "state": {
+          "open": true,
+          "width": 480
+        },
+        "events": [],
+        "focus": "[aria-label=\"Resize sidebar\"]",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "surface",
@@ -3365,5 +3473,5 @@
       }
     }
   ],
-  "receiptHash": "12b2a0d4be80d6c44ead956fe69b61a4da49eedb4ec6555e5b5c6f6a6537a001"
+  "receiptHash": "bec44f81a850b17b8de9d7940ecf608910ec0f266f8eda1e90be56800c97b4ac"
 }

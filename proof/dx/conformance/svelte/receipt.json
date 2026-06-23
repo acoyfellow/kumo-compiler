@@ -1303,8 +1303,8 @@
     "fixtureSource": "proof/dx/conformance/shared/packed-fixtures.json"
   },
   "counts": {
-    "passed": 112,
-    "blocked": 12
+    "passed": 114,
+    "blocked": 10
   },
   "staticPassed": 64,
   "browserPassed": 34,
@@ -3777,58 +3777,162 @@
     {
       "component": "sidebar",
       "vector": "desktop-expanded-compound",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "46e80f4d5e138859bb19e3bf66c933ea07116908646aee5179b122e69e511448"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-sidebar-wrapper": "",
+              "data-state": "expanded",
+              "data-side": "left"
+            }
+          }
+        },
+        "descendants": [
+          {
+            "selector": "aside",
+            "count": 1,
+            "attributes": {
+              "includes": {
+                "data-state": "expanded",
+                "data-side": "left",
+                "data-collapsible": "icon"
+              }
+            }
+          },
+          {
+            "selector": "ul",
+            "count": 1
+          },
+          {
+            "selector": "li",
+            "count": 2
+          },
+          {
+            "selector": "button",
+            "count": 3
+          },
+          {
+            "selector": "[aria-expanded=true]",
+            "count": 1,
+            "attributes": {
+              "includes": {
+                "aria-label": "Collapse sidebar"
+              }
+            }
+          }
+        ],
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "sidebar",
       "vector": "desktop-collapsed-sliding-inert-intent",
       "status": "passed",
-      "mode": "ssr",
+      "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
+      "hydration": "passed",
       "assertion": {
         "status": "passed",
-        "digest": "71a7e6d0dc977f882f73008e736ecbab8271d965de43603364fbdcf22ecbe691"
+        "digest": "be7b929ff166b9e7c3cc58f66f36227939ee337be9f64d20b84dc0cf5d222fa9"
       },
       "observation": {
-        "markupSha256": "0a9e96e7a54e0ff4f05d3322ec015db0e5ed9f26cba27df39799bff8cd147359"
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-sidebar-wrapper": "",
+              "data-state": "collapsed",
+              "data-side": "left"
+            }
+          }
+        },
+        "descendants": [
+          {
+            "selector": "aside",
+            "count": 1,
+            "attributes": {
+              "includes": {
+                "data-state": "collapsed"
+              }
+            }
+          }
+        ],
+        "node-identity": "preserved"
       }
     },
     {
       "component": "sidebar",
       "vector": "collapsible-closed-mounted",
       "status": "passed",
-      "mode": "ssr",
+      "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
+      "hydration": "passed",
       "assertion": {
         "status": "passed",
-        "digest": "a35984bee12a3bd8c8b6e5673b32db9f5c7f3d6b35dcb5db34354371454b9763"
+        "digest": "230400d320f2daa1eaf119c1006082e8882cc6c8475f7ba333f1d7e43e22eb74"
       },
       "observation": {
-        "markupSha256": "13b14f15ccd24ba0fce4f0e6c19169e7fbc7c8633aa855cbbe31cc7239f812c6"
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-sidebar-wrapper": "",
+              "data-state": "expanded",
+              "data-side": "left"
+            }
+          }
+        },
+        "descendants": [],
+        "node-identity": "preserved"
       }
     },
     {
       "component": "sidebar",
       "vector": "resize-keyboard-expand",
-      "status": "blocked",
+      "status": "passed",
       "mode": "browser",
       "diagnostics": [],
-      "nodeIdentity": "native-packed-fixture",
+      "nodeIdentity": "preserved",
       "ssr": "passed",
-      "hydration": "not-run",
-      "reason": "browser vector blocked: candidate package capability incomplete; shared browser runner not invoked without viable mapping"
+      "hydration": "passed",
+      "assertion": {
+        "status": "passed",
+        "digest": "f26e28bc3d4d6481b35f5c2d79967dbc6f0713530de1c73de85b9df2ec00fbf4"
+      },
+      "observation": {
+        "dom": {
+          "tag": "div",
+          "attributes": {
+            "includes": {
+              "data-sidebar-wrapper": "",
+              "data-state": "expanded",
+              "data-side": "left"
+            }
+          }
+        },
+        "state": {
+          "open": true,
+          "width": 480
+        },
+        "events": [],
+        "focus": "[aria-label=\"Resize sidebar\"]",
+        "node-identity": "preserved"
+      }
     },
     {
       "component": "surface",
@@ -4440,5 +4544,5 @@
       }
     }
   ],
-  "receiptHash": "554c44fa7fa419f37b5ef453a993b378987193b2363a640cb7331a2129cbc5df"
+  "receiptHash": "594af9c7025b3316c5ab32a94e19764fa240aa0bed84cc854d540e5401189b9a"
 }
