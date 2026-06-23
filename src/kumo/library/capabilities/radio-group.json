@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "kumo.radio-group/v1",
+  "component": "radio",
+  "support": "supported",
+  "root": {
+    "tag": "div",
+    "attributes": {
+      "role": "radiogroup"
+    }
+  },
+  "selection": {
+    "mode": "single",
+    "controlledProp": "value",
+    "uncontrolledProp": "defaultValue",
+    "triggers": [
+      {
+        "type": "click",
+        "selects": "target item"
+      },
+      {
+        "type": "key",
+        "key": "ArrowDown",
+        "selects": "next enabled item"
+      }
+    ],
+    "event": "value:<value>",
+    "focus": "root"
+  },
+  "disabled": {
+    "item": "disabled item blocks selection, emits nothing, focus none",
+    "group": "disabled group blocks all selection, emits nothing, focus none"
+  },
+  "unknowns": [
+    {
+      "field": "rovingTabindexOrder",
+      "status": "unknown",
+      "reason": "Canonical vectors assert ArrowDown selecting the next item and click selection, not the full roving-tabindex order, Home/End, or wraparound semantics."
+    },
+    {
+      "field": "itemAccessibleStructure",
+      "status": "unknown",
+      "reason": "Canonical vectors assert role=radiogroup and single selection, not the exact per-item DOM structure, label association, or aria-checked element identity beyond observed checked state."
+    }
+  ],
+  "vectorIds": [
+    "default-click",
+    "controlled-click",
+    "arrow",
+    "disabled-item",
+    "disabled-group"
+  ],
+  "provenance": {
+    "component": "radio",
+    "contractPath": "contracts/kumo.observable/v1/components/radio.json",
+    "contractDigest": "1efdf13299ecfadca60575431a14a175f081174974420aa56bb6a785dd548ed8",
+    "vectorIds": [
+      "default-click",
+      "controlled-click",
+      "arrow",
+      "disabled-item",
+      "disabled-group"
+    ]
+  },
+  "capabilityDigest": "f77a8f59de7095c5ea923671567bb9c77665aebee6a6dbfca0c6fb373256b2ec"
+}
