@@ -7,6 +7,7 @@ import{executeNativeInputPlan}from'../shared/native-input-executor.mjs';
 import{executeFieldPlan}from'../shared/field-executor.mjs';
 import{executeClipboardPlan}from'../shared/clipboard-executor.mjs';
 import{executePaginationPlan}from'../shared/pagination-executor.mjs';
+import{executeRadioPlan}from'../shared/radio-executor.mjs';
 import{compareMarkup}from'../../../../scripts/observable-runner.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../../../..'),ids=new Set(['disabled-click','loading-click','enabled-click','submit-form']),json=JSON.stringify;
 
@@ -35,6 +36,17 @@ export async function runSolidPaginationBrowser({consumer,plans,ssrRenders}){
   results.push(...run.results);diagnostics.push(...run.diagnostics);telemetry.push({id:`${plan.component}/${plan.vector}`,...run.telemetry});
  }
  return{results,browserCells:results.length,diagnostics,telemetry,capabilities:['trusted-cdp','native-focus','hydration','pagination-fixtures','isolated-vector-batches']};
+}
+export async function runSolidRadioBrowser({consumer,plans,ssrRenders}){
+ if(plans.length!==5||ssrRenders.length!==5)throw Error('Solid radio browser slice requires exactly five vectors');
+ const results=[],diagnostics=[],telemetry=[];
+ for(let i=0;i<plans.length;i++){
+  const plan=plans[i];
+  const source=`import{createSignal}from'solid-js';import{hydrate}from'solid-js/web';import{Radio}from'@acoyfellow/kumo-solid/radio';const P=${json(plan)},controlled='value'in P.fixture.payload;const[events,setEvents]=createSignal([]),[value,setValue]=createSignal(P.fixture.payload.value);function onValueChange(v){setEvents([...events(),'value:'+v]);if(controlled)setValue(v)}if(typeof window!=='undefined')globalThis.__radio={events};function App(){return <section id="v0"><Radio fixture={controlled?{...P.fixture.payload,value:value()}:P.fixture.payload} onValueChange={onValueChange}/></section>}const before=document.querySelector('#v0 [role=radiogroup]');hydrate(App,document.querySelector('#app'),{renderId:'kumo-'});queueMicrotask(()=>{globalThis.__nodePreserved=before===document.querySelector('#v0 [role=radiogroup]');globalThis.__ready=true});`;
+  const run=await scheduleObservableBrowser(()=>runObservableBrowser({name:`solid-packed-radio-${plan.vector}`,entrySource:source,entryFilename:'client.jsx',viteConfig:path.join(root,'proof/dx/conformance/shared/solid-vite.config.mjs'),buildEnv:{KUMO_CONSUMER:consumer},cssPath:path.join(consumer,'node_modules/@acoyfellow/kumo-solid/package/styles.css'),html:ssrRenders[i].html,beforeAppHtml:ssrRenders[i].hydrationScript??'',headHtml:'<style>[role="radio"]{display:inline-block;inline-size:16px;block-size:16px}</style>',vectors:[plan],runVector:async(api,current)=>executeRadioPlan({setup:async()=>{},action:async action=>api.action(0,{...action,selector:'[role=radio]',target:action.target??0}),probe:async probe=>api.evaluate(`(()=>{const box=document.querySelector('#v0'),group=box.querySelector('[role=radiogroup]'),items=[...box.querySelectorAll('[role=radio]')],active=document.activeElement;switch(${json(probe.kind)}){case'dom':return{tag:group.tagName.toLowerCase(),attributes:{includes:Object.fromEntries([...group.attributes].map(x=>[x.name,x.value]))}};case'state':return{checked:items.map(x=>x.getAttribute('aria-checked')==='true')};case'events':return [...(globalThis.__radio?globalThis.__radio.events():[])];case'focus':return active===group?'root':items.includes(active)?'item':active&&active!==document.body&&box.contains(active)?'other':'none';case'node-identity':return globalThis.__nodePreserved?'preserved':'replaced'}})()`)},current).then(result=>({component:result.component,id:result.vector,passed:true,ssr:'passed',hydration:'passed',nodeIdentity:'preserved',observation:result.probes}))}),{label:`Solid radio ${plan.vector}`});
+  results.push(...run.results);diagnostics.push(...run.diagnostics);telemetry.push({id:`${plan.component}/${plan.vector}`,...run.telemetry});
+ }
+ return{results,browserCells:results.length,diagnostics,telemetry,capabilities:['trusted-cdp','native-focus','hydration','radio-fixtures','isolated-vector-batches']};
 }
 export async function runSolidClipboardBrowser({consumer,plans,ssrRenders}){
  if(plans.length!==3||ssrRenders.length!==3)throw Error('Solid clipboard adapter requires exactly three vectors');

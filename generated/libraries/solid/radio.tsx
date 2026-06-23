@@ -41,7 +41,7 @@ export function Radio(incoming: RadioProps): JSX.Element {
     (props.onValueChange as ((value: string) => void) | undefined)?.(item.value);
     radioRoot?.focus();
   };
-  const radioKeyDown = (event: KeyboardEvent & {currentTarget: HTMLButtonElement}, index: number) => {
+  const radioKeyDown = (event: KeyboardEvent & {currentTarget: HTMLDivElement}, index: number) => {
     if (event.key !== "ArrowDown" || radioFixture().disabled) return;
     const items = radioFixture().items;
     const next = items.slice(index + 1).find(item => !item.disabled);
@@ -50,7 +50,7 @@ export function Radio(incoming: RadioProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as RadioProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  return (<div ref={radioRoot} role="radiogroup" aria-label={radioFixture().legend}><For each={radioFixture().items} children={(item, index) => <button type="button" role="radio" aria-checked={selectedValue() === item.value} aria-label={item.label} disabled={Boolean(radioFixture().disabled || item.disabled)} onClick={() => selectRadio(item)} onKeyDown={event => radioKeyDown(event, index())}>{item.label}</button>} /></div>);
+  return (<div ref={radioRoot} role="radiogroup" aria-label={radioFixture().legend}><For each={radioFixture().items} children={(item, index) => <div role="radio" aria-checked={selectedValue() === item.value} aria-label={item.label} aria-disabled={Boolean(radioFixture().disabled || item.disabled) || undefined} tabindex={radioFixture().disabled || item.disabled ? undefined : 0} onClick={() => selectRadio(item)} onKeyDown={event => radioKeyDown(event, index())}>{item.label}</div>} /></div>);
 }
 
 export default Radio;

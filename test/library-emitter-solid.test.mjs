@@ -115,7 +115,10 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   const radioSource = fs.readFileSync(path.join(first, 'radio.tsx'), 'utf8');
   assert.match(radioSource, /<div ref=\{radioRoot\} role="radiogroup" aria-label=\{radioFixture\(\)\.legend\}>/);
   assert.match(radioSource, /<For each=\{radioFixture\(\)\.items\} children=/);
-  assert.match(radioSource, /role="radio" aria-checked=\{selectedValue\(\) === item\.value\} aria-label=\{item\.label\}/);
+  assert.match(radioSource, /<div role="radio" aria-checked=\{selectedValue\(\) === item\.value\} aria-label=\{item\.label\}/);
+  assert.match(radioSource, /aria-disabled=\{Boolean\(radioFixture\(\)\.disabled \|\| item\.disabled\) \|\| undefined\}/);
+  assert.match(radioSource, /tabindex=\{radioFixture\(\)\.disabled \|\| item\.disabled \? undefined : 0\}/);
+  assert.doesNotMatch(radioSource, /role="radiogroup"[^>]*tabindex/);
   assert.match(radioSource, /if \(radioFixture\(\)\.disabled \|\| item\.disabled\) return/);
   assert.match(radioSource, /props\.onValueChange/);
   assert.match(radioSource, /radioRoot\?\.focus\(\)/);

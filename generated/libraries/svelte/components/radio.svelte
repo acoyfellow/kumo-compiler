@@ -46,7 +46,7 @@
   let uncontrolledRadioValue = $state(radioFixture.defaultValue);
   const selectedRadioValue = $derived(controlledRadio ? radioFixture.value : uncontrolledRadioValue);
   let radioRoot: HTMLElement | undefined = $state();
-  function selectRadio(item: RadioItem) { if (radioFixture.disabled || item.disabled) return; if (!controlledRadio) uncontrolledRadioValue = item.value; onValueChange?.(item.value); radioRoot?.focus(); }
+  function selectRadio(item: RadioItem) { if (radioFixture.disabled || item.disabled) return; if (!controlledRadio) uncontrolledRadioValue = item.value; onValueChange?.(item.value); if (radioRoot) { radioRoot.setAttribute('tabindex', '-1'); radioRoot.focus(); } }
   function selectNextRadio(event: KeyboardEvent, index: number) { if (event.key !== 'ArrowDown' || radioFixture.disabled) return; event.preventDefault(); const items = radioFixture.items; for (let offset = 1; offset <= items.length; offset++) { const next = items[(index + offset) % items.length]; if (!next.disabled) { selectRadio(next); return; } } }
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "defaultValue": defaultValue, "disabled": disabled, "items": items, "onValueChange": onValueChange, "orientation": orientation, "value": value, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
@@ -70,4 +70,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<div bind:this={radioRoot} role="radiogroup" aria-label={radioFixture.legend} tabindex="-1">{#each radioFixture.items as item, index (item.value)}<button type="button" role="radio" aria-checked={selectedRadioValue === item.value} aria-label={item.label} disabled={Boolean(radioFixture.disabled || item.disabled)} onclickcapture={() => selectRadio(item)} onkeydowncapture={(event) => selectNextRadio(event, index)}>{item.label}</button>{/each}</div>
+<div bind:this={radioRoot} role="radiogroup" aria-label={radioFixture.legend}>{#each radioFixture.items as item, index (item.value)}<button type="button" role="radio" aria-checked={selectedRadioValue === item.value} aria-label={item.label} disabled={Boolean(radioFixture.disabled || item.disabled)} onclickcapture={() => selectRadio(item)} onkeydowncapture={(event) => selectNextRadio(event, index)}>{item.label}</button>{/each}</div>

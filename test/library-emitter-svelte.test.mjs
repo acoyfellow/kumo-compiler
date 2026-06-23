@@ -242,14 +242,15 @@ test('supported radio-group lowers generically with deterministic single-select 
  assert.match(source,/role="radio" aria-checked=\{selectedRadioValue === item\.value\} aria-label=\{item\.label\}/);
  assert.match(source,/onclickcapture=\{\(\) => selectRadio\(item\)\} onkeydowncapture=/);
  assert.match(source,/if \(radioFixture\.disabled \|\| item\.disabled\) return/);
- assert.match(source,/if \(!controlledRadio\) uncontrolledRadioValue = item\.value; onValueChange\?\.\(item\.value\); radioRoot\?\.focus\(\)/);
+ assert.match(source,/if \(!controlledRadio\) uncontrolledRadioValue = item\.value; onValueChange\?\.\(item\.value\); if \(radioRoot\) \{ radioRoot\.setAttribute\('tabindex', '-1'\); radioRoot\.focus\(\); \}/);
  assert.doesNotMatch(source,/model\.component\s*===?\s*["']radio["']|@html|innerHTML|dispatchEvent/);
  const compiled=compile(source,{filename:'radio.svelte',generate:'server'});
  const target=path.join(build,'radio.mjs');fs.writeFileSync(target,compiled.js.code);
  const Radio=(await import(pathToFileURL(target)+`?${Date.now()}`)).default;
  const fixture={kind:'radio-group',legend:'Plan',items:[{label:'Free',value:'free'},{label:'Pro',value:'pro',disabled:true}],defaultValue:'free'};
  const html=render(Radio,{props:{fixture}}).body.replace(/<!--[\s\S]*?-->/g,'');
- assert.match(html,/^<div role="radiogroup" aria-label="Plan" tabindex="-1">/);
+ assert.match(html,/^<div role="radiogroup" aria-label="Plan">/);
+ assert.doesNotMatch(html,/tabindex=/);
  assert.equal((html.match(/role="radio"/g)??[]).length,2);
  assert.match(html,/role="radio" aria-checked="true" aria-label="Free"/);
  assert.match(html,/role="radio" aria-checked="false" aria-label="Pro" disabled/);
