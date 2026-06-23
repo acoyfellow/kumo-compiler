@@ -1,14 +1,14 @@
 # Kumo completion progress
 
-Current phase: **library-ir**  
+Current phase: **examples-docs**  
 Machine receipt: `proof/progress/latest.json`
 
 - ✓ **Canonical contracts** — 41/41
   `████████████████████`
 - ✓ **Canonical browser vectors** — 124/124
   `████████████████████`
-- → **Implementation-ready library models** — 0/41
-  `░░░░░░░░░░░░░░░░░░░░`
+- ✓ **Implementation-ready library models** — 41/41
+  `████████████████████`
 - ✓ **Components in all three packages** — 41/41
   `████████████████████`
 - ✓ **Four-framework package conformance** — 41/41
