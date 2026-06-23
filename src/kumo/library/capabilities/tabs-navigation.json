@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "kumo.tabs-navigation/v1",
+  "component": "tabs",
+  "support": "supported",
+  "root": {
+    "tag": "div"
+  },
+  "tab": {
+    "role": "tab",
+    "selectedAttribute": "aria-selected"
+  },
+  "activation": {
+    "manual": {
+      "default": true,
+      "move": "ArrowRight focuses next tab without committing",
+      "commit": "Enter or Space on focused tab commits value"
+    },
+    "automatic": {
+      "prop": "activateOnFocus",
+      "move": "ArrowRight focuses and commits the next tab"
+    }
+  },
+  "selection": {
+    "controlledProp": "selectedValue",
+    "event": "value:<value>",
+    "focus": "selected tab"
+  },
+  "unknowns": [
+    {
+      "field": "variantSizeStyling",
+      "status": "unknown",
+      "reason": "Canonical vectors assert tab roles, counts, selection and activation, not the exact variant/size class lists."
+    },
+    {
+      "field": "homeEndWraparound",
+      "status": "unknown",
+      "reason": "Canonical vectors assert ArrowRight next-move and Enter commit; Home/End and full wraparound semantics are not asserted."
+    }
+  ],
+  "vectorIds": [
+    "segmented-uncontrolled-first",
+    "underline-selected-value",
+    "manual-arrow-then-enter",
+    "automatic-arrow"
+  ],
+  "provenance": {
+    "component": "tabs",
+    "contractPath": "contracts/kumo.observable/v1/components/tabs.json",
+    "contractDigest": "fbbb0d671907280d2ae6c38247506d3d7bbfde18604896102b97e066c24f890f",
+    "vectorIds": [
+      "segmented-uncontrolled-first",
+      "underline-selected-value",
+      "manual-arrow-then-enter",
+      "automatic-arrow"
+    ]
+  },
+  "capabilityDigest": "38e53b78423cd3951457c1137c6311cc6e8d2b67dfe7f3fb9e204b7c4e54db3d"
+}

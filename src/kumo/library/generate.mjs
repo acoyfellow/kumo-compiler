@@ -24,6 +24,7 @@ import {deriveFieldComposition, FIELD_COMPOSITION_COMPONENTS} from './field-comp
 import {deriveClipboardCopy, CLIPBOARD_COPY_COMPONENTS} from './clipboard-copy.mjs';
 import {derivePaginationControls, PAGINATION_CONTROLS_COMPONENTS} from './pagination-controls.mjs';
 import {deriveRadioGroup, RADIO_GROUP_COMPONENTS} from './radio-group.mjs';
+import {deriveTabsNavigation, TABS_NAVIGATION_COMPONENTS} from './tabs-navigation.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '../../..');
@@ -126,6 +127,7 @@ const fieldComposition = deriveFieldComposition(canonicalContracts.filter(contra
 const clipboardCopy = deriveClipboardCopy(canonicalContracts.filter(contract => CLIPBOARD_COPY_COMPONENTS.includes(contract.component)));
 const paginationControls = derivePaginationControls(canonicalContracts.filter(contract => PAGINATION_CONTROLS_COMPONENTS.includes(contract.component)));
 const radioGroup = deriveRadioGroup(canonicalContracts.filter(contract => RADIO_GROUP_COMPONENTS.includes(contract.component)));
+const tabsNavigation = deriveTabsNavigation(canonicalContracts.filter(contract => TABS_NAVIGATION_COMPONENTS.includes(contract.component)));
 const nativeControlContracts = canonicalContracts.filter(contract => ['checkbox','switch','radio','input','input-area','sensitive-input'].includes(contract.component));
 const controlledState = deriveControlledState(nativeControlContracts.filter(contract => ['checkbox','switch','radio'].includes(contract.component)));
 const nativeControls = deriveNativeControls(nativeControlContracts);
@@ -176,6 +178,7 @@ fs.writeFileSync(path.join(here, 'capabilities/field-composition.json'), `${JSON
 fs.writeFileSync(path.join(here, 'capabilities/clipboard-copy.json'), `${JSON.stringify(clipboardCopy,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/pagination-controls.json'), `${JSON.stringify(paginationControls,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/radio-group.json'), `${JSON.stringify(radioGroup,null,2)}\n`);
+fs.writeFileSync(path.join(here, 'capabilities/tabs-navigation.json'), `${JSON.stringify(tabsNavigation,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/controlled-state.json'), `${JSON.stringify(controlledState,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/native-controls.json'), `${JSON.stringify(nativeControls,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/native-field.json'), `${JSON.stringify(nativeField,null,2)}\n`);
