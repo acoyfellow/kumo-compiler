@@ -15,6 +15,9 @@ function observedOperations(part) {
   for(const sample of part.samples){
     const when=whenCell(sample);
     operations.push(op('node.text',part.id,{value:sample.text??'',when}));
+    // Interleaved direct text-node children (mixed content), positioned by the
+    // element-child index they follow (afterElement; -1 = before first element).
+    for(const frag of sample.childText??[])operations.push(op('node.text',part.id,{value:frag.text,afterElement:frag.afterElement,when}));
     for(const [name,attribute] of Object.entries(sample.attrs??{}))operations.push(op('attribute.set',part.id,{name,value:attribute?.value??attribute,valueType:attribute?.type??typeof attribute,when}));
     for(const value of sample.classes??[])operations.push(op('class.add',part.id,{value,when}));
   }
@@ -40,8 +43,9 @@ export function lower(ir) {
   const components = sort(ir.components).map(component => {
     const state = component.stateMachine ?? component.states;
     const stateValues = state.states ?? state.values;
-    const transitions = state.transitions ?? component.behavior?.map(item => ({ event: item.event, from: item.state, to: item.event?.stateAfter ?? item.state, when:{states:[item.state],viewports:[item.viewport]} })) ?? [];
-    const operations = [op('state.init', null, { value: state.initial }), ...sort(transitions).map(transition => op('state.transition', null, transition)), ...sort(component.parts).flatMap(partOperations)];
+    const observedBehaviors=component.behavior??[],transitions=state.transitions??observedBehaviors.flatMap(item=>(item.events??[]).map(event=>({event:event.type,from:item.state,to:event.stateAfter??item.state,when:{states:[item.state],viewports:[item.viewport]}})));
+    const eventOperations=observedBehaviors.flatMap(item=>{if(!item.action?.target)return[];const explicit=item.action.target.startsWith('part:')?item.action.target.slice(5):null,targets=component.parts.filter(part=>part.id===item.action.target||(explicit&&part.explicitPart===explicit)).map(part=>part.id);return targets.flatMap(target=>(item.events??[]).map(event=>op('event.listen',target,{event:item.action.type,dispatch:event.type,value:event.value,when:{states:[item.state],viewports:[item.viewport]}})))});
+    const operations = [op('state.init', null, { value: state.initial }), ...sort(transitions).map(transition => op('state.transition', null, transition)), ...sort(component.parts).flatMap(partOperations),...sort(eventOperations)];
     const payload = { initialState: state.initial, states: sort(stateValues), viewports:sort(component.viewports??[]), inputs: component.inputs ?? {}, operations };
     const contentDigest = digest(payload);
     return { key: component.name, contentDigest, shard: `sha256-${contentDigest}.json`, ...payload, provenance: component.provenance ?? {} };

@@ -75,9 +75,24 @@ function render(node, depth = 2) {
   // hidden input type="checkbox"). Auto-injecting type="text" diverged from canonical
   // and broke input placeholder-state pixel parity.
   if (create.semantics === 'dialog') attrs.push('role="dialog"');
-  const textOps = node.ops.filter(op => op.kind === 'node.text');
+  const allTextOps = node.ops.filter(op => op.kind === 'node.text');
+  // own text = text ops without afterElement; interleaved = mixed-content fragments
+  const textOps = allTextOps.filter(op => !Number.isInteger(op.afterElement));
+  const interleaved = allTextOps.filter(op => Number.isInteger(op.afterElement));
   const partText = create.explicitPart == null ? '' : `{props.parts?.[${q(create.explicitPart)}]}`;
-  const body = `${partText}${textOps.map(op => `{${conditional(op.value, op.when, q(''))}}`).join('')}${node.children.map(child => `\n${render(child, depth + 1)}`).join('')}${node.children.length ? `\n${pad}` : ''}`;
+  let body;
+  if (interleaved.length) {
+    // splice text fragments between element children by afterElement (-1 = before first).
+    // Merge ALL fragments at the same position into ONE concatenated expression so Solid
+    // emits a single text node (adjacent {" of"}{" "} expressions collapse the standalone
+    // whitespace; "" + " of" + " " preserves it as one node).
+    const textAt = idx => { const ops = interleaved.filter(op => op.afterElement === idx); if (!ops.length) return ''; return `{${ops.map(op => `(${conditional(op.value, op.when, q(''))})`).join(' + ')}}`; };
+    let assembled = partText + textAt(-1);
+    node.children.forEach((child, i) => { assembled += `\n${render(child, depth + 1)}` + textAt(i); });
+    body = assembled + (node.children.length ? `\n${pad}` : '');
+  } else {
+    body = `${partText}${textOps.map(op => `{${conditional(op.value, op.when, q(''))}}`).join('')}${node.children.map(child => `\n${render(child, depth + 1)}`).join('')}${node.children.length ? `\n${pad}` : ''}`;
+  }
   let element = name === 'input' ? `<${name} ${attrs.join(' ')} />` : `<${name} ${attrs.join(' ')}>${body}</${name}>`;
   const portal = node.portal;
   if (portal) element = `<Portal mount={${portal.target}}>${element}</Portal>`;

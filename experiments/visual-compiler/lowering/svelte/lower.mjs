@@ -62,7 +62,8 @@ function renderNode(item, depth = 0) {
   if (classes.length) attributes.push(`class={{${classes.map(value => `${q(value)}: ${item.ops.filter(op => op.kind === 'class.add' && op.value === value).map(op => `(${condition(op.when)})`).join(' || ')}`).join(', ')}}}`);
   const eventGroups=new Map();for(const op of item.ops.filter(op=>op.kind==='event.listen')){const group=eventGroups.get(op.event)??[];group.push(op);eventGroups.set(op.event,group)}
   for(const [event,ops] of eventGroups){const expression=ops.map(op=>`(${condition(op.when)}) ? dispatch(${q(op.dispatch)}, ${q(op.value)}, event) : `).join('')+'undefined';attributes.push(`on${event}={(event) => ${expression}}`)}
-  const text = item.children.some(child => child.create.kind === 'node.text') ? null : merged(item.ops, 'node.text');
+  const text = item.children.some(child => child.create.kind === 'node.text') ? null : merged(item.ops.filter(op => !Number.isInteger(op.afterElement)), 'node.text');
+  const interleaved = item.ops.filter(op => op.kind === 'node.text' && Number.isInteger(op.afterElement));
   // Emit a TIGHT body (no formatting newlines/indentation) for two element classes:
   //  (1) whitespace-significant elements (pre/textarea, white-space:pre*) where injected
   //      whitespace would render visibly; and
@@ -72,7 +73,17 @@ function renderNode(item, depth = 0) {
   const RESTRICTED = new Set(['table','thead','tbody','tfoot','tr','colgroup','ul','ol','select','optgroup','dl','menu']);
   const restricted = RESTRICTED.has(tag); // content model forbids direct text nodes
   const ws = (item.create.style && /^pre/.test(item.create.style['white-space'] || '')) || tag === 'pre' || tag === 'textarea' || restricted;
-  const children = item.children.map(child => renderNode(child, ws ? 0 : depth + 1)).join(ws ? '' : '\n');
+  let children;
+  if (interleaved.length && !ws) {
+    // Mixed content: splice text fragments between element children by afterElement
+    // (-1 = before first element). Renders 'Showing <span/> of <span/>' faithfully.
+    const textAt = idx => { const ops = interleaved.filter(op => op.afterElement === idx); if (!ops.length) return ''; const expr = ops.map(op => `((${condition(op.when)}) ? ${expression(op.value)} : undefined)`).join(' ?? '); return `\n${'  '.repeat(depth + 1)}{String(${expr} ?? '')}`; };
+    let assembled = textAt(-1);
+    item.children.forEach((child, i) => { assembled += `\n${renderNode(child, depth + 1)}` + textAt(i); });
+    children = assembled;
+  } else {
+    children = item.children.map(child => renderNode(child, ws ? 0 : depth + 1)).join(ws ? '' : '\n');
+  }
   let source;
   if (voidTags.has(tag)) source = `${pad}<${tag} ${attributes.join(' ')} />`;
   else if (ws) {

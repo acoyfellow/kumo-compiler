@@ -155,11 +155,32 @@ function renderNode(node, depth = 1) {
   const tag = node.operation.tag;
   const namespace = node.operation.namespace;
   if (!tag || !namespace) throw new Error(`node.create lacks canonical tag/namespace: ${node.operation.part}`);
-  const children = node.children.map(child => renderNode(child, depth + 1)).join('\n');
   const textOperations = node.operations.filter(item => item.kind === 'node.text');
-  const textExpression = selectExpression(textOperations, "''");
-  const ownText = children || !textOperations.length ? '' : `{{ ${textExpression} }}`;
-  const body = children ? `\n${children}\n${pad}` : ownText;
+  // Interleaved mixed-content text fragments carry afterElement (the element-child
+  // index they follow; -1 = before the first element). Group by afterElement and
+  // splice between element children so 'Showing <span/> of <span/>' renders faithfully.
+  const interleaved = textOperations.filter(op => Number.isInteger(op.afterElement));
+  let children, body;
+  if (interleaved.length) {
+    const childPad = '  '.repeat(depth + 1);
+    const textAt = idx => {
+      const ops = interleaved.filter(op => op.afterElement === idx);
+      if (!ops.length) return '';
+      const expr = selectExpression(ops, "''");
+      return `\n${childPad}{{ ${expr} }}`;
+    };
+    let assembled = textAt(-1);
+    node.children.forEach((child, i) => { assembled += `\n${renderNode(child, depth + 1)}`; assembled += textAt(i); });
+    body = `${assembled}\n${pad}`;
+    children = assembled;
+  } else {
+    children = node.children.map(child => renderNode(child, depth + 1)).join('\n');
+    // Leaf own-text: only the element's own text op (no afterElement fragments).
+    const ownTextOps = textOperations.filter(op => !Number.isInteger(op.afterElement));
+    const textExpression = selectExpression(ownTextOps, "''");
+    const ownText = children || !ownTextOps.length ? '' : `{{ ${textExpression} }}`;
+    body = children ? `\n${children}\n${pad}` : ownText;
+  }
   const renderedAttributes = attributes(node);
   const opening = renderedAttributes ? `${tag} ${renderedAttributes}` : tag;
   // Vue's template compiler enters SVG mode from an <svg> root and preserves

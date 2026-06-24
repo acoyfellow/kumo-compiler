@@ -94,7 +94,8 @@
     "tabs",
     "table",
     "table-of-contents",
-    "input-group"
+    "input-group",
+    "pagination"
   ],
   "remaining": [
     "autocomplete",
@@ -105,7 +106,6 @@
     "dialog",
     "dropdown-menu",
     "menu-bar",
-    "pagination",
     "select",
     "sensitive-input",
     "sidebar",
@@ -339,12 +339,11 @@
     },
     "pagination": {
       "parity": {
-        "vue": 0,
-        "svelte": 0,
-        "solid": 0
+        "vue": 9,
+        "svelte": 9,
+        "solid": 9
       },
-      "status": "in-progress",
-      "note": "tracer drops interleaved text nodes (Showing X-Y of Z); needs mixed-content text capture"
+      "status": "passed"
     }
   },
   "marginalWorkSurface": {
