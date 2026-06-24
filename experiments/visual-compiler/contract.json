@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "kumo.visual-compiler-spike/v1",
+  "goal": "Prove a generic, incremental canonical React visual compiler that emits exact native Vue, Svelte, and Solid for Button, Checkbox, Field, and Popover, with sub-second warm focused proof and no component IDs in target lowerers.",
+  "components": ["button", "checkbox", "field", "popover"],
+  "states": {
+    "button": ["default", "disabled", "loading"],
+    "checkbox": ["unchecked", "checked", "indeterminate"],
+    "field": ["default", "error", "disabled"],
+    "popover": ["closed", "open", "dismissed"]
+  },
+  "viewports": [390, 768, 1440],
+  "spikes": [
+    {
+      "id": "frontend-typescript",
+      "path": "experiments/visual-compiler/frontend/typescript",
+      "question": "Can the TypeScript compiler API extract nested JSX structure, symbols, class expressions, defaults, state branches, imported icons, and compound parts deterministically?"
+    },
+    {
+      "id": "frontend-oxc",
+      "path": "experiments/visual-compiler/frontend/oxc",
+      "question": "Can an oxc-based frontend extract equivalent facts materially faster with acceptable symbol-resolution annotations?"
+    },
+    {
+      "id": "runtime-tracer",
+      "path": "experiments/visual-compiler/tracer",
+      "question": "Can trusted canonical journeys capture deterministic DOM, accessibility, classes, geometry, computed presentation, focus, events, and pixels, mapped to stable part IDs?"
+    },
+    {
+      "id": "ir-shootout",
+      "path": "experiments/visual-compiler/ir",
+      "question": "Which DOM-first, part-first, or dialect-based IR preserves all facts with the simplest generic target lowering and best cache granularity?"
+    },
+    {
+      "id": "lowering",
+      "path": "experiments/visual-compiler/lowering",
+      "question": "Can one winning IR generate Vue, Svelte, and Solid without component IDs in target lowerers?"
+    },
+    {
+      "id": "incremental-engine",
+      "path": "experiments/visual-compiler/engine",
+      "question": "Can content-addressed component shards, persistent dependency workspaces, persistent browser pages, and impact analysis reach alien-like warm latency?"
+    }
+  ],
+  "requiredArtifacts": [
+    "README.md",
+    "contract.json",
+    "state.json",
+    "frontend/typescript/results.json",
+    "frontend/oxc/results.json",
+    "tracer/results.json",
+    "ir/results.json",
+    "lowering/results.json",
+    "engine/results.json",
+    "results/final.json"
+  ],
+  "hardRules": [
+    "Canonical @cloudflare/kumo@2.5.2 remains immutable authority.",
+    "Experiments may not weaken, replace, or fabricate current conformance receipts.",
+    "No React runtime dependency in downstream output.",
+    "No component IDs or component-specific branches in target lowerers.",
+    "No copied final HTML, screenshot-to-code inference, gallery repair CSS, innerHTML/@html, or post-mount reconstruction.",
+    "One writer per exact path; maximum four parallel workers.",
+    "Every result is deterministic, content-addressed, benchmarked, and includes exact commands and failures.",
+    "A failed approach is recorded and retired rather than patched indefinitely."
+  ],
+  "selectionWeights": {
+    "exactness": 35,
+    "targetSimplicity": 20,
+    "diagnosticQuality": 15,
+    "warmSpeed": 15,
+    "incrementalCaching": 10,
+    "implementationSize": 5
+  },
+  "success": {
+    "staticFrontend": "Winning frontend extracts all required structure for four components with deterministic repeated bytes and source provenance.",
+    "runtimeTracer": "Every required state and viewport yields deterministic canonical trace and screenshot digests with stable part mapping.",
+    "ir": "One validated IR represents all four components/states without target-framework concepts or information loss.",
+    "lowering": "Generic Vue/Svelte/Solid lowerers contain no component IDs and produce native package shards.",
+    "behavior": "All required trusted interaction checkpoints match canonical observations with zero diagnostics.",
+    "pixels": "All four components, all required states, all three native targets, and all three viewports have zero unmasked differing pixels.",
+    "coldPerformance": "Cold focused compile and proof is measured and below 10 seconds on the recorded machine.",
+    "warmPerformance": "Warm focused compile plus exact browser proof is below 1 second, with a stretch target below 500ms.",
+    "fullSpike": "All required artifacts exist, all gates pass, final results select winners quantitatively, promoted integration plan names exact existing compiler paths, and all changes are committed."
+  },
+  "stopCondition": "Stop only when results/final.json is passed, all required artifacts validate, every exact behavior/pixel cell is green, performance budgets pass, target lowerers contain no component IDs, full spike tests pass, and intended changes are committed."
+}

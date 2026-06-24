@@ -1,0 +1,151 @@
+{
+  "schemaVersion": "kumo.visual-trace/v1",
+  "component": "popover",
+  "state": "open",
+  "viewport": 768,
+  "dom": "<main data-part=\"root\" data-component=\"popover\" data-state=\"open\"><button data-part=\"trigger\" class=\"part\" aria-haspopup=\"dialog\" aria-expanded=\"true\">Toggle</button><div data-part=\"content\" class=\"popover\" role=\"dialog\" aria-label=\"Options\">Popover content</div></main>",
+  "parts": [
+    {
+      "part": "root",
+      "tag": "main",
+      "role": null,
+      "attrs": {
+        "data-component": "popover",
+        "data-part": "root",
+        "data-state": "open"
+      },
+      "classes": [],
+      "text": "TogglePopover content",
+      "geometry": {
+        "x": 32,
+        "y": 32,
+        "width": 704,
+        "height": 84
+      },
+      "style": {
+        "display": "block",
+        "position": "static",
+        "color": "rgb(17, 17, 17)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "Arial",
+        "font-size": "14px",
+        "font-weight": "400",
+        "border-radius": "0px",
+        "opacity": "1",
+        "visibility": "visible"
+      }
+    },
+    {
+      "part": "trigger",
+      "tag": "button",
+      "role": "button",
+      "attrs": {
+        "aria-expanded": "true",
+        "aria-haspopup": "dialog",
+        "class": "part",
+        "data-part": "trigger"
+      },
+      "classes": [
+        "part"
+      ],
+      "text": "Toggle",
+      "geometry": {
+        "x": 32,
+        "y": 32,
+        "width": 67.266,
+        "height": 34
+      },
+      "style": {
+        "display": "inline-block",
+        "position": "static",
+        "color": "rgb(0, 0, 0)",
+        "background-color": "rgb(239, 239, 239)",
+        "font-family": "Arial",
+        "font-size": "14px",
+        "font-weight": "400",
+        "border-radius": "6px",
+        "opacity": "1",
+        "visibility": "visible"
+      }
+    },
+    {
+      "part": "content",
+      "tag": "div",
+      "role": "dialog",
+      "attrs": {
+        "aria-label": "Options",
+        "class": "popover",
+        "data-part": "content",
+        "role": "dialog"
+      },
+      "classes": [
+        "popover"
+      ],
+      "text": "Popover content",
+      "geometry": {
+        "x": 32,
+        "y": 74,
+        "width": 180,
+        "height": 42
+      },
+      "style": {
+        "display": "block",
+        "position": "static",
+        "color": "rgb(17, 17, 17)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "Arial",
+        "font-size": "14px",
+        "font-weight": "400",
+        "border-radius": "0px",
+        "opacity": "1",
+        "visibility": "visible"
+      }
+    }
+  ],
+  "focus": {
+    "active": "trigger",
+    "tabIndex": 0
+  },
+  "events": [
+    {
+      "type": "keydown",
+      "target": "trigger",
+      "key": "Enter"
+    },
+    {
+      "type": "click",
+      "target": "trigger",
+      "key": null
+    }
+  ],
+  "a11y": [
+    {
+      "part": "root",
+      "role": null,
+      "name": null,
+      "checked": null,
+      "expanded": null,
+      "disabled": false
+    },
+    {
+      "part": "trigger",
+      "role": "button",
+      "name": null,
+      "checked": null,
+      "expanded": "true",
+      "disabled": false
+    },
+    {
+      "part": "content",
+      "role": "dialog",
+      "name": "Options",
+      "checked": null,
+      "expanded": null,
+      "disabled": false
+    }
+  ],
+  "screenshot": {
+    "sha256": "7ba299346c6332bf31b2a1da80318ada0e30a1822812ff39227a841da24d128a",
+    "bytes": 6686
+  }
+}

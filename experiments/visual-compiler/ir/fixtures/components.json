@@ -1,0 +1,332 @@
+{
+  "schemaVersion": "kumo.core-ir/v1",
+  "components": [
+    {
+      "name": "button",
+      "inputs": {
+        "disabled": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "stateMachine": {
+        "initial": "default",
+        "states": [
+          "default",
+          "disabled",
+          "loading"
+        ],
+        "transitions": [
+          {
+            "event": "press",
+            "from": "*",
+            "to": "derived"
+          }
+        ]
+      },
+      "parts": [
+        {
+          "id": "root",
+          "parent": null,
+          "kind": "element",
+          "semantics": "button",
+          "conditions": [],
+          "bindings": []
+        },
+        {
+          "id": "label",
+          "parent": "root",
+          "kind": "text",
+          "semantics": "button",
+          "conditions": [],
+          "bindings": []
+        },
+        {
+          "id": "spinner",
+          "parent": "root",
+          "kind": "element",
+          "semantics": "button",
+          "conditions": [],
+          "bindings": []
+        }
+      ],
+      "presentation": {
+        "tokens": [
+          "foreground",
+          "background",
+          "border",
+          "radius",
+          "spacing"
+        ],
+        "responsiveWidths": [
+          390,
+          768,
+          1440
+        ]
+      },
+      "provenance": {
+        "source": "canonical/button.tsx",
+        "traceStates": [
+          "default",
+          "disabled",
+          "loading"
+        ]
+      }
+    },
+    {
+      "name": "checkbox",
+      "inputs": {
+        "disabled": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "stateMachine": {
+        "initial": "unchecked",
+        "states": [
+          "unchecked",
+          "checked",
+          "indeterminate"
+        ],
+        "transitions": [
+          {
+            "event": "toggle",
+            "from": "*",
+            "to": "derived"
+          }
+        ]
+      },
+      "parts": [
+        {
+          "id": "root",
+          "parent": null,
+          "kind": "element",
+          "semantics": "checkbox",
+          "conditions": [],
+          "bindings": []
+        },
+        {
+          "id": "control",
+          "parent": "root",
+          "kind": "element",
+          "semantics": "checkbox",
+          "conditions": [],
+          "bindings": []
+        },
+        {
+          "id": "indicator",
+          "parent": "root",
+          "kind": "element",
+          "semantics": "checkbox",
+          "conditions": [],
+          "bindings": []
+        },
+        {
+          "id": "label",
+          "parent": "root",
+          "kind": "text",
+          "semantics": "checkbox",
+          "conditions": [],
+          "bindings": []
+        }
+      ],
+      "presentation": {
+        "tokens": [
+          "foreground",
+          "background",
+          "border",
+          "radius",
+          "spacing"
+        ],
+        "responsiveWidths": [
+          390,
+          768,
+          1440
+        ]
+      },
+      "provenance": {
+        "source": "canonical/checkbox.tsx",
+        "traceStates": [
+          "unchecked",
+          "checked",
+          "indeterminate"
+        ]
+      }
+    },
+    {
+      "name": "field",
+      "inputs": {
+        "disabled": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "stateMachine": {
+        "initial": "default",
+        "states": [
+          "default",
+          "error",
+          "disabled"
+        ],
+        "transitions": [
+          {
+            "event": "input",
+            "from": "*",
+            "to": "derived"
+          },
+          {
+            "event": "focus",
+            "from": "*",
+            "to": "derived"
+          },
+          {
+            "event": "blur",
+            "from": "*",
+            "to": "derived"
+          }
+        ]
+      },
+      "parts": [
+        {
+          "id": "root",
+          "parent": null,
+          "kind": "element",
+          "semantics": "group",
+          "conditions": [],
+          "bindings": []
+        },
+        {
+          "id": "label",
+          "parent": "root",
+          "kind": "text",
+          "semantics": "textbox",
+          "conditions": [],
+          "bindings": []
+        },
+        {
+          "id": "control",
+          "parent": "root",
+          "kind": "element",
+          "semantics": "textbox",
+          "conditions": [],
+          "bindings": []
+        },
+        {
+          "id": "description",
+          "parent": "root",
+          "kind": "text",
+          "semantics": "textbox",
+          "conditions": [],
+          "bindings": []
+        },
+        {
+          "id": "message",
+          "parent": "root",
+          "kind": "text",
+          "semantics": "textbox",
+          "conditions": [],
+          "bindings": []
+        }
+      ],
+      "presentation": {
+        "tokens": [
+          "foreground",
+          "background",
+          "border",
+          "radius",
+          "spacing"
+        ],
+        "responsiveWidths": [
+          390,
+          768,
+          1440
+        ]
+      },
+      "provenance": {
+        "source": "canonical/field.tsx",
+        "traceStates": [
+          "default",
+          "error",
+          "disabled"
+        ]
+      }
+    },
+    {
+      "name": "popover",
+      "inputs": {
+        "disabled": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "stateMachine": {
+        "initial": "closed",
+        "states": [
+          "closed",
+          "open",
+          "dismissed"
+        ],
+        "transitions": [
+          {
+            "event": "toggle",
+            "from": "*",
+            "to": "derived"
+          },
+          {
+            "event": "dismiss",
+            "from": "*",
+            "to": "derived"
+          }
+        ]
+      },
+      "parts": [
+        {
+          "id": "root",
+          "parent": null,
+          "kind": "element",
+          "semantics": "button",
+          "conditions": [],
+          "bindings": []
+        },
+        {
+          "id": "trigger",
+          "parent": "root",
+          "kind": "element",
+          "semantics": "dialog",
+          "conditions": [],
+          "bindings": []
+        },
+        {
+          "id": "content",
+          "parent": "root",
+          "kind": "element",
+          "semantics": "dialog",
+          "conditions": [],
+          "bindings": []
+        }
+      ],
+      "presentation": {
+        "tokens": [
+          "foreground",
+          "background",
+          "border",
+          "radius",
+          "spacing"
+        ],
+        "responsiveWidths": [
+          390,
+          768,
+          1440
+        ]
+      },
+      "provenance": {
+        "source": "canonical/popover.tsx",
+        "traceStates": [
+          "closed",
+          "open",
+          "dismissed"
+        ]
+      }
+    }
+  ]
+}

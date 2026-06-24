@@ -1,0 +1,188 @@
+{
+  "schemaVersion": "kumo.visual-trace/v1",
+  "component": "checkbox",
+  "state": "unchecked",
+  "viewport": 768,
+  "dom": "<main data-part=\"root\" data-component=\"checkbox\" data-state=\"unchecked\"><label data-part=\"label\"><input data-part=\"control\" type=\"checkbox\"><span data-part=\"text\">Accept terms</span></label><script>document.querySelector('input').indeterminate=false</script></main>",
+  "parts": [
+    {
+      "part": "root",
+      "tag": "main",
+      "role": null,
+      "attrs": {
+        "data-component": "checkbox",
+        "data-part": "root",
+        "data-state": "unchecked"
+      },
+      "classes": [],
+      "text": "Accept termsdocument.querySelector('input').indeterminate=false",
+      "geometry": {
+        "x": 32,
+        "y": 32,
+        "width": 704,
+        "height": 19
+      },
+      "style": {
+        "display": "block",
+        "position": "static",
+        "color": "rgb(17, 17, 17)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "Arial",
+        "font-size": "14px",
+        "font-weight": "400",
+        "border-radius": "0px",
+        "opacity": "1",
+        "visibility": "visible"
+      }
+    },
+    {
+      "part": "label",
+      "tag": "label",
+      "role": null,
+      "attrs": {
+        "data-part": "label"
+      },
+      "classes": [],
+      "text": "Accept terms",
+      "geometry": {
+        "x": 32,
+        "y": 35,
+        "width": 101.703,
+        "height": 16
+      },
+      "style": {
+        "display": "inline",
+        "position": "static",
+        "color": "rgb(17, 17, 17)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "Arial",
+        "font-size": "14px",
+        "font-weight": "400",
+        "border-radius": "0px",
+        "opacity": "1",
+        "visibility": "visible"
+      }
+    },
+    {
+      "part": "control",
+      "tag": "input",
+      "role": "checkbox",
+      "attrs": {
+        "data-part": "control",
+        "type": "checkbox"
+      },
+      "classes": [],
+      "text": "",
+      "geometry": {
+        "x": 36,
+        "y": 35,
+        "width": 13,
+        "height": 13
+      },
+      "style": {
+        "display": "inline-block",
+        "position": "static",
+        "color": "rgb(0, 0, 0)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "Arial",
+        "font-size": "14px",
+        "font-weight": "400",
+        "border-radius": "0px",
+        "opacity": "1",
+        "visibility": "visible"
+      }
+    },
+    {
+      "part": "text",
+      "tag": "span",
+      "role": null,
+      "attrs": {
+        "data-part": "text"
+      },
+      "classes": [],
+      "text": "Accept terms",
+      "geometry": {
+        "x": 52,
+        "y": 35,
+        "width": 81.703,
+        "height": 16
+      },
+      "style": {
+        "display": "inline",
+        "position": "static",
+        "color": "rgb(17, 17, 17)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "Arial",
+        "font-size": "14px",
+        "font-weight": "400",
+        "border-radius": "0px",
+        "opacity": "1",
+        "visibility": "visible"
+      }
+    }
+  ],
+  "focus": {
+    "active": "control",
+    "tabIndex": 0
+  },
+  "events": [
+    {
+      "type": "keydown",
+      "target": "control",
+      "key": "Enter"
+    },
+    {
+      "type": "click",
+      "target": "control",
+      "key": null
+    },
+    {
+      "type": "input",
+      "target": "control",
+      "key": null
+    },
+    {
+      "type": "change",
+      "target": "control",
+      "key": null
+    }
+  ],
+  "a11y": [
+    {
+      "part": "root",
+      "role": null,
+      "name": null,
+      "checked": null,
+      "expanded": null,
+      "disabled": false
+    },
+    {
+      "part": "label",
+      "role": null,
+      "name": null,
+      "checked": null,
+      "expanded": null,
+      "disabled": false
+    },
+    {
+      "part": "control",
+      "role": "checkbox",
+      "name": null,
+      "checked": null,
+      "expanded": null,
+      "disabled": false
+    },
+    {
+      "part": "text",
+      "role": null,
+      "name": null,
+      "checked": null,
+      "expanded": null,
+      "disabled": false
+    }
+  ],
+  "screenshot": {
+    "sha256": "fe6f5a6f285a94eef3ab8c05488b8111b472f3ddc310bd02c5bd1628f5a0c1bd",
+    "bytes": 5249
+  }
+}

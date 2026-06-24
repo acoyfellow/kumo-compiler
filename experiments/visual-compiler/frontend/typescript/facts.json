@@ -1,0 +1,2306 @@
+{
+  "schemaVersion": "kumo.visual-compiler.typescript-facts/v1",
+  "frontend": "typescript-5.9.3",
+  "components": [
+    {
+      "component": "button",
+      "source": {
+        "package": "@cloudflare/kumo",
+        "version": "2.5.2",
+        "path": "node_modules/@cloudflare/kumo/dist/chunks/button-ov39dxshqbqrthhd.js",
+        "sha256": "09d11a49c39df6697987fa73b62c8efc60fdd5ffcd65484bcd8695f4dcf75d87"
+      },
+      "imports": [
+        {
+          "module": "react/jsx-runtime",
+          "symbols": [
+            "n",
+            "x"
+          ],
+          "provenance": {
+            "line": 2,
+            "column": 1
+          }
+        },
+        {
+          "module": "react",
+          "symbols": [
+            "k"
+          ],
+          "provenance": {
+            "line": 3,
+            "column": 1
+          }
+        },
+        {
+          "module": "@phosphor-icons/react",
+          "symbols": [
+            "B"
+          ],
+          "provenance": {
+            "line": 4,
+            "column": 1
+          }
+        },
+        {
+          "module": "./loader-g8a6j76ue5nq0lr8.js",
+          "symbols": [
+            "N"
+          ],
+          "provenance": {
+            "line": 5,
+            "column": 1
+          }
+        },
+        {
+          "module": "./tooltip-ken77ixya0qpidie.js",
+          "symbols": [
+            "L"
+          ],
+          "provenance": {
+            "line": 6,
+            "column": 1
+          }
+        },
+        {
+          "module": "./cn-ct4n7r74mh8y0f48.js",
+          "symbols": [
+            "l"
+          ],
+          "provenance": {
+            "line": 7,
+            "column": 1
+          }
+        },
+        {
+          "module": "./resolve-variant-gw6eh7fa4st8ej7m.js",
+          "symbols": [
+            "c"
+          ],
+          "provenance": {
+            "line": 8,
+            "column": 1
+          }
+        },
+        {
+          "module": "./link-provider-mn2voeohon7cj9o4.js",
+          "symbols": [
+            "T"
+          ],
+          "provenance": {
+            "line": 9,
+            "column": 1
+          }
+        }
+      ],
+      "importedIcons": [
+        "ArrowsClockwise"
+      ],
+      "symbols": [
+        {
+          "name": "u",
+          "kind": "VariableDeclaration",
+          "provenance": {
+            "line": 10,
+            "column": 7
+          }
+        },
+        {
+          "name": "a",
+          "kind": "VariableDeclaration",
+          "provenance": {
+            "line": 75,
+            "column": 4
+          }
+        },
+        {
+          "name": "v",
+          "kind": "FunctionDeclaration",
+          "provenance": {
+            "line": 80,
+            "column": 1
+          }
+        },
+        {
+          "name": "o",
+          "kind": "VariableDeclaration",
+          "provenance": {
+            "line": 85,
+            "column": 9
+          }
+        },
+        {
+          "name": "y",
+          "kind": "VariableDeclaration",
+          "provenance": {
+            "line": 117,
+            "column": 7
+          }
+        },
+        {
+          "name": "z",
+          "kind": "VariableDeclaration",
+          "provenance": {
+            "line": 117,
+            "column": 81
+          }
+        },
+        {
+          "name": "h",
+          "kind": "VariableDeclaration",
+          "provenance": {
+            "line": 130,
+            "column": 34
+          }
+        },
+        {
+          "name": "q",
+          "kind": "VariableDeclaration",
+          "provenance": {
+            "line": 153,
+            "column": 7
+          }
+        },
+        {
+          "name": "S",
+          "kind": "VariableDeclaration",
+          "provenance": {
+            "line": 167,
+            "column": 7
+          }
+        },
+        {
+          "name": "g",
+          "kind": "VariableDeclaration",
+          "provenance": {
+            "line": 180,
+            "column": 11
+          }
+        },
+        {
+          "name": "f",
+          "kind": "VariableDeclaration",
+          "provenance": {
+            "line": 180,
+            "column": 20
+          }
+        }
+      ],
+      "structure": [
+        {
+          "target": "s",
+          "attributes": [],
+          "childSlots": 0,
+          "provenance": {
+            "line": 117,
+            "column": 64
+          }
+        },
+        {
+          "target": "\"button\"",
+          "attributes": [
+            "...w",
+            "className",
+            "data-kumo-component",
+            "disabled",
+            "ref",
+            "type"
+          ],
+          "childSlots": 2,
+          "provenance": {
+            "line": 130,
+            "column": 54
+          }
+        },
+        {
+          "target": "N",
+          "attributes": [
+            "size"
+          ],
+          "childSlots": 0,
+          "provenance": {
+            "line": 144,
+            "column": 31
+          }
+        },
+        {
+          "target": "\"span\"",
+          "attributes": [
+            "className"
+          ],
+          "childSlots": 1,
+          "provenance": {
+            "line": 145,
+            "column": 40
+          }
+        },
+        {
+          "target": "L",
+          "attributes": [
+            "content",
+            "render"
+          ],
+          "childSlots": 0,
+          "provenance": {
+            "line": 149,
+            "column": 32
+          }
+        },
+        {
+          "target": "z",
+          "attributes": [
+            "...e",
+            "aria-label",
+            "shape"
+          ],
+          "childSlots": 1,
+          "provenance": {
+            "line": 157,
+            "column": 23
+          }
+        },
+        {
+          "target": "B",
+          "attributes": [
+            "className"
+          ],
+          "childSlots": 0,
+          "provenance": {
+            "line": 157,
+            "column": 96
+          }
+        },
+        {
+          "target": "g",
+          "attributes": [
+            "...f",
+            "...i",
+            "className",
+            "data-kumo-component",
+            "href",
+            "ref",
+            "to"
+          ],
+          "childSlots": 2,
+          "provenance": {
+            "line": 181,
+            "column": 28
+          }
+        }
+      ],
+      "classExpressions": [
+        {
+          "expression": "l(\n          v({ variant: m, size: r, shape: d }),\n          e && \"cursor-not-allowed opacity-50\",\n          t\n        )",
+          "staticTokens": [
+            "cursor-not-allowed",
+            "opacity-50"
+          ],
+          "provenance": {
+            "line": 135,
+            "column": 9
+          }
+        },
+        {
+          "expression": "\"contents\"",
+          "staticTokens": [
+            "contents"
+          ],
+          "provenance": {
+            "line": 145,
+            "column": 52
+          }
+        },
+        {
+          "expression": "l({\n      \"animate-refresh\": t,\n      \"size-4.5\": e.size === \"base\" || !e.size,\n      \"size-4\": e.size === \"sm\",\n      \"size-5\": e.size === \"lg\"\n    })",
+          "staticTokens": [
+            "animate-refresh",
+            "size-4.5",
+            "base",
+            "size-4",
+            "sm",
+            "size-5",
+            "lg"
+          ],
+          "provenance": {
+            "line": 160,
+            "column": 5
+          }
+        },
+        {
+          "expression": "l(\n          v({ variant: m, size: r, shape: d }),\n          \"flex items-center no-underline!\",\n          t\n        )",
+          "staticTokens": [
+            "flex",
+            "items-center",
+            "no-underline!"
+          ],
+          "provenance": {
+            "line": 186,
+            "column": 9
+          }
+        }
+      ],
+      "defaults": [
+        {
+          "parameter": "s",
+          "value": "a.variant",
+          "provenance": {
+            "line": 81,
+            "column": 3
+          }
+        },
+        {
+          "parameter": "t",
+          "value": "a.size",
+          "provenance": {
+            "line": 82,
+            "column": 3
+          }
+        },
+        {
+          "parameter": "e",
+          "value": "a.shape",
+          "provenance": {
+            "line": 83,
+            "column": 3
+          }
+        },
+        {
+          "parameter": "d",
+          "value": "base",
+          "provenance": {
+            "line": 123,
+            "column": 5
+          }
+        },
+        {
+          "parameter": "r",
+          "value": "base",
+          "provenance": {
+            "line": 124,
+            "column": 5
+          }
+        },
+        {
+          "parameter": "m",
+          "value": "secondary",
+          "provenance": {
+            "line": 125,
+            "column": 5
+          }
+        },
+        {
+          "parameter": "s",
+          "value": "Refresh",
+          "provenance": {
+            "line": 154,
+            "column": 3
+          }
+        },
+        {
+          "parameter": "d",
+          "value": "base",
+          "provenance": {
+            "line": 173,
+            "column": 5
+          }
+        },
+        {
+          "parameter": "r",
+          "value": "base",
+          "provenance": {
+            "line": 174,
+            "column": 5
+          }
+        },
+        {
+          "parameter": "m",
+          "value": "ghost",
+          "provenance": {
+            "line": 175,
+            "column": 5
+          }
+        }
+      ],
+      "stateBranches": {
+        "disabled": [],
+        "loading": []
+      },
+      "branches": [
+        {
+          "condition": "o",
+          "kind": "BinaryExpression",
+          "provenance": {
+            "line": 110,
+            "column": 5
+          }
+        },
+        {
+          "condition": "s",
+          "kind": "ConditionalExpression",
+          "provenance": {
+            "line": 117,
+            "column": 18
+          }
+        },
+        {
+          "condition": "k.isValidElement(s)",
+          "kind": "ConditionalExpression",
+          "provenance": {
+            "line": 117,
+            "column": 22
+          }
+        },
+        {
+          "condition": "e",
+          "kind": "BinaryExpression",
+          "provenance": {
+            "line": 137,
+            "column": 11
+          }
+        },
+        {
+          "condition": "f",
+          "kind": "BinaryExpression",
+          "provenance": {
+            "line": 141,
+            "column": 15
+          }
+        },
+        {
+          "condition": "o",
+          "kind": "ConditionalExpression",
+          "provenance": {
+            "line": 144,
+            "column": 11
+          }
+        },
+        {
+          "condition": "r === \"lg\"",
+          "kind": "ConditionalExpression",
+          "provenance": {
+            "line": 144,
+            "column": 44
+          }
+        },
+        {
+          "condition": "s != null",
+          "kind": "BinaryExpression",
+          "provenance": {
+            "line": 145,
+            "column": 11
+          }
+        },
+        {
+          "condition": "i",
+          "kind": "ConditionalExpression",
+          "provenance": {
+            "line": 149,
+            "column": 12
+          }
+        },
+        {
+          "condition": "e",
+          "kind": "ConditionalExpression",
+          "provenance": {
+            "line": 180,
+            "column": 24
+          }
+        },
+        {
+          "condition": "typeof o == \"string\"",
+          "kind": "ConditionalExpression",
+          "provenance": {
+            "line": 192,
+            "column": 13
+          }
+        }
+      ],
+      "compoundParts": [],
+      "diagnostics": []
+    },
+    {
+      "component": "checkbox",
+      "source": {
+        "package": "@cloudflare/kumo",
+        "version": "2.5.2",
+        "path": "node_modules/@cloudflare/kumo/dist/chunks/checkbox-bt4nfv1i2142kykg.js",
+        "sha256": "c376ebaed1faea8520a95c841ca79a0e58017a8a54d007a61037a95796af79d5"
+      },
+      "imports": [
+        {
+          "module": "react/jsx-runtime",
+          "symbols": [
+            "e",
+            "x"
+          ],
+          "provenance": {
+            "line": 2,
+            "column": 1
+          }
+        },
+        {
+          "module": "react",
+          "symbols": [
+            "B",
+            "F",
+            "g"
+          ],
+          "provenance": {
+            "line": 3,
+            "column": 1
+          }
+        },
+        {
+          "module": "@phosphor-icons/react",
+          "symbols": [
+            "C",
+            "v"
+          ],
+          "provenance": {
+            "line": 4,
+            "column": 1
+          }
+        },
+        {
+          "module": "./cn-ct4n7r74mh8y0f48.js",
+          "symbols": [
+            "i"
+          ],
+          "provenance": {
+            "line": 5,
+            "column": 1
+          }
+        },
+        {
+          "module": "./label-kib2hn4pkbn28c31.js",
+          "symbols": [
+            "E"
+          ],
+          "provenance": {
+            "line": 6,
+            "column": 1
+          }
+        },
+        {
+          "module": "./vendor-base-ui-knphx7dts1vm1x37.js",
+          "symbols": [
+            "G",
+            "K",
+            "N",
+            "R",
+            "_",
+            "w",
+            "y"
+          ],
+          "provenance": {
+            "line": 7,
+            "column": 1
+          }
+        }
+      ],
+      "importedIcons": [
+        "CheckIcon",
+        "MinusIcon"
+      ],
+      "symbols": [
+        {
+          "name": "H",
+          "kind": "VariableDeclaration",
+          "provenance": {
+            "line": 8,
+            "column": 7
+          }
+        },
+        {
+          "name": "X",
+          "kind": "VariableDeclaration",
+          "provenance": {
+            "line": 19,
+            "column": 4
+          }
+        },
+        {
+          "name": "L",
+          "kind": "VariableDeclaration",
+          "provenance": {
+            "line": 21,
+            "column": 4
+          }
+        },
+        {
+          "name": "j",
+          "kind": "VariableDeclaration",
+          "provenance": {
+            "line": 23,
+            "column": 5
+          }
+        },
+        {
+          "name": "f",
+          "kind": "VariableDeclaration",
+          "provenance": {
+            "line": 39,
+            "column": 13
+          }
+        },
+        {
+          "name": "b",
+          "kind": "VariableDeclaration",
+          "provenance": {
+            "line": 39,
+            "column": 22
+          }
+        },
+        {
+          "name": "O",
+          "kind": "VariableDeclaration",
+          "provenance": {
+            "line": 39,
+            "column": 45
+          }
+        },
+        {
+          "name": "p",
+          "kind": "VariableDeclaration",
+          "provenance": {
+            "line": 48,
+            "column": 11
+          }
+        },
+        {
+          "name": "A",
+          "kind": "VariableDeclaration",
+          "provenance": {
+            "line": 103,
+            "column": 7
+          }
+        },
+        {
+          "name": "I",
+          "kind": "FunctionDeclaration",
+          "provenance": {
+            "line": 165,
+            "column": 1
+          }
+        },
+        {
+          "name": "M",
+          "kind": "FunctionDeclaration",
+          "provenance": {
+            "line": 175,
+            "column": 1
+          }
+        },
+        {
+          "name": "z",
+          "kind": "VariableDeclaration",
+          "provenance": {
+            "line": 205,
+            "column": 7
+          }
+        }
+      ],
+      "structure": [
+        {
+          "target": "N",
+          "attributes": [
+            "...h",
+            "checked",
+            "className",
+            "data-kumo-component",
+            "disabled",
+            "indeterminate",
+            "name",
+            "onCheckedChange",
+            "ref"
+          ],
+          "childSlots": 1,
+          "provenance": {
+            "line": 48,
+            "column": 31
+          }
+        },
+        {
+          "target": "y",
+          "attributes": [
+            "className",
+            "keepMounted",
+            "render"
+          ],
+          "childSlots": 0,
+          "provenance": {
+            "line": 68,
+            "column": 35
+          }
+        },
+        {
+          "target": "\"span\"",
+          "attributes": [
+            "...f"
+          ],
+          "childSlots": 1,
+          "provenance": {
+            "line": 73,
+            "column": 47
+          }
+        },
+        {
+          "target": "C",
+          "attributes": [
+            "size",
+            "weight"
+          ],
+          "childSlots": 0,
+          "provenance": {
+            "line": 73,
+            "column": 109
+          }
+        },
+        {
+          "target": "v",
+          "attributes": [
+            "size",
+            "weight"
+          ],
+          "childSlots": 0,
+          "provenance": {
+            "line": 73,
+            "column": 162
+          }
+        },
+        {
+          "target": "K",
+          "attributes": [
+            "className"
+          ],
+          "childSlots": 1,
+          "provenance": {
+            "line": 78,
+            "column": 32
+          }
+        },
+        {
+          "target": "R",
+          "attributes": [
+            "className"
+          ],
+          "childSlots": 2,
+          "provenance": {
+            "line": 78,
+            "column": 91
+          }
+        },
+        {
+          "target": "E",
+          "attributes": [
+            "asContent",
+            "showOptional",
+            "tooltip"
+          ],
+          "childSlots": 1,
+          "provenance": {
+            "line": 88,
+            "column": 27
+          }
+        },
+        {
+          "target": "\"label\"",
+          "attributes": [
+            "className",
+            "data-kumo-component",
+            "data-kumo-part"
+          ],
+          "childSlots": 2,
+          "provenance": {
+            "line": 116,
+            "column": 28
+          }
+        },
+        {
+          "target": "N",
+          "attributes": [
+            "checked",
+            "className",
+            "data-kumo-component",
+            "data-kumo-part",
+            "disabled",
+            "indeterminate",
+            "name",
+            "onCheckedChange",
+            "ref",
+            "value"
+          ],
+          "childSlots": 1,
+          "provenance": {
+            "line": 130,
+            "column": 27
+          }
+        },
+        {
+          "target": "y",
+          "attributes": [
+            "className",
+            "keepMounted",
+            "render"
+          ],
+          "childSlots": 0,
+          "provenance": {
+            "line": 148,
+            "column": 41
+          }
+        },
+        {
+          "target": "\"span\"",
+          "attributes": [
+            "...h"
+          ],
+          "childSlots": 1,
+          "provenance": {
+            "line": 153,
+            "column": 53
+          }
+        },
+        {
+          "target": "C",
+          "attributes": [
+            "size",
+            "weight"
+          ],
+          "childSlots": 0,
+          "provenance": {
+            "line": 153,
+            "column": 115
+          }
+        },
+        {
+          "target": "v",
+          "attributes": [
+            "size",
+            "weight"
+          ],
+          "childSlots": 0,
+          "provenance": {
+            "line": 153,
+            "column": 168
+          }
+        },
+        {
+          "target": "\"span\"",
+          "attributes": [
+            "className"
+          ],
+          "childSlots": 1,
+          "provenance": {
+            "line": 158,
+            "column": 27
+          }
+        },
+        {
+          "target": "w",
+          "attributes": [
+            "className"
+          ],
+          "childSlots": 1,
+          "provenance": {
+            "line": 166,
+            "column": 26
+          }
+        },
+        {
+          "target": "L.Provider",
+          "attributes": [
+            "value"
+          ],
+          "childSlots": 1,
+          "provenance": {
+            "line": 188,
+            "column": 26
+          }
+        },
+        {
+          "target": "_",
+          "attributes": [
+            "allValues",
+            "defaultValue",
+            "disabled",
+            "onValueChange",
+            "value"
+          ],
+          "childSlots": 1,
+          "provenance": {
+            "line": 188,
+            "column": 96
+          }
+        },
+        {
+          "target": "G",
+          "attributes": [
+            "className"
+          ],
+          "childSlots": 4,
+          "provenance": {
+            "line": 196,
+            "column": 33
+          }
+        },
+        {
+          "target": "w",
+          "attributes": [
+            "className"
+          ],
+          "childSlots": 1,
+          "provenance": {
+            "line": 197,
+            "column": 30
+          }
+        },
+        {
+          "target": "\"div\"",
+          "attributes": [
+            "className"
+          ],
+          "childSlots": 1,
+          "provenance": {
+            "line": 198,
+            "column": 25
+          }
+        },
+        {
+          "target": "\"p\"",
+          "attributes": [
+            "className"
+          ],
+          "childSlots": 1,
+          "provenance": {
+            "line": 199,
+            "column": 30
+          }
+        },
+        {
+          "target": "\"p\"",
+          "attributes": [
+            "className"
+          ],
+          "childSlots": 1,
+          "provenance": {
+            "line": 200,
+            "column": 30
+          }
+        }
+      ],
+      "classExpressions": [
+        {
+          "expression": "i(\n          \"relative flex h-4 w-4 shrink-0 items-center justify-center rounded-sm border-0 bg-kumo-base ring focus:outline-none after:absolute after:-inset-x-3 after:-inset-y-2\",\n          a && \"mt-0.5\",\n          s === \"error\" ? \"ring-kumo-danger\" : \"ring-kumo-hairline\",\n          !t && \"hover:ring-kumo-hairline focus:ring-kumo-focus focus:ring-2 focus-visible:ring-2 focus-visible:ring-kumo-brand\",\n          \"data-[checked]:bg-kumo-contrast data-[checked]:ring-kumo-contrast data-[indeterminate]:bg-kumo-contrast data-[indeterminate]:ring-kumo-contrast\",\n          t && \"cursor-not-allowed opacity-50\",\n          o\n        )",
+          "staticTokens": [
+            "relative",
+            "flex",
+            "h-4",
+            "w-4",
+            "shrink-0",
+            "items-center",
+            "justify-center",
+            "rounded-sm",
+            "border-0",
+            "bg-kumo-base",
+            "ring",
+            "focus:outline-none",
+            "after:absolute",
+            "after:-inset-x-3",
+            "after:-inset-y-2",
+            "mt-0.5",
+            "error",
+            "ring-kumo-danger",
+            "ring-kumo-hairline",
+            "hover:ring-kumo-hairline",
+            "focus:ring-kumo-focus",
+            "focus:ring-2",
+            "focus-visible:ring-2",
+            "focus-visible:ring-kumo-brand",
+            "data-[checked]:bg-kumo-contrast",
+            "data-[checked]:ring-kumo-contrast",
+            "data-[indeterminate]:bg-kumo-contrast",
+            "data-[indeterminate]:ring-kumo-contrast",
+            "cursor-not-allowed",
+            "opacity-50"
+          ],
+          "provenance": {
+            "line": 58,
+            "column": 9
+          }
+        },
+        {
+          "expression": "\"flex items-center justify-center text-kumo-inverse data-[unchecked]:invisible\"",
+          "staticTokens": [
+            "flex",
+            "items-center",
+            "justify-center",
+            "text-kumo-inverse",
+            "data-[unchecked]:invisible"
+          ],
+          "provenance": {
+            "line": 72,
+            "column": 13
+          }
+        },
+        {
+          "expression": "\"inline-flex\"",
+          "staticTokens": [
+            "inline-flex"
+          ],
+          "provenance": {
+            "line": 78,
+            "column": 39
+          }
+        },
+        {
+          "expression": "i(\n          \"!m-0 !min-h-0 !text-base inline-flex items-start gap-2\",\n          l ? \"flex-row\" : \"flex-row-reverse justify-end\",\n          t ? \"cursor-not-allowed\" : \"cursor-pointer\"\n        )",
+          "staticTokens": [
+            "!m-0",
+            "!min-h-0",
+            "!text-base",
+            "inline-flex",
+            "items-start",
+            "gap-2",
+            "flex-row",
+            "flex-row-reverse",
+            "justify-end",
+            "cursor-not-allowed",
+            "cursor-pointer"
+          ],
+          "provenance": {
+            "line": 81,
+            "column": 9
+          }
+        },
+        {
+          "expression": "i(\n          \"m-0 relative inline-flex items-start gap-2\",\n          // Control first (default): checkbox before label\n          // Label first: label before checkbox using flex-row-reverse\n          !d && \"flex-row-reverse justify-end\",\n          t ? \"cursor-not-allowed opacity-50\" : \"cursor-pointer\",\n          o\n        )",
+          "staticTokens": [
+            "m-0",
+            "relative",
+            "inline-flex",
+            "items-start",
+            "gap-2",
+            "flex-row-reverse",
+            "justify-end",
+            "cursor-not-allowed",
+            "opacity-50",
+            "cursor-pointer"
+          ],
+          "provenance": {
+            "line": 121,
+            "column": 9
+          }
+        },
+        {
+          "expression": "i(\n                \"peer relative mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-sm border-0 bg-kumo-base ring after:absolute after:-inset-x-3 after:-inset-y-2\",\n                s === \"error\" ? \"ring-kumo-danger\" : \"ring-kumo-hairline\",\n                !t && \"group-hover:ring-kumo-hairline hover:ring-kumo-hairline focus:ring-kumo-focus focus:ring-2 focus-visible:ring-2 focus-visible:ring-kumo-brand\",\n                \"data-[checked]:bg-kumo-contrast data-[checked]:ring-kumo-contrast data-[indeterminate]:bg-kumo-contrast data-[indeterminate]:ring-kumo-contrast\"\n              )",
+          "staticTokens": [
+            "peer",
+            "relative",
+            "mt-0.5",
+            "flex",
+            "h-4",
+            "w-4",
+            "shrink-0",
+            "items-center",
+            "justify-center",
+            "rounded-sm",
+            "border-0",
+            "bg-kumo-base",
+            "ring",
+            "after:absolute",
+            "after:-inset-x-3",
+            "after:-inset-y-2",
+            "error",
+            "ring-kumo-danger",
+            "ring-kumo-hairline",
+            "group-hover:ring-kumo-hairline",
+            "hover:ring-kumo-hairline",
+            "focus:ring-kumo-focus",
+            "focus:ring-2",
+            "focus-visible:ring-2",
+            "focus-visible:ring-kumo-brand",
+            "data-[checked]:bg-kumo-contrast",
+            "data-[checked]:ring-kumo-contrast",
+            "data-[indeterminate]:bg-kumo-contrast",
+            "data-[indeterminate]:ring-kumo-contrast"
+          ],
+          "provenance": {
+            "line": 142,
+            "column": 15
+          }
+        },
+        {
+          "expression": "\"flex items-center justify-center text-kumo-inverse data-[unchecked]:invisible\"",
+          "staticTokens": [
+            "flex",
+            "items-center",
+            "justify-center",
+            "text-kumo-inverse",
+            "data-[unchecked]:invisible"
+          ],
+          "provenance": {
+            "line": 152,
+            "column": 19
+          }
+        },
+        {
+          "expression": "\"text-base text-kumo-default\"",
+          "staticTokens": [
+            "text-base",
+            "text-kumo-default"
+          ],
+          "provenance": {
+            "line": 158,
+            "column": 39
+          }
+        },
+        {
+          "expression": "i(\"text-base font-medium text-kumo-default\", r)",
+          "staticTokens": [
+            "text-base",
+            "font-medium",
+            "text-kumo-default"
+          ],
+          "provenance": {
+            "line": 169,
+            "column": 7
+          }
+        },
+        {
+          "expression": "i(\"flex flex-col gap-4\", d)",
+          "staticTokens": [
+            "flex",
+            "flex-col",
+            "gap-4"
+          ],
+          "provenance": {
+            "line": 196,
+            "column": 40
+          }
+        },
+        {
+          "expression": "\"text-base font-medium text-kumo-default\"",
+          "staticTokens": [
+            "text-base",
+            "font-medium",
+            "text-kumo-default"
+          ],
+          "provenance": {
+            "line": 197,
+            "column": 37
+          }
+        },
+        {
+          "expression": "\"flex flex-col gap-2\"",
+          "staticTokens": [
+            "flex",
+            "flex-col",
+            "gap-2"
+          ],
+          "provenance": {
+            "line": 198,
+            "column": 36
+          }
+        },
+        {
+          "expression": "\"text-sm text-kumo-danger\"",
+          "staticTokens": [
+            "text-sm",
+            "text-kumo-danger"
+          ],
+          "provenance": {
+            "line": 199,
+            "column": 39
+          }
+        },
+        {
+          "expression": "\"text-sm text-kumo-subtle\"",
+          "staticTokens": [
+            "text-sm",
+            "text-kumo-subtle"
+          ],
+          "provenance": {
+            "line": 200,
+            "column": 39
+          }
+        }
+      ],
+      "defaults": [
+        {
+          "parameter": "s",
+          "value": "default",
+          "provenance": {
+            "line": 29,
+            "column": 5
+          }
+        },
+        {
+          "parameter": "l",
+          "value": "!0",
+          "provenance": {
+            "line": 32,
+            "column": 5
+          }
+        },
+        {
+          "parameter": "s",
+          "value": "default",
+          "provenance": {
+            "line": 109,
+            "column": 5
+          }
+        },
+        {
+          "parameter": "m",
+          "value": "!0",
+          "provenance": {
+            "line": 185,
+            "column": 3
+          }
+        }
+      ],
+      "stateBranches": {
+        "checked": [],
+        "indeterminate": [
+          "b.indeterminate",
+          "k.indeterminate"
+        ],
+        "disabled": []
+      },
+      "branches": [
+        {
+          "condition": "process.env.NODE_ENV !== \"production\"",
+          "kind": "IfStatement",
+          "provenance": {
+            "line": 38,
+            "column": 5
+          }
+        },
+        {
+          "condition": "!f && !b && !O",
+          "kind": "BinaryExpression",
+          "provenance": {
+            "line": 40,
+            "column": 7
+          }
+        },
+        {
+          "condition": "!f && !b",
+          "kind": "BinaryExpression",
+          "provenance": {
+            "line": 40,
+            "column": 7
+          }
+        },
+        {
+          "condition": "!f",
+          "kind": "BinaryExpression",
+          "provenance": {
+            "line": 40,
+            "column": 7
+          }
+        },
+        {
+          "condition": "a",
+          "kind": "BinaryExpression",
+          "provenance": {
+            "line": 60,
+            "column": 11
+          }
+        },
+        {
+          "condition": "s === \"error\"",
+          "kind": "ConditionalExpression",
+          "provenance": {
+            "line": 61,
+            "column": 11
+          }
+        },
+        {
+          "condition": "!t",
+          "kind": "BinaryExpression",
+          "provenance": {
+            "line": 62,
+            "column": 11
+          }
+        },
+        {
+          "condition": "t",
+          "kind": "BinaryExpression",
+          "provenance": {
+            "line": 64,
+            "column": 11
+          }
+        },
+        {
+          "condition": "b.indeterminate",
+          "kind": "ConditionalExpression",
+          "provenance": {
+            "line": 73,
+            "column": 75
+          }
+        },
+        {
+          "condition": "a",
+          "kind": "ConditionalExpression",
+          "provenance": {
+            "line": 78,
+            "column": 12
+          }
+        },
+        {
+          "condition": "l",
+          "kind": "ConditionalExpression",
+          "provenance": {
+            "line": 83,
+            "column": 11
+          }
+        },
+        {
+          "condition": "t",
+          "kind": "ConditionalExpression",
+          "provenance": {
+            "line": 84,
+            "column": 11
+          }
+        },
+        {
+          "condition": "!d",
+          "kind": "BinaryExpression",
+          "provenance": {
+            "line": 125,
+            "column": 11
+          }
+        },
+        {
+          "condition": "t",
+          "kind": "ConditionalExpression",
+          "provenance": {
+            "line": 126,
+            "column": 11
+          }
+        },
+        {
+          "condition": "s === \"error\"",
+          "kind": "ConditionalExpression",
+          "provenance": {
+            "line": 144,
+            "column": 17
+          }
+        },
+        {
+          "condition": "!t",
+          "kind": "BinaryExpression",
+          "provenance": {
+            "line": 145,
+            "column": 17
+          }
+        },
+        {
+          "condition": "k.indeterminate",
+          "kind": "ConditionalExpression",
+          "provenance": {
+            "line": 153,
+            "column": 81
+          }
+        },
+        {
+          "condition": "o",
+          "kind": "BinaryExpression",
+          "provenance": {
+            "line": 197,
+            "column": 9
+          }
+        },
+        {
+          "condition": "n",
+          "kind": "BinaryExpression",
+          "provenance": {
+            "line": 199,
+            "column": 9
+          }
+        },
+        {
+          "condition": "t",
+          "kind": "BinaryExpression",
+          "provenance": {
+            "line": 200,
+            "column": 9
+          }
+        }
+      ],
+      "compoundParts": [
+        "Group",
+        "Item",
+        "Legend"
+      ],
+      "diagnostics": []
+    },
+    {
+      "component": "field",
+      "source": {
+        "package": "@cloudflare/kumo",
+        "version": "2.5.2",
+        "path": "node_modules/@cloudflare/kumo/dist/chunks/field-m57qcw5b1zt1ohfz.js",
+        "sha256": "9ad07eac0bfb2e07ac4a6952bdb6e07d73bfac76f14903ab70fb71419c07187e"
+      },
+      "imports": [
+        {
+          "module": "react/jsx-runtime",
+          "symbols": [
+            "m",
+            "t"
+          ],
+          "provenance": {
+            "line": 2,
+            "column": 1
+          }
+        },
+        {
+          "module": "./cn-ct4n7r74mh8y0f48.js",
+          "symbols": [
+            "a"
+          ],
+          "provenance": {
+            "line": 3,
+            "column": 1
+          }
+        },
+        {
+          "module": "./label-kib2hn4pkbn28c31.js",
+          "symbols": [
+            "f"
+          ],
+          "provenance": {
+            "line": 4,
+            "column": 1
+          }
+        },
+        {
+          "module": "./vendor-base-ui-knphx7dts1vm1x37.js",
+          "symbols": [
+            "d",
+            "p",
+            "u",
+            "x"
+          ],
+          "provenance": {
+            "line": 5,
+            "column": 1
+          }
+        }
+      ],
+      "importedIcons": [],
+      "symbols": [
+        {
+          "name": "y",
+          "kind": "FunctionDeclaration",
+          "provenance": {
+            "line": 6,
+            "column": 1
+          }
+        },
+        {
+          "name": "_",
+          "kind": "VariableDeclaration",
+          "provenance": {
+            "line": 10,
+            "column": 7
+          }
+        },
+        {
+          "name": "L",
+          "kind": "VariableDeclaration",
+          "provenance": {
+            "line": 12,
+            "column": 4
+          }
+        },
+        {
+          "name": "g",
+          "kind": "FunctionDeclaration",
+          "provenance": {
+            "line": 13,
+            "column": 1
+          }
+        },
+        {
+          "name": "N",
+          "kind": "FunctionDeclaration",
+          "provenance": {
+            "line": 32,
+            "column": 1
+          }
+        },
+        {
+          "name": "h",
+          "kind": "VariableDeclaration",
+          "provenance": {
+            "line": 42,
+            "column": 9
+          }
+        }
+      ],
+      "structure": [
+        {
+          "target": "u",
+          "attributes": [
+            "className"
+          ],
+          "childSlots": 3,
+          "provenance": {
+            "line": 43,
+            "column": 26
+          }
+        },
+        {
+          "target": "p",
+          "attributes": [
+            "className"
+          ],
+          "childSlots": 1,
+          "provenance": {
+            "line": 44,
+            "column": 27
+          }
+        },
+        {
+          "target": "f",
+          "attributes": [
+            "asContent",
+            "showOptional",
+            "tooltip"
+          ],
+          "childSlots": 1,
+          "provenance": {
+            "line": 44,
+            "column": 130
+          }
+        },
+        {
+          "target": "x",
+          "attributes": [
+            "className",
+            "match"
+          ],
+          "childSlots": 1,
+          "provenance": {
+            "line": 46,
+            "column": 25
+          }
+        },
+        {
+          "target": "d",
+          "attributes": [
+            "className"
+          ],
+          "childSlots": 1,
+          "provenance": {
+            "line": 57,
+            "column": 30
+          }
+        }
+      ],
+      "classExpressions": [
+        {
+          "expression": "g({ controlFirst: o })",
+          "staticTokens": [],
+          "provenance": {
+            "line": 43,
+            "column": 33
+          }
+        },
+        {
+          "expression": "\"m-0 select-none text-base font-medium text-kumo-default\"",
+          "staticTokens": [
+            "m-0",
+            "select-none",
+            "text-base",
+            "font-medium",
+            "text-kumo-default"
+          ],
+          "provenance": {
+            "line": 44,
+            "column": 34
+          }
+        },
+        {
+          "expression": "a(\n          \"text-sm leading-snug text-kumo-danger\",\n          // Span full width in horizontal layout\n          \"col-span-full\"\n        )",
+          "staticTokens": [
+            "text-sm",
+            "leading-snug",
+            "text-kumo-danger",
+            "col-span-full"
+          ],
+          "provenance": {
+            "line": 49,
+            "column": 9
+          }
+        },
+        {
+          "expression": "a(\n          \"text-sm leading-snug text-kumo-subtle\",\n          // Span full width in horizontal layout\n          \"col-span-full\"\n        )",
+          "staticTokens": [
+            "text-sm",
+            "leading-snug",
+            "text-kumo-subtle",
+            "col-span-full"
+          ],
+          "provenance": {
+            "line": 60,
+            "column": 9
+          }
+        }
+      ],
+      "defaults": [
+        {
+          "parameter": "e",
+          "value": "!1",
+          "provenance": {
+            "line": 14,
+            "column": 3
+          }
+        },
+        {
+          "parameter": "o",
+          "value": "!1",
+          "provenance": {
+            "line": 39,
+            "column": 3
+          }
+        },
+        {
+          "parameter": "r",
+          "value": "!1",
+          "provenance": {
+            "line": 40,
+            "column": 3
+          }
+        }
+      ],
+      "stateBranches": {
+        "error": [],
+        "disabled": []
+      },
+      "branches": [
+        {
+          "condition": "e",
+          "kind": "IfStatement",
+          "provenance": {
+            "line": 7,
+            "column": 3
+          }
+        },
+        {
+          "condition": "typeof e == \"string\"",
+          "kind": "ConditionalExpression",
+          "provenance": {
+            "line": 8,
+            "column": 12
+          }
+        },
+        {
+          "condition": "e",
+          "kind": "BinaryExpression",
+          "provenance": {
+            "line": 25,
+            "column": 5
+          }
+        },
+        {
+          "condition": "!r",
+          "kind": "BinaryExpression",
+          "provenance": {
+            "line": 44,
+            "column": 5
+          }
+        },
+        {
+          "condition": "s",
+          "kind": "ConditionalExpression",
+          "provenance": {
+            "line": 46,
+            "column": 5
+          }
+        },
+        {
+          "condition": "l",
+          "kind": "BinaryExpression",
+          "provenance": {
+            "line": 57,
+            "column": 9
+          }
+        }
+      ],
+      "compoundParts": [],
+      "diagnostics": []
+    },
+    {
+      "component": "popover",
+      "source": {
+        "package": "@cloudflare/kumo",
+        "version": "2.5.2",
+        "path": "node_modules/@cloudflare/kumo/dist/chunks/popover-ozf1j7oi7pxiudyz.js",
+        "sha256": "7c2c0b3faa41fb30ab9576193748e80aa25e0f74289b9a3e70401d626d1a54b1"
+      },
+      "imports": [
+        {
+          "module": "react/jsx-runtime",
+          "symbols": [
+            "o",
+            "p"
+          ],
+          "provenance": {
+            "line": 2,
+            "column": 1
+          }
+        },
+        {
+          "module": "./cn-ct4n7r74mh8y0f48.js",
+          "symbols": [
+            "i"
+          ],
+          "provenance": {
+            "line": 3,
+            "column": 1
+          }
+        },
+        {
+          "module": "./portal-provider-hwmkdmkpvct0cb76.js",
+          "symbols": [
+            "h"
+          ],
+          "provenance": {
+            "line": 4,
+            "column": 1
+          }
+        },
+        {
+          "module": "./vendor-base-ui-knphx7dts1vm1x37.js",
+          "symbols": [
+            "C",
+            "L",
+            "N",
+            "R",
+            "T",
+            "k",
+            "w",
+            "x",
+            "y"
+          ],
+          "provenance": {
+            "line": 5,
+            "column": 1
+          }
+        }
+      ],
+      "importedIcons": [],
+      "symbols": [
+        {
+          "name": "$",
+          "kind": "VariableDeclaration",
+          "provenance": {
+            "line": 6,
+            "column": 7
+          }
+        },
+        {
+          "name": "V",
+          "kind": "VariableDeclaration",
+          "provenance": {
+            "line": 25,
+            "column": 4
+          }
+        },
+        {
+          "name": "l",
+          "kind": "FunctionDeclaration",
+          "provenance": {
+            "line": 28,
+            "column": 1
+          }
+        },
+        {
+          "name": "d",
+          "kind": "FunctionDeclaration",
+          "provenance": {
+            "line": 32,
+            "column": 1
+          }
+        },
+        {
+          "name": "c",
+          "kind": "FunctionDeclaration",
+          "provenance": {
+            "line": 52,
+            "column": 1
+          }
+        },
+        {
+          "name": "b",
+          "kind": "VariableDeclaration",
+          "provenance": {
+            "line": 63,
+            "column": 9
+          }
+        },
+        {
+          "name": "m",
+          "kind": "FunctionDeclaration",
+          "provenance": {
+            "line": 108,
+            "column": 1
+          }
+        },
+        {
+          "name": "v",
+          "kind": "FunctionDeclaration",
+          "provenance": {
+            "line": 118,
+            "column": 1
+          }
+        },
+        {
+          "name": "g",
+          "kind": "FunctionDeclaration",
+          "provenance": {
+            "line": 128,
+            "column": 1
+          }
+        },
+        {
+          "name": "A",
+          "kind": "FunctionDeclaration",
+          "provenance": {
+            "line": 138,
+            "column": 1
+          }
+        },
+        {
+          "name": "j",
+          "kind": "VariableDeclaration",
+          "provenance": {
+            "line": 163,
+            "column": 7
+          }
+        }
+      ],
+      "structure": [
+        {
+          "target": "C",
+          "attributes": [
+            "...t"
+          ],
+          "childSlots": 1,
+          "provenance": {
+            "line": 29,
+            "column": 26
+          }
+        },
+        {
+          "target": "x",
+          "attributes": [
+            "...s",
+            "className",
+            "data-kumo-component",
+            "data-kumo-part",
+            "render"
+          ],
+          "childSlots": 1,
+          "provenance": {
+            "line": 39,
+            "column": 26
+          }
+        },
+        {
+          "target": "N",
+          "attributes": [
+            "container"
+          ],
+          "childSlots": 1,
+          "provenance": {
+            "line": 64,
+            "column": 26
+          }
+        },
+        {
+          "target": "y",
+          "attributes": [
+            "align",
+            "alignOffset",
+            "anchor",
+            "positionMethod",
+            "side",
+            "sideOffset"
+          ],
+          "childSlots": 1,
+          "provenance": {
+            "line": 64,
+            "column": 88
+          }
+        },
+        {
+          "target": "L",
+          "attributes": [
+            "className"
+          ],
+          "childSlots": 2,
+          "provenance": {
+            "line": 73,
+            "column": 33
+          }
+        },
+        {
+          "target": "k",
+          "attributes": [
+            "className"
+          ],
+          "childSlots": 1,
+          "provenance": {
+            "line": 87,
+            "column": 29
+          }
+        },
+        {
+          "target": "A",
+          "attributes": [],
+          "childSlots": 0,
+          "provenance": {
+            "line": 97,
+            "column": 43
+          }
+        },
+        {
+          "target": "T",
+          "attributes": [
+            "...t",
+            "className"
+          ],
+          "childSlots": 0,
+          "provenance": {
+            "line": 109,
+            "column": 26
+          }
+        },
+        {
+          "target": "R",
+          "attributes": [
+            "...t",
+            "className"
+          ],
+          "childSlots": 0,
+          "provenance": {
+            "line": 119,
+            "column": 26
+          }
+        },
+        {
+          "target": "w",
+          "attributes": [
+            "...s",
+            "className",
+            "render"
+          ],
+          "childSlots": 1,
+          "provenance": {
+            "line": 135,
+            "column": 26
+          }
+        },
+        {
+          "target": "\"svg\"",
+          "attributes": [
+            "...e",
+            "fill",
+            "height",
+            "viewBox",
+            "width"
+          ],
+          "childSlots": 3,
+          "provenance": {
+            "line": 139,
+            "column": 26
+          }
+        },
+        {
+          "target": "\"path\"",
+          "attributes": [
+            "className",
+            "d"
+          ],
+          "childSlots": 0,
+          "provenance": {
+            "line": 140,
+            "column": 21
+          }
+        },
+        {
+          "target": "\"path\"",
+          "attributes": [
+            "className",
+            "d"
+          ],
+          "childSlots": 0,
+          "provenance": {
+            "line": 147,
+            "column": 21
+          }
+        },
+        {
+          "target": "\"path\"",
+          "attributes": [
+            "className",
+            "d"
+          ],
+          "childSlots": 0,
+          "provenance": {
+            "line": 154,
+            "column": 21
+          }
+        }
+      ],
+      "classExpressions": [
+        {
+          "expression": "t",
+          "staticTokens": [],
+          "provenance": {
+            "line": 44,
+            "column": 7
+          }
+        },
+        {
+          "expression": "i(\n            \"flex origin-(--transform-origin) flex-col rounded-lg bg-kumo-base px-4 py-3 text-sm text-kumo-default\",\n            \"shadow-lg shadow-kumo-tip-shadow outline outline-kumo-fill\",\n            \"transition-[transform,scale,opacity] duration-150\",\n            \"data-starting-style:scale-90 data-starting-style:opacity-0\",\n            \"data-ending-style:scale-90 data-ending-style:opacity-0\",\n            \"data-instant:duration-0\",\n            \"kumo-popover-popup\",\n            P\n          )",
+          "staticTokens": [
+            "flex",
+            "origin-(--transform-origin)",
+            "flex-col",
+            "rounded-lg",
+            "bg-kumo-base",
+            "px-4",
+            "py-3",
+            "text-sm",
+            "text-kumo-default",
+            "shadow-lg",
+            "shadow-kumo-tip-shadow",
+            "outline",
+            "outline-kumo-fill",
+            "transition-[transform,scale,opacity]",
+            "duration-150",
+            "data-starting-style:scale-90",
+            "data-starting-style:opacity-0",
+            "data-ending-style:scale-90",
+            "data-ending-style:opacity-0",
+            "data-instant:duration-0",
+            "kumo-popover-popup"
+          ],
+          "provenance": {
+            "line": 76,
+            "column": 11
+          }
+        },
+        {
+          "expression": "i(\n                  \"flex\",\n                  \"data-[side=bottom]:-top-2\",\n                  \"data-[side=left]:right-[-13px] data-[side=left]:rotate-90\",\n                  \"data-[side=right]:left-[-13px] data-[side=right]:-rotate-90\",\n                  \"data-[side=top]:-bottom-2 data-[side=top]:rotate-180\"\n                )",
+          "staticTokens": [
+            "flex",
+            "data-[side=bottom]:-top-2",
+            "data-[side=left]:right-[-13px]",
+            "data-[side=left]:rotate-90",
+            "data-[side=right]:left-[-13px]",
+            "data-[side=right]:-rotate-90",
+            "data-[side=top]:-bottom-2",
+            "data-[side=top]:rotate-180"
+          ],
+          "provenance": {
+            "line": 90,
+            "column": 17
+          }
+        },
+        {
+          "expression": "i(\"m-0 text-base leading-6 font-medium\", e)",
+          "staticTokens": [
+            "m-0",
+            "text-base",
+            "leading-6",
+            "font-medium"
+          ],
+          "provenance": {
+            "line": 112,
+            "column": 7
+          }
+        },
+        {
+          "expression": "i(\"m-0 text-base leading-6 text-kumo-subtle\", e)",
+          "staticTokens": [
+            "m-0",
+            "text-base",
+            "leading-6",
+            "text-kumo-subtle"
+          ],
+          "provenance": {
+            "line": 122,
+            "column": 7
+          }
+        },
+        {
+          "expression": "t",
+          "staticTokens": [],
+          "provenance": {
+            "line": 135,
+            "column": 33
+          }
+        },
+        {
+          "expression": "\"fill-kumo-base\"",
+          "staticTokens": [
+            "fill-kumo-base"
+          ],
+          "provenance": {
+            "line": 144,
+            "column": 9
+          }
+        },
+        {
+          "expression": "\"fill-kumo-tip-shadow\"",
+          "staticTokens": [
+            "fill-kumo-tip-shadow"
+          ],
+          "provenance": {
+            "line": 151,
+            "column": 9
+          }
+        },
+        {
+          "expression": "\"fill-kumo-tip-stroke\"",
+          "staticTokens": [
+            "fill-kumo-tip-stroke"
+          ],
+          "provenance": {
+            "line": 158,
+            "column": 9
+          }
+        }
+      ],
+      "defaults": [
+        {
+          "parameter": "t",
+          "value": "V.side",
+          "provenance": {
+            "line": 54,
+            "column": 3
+          }
+        },
+        {
+          "parameter": "r",
+          "value": "center",
+          "provenance": {
+            "line": 55,
+            "column": 3
+          }
+        },
+        {
+          "parameter": "a",
+          "value": "8",
+          "provenance": {
+            "line": 56,
+            "column": 3
+          }
+        },
+        {
+          "parameter": "s",
+          "value": "0",
+          "provenance": {
+            "line": 57,
+            "column": 3
+          }
+        },
+        {
+          "parameter": "n",
+          "value": "absolute",
+          "provenance": {
+            "line": 58,
+            "column": 3
+          }
+        }
+      ],
+      "stateBranches": {
+        "open": [],
+        "dismiss": [],
+        "starting-style": [],
+        "ending-style": []
+      },
+      "branches": [
+        {
+          "condition": "a",
+          "kind": "BinaryExpression",
+          "provenance": {
+            "line": 45,
+            "column": 15
+          }
+        },
+        {
+          "condition": "r",
+          "kind": "ConditionalExpression",
+          "provenance": {
+            "line": 45,
+            "column": 21
+          }
+        },
+        {
+          "condition": "r",
+          "kind": "ConditionalExpression",
+          "provenance": {
+            "line": 47,
+            "column": 17
+          }
+        },
+        {
+          "condition": "f ?? b",
+          "kind": "BinaryExpression",
+          "provenance": {
+            "line": 64,
+            "column": 44
+          }
+        },
+        {
+          "condition": "f",
+          "kind": "BinaryExpression",
+          "provenance": {
+            "line": 64,
+            "column": 44
+          }
+        },
+        {
+          "condition": "a",
+          "kind": "BinaryExpression",
+          "provenance": {
+            "line": 135,
+            "column": 55
+          }
+        },
+        {
+          "condition": "r",
+          "kind": "ConditionalExpression",
+          "provenance": {
+            "line": 135,
+            "column": 61
+          }
+        },
+        {
+          "condition": "r",
+          "kind": "ConditionalExpression",
+          "provenance": {
+            "line": 135,
+            "column": 94
+          }
+        }
+      ],
+      "compoundParts": [
+        "Close",
+        "Content",
+        "Description",
+        "Title",
+        "Trigger"
+      ],
+      "diagnostics": []
+    }
+  ]
+}

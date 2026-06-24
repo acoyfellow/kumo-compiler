@@ -1,0 +1,99 @@
+{
+  "schemaVersion": "kumo.visual-trace/v1",
+  "component": "button",
+  "state": "disabled",
+  "viewport": 768,
+  "dom": "<main data-part=\"root\" data-component=\"button\" data-state=\"disabled\"><button data-part=\"control\" class=\"part\" disabled=\"\" aria-busy=\"false\">Continue</button></main>",
+  "parts": [
+    {
+      "part": "root",
+      "tag": "main",
+      "role": null,
+      "attrs": {
+        "data-component": "button",
+        "data-part": "root",
+        "data-state": "disabled"
+      },
+      "classes": [],
+      "text": "Continue",
+      "geometry": {
+        "x": 32,
+        "y": 32,
+        "width": 704,
+        "height": 34
+      },
+      "style": {
+        "display": "block",
+        "position": "static",
+        "color": "rgb(17, 17, 17)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "Arial",
+        "font-size": "14px",
+        "font-weight": "400",
+        "border-radius": "0px",
+        "opacity": "1",
+        "visibility": "visible"
+      }
+    },
+    {
+      "part": "control",
+      "tag": "button",
+      "role": "button",
+      "attrs": {
+        "aria-busy": "false",
+        "class": "part",
+        "data-part": "control",
+        "disabled": ""
+      },
+      "classes": [
+        "part"
+      ],
+      "text": "Continue",
+      "geometry": {
+        "x": 32,
+        "y": 32,
+        "width": 82.047,
+        "height": 34
+      },
+      "style": {
+        "display": "inline-block",
+        "position": "static",
+        "color": "rgba(16, 16, 16, 0.3)",
+        "background-color": "rgba(239, 239, 239, 0.3)",
+        "font-family": "Arial",
+        "font-size": "14px",
+        "font-weight": "400",
+        "border-radius": "6px",
+        "opacity": "1",
+        "visibility": "visible"
+      }
+    }
+  ],
+  "focus": {
+    "active": null,
+    "tabIndex": 0
+  },
+  "events": [],
+  "a11y": [
+    {
+      "part": "root",
+      "role": null,
+      "name": null,
+      "checked": null,
+      "expanded": null,
+      "disabled": false
+    },
+    {
+      "part": "control",
+      "role": "button",
+      "name": null,
+      "checked": null,
+      "expanded": null,
+      "disabled": true
+    }
+  ],
+  "screenshot": {
+    "sha256": "68ef2f88d17afd461c1d4fef685f3e031c2d9c77bfdc5ff9a2716742ccf1d207",
+    "bytes": 4665
+  }
+}

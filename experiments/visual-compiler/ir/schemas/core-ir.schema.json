@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kumo.core-ir/v1",
+  "type": "object",
+  "required": ["schemaVersion", "components"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "const": "kumo.core-ir/v1" },
+    "components": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name", "inputs", "stateMachine", "parts", "presentation", "provenance"],
+        "properties": {
+          "name": { "type": "string" },
+          "inputs": { "type": "object" },
+          "stateMachine": { "type": "object", "required": ["initial", "states", "transitions"] },
+          "parts": { "type": "array", "minItems": 1 },
+          "presentation": { "type": "object" },
+          "provenance": { "type": "object" }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

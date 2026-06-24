@@ -1,0 +1,213 @@
+{
+  "schemaVersion": "kumo.visual-trace/v1",
+  "component": "field",
+  "state": "disabled",
+  "viewport": 1440,
+  "dom": "<main data-part=\"root\" data-component=\"field\" data-state=\"disabled\"><div data-part=\"group\" class=\"field \"><label data-part=\"label\" for=\"f\">Project name</label><input data-part=\"control\" id=\"f\" class=\"part\" value=\"Kumo\" disabled=\"\"><small data-part=\"help\" id=\"help\">Visible to your team.</small></div></main>",
+  "parts": [
+    {
+      "part": "root",
+      "tag": "main",
+      "role": null,
+      "attrs": {
+        "data-component": "field",
+        "data-part": "root",
+        "data-state": "disabled"
+      },
+      "classes": [],
+      "text": "Project nameVisible to your team.",
+      "geometry": {
+        "x": 32,
+        "y": 32,
+        "width": 1376,
+        "height": 75
+      },
+      "style": {
+        "display": "block",
+        "position": "static",
+        "color": "rgb(17, 17, 17)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "Arial",
+        "font-size": "14px",
+        "font-weight": "400",
+        "border-radius": "0px",
+        "opacity": "1",
+        "visibility": "visible"
+      }
+    },
+    {
+      "part": "group",
+      "tag": "div",
+      "role": null,
+      "attrs": {
+        "class": "field ",
+        "data-part": "group"
+      },
+      "classes": [
+        "field"
+      ],
+      "text": "Project nameVisible to your team.",
+      "geometry": {
+        "x": 32,
+        "y": 32,
+        "width": 260,
+        "height": 75
+      },
+      "style": {
+        "display": "grid",
+        "position": "static",
+        "color": "rgb(17, 17, 17)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "Arial",
+        "font-size": "14px",
+        "font-weight": "400",
+        "border-radius": "0px",
+        "opacity": "1",
+        "visibility": "visible"
+      }
+    },
+    {
+      "part": "label",
+      "tag": "label",
+      "role": null,
+      "attrs": {
+        "data-part": "label",
+        "for": "f"
+      },
+      "classes": [],
+      "text": "Project name",
+      "geometry": {
+        "x": 32,
+        "y": 32,
+        "width": 260,
+        "height": 16
+      },
+      "style": {
+        "display": "block",
+        "position": "static",
+        "color": "rgb(17, 17, 17)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "Arial",
+        "font-size": "14px",
+        "font-weight": "400",
+        "border-radius": "0px",
+        "opacity": "1",
+        "visibility": "visible"
+      }
+    },
+    {
+      "part": "control",
+      "tag": "input",
+      "role": "textbox",
+      "attrs": {
+        "class": "part",
+        "data-part": "control",
+        "disabled": "",
+        "id": "f",
+        "value": "Kumo"
+      },
+      "classes": [
+        "part"
+      ],
+      "text": "",
+      "geometry": {
+        "x": 32,
+        "y": 54,
+        "width": 260,
+        "height": 34
+      },
+      "style": {
+        "display": "block",
+        "position": "static",
+        "color": "rgb(84, 84, 84)",
+        "background-color": "rgba(239, 239, 239, 0.3)",
+        "font-family": "Arial",
+        "font-size": "14px",
+        "font-weight": "400",
+        "border-radius": "6px",
+        "opacity": "1",
+        "visibility": "visible"
+      }
+    },
+    {
+      "part": "help",
+      "tag": "small",
+      "role": null,
+      "attrs": {
+        "data-part": "help",
+        "id": "help"
+      },
+      "classes": [],
+      "text": "Visible to your team.",
+      "geometry": {
+        "x": 32,
+        "y": 94,
+        "width": 260,
+        "height": 13
+      },
+      "style": {
+        "display": "block",
+        "position": "static",
+        "color": "rgb(17, 17, 17)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "Arial",
+        "font-size": "11.6667px",
+        "font-weight": "400",
+        "border-radius": "0px",
+        "opacity": "1",
+        "visibility": "visible"
+      }
+    }
+  ],
+  "focus": {
+    "active": null,
+    "tabIndex": 0
+  },
+  "events": [],
+  "a11y": [
+    {
+      "part": "root",
+      "role": null,
+      "name": null,
+      "checked": null,
+      "expanded": null,
+      "disabled": false
+    },
+    {
+      "part": "group",
+      "role": null,
+      "name": null,
+      "checked": null,
+      "expanded": null,
+      "disabled": false
+    },
+    {
+      "part": "label",
+      "role": null,
+      "name": null,
+      "checked": null,
+      "expanded": null,
+      "disabled": false
+    },
+    {
+      "part": "control",
+      "role": "textbox",
+      "name": null,
+      "checked": null,
+      "expanded": null,
+      "disabled": true
+    },
+    {
+      "part": "help",
+      "role": null,
+      "name": null,
+      "checked": null,
+      "expanded": null,
+      "disabled": false
+    }
+  ],
+  "screenshot": {
+    "sha256": "2bf1001e0ab66274fd30e0a64f164b22a4f8ce1132471d4e8ca4c4ba8cc63ea1",
+    "bytes": 9600
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "schemaVersion": "kumo.visual-compiler-spike-result/v1",
+  "spikeId": "frontend-oxc",
+  "status": "passed-with-limitations",
+  "decision": "retain",
+  "question": "Can an oxc-based frontend extract equivalent facts materially faster with acceptable symbol-resolution annotations?",
+  "answer": "Oxc, exposed install-free through the existing rolldown/parseAst dependency, deterministically extracts TSX syntax facts for all four components. Cross-module symbol resolution is not provided by this parser surface, so equivalence and material speed versus the TypeScript frontend remain unproven until results are compared.",
+  "authority": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2"
+  },
+  "input": {
+    "components": [
+      "button",
+      "checkbox",
+      "field",
+      "popover"
+    ],
+    "source": "embedded canonical TSX in immutable @cloudflare/kumo@2.5.2 chunk source maps"
+  },
+  "capabilityCheck": {
+    "installFree": true,
+    "directOxcPackages": [
+      {
+        "module": "oxc-parser",
+        "available": false,
+        "resolvedPath": null
+      },
+      {
+        "module": "@oxc-parser/binding",
+        "available": false,
+        "resolvedPath": null
+      },
+      {
+        "module": "oxc-transform",
+        "available": false,
+        "resolvedPath": null
+      },
+      {
+        "module": "@oxc-transform/binding",
+        "available": false,
+        "resolvedPath": null
+      },
+      {
+        "module": "oxc-resolver",
+        "available": false,
+        "resolvedPath": null
+      },
+      {
+        "module": "@oxc-resolver/binding",
+        "available": false,
+        "resolvedPath": null
+      },
+      {
+        "module": "oxc",
+        "available": false,
+        "resolvedPath": null
+      }
+    ],
+    "selectedSurface": {
+      "module": "rolldown/parseAst",
+      "engine": "Oxc"
+    },
+    "note": "No install or lockfile mutation was performed."
+  },
+  "factsArtifact": {
+    "path": "facts.json",
+    "contentSha256": "cb8dae33f16d763253020e84dc4756369a40fd29020e30eed11ebce843467b93",
+    "extractorContentSha256": "287a38a8c4c745dfed9a730abeea390481f0c191aecf129950c87b32dfac8045",
+    "counts": {
+      "button": {
+        "imports": 7,
+        "exports": 12,
+        "jsxElements": 8,
+        "conditions": 14,
+        "defaults": 11,
+        "classExpressions": 4,
+        "compoundParts": 1
+      },
+      "checkbox": {
+        "imports": 9,
+        "exports": 12,
+        "jsxElements": 23,
+        "conditions": 20,
+        "defaults": 6,
+        "classExpressions": 14,
+        "compoundParts": 1
+      },
+      "field": {
+        "imports": 4,
+        "exports": 8,
+        "jsxElements": 5,
+        "conditions": 6,
+        "defaults": 4,
+        "classExpressions": 4,
+        "compoundParts": 0
+      },
+      "popover": {
+        "imports": 4,
+        "exports": 17,
+        "jsxElements": 14,
+        "conditions": 8,
+        "defaults": 5,
+        "classExpressions": 9,
+        "compoundParts": 1
+      }
+    }
+  },
+  "diagnostics": [
+    {
+      "severity": "warning",
+      "code": "OXC_SYMBOL_RESOLUTION_SYNTAX_ONLY",
+      "message": "Imports and local syntax are captured; imported symbols are not resolved across modules."
+    },
+    {
+      "severity": "warning",
+      "code": "COMPARATIVE_SPEED_NOT_ESTABLISHED",
+      "message": "Standalone Oxc timings are measured, but material speed requires an equivalent TypeScript frontend benchmark."
+    }
+  ],
+  "benchmarks": {
+    "cold": {
+      "processMs": 56.345,
+      "parseMs": 15.639
+    },
+    "warm": {
+      "iterations": 10,
+      "minProcessMs": 52.675,
+      "medianProcessMs": 55.03,
+      "maxProcessMs": 56.608,
+      "samplesProcessMs": [
+        55.216,
+        54.141,
+        55.03,
+        55.355,
+        52.675,
+        54.771,
+        53.468,
+        55.819,
+        56.608,
+        53.288
+      ]
+    },
+    "deterministicDigest": true
+  },
+  "machine": {
+    "platform": "macOS-26.4.1-arm64-arm-64bit",
+    "architecture": "arm64",
+    "node": "v24.17.0"
+  },
+  "commands": [
+    "node experiments/visual-compiler/frontend/oxc/extract.mjs > experiments/visual-compiler/frontend/oxc/facts.json",
+    "node experiments/visual-compiler/frontend/oxc/benchmark.mjs",
+    "node experiments/visual-compiler/frontend/oxc/self-check.mjs"
+  ],
+  "selfCheck": {
+    "passed": true,
+    "assertions": [
+      "two extraction runs are byte-identical",
+      "authority version is exactly 2.5.2",
+      "component set is exact and ordered",
+      "each component has imports, JSX, and source digest"
+    ]
+  },
+  "failures": [],
+  "limitations": [
+    "No type checker or cross-module symbol graph",
+    "Source is recovered from package source maps because published package does not ship standalone component TSX files",
+    "Benchmark includes Node process startup and parses all four components; it is not an incremental focused proof"
+  ]
+}

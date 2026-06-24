@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "kumo.visual-compiler.typescript-result/v1",
+  "spike": "frontend-typescript",
+  "status": "passed",
+  "deterministic": {
+    "repeatedBytesEqual": true,
+    "factsSha256": "600a28eb6e43691b28488633847be04d4fbf707f5d6a2a0265e6ab7c797780d0"
+  },
+  "coverage": {
+    "button": {
+      "jsxNodes": 8,
+      "symbols": 11,
+      "classExpressions": 4,
+      "defaults": 10,
+      "branches": 11,
+      "importedIcons": [
+        "ArrowsClockwise"
+      ],
+      "compoundParts": [],
+      "diagnosticCount": 0
+    },
+    "checkbox": {
+      "jsxNodes": 23,
+      "symbols": 12,
+      "classExpressions": 14,
+      "defaults": 4,
+      "branches": 20,
+      "importedIcons": [
+        "CheckIcon",
+        "MinusIcon"
+      ],
+      "compoundParts": [
+        "Group",
+        "Item",
+        "Legend"
+      ],
+      "diagnosticCount": 0
+    },
+    "field": {
+      "jsxNodes": 5,
+      "symbols": 6,
+      "classExpressions": 4,
+      "defaults": 3,
+      "branches": 6,
+      "importedIcons": [],
+      "compoundParts": [],
+      "diagnosticCount": 0
+    },
+    "popover": {
+      "jsxNodes": 14,
+      "symbols": 11,
+      "classExpressions": 9,
+      "defaults": 5,
+      "branches": 8,
+      "importedIcons": [],
+      "compoundParts": [
+        "Close",
+        "Content",
+        "Description",
+        "Title",
+        "Trigger"
+      ],
+      "diagnosticCount": 0
+    }
+  },
+  "benchmark": {
+    "process": "v24.17.0",
+    "platform": "darwin-arm64",
+    "coldMs": 175.719,
+    "warmMs": 153.106,
+    "note": "Cold and immediate warm full four-component extraction in separate Node processes; warm benefits from OS filesystem cache."
+  },
+  "commands": {
+    "extract": "node experiments/visual-compiler/frontend/typescript/extract.mjs",
+    "focused": "node experiments/visual-compiler/frontend/typescript/extract.mjs --component=button",
+    "verify": "node experiments/visual-compiler/frontend/typescript/verify.mjs"
+  },
+  "failures": []
+}

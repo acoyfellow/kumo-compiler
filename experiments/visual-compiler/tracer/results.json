@@ -1,0 +1,394 @@
+{
+  "schemaVersion": "kumo.visual-compiler-tracer/v1",
+  "status": "passed",
+  "authority": {
+    "package": "@cloudflare/kumo",
+    "version": "2.5.2",
+    "runtime": "canonical React",
+    "synthetic": false
+  },
+  "browser": {
+    "executable": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "product": "Chrome/149.0.7827.156",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/149.0.0.0 Safari/537.36",
+    "protocolVersion": "1.3"
+  },
+  "coverage": {
+    "components": [
+      "button",
+      "checkbox",
+      "field",
+      "popover"
+    ],
+    "states": {
+      "button": [
+        "default",
+        "disabled",
+        "loading"
+      ],
+      "checkbox": [
+        "unchecked",
+        "checked",
+        "indeterminate"
+      ],
+      "field": [
+        "default",
+        "error",
+        "disabled"
+      ],
+      "popover": [
+        "closed",
+        "open",
+        "dismissed"
+      ]
+    },
+    "viewports": [
+      390,
+      768,
+      1440
+    ],
+    "cells": 36,
+    "expectedCells": 36
+  },
+  "determinism": {
+    "canonicalSerialization": true,
+    "contentAddressed": true,
+    "repetitions": 1
+  },
+  "records": [
+    {
+      "component": "button",
+      "state": "default",
+      "viewport": 390,
+      "trace": "artifacts/button/default/390/trace.json",
+      "traceSha256": "9eb647d47cf091b2eb69da66752217305d19413847fc48bc8ac78cd1b4ea7285",
+      "screenshotSha256": "0215949252c5ae9589cc00ac6fef2df79cf62c7370a239fc671e2ebaa1a8a1d5",
+      "partCount": 2
+    },
+    {
+      "component": "button",
+      "state": "default",
+      "viewport": 768,
+      "trace": "artifacts/button/default/768/trace.json",
+      "traceSha256": "087c6ff17564fd9b8ad69f682da18c107436a40f0d17bfbc43b10b9fb53aa615",
+      "screenshotSha256": "e1afd9fea82ff09d7a87d4710a6c342847fe4d09d0908e7e30bee2ee66bf0147",
+      "partCount": 2
+    },
+    {
+      "component": "button",
+      "state": "default",
+      "viewport": 1440,
+      "trace": "artifacts/button/default/1440/trace.json",
+      "traceSha256": "aca235489bf5b33d658f190f0924fc561b2f2fa50ce04ca02e5d82ab100f7eeb",
+      "screenshotSha256": "dc92402ba9025b8e398deaf2ff4c31841fe2bea659dc01d7bb2173297dbbd0e0",
+      "partCount": 2
+    },
+    {
+      "component": "button",
+      "state": "disabled",
+      "viewport": 390,
+      "trace": "artifacts/button/disabled/390/trace.json",
+      "traceSha256": "1cda5a6f46bdfa10202c8fab2174e6c7c1a9a79da09bcc5f967d70fe070af05f",
+      "screenshotSha256": "1ad72f8aacecd8510b4bb7820fca925b079b044f8c199f8f46e738bb154058fc",
+      "partCount": 2
+    },
+    {
+      "component": "button",
+      "state": "disabled",
+      "viewport": 768,
+      "trace": "artifacts/button/disabled/768/trace.json",
+      "traceSha256": "118ef922ad375ea3bf33636001227bf5c39b24a1ed7cfc9f72344f934fcd9cd8",
+      "screenshotSha256": "68ef2f88d17afd461c1d4fef685f3e031c2d9c77bfdc5ff9a2716742ccf1d207",
+      "partCount": 2
+    },
+    {
+      "component": "button",
+      "state": "disabled",
+      "viewport": 1440,
+      "trace": "artifacts/button/disabled/1440/trace.json",
+      "traceSha256": "d9ed38e83695f183e587812f49c61332d4f6635b8259d1a62971386eba00852b",
+      "screenshotSha256": "31d238df867b56ae0e95b322fbe89f41158f5ce83896f9897e6027e9009ab618",
+      "partCount": 2
+    },
+    {
+      "component": "button",
+      "state": "loading",
+      "viewport": 390,
+      "trace": "artifacts/button/loading/390/trace.json",
+      "traceSha256": "9201ea55bd7e0a7ef095d43f7120fbe0c429e3f5349ec0c002e3f162cd2a68cd",
+      "screenshotSha256": "9becff41bc78a683055a94367c7e5161f2084466f0151628a0cbfcc6bffd235d",
+      "partCount": 2
+    },
+    {
+      "component": "button",
+      "state": "loading",
+      "viewport": 768,
+      "trace": "artifacts/button/loading/768/trace.json",
+      "traceSha256": "82472a6e960f0ce22935d21a0e6cbf27a439ce9f80bf480c58c3b8355b09c6ff",
+      "screenshotSha256": "8e8f7e8c40ed88a55638fa0c88e88ebf064a889b536a616abfab796193b8d810",
+      "partCount": 2
+    },
+    {
+      "component": "button",
+      "state": "loading",
+      "viewport": 1440,
+      "trace": "artifacts/button/loading/1440/trace.json",
+      "traceSha256": "2893b0b2d6f0e8755aa82bd3a0923dd28af3af19461f4abb7d83cea4725469f9",
+      "screenshotSha256": "3cb897d6157d43d3b7e4a91c6ae940d1284d7f62e3b45ed5f377cec2b51daaf7",
+      "partCount": 2
+    },
+    {
+      "component": "checkbox",
+      "state": "unchecked",
+      "viewport": 390,
+      "trace": "artifacts/checkbox/unchecked/390/trace.json",
+      "traceSha256": "ff94b2fd6c9446457717a67b0db19333343879fa2f6204b032740234e87592e0",
+      "screenshotSha256": "203f4e60d9e9606deb12f38493829249487ffe44e2637dd9e78d08dbb8e78c7a",
+      "partCount": 4
+    },
+    {
+      "component": "checkbox",
+      "state": "unchecked",
+      "viewport": 768,
+      "trace": "artifacts/checkbox/unchecked/768/trace.json",
+      "traceSha256": "8891ba46d67e8f4b976487c1bfebdd03d8081cc780ee4e6c6750f45ca3a71ec7",
+      "screenshotSha256": "fe6f5a6f285a94eef3ab8c05488b8111b472f3ddc310bd02c5bd1628f5a0c1bd",
+      "partCount": 4
+    },
+    {
+      "component": "checkbox",
+      "state": "unchecked",
+      "viewport": 1440,
+      "trace": "artifacts/checkbox/unchecked/1440/trace.json",
+      "traceSha256": "4c956d4527a7824fe8f9b7f47e42a9dd0017a07444ab5e118e16d81e94d693d8",
+      "screenshotSha256": "6da83c0e9021f27166a86805f736b3dae1a55d698ce4dd51af3d568e51b9b292",
+      "partCount": 4
+    },
+    {
+      "component": "checkbox",
+      "state": "checked",
+      "viewport": 390,
+      "trace": "artifacts/checkbox/checked/390/trace.json",
+      "traceSha256": "2c3cefa8cc93e4a0226e32c1d857c8eabf5b87b83a4c175a0a22848a160d6e8b",
+      "screenshotSha256": "3b93481f305a7126a58686d790dd745c2c8f4830cc917265505bef0a657b4cb4",
+      "partCount": 4
+    },
+    {
+      "component": "checkbox",
+      "state": "checked",
+      "viewport": 768,
+      "trace": "artifacts/checkbox/checked/768/trace.json",
+      "traceSha256": "acf2ad07d7411f2a719a8644a4004d412e8509c039a26c794e1795956a46e748",
+      "screenshotSha256": "5ff433a463260051478f115c5a6d39495e1e08506d2c23f07da3b8c6fb332b1f",
+      "partCount": 4
+    },
+    {
+      "component": "checkbox",
+      "state": "checked",
+      "viewport": 1440,
+      "trace": "artifacts/checkbox/checked/1440/trace.json",
+      "traceSha256": "14119f079537e5fd1432aedddd2758015f217a8c6a88ba179c78b63dadd12513",
+      "screenshotSha256": "d52ae4b5783483588bf735dc8f871037382ffeec1a786fcc44ccbd8e8294558f",
+      "partCount": 4
+    },
+    {
+      "component": "checkbox",
+      "state": "indeterminate",
+      "viewport": 390,
+      "trace": "artifacts/checkbox/indeterminate/390/trace.json",
+      "traceSha256": "b81a4f797b7046ca55996657f8df518c65624d5cfe81ac83ada5c81c23c32fca",
+      "screenshotSha256": "203f4e60d9e9606deb12f38493829249487ffe44e2637dd9e78d08dbb8e78c7a",
+      "partCount": 4
+    },
+    {
+      "component": "checkbox",
+      "state": "indeterminate",
+      "viewport": 768,
+      "trace": "artifacts/checkbox/indeterminate/768/trace.json",
+      "traceSha256": "dbef3ca6ed41e06a537622ce9b01dc13ceadfd7c31d3a4ab092ce5002bd65b37",
+      "screenshotSha256": "fe6f5a6f285a94eef3ab8c05488b8111b472f3ddc310bd02c5bd1628f5a0c1bd",
+      "partCount": 4
+    },
+    {
+      "component": "checkbox",
+      "state": "indeterminate",
+      "viewport": 1440,
+      "trace": "artifacts/checkbox/indeterminate/1440/trace.json",
+      "traceSha256": "40eca6c46482c213a20ac6ed6ca6f24cce3bbe6f35fffc607f8702754e43e630",
+      "screenshotSha256": "6da83c0e9021f27166a86805f736b3dae1a55d698ce4dd51af3d568e51b9b292",
+      "partCount": 4
+    },
+    {
+      "component": "field",
+      "state": "default",
+      "viewport": 390,
+      "trace": "artifacts/field/default/390/trace.json",
+      "traceSha256": "0ee99eb132fd55c61478f082176d29b51014a88e1506383ccb1beca6e01b51d5",
+      "screenshotSha256": "29de511dd9afeb7d46b43eba1c70447fcd05aa0c43866312da2e266cfa375606",
+      "partCount": 5
+    },
+    {
+      "component": "field",
+      "state": "default",
+      "viewport": 768,
+      "trace": "artifacts/field/default/768/trace.json",
+      "traceSha256": "f39ef25ce1549598fc33270067f8074f827af0df3ffabbbf38f5e9ade9d3e643",
+      "screenshotSha256": "fc4add90f7335aed0988022d2434f171600e4304cf83ee9568f1db44e0b937bd",
+      "partCount": 5
+    },
+    {
+      "component": "field",
+      "state": "default",
+      "viewport": 1440,
+      "trace": "artifacts/field/default/1440/trace.json",
+      "traceSha256": "6ae4151733356dee0d074d8e803cb6d8145a1ea1c81551ba9ab135ee11a7b7ed",
+      "screenshotSha256": "be8155c0454c40fbf71548be9a49501dcda61b699f0a7ec48dbdba1f465a2c23",
+      "partCount": 5
+    },
+    {
+      "component": "field",
+      "state": "error",
+      "viewport": 390,
+      "trace": "artifacts/field/error/390/trace.json",
+      "traceSha256": "f7f519b267cc60e284e316b469fad1b220ba87de1a5f225ca8cbfd557f00fc46",
+      "screenshotSha256": "4fcbf91d476758338b185f6debc22af01011f519297ac696f87c43c0f551edf9",
+      "partCount": 5
+    },
+    {
+      "component": "field",
+      "state": "error",
+      "viewport": 768,
+      "trace": "artifacts/field/error/768/trace.json",
+      "traceSha256": "b58cf304245841ca7c0be86b009d6cdf6f92c02a88fa419f7fa4c3531d3851aa",
+      "screenshotSha256": "8131d43d86cc421ed03ad970603c97421d3ff91b65ca28b7ffaf1c87e010639c",
+      "partCount": 5
+    },
+    {
+      "component": "field",
+      "state": "error",
+      "viewport": 1440,
+      "trace": "artifacts/field/error/1440/trace.json",
+      "traceSha256": "590ff3ece98c8d64629493426778d379adc4b0041c193259adf8a7e868625b51",
+      "screenshotSha256": "9c68dcd5c541c3c6fc2ffe4b631226123ef7a4b25ac5e53162ea262931b9b3f7",
+      "partCount": 5
+    },
+    {
+      "component": "field",
+      "state": "disabled",
+      "viewport": 390,
+      "trace": "artifacts/field/disabled/390/trace.json",
+      "traceSha256": "331770a4a0ce228ffeea0c863da51fe3a5ec525bb08bdf3c925588d3e02cf7c3",
+      "screenshotSha256": "24fa14a9101911e4e445b2f8b11edf5ae969742a2938019ec8aface8764a0f75",
+      "partCount": 5
+    },
+    {
+      "component": "field",
+      "state": "disabled",
+      "viewport": 768,
+      "trace": "artifacts/field/disabled/768/trace.json",
+      "traceSha256": "7718fbd7a0d4e47d4715e232f5058d56eb30a93bed3b82813686bbbef8b65523",
+      "screenshotSha256": "05eeb4b9407190e219147ad7007835cf25a25e0d6f0051006908434d1fd4fd66",
+      "partCount": 5
+    },
+    {
+      "component": "field",
+      "state": "disabled",
+      "viewport": 1440,
+      "trace": "artifacts/field/disabled/1440/trace.json",
+      "traceSha256": "27322e8f11f171eb7624af398157f11cfe74871fa0fc9c36954a23d1af6f6f7d",
+      "screenshotSha256": "2bf1001e0ab66274fd30e0a64f164b22a4f8ce1132471d4e8ca4c4ba8cc63ea1",
+      "partCount": 5
+    },
+    {
+      "component": "popover",
+      "state": "closed",
+      "viewport": 390,
+      "trace": "artifacts/popover/closed/390/trace.json",
+      "traceSha256": "3f05ced972e05d58b7ed7ab4c90b9af30a446c48652469dbcc893801911aecd4",
+      "screenshotSha256": "fa7c0b197cdf18faeecd7e43a56a8bd14a5a04ed373bf1028873e7b1342d74f1",
+      "partCount": 2
+    },
+    {
+      "component": "popover",
+      "state": "closed",
+      "viewport": 768,
+      "trace": "artifacts/popover/closed/768/trace.json",
+      "traceSha256": "c8728e39ed5b6e1b0d803f604860642381f5f23d4a4d403edea8c56c6671c2bb",
+      "screenshotSha256": "3d78a13d2ffd9151d89f8074e7a23e5c8b34aea54ebb22bf4c338199e769a9c8",
+      "partCount": 2
+    },
+    {
+      "component": "popover",
+      "state": "closed",
+      "viewport": 1440,
+      "trace": "artifacts/popover/closed/1440/trace.json",
+      "traceSha256": "5371bf987b2482c296ee7881e8ed54b41a0bfad3e45da5a658a39e7f3b8f2fcf",
+      "screenshotSha256": "3674d1938861ba988a29f7f350cf20dc7f9321437018bfd44a0adb92c287d4f6",
+      "partCount": 2
+    },
+    {
+      "component": "popover",
+      "state": "open",
+      "viewport": 390,
+      "trace": "artifacts/popover/open/390/trace.json",
+      "traceSha256": "eb86d6e9d378d3821726dd7536abcdd6bd30b0b20d06aab70b0f77beac52a1b1",
+      "screenshotSha256": "64784749e5fc5aa53a570db2871f2022ad0654c367e110513c6d3b78451dd401",
+      "partCount": 3
+    },
+    {
+      "component": "popover",
+      "state": "open",
+      "viewport": 768,
+      "trace": "artifacts/popover/open/768/trace.json",
+      "traceSha256": "542b09d107a65f576a0a6ecf20dbe0ba287ee42102d6d3d45871375cb50f50e4",
+      "screenshotSha256": "7ba299346c6332bf31b2a1da80318ada0e30a1822812ff39227a841da24d128a",
+      "partCount": 3
+    },
+    {
+      "component": "popover",
+      "state": "open",
+      "viewport": 1440,
+      "trace": "artifacts/popover/open/1440/trace.json",
+      "traceSha256": "9687ba12f1abeded933e888b525611e62abf47a57aab58b1bfc3ccb3f75bffdd",
+      "screenshotSha256": "ceafcb8c3d19729637b5f1b2d0d2ed6c45f5944d879f123224fd336a8f3e26c9",
+      "partCount": 3
+    },
+    {
+      "component": "popover",
+      "state": "dismissed",
+      "viewport": 390,
+      "trace": "artifacts/popover/dismissed/390/trace.json",
+      "traceSha256": "9155d26dff32dfdad457bdc8750276fe47ba7339e40e95f8ef5ad3c7ef2be86e",
+      "screenshotSha256": "fa7c0b197cdf18faeecd7e43a56a8bd14a5a04ed373bf1028873e7b1342d74f1",
+      "partCount": 2
+    },
+    {
+      "component": "popover",
+      "state": "dismissed",
+      "viewport": 768,
+      "trace": "artifacts/popover/dismissed/768/trace.json",
+      "traceSha256": "5a19e2d80eac0345249e1b5c173ca9268e7226098a34ca3ba0be9198238c74e1",
+      "screenshotSha256": "3d78a13d2ffd9151d89f8074e7a23e5c8b34aea54ebb22bf4c338199e769a9c8",
+      "partCount": 2
+    },
+    {
+      "component": "popover",
+      "state": "dismissed",
+      "viewport": 1440,
+      "trace": "artifacts/popover/dismissed/1440/trace.json",
+      "traceSha256": "50f852fa9776cf3f98732263fe27a2b1b5dbb3e7f6e5bd19013bea0c1a21a2bd",
+      "screenshotSha256": "3674d1938861ba988a29f7f350cf20dc7f9321437018bfd44a0adb92c287d4f6",
+      "partCount": 2
+    }
+  ],
+  "diagnostics": [],
+  "benchmarks": {
+    "coldTotalMs": 5651.192,
+    "meanCellMs": 156.978
+  },
+  "commands": {
+    "run": "node experiments/visual-compiler/tracer/tracer.mjs",
+    "check": "node experiments/visual-compiler/tracer/self-check.mjs"
+  },
+  "failures": []
+}
