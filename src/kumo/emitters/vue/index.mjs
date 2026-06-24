@@ -956,6 +956,7 @@ function emitComponent(model, library) {
   const loweredAutocomplete = autocomplete && autocompleteSource();
   const sensitiveInput = sensitiveInputBinding(model, library);
   const loweredSensitiveInput = sensitiveInput && sensitiveInputSource();
+  const visualSimple = ['badge','label','link','text'].includes(model.component) ? visualContract.components[model.component] : null;
   const commandPalette = commandPaletteBinding(model, library);
   const loweredCommandPalette = commandPalette && commandPaletteSource();
   const tableOfContents = model.component === 'table-of-contents';
@@ -995,7 +996,8 @@ function emitComponent(model, library) {
   const nativeButton = model.interactions?.nativeButton;
   const toggle = toggleBinding(model, library);
   const loweredToggle = toggle && toggleSource(toggle);
-  const fallback = loweredTableOfContents?.template ?? loweredSelect?.template ?? loweredDatePicker?.template ?? loweredDateRangePicker?.template ?? loweredToastLifecycle?.template ?? loweredResponsiveSidebar?.template ?? loweredCommandPalette?.template ?? loweredAutocomplete?.template ?? loweredCombobox?.template ?? loweredSensitiveInput?.template ?? loweredInputGroup?.template ?? loweredDropdownMenuLayer?.template ?? loweredPopoverLayer?.template ?? loweredDialogLayer?.template ?? loweredMenubarNavigation?.template ?? loweredTabsNavigation?.template ?? loweredRadioGroup?.template ?? loweredPagination?.template ?? loweredClipboardCopy?.template ?? loweredToggle?.template ?? loweredNativeInput?.template ?? (nativeButton
+  const visualSimpleFallback = visualSimple ? `<${visualSimple.root.tag} v-bind="$attrs" class="${visualSimple.root.className}"><slot /></${visualSimple.root.tag}>` : null;
+  const fallback = visualSimpleFallback ?? loweredTableOfContents?.template ?? loweredSelect?.template ?? loweredDatePicker?.template ?? loweredDateRangePicker?.template ?? loweredToastLifecycle?.template ?? loweredResponsiveSidebar?.template ?? loweredCommandPalette?.template ?? loweredAutocomplete?.template ?? loweredCombobox?.template ?? loweredSensitiveInput?.template ?? loweredInputGroup?.template ?? loweredDropdownMenuLayer?.template ?? loweredPopoverLayer?.template ?? loweredDialogLayer?.template ?? loweredMenubarNavigation?.template ?? loweredTabsNavigation?.template ?? loweredRadioGroup?.template ?? loweredPagination?.template ?? loweredClipboardCopy?.template ?? loweredToggle?.template ?? loweredNativeInput?.template ?? (nativeButton
     ? `<button v-bind="$attrs" class="${visualContract.components.button.root.className}" :type="($attrs.type as any) ?? 'button'" :disabled="props.disabled || props.loading"><svg v-if="props.loading" aria-hidden="true"></svg><slot /></button>`
     : node(implementation.componentRoot));
   const composedField = composition && !composition.ownsControl

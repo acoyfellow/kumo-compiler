@@ -64,7 +64,5 @@
     {renderContent}
   </label>
 {:else}
-<label class={cx(styles["root"])}>
-  {#if children}{@render children()}{/if}
-</label>
+<label {...rest} class="m-0 text-base font-medium text-kumo-default inline-flex items-center gap-1">{#if children}{@render children()}{/if}</label>
 {/if}

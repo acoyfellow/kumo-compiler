@@ -43,7 +43,7 @@ export function Text(incoming: TextProps): JSX.Element {
   if (Object.prototype.hasOwnProperty.call(props, "as") && semanticEqual(props.as, "h1") && semanticEqual(renderContent, "Title") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "heading1")) return (<h1 class="text-3xl font-semibold">{props.children}</h1>);
   if (semanticEqual(renderContent, "code") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "mono")) return (<span class="font-mono text-sm">{props.children}</span>);
   if (semanticEqual(renderContent, "Body")) return (<p class="text-kumo-default text-base">{props.children}</p>);
-  return (<span class={mergeStyles(styles.root)}>{props.children}</span>);
+  return (<p class="text-kumo-default text-base">{props.children}</p>);
 }
 
 export default Text;

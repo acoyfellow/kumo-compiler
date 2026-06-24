@@ -66,7 +66,5 @@
     {renderContent}
   </p>
 {:else}
-<span class={cx(styles["root"])}>
-  {#if children}{@render children()}{/if}
-</span>
+<p {...rest} class="text-kumo-default text-base">{#if children}{@render children()}{/if}</p>
 {/if}

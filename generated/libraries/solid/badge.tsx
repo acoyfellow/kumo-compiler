@@ -42,7 +42,7 @@ export function Badge(incoming: BadgeProps): JSX.Element {
   void native; void state; void refs;
   if (Object.prototype.hasOwnProperty.call(props, "appearance") && semanticEqual(props.appearance, "dot") && semanticEqual(renderContent, "Healthy") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "success")) return (<span><span aria-hidden={"true"} class="bg-kumo-success"></span>{props.children}</span>);
   if (semanticEqual(renderContent, "PRO")) return (<span class="inline-flex bg-kumo-badge-inverted">{props.children}</span>);
-  return (<span class={mergeStyles(styles.root)}>{props.children}</span>);
+  return (<span class="inline-flex w-fit flex-none shrink-0 items-center justify-self-start rounded-full px-2 py-0.5 text-xs font-medium whitespace-nowrap bg-kumo-badge-inverted text-kumo-badge-inverted">{props.children}</span>);
 }
 
 export default Badge;

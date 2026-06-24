@@ -2,16 +2,61 @@
   "schemaVersion": "kumo.visual-contract/v1",
   "canonical": "@cloudflare/kumo@2.5.2",
   "components": {
+    "badge": {
+      "root": {
+        "tag": "span",
+        "className": "inline-flex w-fit flex-none shrink-0 items-center justify-self-start rounded-full px-2 py-0.5 text-xs font-medium whitespace-nowrap bg-kumo-badge-inverted text-kumo-badge-inverted"
+      },
+      "provenance": {
+        "file": "runtime-canonical/badge/public-runtime/index.html",
+        "sha256": "6697febee3f32d4659ba48583ded7c098b823b9b0aee6bcda6fc1815a16136a3",
+        "selector": "main[data-canonical-component=\"badge\"] > :first-child"
+      }
+    },
     "button": {
       "root": {
+        "tag": "button",
         "className": "group flex w-max shrink-0 items-center font-medium select-none border-0 shadow-xs focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand cursor-pointer disabled:cursor-not-allowed disabled:text-kumo-subtle bg-kumo-base !text-kumo-default ring not-disabled:hover:bg-kumo-tint disabled:bg-kumo-base/50 disabled:!text-kumo-default/70 ring-kumo-line data-[state=open]:bg-kumo-base h-9 gap-1.5 rounded-lg px-3 text-base"
       },
       "provenance": {
         "file": "runtime-canonical/button/public-runtime/index.html",
         "sha256": "78f7474755490224734b6230c03d8e016ec41326df9cee2d8cd4d8e62c6142eb",
-        "selector": "data-kumo-component=\"Button\""
+        "selector": "main[data-canonical-component=\"button\"] > :first-child"
+      }
+    },
+    "label": {
+      "root": {
+        "tag": "label",
+        "className": "m-0 text-base font-medium text-kumo-default inline-flex items-center gap-1"
+      },
+      "provenance": {
+        "file": "runtime-canonical/label/public-runtime/index.html",
+        "sha256": "8326bb53ebfeaf601e57b8308be7ec0cc15388531d67d854ad41b49bf2b91b6b",
+        "selector": "main[data-canonical-component=\"label\"] > :first-child"
+      }
+    },
+    "link": {
+      "root": {
+        "tag": "a",
+        "className": "text-kumo-link underline underline-offset-[0.15em] decoration-[0.0625em] link-current transition-colors group/link inline-flex items-center gap-[0.1875em]"
+      },
+      "provenance": {
+        "file": "runtime-canonical/link/public-runtime/index.html",
+        "sha256": "41fdd6024d0eb38fbeb670ab4448d389f0e0edfeba3651fd75315dc8a187f7c9",
+        "selector": "main[data-canonical-component=\"link\"] > :first-child"
+      }
+    },
+    "text": {
+      "root": {
+        "tag": "p",
+        "className": "text-kumo-default text-base"
+      },
+      "provenance": {
+        "file": "runtime-canonical/text/public-runtime/index.html",
+        "sha256": "a58d0b3c9dfba28c4f235779503b0e157fdc9139c7204aa8d50752929597af4c",
+        "selector": "main[data-canonical-component=\"text\"] > :first-child"
       }
     }
   },
-  "digest": "7064b729f7bb2459776e887196e395603edc6351d809263f96ab54d3ea4a6cb5"
+  "digest": "0d411ac62c9a67d7ee4392c09435ef41aa26b06be251641f2e8f9d5c3ba3b3e5"
 }

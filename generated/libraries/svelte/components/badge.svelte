@@ -55,7 +55,5 @@
     {renderContent}
   </span>
 {:else}
-<span class={cx(styles["root"])}>
-  {#if children}{@render children()}{/if}
-</span>
+<span {...rest} class="inline-flex w-fit flex-none shrink-0 items-center justify-self-start rounded-full px-2 py-0.5 text-xs font-medium whitespace-nowrap bg-kumo-badge-inverted text-kumo-badge-inverted">{#if children}{@render children()}{/if}</span>
 {/if}

@@ -42,7 +42,7 @@ export function Link(incoming: LinkProps): JSX.Element {
   void native; void state; void refs;
   if (semanticEqual(renderContent, "External") && Object.prototype.hasOwnProperty.call(props, "href") && semanticEqual(props.href, "https://example.com") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "plain")) return (<a href={"https://example.com"} class="hover:text-kumo-link/70">{props.children}</a>);
   if (semanticEqual(renderContent, "Docs") && Object.prototype.hasOwnProperty.call(props, "href") && semanticEqual(props.href, "/docs")) return (<a href={"/docs"} data-kumo-component={"Link"} class="text-kumo-link underline">{props.children}</a>);
-  return (<a href={(props.href as any)} class={mergeStyles(styles.root)}>{props.children}</a>);
+  return (<a href={props.href as string} class="text-kumo-link underline underline-offset-[0.15em] decoration-[0.0625em] link-current transition-colors group/link inline-flex items-center gap-[0.1875em]">{props.children}</a>);
 }
 
 export default Link;

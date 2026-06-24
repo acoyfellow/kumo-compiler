@@ -56,7 +56,5 @@
     {renderContent}
   </a>
 {:else}
-<a href={semanticValues["href"]} class={cx(styles["root"])}>
-  {#if children}{@render children()}{/if}
-</a>
+<a {...rest} class="text-kumo-link underline underline-offset-[0.15em] decoration-[0.0625em] link-current transition-colors group/link inline-flex items-center gap-[0.1875em]">{#if children}{@render children()}{/if}</a>
 {/if}

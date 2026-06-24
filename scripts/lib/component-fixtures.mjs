@@ -8,7 +8,7 @@ export const selectedVectorIndex={
 };
 
 export const children={
-  badge:'PRO',
+  badge:'PRO ',
   breadcrumbs:'Home / Settings',
   button:'Save changes',
   checkbox:'',
@@ -90,6 +90,7 @@ export function fixtureFor(name, contract, symbol){
   const vector=contract.vectors?.[selectedVectorIndex[name]??0];
   const value={...(vector?.fixture?.props||vector?.props||{})};
   for(const key of Object.keys(value))if(key.startsWith('on')||!/^[$A-Z_a-z][$\w]*$/.test(key))delete value[key];
+  delete value.children;
   Object.assign(value,props[name]||{});
   if(['checkbox','switch'].includes(name))delete value.checked;
   if(name==='select'){delete value.open;delete value.value}
