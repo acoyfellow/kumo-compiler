@@ -1,11 +1,14 @@
 #!/usr/bin/env node
-import fs from 'node:fs'; import path from 'node:path';
-const here=path.dirname(new URL(import.meta.url).pathname); const load=p=>JSON.parse(fs.readFileSync(path.join(here,p),'utf8'));
-const ir=load('fixtures/components.json'), result=load('results.json');
-const expected={button:['default','disabled','loading'],checkbox:['unchecked','checked','indeterminate'],field:['default','error','disabled'],popover:['closed','open','dismissed']};
-const failures=[];
-if(ir.schemaVersion!=='kumo.core-ir/v1') failures.push('schemaVersion');
-for(const [name,states] of Object.entries(expected)){const c=ir.components.find(x=>x.name===name); if(!c) failures.push(`missing ${name}`); else for(const s of states) if(!c.stateMachine.states.includes(s)) failures.push(`${name}/${s}`);}
-if(/\b(React|Vue|Svelte|Solid|JSX|v-if|v-model|useState|createSignal)\b/i.test(JSON.stringify(ir))) failures.push('framework concept');
-if(result.winner.id!=='part-first'||!Object.values(result.selfChecks).every(Boolean)) failures.push('result checks');
-if(failures.length){console.error(failures.join('\n'));process.exit(1)} console.log('IR self-checks passed');
+import {createHash} from 'node:crypto';
+import {readFile} from 'node:fs/promises';
+import {resolve} from 'node:path';
+const HERE=import.meta.dirname, ROOT=resolve(HERE,'..'), sha=b=>createHash('sha256').update(b).digest('hex');
+const load=async p=>JSON.parse(await readFile(resolve(ROOT,p),'utf8'));
+const ir=await load('ir/fixtures/components.json'), result=await load('ir/results.json'), failures=[];
+const forbidden=/\b(React|Vue|Svelte|Solid|JSX|v-if|v-model|useState|createSignal)\b/i;
+if(ir.schemaVersion!=='kumo.core-ir/v2')failures.push('schema version');
+if(forbidden.test(JSON.stringify(ir)))failures.push('target framework concept');
+for(const [key,binding] of Object.entries(ir.authority.inputs)){const actual=sha(await readFile(resolve(ROOT,binding.path)));if(actual!==binding.sha256)failures.push(`input digest ${key}`)}
+for(const c of ir.components){if(!c.parts.length||!c.states.values.length||!c.viewports.length)failures.push(`${c.name}: incomplete topology`);for(const p of c.parts){if(p.parent&&!c.parts.some(x=>x.id===p.parent))failures.push(`${c.name}: dangling ${p.id}`);if(!p.samples.every(s=>s.attrs&&s.classes&&s.style&&s.geometry))failures.push(`${c.name}: incomplete sample ${p.id}`)}if(!c.provenance.traces.every(t=>/^[a-f0-9]{64}$/.test(t.sha256)))failures.push(`${c.name}: trace provenance`)}
+if(!result.candidates.every(c=>Object.keys(c.scores).every(k=>c.scores[k]===c.measurements[k])))failures.push('unmeasured score');
+if(failures.length){console.error(failures.join('\n'));process.exit(1)}console.log('IR authority checks passed');

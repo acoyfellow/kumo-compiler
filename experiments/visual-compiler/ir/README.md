@@ -1,22 +1,15 @@
-# IR shootout
+# Authority-derived core IR
 
-This experiment compares three representations over the same Button, Checkbox, Field, and Popover facts:
+The persisted `fixtures/components.json` is generated, not hand-authored. `evaluate.mjs` accepts only the passed TypeScript and Oxc frontend results plus tracer v2 results, verifies every referenced trace SHA256, and derives a part-first component/state/viewport model from those artifacts.
 
-- **DOM-first:** simple tree lowering, but structural edits make coarse cache boundaries and diagnostics drift from semantic parts.
-- **Part-first:** stable semantic parts own behavior, presentation, and provenance; explicit parent relations retain the DOM tree.
-- **Dialect:** compact and quick to parse, but introduces grammar complexity and weaker source diagnostics.
+Each observed part retains topology, attributes, classes, text, computed style, geometry, state, viewport, behavior/focus, accessibility, and source/trace provenance. The model is platform-neutral and contains no target-framework lowering concepts.
 
-## Winner
-
-**Part-first** wins the contract-weighted evaluation. The selected core IR is `fixtures/components.json`. It deliberately contains only platform-neutral structure, semantics, state transitions, bindings, presentation tokens, and provenance. It contains no React, Vue, Svelte, or Solid concepts. Target lowerers can walk parts and state machines generically without component IDs.
-
-Candidate JSON files are evaluation descriptors; each normalizes to the same core fixture, making information parity directly checkable. `schemas/core-ir.schema.json` documents the persisted boundary, while the executable validator enforces required components/states, graph integrity, and framework neutrality.
-
-## Commands
+`results.json` binds the exact bytes of tracer results, both frontend results, and both frontend facts. Candidate scores are percentages computed directly from named checks; every score equals its corresponding measurement.
 
 ```sh
 node experiments/visual-compiler/ir/evaluate.mjs
 node experiments/visual-compiler/ir/validate.mjs
+node experiments/visual-compiler/authority/self-check.mjs
 ```
 
-`evaluate.mjs` performs 200 warm validation/normalization iterations per candidate, computes scores using the exact contract weights, records cache and diagnostic analysis, and deterministically rewrites `results.json`. This is a synthetic IR microbenchmark, not a claim about browser proof or target compiler latency.
+Limitations are explicit in `results.json`: browser facts only cover recorded cells, and Oxc symbol resolution remains syntax-only.

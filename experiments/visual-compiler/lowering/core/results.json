@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "kumo.lowering-core-results/v1",
+  "status": "passed",
+  "targetNeutral": true,
+  "input": {
+    "schemaVersion": "kumo.core-ir/v2",
+    "components": 4
+  },
+  "plan": {
+    "manifestDigest": "25ebc73d6f4101252fad7082a1c44df2031dff93824a0da83dad00d6ca6f7970",
+    "shards": 4,
+    "operations": 50,
+    "bytes": 67968
+  },
+  "determinism": {
+    "contentAddressed": true,
+    "algorithm": "sha256",
+    "repetitions": 1000
+  },
+  "staticGuard": {
+    "passed": true,
+    "diagnostics": []
+  },
+  "benchmarks": {
+    "medianMs": 6.229,
+    "p95Ms": 6.5208,
+    "repetitions": 1000
+  },
+  "commands": {
+    "check": "node experiments/visual-compiler/lowering/core/self-check.mjs",
+    "benchmark": "node experiments/visual-compiler/lowering/core/benchmark.mjs"
+  },
+  "failures": []
+}

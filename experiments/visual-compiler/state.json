@@ -1,47 +1,39 @@
 {
   "schemaVersion": "kumo.visual-compiler-spike-state/v1",
   "status": "running",
-  "phase": "wave-1-repair-authority",
-  "generation": 3,
+  "phase": "wave-2-target-repair",
+  "generation": 4,
   "completed": [
     "frontend-typescript",
-    "frontend-oxc"
+    "frontend-oxc",
+    "frontend-equivalence-evaluator",
+    "runtime-tracer-authority-repair",
+    "ir-shootout-repair",
+    "generic-lowering-core",
+    "verifier-provenance-repair",
+    "incremental-engine"
   ],
-  "active": [],
+  "active": [
+    "lowering-vue-repair",
+    "lowering-svelte-repair",
+    "lowering-solid-repair"
+  ],
   "failed": [
-    {
-      "wave": "wave-1-initial",
-      "reason": "configured opencode model kindle-alpha-api was unavailable",
-      "recovery": "retried once with explicit pi runner and kindle-alpha"
-    },
-    {
-      "artifact": "runtime-tracer",
-      "reason": "rejected: tracer generated synthetic data: HTML and fixture functions instead of executing canonical @cloudflare/kumo@2.5.2",
-      "recovery": "replace with actual package-backed React harness and trusted CDP journeys"
-    },
-    {
-      "artifact": "ir-shootout",
-      "reason": "rejected: candidate normalized input was hand-authored synthetic facts and exactness scores were not measured against canonical traces",
-      "recovery": "regenerate candidates only from accepted TypeScript/Oxc facts and repaired canonical traces"
-    },
-    {
-      "artifact": "wave-2-lowerers",
-      "reason": "rejected pending authority repair: deterministic code generation passed but consumed invalid synthetic IR and did not prove visual/behavior parity",
-      "recovery": "retain code only as disposable implementation experiments; rerun from repaired IR"
-    }
+    {"artifact":"runtime-tracer-v1","reason":"synthetic fixture generator","status":"retired"},
+    {"artifact":"ir-shootout-v1","reason":"synthetic hand-authored facts and unmeasured scores","status":"retired"},
+    {"artifact":"lowering-vue-v1","reason":"copied canonical trace DOM","status":"retired"},
+    {"artifact":"lowering-svelte-v1","reason":"synthetic IR and component-specific branching","status":"retired-shell-only"},
+    {"artifact":"lowering-solid-v1","reason":"synthetic IR and component-specific branching","status":"retired-shell-only"},
+    {"artifact":"verification-v1","reason":"accepted copied traces and treated failed matrix as self-check success","status":"retired"}
   ],
   "selection": {
-    "frontend": "typescript-primary-with-oxc-syntax-fast-path",
-    "frontendReason": "TypeScript provides cross-module symbols; oxc is faster but syntax-only.",
-    "ir": null
+    "frontend":"typescript-primary-with-oxc-syntax-fast-path",
+    "ir":"part-first-authority-derived",
+    "loweringCore":"kumo.lowering-plan/v1",
+    "engineWarmP95Ms":1.481,
+    "authorityChecks":"10/11"
   },
-  "next": [
-    "runtime-tracer-authority-repair",
-    "frontend-equivalence-evaluator",
-    "authority-guard",
-    "wave-2-audit",
-    "ir-shootout-repair"
-  ],
-  "terminal": false,
-  "updatedAt": "2026-06-24T11:28:00.000Z"
+  "next":["native-target-harnesses","108-cell-verification","warm-under-1s","final-receipt"],
+  "terminal":false,
+  "updatedAt":"2026-06-24T11:46:00.000Z"
 }

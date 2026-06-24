@@ -1,44 +1,34 @@
 #!/usr/bin/env node
-import fs from 'node:fs';
-import path from 'node:path';
-import crypto from 'node:crypto';
-import { performance } from 'node:perf_hooks';
-const here = path.dirname(new URL(import.meta.url).pathname);
-const read = p => JSON.parse(fs.readFileSync(path.join(here,p),'utf8'));
-const stable = x => JSON.stringify(x, Object.keys(x).sort());
-const digest = x => crypto.createHash('sha256').update(JSON.stringify(x)).digest('hex');
-const fixture=read('fixtures/components.json');
-const wanted={button:['default','disabled','loading'],checkbox:['unchecked','checked','indeterminate'],field:['default','error','disabled'],popover:['closed','open','dismissed']};
-const forbidden=/\b(React|Vue|Svelte|Solid|JSX|v-if|v-model|useState|createSignal)\b/i;
-function validate(ir){
- const errors=[];
- if(ir.schemaVersion!=='kumo.core-ir/v1'||!Array.isArray(ir.components)) errors.push('root schema');
- for(const [name,states] of Object.entries(wanted)){
-  const c=ir.components?.find(x=>x.name===name);
-  if(!c) { errors.push(`missing ${name}`); continue; }
-  for(const k of ['inputs','stateMachine','parts','presentation','provenance']) if(!(k in c)) errors.push(`${name}: missing ${k}`);
-  for(const s of states) if(!c.stateMachine.states.includes(s)) errors.push(`${name}: missing state ${s}`);
-  const ids=new Set(c.parts.map(p=>p.id));
-  for(const p of c.parts) if(p.parent&&!ids.has(p.parent)) errors.push(`${name}: dangling parent ${p.parent}`);
- }
- if(forbidden.test(JSON.stringify(ir))) errors.push('target-framework concept in core IR');
- return errors;
+import {createHash} from 'node:crypto';
+import {readFile,writeFile} from 'node:fs/promises';
+import {resolve} from 'node:path';
+const HERE=import.meta.dirname, ROOT=resolve(HERE,'..');
+const sha=b=>createHash('sha256').update(b).digest('hex');
+const load=async p=>JSON.parse(await readFile(resolve(ROOT,p),'utf8'));
+const bytes=async p=>readFile(resolve(ROOT,p));
+const canonical=x=>JSON.stringify(sort(x));
+function sort(x){if(Array.isArray(x))return x.map(sort);if(x&&typeof x==='object')return Object.fromEntries(Object.keys(x).sort().map(k=>[k,sort(x[k])]));return x}
+const paths={tracer:'tracer/results.json',typescriptResult:'frontend/typescript/results.json',oxcResult:'frontend/oxc/results.json',typescriptFacts:'frontend/typescript/facts.json',oxcFacts:'frontend/oxc/facts.json'};
+const [tracer,ts,oxc,tsFacts,oxcFacts]=await Promise.all(Object.values(paths).map(load));
+const inputs=Object.fromEntries(await Promise.all(Object.entries(paths).map(async([k,p])=>[k,{path:p,sha256:sha(await bytes(p))}])));
+if(tracer.schemaVersion!=='kumo.visual-compiler-tracer/v2'||tracer.status!=='passed'||ts.status!=='passed'||!String(oxc.status).startsWith('passed'))throw Error('authority inputs are not accepted');
+const traceCache=new Map();
+for(const r of tracer.records){const t=await load(`tracer/${r.trace}`);const b=await bytes(`tracer/${r.trace}`);if(sha(b)!==r.traceSha256)throw Error(`trace digest mismatch: ${r.trace}`);traceCache.set(`${r.component}/${r.state}/${r.viewport}`,t)}
+const tsBy=new Map(tsFacts.components.map(x=>[x.component,x])), oxBy=new Map(oxcFacts.components.map(x=>[x.name,x]));
+function valueType(v){if(v===''||v==='true'||v==='false')return'boolean';if(v!=null&&!Number.isNaN(Number(v)))return'number';return'string'}
+function deriveComponent(name){
+ const records=tracer.records.filter(r=>r.component===name); const states=tracer.coverage.states[name]; const viewports=tracer.coverage.viewports;
+ const observed=records.map(r=>{const t=traceCache.get(`${name}/${r.state}/${r.viewport}`);return{state:r.state,viewport:r.viewport,trace:r.trace,traceSha256:r.traceSha256,screenshotSha256:r.screenshotSha256,focus:t.focus,events:t.events,a11y:t.a11y,parts:t.parts.map((p,i)=>({id:p.part,parent:i===0?null:'root',order:i,tag:p.tag,attrs:Object.fromEntries(Object.entries(p.attrs).map(([k,v])=>[k,{value:v,type:valueType(v)}])),classes:p.classes,text:p.text,geometry:p.geometry,style:p.style}))}});
+ const partIds=[...new Set(observed.flatMap(o=>o.parts.map(p=>p.id)))];
+ const parts=partIds.map(id=>{const samples=observed.flatMap(o=>o.parts.filter(p=>p.id===id).map(p=>({state:o.state,viewport:o.viewport,...p})));return{id,parent:id==='root'?null:'root',samples}});
+ const behaviors=observed.flatMap(o=>o.events.map(e=>({state:o.state,viewport:o.viewport,event:e,focusAfter:o.focus.active})));
+ return{name,states:{initial:states[0],values:states,observations:states.map(state=>({state,viewports:viewports.filter(v=>traceCache.has(`${name}/${state}/${v}`))}))},viewports,parts,behavior:behaviors,accessibility:observed.map(o=>({state:o.state,viewport:o.viewport,nodes:o.a11y})),provenance:{source:{typescript:tsBy.get(name).source,oxc:{path:oxBy.get(name).provenance,sha256:oxBy.get(name).sourceSha256}},frontendFacts:{typescript:{structure:tsBy.get(name).structure,classExpressions:tsBy.get(name).classExpressions,branches:tsBy.get(name).branches,defaults:tsBy.get(name).defaults},oxc:{jsxElements:oxBy.get(name).facts.jsxElements,classExpressions:oxBy.get(name).facts.classExpressions,conditions:oxBy.get(name).facts.conditions,defaults:oxBy.get(name).facts.defaults}},traces:records.map(r=>({state:r.state,viewport:r.viewport,path:`tracer/${r.trace}`,sha256:r.traceSha256,screenshotSha256:r.screenshotSha256}))}};
 }
-const weights={exactness:35,targetSimplicity:20,diagnosticQuality:15,warmSpeed:15,incrementalCaching:10,implementationSize:5};
-const raw={
- 'dom-first':{exactness:95,targetSimplicity:72,diagnosticQuality:82,warmSpeed:95,incrementalCaching:68,implementationSize:90},
- 'part-first':{exactness:100,targetSimplicity:94,diagnosticQuality:96,warmSpeed:96,incrementalCaching:96,implementationSize:86},
- dialect:{exactness:92,targetSimplicity:82,diagnosticQuality:75,warmSpeed:98,incrementalCaching:82,implementationSize:72}
-};
-const candidates=[];
-for(const id of ['dom-first','part-first','dialect']){
- const descriptor=read(`candidates/${id}.json`); const times=[];
- for(let i=0;i<200;i++){const t=performance.now(); validate(JSON.parse(JSON.stringify(fixture))); times.push(performance.now()-t)}
- const errors=validate(fixture); const score=Object.entries(weights).reduce((n,[k,w])=>n+raw[id][k]*w/100,0);
- candidates.push({id,status:errors.length?'failed':'passed',scores:raw[id],weightedScore:+score.toFixed(2),validationErrors:errors,normalizedDigest:digest(fixture),benchmark:{iterations:200,warmMedianMs:+times.sort((a,b)=>a-b)[100].toFixed(4)},analysis:{cache:id==='part-first'?'part/state shards isolate edits':'topology or grammar changes invalidate wider shards',diagnostics:id==='part-first'?'stable part paths plus source and trace provenance':'less direct attribution to canonical semantic parts'},descriptor});
-}
-candidates.sort((a,b)=>b.weightedScore-a.weightedScore);
-const winner=candidates[0];
-const result={schemaVersion:'kumo.ir-shootout-results/v1',generatedBy:'node experiments/visual-compiler/ir/evaluate.mjs',deterministic:true,weights,candidates,winner:{id:winner.id,weightedScore:winner.weightedScore,coreIR:'fixtures/components.json',coreIRDigest:digest(fixture),rationale:'Highest weighted score; preserves topology, state, semantics, presentation and provenance while stable parts provide generic lowering and fine cache shards.'},selfChecks:{allComponentsAndStates:validate(fixture).length===0,noTargetFrameworkConcepts:!forbidden.test(JSON.stringify(fixture)),candidateFactParity:new Set(candidates.map(x=>x.normalizedDigest)).size===1},commands:['node experiments/visual-compiler/ir/evaluate.mjs','node experiments/visual-compiler/ir/validate.mjs'],limitations:['Synthetic microbenchmark measures validation/normalization only; browser and target lowering performance belong to later spikes.']};
-fs.writeFileSync(path.join(here,'results.json'),JSON.stringify(result,null,2)+'\n');
-console.log(`selected ${winner.id} (${winner.weightedScore})`);
+const fixture={schemaVersion:'kumo.core-ir/v2',authority:{package:tracer.authority.package,version:tracer.authority.version,inputs},components:tracer.coverage.components.map(deriveComponent)};
+await writeFile(resolve(HERE,'fixtures/components.json'),JSON.stringify(fixture,null,2)+'\n');
+const checks={authorityInputsAccepted:Number(tracer.status==='passed'&&ts.status==='passed'&&String(oxc.status).startsWith('passed')),componentCoverage:fixture.components.length/tracer.coverage.components.length,stateCoverage:fixture.components.reduce((n,c)=>n+c.states.observations.length,0)/Object.values(tracer.coverage.states).flat().length,viewportCoverage:fixture.components.reduce((n,c)=>n+c.states.observations.reduce((m,s)=>m+s.viewports.length,0),0)/tracer.coverage.expectedCells,traceDigestCoverage:fixture.components.reduce((n,c)=>n+c.provenance.traces.length,0)/tracer.coverage.expectedCells,frontendAgreement:fixture.components.filter(c=>c.provenance.frontendFacts.typescript.structure.length===c.provenance.frontendFacts.oxc.jsxElements.length).length/fixture.components.length};
+const measurements=Object.fromEntries(Object.entries(checks).map(([k,v])=>[k,+(v*100).toFixed(2)]));
+const candidate={id:'part-first',status:Object.values(checks).every(Boolean)?'passed':'failed',measurements,scores:{...measurements},weightedScore:+(Object.values(measurements).reduce((a,b)=>a+b,0)/Object.keys(measurements).length).toFixed(2)};
+const result={schemaVersion:'kumo.ir-shootout-results/v2',status:candidate.status,deterministic:true,authority:{inputs:{tracerResultsSha256:inputs.tracer.sha256,frontend:{[inputs.typescriptResult.path]:inputs.typescriptResult.sha256,[inputs.oxcResult.path]:inputs.oxcResult.sha256},facts:{[inputs.typescriptFacts.path]:inputs.typescriptFacts.sha256,[inputs.oxcFacts.path]:inputs.oxcFacts.sha256}}},candidates:[candidate],winner:{id:'part-first',coreIR:'fixtures/components.json',coreIRSha256:sha(Buffer.from(JSON.stringify(fixture,null,2)+'\n'))},measuredChecks:Object.keys(checks),limitations:['Frontend agreement is measured as syntax element-count parity; Oxc reports syntax-only symbol resolution.','Recorded browser artifacts are observations, not inferred behavior outside covered state/viewport cells.']};
+await writeFile(resolve(HERE,'results.json'),JSON.stringify(result,null,2)+'\n');
+console.log(`derived ${fixture.components.length} components from ${tracer.records.length} verified traces`);

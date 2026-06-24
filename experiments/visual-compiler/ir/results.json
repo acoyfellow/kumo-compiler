@@ -1,121 +1,58 @@
 {
-  "schemaVersion": "kumo.ir-shootout-results/v1",
-  "generatedBy": "node experiments/visual-compiler/ir/evaluate.mjs",
+  "schemaVersion": "kumo.ir-shootout-results/v2",
+  "status": "passed",
   "deterministic": true,
-  "weights": {
-    "exactness": 35,
-    "targetSimplicity": 20,
-    "diagnosticQuality": 15,
-    "warmSpeed": 15,
-    "incrementalCaching": 10,
-    "implementationSize": 5
+  "authority": {
+    "inputs": {
+      "tracerResultsSha256": "838a627460248020f76be5e2e03e1a729e7842593ef4491305533baa31d2557a",
+      "frontend": {
+        "frontend/typescript/results.json": "63c637b0d60af00ecd5dcf7c4958d7a4aabeeffc04498940b9df1f47fb04ac52",
+        "frontend/oxc/results.json": "b09d7f7ea439fa37f611010430ef88bf3909e8cb1dcaae88b348a6bf0723c239"
+      },
+      "facts": {
+        "frontend/typescript/facts.json": "600a28eb6e43691b28488633847be04d4fbf707f5d6a2a0265e6ab7c797780d0",
+        "frontend/oxc/facts.json": "cb8dae33f16d763253020e84dc4756369a40fd29020e30eed11ebce843467b93"
+      }
+    }
   },
   "candidates": [
     {
       "id": "part-first",
       "status": "passed",
+      "measurements": {
+        "authorityInputsAccepted": 100,
+        "componentCoverage": 100,
+        "stateCoverage": 100,
+        "viewportCoverage": 100,
+        "traceDigestCoverage": 100,
+        "frontendAgreement": 100
+      },
       "scores": {
-        "exactness": 100,
-        "targetSimplicity": 94,
-        "diagnosticQuality": 96,
-        "warmSpeed": 96,
-        "incrementalCaching": 96,
-        "implementationSize": 86
+        "authorityInputsAccepted": 100,
+        "componentCoverage": 100,
+        "stateCoverage": 100,
+        "viewportCoverage": 100,
+        "traceDigestCoverage": 100,
+        "frontendAgreement": 100
       },
-      "weightedScore": 96.5,
-      "validationErrors": [],
-      "normalizedDigest": "d31e1cb166f4a90a2238f3e3915e121e04b37761064a464912b8b0ef0c8b02cc",
-      "benchmark": {
-        "iterations": 200,
-        "warmMedianMs": 0.022
-      },
-      "analysis": {
-        "cache": "part/state shards isolate edits",
-        "diagnostics": "stable part paths plus source and trace provenance"
-      },
-      "descriptor": {
-        "schemaVersion": "kumo.ir-candidate/v1",
-        "id": "part-first",
-        "description": "Stable semantic parts are primary; topology is an explicit relation.",
-        "normalizationInput": "../fixtures/components.json"
-      }
-    },
-    {
-      "id": "dialect",
-      "status": "passed",
-      "scores": {
-        "exactness": 92,
-        "targetSimplicity": 82,
-        "diagnosticQuality": 75,
-        "warmSpeed": 98,
-        "incrementalCaching": 82,
-        "implementationSize": 72
-      },
-      "weightedScore": 86.35,
-      "validationErrors": [],
-      "normalizedDigest": "d31e1cb166f4a90a2238f3e3915e121e04b37761064a464912b8b0ef0c8b02cc",
-      "benchmark": {
-        "iterations": 200,
-        "warmMedianMs": 0.022
-      },
-      "analysis": {
-        "cache": "topology or grammar changes invalidate wider shards",
-        "diagnostics": "less direct attribution to canonical semantic parts"
-      },
-      "descriptor": {
-        "schemaVersion": "kumo.ir-candidate/v1",
-        "id": "dialect",
-        "description": "A compact declarative component language combines structure and state.",
-        "normalizationInput": "../fixtures/components.json"
-      }
-    },
-    {
-      "id": "dom-first",
-      "status": "passed",
-      "scores": {
-        "exactness": 95,
-        "targetSimplicity": 72,
-        "diagnosticQuality": 82,
-        "warmSpeed": 95,
-        "incrementalCaching": 68,
-        "implementationSize": 90
-      },
-      "weightedScore": 85.5,
-      "validationErrors": [],
-      "normalizedDigest": "d31e1cb166f4a90a2238f3e3915e121e04b37761064a464912b8b0ef0c8b02cc",
-      "benchmark": {
-        "iterations": 200,
-        "warmMedianMs": 0.0234
-      },
-      "analysis": {
-        "cache": "topology or grammar changes invalidate wider shards",
-        "diagnostics": "less direct attribution to canonical semantic parts"
-      },
-      "descriptor": {
-        "schemaVersion": "kumo.ir-candidate/v1",
-        "id": "dom-first",
-        "description": "Tree topology is primary; behavior and provenance annotate nodes.",
-        "normalizationInput": "../fixtures/components.json"
-      }
+      "weightedScore": 100
     }
   ],
   "winner": {
     "id": "part-first",
-    "weightedScore": 96.5,
     "coreIR": "fixtures/components.json",
-    "coreIRDigest": "d31e1cb166f4a90a2238f3e3915e121e04b37761064a464912b8b0ef0c8b02cc",
-    "rationale": "Highest weighted score; preserves topology, state, semantics, presentation and provenance while stable parts provide generic lowering and fine cache shards."
+    "coreIRSha256": "145bc25d1ee9cc0491a9f25f36fa0a99aa648156d6a0c2cb8062a4846e0a04b8"
   },
-  "selfChecks": {
-    "allComponentsAndStates": true,
-    "noTargetFrameworkConcepts": true,
-    "candidateFactParity": true
-  },
-  "commands": [
-    "node experiments/visual-compiler/ir/evaluate.mjs",
-    "node experiments/visual-compiler/ir/validate.mjs"
+  "measuredChecks": [
+    "authorityInputsAccepted",
+    "componentCoverage",
+    "stateCoverage",
+    "viewportCoverage",
+    "traceDigestCoverage",
+    "frontendAgreement"
   ],
   "limitations": [
-    "Synthetic microbenchmark measures validation/normalization only; browser and target lowering performance belong to later spikes."
+    "Frontend agreement is measured as syntax element-count parity; Oxc reports syntax-only symbol resolution.",
+    "Recorded browser artifacts are observations, not inferred behavior outside covered state/viewport cells."
   ]
 }

@@ -4,7 +4,7 @@
   "failClosed": true,
   "deterministic": true,
   "policyVersion": "1",
-  "inputDigest": "794062830259f391ac7aa569e09e83f07ee2375d549546e77b993ee259ee225a",
+  "inputDigest": "9c7163d24eb1de900c927342b69e18ee96a6acf57355804ede8211710656f167",
   "checks": [
     {
       "id": "tracer-real-package",
@@ -64,7 +64,7 @@
     },
     {
       "id": "ir-artifact-bindings",
-      "status": "failed",
+      "status": "passed",
       "detail": "IR must bind accepted tracer and frontend result bytes",
       "evidence": [
         "ir/results.json"
@@ -72,7 +72,7 @@
     },
     {
       "id": "ir-measured-scores",
-      "status": "failed",
+      "status": "passed",
       "detail": "every score must equal a recorded measured check",
       "evidence": [
         "ir/results.json"
@@ -90,7 +90,7 @@
     },
     {
       "id": "verifier-generated-origin",
-      "status": "failed",
+      "status": "passed",
       "detail": "verifier must require lowerer provenance and must not accept copied canonical traces",
       "evidence": [
         "verification/verifier.mjs"
@@ -98,15 +98,12 @@
     }
   ],
   "summary": {
-    "passed": 7,
-    "failed": 4,
+    "passed": 10,
+    "failed": 1,
     "total": 11
   },
   "failures": [
-    "ir-artifact-bindings: IR must bind accepted tracer and frontend result bytes",
-    "ir-measured-scores: every score must equal a recorded measured check",
-    "generic-lowerers: lowerers may not branch on component IDs",
-    "verifier-generated-origin: verifier must require lowerer provenance and must not accept copied canonical traces"
+    "generic-lowerers: lowerers may not branch on component IDs"
   ],
   "commands": {
     "check": "node experiments/visual-compiler/authority/self-check.mjs"

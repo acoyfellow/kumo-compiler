@@ -1,0 +1,4382 @@
+{
+  "schemaVersion": "kumo.visual-compiler-verification/v2",
+  "status": "failed",
+  "failClosed": true,
+  "nativeHarnessesPresent": false,
+  "authority": {
+    "tracerDigest": "cb71b5ea422b3168d9fac54add5481e78037a19b612a95aebdf07007d109854c",
+    "records": 36
+  },
+  "cache": {
+    "algorithm": "sha256",
+    "contentAddressed": true,
+    "includes": [
+      "canonical artifacts",
+      "generated source",
+      "lowerer",
+      "native compiler",
+      "native build",
+      "served harness",
+      "recapture"
+    ],
+    "coldHits": 0,
+    "warmHits": 108
+  },
+  "benchmarks": {
+    "coldMs": 10.266,
+    "warmMs": 2.41,
+    "totalMs": 13.479
+  },
+  "matrix": {
+    "schemaVersion": "kumo.visual-verification-matrix/v2",
+    "targets": [
+      "vue",
+      "svelte",
+      "solid"
+    ],
+    "stages": [
+      "provenance",
+      "irDigest",
+      "topology",
+      "attributesClasses",
+      "geometry",
+      "computedStyles",
+      "pixels",
+      "trustedBehavior"
+    ],
+    "expectedCells": 108,
+    "cells": [
+      {
+        "target": "vue",
+        "component": "button",
+        "state": "default",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "b9b0857fd6426d664972f6da6eb32a0f1dea0fa422bc8e07b5b90a436d7c36a2",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/button/default/1440/trace.json",
+              "lowering/outputs/vue/button/default/1440/screenshot.png",
+              "lowering/outputs/vue/button/default/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "button",
+        "state": "default",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "f3e89e42f3d06d9ac994fe5835ff56d2d3284f3471feea4d2ca5cffeb47d20d3",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/button/default/1440/trace.json",
+              "lowering/outputs/svelte/button/default/1440/screenshot.png",
+              "lowering/outputs/svelte/button/default/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "button",
+        "state": "default",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "b5ffe8b94c59cd5ec3794812e54c1359174f9b79138c0180838494280b9ef400",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/button/default/1440/trace.json",
+              "lowering/outputs/solid/button/default/1440/screenshot.png",
+              "lowering/outputs/solid/button/default/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "button",
+        "state": "default",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "778d3abe57e2e9f32b0512e07a7e5a832053c6f6f59646424aba9e9611d20865",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/button/default/390/trace.json",
+              "lowering/outputs/vue/button/default/390/screenshot.png",
+              "lowering/outputs/vue/button/default/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "button",
+        "state": "default",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "24a874660fd1af311a2a00e396676c299b1251a8869782cc97c35e5a7604561a",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/button/default/390/trace.json",
+              "lowering/outputs/svelte/button/default/390/screenshot.png",
+              "lowering/outputs/svelte/button/default/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "button",
+        "state": "default",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "2c801571b26393bff9ef6d2885655374eda487cb5f5542df1e4baf32b9efda7e",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/button/default/390/trace.json",
+              "lowering/outputs/solid/button/default/390/screenshot.png",
+              "lowering/outputs/solid/button/default/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "button",
+        "state": "default",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "563ec3706afbd0783f4f0dee5fe6d34d44bfcbcac63c223b66bf563cd0df9a82",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/button/default/768/trace.json",
+              "lowering/outputs/vue/button/default/768/screenshot.png",
+              "lowering/outputs/vue/button/default/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "button",
+        "state": "default",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "6b55c75d28ad75980301c5da938f77e006100039d0707a2805a154f64b9e39b9",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/button/default/768/trace.json",
+              "lowering/outputs/svelte/button/default/768/screenshot.png",
+              "lowering/outputs/svelte/button/default/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "button",
+        "state": "default",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "065dda71ed9618d9440bec2be5aa2f4fc62acce256a83a512e76799384852894",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/button/default/768/trace.json",
+              "lowering/outputs/solid/button/default/768/screenshot.png",
+              "lowering/outputs/solid/button/default/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "button",
+        "state": "disabled",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "3841d3417cebb0ae79f353df9c6c3ca149f51a553b6260c12aa47bc1de90fdc4",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/button/disabled/1440/trace.json",
+              "lowering/outputs/vue/button/disabled/1440/screenshot.png",
+              "lowering/outputs/vue/button/disabled/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "button",
+        "state": "disabled",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "4f70290702714dc2598086ce3307bb3735bd9824f79f81f04d6d79995163dea7",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/button/disabled/1440/trace.json",
+              "lowering/outputs/svelte/button/disabled/1440/screenshot.png",
+              "lowering/outputs/svelte/button/disabled/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "button",
+        "state": "disabled",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "603f9439cf55d8cbae58b9dd4f0008dc74faa123b09d7eaa312de9eaf585dd65",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/button/disabled/1440/trace.json",
+              "lowering/outputs/solid/button/disabled/1440/screenshot.png",
+              "lowering/outputs/solid/button/disabled/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "button",
+        "state": "disabled",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "f241e20d3f6c2761d844b5fa3180d3bf0ea404619b22c6dd6824d2edc689eb11",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/button/disabled/390/trace.json",
+              "lowering/outputs/vue/button/disabled/390/screenshot.png",
+              "lowering/outputs/vue/button/disabled/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "button",
+        "state": "disabled",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "8888902169465176c1d542ed3b6ae12df14b83d484508ea08e4fceb158a6c724",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/button/disabled/390/trace.json",
+              "lowering/outputs/svelte/button/disabled/390/screenshot.png",
+              "lowering/outputs/svelte/button/disabled/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "button",
+        "state": "disabled",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "da579872396b639f6aa950729bf52f4e70364aee61d41a9be360a7e45a07214a",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/button/disabled/390/trace.json",
+              "lowering/outputs/solid/button/disabled/390/screenshot.png",
+              "lowering/outputs/solid/button/disabled/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "button",
+        "state": "disabled",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "6a618193f58f1c77b790e7ab4f6e18417b4d2b59a55f6e93828104a9b14fb395",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/button/disabled/768/trace.json",
+              "lowering/outputs/vue/button/disabled/768/screenshot.png",
+              "lowering/outputs/vue/button/disabled/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "button",
+        "state": "disabled",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "c397705c982feedda729b191fc1efb50a108873f8a31948b6d6fd38fa95820ed",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/button/disabled/768/trace.json",
+              "lowering/outputs/svelte/button/disabled/768/screenshot.png",
+              "lowering/outputs/svelte/button/disabled/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "button",
+        "state": "disabled",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "bfa2eff5e4d3fde5df19e6ed59c664809a7e84d5f385473cb79c8c66c6543643",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/button/disabled/768/trace.json",
+              "lowering/outputs/solid/button/disabled/768/screenshot.png",
+              "lowering/outputs/solid/button/disabled/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "button",
+        "state": "loading",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "2543e05daac75127df54a9a5cbdb98ad83261567bb459679ecf79f4cdcc591a1",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/button/loading/1440/trace.json",
+              "lowering/outputs/vue/button/loading/1440/screenshot.png",
+              "lowering/outputs/vue/button/loading/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "button",
+        "state": "loading",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "26307a0d6291db938072c398f84bb80b9136a3fba06338d201c2324c7c98bd7e",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/button/loading/1440/trace.json",
+              "lowering/outputs/svelte/button/loading/1440/screenshot.png",
+              "lowering/outputs/svelte/button/loading/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "button",
+        "state": "loading",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "8eb0301e39d3092cdea45ac524cdb7f4c0ed3a5d7f9ce390bce0fc11ce651ca0",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/button/loading/1440/trace.json",
+              "lowering/outputs/solid/button/loading/1440/screenshot.png",
+              "lowering/outputs/solid/button/loading/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "button",
+        "state": "loading",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "c69b20adff7ea9309cb40838146e310f4a0b1e5d6ce8d2a339f4e9c67c9ae216",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/button/loading/390/trace.json",
+              "lowering/outputs/vue/button/loading/390/screenshot.png",
+              "lowering/outputs/vue/button/loading/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "button",
+        "state": "loading",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "99a552ecf6d24a5f5f704d7a052d2fd4071d08517d754e59116dd525b6d951b7",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/button/loading/390/trace.json",
+              "lowering/outputs/svelte/button/loading/390/screenshot.png",
+              "lowering/outputs/svelte/button/loading/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "button",
+        "state": "loading",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "ff127bd81ee0bff69dd46af741a3f2efca77e2d73e9f83aab6d2a0a9585494da",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/button/loading/390/trace.json",
+              "lowering/outputs/solid/button/loading/390/screenshot.png",
+              "lowering/outputs/solid/button/loading/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "button",
+        "state": "loading",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "8c200a3e337f770def7aaec5b8e706efc1107e86a362329e420de6ac01c886f4",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/button/loading/768/trace.json",
+              "lowering/outputs/vue/button/loading/768/screenshot.png",
+              "lowering/outputs/vue/button/loading/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "button",
+        "state": "loading",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "b4d84a973d1dac23e498ae4da3ba9d02934747d44bf284a00500be89b8fb454e",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/button/loading/768/trace.json",
+              "lowering/outputs/svelte/button/loading/768/screenshot.png",
+              "lowering/outputs/svelte/button/loading/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "button",
+        "state": "loading",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "8d87fa840e375f58a41e080c257ab2e6f2ad38f7822598946f4e6873ffeeed59",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/button/loading/768/trace.json",
+              "lowering/outputs/solid/button/loading/768/screenshot.png",
+              "lowering/outputs/solid/button/loading/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "checkbox",
+        "state": "checked",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "65576b35f021c5f38220a0206252a012c3522aea0db408fd9446234e5c045655",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/checkbox/checked/1440/trace.json",
+              "lowering/outputs/vue/checkbox/checked/1440/screenshot.png",
+              "lowering/outputs/vue/checkbox/checked/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "checkbox",
+        "state": "checked",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "4c34f5d6f4cfc4c2fc70be9b095f8619df1e1d7cf570cb84963da11dc80671fd",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/checkbox/checked/1440/trace.json",
+              "lowering/outputs/svelte/checkbox/checked/1440/screenshot.png",
+              "lowering/outputs/svelte/checkbox/checked/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "checkbox",
+        "state": "checked",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "24019c879878e30907445d2514830e40c976ccd2124ce2ea69cacf97d046c7e0",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/checkbox/checked/1440/trace.json",
+              "lowering/outputs/solid/checkbox/checked/1440/screenshot.png",
+              "lowering/outputs/solid/checkbox/checked/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "checkbox",
+        "state": "checked",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "21ff018a643f2c9b91e0d7c75203d480e411b3ab0c4fdae8a82a15419889c331",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/checkbox/checked/390/trace.json",
+              "lowering/outputs/vue/checkbox/checked/390/screenshot.png",
+              "lowering/outputs/vue/checkbox/checked/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "checkbox",
+        "state": "checked",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "98e3469714457f93af821153813dc49bfe38e72dee6211540d9ec97b75ce64ec",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/checkbox/checked/390/trace.json",
+              "lowering/outputs/svelte/checkbox/checked/390/screenshot.png",
+              "lowering/outputs/svelte/checkbox/checked/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "checkbox",
+        "state": "checked",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "0fe4c21a3681b93e7d9154326a72f06899791c28f9fa5200f58116d6c28bd1be",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/checkbox/checked/390/trace.json",
+              "lowering/outputs/solid/checkbox/checked/390/screenshot.png",
+              "lowering/outputs/solid/checkbox/checked/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "checkbox",
+        "state": "checked",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "55bb24614f65a6b03996509bdd3a8ad30e97a0ee1eb41d93c996a1ff14c43736",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/checkbox/checked/768/trace.json",
+              "lowering/outputs/vue/checkbox/checked/768/screenshot.png",
+              "lowering/outputs/vue/checkbox/checked/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "checkbox",
+        "state": "checked",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "954da78a9649a1c9e5cf27504108a3a0f519ad10d2efb295a1f551ce54ea823e",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/checkbox/checked/768/trace.json",
+              "lowering/outputs/svelte/checkbox/checked/768/screenshot.png",
+              "lowering/outputs/svelte/checkbox/checked/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "checkbox",
+        "state": "checked",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "924665305a8caff62e95b161718a5f883601016fc9d44dcd11c100d50bcc2c0b",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/checkbox/checked/768/trace.json",
+              "lowering/outputs/solid/checkbox/checked/768/screenshot.png",
+              "lowering/outputs/solid/checkbox/checked/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "checkbox",
+        "state": "indeterminate",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "e50b9b1efccfa6bb8b7471481123db2a7963c8d59523f275019bdb64f27f13c2",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/checkbox/indeterminate/1440/trace.json",
+              "lowering/outputs/vue/checkbox/indeterminate/1440/screenshot.png",
+              "lowering/outputs/vue/checkbox/indeterminate/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "checkbox",
+        "state": "indeterminate",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "9f72dc0560f4cc70f8244e19f749d6fc5bb6b1abddce97726ca8ba3428ae236c",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/checkbox/indeterminate/1440/trace.json",
+              "lowering/outputs/svelte/checkbox/indeterminate/1440/screenshot.png",
+              "lowering/outputs/svelte/checkbox/indeterminate/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "checkbox",
+        "state": "indeterminate",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "3f0b9fdb0f8294e95473ccdaa6402c4b8692551570afe1e462809ff8e69cfe53",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/checkbox/indeterminate/1440/trace.json",
+              "lowering/outputs/solid/checkbox/indeterminate/1440/screenshot.png",
+              "lowering/outputs/solid/checkbox/indeterminate/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "checkbox",
+        "state": "indeterminate",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "545114750bf5ce05414ceb3af021624fd7cd9d65bb45cbf749e3a38dc7c9c591",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/checkbox/indeterminate/390/trace.json",
+              "lowering/outputs/vue/checkbox/indeterminate/390/screenshot.png",
+              "lowering/outputs/vue/checkbox/indeterminate/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "checkbox",
+        "state": "indeterminate",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "2827c51f9c254ba35575df5ce871b146d661cf8ed9180115f7d5ae3d23efaa43",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/checkbox/indeterminate/390/trace.json",
+              "lowering/outputs/svelte/checkbox/indeterminate/390/screenshot.png",
+              "lowering/outputs/svelte/checkbox/indeterminate/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "checkbox",
+        "state": "indeterminate",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "6704b53cf79535c290f58f6e8ddd4fd2d55396a67b5668dc57997625d4e47672",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/checkbox/indeterminate/390/trace.json",
+              "lowering/outputs/solid/checkbox/indeterminate/390/screenshot.png",
+              "lowering/outputs/solid/checkbox/indeterminate/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "checkbox",
+        "state": "indeterminate",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "d20dc4f6a879757c9fd7cc3f1a7e0e497166a06e57429eee389b544625c1026b",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/checkbox/indeterminate/768/trace.json",
+              "lowering/outputs/vue/checkbox/indeterminate/768/screenshot.png",
+              "lowering/outputs/vue/checkbox/indeterminate/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "checkbox",
+        "state": "indeterminate",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "849f8f0010035b0345274a7c29acc59ee4ae11e8267578c0bf75707cca88d5fe",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/checkbox/indeterminate/768/trace.json",
+              "lowering/outputs/svelte/checkbox/indeterminate/768/screenshot.png",
+              "lowering/outputs/svelte/checkbox/indeterminate/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "checkbox",
+        "state": "indeterminate",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "829ca72fc5baf8c98bd66003205f279f4c6884508356f4550029388c49e2852b",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/checkbox/indeterminate/768/trace.json",
+              "lowering/outputs/solid/checkbox/indeterminate/768/screenshot.png",
+              "lowering/outputs/solid/checkbox/indeterminate/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "checkbox",
+        "state": "unchecked",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "42c76a1c74a35294cd61125f5e4603008eda90df4040f7a7e34f190b62902df7",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/checkbox/unchecked/1440/trace.json",
+              "lowering/outputs/vue/checkbox/unchecked/1440/screenshot.png",
+              "lowering/outputs/vue/checkbox/unchecked/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "checkbox",
+        "state": "unchecked",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "3347a51dfcb3a53623723baac484cfb460ef9085b870294f69b35115c1cd612e",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/checkbox/unchecked/1440/trace.json",
+              "lowering/outputs/svelte/checkbox/unchecked/1440/screenshot.png",
+              "lowering/outputs/svelte/checkbox/unchecked/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "checkbox",
+        "state": "unchecked",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "95da72f0071e4c135186060c5a767ac391a8b7c437b33a35b03f4499e4a9e5cd",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/checkbox/unchecked/1440/trace.json",
+              "lowering/outputs/solid/checkbox/unchecked/1440/screenshot.png",
+              "lowering/outputs/solid/checkbox/unchecked/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "checkbox",
+        "state": "unchecked",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "08f675712318a8c8596021eebec0b52562020d71a63d80ba7e224e91a21769fd",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/checkbox/unchecked/390/trace.json",
+              "lowering/outputs/vue/checkbox/unchecked/390/screenshot.png",
+              "lowering/outputs/vue/checkbox/unchecked/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "checkbox",
+        "state": "unchecked",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "c97828cf876d98228e7050a236288637df15d76019ea5e9da924cbaf351e7aba",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/checkbox/unchecked/390/trace.json",
+              "lowering/outputs/svelte/checkbox/unchecked/390/screenshot.png",
+              "lowering/outputs/svelte/checkbox/unchecked/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "checkbox",
+        "state": "unchecked",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "0e6e773f7d49cafe116b578c181f69d0ece8cd84d51190abc21ee38b86384fe6",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/checkbox/unchecked/390/trace.json",
+              "lowering/outputs/solid/checkbox/unchecked/390/screenshot.png",
+              "lowering/outputs/solid/checkbox/unchecked/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "checkbox",
+        "state": "unchecked",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "26dc2f1c0377d535d3390bb81e5e63a674abcfc43eed906bee29554f3e4d74e6",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/checkbox/unchecked/768/trace.json",
+              "lowering/outputs/vue/checkbox/unchecked/768/screenshot.png",
+              "lowering/outputs/vue/checkbox/unchecked/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "checkbox",
+        "state": "unchecked",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "e4940b79657ee84389b5c4f9f704057234aef6349712370d562a7a91ce70afe0",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/checkbox/unchecked/768/trace.json",
+              "lowering/outputs/svelte/checkbox/unchecked/768/screenshot.png",
+              "lowering/outputs/svelte/checkbox/unchecked/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "checkbox",
+        "state": "unchecked",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "aa0ed20e186f40ea5d6bbed80d18cc37d51b3d22406d61a3f1397bd4de39ad05",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/checkbox/unchecked/768/trace.json",
+              "lowering/outputs/solid/checkbox/unchecked/768/screenshot.png",
+              "lowering/outputs/solid/checkbox/unchecked/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "field",
+        "state": "default",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "31c627cbf52136e22b6ac75afa2d0c9bdc3ff18b0d59f92ac6bd14c556d0313f",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/field/default/1440/trace.json",
+              "lowering/outputs/vue/field/default/1440/screenshot.png",
+              "lowering/outputs/vue/field/default/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "field",
+        "state": "default",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "c174a33a9f2cd1218a7fbe83c8f1b6d0d551eb9c1dbe711c646b21751fb63ef9",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/field/default/1440/trace.json",
+              "lowering/outputs/svelte/field/default/1440/screenshot.png",
+              "lowering/outputs/svelte/field/default/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "field",
+        "state": "default",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "f2fceb2d67cb6f5682ab7c4683b135d7eeab686feb1bab597dcb689944856578",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/field/default/1440/trace.json",
+              "lowering/outputs/solid/field/default/1440/screenshot.png",
+              "lowering/outputs/solid/field/default/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "field",
+        "state": "default",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "8ad7417cd379620d338dbc2eae2053c6e24ff08b3527a6e97841a7a59f199537",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/field/default/390/trace.json",
+              "lowering/outputs/vue/field/default/390/screenshot.png",
+              "lowering/outputs/vue/field/default/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "field",
+        "state": "default",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "312d7f355fd3e897811b51e0ca577bdaae006a79867697073ec782a9fdd2db66",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/field/default/390/trace.json",
+              "lowering/outputs/svelte/field/default/390/screenshot.png",
+              "lowering/outputs/svelte/field/default/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "field",
+        "state": "default",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "aecb7ccc36fd954209e362845290472d2038ebca1300ace509313caaba6f9fae",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/field/default/390/trace.json",
+              "lowering/outputs/solid/field/default/390/screenshot.png",
+              "lowering/outputs/solid/field/default/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "field",
+        "state": "default",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "99e988a9d930c23d9c234291970583aa847c6c3c6c41d2b055ff60152b8ed333",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/field/default/768/trace.json",
+              "lowering/outputs/vue/field/default/768/screenshot.png",
+              "lowering/outputs/vue/field/default/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "field",
+        "state": "default",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "9de8abffe39577a9180008c7dea447fcc9446eac74748542df7c20003191806c",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/field/default/768/trace.json",
+              "lowering/outputs/svelte/field/default/768/screenshot.png",
+              "lowering/outputs/svelte/field/default/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "field",
+        "state": "default",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "3efe64ba4f0bb82c3ef9d7f84a7d8dc05bfa797afcb626f126bf235892bad96d",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/field/default/768/trace.json",
+              "lowering/outputs/solid/field/default/768/screenshot.png",
+              "lowering/outputs/solid/field/default/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "field",
+        "state": "disabled",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "879157675eb11227bad60141033984b3865fdb2637cbfa7d6738a3e3eed068f0",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/field/disabled/1440/trace.json",
+              "lowering/outputs/vue/field/disabled/1440/screenshot.png",
+              "lowering/outputs/vue/field/disabled/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "field",
+        "state": "disabled",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "fe41a287f7c44d1a0f083efb91b52843312fb99b3856fb402de2f77559505ce7",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/field/disabled/1440/trace.json",
+              "lowering/outputs/svelte/field/disabled/1440/screenshot.png",
+              "lowering/outputs/svelte/field/disabled/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "field",
+        "state": "disabled",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "de25bc02e1d647dcf4e28e50095b0c371c86d912a2ebd4d384bbc3e7e763e307",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/field/disabled/1440/trace.json",
+              "lowering/outputs/solid/field/disabled/1440/screenshot.png",
+              "lowering/outputs/solid/field/disabled/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "field",
+        "state": "disabled",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "e415b4ca9964c272b6cf8d6a24f3c029f78a4d0c295668b6a6b689498fa84a67",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/field/disabled/390/trace.json",
+              "lowering/outputs/vue/field/disabled/390/screenshot.png",
+              "lowering/outputs/vue/field/disabled/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "field",
+        "state": "disabled",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "801c54e58e34e88e8b6b2d393ef44c1ee2eae9e8d7b520ea312d2dd86af3e7bb",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/field/disabled/390/trace.json",
+              "lowering/outputs/svelte/field/disabled/390/screenshot.png",
+              "lowering/outputs/svelte/field/disabled/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "field",
+        "state": "disabled",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "d919e61cc4fa97747931a34444119610189d5335120a82c7ec054e2565dad53f",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/field/disabled/390/trace.json",
+              "lowering/outputs/solid/field/disabled/390/screenshot.png",
+              "lowering/outputs/solid/field/disabled/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "field",
+        "state": "disabled",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "1363ea398a57425463e85800b7f723abbc2aa89453fec1226294c79d32300547",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/field/disabled/768/trace.json",
+              "lowering/outputs/vue/field/disabled/768/screenshot.png",
+              "lowering/outputs/vue/field/disabled/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "field",
+        "state": "disabled",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "e914487c3726d5ef68333ecb14974d8878be42773e9e30230c713af89e0aa278",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/field/disabled/768/trace.json",
+              "lowering/outputs/svelte/field/disabled/768/screenshot.png",
+              "lowering/outputs/svelte/field/disabled/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "field",
+        "state": "disabled",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "6699e9aa37e27415cd4df751cc2ce6db9f975b9dcbd7c5dc159b2567a32d972d",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/field/disabled/768/trace.json",
+              "lowering/outputs/solid/field/disabled/768/screenshot.png",
+              "lowering/outputs/solid/field/disabled/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "field",
+        "state": "error",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "5b4426e01550c93dc21ad59076242c05037768e8ced530fb5086ad9edc54d088",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/field/error/1440/trace.json",
+              "lowering/outputs/vue/field/error/1440/screenshot.png",
+              "lowering/outputs/vue/field/error/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "field",
+        "state": "error",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "140686a2a28ffc078fba4f5a374a225ff36be07422634650b6e5e20de0bd5ab9",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/field/error/1440/trace.json",
+              "lowering/outputs/svelte/field/error/1440/screenshot.png",
+              "lowering/outputs/svelte/field/error/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "field",
+        "state": "error",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "426a62f42121fcd6a5e95841ed0537375a0086a0fe5c790e5e3b8d2e4355e830",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/field/error/1440/trace.json",
+              "lowering/outputs/solid/field/error/1440/screenshot.png",
+              "lowering/outputs/solid/field/error/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "field",
+        "state": "error",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "5a4cb6d7566ce915cfeafb5fd631b9f082bb26fe9201912225a90890d6dda740",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/field/error/390/trace.json",
+              "lowering/outputs/vue/field/error/390/screenshot.png",
+              "lowering/outputs/vue/field/error/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "field",
+        "state": "error",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "9cb58deb434b7a2063dbc14a3830ddd0071bc21a113e2a5072ec5e6f796b1c08",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/field/error/390/trace.json",
+              "lowering/outputs/svelte/field/error/390/screenshot.png",
+              "lowering/outputs/svelte/field/error/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "field",
+        "state": "error",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "df1f1442e0a7add1df7a27574c37fd5cd69ea919605a54993a856a290c146a84",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/field/error/390/trace.json",
+              "lowering/outputs/solid/field/error/390/screenshot.png",
+              "lowering/outputs/solid/field/error/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "field",
+        "state": "error",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "47342ac3b040e35b29411bb51ff9d75616c2fb08dd3981b04f54747f71cb81d2",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/field/error/768/trace.json",
+              "lowering/outputs/vue/field/error/768/screenshot.png",
+              "lowering/outputs/vue/field/error/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "field",
+        "state": "error",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "71d73434dadcf3cc24019c9e069eb109ab66a5a80f51b1560f76f559575ed6e8",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/field/error/768/trace.json",
+              "lowering/outputs/svelte/field/error/768/screenshot.png",
+              "lowering/outputs/svelte/field/error/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "field",
+        "state": "error",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "d72b4f8d80944559b88f063c25f8d8b8805c9eae0318d6377a5d6dafeafb3b39",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/field/error/768/trace.json",
+              "lowering/outputs/solid/field/error/768/screenshot.png",
+              "lowering/outputs/solid/field/error/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "popover",
+        "state": "closed",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "284a272482dab6cfdb4b6184063e91d948404b8164301ab91863cc43ecf11213",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/popover/closed/1440/trace.json",
+              "lowering/outputs/vue/popover/closed/1440/screenshot.png",
+              "lowering/outputs/vue/popover/closed/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "popover",
+        "state": "closed",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "e43d55e9536b7a9043854cc70aad1f7d08ca1dfe0995b66af0f0f7d52f893277",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/popover/closed/1440/trace.json",
+              "lowering/outputs/svelte/popover/closed/1440/screenshot.png",
+              "lowering/outputs/svelte/popover/closed/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "popover",
+        "state": "closed",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "bc62a3048a051fa5c814c4eca27d1878d11c035847a2c15a07e83197bed8d4c1",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/popover/closed/1440/trace.json",
+              "lowering/outputs/solid/popover/closed/1440/screenshot.png",
+              "lowering/outputs/solid/popover/closed/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "popover",
+        "state": "closed",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "1616388f84ecf5ffd0c3389f5333b578ad5d1f8c51f4ba41e46075e2e78648eb",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/popover/closed/390/trace.json",
+              "lowering/outputs/vue/popover/closed/390/screenshot.png",
+              "lowering/outputs/vue/popover/closed/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "popover",
+        "state": "closed",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "3aa63742eb51406efead1fb32141bcd78dfe8486a8741d3edbc249618463cf56",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/popover/closed/390/trace.json",
+              "lowering/outputs/svelte/popover/closed/390/screenshot.png",
+              "lowering/outputs/svelte/popover/closed/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "popover",
+        "state": "closed",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "d0e5a8d455afc46623514f137b73c9aae7014da979bf383d2543dc2642c83d94",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/popover/closed/390/trace.json",
+              "lowering/outputs/solid/popover/closed/390/screenshot.png",
+              "lowering/outputs/solid/popover/closed/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "popover",
+        "state": "closed",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "70396dfbf53b384d8383e9b2d54868c1f1a1ff58651e79f1ca26ec5935396dec",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/popover/closed/768/trace.json",
+              "lowering/outputs/vue/popover/closed/768/screenshot.png",
+              "lowering/outputs/vue/popover/closed/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "popover",
+        "state": "closed",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "08bb7fb19d3f2e7db479c63ebb2c02dbe30677a7eb356f03aa748f4b3748b8c4",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/popover/closed/768/trace.json",
+              "lowering/outputs/svelte/popover/closed/768/screenshot.png",
+              "lowering/outputs/svelte/popover/closed/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "popover",
+        "state": "closed",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "d523b08322a8540479b51f250f02a86d5ce6e0973a717c3534a0d82e24272911",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/popover/closed/768/trace.json",
+              "lowering/outputs/solid/popover/closed/768/screenshot.png",
+              "lowering/outputs/solid/popover/closed/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "popover",
+        "state": "dismissed",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "c7d6c3704427ac8ad6133a07bb8a3c1c604f3e8ed25e1393e28f7d3a711510bf",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/popover/dismissed/1440/trace.json",
+              "lowering/outputs/vue/popover/dismissed/1440/screenshot.png",
+              "lowering/outputs/vue/popover/dismissed/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "popover",
+        "state": "dismissed",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "5737ba5c618921b630d7bee557246de16d16f7712d7f91446c6391fdb66af670",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/popover/dismissed/1440/trace.json",
+              "lowering/outputs/svelte/popover/dismissed/1440/screenshot.png",
+              "lowering/outputs/svelte/popover/dismissed/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "popover",
+        "state": "dismissed",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "cb8c9f755a0ed5a3b95bae4e959b25a1ca84e553aea1bbcd0304c0d90516ca49",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/popover/dismissed/1440/trace.json",
+              "lowering/outputs/solid/popover/dismissed/1440/screenshot.png",
+              "lowering/outputs/solid/popover/dismissed/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "popover",
+        "state": "dismissed",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "b1c6ca5429893d025f840c8d29df27b95eacc4abadc68d1a568d0eedd73a2ebc",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/popover/dismissed/390/trace.json",
+              "lowering/outputs/vue/popover/dismissed/390/screenshot.png",
+              "lowering/outputs/vue/popover/dismissed/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "popover",
+        "state": "dismissed",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "484c033ee454c2b70267dce1705fc2a5dbd05f0d8163403155bdb2ff27d8f603",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/popover/dismissed/390/trace.json",
+              "lowering/outputs/svelte/popover/dismissed/390/screenshot.png",
+              "lowering/outputs/svelte/popover/dismissed/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "popover",
+        "state": "dismissed",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "78c30679c52bb6bc9ef859e9ab7a39908e019c3d757ff2256ad0bc84e570b55f",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/popover/dismissed/390/trace.json",
+              "lowering/outputs/solid/popover/dismissed/390/screenshot.png",
+              "lowering/outputs/solid/popover/dismissed/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "popover",
+        "state": "dismissed",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "24bf65134af504356a2edc499e44e860f83ea778a06f1bde53546bec9661bb0e",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/popover/dismissed/768/trace.json",
+              "lowering/outputs/vue/popover/dismissed/768/screenshot.png",
+              "lowering/outputs/vue/popover/dismissed/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "popover",
+        "state": "dismissed",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "1e6685a419aeeb0ca10c2580113033fa9176dc348012e3c456d25c107b555a72",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/popover/dismissed/768/trace.json",
+              "lowering/outputs/svelte/popover/dismissed/768/screenshot.png",
+              "lowering/outputs/svelte/popover/dismissed/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "popover",
+        "state": "dismissed",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "241f762a61140fea306d830f00313134100f551c10bc2c12f39d85e48a281755",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/popover/dismissed/768/trace.json",
+              "lowering/outputs/solid/popover/dismissed/768/screenshot.png",
+              "lowering/outputs/solid/popover/dismissed/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "popover",
+        "state": "open",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "be0d86a21dc9d01f12f9971d9851b1f3037916d87edb85791f755bdac3644c92",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/popover/open/1440/trace.json",
+              "lowering/outputs/vue/popover/open/1440/screenshot.png",
+              "lowering/outputs/vue/popover/open/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "popover",
+        "state": "open",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "3dc9c6c43bb4af7c9d950d6831adb0ef7c1ea3f8e043167cf55e5a5d4d114cba",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/popover/open/1440/trace.json",
+              "lowering/outputs/svelte/popover/open/1440/screenshot.png",
+              "lowering/outputs/svelte/popover/open/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "popover",
+        "state": "open",
+        "viewport": 1440,
+        "status": "failed",
+        "cacheKey": "ae514919c83e35b61db1b7a31d95951e031eeffabe57b8c64d7384317e575a5a",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/popover/open/1440/trace.json",
+              "lowering/outputs/solid/popover/open/1440/screenshot.png",
+              "lowering/outputs/solid/popover/open/1440/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "popover",
+        "state": "open",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "8564f99450fb748cf3ca8c3e4be321510a0d7f97972c75f11061b63352bc4e70",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/popover/open/390/trace.json",
+              "lowering/outputs/vue/popover/open/390/screenshot.png",
+              "lowering/outputs/vue/popover/open/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "popover",
+        "state": "open",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "49a490145e7ca3b39cec345eece7b9b74dae32a75f2c3e126d3c616ad2307f6e",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/popover/open/390/trace.json",
+              "lowering/outputs/svelte/popover/open/390/screenshot.png",
+              "lowering/outputs/svelte/popover/open/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "popover",
+        "state": "open",
+        "viewport": 390,
+        "status": "failed",
+        "cacheKey": "651ea496f84b79ac1461eea191f8e28b6181bf9e8fcfd78f090fe8c532ae9523",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/popover/open/390/trace.json",
+              "lowering/outputs/solid/popover/open/390/screenshot.png",
+              "lowering/outputs/solid/popover/open/390/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "vue",
+        "component": "popover",
+        "state": "open",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "3bbfc282d2ecf8a8dcd7caaa20ba3e1456e78347185d16421d3863f07b5acb94",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/vue/popover/open/768/trace.json",
+              "lowering/outputs/vue/popover/open/768/screenshot.png",
+              "lowering/outputs/vue/popover/open/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "svelte",
+        "component": "popover",
+        "state": "open",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "c215b5cda7b7cfed051fa97170e751faadebc90629f69901fdb8884320657631",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/svelte/popover/open/768/trace.json",
+              "lowering/outputs/svelte/popover/open/768/screenshot.png",
+              "lowering/outputs/svelte/popover/open/768/provenance.json"
+            ]
+          }
+        ]
+      },
+      {
+        "target": "solid",
+        "component": "popover",
+        "state": "open",
+        "viewport": 768,
+        "status": "failed",
+        "cacheKey": "3975ffd9f1dd563f2e52eb93a0cc8aab6c4789102bac6b11b738b89780402f32",
+        "stages": [
+          {
+            "stage": "provenance",
+            "status": "failed"
+          }
+        ],
+        "diagnostics": [
+          {
+            "stage": "provenance",
+            "part": "$cell",
+            "message": "missing native harness output",
+            "searched": [
+              "lowering/outputs/solid/popover/open/768/trace.json",
+              "lowering/outputs/solid/popover/open/768/screenshot.png",
+              "lowering/outputs/solid/popover/open/768/provenance.json"
+            ]
+          }
+        ]
+      }
+    ],
+    "summary": {
+      "passed": 0,
+      "failed": 108,
+      "total": 108
+    }
+  },
+  "diagnostics": [
+    {
+      "target": "vue",
+      "component": "button",
+      "state": "default",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/button/default/1440/trace.json",
+        "lowering/outputs/vue/button/default/1440/screenshot.png",
+        "lowering/outputs/vue/button/default/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "button",
+      "state": "default",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/button/default/1440/trace.json",
+        "lowering/outputs/svelte/button/default/1440/screenshot.png",
+        "lowering/outputs/svelte/button/default/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "button",
+      "state": "default",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/button/default/1440/trace.json",
+        "lowering/outputs/solid/button/default/1440/screenshot.png",
+        "lowering/outputs/solid/button/default/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "button",
+      "state": "default",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/button/default/390/trace.json",
+        "lowering/outputs/vue/button/default/390/screenshot.png",
+        "lowering/outputs/vue/button/default/390/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "button",
+      "state": "default",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/button/default/390/trace.json",
+        "lowering/outputs/svelte/button/default/390/screenshot.png",
+        "lowering/outputs/svelte/button/default/390/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "button",
+      "state": "default",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/button/default/390/trace.json",
+        "lowering/outputs/solid/button/default/390/screenshot.png",
+        "lowering/outputs/solid/button/default/390/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "button",
+      "state": "default",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/button/default/768/trace.json",
+        "lowering/outputs/vue/button/default/768/screenshot.png",
+        "lowering/outputs/vue/button/default/768/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "button",
+      "state": "default",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/button/default/768/trace.json",
+        "lowering/outputs/svelte/button/default/768/screenshot.png",
+        "lowering/outputs/svelte/button/default/768/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "button",
+      "state": "default",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/button/default/768/trace.json",
+        "lowering/outputs/solid/button/default/768/screenshot.png",
+        "lowering/outputs/solid/button/default/768/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "button",
+      "state": "disabled",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/button/disabled/1440/trace.json",
+        "lowering/outputs/vue/button/disabled/1440/screenshot.png",
+        "lowering/outputs/vue/button/disabled/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "button",
+      "state": "disabled",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/button/disabled/1440/trace.json",
+        "lowering/outputs/svelte/button/disabled/1440/screenshot.png",
+        "lowering/outputs/svelte/button/disabled/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "button",
+      "state": "disabled",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/button/disabled/1440/trace.json",
+        "lowering/outputs/solid/button/disabled/1440/screenshot.png",
+        "lowering/outputs/solid/button/disabled/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "button",
+      "state": "disabled",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/button/disabled/390/trace.json",
+        "lowering/outputs/vue/button/disabled/390/screenshot.png",
+        "lowering/outputs/vue/button/disabled/390/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "button",
+      "state": "disabled",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/button/disabled/390/trace.json",
+        "lowering/outputs/svelte/button/disabled/390/screenshot.png",
+        "lowering/outputs/svelte/button/disabled/390/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "button",
+      "state": "disabled",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/button/disabled/390/trace.json",
+        "lowering/outputs/solid/button/disabled/390/screenshot.png",
+        "lowering/outputs/solid/button/disabled/390/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "button",
+      "state": "disabled",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/button/disabled/768/trace.json",
+        "lowering/outputs/vue/button/disabled/768/screenshot.png",
+        "lowering/outputs/vue/button/disabled/768/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "button",
+      "state": "disabled",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/button/disabled/768/trace.json",
+        "lowering/outputs/svelte/button/disabled/768/screenshot.png",
+        "lowering/outputs/svelte/button/disabled/768/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "button",
+      "state": "disabled",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/button/disabled/768/trace.json",
+        "lowering/outputs/solid/button/disabled/768/screenshot.png",
+        "lowering/outputs/solid/button/disabled/768/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "button",
+      "state": "loading",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/button/loading/1440/trace.json",
+        "lowering/outputs/vue/button/loading/1440/screenshot.png",
+        "lowering/outputs/vue/button/loading/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "button",
+      "state": "loading",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/button/loading/1440/trace.json",
+        "lowering/outputs/svelte/button/loading/1440/screenshot.png",
+        "lowering/outputs/svelte/button/loading/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "button",
+      "state": "loading",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/button/loading/1440/trace.json",
+        "lowering/outputs/solid/button/loading/1440/screenshot.png",
+        "lowering/outputs/solid/button/loading/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "button",
+      "state": "loading",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/button/loading/390/trace.json",
+        "lowering/outputs/vue/button/loading/390/screenshot.png",
+        "lowering/outputs/vue/button/loading/390/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "button",
+      "state": "loading",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/button/loading/390/trace.json",
+        "lowering/outputs/svelte/button/loading/390/screenshot.png",
+        "lowering/outputs/svelte/button/loading/390/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "button",
+      "state": "loading",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/button/loading/390/trace.json",
+        "lowering/outputs/solid/button/loading/390/screenshot.png",
+        "lowering/outputs/solid/button/loading/390/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "button",
+      "state": "loading",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/button/loading/768/trace.json",
+        "lowering/outputs/vue/button/loading/768/screenshot.png",
+        "lowering/outputs/vue/button/loading/768/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "button",
+      "state": "loading",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/button/loading/768/trace.json",
+        "lowering/outputs/svelte/button/loading/768/screenshot.png",
+        "lowering/outputs/svelte/button/loading/768/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "button",
+      "state": "loading",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/button/loading/768/trace.json",
+        "lowering/outputs/solid/button/loading/768/screenshot.png",
+        "lowering/outputs/solid/button/loading/768/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "checkbox",
+      "state": "checked",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/checkbox/checked/1440/trace.json",
+        "lowering/outputs/vue/checkbox/checked/1440/screenshot.png",
+        "lowering/outputs/vue/checkbox/checked/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "checkbox",
+      "state": "checked",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/checkbox/checked/1440/trace.json",
+        "lowering/outputs/svelte/checkbox/checked/1440/screenshot.png",
+        "lowering/outputs/svelte/checkbox/checked/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "checkbox",
+      "state": "checked",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/checkbox/checked/1440/trace.json",
+        "lowering/outputs/solid/checkbox/checked/1440/screenshot.png",
+        "lowering/outputs/solid/checkbox/checked/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "checkbox",
+      "state": "checked",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/checkbox/checked/390/trace.json",
+        "lowering/outputs/vue/checkbox/checked/390/screenshot.png",
+        "lowering/outputs/vue/checkbox/checked/390/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "checkbox",
+      "state": "checked",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/checkbox/checked/390/trace.json",
+        "lowering/outputs/svelte/checkbox/checked/390/screenshot.png",
+        "lowering/outputs/svelte/checkbox/checked/390/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "checkbox",
+      "state": "checked",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/checkbox/checked/390/trace.json",
+        "lowering/outputs/solid/checkbox/checked/390/screenshot.png",
+        "lowering/outputs/solid/checkbox/checked/390/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "checkbox",
+      "state": "checked",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/checkbox/checked/768/trace.json",
+        "lowering/outputs/vue/checkbox/checked/768/screenshot.png",
+        "lowering/outputs/vue/checkbox/checked/768/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "checkbox",
+      "state": "checked",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/checkbox/checked/768/trace.json",
+        "lowering/outputs/svelte/checkbox/checked/768/screenshot.png",
+        "lowering/outputs/svelte/checkbox/checked/768/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "checkbox",
+      "state": "checked",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/checkbox/checked/768/trace.json",
+        "lowering/outputs/solid/checkbox/checked/768/screenshot.png",
+        "lowering/outputs/solid/checkbox/checked/768/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "checkbox",
+      "state": "indeterminate",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/checkbox/indeterminate/1440/trace.json",
+        "lowering/outputs/vue/checkbox/indeterminate/1440/screenshot.png",
+        "lowering/outputs/vue/checkbox/indeterminate/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "checkbox",
+      "state": "indeterminate",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/checkbox/indeterminate/1440/trace.json",
+        "lowering/outputs/svelte/checkbox/indeterminate/1440/screenshot.png",
+        "lowering/outputs/svelte/checkbox/indeterminate/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "checkbox",
+      "state": "indeterminate",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/checkbox/indeterminate/1440/trace.json",
+        "lowering/outputs/solid/checkbox/indeterminate/1440/screenshot.png",
+        "lowering/outputs/solid/checkbox/indeterminate/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "checkbox",
+      "state": "indeterminate",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/checkbox/indeterminate/390/trace.json",
+        "lowering/outputs/vue/checkbox/indeterminate/390/screenshot.png",
+        "lowering/outputs/vue/checkbox/indeterminate/390/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "checkbox",
+      "state": "indeterminate",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/checkbox/indeterminate/390/trace.json",
+        "lowering/outputs/svelte/checkbox/indeterminate/390/screenshot.png",
+        "lowering/outputs/svelte/checkbox/indeterminate/390/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "checkbox",
+      "state": "indeterminate",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/checkbox/indeterminate/390/trace.json",
+        "lowering/outputs/solid/checkbox/indeterminate/390/screenshot.png",
+        "lowering/outputs/solid/checkbox/indeterminate/390/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "checkbox",
+      "state": "indeterminate",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/checkbox/indeterminate/768/trace.json",
+        "lowering/outputs/vue/checkbox/indeterminate/768/screenshot.png",
+        "lowering/outputs/vue/checkbox/indeterminate/768/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "checkbox",
+      "state": "indeterminate",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/checkbox/indeterminate/768/trace.json",
+        "lowering/outputs/svelte/checkbox/indeterminate/768/screenshot.png",
+        "lowering/outputs/svelte/checkbox/indeterminate/768/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "checkbox",
+      "state": "indeterminate",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/checkbox/indeterminate/768/trace.json",
+        "lowering/outputs/solid/checkbox/indeterminate/768/screenshot.png",
+        "lowering/outputs/solid/checkbox/indeterminate/768/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "checkbox",
+      "state": "unchecked",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/checkbox/unchecked/1440/trace.json",
+        "lowering/outputs/vue/checkbox/unchecked/1440/screenshot.png",
+        "lowering/outputs/vue/checkbox/unchecked/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "checkbox",
+      "state": "unchecked",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/checkbox/unchecked/1440/trace.json",
+        "lowering/outputs/svelte/checkbox/unchecked/1440/screenshot.png",
+        "lowering/outputs/svelte/checkbox/unchecked/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "checkbox",
+      "state": "unchecked",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/checkbox/unchecked/1440/trace.json",
+        "lowering/outputs/solid/checkbox/unchecked/1440/screenshot.png",
+        "lowering/outputs/solid/checkbox/unchecked/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "checkbox",
+      "state": "unchecked",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/checkbox/unchecked/390/trace.json",
+        "lowering/outputs/vue/checkbox/unchecked/390/screenshot.png",
+        "lowering/outputs/vue/checkbox/unchecked/390/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "checkbox",
+      "state": "unchecked",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/checkbox/unchecked/390/trace.json",
+        "lowering/outputs/svelte/checkbox/unchecked/390/screenshot.png",
+        "lowering/outputs/svelte/checkbox/unchecked/390/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "checkbox",
+      "state": "unchecked",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/checkbox/unchecked/390/trace.json",
+        "lowering/outputs/solid/checkbox/unchecked/390/screenshot.png",
+        "lowering/outputs/solid/checkbox/unchecked/390/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "checkbox",
+      "state": "unchecked",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/checkbox/unchecked/768/trace.json",
+        "lowering/outputs/vue/checkbox/unchecked/768/screenshot.png",
+        "lowering/outputs/vue/checkbox/unchecked/768/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "checkbox",
+      "state": "unchecked",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/checkbox/unchecked/768/trace.json",
+        "lowering/outputs/svelte/checkbox/unchecked/768/screenshot.png",
+        "lowering/outputs/svelte/checkbox/unchecked/768/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "checkbox",
+      "state": "unchecked",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/checkbox/unchecked/768/trace.json",
+        "lowering/outputs/solid/checkbox/unchecked/768/screenshot.png",
+        "lowering/outputs/solid/checkbox/unchecked/768/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "field",
+      "state": "default",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/field/default/1440/trace.json",
+        "lowering/outputs/vue/field/default/1440/screenshot.png",
+        "lowering/outputs/vue/field/default/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "field",
+      "state": "default",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/field/default/1440/trace.json",
+        "lowering/outputs/svelte/field/default/1440/screenshot.png",
+        "lowering/outputs/svelte/field/default/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "field",
+      "state": "default",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/field/default/1440/trace.json",
+        "lowering/outputs/solid/field/default/1440/screenshot.png",
+        "lowering/outputs/solid/field/default/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "field",
+      "state": "default",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/field/default/390/trace.json",
+        "lowering/outputs/vue/field/default/390/screenshot.png",
+        "lowering/outputs/vue/field/default/390/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "field",
+      "state": "default",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/field/default/390/trace.json",
+        "lowering/outputs/svelte/field/default/390/screenshot.png",
+        "lowering/outputs/svelte/field/default/390/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "field",
+      "state": "default",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/field/default/390/trace.json",
+        "lowering/outputs/solid/field/default/390/screenshot.png",
+        "lowering/outputs/solid/field/default/390/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "field",
+      "state": "default",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/field/default/768/trace.json",
+        "lowering/outputs/vue/field/default/768/screenshot.png",
+        "lowering/outputs/vue/field/default/768/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "field",
+      "state": "default",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/field/default/768/trace.json",
+        "lowering/outputs/svelte/field/default/768/screenshot.png",
+        "lowering/outputs/svelte/field/default/768/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "field",
+      "state": "default",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/field/default/768/trace.json",
+        "lowering/outputs/solid/field/default/768/screenshot.png",
+        "lowering/outputs/solid/field/default/768/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "field",
+      "state": "disabled",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/field/disabled/1440/trace.json",
+        "lowering/outputs/vue/field/disabled/1440/screenshot.png",
+        "lowering/outputs/vue/field/disabled/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "field",
+      "state": "disabled",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/field/disabled/1440/trace.json",
+        "lowering/outputs/svelte/field/disabled/1440/screenshot.png",
+        "lowering/outputs/svelte/field/disabled/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "field",
+      "state": "disabled",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/field/disabled/1440/trace.json",
+        "lowering/outputs/solid/field/disabled/1440/screenshot.png",
+        "lowering/outputs/solid/field/disabled/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "field",
+      "state": "disabled",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/field/disabled/390/trace.json",
+        "lowering/outputs/vue/field/disabled/390/screenshot.png",
+        "lowering/outputs/vue/field/disabled/390/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "field",
+      "state": "disabled",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/field/disabled/390/trace.json",
+        "lowering/outputs/svelte/field/disabled/390/screenshot.png",
+        "lowering/outputs/svelte/field/disabled/390/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "field",
+      "state": "disabled",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/field/disabled/390/trace.json",
+        "lowering/outputs/solid/field/disabled/390/screenshot.png",
+        "lowering/outputs/solid/field/disabled/390/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "field",
+      "state": "disabled",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/field/disabled/768/trace.json",
+        "lowering/outputs/vue/field/disabled/768/screenshot.png",
+        "lowering/outputs/vue/field/disabled/768/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "field",
+      "state": "disabled",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/field/disabled/768/trace.json",
+        "lowering/outputs/svelte/field/disabled/768/screenshot.png",
+        "lowering/outputs/svelte/field/disabled/768/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "field",
+      "state": "disabled",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/field/disabled/768/trace.json",
+        "lowering/outputs/solid/field/disabled/768/screenshot.png",
+        "lowering/outputs/solid/field/disabled/768/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "field",
+      "state": "error",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/field/error/1440/trace.json",
+        "lowering/outputs/vue/field/error/1440/screenshot.png",
+        "lowering/outputs/vue/field/error/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "field",
+      "state": "error",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/field/error/1440/trace.json",
+        "lowering/outputs/svelte/field/error/1440/screenshot.png",
+        "lowering/outputs/svelte/field/error/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "field",
+      "state": "error",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/field/error/1440/trace.json",
+        "lowering/outputs/solid/field/error/1440/screenshot.png",
+        "lowering/outputs/solid/field/error/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "field",
+      "state": "error",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/field/error/390/trace.json",
+        "lowering/outputs/vue/field/error/390/screenshot.png",
+        "lowering/outputs/vue/field/error/390/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "field",
+      "state": "error",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/field/error/390/trace.json",
+        "lowering/outputs/svelte/field/error/390/screenshot.png",
+        "lowering/outputs/svelte/field/error/390/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "field",
+      "state": "error",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/field/error/390/trace.json",
+        "lowering/outputs/solid/field/error/390/screenshot.png",
+        "lowering/outputs/solid/field/error/390/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "field",
+      "state": "error",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/field/error/768/trace.json",
+        "lowering/outputs/vue/field/error/768/screenshot.png",
+        "lowering/outputs/vue/field/error/768/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "field",
+      "state": "error",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/field/error/768/trace.json",
+        "lowering/outputs/svelte/field/error/768/screenshot.png",
+        "lowering/outputs/svelte/field/error/768/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "field",
+      "state": "error",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/field/error/768/trace.json",
+        "lowering/outputs/solid/field/error/768/screenshot.png",
+        "lowering/outputs/solid/field/error/768/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "popover",
+      "state": "closed",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/popover/closed/1440/trace.json",
+        "lowering/outputs/vue/popover/closed/1440/screenshot.png",
+        "lowering/outputs/vue/popover/closed/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "popover",
+      "state": "closed",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/popover/closed/1440/trace.json",
+        "lowering/outputs/svelte/popover/closed/1440/screenshot.png",
+        "lowering/outputs/svelte/popover/closed/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "popover",
+      "state": "closed",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/popover/closed/1440/trace.json",
+        "lowering/outputs/solid/popover/closed/1440/screenshot.png",
+        "lowering/outputs/solid/popover/closed/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "popover",
+      "state": "closed",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/popover/closed/390/trace.json",
+        "lowering/outputs/vue/popover/closed/390/screenshot.png",
+        "lowering/outputs/vue/popover/closed/390/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "popover",
+      "state": "closed",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/popover/closed/390/trace.json",
+        "lowering/outputs/svelte/popover/closed/390/screenshot.png",
+        "lowering/outputs/svelte/popover/closed/390/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "popover",
+      "state": "closed",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/popover/closed/390/trace.json",
+        "lowering/outputs/solid/popover/closed/390/screenshot.png",
+        "lowering/outputs/solid/popover/closed/390/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "popover",
+      "state": "closed",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/popover/closed/768/trace.json",
+        "lowering/outputs/vue/popover/closed/768/screenshot.png",
+        "lowering/outputs/vue/popover/closed/768/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "popover",
+      "state": "closed",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/popover/closed/768/trace.json",
+        "lowering/outputs/svelte/popover/closed/768/screenshot.png",
+        "lowering/outputs/svelte/popover/closed/768/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "popover",
+      "state": "closed",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/popover/closed/768/trace.json",
+        "lowering/outputs/solid/popover/closed/768/screenshot.png",
+        "lowering/outputs/solid/popover/closed/768/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "popover",
+      "state": "dismissed",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/popover/dismissed/1440/trace.json",
+        "lowering/outputs/vue/popover/dismissed/1440/screenshot.png",
+        "lowering/outputs/vue/popover/dismissed/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "popover",
+      "state": "dismissed",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/popover/dismissed/1440/trace.json",
+        "lowering/outputs/svelte/popover/dismissed/1440/screenshot.png",
+        "lowering/outputs/svelte/popover/dismissed/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "popover",
+      "state": "dismissed",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/popover/dismissed/1440/trace.json",
+        "lowering/outputs/solid/popover/dismissed/1440/screenshot.png",
+        "lowering/outputs/solid/popover/dismissed/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "popover",
+      "state": "dismissed",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/popover/dismissed/390/trace.json",
+        "lowering/outputs/vue/popover/dismissed/390/screenshot.png",
+        "lowering/outputs/vue/popover/dismissed/390/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "popover",
+      "state": "dismissed",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/popover/dismissed/390/trace.json",
+        "lowering/outputs/svelte/popover/dismissed/390/screenshot.png",
+        "lowering/outputs/svelte/popover/dismissed/390/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "popover",
+      "state": "dismissed",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/popover/dismissed/390/trace.json",
+        "lowering/outputs/solid/popover/dismissed/390/screenshot.png",
+        "lowering/outputs/solid/popover/dismissed/390/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "popover",
+      "state": "dismissed",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/popover/dismissed/768/trace.json",
+        "lowering/outputs/vue/popover/dismissed/768/screenshot.png",
+        "lowering/outputs/vue/popover/dismissed/768/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "popover",
+      "state": "dismissed",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/popover/dismissed/768/trace.json",
+        "lowering/outputs/svelte/popover/dismissed/768/screenshot.png",
+        "lowering/outputs/svelte/popover/dismissed/768/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "popover",
+      "state": "dismissed",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/popover/dismissed/768/trace.json",
+        "lowering/outputs/solid/popover/dismissed/768/screenshot.png",
+        "lowering/outputs/solid/popover/dismissed/768/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "popover",
+      "state": "open",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/popover/open/1440/trace.json",
+        "lowering/outputs/vue/popover/open/1440/screenshot.png",
+        "lowering/outputs/vue/popover/open/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "popover",
+      "state": "open",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/popover/open/1440/trace.json",
+        "lowering/outputs/svelte/popover/open/1440/screenshot.png",
+        "lowering/outputs/svelte/popover/open/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "popover",
+      "state": "open",
+      "viewport": 1440,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/popover/open/1440/trace.json",
+        "lowering/outputs/solid/popover/open/1440/screenshot.png",
+        "lowering/outputs/solid/popover/open/1440/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "popover",
+      "state": "open",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/popover/open/390/trace.json",
+        "lowering/outputs/vue/popover/open/390/screenshot.png",
+        "lowering/outputs/vue/popover/open/390/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "popover",
+      "state": "open",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/popover/open/390/trace.json",
+        "lowering/outputs/svelte/popover/open/390/screenshot.png",
+        "lowering/outputs/svelte/popover/open/390/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "popover",
+      "state": "open",
+      "viewport": 390,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/popover/open/390/trace.json",
+        "lowering/outputs/solid/popover/open/390/screenshot.png",
+        "lowering/outputs/solid/popover/open/390/provenance.json"
+      ]
+    },
+    {
+      "target": "vue",
+      "component": "popover",
+      "state": "open",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/vue/popover/open/768/trace.json",
+        "lowering/outputs/vue/popover/open/768/screenshot.png",
+        "lowering/outputs/vue/popover/open/768/provenance.json"
+      ]
+    },
+    {
+      "target": "svelte",
+      "component": "popover",
+      "state": "open",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/svelte/popover/open/768/trace.json",
+        "lowering/outputs/svelte/popover/open/768/screenshot.png",
+        "lowering/outputs/svelte/popover/open/768/provenance.json"
+      ]
+    },
+    {
+      "target": "solid",
+      "component": "popover",
+      "state": "open",
+      "viewport": 768,
+      "stage": "provenance",
+      "part": "$cell",
+      "message": "missing native harness output",
+      "searched": [
+        "lowering/outputs/solid/popover/open/768/trace.json",
+        "lowering/outputs/solid/popover/open/768/screenshot.png",
+        "lowering/outputs/solid/popover/open/768/provenance.json"
+      ]
+    }
+  ],
+  "commands": {
+    "run": "node experiments/visual-compiler/verification/verifier.mjs",
+    "check": "node experiments/visual-compiler/verification/self-check.mjs"
+  }
+}

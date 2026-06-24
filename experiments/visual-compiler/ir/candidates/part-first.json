@@ -1,6 +1,13 @@
 {
-  "schemaVersion": "kumo.ir-candidate/v1",
+  "schemaVersion": "kumo.ir-candidate/v2",
   "id": "part-first",
-  "description": "Stable semantic parts are primary; topology is an explicit relation.",
-  "normalizationInput": "../fixtures/components.json"
+  "derivation": "evaluate.mjs",
+  "authority": [
+    "tracer/results.json",
+    "frontend/typescript/results.json",
+    "frontend/typescript/facts.json",
+    "frontend/oxc/results.json",
+    "frontend/oxc/facts.json"
+  ],
+  "facts": "Parts are keyed first; state and viewport observations carry verified trace topology, attributes, classes, computed styles, geometry, behavior, accessibility, and provenance."
 }
