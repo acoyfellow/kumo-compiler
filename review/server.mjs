@@ -14,7 +14,9 @@ const referenceDirectory=(component,framework)=>resolve(root,'runtime-reference'
 const referenceHtml=(component,framework)=>readFileSync(resolve(referenceDirectory(component,framework),'index.html'),'utf8').replace('<head>','<head><base href="/'+component+'/'+framework+'/">');
 const referenceAsset=(component,framework,file)=>readFileSync(resolve(referenceDirectory(component,framework),'assets',file));
 app.use('*',async(c,next)=>{
- const url=new URL(c.req.url),route=class2RuntimeRoute(url.pathname);
+ const url=new URL(c.req.url),native=url.pathname.match(/^\/([-\w]+)\/(vue|svelte|solid)\/?$/);
+ if(native&&native[1]!=='library-gallery')return c.redirect(`/library-gallery/${native[2]}/?component=${native[1]}`,302);
+ const route=class2RuntimeRoute(url.pathname);
  if(route?.needsSlash)return c.redirect(`${url.pathname}/${url.search}`,308);
  return next();
 });

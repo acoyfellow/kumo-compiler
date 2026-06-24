@@ -136,12 +136,12 @@ test('Vue date-range-picker capability lowers exactly 87 deterministic buttons a
   const Component=await compileSSRComponent(entry,build);
   const render=props=>renderToString(createSSRApp({setup:()=>()=>h(Component,props)}));
   const defaultHtml=await render({});
-  assert.match(defaultHtml,/^<div class="p-4 bg-kumo-overlay">/);
+  assert.match(defaultHtml,/^<div class="kumo-date-range p-4 bg-kumo-overlay">/);
   assert.equal((defaultHtml.match(/<button/g)??[]).length,87);
   assert.equal((defaultHtml.match(/data-day=/g)??[]).length,84);
   assert.equal((defaultHtml.match(/data-navigation=/g)??[]).length,2);
   assert.equal((defaultHtml.match(/data-reset/g)??[]).length,1);
-  assert.match(await render({size:'sm',variant:'subtle'}),/^<div class="p-3 bg-kumo-base">/);
+  assert.match(await render({size:'sm',variant:'subtle'}),/^<div class="kumo-date-range p-3 bg-kumo-base">/);
   assert.equal(manifest.components.flatMap(x=>x.semanticVariants).length,66);
 });
 

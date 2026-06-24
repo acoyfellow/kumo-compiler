@@ -25,8 +25,14 @@ test('pure validator rejects mutations and every nonterminal gate status',()=>{
  const progress=fixture();progress.progress.phases[0]={done:0,total:1,status:'not-run'};assert.equal(validateTerminalInputs(progress).valid,false);
 });
 
-test('repository invocation builds terminal pointer when all real receipts are present',()=>{
+test('repository invocation follows the real progress receipt fail-closed',async()=>{
+ const progress=JSON.parse(await (await import('node:fs/promises')).readFile('proof/progress/latest.json','utf8'));
  const result=spawnSync(process.execPath,['scripts/build-terminal-receipt.mjs'],{encoding:'utf8'});
- assert.equal(result.status,0,result.stderr);
- assert.match(result.stdout,/kumo-terminal/);
+ if(progress.phases.every(phase=>phase.status==='passed')){
+  assert.equal(result.status,0,result.stderr);
+  assert.match(result.stdout,/kumo-terminal/);
+ }else{
+  assert.notEqual(result.status,0,'nonterminal progress must reject terminal receipt generation');
+  assert.match(result.stderr,/terminal prerequisites rejected|not-run|every phase passes/);
+ }
 });

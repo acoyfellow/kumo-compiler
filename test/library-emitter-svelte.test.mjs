@@ -108,12 +108,12 @@ test('supported date-range-picker lowers its observable 87-button interaction su
  const DateRangePicker=(await import(pathToFileURL(target)+`?${Date.now()}`)).default;
  const clean=props=>render(DateRangePicker,{props}).body.replace(/<!--[\s\S]*?-->/g,'');
  const normal=clean({});
- assert.match(normal,new RegExp(`^<div tabindex="-1" class="${capability.classes.default.join(' ')}">`));
+ assert.match(normal,new RegExp(`^<div tabindex="-1" class="kumo-date-range ${capability.classes.default.join(' ')}">`));
  assert.equal((normal.match(/<button\b/g)??[]).length,87);
  assert.equal((normal.match(/data-day=/g)??[]).length,84);
- assert.equal((normal.match(/data-nav=/g)??[]).length,2);
+ assert.equal((normal.match(/data-navigation=/g)??[]).length,2);
  assert.equal((normal.match(/data-reset/g)??[]).length,1);
- assert.match(clean({size:'sm',variant:'subtle'}),new RegExp(`^<div tabindex="-1" class="${capability.classes.smallSubtle.join(' ')}">`));
+ assert.match(clean({size:'sm',variant:'subtle'}),new RegExp(`^<div tabindex="-1" class="kumo-date-range ${capability.classes.smallSubtle.join(' ')}">`));
 });
 
 test('supported responsive sidebar lowers canonical desktop fixtures and resize surface',async t=>{

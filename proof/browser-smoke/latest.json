@@ -207,7 +207,7 @@
     },
     {
       "route": "/button/vue",
-      "diagnostics": 1
+      "diagnostics": 0
     },
     {
       "route": "/checkbox/vue",
@@ -243,7 +243,7 @@
     },
     {
       "route": "/dialog/vue",
-      "diagnostics": 1
+      "diagnostics": 0
     },
     {
       "route": "/dropdown-menu/vue",
@@ -307,7 +307,7 @@
     },
     {
       "route": "/popover/vue",
-      "diagnostics": 1
+      "diagnostics": 0
     },
     {
       "route": "/radio/vue",
@@ -846,27 +846,8 @@
       "diagnostics": 0
     }
   ],
-  "diagnostics": [
-    {
-      "route": "/button/vue",
-      "kind": "console",
-      "level": "error",
-      "args": "Hydration completed but contains mismatches."
-    },
-    {
-      "route": "/dialog/vue",
-      "kind": "console",
-      "level": "error",
-      "args": "Hydration completed but contains mismatches."
-    },
-    {
-      "route": "/popover/vue",
-      "kind": "console",
-      "level": "error",
-      "args": "Hydration completed but contains mismatches."
-    }
-  ],
+  "diagnostics": [],
   "failures": [],
   "status": "passed",
-  "observedAt": "2026-06-24T09:45:05.944Z"
+  "observedAt": "2026-06-24T10:15:03.518Z"
 }

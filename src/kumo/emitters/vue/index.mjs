@@ -673,12 +673,13 @@ const endValue = ref<string | null>(null)
 const monthCursor = ref(new Date(Date.UTC(2026, 5, 1)))
 const pad = (value: number) => String(value).padStart(2, '0')
 const iso = (date: Date) => \`\${date.getUTCFullYear()}-\${pad(date.getUTCMonth() + 1)}-\${pad(date.getUTCDate())}\`
+const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December']
 function buildMonth(base: Date): RangeMonth {
   const year = base.getUTCFullYear(), month = base.getUTCMonth()
   const first = new Date(Date.UTC(year, month, 1)), start = new Date(first)
   start.setUTCDate(1 - first.getUTCDay())
   const days = Array.from({length:42}, (_, index) => { const date = new Date(start); date.setUTCDate(start.getUTCDate() + index); return {iso:iso(date),day:date.getUTCDate(),inMonth:date.getUTCMonth() === month} })
-  return {key:\`\${year}-\${month}\`,label:new Intl.DateTimeFormat('en-US',{month:'long',year:'numeric',timeZone:'UTC'}).format(first),days}
+  return {key:\`\${year}-\${month}\`,label:\`\${monthNames[month]} \${year}\`,days}
 }
 const monthPanels = computed(() => [0,1].map(offset => { const date = new Date(monthCursor.value); date.setUTCMonth(date.getUTCMonth() + offset); return buildMonth(date) }))
 const rootClasses = computed(() => props.size === 'sm' && props.variant === 'subtle' ? ${JSON.stringify(capability.classes.smallSubtle.join(' '))} : ${JSON.stringify(capability.classes.default.join(' '))})

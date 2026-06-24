@@ -28,8 +28,8 @@ test('canonical React SSR hoists inline style resources without URL-like hrefs',
 });
 
 test('canonical Sidebar fixture disables viewport-dependent first render', async () => {
-  const generator = await readFile(new URL('../scripts/generate-canonical-react-runtimes.mjs', import.meta.url), 'utf8');
-  assert.match(generator, /sidebar:`<CanonicalComponent\.Provider mobileBreakpoint=\{1\}>/);
+  const fixtures = await readFile(new URL('../scripts/lib/component-fixtures.mjs', import.meta.url), 'utf8');
+  assert.match(fixtures, /sidebar:`<CanonicalComponent\.Provider mobileBreakpoint=\{1\}>/);
 });
 
 test('standalone React builds emit their runtime HTML and all referenced assets are served', { timeout: 30_000 }, async () => {

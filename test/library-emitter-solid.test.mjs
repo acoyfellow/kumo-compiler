@@ -126,10 +126,11 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   const dateRangePickerDeclaration = fs.readFileSync(path.join(first, 'date-range-picker.d.ts'), 'utf8');
   assert.match(dateRangePickerSource, /const props = mergeProps/);
   assert.match(dateRangePickerSource, /createSignal<string \| null>/);
-  assert.match(dateRangePickerSource, /Array\.from\(\{length:84\}/);
-  assert.equal((dateRangePickerSource.match(/<button/g) ?? []).length, 4);
+  assert.match(dateRangePickerSource, /Array\.from\(\{length:42\}/);
+  assert.match(dateRangePickerSource, /const rangeMonths = \(\) => \[0,1\]/);
+  assert.match(dateRangePickerSource, /data-day=\{day\.iso\}/);
   assert.match(dateRangePickerSource, /data-reset onClick=\{resetDateRange\}/);
-  assert.match(dateRangePickerSource, /tabindex="-1" class=\{rangeClasses\(\)\}/);
+  assert.match(dateRangePickerSource, /tabindex="-1" class=\{"kumo-date-range " \+ rangeClasses\(\)\}/);
   assert.match(dateRangePickerSource, /"p-4 bg-kumo-overlay"/);
   assert.match(dateRangePickerSource, /"p-3 bg-kumo-base"/);
   assert.match(dateRangePickerSource, /props\.onStartChange/);
@@ -418,13 +419,13 @@ test('Solid SSR renders every compiled semantic predicate through canonical mark
   const dateRangePickerModule = await import(path.join(build, dateRangePickerItem.source.replace(/tsx$/, 'js')) + `?dateRangePicker=${Date.now()}`);
   const dateRangePickerHtml = renderToString(() => dateRangePickerModule.DateRangePicker({}));
   assert.equal((dateRangePickerHtml.match(/<button/g) ?? []).length, 87);
-  assert.match(dateRangePickerHtml, /^<div tabindex="-1" class="p-4 bg-kumo-overlay">/);
+  assert.match(dateRangePickerHtml, /^<div tabindex="-1" class="kumo-date-range p-4 bg-kumo-overlay">/);
   assert.equal((dateRangePickerHtml.match(/data-day=/g) ?? []).length, 84);
   assert.equal((dateRangePickerHtml.match(/data-navigation=/g) ?? []).length, 2);
   assert.equal((dateRangePickerHtml.match(/data-reset/g) ?? []).length, 1);
-  assert.match(dateRangePickerHtml, /<button type="button" data-reset>Reset<\/button>/);
+  assert.match(dateRangePickerHtml, /<button type="button" data-reset>Reset dates<\/button>/);
   const smallRangePickerHtml = renderToString(() => dateRangePickerModule.DateRangePicker({size:'sm', variant:'subtle'}));
-  assert.match(smallRangePickerHtml, /^<div tabindex="-1" class="p-3 bg-kumo-base">/);
+  assert.match(smallRangePickerHtml, /^<div tabindex="-1" class="kumo-date-range p-3 bg-kumo-base">/);
 
   const popoverItem = result.components.find(item => item.component === 'popover');
   const popoverModule = await import(path.join(build, popoverItem.source.replace(/tsx$/, 'js')) + `?popover=${Date.now()}`);
