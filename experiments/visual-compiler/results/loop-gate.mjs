@@ -70,18 +70,19 @@ async function staleCheck(fw){
   return {ok:true, lowererDigest};
 }
 
-// 3) Frozen + protected files must be byte-unchanged vs the loop's start commit.
-function frozenCheck(){
-  const start = process.env.LOOP_START_COMMIT;
-  if(!start) return {ok:true, note:'no LOOP_START_COMMIT set; skipping frozen-diff (first run records it)'};
+// 3) Frozen + protected files must be byte-IDENTICAL to their working-tree state at
+// loop start (snapshot), tolerating pre-existing spike dirt while catching ANY new
+// loop-introduced edit. Snapshot digests are recorded once in frozen-snapshot.json.
+async function frozenCheck(){
+  const snapPath = resolve(VC,'results','frozen-snapshot.json');
+  if(!existsSync(snapPath)) return {ok:false, reason:'frozen-snapshot.json missing — loop start not baselined'};
+  const snap = await json(snapPath);
   const violations = [];
-  for(const f of [...FROZEN_GLOBS, ...PROTECTED]){
-    try{
-      const changed = sh(`git diff --name-only ${start} -- ${f}`).trim();
-      if(changed) violations.push(f);
-    }catch{}
+  for(const [f, expected] of Object.entries(snap.digests)){
+    const p = resolve(REPO, f);
+    const actual = existsSync(p) ? sha(await readFile(p)) : 'MISSING';
+    if(actual !== expected) violations.push(f);
   }
-  // protected files may already be dirty in working tree (allowed pre-existing); only flag NEW changes vs start
   return {ok: violations.length===0, violations};
 }
 
@@ -106,7 +107,7 @@ async function main(){
   const stale = {};
   for(const fw of TARGETS) stale[fw] = await staleCheck(fw);
   const staleOk = TARGETS.every(fw => stale[fw].ok);
-  const frozen = frozenCheck();
+  const frozen = await frozenCheck();
   const unseen = await unseenCheck();
 
   const terminal = parityOk && staleOk && frozen.ok && unseen.ok;
