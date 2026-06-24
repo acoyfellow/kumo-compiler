@@ -38,9 +38,18 @@ function render(node, depth = 2) {
   const attrs = create.explicitPart == null ? [] : [`data-part=${q(create.explicitPart)}`];
   const classes = node.ops.filter(op => op.kind === 'class.add').map(op => conditional(op.value, op.when));
   if (classes.length) attrs.push(`class={${classes.length === 1 ? classes[0] : `[${classes.join(', ')}].filter(Boolean).join(" ")`}}`);
-  for (const op of node.ops.filter(op => op.kind === 'attribute.set')) {
-    const value = op.valueType === 'boolean' ? conditional(true, op.when, 'undefined') : conditional(op.value, op.when);
-    attrs.push(`${op.name}={${value}}`);
+  const setOps = node.ops.filter(op => op.kind === 'attribute.set');
+  const setByName = new Map();
+  for (const op of setOps) { const list = setByName.get(op.name) ?? []; list.push(op); setByName.set(op.name, list); }
+  for (const [attrName, ops] of setByName) {
+    // Merge all same-name attribute.set ops into ONE chained-ternary expression so
+    // JSX keeps a single attribute (multiple same-name JSX attrs => only last wins).
+    const val = op => op.valueType === 'boolean' ? expression(true) : expression(op.value);
+    // Build right-to-left so an unconditional op becomes the fallback; conditional
+    // ops wrap it as (cond) ? value : <rest>. Default fallback is undefined.
+    const finalExpr = ops.reduceRight((rest, op) =>
+      op.when == null ? val(op) : `(${predicate(op.when)}) ? ${val(op)} : ${rest}`, 'undefined');
+    attrs.push(`${attrName}={${finalExpr}}`);
   }
   for (const op of node.ops.filter(op => op.kind === 'attribute.remove')) attrs.push(`${op.name}={${op.when == null ? 'undefined' : `!(${condition(op.when)}) ? props.attributes?.[${q(op.name)}] : undefined`}}`);
   for (const op of node.ops.filter(op => op.kind === 'event.listen')) attrs.push(`on${op.event}={${op.when == null ? '' : `(${condition(op.when)}) ? `}() => props.dispatch?.(${q(op.dispatch ?? op.event)})${op.when == null ? '' : ' : undefined'}}`);
