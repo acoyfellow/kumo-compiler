@@ -27,6 +27,10 @@ import {Tabs} from '@cloudflare/kumo/components/tabs';
 import {Table} from '@cloudflare/kumo/components/table';
 import {TableOfContents} from '@cloudflare/kumo/components/table-of-contents';
 import {InputGroup} from '@cloudflare/kumo/components/input-group';
+import {SensitiveInput} from '@cloudflare/kumo/components/sensitive-input';
+import {Select} from '@cloudflare/kumo/components/select';
+import {Dialog} from '@cloudflare/kumo/components/dialog';
+import {DropdownMenu} from '@cloudflare/kumo/components/dropdown';
 
 const h=React.createElement;
 export function App({component,state}){
@@ -61,6 +65,10 @@ export function App({component,state}){
  if(component==='table'){const rows=state==='empty'?[]:state==='error'?[h(Table.Row,{key:'r1'},h(Table.Cell,null,'Worker'),h(Table.Cell,null,'Failed'))]:[h(Table.Row,{key:'r1'},h(Table.Cell,null,'Worker'),h(Table.Cell,null,'Active')),h(Table.Row,{key:'r2'},h(Table.Cell,null,'Bucket'),h(Table.Cell,null,'Ready'))];child=h(Table,{'data-part':'control'},h(Table.Header,null,h(Table.Row,null,h(Table.Head,null,'Name'),h(Table.Head,null,'Status'))),h(Table.Body,null,...rows));}
  if(component==='table-of-contents') child=h(TableOfContents,{'data-part':'control'},h(TableOfContents.Title,null,'On this page'),h(TableOfContents.List,null,h(TableOfContents.Item,{href:'#intro',active:state==='intro'},'Introduction'),h(TableOfContents.Item,{href:'#usage',active:state==='usage'},'Usage')));
  if(component==='input-group') child=h(InputGroup,{'data-part':'control'},h(InputGroup.Addon,null,'https://'),h(InputGroup.Input,{placeholder:'example',defaultValue:state==='filled'?'mysite':undefined,disabled:state==='disabled'}),h(InputGroup.Suffix,null,'.com'));
+ if(component==='sensitive-input') child=h(SensitiveInput,{'data-part':'control',label:'API Key',defaultValue:state==='empty'?'':'sk_live_abc123',disabled:state==='disabled'});
+ if(component==='select') child=h(Select,{'data-part':'control','aria-label':'Country',defaultValue:state==='selected'?'us':undefined,disabled:state==='disabled'},h(Select.Option,{value:'us'},'United States'),h(Select.Option,{value:'uk'},'United Kingdom'));
+ if(component==='dialog') child=h(Dialog.Root,{defaultOpen:state==='open'},h(Dialog.Trigger,{'data-part':'trigger',onClick:()=>log('click')},'Open dialog'),h(Dialog,{'data-part':'content'},h(Dialog.Title,null,'Confirm action'),h(Dialog.Description,null,'Are you sure?'),h(Dialog.Close,{'data-part':'close'},'Cancel')));
+ if(component==='dropdown-menu') child=h(DropdownMenu,{defaultOpen:state==='open'},h(DropdownMenu.Trigger,{'data-part':'trigger',onClick:()=>log('click')},'Menu'),h(DropdownMenu.Content,{'data-part':'content'},h(DropdownMenu.Item,null,'Edit'),h(DropdownMenu.Item,null,'Duplicate'),h(DropdownMenu.Separator),h(DropdownMenu.Item,null,'Delete')));
  return h('main',{'data-component':component,'data-state':state,'data-part':'root',className:'p-8'},child);
 }
 if(typeof document!=='undefined'){

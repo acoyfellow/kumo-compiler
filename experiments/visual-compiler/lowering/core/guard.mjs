@@ -31,7 +31,11 @@ const COMPARISON = name => {
 // shares a name with an HTML tag (input, button, label, code, meter). The guard ignores
 // comparisons whose operand is one of these tag variables, so it still catches
 // `component === 'input'` / `shard.key === 'input'` while allowing `name === 'input'`.
-const TAG_VARS = ['name', 'tag', 'localName', 'tagName', 'elementTag'];
+// Element-structure variables: comparing one of these against a literal selects which
+// HTML element/role to emit (structural), never a component identity. Includes the
+// element tag and the semantic-role accessor (create.semantics === 'dialog' applies
+// role="dialog"; 'dialog' also being a component name is an incidental collision).
+const TAG_VARS = ['name', 'tag', 'localName', 'tagName', 'elementTag', 'semantics'];
 function comparesTagVar(line, name) {
   const e = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   const q = `['"\`]${e}['"\`]`;
