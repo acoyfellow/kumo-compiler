@@ -15,6 +15,9 @@ await rm(output,{recursive:true,force:true})
 await mkdir(output,{recursive:true})
 for(const entry of (await readdir(source)).sort()) await cp(resolve(source,entry),resolve(output,entry),{recursive:true})
 for(const file of ['styles.css','tokens.css']) await cp(resolve(assets,file),resolve(output,file))
+const canonicalCss=await readFile(resolve(root,'node_modules/@cloudflare/kumo/dist/styles/kumo-standalone.css'),'utf8')
+const packageCss=await readFile(resolve(output,'styles.css'),'utf8')
+await writeFile(resolve(output,'styles.css'),`${canonicalCss}\n${packageCss}`)
 const generated=JSON.parse(await readFile(resolve(source,'manifest.json'),'utf8'))
 
 for(const component of generated.components){

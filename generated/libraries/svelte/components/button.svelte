@@ -76,5 +76,5 @@
 {:else if Object.prototype.hasOwnProperty.call(semanticValues, "aria-label") && semanticEqual(semanticValues["aria-label"], "Add item") && Object.prototype.hasOwnProperty.call(semanticValues, "shape") && semanticEqual(semanticValues.shape, "circle") && Object.prototype.hasOwnProperty.call(semanticValues, "size") && semanticEqual(semanticValues.size, "sm")}
   <button aria-label={"Add item"} class="rounded-full size-6.5"></button>
 {:else}
-<button {...rest} type={type} disabled={Boolean(disabled || loading)} {onclick}>{#if loading}<svg aria-hidden="true"></svg>{/if}{#if children}{@render children()}{/if}</button>
+<button {...rest} class="group flex w-max shrink-0 items-center font-medium select-none border-0 shadow-xs focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand cursor-pointer disabled:cursor-not-allowed disabled:text-kumo-subtle bg-kumo-base !text-kumo-default ring not-disabled:hover:bg-kumo-tint disabled:bg-kumo-base/50 disabled:!text-kumo-default/70 ring-kumo-line data-[state=open]:bg-kumo-base h-9 gap-1.5 rounded-lg px-3 text-base" type={type} disabled={Boolean(disabled || loading)} {onclick}>{#if loading}<svg aria-hidden="true"></svg>{/if}{#if children}{@render children()}{/if}</button>
 {/if}

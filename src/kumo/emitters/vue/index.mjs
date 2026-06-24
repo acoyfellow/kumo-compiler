@@ -9,6 +9,7 @@ import {clampPage, maxPage, nextPage, previousPage, commitPageInput} from '../..
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '../../../..');
+const visualContract = JSON.parse(fs.readFileSync(path.join(root,'generated/visual-contract.json'),'utf8'));
 const esc = value => String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const directive = value => String(value).replaceAll('&','&amp;').replaceAll('"','&quot;');
 const id = value => value.replace(/[^A-Za-z0-9_$]/g, '_').replace(/^([0-9])/, '_$1');
@@ -995,7 +996,7 @@ function emitComponent(model, library) {
   const toggle = toggleBinding(model, library);
   const loweredToggle = toggle && toggleSource(toggle);
   const fallback = loweredTableOfContents?.template ?? loweredSelect?.template ?? loweredDatePicker?.template ?? loweredDateRangePicker?.template ?? loweredToastLifecycle?.template ?? loweredResponsiveSidebar?.template ?? loweredCommandPalette?.template ?? loweredAutocomplete?.template ?? loweredCombobox?.template ?? loweredSensitiveInput?.template ?? loweredInputGroup?.template ?? loweredDropdownMenuLayer?.template ?? loweredPopoverLayer?.template ?? loweredDialogLayer?.template ?? loweredMenubarNavigation?.template ?? loweredTabsNavigation?.template ?? loweredRadioGroup?.template ?? loweredPagination?.template ?? loweredClipboardCopy?.template ?? loweredToggle?.template ?? loweredNativeInput?.template ?? (nativeButton
-    ? `<button v-bind="$attrs" :type="($attrs.type as any) ?? 'button'" :disabled="props.disabled || props.loading"><svg v-if="props.loading" aria-hidden="true"></svg><slot /></button>`
+    ? `<button v-bind="$attrs" class="${visualContract.components.button.root.className}" :type="($attrs.type as any) ?? 'button'" :disabled="props.disabled || props.loading"><svg v-if="props.loading" aria-hidden="true"></svg><slot /></button>`
     : node(implementation.componentRoot));
   const composedField = composition && !composition.ownsControl
     ? `<${composition.container}><label :for="String((props as any).childId ?? $attrs['child-id'] ?? 'field-control')">{{ (props as any).label }}</label><slot /></${composition.container}>`

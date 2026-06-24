@@ -1,6 +1,6 @@
 # Kumo completion progress
 
-Current phase: **production**
+Current phase: **visual-parity**
 Machine receipt: `proof/progress/latest.json`
 
 - ✓ **Canonical contracts** — 41/41
@@ -17,6 +17,8 @@ Machine receipt: `proof/progress/latest.json`
   `████████████████████`
 - ✓ **Native homepage demo fidelity** — 41/41
   `████████████████████`
+- ○ **Exact canonical pixel parity (default state at 1440px)** — 3/123
+  `░░░░░░░░░░░░░░░░░░░░`
 - ○ **Production proof for current frontend** — 0/1
   `░░░░░░░░░░░░░░░░░░░░`
 

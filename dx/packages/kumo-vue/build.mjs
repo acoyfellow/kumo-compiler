@@ -78,6 +78,9 @@ for (const file of (await readdir(here)).filter(file => file.endsWith('.css')).s
 if (await readdir(output).then(xs => !xs.some(x => x.endsWith('.css')))) {
   try { for (const file of (await readdir(previous)).filter(x => x.endsWith('.css')).sort()) await cp(resolve(previous, file), resolve(output, file)) } catch {}
 }
+const canonicalCss=await readFile(resolve(root,'node_modules/@cloudflare/kumo/dist/styles/kumo-standalone.css'),'utf8')
+let packageCss='';try{packageCss=await readFile(resolve(output,'styles.css'),'utf8')}catch{}
+await writeFile(resolve(output,'styles.css'),`${canonicalCss}\n${packageCss}`)
 
 const rootNames = new Set(canonical.components.map(component => component.component))
 const compounds = vueFiles.map(file => file.replace(/\.vue$/, '')).filter(name => !rootNames.has(name))

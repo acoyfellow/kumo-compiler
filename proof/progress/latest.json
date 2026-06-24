@@ -12,7 +12,7 @@
       "Flow"
     ]
   },
-  "currentPhase": "production",
+  "currentPhase": "visual-parity",
   "phases": [
     {
       "id": "contracts",
@@ -62,6 +62,13 @@
       "done": 41,
       "total": 41,
       "status": "passed"
+    },
+    {
+      "id": "visual-parity",
+      "label": "Exact canonical pixel parity (default state at 1440px)",
+      "done": 3,
+      "total": 123,
+      "status": "failed"
     },
     {
       "id": "production",
@@ -124,5 +131,5 @@
     "Git remote and GitHub release upload",
     "Optional npm authentication and publish"
   ],
-  "digest": "631873165ec8333b1ddaaeb8d2fdcf69159bcf92acdfdc7377344208353026ad"
+  "digest": "cd74fb3606cb80593bdb15e081fe519332e4800cb19931fd6afdcac75df5d9fa"
 }

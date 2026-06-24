@@ -3,7 +3,7 @@ import{createHash}from'node:crypto';
 import{resolve}from'node:path';
 const root=resolve(import.meta.dirname,'..');
 const json=async p=>JSON.parse(await readFile(resolve(root,p),'utf8'));
-const [status,canonical,readiness,packages,libraryPages,examples,docs,vueReceipt,svelteReceipt,solidReceipt,nativeDemo,componentPages,production]=await Promise.all([
+const [status,canonical,readiness,packages,libraryPages,examples,docs,vueReceipt,svelteReceipt,solidReceipt,nativeDemo,componentPages,visualParity,production]=await Promise.all([
  json('proof/observable-contracts/status.json'),
  json('proof/observable-contracts/canonical.json'),
  json('proof/readiness/latest.json'),
@@ -16,6 +16,7 @@ const [status,canonical,readiness,packages,libraryPages,examples,docs,vueReceipt
  json('proof/dx/conformance/solid/receipt.json'),
  json('proof/native-demo-fidelity/latest.json').catch(()=>({status:'not-run'})),
  json('proof/component-pages/latest.json').catch(()=>({status:'not-run'})),
+ json('proof/visual-parity/latest.json').catch(()=>({status:'not-run',counts:{passed:0},scope:{cells:123}})),
  json('proof/production-terminal/latest.json').catch(()=>({status:'not-run'})),
 ]);
 const componentId=x=>x.replace(/([a-z0-9])([A-Z])/g,'$1-$2').toLowerCase();
@@ -49,6 +50,7 @@ const phases=[
  {id:'packed-conformance',label:'Four-framework package conformance',done:conformedComponents.length,total:41,status:conformedComponents.length===41?'passed':conformedComponents.length?'in-progress':'not-run'},
  {id:'examples-docs',label:'Complete component examples and docs',done:documented,total:41,status:documented===41?'passed':'in-progress'},
  {id:'native-demo-fidelity',label:'Native homepage demo fidelity',done:nativeDemoDone,total:41,status:nativeDemoDone===41?'passed':'failed'},
+ {id:'visual-parity',label:'Exact canonical pixel parity (default state at 1440px)',done:visualParity.counts?.passed??0,total:visualParity.scope?.cells??123,status:visualParity.status==='passed'?'passed':visualParity.status==='not-run'?'not-run':'failed'},
  {id:'production',label:'Production proof for current frontend',done:0,total:1,status:'not-run'},
 ];
 const current=phases.find(x=>x.status!=='passed')?.id??'complete';

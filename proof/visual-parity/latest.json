@@ -1,0 +1,3695 @@
+{
+  "schemaVersion": "kumo.visual-parity/v1",
+  "environment": {
+    "chrome": "system-headless",
+    "deviceScaleFactor": 1,
+    "viewports": [
+      1440
+    ],
+    "states": [
+      "default"
+    ]
+  },
+  "scope": {
+    "components": 41,
+    "frameworks": 3,
+    "cells": 123
+  },
+  "cells": [
+    {
+      "component": "autocomplete",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 120,
+        "tag": "MAIN",
+        "html": "<main class=\"family\"><h1>Autocomplete</h1><section><label for=\"search\">Fruit</label><input id=\"search\" role=\"combobox\" aria-autocomplete=\"list\" aria-controls=\"fruit-list\" aria-expanded=\"false\" placeholder=\"Search fruit\"><ul id=\"fruit-list\" "
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 154,
+        "height": 17,
+        "tag": "INPUT",
+        "html": "<input items=\"Apple,Banana\" placeholder=\"Fruit\" aria-label=\"Autocomplete\" defaultopen=\"true\" role=\"combobox\" aria-expanded=\"false\" value=\"\">"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 120,
+      "widthB": 154,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "58a6d1e62a2d2c67816a2311ea21f09fc0e3cc9d964d5db876a6307b949ec1cf",
+      "nativeSha256": "b4729968e985081c6a5c5d0d85d55a499244b8611810f047dcbcfe76e6070efc"
+    },
+    {
+      "component": "autocomplete",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 120,
+        "tag": "MAIN",
+        "html": "<main class=\"family\"><h1>Autocomplete</h1><section><label for=\"search\">Fruit</label><input id=\"search\" role=\"combobox\" aria-autocomplete=\"list\" aria-controls=\"fruit-list\" aria-expanded=\"false\" placeholder=\"Search fruit\"><ul id=\"fruit-list\" "
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 154,
+        "height": 17,
+        "tag": "INPUT",
+        "html": "<input role=\"combobox\" aria-expanded=\"false\" placeholder=\"Fruit\">"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 120,
+      "widthB": 154,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "58a6d1e62a2d2c67816a2311ea21f09fc0e3cc9d964d5db876a6307b949ec1cf",
+      "nativeSha256": "b4729968e985081c6a5c5d0d85d55a499244b8611810f047dcbcfe76e6070efc"
+    },
+    {
+      "component": "autocomplete",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 120,
+        "tag": "MAIN",
+        "html": "<main class=\"family\"><h1>Autocomplete</h1><section><label for=\"search\">Fruit</label><input id=\"search\" role=\"combobox\" aria-autocomplete=\"list\" aria-controls=\"fruit-list\" aria-expanded=\"false\" placeholder=\"Search fruit\"><ul id=\"fruit-list\" "
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 154,
+        "height": 17,
+        "tag": "INPUT",
+        "html": "<input placeholder=\"Fruit\">"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 120,
+      "widthB": 154,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "58a6d1e62a2d2c67816a2311ea21f09fc0e3cc9d964d5db876a6307b949ec1cf",
+      "nativeSha256": "b4729968e985081c6a5c5d0d85d55a499244b8611810f047dcbcfe76e6070efc"
+    },
+    {
+      "component": "badge",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 28,
+        "width": 41.109375,
+        "height": 20,
+        "tag": "SPAN",
+        "html": "<span class=\"inline-flex w-fit flex-none shrink-0 items-center justify-self-start rounded-full px-2 py-0.5 text-xs font-medium whitespace-nowrap bg-kumo-badge-inverted text-kumo-badge-inverted\">PRO</span>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 28.390625,
+        "height": 17,
+        "tag": "SPAN",
+        "html": "<span class=\"inline-flex bg-kumo-badge-inverted\">PRO</span>"
+      },
+      "equal": false,
+      "widthA": 41,
+      "heightA": 20,
+      "widthB": 28,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "672e8da456b785683c7ae690062d5edc07f67d0260fb8b68ab597297d1173f10",
+      "nativeSha256": "5580f8f21e3eee92d44231aa885f854f4fa0788810dda6c32b7c4938e3c79ac1"
+    },
+    {
+      "component": "badge",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 28,
+        "width": 41.109375,
+        "height": 20,
+        "tag": "SPAN",
+        "html": "<span class=\"inline-flex w-fit flex-none shrink-0 items-center justify-self-start rounded-full px-2 py-0.5 text-xs font-medium whitespace-nowrap bg-kumo-badge-inverted text-kumo-badge-inverted\">PRO</span>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 28.390625,
+        "height": 17,
+        "tag": "SPAN",
+        "html": "<span><!---->PRO<!----></span>"
+      },
+      "equal": false,
+      "widthA": 41,
+      "heightA": 20,
+      "widthB": 28,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "672e8da456b785683c7ae690062d5edc07f67d0260fb8b68ab597297d1173f10",
+      "nativeSha256": "c36d76035cd99da08190d2d84fc680345eca05b7a269996d35cb36788817898a"
+    },
+    {
+      "component": "badge",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 28,
+        "width": 41.109375,
+        "height": 20,
+        "tag": "SPAN",
+        "html": "<span class=\"inline-flex w-fit flex-none shrink-0 items-center justify-self-start rounded-full px-2 py-0.5 text-xs font-medium whitespace-nowrap bg-kumo-badge-inverted text-kumo-badge-inverted\">PRO</span>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 28.390625,
+        "height": 17,
+        "tag": "SPAN",
+        "html": "<span class=\"inline-flex bg-kumo-badge-inverted\">PRO</span>"
+      },
+      "equal": false,
+      "widthA": 41,
+      "heightA": 20,
+      "widthB": 28,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "672e8da456b785683c7ae690062d5edc07f67d0260fb8b68ab597297d1173f10",
+      "nativeSha256": "5580f8f21e3eee92d44231aa885f854f4fa0788810dda6c32b7c4938e3c79ac1"
+    },
+    {
+      "component": "banner",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 63.125,
+        "tag": "DIV",
+        "html": "<div class=\"flex w-full items-start gap-3 rounded-lg px-4 py-3 text-base bg-kumo-banner-info text-kumo-info\"><div class=\"flex min-w-0 flex-1 items-center justify-between gap-3\"><div class=\"flex flex-col gap-0.5\"><p class=\"font-medium leadin"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div class=\"bg-kumo-banner-info\"><p></p><p></p>NoticeDetails</div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 63,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "b3f4cba44899f843ab32c564c9031e34b56fce04fcbf7b21532c0d4d5fc3708b",
+      "nativeSha256": "446a7903de2008c248374ec5cf8355065fc79e0d6e85a9f42ddef93da78f8ed0"
+    },
+    {
+      "component": "banner",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 63.125,
+        "tag": "DIV",
+        "html": "<div class=\"flex w-full items-start gap-3 rounded-lg px-4 py-3 text-base bg-kumo-banner-info text-kumo-info\"><div class=\"flex min-w-0 flex-1 items-center justify-between gap-3\"><div class=\"flex flex-col gap-0.5\"><p class=\"font-medium leadin"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div class=\"bg-kumo-banner-info\"><p></p> <p></p> NoticeDetails</div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 63,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "b3f4cba44899f843ab32c564c9031e34b56fce04fcbf7b21532c0d4d5fc3708b",
+      "nativeSha256": "446a7903de2008c248374ec5cf8355065fc79e0d6e85a9f42ddef93da78f8ed0"
+    },
+    {
+      "component": "banner",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 63.125,
+        "tag": "DIV",
+        "html": "<div class=\"flex w-full items-start gap-3 rounded-lg px-4 py-3 text-base bg-kumo-banner-info text-kumo-info\"><div class=\"flex min-w-0 flex-1 items-center justify-between gap-3\"><div class=\"flex flex-col gap-0.5\"><p class=\"font-medium leadin"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div class=\"bg-kumo-banner-info\"><p></p><p></p>NoticeDetails</div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 63,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "b3f4cba44899f843ab32c564c9031e34b56fce04fcbf7b21532c0d4d5fc3708b",
+      "nativeSha256": "446a7903de2008c248374ec5cf8355065fc79e0d6e85a9f42ddef93da78f8ed0"
+    },
+    {
+      "component": "breadcrumbs",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1376,
+        "height": 48,
+        "tag": "NAV",
+        "html": "<nav class=\"group mr-4 flex min-w-0 grow items-center overflow-hidden whitespace-nowrap text-base h-12 gap-1\" aria-label=\"breadcrumb\"><div class=\"contents sm:hidden\"><a href=\"/\" data-kumo-component=\"Breadcrumbs\" data-kumo-part=\"link\" class="
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "NAV",
+        "html": "<nav aria-label=\"Breadcrumbs\" class=\"\">Home / Settings</nav>"
+      },
+      "equal": false,
+      "widthA": 1376,
+      "heightA": 48,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "e02284533d21de2ee1b03ee3aa8ae2a35378586b0968335f676d7c51e5db789c",
+      "nativeSha256": "2d2c1123d04af352c014dc72027ebf9d2bdd7ec12eed651c26b22ee918ea273b"
+    },
+    {
+      "component": "breadcrumbs",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1376,
+        "height": 48,
+        "tag": "NAV",
+        "html": "<nav class=\"group mr-4 flex min-w-0 grow items-center overflow-hidden whitespace-nowrap text-base h-12 gap-1\" aria-label=\"breadcrumb\"><div class=\"contents sm:hidden\"><a href=\"/\" data-kumo-component=\"Breadcrumbs\" data-kumo-part=\"link\" class="
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "NAV",
+        "html": "<nav aria-label=\"Breadcrumbs\"><!---->Home / Settings<!----></nav>"
+      },
+      "equal": false,
+      "widthA": 1376,
+      "heightA": 48,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "e02284533d21de2ee1b03ee3aa8ae2a35378586b0968335f676d7c51e5db789c",
+      "nativeSha256": "2d2c1123d04af352c014dc72027ebf9d2bdd7ec12eed651c26b22ee918ea273b"
+    },
+    {
+      "component": "breadcrumbs",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1376,
+        "height": 48,
+        "tag": "NAV",
+        "html": "<nav class=\"group mr-4 flex min-w-0 grow items-center overflow-hidden whitespace-nowrap text-base h-12 gap-1\" aria-label=\"breadcrumb\"><div class=\"contents sm:hidden\"><a href=\"/\" data-kumo-component=\"Breadcrumbs\" data-kumo-part=\"link\" class="
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "NAV",
+        "html": "<nav aria-label=\"Breadcrumbs\" class=\"root\">Home / Settings</nav>"
+      },
+      "equal": false,
+      "widthA": 1376,
+      "heightA": 48,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "e02284533d21de2ee1b03ee3aa8ae2a35378586b0968335f676d7c51e5db789c",
+      "nativeSha256": "2d2c1123d04af352c014dc72027ebf9d2bdd7ec12eed651c26b22ee918ea273b"
+    },
+    {
+      "component": "button",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 115.421875,
+        "height": 36,
+        "tag": "BUTTON",
+        "html": "<button data-kumo-component=\"Button\" class=\"group flex w-max shrink-0 items-center font-medium select-none border-0 shadow-xs focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand cursor-pointer disa"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 115.421875,
+        "height": 36,
+        "tag": "BUTTON",
+        "html": "<button class=\"group flex w-max shrink-0 items-center font-medium select-none border-0 shadow-xs focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand cursor-pointer disabled:cursor-not-allowed disab"
+      },
+      "equal": true,
+      "widthA": 115,
+      "heightA": 36,
+      "widthB": 115,
+      "heightB": 36,
+      "differingPixels": 0,
+      "totalPixels": 4140,
+      "reactSha256": "1025a20928c989669f16a1ca0f039994516a5cd18d9770185fdb603a83448a04",
+      "nativeSha256": "1025a20928c989669f16a1ca0f039994516a5cd18d9770185fdb603a83448a04",
+      "diffSha256": "2d9b4a231ba4397160f7ae80f8352c10c01fac332f4b9e8488357c42f92f746a"
+    },
+    {
+      "component": "button",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 115.421875,
+        "height": 36,
+        "tag": "BUTTON",
+        "html": "<button data-kumo-component=\"Button\" class=\"group flex w-max shrink-0 items-center font-medium select-none border-0 shadow-xs focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand cursor-pointer disa"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 115.421875,
+        "height": 36,
+        "tag": "BUTTON",
+        "html": "<button name=\"intent\" value=\"save\" class=\"group flex w-max shrink-0 items-center font-medium select-none border-0 shadow-xs focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand cursor-pointer disabl"
+      },
+      "equal": true,
+      "widthA": 115,
+      "heightA": 36,
+      "widthB": 115,
+      "heightB": 36,
+      "differingPixels": 0,
+      "totalPixels": 4140,
+      "reactSha256": "1025a20928c989669f16a1ca0f039994516a5cd18d9770185fdb603a83448a04",
+      "nativeSha256": "1025a20928c989669f16a1ca0f039994516a5cd18d9770185fdb603a83448a04",
+      "diffSha256": "2d9b4a231ba4397160f7ae80f8352c10c01fac332f4b9e8488357c42f92f746a"
+    },
+    {
+      "component": "button",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 115.421875,
+        "height": 36,
+        "tag": "BUTTON",
+        "html": "<button data-kumo-component=\"Button\" class=\"group flex w-max shrink-0 items-center font-medium select-none border-0 shadow-xs focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand cursor-pointer disa"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 115.421875,
+        "height": 36,
+        "tag": "BUTTON",
+        "html": "<button class=\"group flex w-max shrink-0 items-center font-medium select-none border-0 shadow-xs focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand cursor-pointer disabled:cursor-not-allowed disab"
+      },
+      "equal": true,
+      "widthA": 115,
+      "heightA": 36,
+      "widthB": 115,
+      "heightB": 36,
+      "differingPixels": 0,
+      "totalPixels": 4140,
+      "reactSha256": "1025a20928c989669f16a1ca0f039994516a5cd18d9770185fdb603a83448a04",
+      "nativeSha256": "1025a20928c989669f16a1ca0f039994516a5cd18d9770185fdb603a83448a04",
+      "diffSha256": "2d9b4a231ba4397160f7ae80f8352c10c01fac332f4b9e8488357c42f92f746a"
+    },
+    {
+      "component": "checkbox",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 16,
+        "height": 16,
+        "tag": "SPAN",
+        "html": "<span data-checked=\"\" role=\"checkbox\" tabindex=\"0\" id=\"base-ui-_R_0_\" aria-checked=\"true\" data-kumo-component=\"Checkbox\" aria-label=\"Audit checkbox\" class=\"relative flex h-4 w-4 shrink-0 items-center justify-center rounded-sm border-0 bg-ku"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 1,
+        "height": 1,
+        "tag": "SPAN",
+        "html": "<span aria-label=\"Audit checkbox\" tabindex=\"0\" role=\"checkbox\" aria-checked=\"true\"></span>"
+      },
+      "equal": false,
+      "widthA": 16,
+      "heightA": 16,
+      "widthB": 1,
+      "heightB": 1,
+      "differingPixels": null,
+      "reactSha256": "76e3a407e4a392ca88eefed4380d2032995bbedbadfeffef3358170a6dde21f5",
+      "nativeSha256": "8ae38730089c6581c14ae8d726c3b71802110ce00c6279cef58b621c13a91ba9"
+    },
+    {
+      "component": "checkbox",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 16,
+        "height": 16,
+        "tag": "SPAN",
+        "html": "<span data-checked=\"\" role=\"checkbox\" tabindex=\"0\" id=\"base-ui-_R_0_\" aria-checked=\"true\" data-kumo-component=\"Checkbox\" aria-label=\"Audit checkbox\" class=\"relative flex h-4 w-4 shrink-0 items-center justify-center rounded-sm border-0 bg-ku"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 1,
+        "height": 1,
+        "tag": "SPAN",
+        "html": "<span role=\"checkbox\" aria-label=\"Audit checkbox\" aria-checked=\"true\" tabindex=\"0\"><!----></span>"
+      },
+      "equal": false,
+      "widthA": 16,
+      "heightA": 16,
+      "widthB": 1,
+      "heightB": 1,
+      "differingPixels": null,
+      "reactSha256": "76e3a407e4a392ca88eefed4380d2032995bbedbadfeffef3358170a6dde21f5",
+      "nativeSha256": "8ae38730089c6581c14ae8d726c3b71802110ce00c6279cef58b621c13a91ba9"
+    },
+    {
+      "component": "checkbox",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 16,
+        "height": 16,
+        "tag": "SPAN",
+        "html": "<span data-checked=\"\" role=\"checkbox\" tabindex=\"0\" id=\"base-ui-_R_0_\" aria-checked=\"true\" data-kumo-component=\"Checkbox\" aria-label=\"Audit checkbox\" class=\"relative flex h-4 w-4 shrink-0 items-center justify-center rounded-sm border-0 bg-ku"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 1,
+        "height": 1,
+        "tag": "SPAN",
+        "html": "<span role=\"checkbox\" aria-label=\"Audit checkbox\" aria-checked=\"true\" tabindex=\"0\"></span>"
+      },
+      "equal": false,
+      "widthA": 16,
+      "heightA": 16,
+      "widthB": 1,
+      "heightB": 1,
+      "differingPixels": null,
+      "reactSha256": "76e3a407e4a392ca88eefed4380d2032995bbedbadfeffef3358170a6dde21f5",
+      "nativeSha256": "8ae38730089c6581c14ae8d726c3b71802110ce00c6279cef58b621c13a91ba9"
+    },
+    {
+      "component": "clipboard-text",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 40,
+        "tag": "DIV",
+        "html": "<div class=\"border-0 text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled h-10 gap-2 rounded-lg focus:ring-kumo-focus/50 focus:ring-[1.5px] flex items-center overflow-hidde"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div><span>visible</span><button type=\"button\">Copy</button><span aria-live=\"polite\"></span></div>"
+      },
+      "equal": false,
+      "widthA": 1440,
+      "heightA": 40,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "79864a8ef7e3f1b6ce6bc09494458759b11d5495b80e74e450557fbcedb8481c",
+      "nativeSha256": "f5e11fc6fffd3f7f98185548f23a1f9036199fb954975c5b4dbe2ef79d9245a4"
+    },
+    {
+      "component": "clipboard-text",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 40,
+        "tag": "DIV",
+        "html": "<div class=\"border-0 text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled h-10 gap-2 rounded-lg focus:ring-kumo-focus/50 focus:ring-[1.5px] flex items-center overflow-hidde"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div>visible<button type=\"button\">Copy</button><span aria-live=\"polite\"></span></div>"
+      },
+      "equal": false,
+      "widthA": 1440,
+      "heightA": 40,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "79864a8ef7e3f1b6ce6bc09494458759b11d5495b80e74e450557fbcedb8481c",
+      "nativeSha256": "f5e11fc6fffd3f7f98185548f23a1f9036199fb954975c5b4dbe2ef79d9245a4"
+    },
+    {
+      "component": "clipboard-text",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 40,
+        "tag": "DIV",
+        "html": "<div class=\"border-0 text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled h-10 gap-2 rounded-lg focus:ring-kumo-focus/50 focus:ring-[1.5px] flex items-center overflow-hidde"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div>visible<button type=\"button\">Copy</button><span aria-live=\"polite\"></span></div>"
+      },
+      "equal": false,
+      "widthA": 1440,
+      "heightA": 40,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "79864a8ef7e3f1b6ce6bc09494458759b11d5495b80e74e450557fbcedb8481c",
+      "nativeSha256": "f5e11fc6fffd3f7f98185548f23a1f9036199fb954975c5b4dbe2ef79d9245a4"
+    },
+    {
+      "component": "cloudflare-logo",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1391.984375,
+        "height": 469.765625,
+        "tag": "svg",
+        "html": "<svg viewBox=\"0 0 425.6 143.63\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Cloudflare\" class=\"text-kumo-default\"><path d=\"M360.8,90.69l1-3.6c1.24-4.28.78-8.24-1.3-11.15a11.32,11.32,0,0,0-9-4.43l-73.35-.94a1.49,1.4"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 711.984375,
+        "height": 240.28125,
+        "tag": "svg",
+        "html": "<svg role=\"img\" aria-label=\"Cloudflare\" viewBox=\"0 0 425.6 143.63\" class=\"text-kumo-default\"><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path><pat"
+      },
+      "equal": false,
+      "widthA": 1391,
+      "heightA": 469,
+      "widthB": 711,
+      "heightB": 240,
+      "differingPixels": null,
+      "reactSha256": "e330a47857bbf2fc2de6b6915868288efd7f7c281fb25a416469ecc47aa20c5d",
+      "nativeSha256": "11ee9bb0238516605c9d40ea6f839009ff3f0aa707c75255f232d8a1f1403c08"
+    },
+    {
+      "component": "cloudflare-logo",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1391.984375,
+        "height": 469.765625,
+        "tag": "svg",
+        "html": "<svg viewBox=\"0 0 425.6 143.63\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Cloudflare\" class=\"text-kumo-default\"><path d=\"M360.8,90.69l1-3.6c1.24-4.28.78-8.24-1.3-11.15a11.32,11.32,0,0,0-9-4.43l-73.35-.94a1.49,1.4"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 711.984375,
+        "height": 240.28125,
+        "tag": "svg",
+        "html": "<svg class=\"text-kumo-default\" role=\"img\" aria-label=\"Cloudflare logo\" viewBox=\"0 0 425.6 143.63\"><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path"
+      },
+      "equal": false,
+      "widthA": 1391,
+      "heightA": 469,
+      "widthB": 711,
+      "heightB": 240,
+      "differingPixels": null,
+      "reactSha256": "e330a47857bbf2fc2de6b6915868288efd7f7c281fb25a416469ecc47aa20c5d",
+      "nativeSha256": "11ee9bb0238516605c9d40ea6f839009ff3f0aa707c75255f232d8a1f1403c08"
+    },
+    {
+      "component": "cloudflare-logo",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1391.984375,
+        "height": 469.765625,
+        "tag": "svg",
+        "html": "<svg viewBox=\"0 0 425.6 143.63\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Cloudflare\" class=\"text-kumo-default\"><path d=\"M360.8,90.69l1-3.6c1.24-4.28.78-8.24-1.3-11.15a11.32,11.32,0,0,0-9-4.43l-73.35-.94a1.49,1.4"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 711.984375,
+        "height": 240.28125,
+        "tag": "svg",
+        "html": "<svg role=\"img\" aria-label=\"Cloudflare logo\" viewBox=\"0 0 425.6 143.63\" class=\"text-kumo-default\"><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path"
+      },
+      "equal": false,
+      "widthA": 1391,
+      "heightA": 469,
+      "widthB": 711,
+      "heightB": 240,
+      "differingPixels": null,
+      "reactSha256": "e330a47857bbf2fc2de6b6915868288efd7f7c281fb25a416469ecc47aa20c5d",
+      "nativeSha256": "11ee9bb0238516605c9d40ea6f839009ff3f0aa707c75255f232d8a1f1403c08"
+    },
+    {
+      "component": "code",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 20,
+        "tag": "PRE",
+        "html": "<pre class=\"m-0 w-auto rounded-none border-none bg-transparent p-0 font-mono text-sm leading-[20px] text-kumo-subtle\">const edge = true;</pre>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 15.28125,
+        "tag": "PRE",
+        "html": "<pre class=\"font-mono text-sm text-kumo-subtle\">const x = 1;</pre>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 20,
+      "widthB": 712,
+      "heightB": 15,
+      "differingPixels": null,
+      "reactSha256": "7cd4d9c34631629486a02f092e4540f598c41cfa7595515e593d52ecb14d83dd",
+      "nativeSha256": "7026d55e472e71cc2468edf8a16c2b7b9473e73d484db712a5e4896dbf988614"
+    },
+    {
+      "component": "code",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 20,
+        "tag": "PRE",
+        "html": "<pre class=\"m-0 w-auto rounded-none border-none bg-transparent p-0 font-mono text-sm leading-[20px] text-kumo-subtle\">const edge = true;</pre>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 45.84375,
+        "tag": "PRE",
+        "html": "<pre class=\"font-mono text-sm text-kumo-subtle\">\n    const x = 1;\n  </pre>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 20,
+      "widthB": 712,
+      "heightB": 45,
+      "differingPixels": null,
+      "reactSha256": "7cd4d9c34631629486a02f092e4540f598c41cfa7595515e593d52ecb14d83dd",
+      "nativeSha256": "f24f4de9e157aafea87fc1105f8738130737c786a5732da7d2d3970f107b93c2"
+    },
+    {
+      "component": "code",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 20,
+        "tag": "PRE",
+        "html": "<pre class=\"m-0 w-auto rounded-none border-none bg-transparent p-0 font-mono text-sm leading-[20px] text-kumo-subtle\">const edge = true;</pre>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 15.28125,
+        "tag": "PRE",
+        "html": "<pre class=\"font-mono text-sm text-kumo-subtle\">const x = 1;</pre>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 20,
+      "widthB": 712,
+      "heightB": 15,
+      "differingPixels": null,
+      "reactSha256": "7cd4d9c34631629486a02f092e4540f598c41cfa7595515e593d52ecb14d83dd",
+      "nativeSha256": "7026d55e472e71cc2468edf8a16c2b7b9473e73d484db712a5e4896dbf988614"
+    },
+    {
+      "component": "combobox",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 96,
+        "tag": "MAIN",
+        "html": "<main class=\"family\"><h1>Combobox</h1><section><button class=\"combo\" role=\"combobox\" aria-controls=\"region-list\" aria-expanded=\"false\">Choose region</button><ul id=\"region-list\" role=\"listbox\"><li role=\"option\" tabindex=\"-1\">North America</"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 154,
+        "height": 17,
+        "tag": "INPUT",
+        "html": "<input items=\"Apple,Banana\" placeholder=\"Fruit\" aria-label=\"Combobox\" defaultopen=\"true\" role=\"combobox\" aria-expanded=\"false\" value=\"\">"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 96,
+      "widthB": 154,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "04972f7c2066bd38aeb04dc3c1e1b778d4ae3fcdab4ed5cb5b2093c25f570074",
+      "nativeSha256": "b4729968e985081c6a5c5d0d85d55a499244b8611810f047dcbcfe76e6070efc"
+    },
+    {
+      "component": "combobox",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 96,
+        "tag": "MAIN",
+        "html": "<main class=\"family\"><h1>Combobox</h1><section><button class=\"combo\" role=\"combobox\" aria-controls=\"region-list\" aria-expanded=\"false\">Choose region</button><ul id=\"region-list\" role=\"listbox\"><li role=\"option\" tabindex=\"-1\">North America</"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div data-kumo-component=\"Combobox\"><input role=\"combobox\" aria-expanded=\"false\" placeholder=\"Fruit\"><!----></div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 96,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "04972f7c2066bd38aeb04dc3c1e1b778d4ae3fcdab4ed5cb5b2093c25f570074",
+      "nativeSha256": "3636a6c456d485ba4a9e0d3f9ad8d045f79da721820b0ae8fd26b6331571c565"
+    },
+    {
+      "component": "combobox",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 96,
+        "tag": "MAIN",
+        "html": "<main class=\"family\"><h1>Combobox</h1><section><button class=\"combo\" role=\"combobox\" aria-controls=\"region-list\" aria-expanded=\"false\">Choose region</button><ul id=\"region-list\" role=\"listbox\"><li role=\"option\" tabindex=\"-1\">North America</"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 154,
+        "height": 17,
+        "tag": "INPUT",
+        "html": "<input placeholder=\"Fruit\">"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 96,
+      "widthB": 154,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "04972f7c2066bd38aeb04dc3c1e1b778d4ae3fcdab4ed5cb5b2093c25f570074",
+      "nativeSha256": "b4729968e985081c6a5c5d0d85d55a499244b8611810f047dcbcfe76e6070efc"
+    },
+    {
+      "component": "command-palette",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "failure": "missing-root"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 51,
+        "tag": "DIV",
+        "html": "<div open=\"true\" items=\"Workers,Pages\" data-kumo-component=\"CommandPalette\"><input placeholder=\"Search\" value=\"\"><ul><li data-highlighted=\"true\">Workers</li><li>Pages</li></ul></div>"
+      },
+      "equal": false,
+      "failure": "missing-root"
+    },
+    {
+      "component": "command-palette",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "failure": "missing-root"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 51,
+        "tag": "DIV",
+        "html": "<div data-kumo-component=\"CommandPalette\"><input placeholder=\"Search\"><ul role=\"listbox\"><li role=\"option\" data-value=\"Workers\" aria-selected=\"true\">Workers</li><li role=\"option\" data-value=\"Pages\" aria-selected=\"false\">Pages</li></ul><!---"
+      },
+      "equal": false,
+      "failure": "missing-root"
+    },
+    {
+      "component": "command-palette",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "failure": "missing-root"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 51,
+        "tag": "DIV",
+        "html": "<div data-kumo-component=\"CommandPalette\"><input><ul role=\"listbox\"><li role=\"option\" aria-selected=\"true\">Workers</li><li role=\"option\" aria-selected=\"false\">Pages</li></ul></div>"
+      },
+      "equal": false,
+      "failure": "missing-root"
+    },
+    {
+      "component": "date-picker",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 192,
+        "tag": "DIV",
+        "html": "<div class=\"rdp-root select-none rounded-xl bg-kumo-base\" data-mode=\"single\"><div class=\"rdp-months\"><nav data-animated-nav=\"true\" class=\"rdp-nav\" aria-label=\"Navigation bar\"><button type=\"button\" class=\"rdp-button_previous\" aria-label=\"Go "
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 102,
+        "tag": "DIV",
+        "html": "<div aria-label=\"DatePicker\"><button type=\"button\">Previous</button><button type=\"button\">Next</button><table role=\"grid\"><tbody><tr><td><button type=\"button\" data-day=\"2024-12-29\">29</button></td><td><button type=\"button\" data-day=\"2024-12"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 192,
+      "widthB": 712,
+      "heightB": 102,
+      "differingPixels": null,
+      "reactSha256": "f8a770067ea07b99016822936823f0e5597c1a41f69ae094c2412c4025b21a6c",
+      "nativeSha256": "f812d94ed2ff7d8f8d15387cfc7115e51a68b047fc10d1256b8d0ae6608e24cd"
+    },
+    {
+      "component": "date-picker",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 192,
+        "tag": "DIV",
+        "html": "<div class=\"rdp-root select-none rounded-xl bg-kumo-base\" data-mode=\"single\"><div class=\"rdp-months\"><nav data-animated-nav=\"true\" class=\"rdp-nav\" aria-label=\"Navigation bar\"><button type=\"button\" class=\"rdp-button_previous\" aria-label=\"Go "
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 102,
+        "tag": "DIV",
+        "html": "<div aria-label=\"DatePicker\"><button type=\"button\">Previous</button><button type=\"button\">Next</button><table role=\"grid\"><tbody><tr><td><button type=\"button\" data-day=\"2024-12-29\" aria-selected=\"false\">29</button></td><td><button type=\"but"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 192,
+      "widthB": 712,
+      "heightB": 102,
+      "differingPixels": null,
+      "reactSha256": "f8a770067ea07b99016822936823f0e5597c1a41f69ae094c2412c4025b21a6c",
+      "nativeSha256": "f812d94ed2ff7d8f8d15387cfc7115e51a68b047fc10d1256b8d0ae6608e24cd"
+    },
+    {
+      "component": "date-picker",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 192,
+        "tag": "DIV",
+        "html": "<div class=\"rdp-root select-none rounded-xl bg-kumo-base\" data-mode=\"single\"><div class=\"rdp-months\"><nav data-animated-nav=\"true\" class=\"rdp-nav\" aria-label=\"Navigation bar\"><button type=\"button\" class=\"rdp-button_previous\" aria-label=\"Go "
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 102,
+        "tag": "DIV",
+        "html": "<div aria-label=\"DatePicker\"><button type=\"button\" aria-label=\"Previous month\">Previous</button><button type=\"button\" aria-label=\"Next month\">Next</button><table role=\"grid\"><tbody><tr><td><button type=\"button\" data-day=\"2024-12-29\">29</but"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 192,
+      "widthB": 712,
+      "heightB": 102,
+      "differingPixels": null,
+      "reactSha256": "f8a770067ea07b99016822936823f0e5597c1a41f69ae094c2412c4025b21a6c",
+      "nativeSha256": "f812d94ed2ff7d8f8d15387cfc7115e51a68b047fc10d1256b8d0ae6608e24cd"
+    },
+    {
+      "component": "date-range-picker",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 440,
+        "height": 285.28125,
+        "tag": "DIV",
+        "html": "<div class=\"flex w-fit flex-col rounded-xl select-none bg-kumo-overlay p-4 gap-2.5\"><div class=\"flex gap-4\"><div class=\"relative w-[196px]\"><button type=\"button\" aria-label=\"Previous month\" class=\"absolute top-0 left-0 cursor-pointer rounde"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 260,
+        "tag": "DIV",
+        "html": "<div aria-label=\"DateRangePicker\" class=\"kumo-date-range p-4 bg-kumo-overlay\"><div class=\"kumo-date-range__toolbar\"><button type=\"button\" data-navigation=\"previous\" aria-label=\"Previous month\">Previous</button><button type=\"button\" data-nav"
+      },
+      "equal": false,
+      "widthA": 440,
+      "heightA": 285,
+      "widthB": 712,
+      "heightB": 260,
+      "differingPixels": null,
+      "reactSha256": "fb4c2b90a624a5c183bc83ec523ae6fef695b7bb34271e2c3e30cae2d3a134d1",
+      "nativeSha256": "c4c365e8d1fa721c03e1a2c7f584f093b4750a725b52c94ac8832f12c6e63399"
+    },
+    {
+      "component": "date-range-picker",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 440,
+        "height": 285.28125,
+        "tag": "DIV",
+        "html": "<div class=\"flex w-fit flex-col rounded-xl select-none bg-kumo-overlay p-4 gap-2.5\"><div class=\"flex gap-4\"><div class=\"relative w-[196px]\"><button type=\"button\" aria-label=\"Previous month\" class=\"absolute top-0 left-0 cursor-pointer rounde"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 260,
+        "tag": "DIV",
+        "html": "<div tabindex=\"-1\" class=\"kumo-date-range p-4 bg-kumo-overlay\"><div class=\"kumo-date-range__toolbar\"><button type=\"button\" data-navigation=\"previous\" aria-label=\"Previous month\">Previous</button><button type=\"button\" data-navigation=\"next\" "
+      },
+      "equal": false,
+      "widthA": 440,
+      "heightA": 285,
+      "widthB": 712,
+      "heightB": 260,
+      "differingPixels": null,
+      "reactSha256": "fb4c2b90a624a5c183bc83ec523ae6fef695b7bb34271e2c3e30cae2d3a134d1",
+      "nativeSha256": "c4c365e8d1fa721c03e1a2c7f584f093b4750a725b52c94ac8832f12c6e63399"
+    },
+    {
+      "component": "date-range-picker",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 440,
+        "height": 285.28125,
+        "tag": "DIV",
+        "html": "<div class=\"flex w-fit flex-col rounded-xl select-none bg-kumo-overlay p-4 gap-2.5\"><div class=\"flex gap-4\"><div class=\"relative w-[196px]\"><button type=\"button\" aria-label=\"Previous month\" class=\"absolute top-0 left-0 cursor-pointer rounde"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 260,
+        "tag": "DIV",
+        "html": "<div tabindex=\"-1\" class=\"kumo-date-range p-4 bg-kumo-overlay\"><div class=\"kumo-date-range__toolbar\"><button type=\"button\" data-navigation=\"previous\" aria-label=\"Previous month\">Previous</button><button type=\"button\" data-navigation=\"next\" "
+      },
+      "equal": false,
+      "widthA": 440,
+      "heightA": 285,
+      "widthB": 712,
+      "heightB": 260,
+      "differingPixels": null,
+      "reactSha256": "fb4c2b90a624a5c183bc83ec523ae6fef695b7bb34271e2c3e30cae2d3a134d1",
+      "nativeSha256": "c4c365e8d1fa721c03e1a2c7f584f093b4750a725b52c94ac8832f12c6e63399"
+    },
+    {
+      "component": "dialog",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 98.734375,
+        "height": 24,
+        "tag": "BUTTON",
+        "html": "<button type=\"button\" tabindex=\"0\" data-base-ui-click-trigger=\"\" id=\"base-ui-_R_d_\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-kumo-component=\"Dialog\" data-kumo-part=\"trigger\">Open settings</button>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 90.484375,
+        "height": 17,
+        "tag": "BUTTON",
+        "html": "<button type=\"button\" data-kumo-component=\"Dialog\" data-kumo-part=\"trigger\" aria-haspopup=\"dialog\">Open settings<!--v-if--></button>"
+      },
+      "equal": false,
+      "widthA": 98,
+      "heightA": 24,
+      "widthB": 90,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "b177f7b3af493b511e0ab7d7c271cad044443bc810c7682fa0d6af4880a18574",
+      "nativeSha256": "cf22b24154223450aa44525a90062d7f92ccccb7e5d5f5ae062cb3cefed47e4c"
+    },
+    {
+      "component": "dialog",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 98.734375,
+        "height": 24,
+        "tag": "BUTTON",
+        "html": "<button type=\"button\" tabindex=\"0\" data-base-ui-click-trigger=\"\" id=\"base-ui-_R_d_\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-kumo-component=\"Dialog\" data-kumo-part=\"trigger\">Open settings</button>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 90.484375,
+        "height": 17,
+        "tag": "BUTTON",
+        "html": "<button type=\"button\" data-kumo-component=\"Dialog\" data-kumo-part=\"trigger\" aria-haspopup=\"dialog\">Open settings</button>"
+      },
+      "equal": false,
+      "widthA": 98,
+      "heightA": 24,
+      "widthB": 90,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "b177f7b3af493b511e0ab7d7c271cad044443bc810c7682fa0d6af4880a18574",
+      "nativeSha256": "cf22b24154223450aa44525a90062d7f92ccccb7e5d5f5ae062cb3cefed47e4c"
+    },
+    {
+      "component": "dialog",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 98.734375,
+        "height": 24,
+        "tag": "BUTTON",
+        "html": "<button type=\"button\" tabindex=\"0\" data-base-ui-click-trigger=\"\" id=\"base-ui-_R_d_\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-kumo-component=\"Dialog\" data-kumo-part=\"trigger\">Open settings</button>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 90.484375,
+        "height": 17,
+        "tag": "BUTTON",
+        "html": "<button type=\"button\" data-kumo-component=\"Dialog\" data-kumo-part=\"trigger\" aria-haspopup=\"dialog\">Open settings</button>"
+      },
+      "equal": false,
+      "widthA": 98,
+      "heightA": 24,
+      "widthB": 90,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "b177f7b3af493b511e0ab7d7c271cad044443bc810c7682fa0d6af4880a18574",
+      "nativeSha256": "cf22b24154223450aa44525a90062d7f92ccccb7e5d5f5ae062cb3cefed47e4c"
+    },
+    {
+      "component": "dropdown-menu",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 72,
+        "tag": "MAIN",
+        "html": "<main class=\"family\"><h1>DropdownMenu</h1><section><button class=\"menu-button\" aria-haspopup=\"menu\" aria-expanded=\"false\">Actions</button><div class=\"menu\" role=\"menu\"><button role=\"menuitem\" tabindex=\"-1\">Edit</button><button role=\"menuite"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 48.265625,
+        "height": 17,
+        "tag": "BUTTON",
+        "html": "<button type=\"button\" tabindex=\"0\" aria-haspopup=\"menu\" aria-expanded=\"false\" data-kumo-component=\"DropdownMenu\" data-kumo-part=\"trigger\">Actions<!--v-if--></button>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 72,
+      "widthB": 48,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "d26bd139479b566687306166e97697230d29b708bf6b369291f2bfe25852354f",
+      "nativeSha256": "368488b0bf0d60548e3f515b39474dc0efb3075e0409c1e388d230c8b6ba5643"
+    },
+    {
+      "component": "dropdown-menu",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 72,
+        "tag": "MAIN",
+        "html": "<main class=\"family\"><h1>DropdownMenu</h1><section><button class=\"menu-button\" aria-haspopup=\"menu\" aria-expanded=\"false\">Actions</button><div class=\"menu\" role=\"menu\"><button role=\"menuitem\" tabindex=\"-1\">Edit</button><button role=\"menuite"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 48.265625,
+        "height": 17,
+        "tag": "BUTTON",
+        "html": "<button type=\"button\" tabindex=\"0\" aria-haspopup=\"menu\" aria-expanded=\"false\">Actions</button>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 72,
+      "widthB": 48,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "d26bd139479b566687306166e97697230d29b708bf6b369291f2bfe25852354f",
+      "nativeSha256": "368488b0bf0d60548e3f515b39474dc0efb3075e0409c1e388d230c8b6ba5643"
+    },
+    {
+      "component": "dropdown-menu",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 72,
+        "tag": "MAIN",
+        "html": "<main class=\"family\"><h1>DropdownMenu</h1><section><button class=\"menu-button\" aria-haspopup=\"menu\" aria-expanded=\"false\">Actions</button><div class=\"menu\" role=\"menu\"><button role=\"menuitem\" tabindex=\"-1\">Edit</button><button role=\"menuite"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 48.265625,
+        "height": 17,
+        "tag": "BUTTON",
+        "html": "<button type=\"button\" tabindex=\"0\" aria-haspopup=\"menu\" aria-expanded=\"false\">Actions</button>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 72,
+      "widthB": 48,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "d26bd139479b566687306166e97697230d29b708bf6b369291f2bfe25852354f",
+      "nativeSha256": "368488b0bf0d60548e3f515b39474dc0efb3075e0409c1e388d230c8b6ba5643"
+    },
+    {
+      "component": "empty",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 162,
+        "tag": "DIV",
+        "html": "<div class=\"flex w-full flex-col items-center rounded-xl border border-kumo-fill bg-kumo-control text-kumo-default px-10 py-16 gap-6\"><h2 class=\"text-2xl font-semibold\">No results</h2></div>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 170,
+        "tag": "DIV",
+        "html": "<div class=\"px-10 py-16 gap-6\"><h2>No results</h2></div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 162,
+      "widthB": 712,
+      "heightB": 170,
+      "differingPixels": null,
+      "reactSha256": "e47142e6e250b75d648be4cae7d4155c4427fdee376bb77111caccbb26ea7aa5",
+      "nativeSha256": "6d03f3398aa96cc8982478606194c5a06e57555addc94af85632b2ed727c4e13"
+    },
+    {
+      "component": "empty",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 162,
+        "tag": "DIV",
+        "html": "<div class=\"flex w-full flex-col items-center rounded-xl border border-kumo-fill bg-kumo-control text-kumo-default px-10 py-16 gap-6\"><h2 class=\"text-2xl font-semibold\">No results</h2></div>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 170,
+        "tag": "DIV",
+        "html": "<div class=\"px-10 py-16 gap-6\"><h2>No results</h2></div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 162,
+      "widthB": 712,
+      "heightB": 170,
+      "differingPixels": null,
+      "reactSha256": "e47142e6e250b75d648be4cae7d4155c4427fdee376bb77111caccbb26ea7aa5",
+      "nativeSha256": "6d03f3398aa96cc8982478606194c5a06e57555addc94af85632b2ed727c4e13"
+    },
+    {
+      "component": "empty",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 162,
+        "tag": "DIV",
+        "html": "<div class=\"flex w-full flex-col items-center rounded-xl border border-kumo-fill bg-kumo-control text-kumo-default px-10 py-16 gap-6\"><h2 class=\"text-2xl font-semibold\">No results</h2></div>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 170,
+        "tag": "DIV",
+        "html": "<div class=\"px-10 py-16 gap-6\"><h2>No results</h2></div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 162,
+      "widthB": 712,
+      "heightB": 170,
+      "differingPixels": null,
+      "reactSha256": "e47142e6e250b75d648be4cae7d4155c4427fdee376bb77111caccbb26ea7aa5",
+      "nativeSha256": "6d03f3398aa96cc8982478606194c5a06e57555addc94af85632b2ed727c4e13"
+    },
+    {
+      "component": "field",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 45.875,
+        "tag": "DIV",
+        "html": "<div class=\"grid gap-2 has-[input[type=checkbox]]:grid-cols-[auto_1fr] has-[input[type=checkbox]]:items-center has-[[role=switch]]:grid-cols-[auto_1fr] has-[[role=switch]]:items-center\"><label id=\"base-ui-_R_3_\" for=\"base-ui-_R_0_\" class=\"m"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 86,
+        "tag": "DIV",
+        "html": "<div class=\"kumo-field\"><label class=\"kumo-field__label\" for=\"field-control\">Name<!----></label><div class=\"kumo-field__description\" id=\"field-control-description\">Help</div><input class=\"kumo-field__input\" id=\"field-control\" aria-described"
+      },
+      "equal": false,
+      "widthA": 1440,
+      "heightA": 45,
+      "widthB": 712,
+      "heightB": 86,
+      "differingPixels": null,
+      "reactSha256": "40ed9924efa256b831e0696dd73de53490fe47ca04deea9d7bd7deb35df106d0",
+      "nativeSha256": "f3ab34ddd787928b69e4ec2545c85a477ca6115cdba1f1112fed82afae2bdb05"
+    },
+    {
+      "component": "field",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 45.875,
+        "tag": "DIV",
+        "html": "<div class=\"grid gap-2 has-[input[type=checkbox]]:grid-cols-[auto_1fr] has-[input[type=checkbox]]:items-center has-[[role=switch]]:grid-cols-[auto_1fr] has-[[role=switch]]:items-center\"><label id=\"base-ui-_R_3_\" for=\"base-ui-_R_0_\" class=\"m"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 78,
+        "tag": "DIV",
+        "html": "<div class=\"kumo-field\"><label class=\"kumo-field__label\" for=\"field-control\">Name<!----></label> <div class=\"kumo-field__description\" id=\"field-control-description\">Help</div><!----> <input modelvalue=\"example\" class=\"kumo-field__input\" id="
+      },
+      "equal": false,
+      "widthA": 1440,
+      "heightA": 45,
+      "widthB": 712,
+      "heightB": 78,
+      "differingPixels": null,
+      "reactSha256": "40ed9924efa256b831e0696dd73de53490fe47ca04deea9d7bd7deb35df106d0",
+      "nativeSha256": "2bcc4934fa3c311a1f760f7ac913b5d1c303d27cf2116dad82a54d6b1b8d1651"
+    },
+    {
+      "component": "field",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 45.875,
+        "tag": "DIV",
+        "html": "<div class=\"grid gap-2 has-[input[type=checkbox]]:grid-cols-[auto_1fr] has-[input[type=checkbox]]:items-center has-[[role=switch]]:grid-cols-[auto_1fr] has-[[role=switch]]:items-center\"><label id=\"base-ui-_R_3_\" for=\"base-ui-_R_0_\" class=\"m"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 78,
+        "tag": "DIV",
+        "html": "<div class=\"kumo-field\"><label class=\"kumo-field__label\" for=\"field-control\">Name</label><div class=\"kumo-field__description\" id=\"field-control-description\">Help</div><input modelvalue=\"example\" class=\"kumo-field__input\" id=\"field-control\" "
+      },
+      "equal": false,
+      "widthA": 1440,
+      "heightA": 45,
+      "widthB": 712,
+      "heightB": 78,
+      "differingPixels": null,
+      "reactSha256": "40ed9924efa256b831e0696dd73de53490fe47ca04deea9d7bd7deb35df106d0",
+      "nativeSha256": "2ea0847db681a83cbf1379cab9c310f5dfb5bb5a4765158dafbe09c4fe283ffc"
+    },
+    {
+      "component": "grid",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 24,
+        "tag": "DIV",
+        "html": "<div class=\"grid gap-2 md:gap-6 lg:gap-8\">Responsive grid area</div>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div class=\"\">Responsive grid area</div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 24,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "3ca41e7a3f22be91ab5263aa93e6be97ada958b906aa9d4cbf726e2403192f29",
+      "nativeSha256": "a8c4c37c3bbd3c1ab71feed42ab34eb1f2915ea9180871a2a9154f2e6fe0722f"
+    },
+    {
+      "component": "grid",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 24,
+        "tag": "DIV",
+        "html": "<div class=\"grid gap-2 md:gap-6 lg:gap-8\">Responsive grid area</div>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div><!---->Responsive grid area<!----></div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 24,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "3ca41e7a3f22be91ab5263aa93e6be97ada958b906aa9d4cbf726e2403192f29",
+      "nativeSha256": "a8c4c37c3bbd3c1ab71feed42ab34eb1f2915ea9180871a2a9154f2e6fe0722f"
+    },
+    {
+      "component": "grid",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 24,
+        "tag": "DIV",
+        "html": "<div class=\"grid gap-2 md:gap-6 lg:gap-8\">Responsive grid area</div>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div class=\"root\">Responsive grid area</div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 24,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "3ca41e7a3f22be91ab5263aa93e6be97ada958b906aa9d4cbf726e2403192f29",
+      "nativeSha256": "a8c4c37c3bbd3c1ab71feed42ab34eb1f2915ea9180871a2a9154f2e6fe0722f"
+    },
+    {
+      "component": "grid-item",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 24,
+        "tag": "DIV",
+        "html": "<div class=\"\">Grid item</div>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div class=\"\">Grid Item</div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 24,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "84d3a1e9653c75671f8d4b23fe70f4353ec9536020cff146da7e5f346f3c05a6",
+      "nativeSha256": "68c232660492e89c40242ede2656eae4b8216934d1e83c558db9729dd8b8c507"
+    },
+    {
+      "component": "grid-item",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 24,
+        "tag": "DIV",
+        "html": "<div class=\"\">Grid item</div>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div><!---->Grid Item<!----></div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 24,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "84d3a1e9653c75671f8d4b23fe70f4353ec9536020cff146da7e5f346f3c05a6",
+      "nativeSha256": "68c232660492e89c40242ede2656eae4b8216934d1e83c558db9729dd8b8c507"
+    },
+    {
+      "component": "grid-item",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 24,
+        "tag": "DIV",
+        "html": "<div class=\"\">Grid item</div>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div class=\"root\">Grid Item</div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 24,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "84d3a1e9653c75671f8d4b23fe70f4353ec9536020cff146da7e5f346f3c05a6",
+      "nativeSha256": "68c232660492e89c40242ede2656eae4b8216934d1e83c558db9729dd8b8c507"
+    },
+    {
+      "component": "input",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 0,
+        "y": 0,
+        "width": 178,
+        "height": 36,
+        "tag": "INPUT",
+        "html": "<input id=\"base-ui-_R_0_\" aria-label=\"Input\" class=\"border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled h-9 gap-1.5 rounded-lg px-3 text-base focu"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 154,
+        "height": 17,
+        "tag": "INPUT",
+        "html": "<input aria-label=\"Input\" value=\"example\">"
+      },
+      "equal": false,
+      "widthA": 178,
+      "heightA": 36,
+      "widthB": 154,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "53d57a909da6505c623ac7284fd64c895f3a34e3679e7e1c5514824b4cd905e3",
+      "nativeSha256": "d68b7b6cd159af9f8e7f4c9f498a3bd634b879bc7ae5575c7b3126a415d4248d"
+    },
+    {
+      "component": "input",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 0,
+        "y": 0,
+        "width": 178,
+        "height": 36,
+        "tag": "INPUT",
+        "html": "<input id=\"base-ui-_R_0_\" aria-label=\"Input\" class=\"border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled h-9 gap-1.5 rounded-lg px-3 text-base focu"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 154,
+        "height": 17,
+        "tag": "INPUT",
+        "html": "<input aria-label=\"Input\" placeholder=\"Input\">"
+      },
+      "equal": false,
+      "widthA": 178,
+      "heightA": 36,
+      "widthB": 154,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "53d57a909da6505c623ac7284fd64c895f3a34e3679e7e1c5514824b4cd905e3",
+      "nativeSha256": "d68b7b6cd159af9f8e7f4c9f498a3bd634b879bc7ae5575c7b3126a415d4248d"
+    },
+    {
+      "component": "input",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 0,
+        "y": 0,
+        "width": 178,
+        "height": 36,
+        "tag": "INPUT",
+        "html": "<input id=\"base-ui-_R_0_\" aria-label=\"Input\" class=\"border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled h-9 gap-1.5 rounded-lg px-3 text-base focu"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 154,
+        "height": 17,
+        "tag": "INPUT",
+        "html": "<input aria-label=\"Input\" placeholder=\"Input\" class=\"root\">"
+      },
+      "equal": false,
+      "widthA": 178,
+      "heightA": 36,
+      "widthB": 154,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "53d57a909da6505c623ac7284fd64c895f3a34e3679e7e1c5514824b4cd905e3",
+      "nativeSha256": "d68b7b6cd159af9f8e7f4c9f498a3bd634b879bc7ae5575c7b3126a415d4248d"
+    },
+    {
+      "component": "input-area",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 0,
+        "y": 0,
+        "width": 186,
+        "height": 56,
+        "tag": "TEXTAREA",
+        "html": "<textarea class=\"border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled gap-1.5 rounded-lg px-3 text-base focus:ring-kumo-focus/50 focus:ring-[1.5px]"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 162,
+        "height": 34,
+        "tag": "TEXTAREA",
+        "html": "<textarea aria-label=\"Input area\" value=\"Example notes\">Example notes</textarea>"
+      },
+      "equal": false,
+      "widthA": 186,
+      "heightA": 56,
+      "widthB": 162,
+      "heightB": 34,
+      "differingPixels": null,
+      "reactSha256": "3e94b645accf0c7532890f4f08fb442cb3e4ae9b609506cdc679c285f9f5e85f",
+      "nativeSha256": "68c21441d8209db6150e7f45f61b9588d1466606ed1e99733aec03e1c5e7ccf2"
+    },
+    {
+      "component": "input-area",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 0,
+        "y": 0,
+        "width": 186,
+        "height": 56,
+        "tag": "TEXTAREA",
+        "html": "<textarea class=\"border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled gap-1.5 rounded-lg px-3 text-base focus:ring-kumo-focus/50 focus:ring-[1.5px]"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 162,
+        "height": 34,
+        "tag": "TEXTAREA",
+        "html": "<textarea aria-label=\"Input area\" placeholder=\"Input area\"></textarea>"
+      },
+      "equal": false,
+      "widthA": 186,
+      "heightA": 56,
+      "widthB": 162,
+      "heightB": 34,
+      "differingPixels": null,
+      "reactSha256": "3e94b645accf0c7532890f4f08fb442cb3e4ae9b609506cdc679c285f9f5e85f",
+      "nativeSha256": "68c21441d8209db6150e7f45f61b9588d1466606ed1e99733aec03e1c5e7ccf2"
+    },
+    {
+      "component": "input-area",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 0,
+        "y": 0,
+        "width": 186,
+        "height": 56,
+        "tag": "TEXTAREA",
+        "html": "<textarea class=\"border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled gap-1.5 rounded-lg px-3 text-base focus:ring-kumo-focus/50 focus:ring-[1.5px]"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 162,
+        "height": 34,
+        "tag": "TEXTAREA",
+        "html": "<textarea aria-label=\"Input area\" placeholder=\"Input area\" class=\"root\"></textarea>"
+      },
+      "equal": false,
+      "widthA": 186,
+      "heightA": 56,
+      "widthB": 162,
+      "heightB": 34,
+      "differingPixels": null,
+      "reactSha256": "3e94b645accf0c7532890f4f08fb442cb3e4ae9b609506cdc679c285f9f5e85f",
+      "nativeSha256": "68c21441d8209db6150e7f45f61b9588d1466606ed1e99733aec03e1c5e7ccf2"
+    },
+    {
+      "component": "input-group",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 36,
+        "tag": "LABEL",
+        "html": "<label data-slot=\"input-group\" data-focus-mode=\"container\" class=\"relative w-full cursor-text border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled "
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 51,
+        "tag": "DIV",
+        "html": "<div label=\"Search\" description=\"Help\" required=\"true\" data-kumo-component=\"InputGroup\"><label for=\"v-0\">Search</label><p>Help</p><span data-kumo-part=\"Addon\">$</span><input id=\"v-0\" aria-label=\"Search\" required=\"\" value=\"\"><button type=\"bu"
+      },
+      "equal": false,
+      "widthA": 1440,
+      "heightA": 36,
+      "widthB": 712,
+      "heightB": 51,
+      "differingPixels": null,
+      "reactSha256": "75ed7c443949c0e7b0e63ac7479baf300e2b3a9d055880f869d1d35ad0f9b37d",
+      "nativeSha256": "c89a00604cf2b68f0743cf96cbbfa277fa46802a0a3fb2905829fafef2ff0b15"
+    },
+    {
+      "component": "input-group",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 36,
+        "tag": "LABEL",
+        "html": "<label data-slot=\"input-group\" data-focus-mode=\"container\" class=\"relative w-full cursor-text border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled "
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 51,
+        "tag": "DIV",
+        "html": "<div data-kumo-component=\"InputGroup\"><label for=\"kumo-e828cc80d749\">Search</label><p>Help</p><!----><!----><span data-kumo-part=\"Addon\">$</span><!----><input id=\"kumo-e828cc80d749\" aria-label=\"Search\"><!----><button type=\"button\" data-vari"
+      },
+      "equal": false,
+      "widthA": 1440,
+      "heightA": 36,
+      "widthB": 712,
+      "heightB": 51,
+      "differingPixels": null,
+      "reactSha256": "75ed7c443949c0e7b0e63ac7479baf300e2b3a9d055880f869d1d35ad0f9b37d",
+      "nativeSha256": "c89a00604cf2b68f0743cf96cbbfa277fa46802a0a3fb2905829fafef2ff0b15"
+    },
+    {
+      "component": "input-group",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 36,
+        "tag": "LABEL",
+        "html": "<label data-slot=\"input-group\" data-focus-mode=\"container\" class=\"relative w-full cursor-text border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled "
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div data-kumo-component=\"InputGroup\"><label for=\"cl-0\">Search</label><span>Help</span>$<input id=\"cl-0\" aria-label=\"Search\"><button type=\"button\" data-variant=\"secondary\">Go</button>USD</div>"
+      },
+      "equal": false,
+      "widthA": 1440,
+      "heightA": 36,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "75ed7c443949c0e7b0e63ac7479baf300e2b3a9d055880f869d1d35ad0f9b37d",
+      "nativeSha256": "58fb6426fb8c3b5ee719d0f3c7de22e4e5020555011f7e7ec8f1533f1fb5cc01"
+    },
+    {
+      "component": "label",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 27,
+        "width": 93.46875,
+        "height": 20,
+        "tag": "LABEL",
+        "html": "<label class=\"m-0 text-base font-medium text-kumo-default inline-flex items-center gap-1\">Account email</label>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 91.28125,
+        "height": 17,
+        "tag": "LABEL",
+        "html": "<label class=\"\">Account email</label>"
+      },
+      "equal": false,
+      "widthA": 93,
+      "heightA": 20,
+      "widthB": 91,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "c5201567abd24b4a892e20e8c31f1b5746addfb69288e5ad0e129f85410d8bdf",
+      "nativeSha256": "417fd88fa90474ae4affab5ba70b5e6982d819d3cd41d18f049a500530863184"
+    },
+    {
+      "component": "label",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 27,
+        "width": 93.46875,
+        "height": 20,
+        "tag": "LABEL",
+        "html": "<label class=\"m-0 text-base font-medium text-kumo-default inline-flex items-center gap-1\">Account email</label>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 91.28125,
+        "height": 17,
+        "tag": "LABEL",
+        "html": "<label><!---->Account email<!----></label>"
+      },
+      "equal": false,
+      "widthA": 93,
+      "heightA": 20,
+      "widthB": 91,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "c5201567abd24b4a892e20e8c31f1b5746addfb69288e5ad0e129f85410d8bdf",
+      "nativeSha256": "417fd88fa90474ae4affab5ba70b5e6982d819d3cd41d18f049a500530863184"
+    },
+    {
+      "component": "label",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 27,
+        "width": 93.46875,
+        "height": 20,
+        "tag": "LABEL",
+        "html": "<label class=\"m-0 text-base font-medium text-kumo-default inline-flex items-center gap-1\">Account email</label>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 91.28125,
+        "height": 17,
+        "tag": "LABEL",
+        "html": "<label class=\"root\">Account email</label>"
+      },
+      "equal": false,
+      "widthA": 93,
+      "heightA": 20,
+      "widthB": 91,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "c5201567abd24b4a892e20e8c31f1b5746addfb69288e5ad0e129f85410d8bdf",
+      "nativeSha256": "417fd88fa90474ae4affab5ba70b5e6982d819d3cd41d18f049a500530863184"
+    },
+    {
+      "component": "layer-card",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 24,
+        "tag": "DIV",
+        "html": "<div class=\"overflow-hidden rounded-lg bg-kumo-base shadow-xs ring ring-kumo-line\">Primary layer content</div>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div class=\"\">Primary layer content</div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 24,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "e88624c6c17b7ab5010cfd186734fd7fc2f9a8b2c4125e6085c5a4cb604acf30",
+      "nativeSha256": "cb9ac3865e8fdd8831caa14895f128754eff109b65c0e4d542e20689679736c5"
+    },
+    {
+      "component": "layer-card",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 24,
+        "tag": "DIV",
+        "html": "<div class=\"overflow-hidden rounded-lg bg-kumo-base shadow-xs ring ring-kumo-line\">Primary layer content</div>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div><!---->Primary layer content<!----></div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 24,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "e88624c6c17b7ab5010cfd186734fd7fc2f9a8b2c4125e6085c5a4cb604acf30",
+      "nativeSha256": "cb9ac3865e8fdd8831caa14895f128754eff109b65c0e4d542e20689679736c5"
+    },
+    {
+      "component": "layer-card",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 24,
+        "tag": "DIV",
+        "html": "<div class=\"overflow-hidden rounded-lg bg-kumo-base shadow-xs ring ring-kumo-line\">Primary layer content</div>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div class=\"root\">Primary layer content</div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 24,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "e88624c6c17b7ab5010cfd186734fd7fc2f9a8b2c4125e6085c5a4cb604acf30",
+      "nativeSha256": "cb9ac3865e8fdd8831caa14895f128754eff109b65c0e4d542e20689679736c5"
+    },
+    {
+      "component": "link",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 76.3125,
+        "height": 24,
+        "tag": "A",
+        "html": "<a href=\"/docs\" data-kumo-component=\"Link\" class=\"text-kumo-link underline underline-offset-[0.15em] decoration-[0.0625em] link-current transition-colors group/link inline-flex items-center gap-[0.1875em]\">Read docs</a>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 67.890625,
+        "height": 17,
+        "tag": "A",
+        "html": "<a href=\"/docs\" class=\"\">Read docs</a>"
+      },
+      "equal": false,
+      "widthA": 76,
+      "heightA": 24,
+      "widthB": 67,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "e8f00dced16ec52a81ced4cae377e3053dcefe6e850dcbd62cc20bd8cd9e1017",
+      "nativeSha256": "78a1ea22d16f8ccfebb578139e904572978757a5caba284068d2b9aec35b3273"
+    },
+    {
+      "component": "link",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 76.3125,
+        "height": 24,
+        "tag": "A",
+        "html": "<a href=\"/docs\" data-kumo-component=\"Link\" class=\"text-kumo-link underline underline-offset-[0.15em] decoration-[0.0625em] link-current transition-colors group/link inline-flex items-center gap-[0.1875em]\">Read docs</a>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 67.890625,
+        "height": 17,
+        "tag": "A",
+        "html": "<a href=\"/docs\"><!---->Read docs<!----></a>"
+      },
+      "equal": false,
+      "widthA": 76,
+      "heightA": 24,
+      "widthB": 67,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "e8f00dced16ec52a81ced4cae377e3053dcefe6e850dcbd62cc20bd8cd9e1017",
+      "nativeSha256": "78a1ea22d16f8ccfebb578139e904572978757a5caba284068d2b9aec35b3273"
+    },
+    {
+      "component": "link",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 76.3125,
+        "height": 24,
+        "tag": "A",
+        "html": "<a href=\"/docs\" data-kumo-component=\"Link\" class=\"text-kumo-link underline underline-offset-[0.15em] decoration-[0.0625em] link-current transition-colors group/link inline-flex items-center gap-[0.1875em]\">Read docs</a>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 67.890625,
+        "height": 17,
+        "tag": "A",
+        "html": "<a href=\"/docs\" class=\"root\">Read docs</a>"
+      },
+      "equal": false,
+      "widthA": 76,
+      "heightA": 24,
+      "widthB": 67,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "e8f00dced16ec52a81ced4cae377e3053dcefe6e850dcbd62cc20bd8cd9e1017",
+      "nativeSha256": "78a1ea22d16f8ccfebb578139e904572978757a5caba284068d2b9aec35b3273"
+    },
+    {
+      "component": "loader",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 24,
+        "height": 24,
+        "tag": "svg",
+        "html": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" stroke=\"currentColor\" style=\"height:24px;width:24px\" role=\"status\" aria-label=\"Loading\"><circle cx=\"12\" cy=\"12\" r=\"9.5\" fill=\"none\" stroke-width=\"2\" stroke-l"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 24,
+        "height": 24,
+        "tag": "svg",
+        "html": "<svg role=\"status\" aria-label=\"Loading\" width=\"24\" height=\"24\"><circle></circle><circle></circle></svg>"
+      },
+      "equal": false,
+      "widthA": 24,
+      "heightA": 24,
+      "widthB": 24,
+      "heightB": 24,
+      "differingPixels": 176,
+      "totalPixels": 576,
+      "reactSha256": "c51da06cff43ea1bec24008b5a5a9dfbc37941216763b82c8557914561fa33cf",
+      "nativeSha256": "740165c1c95f6885f6452aaea85c15af79ed0fdda4522dba403e4331e4267a51",
+      "diffSha256": "92182750cfae42ceefe9aa35df72bc2a6a2237cf0ba91a81ee4ed9887d6b25f3"
+    },
+    {
+      "component": "loader",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 24,
+        "height": 24,
+        "tag": "svg",
+        "html": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" stroke=\"currentColor\" style=\"height:24px;width:24px\" role=\"status\" aria-label=\"Loading\"><circle cx=\"12\" cy=\"12\" r=\"9.5\" fill=\"none\" stroke-width=\"2\" stroke-l"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 24,
+        "height": 24,
+        "tag": "svg",
+        "html": "<svg role=\"status\" aria-label=\"Loading\" width=\"24\" height=\"24\"><circle></circle><circle></circle></svg>"
+      },
+      "equal": false,
+      "widthA": 24,
+      "heightA": 24,
+      "widthB": 24,
+      "heightB": 24,
+      "differingPixels": 176,
+      "totalPixels": 576,
+      "reactSha256": "c51da06cff43ea1bec24008b5a5a9dfbc37941216763b82c8557914561fa33cf",
+      "nativeSha256": "740165c1c95f6885f6452aaea85c15af79ed0fdda4522dba403e4331e4267a51",
+      "diffSha256": "92182750cfae42ceefe9aa35df72bc2a6a2237cf0ba91a81ee4ed9887d6b25f3"
+    },
+    {
+      "component": "loader",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 24,
+        "height": 24,
+        "tag": "svg",
+        "html": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" stroke=\"currentColor\" style=\"height:24px;width:24px\" role=\"status\" aria-label=\"Loading\"><circle cx=\"12\" cy=\"12\" r=\"9.5\" fill=\"none\" stroke-width=\"2\" stroke-l"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 24,
+        "height": 24,
+        "tag": "svg",
+        "html": "<svg role=\"status\" aria-label=\"Loading\" width=\"24\" height=\"24\"><circle></circle><circle></circle></svg>"
+      },
+      "equal": false,
+      "widthA": 24,
+      "heightA": 24,
+      "widthB": 24,
+      "heightB": 24,
+      "differingPixels": 176,
+      "totalPixels": 576,
+      "reactSha256": "c51da06cff43ea1bec24008b5a5a9dfbc37941216763b82c8557914561fa33cf",
+      "nativeSha256": "740165c1c95f6885f6452aaea85c15af79ed0fdda4522dba403e4331e4267a51",
+      "diffSha256": "92182750cfae42ceefe9aa35df72bc2a6a2237cf0ba91a81ee4ed9887d6b25f3"
+    },
+    {
+      "component": "menu-bar",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 24,
+        "tag": "NAV",
+        "html": "<nav class=\"isolate flex rounded-lg ring ring-kumo-line bg-kumo-recessed pl-px shadow-xs transition-colors\"><button data-kumo-component=\"MenuBar\" data-kumo-part=\"option\" aria-label=\"Overview\" class=\"relative -ml-px flex h-full w-11 cursor-p"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "NAV",
+        "html": "<nav class=\"isolate flex rounded-lg ring-kumo-line bg-kumo-recessed\"><button type=\"button\" class=\"active\" aria-label=\"Overview\" title=\"Overview\"><span aria-hidden=\"true\">Overview</span></button><button type=\"button\" class=\"\" aria-label=\"Set"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 24,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "096b9ed47e6c85e40676e2123dc12ddeafd5cc23257d74b905bde9523a25c8bf",
+      "nativeSha256": "86dd57164b064590cb009984b456c8c056e385ed3a34739c2b3c38c5bd1e3680"
+    },
+    {
+      "component": "menu-bar",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 24,
+        "tag": "NAV",
+        "html": "<nav class=\"isolate flex rounded-lg ring ring-kumo-line bg-kumo-recessed pl-px shadow-xs transition-colors\"><button data-kumo-component=\"MenuBar\" data-kumo-part=\"option\" aria-label=\"Overview\" class=\"relative -ml-px flex h-full w-11 cursor-p"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "NAV",
+        "html": "<nav class=\"isolate flex rounded-lg ring-kumo-line bg-kumo-recessed\"><button type=\"button\" aria-label=\"Overview\" title=\"Overview\"><span aria-hidden=\"true\">Overview</span></button><button type=\"button\" aria-label=\"Settings\" title=\"Settings\">"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 24,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "096b9ed47e6c85e40676e2123dc12ddeafd5cc23257d74b905bde9523a25c8bf",
+      "nativeSha256": "86dd57164b064590cb009984b456c8c056e385ed3a34739c2b3c38c5bd1e3680"
+    },
+    {
+      "component": "menu-bar",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 24,
+        "tag": "NAV",
+        "html": "<nav class=\"isolate flex rounded-lg ring ring-kumo-line bg-kumo-recessed pl-px shadow-xs transition-colors\"><button data-kumo-component=\"MenuBar\" data-kumo-part=\"option\" aria-label=\"Overview\" class=\"relative -ml-px flex h-full w-11 cursor-p"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "NAV",
+        "html": "<nav class=\"isolate flex rounded-lg ring-kumo-line bg-kumo-recessed\"><button type=\"button\" aria-label=\"Overview\" title=\"Overview\"><span aria-hidden=\"true\">Overview</span></button><button type=\"button\" aria-label=\"Settings\" title=\"Settings\">"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 24,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "096b9ed47e6c85e40676e2123dc12ddeafd5cc23257d74b905bde9523a25c8bf",
+      "nativeSha256": "86dd57164b064590cb009984b456c8c056e385ed3a34739c2b3c38c5bd1e3680"
+    },
+    {
+      "component": "meter",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 32,
+        "tag": "DIV",
+        "html": "<div aria-valuemax=\"100\" aria-valuemin=\"0\" aria-valuenow=\"65\" aria-valuetext=\"65%\" role=\"meter\" class=\"flex w-full flex-col gap-2\" aria-labelledby=\"base-ui-_R_l_\"><div class=\"flex items-center justify-between gap-4\"><span id=\"base-ui-_R_l_\""
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div role=\"meter\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"65\" aria-valuetext=\"65%\"><span></span><span></span><span></span>Storage65%x</div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 32,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "44099878acc3178253c6aadc6ee648b399e6b11f2c453ab53cac637b620057f5",
+      "nativeSha256": "89fa2b61009df8bba712930baf7b5203c574586a45002d3fdc18a6a5e513b5d7"
+    },
+    {
+      "component": "meter",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 32,
+        "tag": "DIV",
+        "html": "<div aria-valuemax=\"100\" aria-valuemin=\"0\" aria-valuenow=\"65\" aria-valuetext=\"65%\" role=\"meter\" class=\"flex w-full flex-col gap-2\" aria-labelledby=\"base-ui-_R_l_\"><div class=\"flex items-center justify-between gap-4\"><span id=\"base-ui-_R_l_\""
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div role=\"meter\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"65\" aria-valuetext=\"65%\"><span></span> <span></span> <span></span> Storage65%x</div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 32,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "44099878acc3178253c6aadc6ee648b399e6b11f2c453ab53cac637b620057f5",
+      "nativeSha256": "89fa2b61009df8bba712930baf7b5203c574586a45002d3fdc18a6a5e513b5d7"
+    },
+    {
+      "component": "meter",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 32,
+        "tag": "DIV",
+        "html": "<div aria-valuemax=\"100\" aria-valuemin=\"0\" aria-valuenow=\"65\" aria-valuetext=\"65%\" role=\"meter\" class=\"flex w-full flex-col gap-2\" aria-labelledby=\"base-ui-_R_l_\"><div class=\"flex items-center justify-between gap-4\"><span id=\"base-ui-_R_l_\""
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div role=\"meter\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"65\" aria-valuetext=\"65%\"><span></span><span></span><span></span>Storage65%x</div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 32,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "44099878acc3178253c6aadc6ee648b399e6b11f2c453ab53cac637b620057f5",
+      "nativeSha256": "89fa2b61009df8bba712930baf7b5203c574586a45002d3fdc18a6a5e513b5d7"
+    },
+    {
+      "component": "pagination",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 36,
+        "tag": "DIV",
+        "html": "<div data-slot=\"pagination\" class=\"flex items-center gap-2 w-full\"><div aria-live=\"polite\" aria-atomic=\"true\" data-slot=\"pagination-info\" class=\"grow text-sm text-kumo-subtle\">Showing <span class=\"tabular-nums\">11-20</span> of<!-- --> <span"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div data-slot=\"pagination\"><nav aria-label=\"Pagination\"><button type=\"button\" aria-label=\"First page\"></button><button type=\"button\" aria-label=\"Previous page\"></button><input aria-label=\"Page number\" value=\"2\"><button type=\"button\" aria-l"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 36,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "3a13998751b6dd8a2a689ce3ee9e69697f62e43ef1b725e09e564e5391b6bf23",
+      "nativeSha256": "92d80e0c626e1c95b7aa2e620c42587135c29ae2e3f26223255ad87244a38eb4"
+    },
+    {
+      "component": "pagination",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 36,
+        "tag": "DIV",
+        "html": "<div data-slot=\"pagination\" class=\"flex items-center gap-2 w-full\"><div aria-live=\"polite\" aria-atomic=\"true\" data-slot=\"pagination-info\" class=\"grow text-sm text-kumo-subtle\">Showing <span class=\"tabular-nums\">11-20</span> of<!-- --> <span"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div data-slot=\"pagination\"><nav aria-label=\"Pagination\"><button type=\"button\" aria-label=\"First page\">First</button><!----><button type=\"button\" aria-label=\"Previous page\">Previous</button><input aria-label=\"Page number\"><!----><!----><but"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 36,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "3a13998751b6dd8a2a689ce3ee9e69697f62e43ef1b725e09e564e5391b6bf23",
+      "nativeSha256": "89567e8965a0dd98e49463072e1c8a8b500006966feb74e62acbc27580ef6973"
+    },
+    {
+      "component": "pagination",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 36,
+        "tag": "DIV",
+        "html": "<div data-slot=\"pagination\" class=\"flex items-center gap-2 w-full\"><div aria-live=\"polite\" aria-atomic=\"true\" data-slot=\"pagination-info\" class=\"grow text-sm text-kumo-subtle\">Showing <span class=\"tabular-nums\">11-20</span> of<!-- --> <span"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div data-slot=\"pagination\"><nav aria-label=\"Pagination\"><button type=\"button\" aria-label=\"First page\">First</button><button type=\"button\" aria-label=\"Previous page\">Previous</button><input aria-label=\"Page number\"><button type=\"button\" ari"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 36,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "3a13998751b6dd8a2a689ce3ee9e69697f62e43ef1b725e09e564e5391b6bf23",
+      "nativeSha256": "89567e8965a0dd98e49463072e1c8a8b500006966feb74e62acbc27580ef6973"
+    },
+    {
+      "component": "popover",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 48,
+        "tag": "MAIN",
+        "html": "<main class=\"form-shell\"><h1>Popover</h1><section class=\"popover-matrix\"><button aria-haspopup=\"dialog\" aria-expanded=\"true\">Toggle</button><div role=\"dialog\">Popover content</div></section></main>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 34.921875,
+        "height": 17,
+        "tag": "BUTTON",
+        "html": "<button type=\"button\" tabindex=\"0\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-kumo-component=\"Popover\" data-kumo-part=\"trigger\">Open<!--v-if--></button>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 48,
+      "widthB": 34,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "144ec9e18e0aa18feccfd5211868f4e7e26cb4f0e4547bacbad629967b01ada7",
+      "nativeSha256": "7e4ee6f09669c8545cd9e1c7785daa7303ad4cb21de8e39e8c9aeecef39a2f6c"
+    },
+    {
+      "component": "popover",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 48,
+        "tag": "MAIN",
+        "html": "<main class=\"form-shell\"><h1>Popover</h1><section class=\"popover-matrix\"><button aria-haspopup=\"dialog\" aria-expanded=\"true\">Toggle</button><div role=\"dialog\">Popover content</div></section></main>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 34.921875,
+        "height": 17,
+        "tag": "BUTTON",
+        "html": "<button type=\"button\" tabindex=\"0\" aria-haspopup=\"dialog\" data-kumo-component=\"Popover\" data-kumo-part=\"trigger\" aria-expanded=\"false\">Open</button>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 48,
+      "widthB": 34,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "144ec9e18e0aa18feccfd5211868f4e7e26cb4f0e4547bacbad629967b01ada7",
+      "nativeSha256": "7e4ee6f09669c8545cd9e1c7785daa7303ad4cb21de8e39e8c9aeecef39a2f6c"
+    },
+    {
+      "component": "popover",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 48,
+        "tag": "MAIN",
+        "html": "<main class=\"form-shell\"><h1>Popover</h1><section class=\"popover-matrix\"><button aria-haspopup=\"dialog\" aria-expanded=\"true\">Toggle</button><div role=\"dialog\">Popover content</div></section></main>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 34.921875,
+        "height": 17,
+        "tag": "BUTTON",
+        "html": "<button type=\"button\" tabindex=\"0\" aria-haspopup=\"dialog\" data-kumo-component=\"Popover\" data-kumo-part=\"trigger\" aria-expanded=\"false\">Open</button>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 48,
+      "widthB": 34,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "144ec9e18e0aa18feccfd5211868f4e7e26cb4f0e4547bacbad629967b01ada7",
+      "nativeSha256": "7e4ee6f09669c8545cd9e1c7785daa7303ad4cb21de8e39e8c9aeecef39a2f6c"
+    },
+    {
+      "component": "radio",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 44,
+        "tag": "DIV",
+        "html": "<div role=\"radiogroup\"><fieldset class=\"flex flex-col gap-4\"><div class=\"flex flex-col gap-2\"><label data-kumo-component=\"Radio\" data-kumo-part=\"item-label\" class=\"m-0 group relative inline-flex items-start gap-2 cursor-pointer\" id=\"base-ui"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 34,
+        "tag": "DIV",
+        "html": "<div role=\"radiogroup\" aria-label=\"Plan\"><div role=\"radio\" tabindex=\"0\" aria-checked=\"true\" aria-label=\"Free\">Free</div><div role=\"radio\" tabindex=\"0\" aria-checked=\"false\" aria-label=\"Pro\">Pro</div></div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 44,
+      "widthB": 712,
+      "heightB": 34,
+      "differingPixels": null,
+      "reactSha256": "49cad542d446825f08382bd027cfe0259d6f9b64ca991dea4845a80e3f16c447",
+      "nativeSha256": "ebc6cc2521167a28fa8eea11be6f7275a2400728366a77880b00beb6f28f92d2"
+    },
+    {
+      "component": "radio",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 44,
+        "tag": "DIV",
+        "html": "<div role=\"radiogroup\"><fieldset class=\"flex flex-col gap-4\"><div class=\"flex flex-col gap-2\"><label data-kumo-component=\"Radio\" data-kumo-part=\"item-label\" class=\"m-0 group relative inline-flex items-start gap-2 cursor-pointer\" id=\"base-ui"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div role=\"radiogroup\" aria-label=\"Plan\"><button type=\"button\" role=\"radio\" aria-checked=\"true\" aria-label=\"Free\">Free</button><button type=\"button\" role=\"radio\" aria-checked=\"false\" aria-label=\"Pro\">Pro</button></div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 44,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "49cad542d446825f08382bd027cfe0259d6f9b64ca991dea4845a80e3f16c447",
+      "nativeSha256": "80465ce816946e939945e3b6e63254b0a0d4d027d456d0940df7d195d6772194"
+    },
+    {
+      "component": "radio",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 44,
+        "tag": "DIV",
+        "html": "<div role=\"radiogroup\"><fieldset class=\"flex flex-col gap-4\"><div class=\"flex flex-col gap-2\"><label data-kumo-component=\"Radio\" data-kumo-part=\"item-label\" class=\"m-0 group relative inline-flex items-start gap-2 cursor-pointer\" id=\"base-ui"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 34,
+        "tag": "DIV",
+        "html": "<div role=\"radiogroup\" aria-label=\"Plan\"><div role=\"radio\" aria-checked=\"true\" aria-label=\"Free\" tabindex=\"0\">Free</div><div role=\"radio\" aria-checked=\"false\" aria-label=\"Pro\" tabindex=\"0\">Pro</div></div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 44,
+      "widthB": 712,
+      "heightB": 34,
+      "differingPixels": null,
+      "reactSha256": "49cad542d446825f08382bd027cfe0259d6f9b64ca991dea4845a80e3f16c447",
+      "nativeSha256": "ebc6cc2521167a28fa8eea11be6f7275a2400728366a77880b00beb6f28f92d2"
+    },
+    {
+      "component": "select",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 64,
+        "tag": "DIV",
+        "html": "<div class=\"grid gap-2 has-[input[type=checkbox]]:grid-cols-[auto_1fr] has-[input[type=checkbox]]:items-center has-[[role=switch]]:grid-cols-[auto_1fr] has-[[role=switch]]:items-center\" data-filled=\"\"><div id=\"base-ui-_R_1_-label\" class=\"m-"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div><button type=\"button\" tabindex=\"0\" role=\"combobox\" aria-expanded=\"false\" aria-haspopup=\"listbox\" aria-label=\"Select\" data-kumo-component=\"Select\" data-kumo-part=\"trigger\" data-placeholder=\"\"></button><!--v-if--></div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 64,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "70e5272c8989b17ec5fcfb2b3d650978cc24649cf880fa60b20857b7f3f87c61",
+      "nativeSha256": "071187e8804678924511d1d56e7f1532890a7edfdafca1e395909b6865b92743"
+    },
+    {
+      "component": "select",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 64,
+        "tag": "DIV",
+        "html": "<div class=\"grid gap-2 has-[input[type=checkbox]]:grid-cols-[auto_1fr] has-[input[type=checkbox]]:items-center has-[[role=switch]]:grid-cols-[auto_1fr] has-[[role=switch]]:items-center\" data-filled=\"\"><div id=\"base-ui-_R_1_-label\" class=\"m-"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div><button type=\"button\" tabindex=\"0\" role=\"combobox\" aria-haspopup=\"listbox\" data-kumo-component=\"Select\" data-kumo-part=\"trigger\" aria-expanded=\"false\" aria-label=\"Select\">Region</button><!----></div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 64,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "70e5272c8989b17ec5fcfb2b3d650978cc24649cf880fa60b20857b7f3f87c61",
+      "nativeSha256": "19eedb937b8c477f0c582507a26ee15588adf6ab7e09364ca0b1370a318183b8"
+    },
+    {
+      "component": "select",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 64,
+        "tag": "DIV",
+        "html": "<div class=\"grid gap-2 has-[input[type=checkbox]]:grid-cols-[auto_1fr] has-[input[type=checkbox]]:items-center has-[[role=switch]]:grid-cols-[auto_1fr] has-[[role=switch]]:items-center\" data-filled=\"\"><div id=\"base-ui-_R_1_-label\" class=\"m-"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div><button type=\"button\" tabindex=\"0\" role=\"combobox\" aria-haspopup=\"listbox\" data-kumo-component=\"Select\" data-kumo-part=\"trigger\" aria-expanded=\"false\" aria-label=\"Select\">Region</button></div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 64,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "70e5272c8989b17ec5fcfb2b3d650978cc24649cf880fa60b20857b7f3f87c61",
+      "nativeSha256": "19eedb937b8c477f0c582507a26ee15588adf6ab7e09364ca0b1370a318183b8"
+    },
+    {
+      "component": "sensitive-input",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 64,
+        "tag": "DIV",
+        "html": "<div class=\"grid gap-2 has-[input[type=checkbox]]:grid-cols-[auto_1fr] has-[input[type=checkbox]]:items-center has-[[role=switch]]:grid-cols-[auto_1fr] has-[[role=switch]]:items-center\" data-filled=\"\"><label id=\"base-ui-_R_7_\" for=\"_R_0H1_\""
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 51,
+        "tag": "DIV",
+        "html": "<div placeholder=\"API token\" aria-label=\"SensitiveInput\" data-kumo-component=\"SensitiveInput\" value=\"secret-token\"><label>API token</label><div data-kumo-part=\"masked-container\">Value hidden</div><input type=\"password\" value=\"secret-token\">"
+      },
+      "equal": false,
+      "widthA": 1440,
+      "heightA": 64,
+      "widthB": 712,
+      "heightB": 51,
+      "differingPixels": null,
+      "reactSha256": "4aa8259e3c2618c3d64c948ea1127e4e7add7f14ff78d03d31dbbdddc2097b3e",
+      "nativeSha256": "dffdd2190b4b6bbd107ba51d4dcd98615cbcf2254235c86991bddcecb1fb3ad2"
+    },
+    {
+      "component": "sensitive-input",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 64,
+        "tag": "DIV",
+        "html": "<div class=\"grid gap-2 has-[input[type=checkbox]]:grid-cols-[auto_1fr] has-[input[type=checkbox]]:items-center has-[[role=switch]]:grid-cols-[auto_1fr] has-[[role=switch]]:items-center\" data-filled=\"\"><label id=\"base-ui-_R_7_\" for=\"_R_0H1_\""
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 34,
+        "tag": "DIV",
+        "html": "<div data-kumo-component=\"SensitiveInput\"><div data-kumo-part=\"masked-container\">Value hidden<!----></div><input type=\"password\" aria-label=\"API token\"><button type=\"button\">Reveal</button><button type=\"button\">Copy</button><div aria-live=\""
+      },
+      "equal": false,
+      "widthA": 1440,
+      "heightA": 64,
+      "widthB": 712,
+      "heightB": 34,
+      "differingPixels": null,
+      "reactSha256": "4aa8259e3c2618c3d64c948ea1127e4e7add7f14ff78d03d31dbbdddc2097b3e",
+      "nativeSha256": "89b924b389024ea64acb236a73b0ae42922426d796acfa4a6a8cca9ceaf300ac"
+    },
+    {
+      "component": "sensitive-input",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 64,
+        "tag": "DIV",
+        "html": "<div class=\"grid gap-2 has-[input[type=checkbox]]:grid-cols-[auto_1fr] has-[input[type=checkbox]]:items-center has-[[role=switch]]:grid-cols-[auto_1fr] has-[[role=switch]]:items-center\" data-filled=\"\"><label id=\"base-ui-_R_7_\" for=\"_R_0H1_\""
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 51,
+        "tag": "DIV",
+        "html": "<div data-kumo-component=\"SensitiveInput\"><div data-kumo-part=\"masked-container\">Value hidden</div><input data-kumo-part=\"input\" type=\"password\" aria-label=\"API token\"><button type=\"button\" data-kumo-part=\"reveal\">Reveal</button><button typ"
+      },
+      "equal": false,
+      "widthA": 1440,
+      "heightA": 64,
+      "widthB": 712,
+      "heightB": 51,
+      "differingPixels": null,
+      "reactSha256": "4aa8259e3c2618c3d64c948ea1127e4e7add7f14ff78d03d31dbbdddc2097b3e",
+      "nativeSha256": "d8de39dd2e8efa7523df9549fbdd9dd068a4cd272d6d6e67a558c83363758ee3"
+    },
+    {
+      "component": "sidebar",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1377,
+        "height": 850,
+        "tag": "DIV",
+        "html": "<div data-sidebar-wrapper=\"\" data-state=\"expanded\" data-side=\"left\" style=\"--sidebar-width:16.25rem;--sidebar-width-icon:57px;--sidebar-animation-duration:250ms;--sidebar-easing:cubic-bezier(0.77, 0, 0.175, 1)\" class=\"group/sidebar-wrapper "
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 256,
+        "height": 97,
+        "tag": "DIV",
+        "html": "<div data-sidebar-wrapper=\"\" data-state=\"expanded\" data-side=\"left\" style=\"--sidebar-width: 256px; width: 256px;\"><aside data-state=\"expanded\" data-side=\"left\" data-collapsible=\"icon\"><header>Product</header><div><div><span>Build</span><ul>"
+      },
+      "equal": false,
+      "widthA": 1377,
+      "heightA": 850,
+      "widthB": 256,
+      "heightB": 97,
+      "differingPixels": null,
+      "reactSha256": "76b781b5034cdea198e209d3ed783ffb2494a9cda3ab9441f555b3c6f23435a8",
+      "nativeSha256": "c884639a26e90e1ae439e0801ac2f3af69f807f12603f1bd41441931e4f448ad"
+    },
+    {
+      "component": "sidebar",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1377,
+        "height": 850,
+        "tag": "DIV",
+        "html": "<div data-sidebar-wrapper=\"\" data-state=\"expanded\" data-side=\"left\" style=\"--sidebar-width:16.25rem;--sidebar-width-icon:57px;--sidebar-animation-duration:250ms;--sidebar-easing:cubic-bezier(0.77, 0, 0.175, 1)\" class=\"group/sidebar-wrapper "
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 97,
+        "tag": "DIV",
+        "html": "<div data-sidebar-wrapper=\"\" data-side=\"left\" data-state=\"expanded\"><aside data-collapsible=\"icon\" data-side=\"left\" data-state=\"expanded\"><header>Product</header><main><span>Build</span><ul><li><button type=\"button\">Home</button></li><li><b"
+      },
+      "equal": false,
+      "widthA": 1377,
+      "heightA": 850,
+      "widthB": 712,
+      "heightB": 97,
+      "differingPixels": null,
+      "reactSha256": "76b781b5034cdea198e209d3ed783ffb2494a9cda3ab9441f555b3c6f23435a8",
+      "nativeSha256": "a5cf7bdf7490359f45dacd6a15f3711f6d3fdc320fb46bd0018d7f5519605ea8"
+    },
+    {
+      "component": "sidebar",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1377,
+        "height": 850,
+        "tag": "DIV",
+        "html": "<div data-sidebar-wrapper=\"\" data-state=\"expanded\" data-side=\"left\" style=\"--sidebar-width:16.25rem;--sidebar-width-icon:57px;--sidebar-animation-duration:250ms;--sidebar-easing:cubic-bezier(0.77, 0, 0.175, 1)\" class=\"group/sidebar-wrapper "
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 68,
+        "tag": "DIV",
+        "html": "<div data-sidebar-wrapper=\"\" data-side=\"left\" data-state=\"expanded\" data-open=\"true\" data-width=\"256\"><aside data-side=\"left\" data-collapsible=\"icon\" data-state=\"expanded\"><span>Product</span><span>Build</span><ul><li><button type=\"button\">"
+      },
+      "equal": false,
+      "widthA": 1377,
+      "heightA": 850,
+      "widthB": 712,
+      "heightB": 68,
+      "differingPixels": null,
+      "reactSha256": "76b781b5034cdea198e209d3ed783ffb2494a9cda3ab9441f555b3c6f23435a8",
+      "nativeSha256": "9033103dc28ea55b90404ca83ebe173335db60abbafec7da487fb74588220874"
+    },
+    {
+      "component": "surface",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 24,
+        "tag": "DIV",
+        "html": "<div class=\"bg-kumo-base shadow-xs ring ring-kumo-line overflow-visible rounded-none\" data-surface-color=\"primary\" data-deprecated=\"surface\">Surface content</div>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div class=\"\">Surface content</div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 24,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "9dfd1a94c283d4ba44c1754f5d38284ecf59beefeadb4c77830a1841f888ba04",
+      "nativeSha256": "baf09b378f083ff3c60c8039bc7178ce787bba245a57482fb7023b93b8d236e4"
+    },
+    {
+      "component": "surface",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 24,
+        "tag": "DIV",
+        "html": "<div class=\"bg-kumo-base shadow-xs ring ring-kumo-line overflow-visible rounded-none\" data-surface-color=\"primary\" data-deprecated=\"surface\">Surface content</div>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div><!---->Surface content<!----></div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 24,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "9dfd1a94c283d4ba44c1754f5d38284ecf59beefeadb4c77830a1841f888ba04",
+      "nativeSha256": "baf09b378f083ff3c60c8039bc7178ce787bba245a57482fb7023b93b8d236e4"
+    },
+    {
+      "component": "surface",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 24,
+        "tag": "DIV",
+        "html": "<div class=\"bg-kumo-base shadow-xs ring ring-kumo-line overflow-visible rounded-none\" data-surface-color=\"primary\" data-deprecated=\"surface\">Surface content</div>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div class=\"root\">Surface content</div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 24,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "9dfd1a94c283d4ba44c1754f5d38284ecf59beefeadb4c77830a1841f888ba04",
+      "nativeSha256": "baf09b378f083ff3c60c8039bc7178ce787bba245a57482fb7023b93b8d236e4"
+    },
+    {
+      "component": "switch",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 36,
+        "height": 18,
+        "tag": "BUTTON",
+        "html": "<button data-unchecked=\"\" type=\"button\" tabindex=\"0\" id=\"base-ui-_R_0H1_\" aria-label=\"Audit switch\" data-kumo-component=\"Switch\" role=\"switch\" aria-checked=\"false\" class=\"relative inline-flex items-center ring cursor-pointer border-none p-0"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 14,
+        "width": 1,
+        "height": 1,
+        "tag": "BUTTON",
+        "html": "<button type=\"button\" role=\"switch\" class=\"\" aria-label=\"Audit switch\" aria-checked=\"true\"></button>"
+      },
+      "equal": false,
+      "widthA": 36,
+      "heightA": 18,
+      "widthB": 1,
+      "heightB": 1,
+      "differingPixels": null,
+      "reactSha256": "6db1b0a78cf199aba9bc2bea8ba14fe0753a78060f7ac5b3f4aea20156ce82e1",
+      "nativeSha256": "fbc4a7cb850c9e2eb46749ce91b3d34c54a7649aba1163fafae64a2b1a6a93af"
+    },
+    {
+      "component": "switch",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 36,
+        "height": 18,
+        "tag": "BUTTON",
+        "html": "<button data-unchecked=\"\" type=\"button\" tabindex=\"0\" id=\"base-ui-_R_0H1_\" aria-label=\"Audit switch\" data-kumo-component=\"Switch\" role=\"switch\" aria-checked=\"false\" class=\"relative inline-flex items-center ring cursor-pointer border-none p-0"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 40,
+        "height": 20,
+        "tag": "BUTTON",
+        "html": "<button type=\"button\" role=\"switch\" class=\"h-5 w-10\" aria-label=\"Audit switch\" aria-checked=\"true\"><!----></button>"
+      },
+      "equal": false,
+      "widthA": 36,
+      "heightA": 18,
+      "widthB": 40,
+      "heightB": 20,
+      "differingPixels": null,
+      "reactSha256": "6db1b0a78cf199aba9bc2bea8ba14fe0753a78060f7ac5b3f4aea20156ce82e1",
+      "nativeSha256": "b71ccdc83db77a3586de5031da53ac4b3d5468450927a58e60e3c272233aa662"
+    },
+    {
+      "component": "switch",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 36,
+        "height": 18,
+        "tag": "BUTTON",
+        "html": "<button data-unchecked=\"\" type=\"button\" tabindex=\"0\" id=\"base-ui-_R_0H1_\" aria-label=\"Audit switch\" data-kumo-component=\"Switch\" role=\"switch\" aria-checked=\"false\" class=\"relative inline-flex items-center ring cursor-pointer border-none p-0"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 14,
+        "width": 1,
+        "height": 1,
+        "tag": "BUTTON",
+        "html": "<button type=\"button\" role=\"switch\" class=\"\" aria-label=\"Audit switch\" aria-checked=\"true\"></button>"
+      },
+      "equal": false,
+      "widthA": 36,
+      "heightA": 18,
+      "widthB": 1,
+      "heightB": 1,
+      "differingPixels": null,
+      "reactSha256": "6db1b0a78cf199aba9bc2bea8ba14fe0753a78060f7ac5b3f4aea20156ce82e1",
+      "nativeSha256": "fbc4a7cb850c9e2eb46749ce91b3d34c54a7649aba1163fafae64a2b1a6a93af"
+    },
+    {
+      "component": "table",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 89,
+        "tag": "TABLE",
+        "html": "<table class=\"isolate w-full [&amp;_td]:border-b [&amp;_td]:border-kumo-fill [&amp;_tr:last-child_td]:border-b-0 [&amp;_td]:p-3 [&amp;_th]:border-b [&amp;_th]:border-kumo-fill [&amp;_th]:p-3 [&amp;_th]:font-semibold [&amp;_th]:text-base [&a"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "TABLE",
+        "html": "<table class=\"isolate w-full\"><thead></thead><tbody></tbody><tr></tr><tr></tr><th>Name</th><td class=\"bg-kumo-tint\">Kumo</td></table>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 89,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "98c9d3d4770ebcfdf61be05dc33da1b9e8352ba48c15934a79d23a4d2e2e7f77",
+      "nativeSha256": "16954b1cd3d66afbcbd6a33e5bd53eadd67583baa8159a62a1b67e77a687a545"
+    },
+    {
+      "component": "table",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 89,
+        "tag": "TABLE",
+        "html": "<table class=\"isolate w-full [&amp;_td]:border-b [&amp;_td]:border-kumo-fill [&amp;_tr:last-child_td]:border-b-0 [&amp;_td]:p-3 [&amp;_th]:border-b [&amp;_th]:border-kumo-fill [&amp;_th]:p-3 [&amp;_th]:font-semibold [&amp;_th]:text-base [&a"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 34,
+        "tag": "TABLE",
+        "html": "<table class=\"isolate w-full\"><thead></thead><tbody><tr><th>Name</th></tr><tr><td class=\"bg-kumo-tint\">Kumo</td></tr></tbody></table>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 89,
+      "widthB": 712,
+      "heightB": 34,
+      "differingPixels": null,
+      "reactSha256": "98c9d3d4770ebcfdf61be05dc33da1b9e8352ba48c15934a79d23a4d2e2e7f77",
+      "nativeSha256": "32c0b26bc91a09825b7c8c5a08b32b4d6829a73420221fe931c4b5df5cd18549"
+    },
+    {
+      "component": "table",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 89,
+        "tag": "TABLE",
+        "html": "<table class=\"isolate w-full [&amp;_td]:border-b [&amp;_td]:border-kumo-fill [&amp;_tr:last-child_td]:border-b-0 [&amp;_td]:p-3 [&amp;_th]:border-b [&amp;_th]:border-kumo-fill [&amp;_th]:p-3 [&amp;_th]:font-semibold [&amp;_th]:text-base [&a"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "TABLE",
+        "html": "<table class=\"isolate w-full\"><thead></thead><tbody></tbody><tbody><tr></tr><tr></tr><tr><th>Name</th><td class=\"bg-kumo-tint\">Kumo</td></tr></tbody></table>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 89,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "98c9d3d4770ebcfdf61be05dc33da1b9e8352ba48c15934a79d23a4d2e2e7f77",
+      "nativeSha256": "16954b1cd3d66afbcbd6a33e5bd53eadd67583baa8159a62a1b67e77a687a545"
+    },
+    {
+      "component": "table-of-contents",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 48,
+        "tag": "NAV",
+        "html": "<nav aria-label=\"Table of contents\"><main class=\"nav-shell\"><h1>TableOfContents</h1><nav class=\"toc\" aria-label=\"On this page\"><a href=\"#overview\" aria-current=\"location\">Overview</a><a href=\"#keyboard\">Keyboard</a><a href=\"#accessibility\">"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 51,
+        "tag": "NAV",
+        "html": "<nav aria-label=\"Article sections\"><p>On this page</p><ul><li><a href=\"#intro\" aria-current=\"location\">Introduction</a></li><li><a href=\"#install\">Installation</a></li></ul></nav>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 48,
+      "widthB": 712,
+      "heightB": 51,
+      "differingPixels": null,
+      "reactSha256": "1edebb9cc4d78b1fb39cbfdc78e78961523b89202da4e84b02ba3145788eec4d",
+      "nativeSha256": "c95c7d138ba5bddb75e43058478cbdde60c99d56502bb2443ed7cff562fade10"
+    },
+    {
+      "component": "table-of-contents",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 48,
+        "tag": "NAV",
+        "html": "<nav aria-label=\"Table of contents\"><main class=\"nav-shell\"><h1>TableOfContents</h1><nav class=\"toc\" aria-label=\"On this page\"><a href=\"#overview\" aria-current=\"location\">Overview</a><a href=\"#keyboard\">Keyboard</a><a href=\"#accessibility\">"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 51,
+        "tag": "NAV",
+        "html": "<nav aria-label=\"Article sections\"><p>On this page</p><!----><ul><!----><li><a href=\"#intro\" aria-current=\"location\">Introduction</a></li><!----><li><a href=\"#install\">Installation</a></li></ul></nav>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 48,
+      "widthB": 712,
+      "heightB": 51,
+      "differingPixels": null,
+      "reactSha256": "1edebb9cc4d78b1fb39cbfdc78e78961523b89202da4e84b02ba3145788eec4d",
+      "nativeSha256": "c95c7d138ba5bddb75e43058478cbdde60c99d56502bb2443ed7cff562fade10"
+    },
+    {
+      "component": "table-of-contents",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 48,
+        "tag": "NAV",
+        "html": "<nav aria-label=\"Table of contents\"><main class=\"nav-shell\"><h1>TableOfContents</h1><nav class=\"toc\" aria-label=\"On this page\"><a href=\"#overview\" aria-current=\"location\">Overview</a><a href=\"#keyboard\">Keyboard</a><a href=\"#accessibility\">"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 51,
+        "tag": "NAV",
+        "html": "<nav aria-label=\"Article sections\"><p>On this page</p><ul><li><a href=\"#intro\" aria-current=\"location\">Introduction</a></li><li><a href=\"#install\">Installation</a></li></ul></nav>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 48,
+      "widthB": 712,
+      "heightB": 51,
+      "differingPixels": null,
+      "reactSha256": "1edebb9cc4d78b1fb39cbfdc78e78961523b89202da4e84b02ba3145788eec4d",
+      "nativeSha256": "c95c7d138ba5bddb75e43058478cbdde60c99d56502bb2443ed7cff562fade10"
+    },
+    {
+      "component": "tabs",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 36,
+        "tag": "DIV",
+        "html": "<div data-orientation=\"horizontal\" data-activation-direction=\"none\" class=\"relative isolate min-w-0 font-medium rounded-lg ring ring-kumo-hairline/70\"><div class=\"absolute inset-x-0 top-1/2 z-0 -translate-y-1/2 rounded-lg bg-kumo-recessed h"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div><div role=\"tablist\"><button type=\"button\" role=\"tab\" tabindex=\"0\" aria-selected=\"true\">Overview</button><button type=\"button\" role=\"tab\" tabindex=\"-1\" aria-selected=\"false\">Settings</button></div></div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 36,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "3ccd40931d1c8c570baa9fc1eeed5dc1eef6066b7e51c268d987bc68f43a9603",
+      "nativeSha256": "4bf89be70c63c10ff04584eae4009d23a2187b6844993270dc28641c29195cfd"
+    },
+    {
+      "component": "tabs",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 36,
+        "tag": "DIV",
+        "html": "<div data-orientation=\"horizontal\" data-activation-direction=\"none\" class=\"relative isolate min-w-0 font-medium rounded-lg ring ring-kumo-hairline/70\"><div class=\"absolute inset-x-0 top-1/2 z-0 -translate-y-1/2 rounded-lg bg-kumo-recessed h"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div><button type=\"button\" role=\"tab\" aria-selected=\"true\" tabindex=\"0\">Overview</button><button type=\"button\" role=\"tab\" aria-selected=\"false\" tabindex=\"-1\">Settings</button></div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 36,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "3ccd40931d1c8c570baa9fc1eeed5dc1eef6066b7e51c268d987bc68f43a9603",
+      "nativeSha256": "4bf89be70c63c10ff04584eae4009d23a2187b6844993270dc28641c29195cfd"
+    },
+    {
+      "component": "tabs",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 36,
+        "tag": "DIV",
+        "html": "<div data-orientation=\"horizontal\" data-activation-direction=\"none\" class=\"relative isolate min-w-0 font-medium rounded-lg ring ring-kumo-hairline/70\"><div class=\"absolute inset-x-0 top-1/2 z-0 -translate-y-1/2 rounded-lg bg-kumo-recessed h"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div><button type=\"button\" role=\"tab\" aria-selected=\"true\" tabindex=\"0\">Overview</button><button type=\"button\" role=\"tab\" aria-selected=\"false\" tabindex=\"-1\">Settings</button></div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 36,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "3ccd40931d1c8c570baa9fc1eeed5dc1eef6066b7e51c268d987bc68f43a9603",
+      "nativeSha256": "4bf89be70c63c10ff04584eae4009d23a2187b6844993270dc28641c29195cfd"
+    },
+    {
+      "component": "text",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 20,
+        "tag": "P",
+        "html": "<p class=\"text-kumo-default text-base\">Presentational text copy</p>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 155.96875,
+        "height": 17,
+        "tag": "SPAN",
+        "html": "<span class=\"\">Presentational text copy</span>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 20,
+      "widthB": 155,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "97bb1b33b61fbcc65ada6b44d96641b6c50f61cddd612a4f0717d4a0bc694cd1",
+      "nativeSha256": "77b0587cc78463ec568651602c552a9c62699f9da9023c0a98cc867212fbec9a"
+    },
+    {
+      "component": "text",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 20,
+        "tag": "P",
+        "html": "<p class=\"text-kumo-default text-base\">Presentational text copy</p>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 155.96875,
+        "height": 17,
+        "tag": "SPAN",
+        "html": "<span><!---->Presentational text copy<!----></span>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 20,
+      "widthB": 155,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "97bb1b33b61fbcc65ada6b44d96641b6c50f61cddd612a4f0717d4a0bc694cd1",
+      "nativeSha256": "77b0587cc78463ec568651602c552a9c62699f9da9023c0a98cc867212fbec9a"
+    },
+    {
+      "component": "text",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 20,
+        "tag": "P",
+        "html": "<p class=\"text-kumo-default text-base\">Presentational text copy</p>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 155.96875,
+        "height": 17,
+        "tag": "SPAN",
+        "html": "<span class=\"root\">Presentational text copy</span>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 20,
+      "widthB": 155,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "97bb1b33b61fbcc65ada6b44d96641b6c50f61cddd612a4f0717d4a0bc694cd1",
+      "nativeSha256": "77b0587cc78463ec568651602c552a9c62699f9da9023c0a98cc867212fbec9a"
+    },
+    {
+      "component": "toasty",
+      "framework": "vue",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 48,
+        "tag": "MAIN",
+        "html": "<main class=\"family\"><h1>Toasty</h1><section><button class=\"toast-button\">Save changes</button><output class=\"toast\" role=\"status\" aria-live=\"polite\">Ready to save</output></section></main>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div data-kumo-component=\"Toasty\">Save notification<button type=\"button\" data-notify=\"\" aria-label=\"Notify\"></button><!--v-if--></div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 48,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "e6c60431080022b13e04a78a335279e0a6d0e242aeecc2532b4089b1f58ed1c7",
+      "nativeSha256": "195422193bb29c2a7b9cf01d723c08d7ca85ceaf3c6969282869755577faa324"
+    },
+    {
+      "component": "toasty",
+      "framework": "svelte",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 48,
+        "tag": "MAIN",
+        "html": "<main class=\"family\"><h1>Toasty</h1><section><button class=\"toast-button\">Save changes</button><output class=\"toast\" role=\"status\" aria-live=\"polite\">Ready to save</output></section></main>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div data-kumo-component=\"Toasty\"><!---->Save notification<!----><button type=\"button\" data-notify=\"\" aria-label=\"Notify\"></button><!----></div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 48,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "e6c60431080022b13e04a78a335279e0a6d0e242aeecc2532b4089b1f58ed1c7",
+      "nativeSha256": "195422193bb29c2a7b9cf01d723c08d7ca85ceaf3c6969282869755577faa324"
+    },
+    {
+      "component": "toasty",
+      "framework": "solid",
+      "width": 1440,
+      "state": "default",
+      "reactRect": {
+        "x": 24,
+        "y": 24,
+        "width": 1392,
+        "height": 48,
+        "tag": "MAIN",
+        "html": "<main class=\"family\"><h1>Toasty</h1><section><button class=\"toast-button\">Save changes</button><output class=\"toast\" role=\"status\" aria-live=\"polite\">Ready to save</output></section></main>"
+      },
+      "nativeRect": {
+        "x": 0,
+        "y": 0,
+        "width": 712,
+        "height": 17,
+        "tag": "DIV",
+        "html": "<div data-kumo-component=\"Toasty\">Save notification<button type=\"button\" data-notify=\"\" aria-label=\"Notify\"></button></div>"
+      },
+      "equal": false,
+      "widthA": 1392,
+      "heightA": 48,
+      "widthB": 712,
+      "heightB": 17,
+      "differingPixels": null,
+      "reactSha256": "e6c60431080022b13e04a78a335279e0a6d0e242aeecc2532b4089b1f58ed1c7",
+      "nativeSha256": "195422193bb29c2a7b9cf01d723c08d7ca85ceaf3c6969282869755577faa324"
+    }
+  ],
+  "diagnostics": [],
+  "status": "failed",
+  "counts": {
+    "passed": 3,
+    "failed": 120
+  }
+}

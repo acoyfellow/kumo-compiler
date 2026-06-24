@@ -19,6 +19,9 @@ for(const component of generated.components){
   await cp(resolve(source,component.declaration),resolve(output,'components',component.declaration))
 }
 for(const file of ['styles.css','tokens.css']) await cp(resolve(assets,file),resolve(output,file))
+const canonicalCss=await readFile(resolve(root,'node_modules/@cloudflare/kumo/dist/styles/kumo-standalone.css'),'utf8')
+const packageCss=await readFile(resolve(output,'styles.css'),'utf8')
+await writeFile(resolve(output,'styles.css'),`${canonicalCss}\n${packageCss}`)
 const rewriteImports=text=>text.replace(/from "\.\//g,'from "./components/')
 await writeFile(resolve(output,'index.tsx'),rewriteImports(await readFile(resolve(source,'index.ts'),'utf8')))
 await writeFile(resolve(output,'index.d.ts'),rewriteImports(await readFile(resolve(source,'index.d.ts'),'utf8')))

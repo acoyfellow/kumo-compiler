@@ -471,11 +471,13 @@ test('Vue native-button capability compiles and SSR renders four interactive ini
   assert.match(source,/v-bind="\$attrs"/); assert.match(source,/:disabled="props\.disabled \|\| props\.loading"/);
   assert.match(source,/<svg v-if="props\.loading" aria-hidden="true"><\/svg><slot \/>/);
   const Component=await compileSSRComponent(entry,build);
+  const visual=JSON.parse(fs.readFileSync(path.resolve('generated/visual-contract.json'),'utf8'));
+  const cls=` class="${visual.components.button.root.className}"`;
   const fixtures=[
-    [{},'<button type="button">Ready</button>'],
-    [{disabled:true},'<button type="button" disabled>Disabled</button>'],
-    [{loading:true},'<button type="button" disabled><svg aria-hidden="true"></svg>Loading</button>'],
-    [{type:'submit'},'<button type="submit">Submit</button>'],
+    [{},`<button${cls} type="button">Ready</button>`],
+    [{disabled:true},`<button${cls} type="button" disabled>Disabled</button>`],
+    [{loading:true},`<button${cls} type="button" disabled><svg aria-hidden="true"></svg>Loading</button>`],
+    [{type:'submit'},`<button type="submit"${cls}>Submit</button>`],
   ];
   for(const [props,expected] of fixtures){
     const label=props.loading?'Loading':props.disabled?'Disabled':props.type==='submit'?'Submit':'Ready';

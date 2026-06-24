@@ -254,7 +254,8 @@ test('native-button capability emits four interactive initial DOM states',async 
  emitSvelteLibrary({output});
  const source=fs.readFileSync(path.join(output,'components/button.svelte'),'utf8');
  assert.doesNotMatch(source,/component\s*===?\s*["']button/i);
- assert.match(source,/<button \{\.\.\.rest\} type=\{type\} disabled=\{Boolean\(disabled \|\| loading\)\}/);
+ const visual=JSON.parse(fs.readFileSync(path.resolve('generated/visual-contract.json'),'utf8'));
+ assert.ok(source.includes(`<button {...rest} class=${JSON.stringify(visual.components.button.root.className)} type={type} disabled={Boolean(disabled || loading)}`));
  const compiled=compile(source,{filename:'button.svelte',generate:'server'});
  const target=path.join(build,'button.mjs');fs.writeFileSync(target,compiled.js.code);
  const Button=(await import(pathToFileURL(target)+`?${Date.now()}`)).default;
