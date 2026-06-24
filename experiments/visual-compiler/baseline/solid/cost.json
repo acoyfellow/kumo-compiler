@@ -1,0 +1,10 @@
+{
+  "wallMinutes": 12,
+  "filesChanged": 6,
+  "locTotal": 53,
+  "frameworkSpecificLoc": 14,
+  "iterationsToPass": 2,
+  "firstFailureClasses": ["harnessPathResolution"],
+  "focusedBuildMs": 4424,
+  "notes": "Hand-authored Solid components; adapted the existing Solid Vite/SSR/CDP capture machinery. First run failed because the canonical stylesheet repo path was one directory too high; corrected and all cells captured. LOC includes component, harness, and cost JSON source, excluding generated outputs."
+}

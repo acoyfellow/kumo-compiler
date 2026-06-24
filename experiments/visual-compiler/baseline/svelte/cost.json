@@ -1,0 +1,10 @@
+{
+  "wallMinutes": 6,
+  "filesChanged": 7,
+  "locTotal": 42,
+  "frameworkSpecificLoc": 32,
+  "iterationsToPass": 1,
+  "firstFailureClasses": [],
+  "focusedBuildMs": 11737,
+  "notes": "Hand-authored four native Svelte 5 (runes) components (Button 12, Checkbox 8, Field 5, Popover 7, App 10 LOC) + adapted Svelte/Vite/CDP capture harness. Capture reported passed 36/36 (cold 11.7s). cost.json was synthesized by the orchestrator from observed artifacts because the worker hit an LLM rate limit at the final write step AFTER the capture passed; component LOC measured directly via wc -l. Build/capture timing from capture-results.json benchmarks.coldMs."
+}

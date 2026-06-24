@@ -17,6 +17,7 @@ const quote = value => JSON.stringify(value);
 const escapeAttribute = value => String(value).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;');
 const directive = (name, expression) => `v-bind:${name}='${escapeAttribute(expression)}'`;
 const voidTags = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']);
+const nativeBooleanAttributes = new Set(['disabled', 'checked', 'required', 'readonly', 'multiple', 'selected', 'autofocus', 'hidden']);
 
 function readAuthority() {
   const irBytes = fs.readFileSync(irFile, 'utf8');
@@ -41,22 +42,41 @@ function operationModel(shard, component) {
   const portals = [];
   for (const operation of shard.operations) {
     if (operation.kind === 'state.init' || operation.kind === 'state.transition') stateOperations.push(operation);
-    else if (operation.kind === 'node.create' || operation.kind === 'node.text') nodes.set(operation.part, { operation, operations: [], children: [], samples: samples.get(operation.part) ?? [] });
+    else if (operation.kind === 'node.create') {
+      if (nodes.has(operation.part)) throw new Error(`duplicate node.create: ${operation.part}`);
+      nodes.set(operation.part, { operation, operations: [], children: [], samples: samples.get(operation.part) ?? [] });
+    }
   }
   for (const operation of shard.operations) {
-    if (operation.part !== null && !operation.kind.startsWith('node.')) nodes.get(operation.part).operations.push(operation);
+    if (operation.part !== null && operation.kind !== 'node.create') {
+      const node = nodes.get(operation.part);
+      if (!node) throw new Error(`operation has no node.create: ${operation.part}`);
+      node.operations.push(operation);
+    }
     if (operation.kind === 'portal.mount' || operation.kind === 'portal.unmount') portals.push(operation);
   }
   const roots = [];
   for (const node of nodes.values()) {
-    const parent = nodes.get(node.operation.parent);
-    if (parent) parent.children.push(node); else roots.push(node);
+    if (node.operation.parent === null) roots.push(node);
+    else {
+      const parent = nodes.get(node.operation.parent);
+      if (!parent) throw new Error(`missing planned parent ${node.operation.parent} for ${node.operation.part}`);
+      parent.children.push(node);
+    }
   }
-  const order = node => node.samples[0]?.order ?? Number.MAX_SAFE_INTEGER;
+  const order = node => node.operation.order ?? node.samples[0]?.order ?? Number.MAX_SAFE_INTEGER;
   const sortTree = values => values.sort((a, b) => order(a) - order(b) || a.operation.part.localeCompare(b.operation.part));
   sortTree(roots);
   for (const node of nodes.values()) sortTree(node.children);
-  return { roots, stateOperations, portals };
+  const visited = new Set();
+  const visit = node => {
+    if (visited.has(node.operation.part)) throw new Error(`node rendered more than once or cycle detected: ${node.operation.part}`);
+    visited.add(node.operation.part);
+    node.children.forEach(visit);
+  };
+  roots.forEach(visit);
+  if (visited.size !== nodes.size) throw new Error(`forest is incomplete: reached ${visited.size}/${nodes.size} nodes`);
+  return { roots, nodes, stateOperations, portals };
 }
 
 function conditionExpression(when) {
@@ -96,12 +116,19 @@ function sampleExpression(samples, select) {
   return `(${quote(Object.fromEntries(values))})[state]`;
 }
 
-function selectExpression(operations, fallback = 'undefined') {
-  return operations.reduceRight((otherwise, operation) => `(${conditionExpression(operation.when)}) ? ${operation.remove ? 'undefined' : valueExpression(operation.value)} : ${otherwise}`, fallback);
+function selectExpression(operations, fallback = 'undefined', attributeName = null) {
+  return operations.reduceRight((otherwise, operation) => {
+    let value;
+    if (operation.remove) value = 'undefined';
+    else if (attributeName && nativeBooleanAttributes.has(attributeName) && operation.value === '') value = 'true';
+    else value = valueExpression(operation.value);
+    return `(${conditionExpression(operation.when)}) ? ${value} : ${otherwise}`;
+  }, fallback);
 }
 
 function attributes(node) {
-  const attrs = [`data-part=${quote(node.operation.part)}`];
+  const attrs = [];
+  if (node.operation.explicitPart !== null && node.operation.explicitPart !== undefined) attrs.push(`data-part=${quote(node.operation.explicitPart)}`);
   const grouped = new Map();
   for (const operation of node.operations) {
     if (operation.kind !== 'attribute.set' && operation.kind !== 'attribute.remove') continue;
@@ -111,24 +138,34 @@ function attributes(node) {
   }
   for (const [name, operations] of [...grouped].sort(([left], [right]) => left.localeCompare(right))) {
     if (name === 'data-part') continue;
-    attrs.push(directive(name, selectExpression(operations, name === 'class' ? "''" : 'undefined')));
+    attrs.push(directive(name, selectExpression(operations, name === 'class' ? "''" : 'undefined', name)));
   }
   const events = new Map();
   for (const operation of node.operations.filter(item => item.kind === 'event.listen')) if (!events.has(operation.event)) events.set(operation.event, operation);
-  for (const [event, operation] of events) attrs.push(`@${event}="dispatch(${quote(operation.dispatch)}, $event)"`);
+  for (const [event, operation] of events) attrs.push(`@${event}='dispatch(${quote(operation.dispatch)}, ${JSON.stringify(operation.value)}, $event)'`);
   return attrs.join(' ');
+}
+
+function portalMount(node) {
+  return node.operations.find(operation => operation.kind === 'portal.mount');
 }
 
 function renderNode(node, depth = 1) {
   const pad = '  '.repeat(depth);
-  const sample = node.samples[0] ?? {};
-  const tag = sample.tag || (node.operation.kind === 'node.text' ? 'span' : 'div');
+  const tag = node.operation.tag;
+  const namespace = node.operation.namespace;
+  if (!tag || !namespace) throw new Error(`node.create lacks canonical tag/namespace: ${node.operation.part}`);
   const children = node.children.map(child => renderNode(child, depth + 1)).join('\n');
   const textOperations = node.operations.filter(item => item.kind === 'node.text');
   const textExpression = selectExpression(textOperations, "''");
   const ownText = children || !textOperations.length ? '' : `{{ ${textExpression} }}`;
   const body = children ? `\n${children}\n${pad}` : ownText;
-  const element = voidTags.has(tag) ? `<${tag} ${attributes(node)} />` : `<${tag} ${attributes(node)}>${body}</${tag}>`;
+  const renderedAttributes = attributes(node);
+  const opening = renderedAttributes ? `${tag} ${renderedAttributes}` : tag;
+  // Vue's template compiler enters SVG mode from an <svg> root and preserves
+  // descendant local names/attributes. Reject impossible detached SVG nodes.
+  if (namespace === 'http://www.w3.org/2000/svg' && tag !== 'svg' && !node.operation.parent) throw new Error(`detached SVG node: ${node.operation.part}`);
+  const element = voidTags.has(tag) ? `<${opening} />` : `<${opening}>${body}</${tag}>`;
   const visible = node.operation.when === null || node.operation.when === undefined ? null : conditionExpression(node.operation.when);
   return `${pad}${visible ? `<template v-if='${escapeAttribute(visible)}'>${element}</template>` : element}`;
 }
@@ -138,10 +175,16 @@ function renderShard(shard, component) {
   const transitions = model.stateOperations.filter(item => item.kind === 'state.transition');
   const transitionData = transitions.map(({ kind, part, ...transition }) => transition);
   const propLines = Object.entries(shard.inputs).map(([name, spec]) => `  ${name}: { default: ${quote(spec.default ?? null)} },`).join('\n');
-  const roots = model.roots.map(node => renderNode(node)).join('\n');
-  const portalTargets = [...new Set(model.portals.filter(item => item.kind === 'portal.mount').map(item => item.target))];
-  const template = portalTargets.length ? portalTargets.map(target => `  <Teleport to=${quote(target)}>${roots}</Teleport>`).join('\n') : roots;
-  return `<script setup>\nimport { ref, watch } from 'vue'\nconst props = defineProps({\n${propLines}${propLines ? '\n' : ''}  state: { type: String, default: ${quote(shard.initialState)} },\n})\nconst emit = defineEmits(['operation'])\nconst state = ref(props.state)\nconst viewport = typeof window === 'undefined' ? 1440 : window.innerWidth\nwatch(() => props.state, value => { state.value = value })\nconst transitions = ${JSON.stringify(transitionData)}\nfunction dispatch(operation, event) {\n  const transition = transitions.find(item => item.event === operation && (item.from === '*' || item.from === state.value))\n  if (transition) state.value = transition.to\n  emit('operation', { operation, event, state: state.value })\n}\n</script>\n\n<template>\n${template}\n</template>\n`;
+  const template = model.roots.map(node => {
+    const rendered = renderNode(node);
+    const portal = portalMount(node);
+    if (!portal) return rendered;
+    const condition = conditionExpression(portal.when);
+    const target=portal.target==='document.body'?'body':portal.target;
+    const teleport = `<Teleport to=${quote(target)}>${rendered}</Teleport>`;
+    return condition === 'true' ? `  ${teleport}` : `  <template v-if='${escapeAttribute(condition)}'>${teleport}</template>`;
+  }).join('\n');
+  return `<script setup>\nimport { ref, watch } from 'vue'\nconst props = defineProps({\n${propLines}${propLines ? '\n' : ''}  state: { type: String, default: ${quote(shard.initialState)} },\n})\nconst emit = defineEmits(['operation'])\nconst state = ref(props.state)\nconst viewport = typeof window === 'undefined' ? 1440 : window.innerWidth\nwatch(() => props.state, value => { state.value = value })\nconst transitions = ${JSON.stringify(transitionData)}\nfunction dispatch(operation, value, event) {\n  const transition = transitions.find(item => item.event === operation && (item.from === '*' || item.from === state.value))\n  if (transition) state.value = transition.to\n  emit('operation', { operation, value, event, state: state.value })\n}\n</script>\n\n<template>\n${template}\n</template>\n`;
 }
 
 export function lowerPlan(plan, ir, inputs) {
