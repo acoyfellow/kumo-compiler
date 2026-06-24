@@ -2,22 +2,197 @@
   "schemaVersion": "kumo.visual-compiler-scale/v1",
   "objective": "Every executable Kumo component reaches 36/36 product parity (neutral scorer) across native Vue/Svelte/Solid: 4 states-or-variants x 3 viewports x 3 targets, visually and behaviorally indistinguishable from canonical React.",
   "loopStartCommit": "6f9cdd0a",
-  "targets": ["vue", "svelte", "solid"],
-  "viewports": [390, 768, 1440],
+  "targets": [
+    "vue",
+    "svelte",
+    "solid"
+  ],
+  "viewports": [
+    390,
+    768,
+    1440
+  ],
   "universe": {
     "executableTopLevel": 41,
-    "list": ["autocomplete","badge","banner","breadcrumbs","button","checkbox","clipboard-text","cloudflare-logo","code","combobox","command-palette","date-picker","date-range-picker","dialog","dropdown-menu","empty","field","grid","grid-item","input","input-area","input-group","label","layer-card","link","loader","menu-bar","meter","pagination","popover","radio","select","sensitive-input","sidebar","surface","switch","table","table-of-contents","tabs","text","toasty"],
-    "upstreamBlocked": ["page-header", "resource-list-page"],
-    "supplemental": ["chart", "flow"]
+    "list": [
+      "autocomplete",
+      "badge",
+      "banner",
+      "breadcrumbs",
+      "button",
+      "checkbox",
+      "clipboard-text",
+      "cloudflare-logo",
+      "code",
+      "combobox",
+      "command-palette",
+      "date-picker",
+      "date-range-picker",
+      "dialog",
+      "dropdown-menu",
+      "empty",
+      "field",
+      "grid",
+      "grid-item",
+      "input",
+      "input-area",
+      "input-group",
+      "label",
+      "layer-card",
+      "link",
+      "loader",
+      "menu-bar",
+      "meter",
+      "pagination",
+      "popover",
+      "radio",
+      "select",
+      "sensitive-input",
+      "sidebar",
+      "surface",
+      "switch",
+      "table",
+      "table-of-contents",
+      "tabs",
+      "text",
+      "toasty"
+    ],
+    "upstreamBlocked": [
+      "page-header",
+      "resource-list-page"
+    ],
+    "supplemental": [
+      "chart",
+      "flow"
+    ]
   },
-  "done": ["button", "checkbox", "field", "popover"],
-  "remaining": ["autocomplete","badge","banner","breadcrumbs","clipboard-text","cloudflare-logo","code","combobox","command-palette","date-picker","date-range-picker","dialog","dropdown-menu","empty","grid","grid-item","input","input-area","input-group","label","layer-card","link","loader","menu-bar","meter","pagination","radio","select","sensitive-input","sidebar","surface","switch","table","table-of-contents","tabs","text","toasty"],
+  "done": [
+    "button",
+    "checkbox",
+    "field",
+    "popover",
+    "badge",
+    "label",
+    "text",
+    "link",
+    "surface",
+    "banner"
+  ],
+  "remaining": [
+    "autocomplete",
+    "breadcrumbs",
+    "clipboard-text",
+    "cloudflare-logo",
+    "code",
+    "combobox",
+    "command-palette",
+    "date-picker",
+    "date-range-picker",
+    "dialog",
+    "dropdown-menu",
+    "empty",
+    "grid",
+    "grid-item",
+    "input",
+    "input-area",
+    "input-group",
+    "layer-card",
+    "loader",
+    "menu-bar",
+    "meter",
+    "pagination",
+    "radio",
+    "select",
+    "sensitive-input",
+    "sidebar",
+    "switch",
+    "table",
+    "table-of-contents",
+    "tabs",
+    "toasty"
+  ],
   "blockedWithReason": {},
   "perComponent": {
-    "button": {"parity": {"vue": 9, "svelte": 9, "solid": 9}, "status": "passed"},
-    "checkbox": {"parity": {"vue": 9, "svelte": 9, "solid": 9}, "status": "passed"},
-    "field": {"parity": {"vue": 9, "svelte": 9, "solid": 9}, "status": "passed"},
-    "popover": {"parity": {"vue": 9, "svelte": 9, "solid": 9}, "status": "passed"}
+    "button": {
+      "parity": {
+        "vue": 9,
+        "svelte": 9,
+        "solid": 9
+      },
+      "status": "passed"
+    },
+    "checkbox": {
+      "parity": {
+        "vue": 9,
+        "svelte": 9,
+        "solid": 9
+      },
+      "status": "passed"
+    },
+    "field": {
+      "parity": {
+        "vue": 9,
+        "svelte": 9,
+        "solid": 9
+      },
+      "status": "passed"
+    },
+    "popover": {
+      "parity": {
+        "vue": 9,
+        "svelte": 9,
+        "solid": 9
+      },
+      "status": "passed"
+    },
+    "badge": {
+      "parity": {
+        "vue": 9,
+        "svelte": 9,
+        "solid": 9
+      },
+      "status": "passed"
+    },
+    "label": {
+      "parity": {
+        "vue": 9,
+        "svelte": 9,
+        "solid": 9
+      },
+      "status": "passed"
+    },
+    "text": {
+      "parity": {
+        "vue": 9,
+        "svelte": 9,
+        "solid": 9
+      },
+      "status": "passed"
+    },
+    "link": {
+      "parity": {
+        "vue": 9,
+        "svelte": 9,
+        "solid": 9
+      },
+      "status": "passed"
+    },
+    "surface": {
+      "parity": {
+        "vue": 9,
+        "svelte": 9,
+        "solid": 9
+      },
+      "status": "passed"
+    },
+    "banner": {
+      "parity": {
+        "vue": 9,
+        "svelte": 9,
+        "solid": 9
+      },
+      "status": "passed"
+    }
   },
   "marginalWorkSurface": {
     "perComponent": [

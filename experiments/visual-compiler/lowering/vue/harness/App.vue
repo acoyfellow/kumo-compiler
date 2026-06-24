@@ -1,10 +1,15 @@
 <script setup>
-import Button from '../generated/Button.vue'
-import Checkbox from '../generated/Checkbox.vue'
-import Field from '../generated/Field.vue'
-import Popover from '../generated/Popover.vue'
+// Generic harness: dynamically load EVERY generated SFC and key by lowercased
+// basename (e.g. Button.vue -> "button", DateRangePicker.vue -> "date-range-picker").
+// No per-component hardcoding; scales with the IR automatically.
+const modules = import.meta.glob('../generated/*.vue', { eager: true })
+const components = {}
+for (const [path, mod] of Object.entries(modules)) {
+  const base = path.split('/').pop().replace(/\.vue$/, '')
+  const key = base.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase()
+  components[key] = mod.default
+}
 const props = defineProps({ component: String, state: String })
-const components = { button: Button, checkbox: Checkbox, field: Field, popover: Popover }
-function operation(detail) { globalThis.__events.push({ type: 'operation', operation: detail.operation, state: detail.state }) }
+function operation(detail) { globalThis.__events.push({ type: detail.operation, ...(detail.value === undefined ? {} : { value: detail.value }) }) }
 </script>
-<template><main><component :is="components[props.component]" :state="props.state" @operation="operation" /></main></template>
+<template><component :is="components[props.component]" :state="props.state" @operation="operation" /></template>

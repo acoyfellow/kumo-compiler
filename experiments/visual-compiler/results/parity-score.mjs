@@ -17,7 +17,10 @@ const CANON = resolve(ROOT, ['tr','acer'].join(''), 'artifacts');
 const sha = x => createHash('sha256').update(x).digest('hex');
 const json = async p => JSON.parse(await readFile(p, 'utf8'));
 
-const STATES = {button:['default','disabled','loading'],checkbox:['unchecked','checked','indeterminate'],field:['default','error','disabled'],popover:['closed','open','dismissed']};
+// STATES derive from the IR fixture (single source of truth) so the scorer covers
+// exactly the components/states the tracer captured. No hardcoded component list.
+const IR_PATH = resolve(ROOT, 'ir/fixtures/components.json');
+const STATES = Object.fromEntries((JSON.parse(await readFile(IR_PATH,'utf8'))).components.map(c => [c.name, c.states.values]));
 const VIEWPORTS = [390,768,1440];
 // Per bakeoff.json: exact-pixel scope vs composite/animated <=0.25% scope.
 const COMPOSITE = new Set(['button:loading','popover:closed','popover:open','popover:dismissed']);

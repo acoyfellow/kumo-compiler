@@ -11,12 +11,10 @@ import {createHash} from 'node:crypto';
 import {readFile} from 'node:fs/promises';
 import {resolve} from 'node:path';
 
-export const CELLS={
- button:['default','disabled','loading'],
- checkbox:['unchecked','checked','indeterminate'],
- field:['default','error','disabled'],
- popover:['closed','open','dismissed']
-};
+// CELLS derive from the IR fixture (single source of truth) so the harness scales
+// with the compiler automatically; no hardcoded component list.
+const IR_PATH=resolve(import.meta.dirname,'../../ir/fixtures/components.json');
+export const CELLS=Object.fromEntries(JSON.parse(await readFile(IR_PATH,'utf8')).components.map(c=>[c.name,c.states.values]));
 export const VIEWPORTS=[390,768,1440];
 export const cells=()=>Object.entries(CELLS).flatMap(([component,states])=>states.flatMap(state=>VIEWPORTS.map(viewport=>({component,state,viewport}))));
 export const sha=value=>createHash('sha256').update(value).digest('hex');
