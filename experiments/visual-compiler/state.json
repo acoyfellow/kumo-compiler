@@ -1,15 +1,13 @@
 {
-  "schemaVersion":"kumo.visual-compiler-spike-state/v1","status":"running","phase":"wave-2-tracer-v3-target-recapture","generation":9,
-  "completed":["frontend-typescript","frontend-oxc","frontend-equivalence","canonical-tracer-v3","authority-derived-ir-v3","stateful-lowering-core-v3","verifier-v2","incremental-engine","authority-11-of-11"],
-  "active":["vue-v3-recapture","svelte-v3-recapture","solid-v3-lowering-hydration-recapture"],
+  "schemaVersion":"kumo.visual-compiler-spike-state/v1","status":"running","phase":"wave-2-forest-and-trace-v3-repair","generation":10,
+  "completed":["frontend-authority","canonical-tracer-v3","stateful-ir-v3","lowering-core-v3","native-harness-infrastructure","authority-11-of-11","incremental-engine"],
+  "active":["vue-forest-repair","solid-forest-hydration-repair","svelte-trace-v3-recapture","verifier-v3-projection"],
   "failed":[
     {"artifact":"synthetic-wave","status":"retired"},
-    {"artifact":"tracer-v2","status":"retired","reason":"post-action visual snapshot and incomplete topology"},
-    {"artifact":"ir/core-v2","status":"retired","reason":"derived from incomplete tracer topology"},
-    {"artifact":"vue-v3","status":"recapturing","reason":"generated source changed; prior captures stale"},
-    {"artifact":"svelte-v3","status":"recapturing","reason":"freshness guard correctly rejected prior captures"},
-    {"artifact":"solid-v3","status":"repairing","reason":"generic forest omitted nested planned path; hydration previously false"}
+    {"artifact":"target-captures-v2","status":"retired","reason":"candidate traces lacked stable id,parentId,order,namespace and verifier keyed by nullable part"},
+    {"artifact":"vue-tree-v3","status":"repairing","reason":"nodes rendered as separate roots instead of planned forest"},
+    {"artifact":"solid-tree-v3","status":"repairing","reason":"nested planned path omitted and hydration false"}
   ],
-  "selection":{"frontend":"typescript+oxc-preparse","tracer":"real-package-v3-initial-plus-after","ir":"part-first-v3-parented","authorityChecks":"pending input refresh","engineWarmP95Ms":1.481},
-  "next":["fresh-108-cell-v3-verification","differential-repair","zero-pixel-matrix","warm-under-1s","final-receipt"],"terminal":false,"updatedAt":"2026-06-24T12:19:00.000Z"
+  "selection":{"frontend":"typescript+oxc-preparse","tracer":"real-package-v3","ir":"parented-part-first-v3","loweringCore":"stateful-plan-v3","engineWarmP95Ms":1.481},
+  "next":["fresh-108-v3-cells","ordered-differential-repair","zero-pixel-matrix","warm-under-1s","final-receipt"],"terminal":false,"updatedAt":"2026-06-24T12:22:30.000Z"
 }
