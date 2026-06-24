@@ -1,12 +1,13 @@
 {
-  "schemaVersion":"kumo.visual-compiler-spike-state/v1","status":"running","phase":"wave-2-part-identity-repair","generation":11,
-  "completed":["frontend-authority","canonical-tracer-v3","parented-stateful-ir-v3","native-harness-infrastructure","verifier-v3","incremental-engine"],
-  "active":["vue-explicit-path-identity","svelte-explicit-path-identity","solid-explicit-path-identity-forest-hydration"],
+  "schemaVersion":"kumo.visual-compiler-spike-state/v1","status":"running","phase":"wave-2-portal-typed-attribute-repair","generation":12,
+  "completed":["frontend-authority","canonical-tracer-v3","stable-part-identity","parented-stateful-ir","verifier-v3","incremental-engine","svelte-v3-capture","vue-v3-capture"],
+  "active":["vue-portal-boolean-recapture","svelte-portal-boolean-text-recapture","solid-portal-forest-hydration-recapture"],
   "failed":[
     {"artifact":"synthetic-wave","status":"retired"},
-    {"artifact":"candidate-trace-v2","status":"retired"},
-    {"artifact":"target-identity-v3","status":"repairing","reason":"lowerers emitted all IR IDs as data-part, so native capture escaped canonical path IDs; core lacked explicitPart/tag/namespace distinction"}
+    {"artifact":"popover-ir-v3","status":"retired","reason":"null portal parent was incorrectly replaced with main root"},
+    {"artifact":"lowering-core-v3-attrs","status":"retired","reason":"attribute type discarded, causing boolean presence attrs such as disabled to disappear"},
+    {"artifact":"target-portals-v3","status":"repairing","reason":"Vue wrapped all roots when any portal existed; targets need root-specific portal lowering"}
   ],
-  "selection":{"frontend":"typescript+oxc-preparse","tracer":"canonical-v3","ir":"parented-part-first-v3","loweringCore":"v3 with tag/namespace/explicitPart","verifier":"stable-v3-provenance","engineWarmP95Ms":1.481},
-  "next":["fresh-108-identity-aligned-cells","attributes-classes-repair","geometry-style-pixel","warm-under-1s","final-receipt"],"terminal":false,"updatedAt":"2026-06-24T12:29:30.000Z"
+  "selection":{"frontend":"typescript+oxc-preparse","tracer":"canonical-v3","ir":"part-first-v3-null-parent-preserved","loweringCore":"v3-typed-attributes","verifier":"v3-stable-id","currentParity":"9/108"},
+  "next":["fresh-108-portal-correct-cells","geometry-style-pixel-repair","zero-pixel-matrix","warm-under-1s","final-receipt"],"terminal":false,"updatedAt":"2026-06-24T12:55:00.000Z"
 }

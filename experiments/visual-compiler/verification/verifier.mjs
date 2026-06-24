@@ -19,7 +19,7 @@ function normalizeParts(parts=[]){return parts.map(p=>({...p,id:stablePartId(p)}
 function projections(trace){const parts=normalizeParts(trace.parts);return {
  irDigest:trace.irDigest||trace.ir?.digest||null,
  topology:parts.map(p=>({id:p.id,parentId:p.parentId,order:p.order,namespace:p.namespace,tag:p.tag,role:p.role??null})),
- attributesClasses:parts.map(p=>({id:p.id,attrs:sort(p.attrs||{}),classes:[...(p.classes||[])].sort()})),
+ attributesClasses:parts.map(p=>{const attrs={...(p.attrs||{})};delete attrs.class;return{id:p.id,attrs:sort(attrs),classes:[...(p.classes||[])].sort()}}),
  geometry:parts.map(p=>({id:p.id,geometry:p.geometry})),
  computedStyles:parts.map(p=>({id:p.id,style:sort(p.style||p.computedStyles||{})})),
  pixels:trace.screenshot?.sha256||trace.screenshotSha256||trace.pixels?.sha256||null,

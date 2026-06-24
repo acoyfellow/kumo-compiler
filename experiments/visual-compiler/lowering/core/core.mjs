@@ -15,7 +15,7 @@ function observedOperations(part) {
   for(const sample of part.samples){
     const when=whenCell(sample);
     operations.push(op('node.text',part.id,{value:sample.text??'',when}));
-    for(const [name,attribute] of Object.entries(sample.attrs??{}))operations.push(op('attribute.set',part.id,{name,value:attribute?.value??attribute,when}));
+    for(const [name,attribute] of Object.entries(sample.attrs??{}))operations.push(op('attribute.set',part.id,{name,value:attribute?.value??attribute,valueType:attribute?.type??typeof attribute,when}));
     for(const value of sample.classes??[])operations.push(op('class.add',part.id,{value,when}));
   }
   if(part.portalOwner)operations.push(op('portal.mount',part.id,{target:part.portalOwner,when:createWhen}));
