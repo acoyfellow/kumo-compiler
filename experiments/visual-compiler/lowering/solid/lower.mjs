@@ -37,8 +37,16 @@ function conditional(value, when, absent = 'undefined') { return when == null ? 
 function render(node, depth = 2) {
   const pad = '  '.repeat(depth), create = node.create, name = tag(create);
   const attrs = create.explicitPart == null ? [] : [`data-part=${q(create.explicitPart)}`];
-  const classes = node.ops.filter(op => op.kind === 'class.add').map(op => conditional(op.value, op.when));
-  if (classes.length) attrs.push(`class={${classes.length === 1 ? classes[0] : `[${classes.join(', ')}].filter(Boolean).join(" ")`}}`);
+  // Prefer the `class` attribute.set when present: it preserves CANONICAL class order
+  // (class.add ops are alphabetically sorted by the tracer, which can shift sub-pixel
+  // placeholder/text rendering). Fall back to class.add only when no class attribute.set
+  // exists. This matches the Vue lowerer (which emits the ordered class attribute).
+  const hasClassAttr = node.ops.some(op => op.kind === 'attribute.set' && op.name === 'class');
+  if (!hasClassAttr) {
+    const classAddOps = node.ops.filter(op => op.kind === 'class.add');
+    const classes = classAddOps.map(op => conditional(op.value, op.when));
+    if (classes.length) attrs.push(`class={${classes.length === 1 ? classes[0] : `[${classes.join(', ')}].filter(Boolean).join(" ")`}}`);
+  }
   const setOps = node.ops.filter(op => op.kind === 'attribute.set');
   const setByName = new Map();
   for (const op of setOps) { const list = setByName.get(op.name) ?? []; list.push(op); setByName.set(op.name, list); }
@@ -50,16 +58,22 @@ function render(node, depth = 2) {
     // class="" must stay empty, never become "true"). Mirrors the Vue lowerer.
     const presenceAttr = nativeBooleanAttributes.has(attrName.toLowerCase()) || attrName.startsWith('data-');
     const val = op => (op.valueType === 'boolean' && presenceAttr) ? expression(true) : expression(op.value);
+    // `value` maps to a DOM property that coerces undefined -> the string "undefined" on
+    // hydration; its absent-fallback must be an empty string, not undefined. Other
+    // attributes use undefined (omits the attribute).
+    const absent = attrName.toLowerCase() === 'value' ? "''" : 'undefined';
     // Build right-to-left so an unconditional op becomes the fallback; conditional
-    // ops wrap it as (cond) ? value : <rest>. Default fallback is undefined.
+    // ops wrap it as (cond) ? value : <rest>.
     const finalExpr = ops.reduceRight((rest, op) =>
-      op.when == null ? val(op) : `(${predicate(op.when)}) ? ${val(op)} : ${rest}`, 'undefined');
+      op.when == null ? val(op) : `(${predicate(op.when)}) ? ${val(op)} : ${rest}`, absent);
     attrs.push(`${attrName}={${finalExpr}}`);
   }
   for (const op of node.ops.filter(op => op.kind === 'attribute.remove')) attrs.push(`${op.name}={${op.when == null ? 'undefined' : `!(${condition(op.when)}) ? props.attributes?.[${q(op.name)}] : undefined`}}`);
   for (const op of node.ops.filter(op => op.kind === 'event.listen')) attrs.push(`on${op.event}={${op.when == null ? '' : `(${condition(op.when)}) ? `}() => props.dispatch?.(${q(op.dispatch ?? op.event)})${op.when == null ? '' : ' : undefined'}}`);
-  const inputType=({checkbox:'checkbox',textbox:'text'})[create.semantics];
-  if (name === 'input') attrs.push(`type="${inputType ?? 'text'}"`);
+  // `type` is NOT auto-injected: canonical text inputs carry no type attribute and the
+  // IR already provides type via attribute.set when it is real (e.g. checkbox/switch
+  // hidden input type="checkbox"). Auto-injecting type="text" diverged from canonical
+  // and broke input placeholder-state pixel parity.
   if (create.semantics === 'dialog') attrs.push('role="dialog"');
   const textOps = node.ops.filter(op => op.kind === 'node.text');
   const partText = create.explicitPart == null ? '' : `{props.parts?.[${q(create.explicitPart)}]}`;

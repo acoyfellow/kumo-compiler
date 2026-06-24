@@ -26,6 +26,19 @@ const COMPARISON = name => {
  * matching an input component or part identifier. It accepts identifiers used as data
  * (map keys, interpolation defaults, output names, push args), but rejects decisions.
  */
+// Element-tag variables: comparing one of these against a literal is STRUCTURAL logic
+// (which HTML element to emit), never a component-identity branch — even when a component
+// shares a name with an HTML tag (input, button, label, code, meter). The guard ignores
+// comparisons whose operand is one of these tag variables, so it still catches
+// `component === 'input'` / `shard.key === 'input'` while allowing `name === 'input'`.
+const TAG_VARS = ['name', 'tag', 'localName', 'tagName', 'elementTag'];
+function comparesTagVar(line, name) {
+  const e = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const q = `['"\`]${e}['"\`]`;
+  const vars = TAG_VARS.join('|');
+  // (tagVar) === 'x'  OR  'x' === (tagVar)
+  return new RegExp(`\\b(?:${vars})\\b\\s*(?:===|==|!==|!=)\\s*${q}|${q}\\s*(?:===|==|!==|!=)\\s*\\b(?:${vars})\\b`).test(line);
+}
 export function guardSource(source, { componentIds = [], partIds = [] } = {}) {
   const forbidden = [...new Set([...componentIds, ...partIds].filter(Boolean))];
   const diagnostics = [];
@@ -33,7 +46,7 @@ export function guardSource(source, { componentIds = [], partIds = [] } = {}) {
     if (!BRANCH.test(line)) return;
     for (const name of forbidden) {
       const m = COMPARISON(name).exec(line);
-      if (m) diagnostics.push({ line: index + 1, column: m.index + 1, literal: name, message: 'component/part-specific branch comparison' });
+      if (m && !comparesTagVar(line, name)) diagnostics.push({ line: index + 1, column: m.index + 1, literal: name, message: 'component/part-specific branch comparison' });
     }
   });
   return { valid: diagnostics.length === 0, diagnostics };
