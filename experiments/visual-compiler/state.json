@@ -1,39 +1,14 @@
 {
-  "schemaVersion": "kumo.visual-compiler-spike-state/v1",
-  "status": "running",
-  "phase": "wave-2-target-repair",
-  "generation": 4,
-  "completed": [
-    "frontend-typescript",
-    "frontend-oxc",
-    "frontend-equivalence-evaluator",
-    "runtime-tracer-authority-repair",
-    "ir-shootout-repair",
-    "generic-lowering-core",
-    "verifier-provenance-repair",
-    "incremental-engine"
+  "schemaVersion":"kumo.visual-compiler-spike-state/v1","status":"running","phase":"wave-2-stateful-target-regeneration","generation":7,
+  "completed":["frontend-typescript","frontend-oxc","frontend-equivalence-evaluator","runtime-tracer-authority-repair","ir-state-specialization-repair","lowering-core-state-specialization","verifier-provenance-repair","incremental-engine","authority-11-of-11","vue-native-capture-v1","svelte-native-capture-v1","solid-native-capture-v1"],
+  "active":["vue-stateful-regenerate-recapture","svelte-stateful-regenerate-recapture","solid-stateful-regenerate-recapture"],
+  "failed":[
+    {"artifact":"synthetic-authority-wave","status":"retired"},
+    {"artifact":"lowering-plans-v1","status":"retired","reason":"missing state/viewport presence and binding conditions"},
+    {"artifact":"vue-regeneration-v2","status":"repairing","reason":"duplicate attributes from ungrouped state bindings"},
+    {"artifact":"svelte-capture-v2","status":"repairing","reason":"capture freshness not bound strongly enough after source regeneration"},
+    {"artifact":"solid-regeneration-v2","status":"repairing","reason":"guard incorrectly rejected declarative emitted part IDs; hydration remained false"}
   ],
-  "active": [
-    "lowering-vue-repair",
-    "lowering-svelte-repair",
-    "lowering-solid-repair"
-  ],
-  "failed": [
-    {"artifact":"runtime-tracer-v1","reason":"synthetic fixture generator","status":"retired"},
-    {"artifact":"ir-shootout-v1","reason":"synthetic hand-authored facts and unmeasured scores","status":"retired"},
-    {"artifact":"lowering-vue-v1","reason":"copied canonical trace DOM","status":"retired"},
-    {"artifact":"lowering-svelte-v1","reason":"synthetic IR and component-specific branching","status":"retired-shell-only"},
-    {"artifact":"lowering-solid-v1","reason":"synthetic IR and component-specific branching","status":"retired-shell-only"},
-    {"artifact":"verification-v1","reason":"accepted copied traces and treated failed matrix as self-check success","status":"retired"}
-  ],
-  "selection": {
-    "frontend":"typescript-primary-with-oxc-syntax-fast-path",
-    "ir":"part-first-authority-derived",
-    "loweringCore":"kumo.lowering-plan/v1",
-    "engineWarmP95Ms":1.481,
-    "authorityChecks":"10/11"
-  },
-  "next":["native-target-harnesses","108-cell-verification","warm-under-1s","final-receipt"],
-  "terminal":false,
-  "updatedAt":"2026-06-24T11:46:00.000Z"
+  "selection":{"frontend":"typescript+oxc-preparse","ir":"authority-derived-state-specialized-part-first","loweringCore":"kumo.lowering-plan/v1-stateful","authorityChecks":"11/11","engineWarmP95Ms":1.481},
+  "next":["fresh-108-cell-verification","differential-repair","zero-pixel-matrix","warm-under-1s","final-receipt"],"terminal":false,"updatedAt":"2026-06-24T12:00:00.000Z"
 }

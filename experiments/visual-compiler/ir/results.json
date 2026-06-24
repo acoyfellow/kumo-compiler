@@ -25,6 +25,8 @@
         "stateCoverage": 100,
         "viewportCoverage": 100,
         "traceDigestCoverage": 100,
+        "presenceConditionCoverage": 100,
+        "stateValueCoverage": 100,
         "frontendAgreement": 100
       },
       "scores": {
@@ -33,6 +35,8 @@
         "stateCoverage": 100,
         "viewportCoverage": 100,
         "traceDigestCoverage": 100,
+        "presenceConditionCoverage": 100,
+        "stateValueCoverage": 100,
         "frontendAgreement": 100
       },
       "weightedScore": 100
@@ -41,7 +45,7 @@
   "winner": {
     "id": "part-first",
     "coreIR": "fixtures/components.json",
-    "coreIRSha256": "145bc25d1ee9cc0491a9f25f36fa0a99aa648156d6a0c2cb8062a4846e0a04b8"
+    "coreIRSha256": "50f552bab895eb24f4efcefcabec78e41ffbac26f75b0fc2b47f1ce4b9527b96"
   },
   "measuredChecks": [
     "authorityInputsAccepted",
@@ -49,8 +53,13 @@
     "stateCoverage",
     "viewportCoverage",
     "traceDigestCoverage",
+    "presenceConditionCoverage",
+    "stateValueCoverage",
     "frontendAgreement"
   ],
+  "summary": {
+    "subsetStateOrViewportParts": 15
+  },
   "limitations": [
     "Frontend agreement is measured as syntax element-count parity; Oxc reports syntax-only symbol resolution.",
     "Recorded browser artifacts are observations, not inferred behavior outside covered state/viewport cells."

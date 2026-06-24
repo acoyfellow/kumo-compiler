@@ -72,6 +72,12 @@
         {
           "id": "root",
           "parent": null,
+          "order": 0,
+          "tag": "main",
+          "role": "main",
+          "semantics": "main",
+          "portalOwner": null,
+          "presence": null,
           "samples": [
             {
               "state": "default",
@@ -80,6 +86,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -128,6 +137,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -176,6 +188,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -224,6 +239,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -272,6 +290,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -320,6 +341,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -368,6 +392,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -416,6 +443,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -464,6 +494,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -504,12 +537,74 @@
                 "opacity": "1",
                 "visibility": "visible"
               }
+            }
+          ],
+          "provenance": [
+            {
+              "state": "default",
+              "viewport": 390,
+              "trace": "artifacts/button/default/390/trace.json",
+              "sha256": "7eefbe95c37134d03aba1abb676068ebbcfdc14d7ec256e8ef4fabfab222b1b5"
+            },
+            {
+              "state": "default",
+              "viewport": 768,
+              "trace": "artifacts/button/default/768/trace.json",
+              "sha256": "8883c1b7a0e3d93c59d7573bd755d8aeaccf01411e291ad96a3e32896b8bee05"
+            },
+            {
+              "state": "default",
+              "viewport": 1440,
+              "trace": "artifacts/button/default/1440/trace.json",
+              "sha256": "78507cf7e6b3608ead7e8bafa079a9a1fc339e98dbe9fd56f46533e16267e33f"
+            },
+            {
+              "state": "disabled",
+              "viewport": 390,
+              "trace": "artifacts/button/disabled/390/trace.json",
+              "sha256": "d636d014cf715f62ad8889274133216fd7e9e22de3d305eed4352a0764be701d"
+            },
+            {
+              "state": "disabled",
+              "viewport": 768,
+              "trace": "artifacts/button/disabled/768/trace.json",
+              "sha256": "2b789771190b8b88ac301b25ba93b1c6a48e93798e6dca587dcb3a1b64768f85"
+            },
+            {
+              "state": "disabled",
+              "viewport": 1440,
+              "trace": "artifacts/button/disabled/1440/trace.json",
+              "sha256": "ac059bf40e720885b47bfa1517df2cdc3834304d9015779123bbf97bf2e20319"
+            },
+            {
+              "state": "loading",
+              "viewport": 390,
+              "trace": "artifacts/button/loading/390/trace.json",
+              "sha256": "548c34ec404e21a6926062e013c4d3b814d7d84b88941b931793086a08725f30"
+            },
+            {
+              "state": "loading",
+              "viewport": 768,
+              "trace": "artifacts/button/loading/768/trace.json",
+              "sha256": "7bfb5228fea6d4db6883811778bd1ebdc0e9cdfa06d86bd2f5810af5a26b0569"
+            },
+            {
+              "state": "loading",
+              "viewport": 1440,
+              "trace": "artifacts/button/loading/1440/trace.json",
+              "sha256": "6f861719aab6c39f2a6ee930a35e0d587b95e691a081997194af6b6161a97a2b"
             }
           ]
         },
         {
           "id": "control",
           "parent": "root",
+          "order": 1,
+          "tag": "button",
+          "role": "button",
+          "semantics": "button",
+          "portalOwner": null,
+          "presence": null,
           "samples": [
             {
               "state": "default",
@@ -518,6 +613,9 @@
               "parent": "root",
               "order": 1,
               "tag": "button",
+              "role": "button",
+              "semantics": "button",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "group flex w-max shrink-0 items-center font-medium select-none border-0 shadow-xs focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand cursor-pointer disabled:cursor-not-allowed disabled:text-kumo-subtle bg-kumo-base !text-kumo-default ring not-disabled:hover:bg-kumo-tint disabled:bg-kumo-base/50 disabled:!text-kumo-default/70 ring-kumo-line data-[state=open]:bg-kumo-base h-9 gap-1.5 rounded-lg px-3 text-base",
@@ -594,6 +692,9 @@
               "parent": "root",
               "order": 1,
               "tag": "button",
+              "role": "button",
+              "semantics": "button",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "group flex w-max shrink-0 items-center font-medium select-none border-0 shadow-xs focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand cursor-pointer disabled:cursor-not-allowed disabled:text-kumo-subtle bg-kumo-base !text-kumo-default ring not-disabled:hover:bg-kumo-tint disabled:bg-kumo-base/50 disabled:!text-kumo-default/70 ring-kumo-line data-[state=open]:bg-kumo-base h-9 gap-1.5 rounded-lg px-3 text-base",
@@ -670,6 +771,9 @@
               "parent": "root",
               "order": 1,
               "tag": "button",
+              "role": "button",
+              "semantics": "button",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "group flex w-max shrink-0 items-center font-medium select-none border-0 shadow-xs focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand cursor-pointer disabled:cursor-not-allowed disabled:text-kumo-subtle bg-kumo-base !text-kumo-default ring not-disabled:hover:bg-kumo-tint disabled:bg-kumo-base/50 disabled:!text-kumo-default/70 ring-kumo-line data-[state=open]:bg-kumo-base h-9 gap-1.5 rounded-lg px-3 text-base",
@@ -746,6 +850,9 @@
               "parent": "root",
               "order": 1,
               "tag": "button",
+              "role": "button",
+              "semantics": "button",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "group flex w-max shrink-0 items-center font-medium select-none border-0 shadow-xs focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand disabled:cursor-not-allowed disabled:text-kumo-subtle bg-kumo-base !text-kumo-default ring not-disabled:hover:bg-kumo-tint disabled:bg-kumo-base/50 disabled:!text-kumo-default/70 ring-kumo-line data-[state=open]:bg-kumo-base h-9 gap-1.5 rounded-lg px-3 text-base cursor-not-allowed opacity-50",
@@ -827,6 +934,9 @@
               "parent": "root",
               "order": 1,
               "tag": "button",
+              "role": "button",
+              "semantics": "button",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "group flex w-max shrink-0 items-center font-medium select-none border-0 shadow-xs focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand disabled:cursor-not-allowed disabled:text-kumo-subtle bg-kumo-base !text-kumo-default ring not-disabled:hover:bg-kumo-tint disabled:bg-kumo-base/50 disabled:!text-kumo-default/70 ring-kumo-line data-[state=open]:bg-kumo-base h-9 gap-1.5 rounded-lg px-3 text-base cursor-not-allowed opacity-50",
@@ -908,6 +1018,9 @@
               "parent": "root",
               "order": 1,
               "tag": "button",
+              "role": "button",
+              "semantics": "button",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "group flex w-max shrink-0 items-center font-medium select-none border-0 shadow-xs focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand disabled:cursor-not-allowed disabled:text-kumo-subtle bg-kumo-base !text-kumo-default ring not-disabled:hover:bg-kumo-tint disabled:bg-kumo-base/50 disabled:!text-kumo-default/70 ring-kumo-line data-[state=open]:bg-kumo-base h-9 gap-1.5 rounded-lg px-3 text-base cursor-not-allowed opacity-50",
@@ -989,6 +1102,9 @@
               "parent": "root",
               "order": 1,
               "tag": "button",
+              "role": "button",
+              "semantics": "button",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "group flex w-max shrink-0 items-center font-medium select-none border-0 shadow-xs focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand cursor-pointer disabled:cursor-not-allowed disabled:text-kumo-subtle bg-kumo-base !text-kumo-default ring not-disabled:hover:bg-kumo-tint disabled:bg-kumo-base/50 disabled:!text-kumo-default/70 ring-kumo-line data-[state=open]:bg-kumo-base h-9 gap-1.5 rounded-lg px-3 text-base",
@@ -1069,6 +1185,9 @@
               "parent": "root",
               "order": 1,
               "tag": "button",
+              "role": "button",
+              "semantics": "button",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "group flex w-max shrink-0 items-center font-medium select-none border-0 shadow-xs focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand cursor-pointer disabled:cursor-not-allowed disabled:text-kumo-subtle bg-kumo-base !text-kumo-default ring not-disabled:hover:bg-kumo-tint disabled:bg-kumo-base/50 disabled:!text-kumo-default/70 ring-kumo-line data-[state=open]:bg-kumo-base h-9 gap-1.5 rounded-lg px-3 text-base",
@@ -1149,6 +1268,9 @@
               "parent": "root",
               "order": 1,
               "tag": "button",
+              "role": "button",
+              "semantics": "button",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "group flex w-max shrink-0 items-center font-medium select-none border-0 shadow-xs focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand cursor-pointer disabled:cursor-not-allowed disabled:text-kumo-subtle bg-kumo-base !text-kumo-default ring not-disabled:hover:bg-kumo-tint disabled:bg-kumo-base/50 disabled:!text-kumo-default/70 ring-kumo-line data-[state=open]:bg-kumo-base h-9 gap-1.5 rounded-lg px-3 text-base",
@@ -1222,19 +1344,111 @@
                 "visibility": "visible"
               }
             }
+          ],
+          "provenance": [
+            {
+              "state": "default",
+              "viewport": 390,
+              "trace": "artifacts/button/default/390/trace.json",
+              "sha256": "7eefbe95c37134d03aba1abb676068ebbcfdc14d7ec256e8ef4fabfab222b1b5"
+            },
+            {
+              "state": "default",
+              "viewport": 768,
+              "trace": "artifacts/button/default/768/trace.json",
+              "sha256": "8883c1b7a0e3d93c59d7573bd755d8aeaccf01411e291ad96a3e32896b8bee05"
+            },
+            {
+              "state": "default",
+              "viewport": 1440,
+              "trace": "artifacts/button/default/1440/trace.json",
+              "sha256": "78507cf7e6b3608ead7e8bafa079a9a1fc339e98dbe9fd56f46533e16267e33f"
+            },
+            {
+              "state": "disabled",
+              "viewport": 390,
+              "trace": "artifacts/button/disabled/390/trace.json",
+              "sha256": "d636d014cf715f62ad8889274133216fd7e9e22de3d305eed4352a0764be701d"
+            },
+            {
+              "state": "disabled",
+              "viewport": 768,
+              "trace": "artifacts/button/disabled/768/trace.json",
+              "sha256": "2b789771190b8b88ac301b25ba93b1c6a48e93798e6dca587dcb3a1b64768f85"
+            },
+            {
+              "state": "disabled",
+              "viewport": 1440,
+              "trace": "artifacts/button/disabled/1440/trace.json",
+              "sha256": "ac059bf40e720885b47bfa1517df2cdc3834304d9015779123bbf97bf2e20319"
+            },
+            {
+              "state": "loading",
+              "viewport": 390,
+              "trace": "artifacts/button/loading/390/trace.json",
+              "sha256": "548c34ec404e21a6926062e013c4d3b814d7d84b88941b931793086a08725f30"
+            },
+            {
+              "state": "loading",
+              "viewport": 768,
+              "trace": "artifacts/button/loading/768/trace.json",
+              "sha256": "7bfb5228fea6d4db6883811778bd1ebdc0e9cdfa06d86bd2f5810af5a26b0569"
+            },
+            {
+              "state": "loading",
+              "viewport": 1440,
+              "trace": "artifacts/button/loading/1440/trace.json",
+              "sha256": "6f861719aab6c39f2a6ee930a35e0d587b95e691a081997194af6b6161a97a2b"
+            }
           ]
         },
         {
-          "id": "node-2",
+          "id": "node-2@span-0",
           "parent": "root",
+          "order": 2,
+          "tag": "span",
+          "role": "button",
+          "semantics": "span",
+          "portalOwner": null,
+          "presence": {
+            "cells": [
+              {
+                "state": "default",
+                "viewport": 390
+              },
+              {
+                "state": "default",
+                "viewport": 768
+              },
+              {
+                "state": "default",
+                "viewport": 1440
+              },
+              {
+                "state": "disabled",
+                "viewport": 390
+              },
+              {
+                "state": "disabled",
+                "viewport": 768
+              },
+              {
+                "state": "disabled",
+                "viewport": 1440
+              }
+            ]
+          },
           "samples": [
             {
               "state": "default",
               "viewport": 390,
-              "id": "node-2",
+              "id": "node-2@span-0",
               "parent": "root",
               "order": 2,
               "tag": "span",
+              "role": "button",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "contents",
@@ -1267,10 +1481,13 @@
             {
               "state": "default",
               "viewport": 768,
-              "id": "node-2",
+              "id": "node-2@span-0",
               "parent": "root",
               "order": 2,
               "tag": "span",
+              "role": "button",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "contents",
@@ -1303,10 +1520,13 @@
             {
               "state": "default",
               "viewport": 1440,
-              "id": "node-2",
+              "id": "node-2@span-0",
               "parent": "root",
               "order": 2,
               "tag": "span",
+              "role": "button",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "contents",
@@ -1339,10 +1559,13 @@
             {
               "state": "disabled",
               "viewport": 390,
-              "id": "node-2",
+              "id": "node-2@span-0",
               "parent": "root",
               "order": 2,
               "tag": "span",
+              "role": "button",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "contents",
@@ -1375,10 +1598,13 @@
             {
               "state": "disabled",
               "viewport": 768,
-              "id": "node-2",
+              "id": "node-2@span-0",
               "parent": "root",
               "order": 2,
               "tag": "span",
+              "role": "button",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "contents",
@@ -1411,10 +1637,13 @@
             {
               "state": "disabled",
               "viewport": 1440,
-              "id": "node-2",
+              "id": "node-2@span-0",
               "parent": "root",
               "order": 2,
               "tag": "span",
+              "role": "button",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "contents",
@@ -1443,14 +1672,82 @@
                 "opacity": "1",
                 "visibility": "visible"
               }
+            }
+          ],
+          "provenance": [
+            {
+              "state": "default",
+              "viewport": 390,
+              "trace": "artifacts/button/default/390/trace.json",
+              "sha256": "7eefbe95c37134d03aba1abb676068ebbcfdc14d7ec256e8ef4fabfab222b1b5"
             },
+            {
+              "state": "default",
+              "viewport": 768,
+              "trace": "artifacts/button/default/768/trace.json",
+              "sha256": "8883c1b7a0e3d93c59d7573bd755d8aeaccf01411e291ad96a3e32896b8bee05"
+            },
+            {
+              "state": "default",
+              "viewport": 1440,
+              "trace": "artifacts/button/default/1440/trace.json",
+              "sha256": "78507cf7e6b3608ead7e8bafa079a9a1fc339e98dbe9fd56f46533e16267e33f"
+            },
+            {
+              "state": "disabled",
+              "viewport": 390,
+              "trace": "artifacts/button/disabled/390/trace.json",
+              "sha256": "d636d014cf715f62ad8889274133216fd7e9e22de3d305eed4352a0764be701d"
+            },
+            {
+              "state": "disabled",
+              "viewport": 768,
+              "trace": "artifacts/button/disabled/768/trace.json",
+              "sha256": "2b789771190b8b88ac301b25ba93b1c6a48e93798e6dca587dcb3a1b64768f85"
+            },
+            {
+              "state": "disabled",
+              "viewport": 1440,
+              "trace": "artifacts/button/disabled/1440/trace.json",
+              "sha256": "ac059bf40e720885b47bfa1517df2cdc3834304d9015779123bbf97bf2e20319"
+            }
+          ]
+        },
+        {
+          "id": "node-2@animatetransform-1",
+          "parent": "root",
+          "order": 2,
+          "tag": "animatetransform",
+          "role": "generic",
+          "semantics": "animatetransform",
+          "portalOwner": null,
+          "presence": {
+            "cells": [
+              {
+                "state": "loading",
+                "viewport": 390
+              },
+              {
+                "state": "loading",
+                "viewport": 768
+              },
+              {
+                "state": "loading",
+                "viewport": 1440
+              }
+            ]
+          },
+          "samples": [
             {
               "state": "loading",
               "viewport": 390,
-              "id": "node-2",
+              "id": "node-2@animatetransform-1",
               "parent": "root",
               "order": 2,
               "tag": "animatetransform",
+              "role": "generic",
+              "semantics": "animatetransform",
+              "portalOwner": null,
               "attrs": {
                 "attributeName": {
                   "value": "transform",
@@ -1501,10 +1798,13 @@
             {
               "state": "loading",
               "viewport": 768,
-              "id": "node-2",
+              "id": "node-2@animatetransform-1",
               "parent": "root",
               "order": 2,
               "tag": "animatetransform",
+              "role": "generic",
+              "semantics": "animatetransform",
+              "portalOwner": null,
               "attrs": {
                 "attributeName": {
                   "value": "transform",
@@ -1555,10 +1855,13 @@
             {
               "state": "loading",
               "viewport": 1440,
-              "id": "node-2",
+              "id": "node-2@animatetransform-1",
               "parent": "root",
               "order": 2,
               "tag": "animatetransform",
+              "role": "generic",
+              "semantics": "animatetransform",
+              "portalOwner": null,
               "attrs": {
                 "attributeName": {
                   "value": "transform",
@@ -1605,12 +1908,53 @@
                 "opacity": "1",
                 "visibility": "visible"
               }
+            }
+          ],
+          "provenance": [
+            {
+              "state": "loading",
+              "viewport": 390,
+              "trace": "artifacts/button/loading/390/trace.json",
+              "sha256": "548c34ec404e21a6926062e013c4d3b814d7d84b88941b931793086a08725f30"
+            },
+            {
+              "state": "loading",
+              "viewport": 768,
+              "trace": "artifacts/button/loading/768/trace.json",
+              "sha256": "7bfb5228fea6d4db6883811778bd1ebdc0e9cdfa06d86bd2f5810af5a26b0569"
+            },
+            {
+              "state": "loading",
+              "viewport": 1440,
+              "trace": "artifacts/button/loading/1440/trace.json",
+              "sha256": "6f861719aab6c39f2a6ee930a35e0d587b95e691a081997194af6b6161a97a2b"
             }
           ]
         },
         {
           "id": "node-3",
           "parent": "root",
+          "order": 3,
+          "tag": "animate",
+          "role": "generic",
+          "semantics": "animate",
+          "portalOwner": null,
+          "presence": {
+            "cells": [
+              {
+                "state": "loading",
+                "viewport": 390
+              },
+              {
+                "state": "loading",
+                "viewport": 768
+              },
+              {
+                "state": "loading",
+                "viewport": 1440
+              }
+            ]
+          },
           "samples": [
             {
               "state": "loading",
@@ -1619,6 +1963,9 @@
               "parent": "root",
               "order": 3,
               "tag": "animate",
+              "role": "generic",
+              "semantics": "animate",
+              "portalOwner": null,
               "attrs": {
                 "attributeName": {
                   "value": "stroke-dasharray",
@@ -1669,6 +2016,9 @@
               "parent": "root",
               "order": 3,
               "tag": "animate",
+              "role": "generic",
+              "semantics": "animate",
+              "portalOwner": null,
               "attrs": {
                 "attributeName": {
                   "value": "stroke-dasharray",
@@ -1719,6 +2069,9 @@
               "parent": "root",
               "order": 3,
               "tag": "animate",
+              "role": "generic",
+              "semantics": "animate",
+              "portalOwner": null,
               "attrs": {
                 "attributeName": {
                   "value": "stroke-dasharray",
@@ -1761,12 +2114,53 @@
                 "opacity": "1",
                 "visibility": "visible"
               }
+            }
+          ],
+          "provenance": [
+            {
+              "state": "loading",
+              "viewport": 390,
+              "trace": "artifacts/button/loading/390/trace.json",
+              "sha256": "548c34ec404e21a6926062e013c4d3b814d7d84b88941b931793086a08725f30"
+            },
+            {
+              "state": "loading",
+              "viewport": 768,
+              "trace": "artifacts/button/loading/768/trace.json",
+              "sha256": "7bfb5228fea6d4db6883811778bd1ebdc0e9cdfa06d86bd2f5810af5a26b0569"
+            },
+            {
+              "state": "loading",
+              "viewport": 1440,
+              "trace": "artifacts/button/loading/1440/trace.json",
+              "sha256": "6f861719aab6c39f2a6ee930a35e0d587b95e691a081997194af6b6161a97a2b"
             }
           ]
         },
         {
           "id": "node-4",
           "parent": "root",
+          "order": 4,
+          "tag": "animate",
+          "role": "generic",
+          "semantics": "animate",
+          "portalOwner": null,
+          "presence": {
+            "cells": [
+              {
+                "state": "loading",
+                "viewport": 390
+              },
+              {
+                "state": "loading",
+                "viewport": 768
+              },
+              {
+                "state": "loading",
+                "viewport": 1440
+              }
+            ]
+          },
           "samples": [
             {
               "state": "loading",
@@ -1775,6 +2169,9 @@
               "parent": "root",
               "order": 4,
               "tag": "animate",
+              "role": "generic",
+              "semantics": "animate",
+              "portalOwner": null,
               "attrs": {
                 "attributeName": {
                   "value": "stroke-dashoffset",
@@ -1825,6 +2222,9 @@
               "parent": "root",
               "order": 4,
               "tag": "animate",
+              "role": "generic",
+              "semantics": "animate",
+              "portalOwner": null,
               "attrs": {
                 "attributeName": {
                   "value": "stroke-dashoffset",
@@ -1875,6 +2275,9 @@
               "parent": "root",
               "order": 4,
               "tag": "animate",
+              "role": "generic",
+              "semantics": "animate",
+              "portalOwner": null,
               "attrs": {
                 "attributeName": {
                   "value": "stroke-dashoffset",
@@ -1917,12 +2320,53 @@
                 "opacity": "1",
                 "visibility": "visible"
               }
+            }
+          ],
+          "provenance": [
+            {
+              "state": "loading",
+              "viewport": 390,
+              "trace": "artifacts/button/loading/390/trace.json",
+              "sha256": "548c34ec404e21a6926062e013c4d3b814d7d84b88941b931793086a08725f30"
+            },
+            {
+              "state": "loading",
+              "viewport": 768,
+              "trace": "artifacts/button/loading/768/trace.json",
+              "sha256": "7bfb5228fea6d4db6883811778bd1ebdc0e9cdfa06d86bd2f5810af5a26b0569"
+            },
+            {
+              "state": "loading",
+              "viewport": 1440,
+              "trace": "artifacts/button/loading/1440/trace.json",
+              "sha256": "6f861719aab6c39f2a6ee930a35e0d587b95e691a081997194af6b6161a97a2b"
             }
           ]
         },
         {
           "id": "node-5",
           "parent": "root",
+          "order": 5,
+          "tag": "circle",
+          "role": "generic",
+          "semantics": "circle",
+          "portalOwner": null,
+          "presence": {
+            "cells": [
+              {
+                "state": "loading",
+                "viewport": 390
+              },
+              {
+                "state": "loading",
+                "viewport": 768
+              },
+              {
+                "state": "loading",
+                "viewport": 1440
+              }
+            ]
+          },
           "samples": [
             {
               "state": "loading",
@@ -1931,6 +2375,9 @@
               "parent": "root",
               "order": 5,
               "tag": "circle",
+              "role": "generic",
+              "semantics": "circle",
+              "portalOwner": null,
               "attrs": {
                 "cx": {
                   "value": "12",
@@ -1989,6 +2436,9 @@
               "parent": "root",
               "order": 5,
               "tag": "circle",
+              "role": "generic",
+              "semantics": "circle",
+              "portalOwner": null,
               "attrs": {
                 "cx": {
                   "value": "12",
@@ -2047,6 +2497,9 @@
               "parent": "root",
               "order": 5,
               "tag": "circle",
+              "role": "generic",
+              "semantics": "circle",
+              "portalOwner": null,
               "attrs": {
                 "cx": {
                   "value": "12",
@@ -2098,11 +2551,52 @@
                 "visibility": "visible"
               }
             }
+          ],
+          "provenance": [
+            {
+              "state": "loading",
+              "viewport": 390,
+              "trace": "artifacts/button/loading/390/trace.json",
+              "sha256": "548c34ec404e21a6926062e013c4d3b814d7d84b88941b931793086a08725f30"
+            },
+            {
+              "state": "loading",
+              "viewport": 768,
+              "trace": "artifacts/button/loading/768/trace.json",
+              "sha256": "7bfb5228fea6d4db6883811778bd1ebdc0e9cdfa06d86bd2f5810af5a26b0569"
+            },
+            {
+              "state": "loading",
+              "viewport": 1440,
+              "trace": "artifacts/button/loading/1440/trace.json",
+              "sha256": "6f861719aab6c39f2a6ee930a35e0d587b95e691a081997194af6b6161a97a2b"
+            }
           ]
         },
         {
           "id": "node-6",
           "parent": "root",
+          "order": 6,
+          "tag": "span",
+          "role": "status",
+          "semantics": "span",
+          "portalOwner": null,
+          "presence": {
+            "cells": [
+              {
+                "state": "loading",
+                "viewport": 390
+              },
+              {
+                "state": "loading",
+                "viewport": 768
+              },
+              {
+                "state": "loading",
+                "viewport": 1440
+              }
+            ]
+          },
           "samples": [
             {
               "state": "loading",
@@ -2111,6 +2605,9 @@
               "parent": "root",
               "order": 6,
               "tag": "span",
+              "role": "status",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "contents",
@@ -2147,6 +2644,9 @@
               "parent": "root",
               "order": 6,
               "tag": "span",
+              "role": "status",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "contents",
@@ -2183,6 +2683,9 @@
               "parent": "root",
               "order": 6,
               "tag": "span",
+              "role": "status",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "contents",
@@ -2211,6 +2714,26 @@
                 "opacity": "1",
                 "visibility": "visible"
               }
+            }
+          ],
+          "provenance": [
+            {
+              "state": "loading",
+              "viewport": 390,
+              "trace": "artifacts/button/loading/390/trace.json",
+              "sha256": "548c34ec404e21a6926062e013c4d3b814d7d84b88941b931793086a08725f30"
+            },
+            {
+              "state": "loading",
+              "viewport": 768,
+              "trace": "artifacts/button/loading/768/trace.json",
+              "sha256": "7bfb5228fea6d4db6883811778bd1ebdc0e9cdfa06d86bd2f5810af5a26b0569"
+            },
+            {
+              "state": "loading",
+              "viewport": 1440,
+              "trace": "artifacts/button/loading/1440/trace.json",
+              "sha256": "6f861719aab6c39f2a6ee930a35e0d587b95e691a081997194af6b6161a97a2b"
             }
           ]
         }
@@ -2222,7 +2745,11 @@
           "event": {
             "type": "click"
           },
-          "focusAfter": "control"
+          "focusAfter": "control",
+          "provenance": {
+            "trace": "artifacts/button/default/390/trace.json",
+            "sha256": "7eefbe95c37134d03aba1abb676068ebbcfdc14d7ec256e8ef4fabfab222b1b5"
+          }
         },
         {
           "state": "default",
@@ -2230,7 +2757,11 @@
           "event": {
             "type": "click"
           },
-          "focusAfter": "body"
+          "focusAfter": "body",
+          "provenance": {
+            "trace": "artifacts/button/default/768/trace.json",
+            "sha256": "8883c1b7a0e3d93c59d7573bd755d8aeaccf01411e291ad96a3e32896b8bee05"
+          }
         },
         {
           "state": "default",
@@ -2238,7 +2769,11 @@
           "event": {
             "type": "click"
           },
-          "focusAfter": "control"
+          "focusAfter": "control",
+          "provenance": {
+            "trace": "artifacts/button/default/1440/trace.json",
+            "sha256": "78507cf7e6b3608ead7e8bafa079a9a1fc339e98dbe9fd56f46533e16267e33f"
+          }
         }
       ],
       "accessibility": [
@@ -2270,7 +2805,11 @@
               "role": "InlineTextBox",
               "name": "Continue"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/button/default/390/trace.json",
+            "sha256": "7eefbe95c37134d03aba1abb676068ebbcfdc14d7ec256e8ef4fabfab222b1b5"
+          }
         },
         {
           "state": "default",
@@ -2300,7 +2839,11 @@
               "role": "InlineTextBox",
               "name": "Continue"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/button/default/768/trace.json",
+            "sha256": "8883c1b7a0e3d93c59d7573bd755d8aeaccf01411e291ad96a3e32896b8bee05"
+          }
         },
         {
           "state": "default",
@@ -2330,7 +2873,11 @@
               "role": "InlineTextBox",
               "name": "Continue"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/button/default/1440/trace.json",
+            "sha256": "78507cf7e6b3608ead7e8bafa079a9a1fc339e98dbe9fd56f46533e16267e33f"
+          }
         },
         {
           "state": "disabled",
@@ -2360,7 +2907,11 @@
               "role": "InlineTextBox",
               "name": "Continue"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/button/disabled/390/trace.json",
+            "sha256": "d636d014cf715f62ad8889274133216fd7e9e22de3d305eed4352a0764be701d"
+          }
         },
         {
           "state": "disabled",
@@ -2390,7 +2941,11 @@
               "role": "InlineTextBox",
               "name": "Continue"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/button/disabled/768/trace.json",
+            "sha256": "2b789771190b8b88ac301b25ba93b1c6a48e93798e6dca587dcb3a1b64768f85"
+          }
         },
         {
           "state": "disabled",
@@ -2420,7 +2975,11 @@
               "role": "InlineTextBox",
               "name": "Continue"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/button/disabled/1440/trace.json",
+            "sha256": "ac059bf40e720885b47bfa1517df2cdc3834304d9015779123bbf97bf2e20319"
+          }
         },
         {
           "state": "loading",
@@ -2454,7 +3013,11 @@
               "role": "InlineTextBox",
               "name": "Loading"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/button/loading/390/trace.json",
+            "sha256": "548c34ec404e21a6926062e013c4d3b814d7d84b88941b931793086a08725f30"
+          }
         },
         {
           "state": "loading",
@@ -2488,7 +3051,11 @@
               "role": "InlineTextBox",
               "name": "Loading"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/button/loading/768/trace.json",
+            "sha256": "7bfb5228fea6d4db6883811778bd1ebdc0e9cdfa06d86bd2f5810af5a26b0569"
+          }
         },
         {
           "state": "loading",
@@ -2522,7 +3089,11 @@
               "role": "InlineTextBox",
               "name": "Loading"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/button/loading/1440/trace.json",
+            "sha256": "6f861719aab6c39f2a6ee930a35e0d587b95e691a081997194af6b6161a97a2b"
+          }
         }
       ],
       "provenance": {
@@ -3667,6 +4238,12 @@
         {
           "id": "root",
           "parent": null,
+          "order": 0,
+          "tag": "main",
+          "role": "main",
+          "semantics": "main",
+          "portalOwner": null,
+          "presence": null,
           "samples": [
             {
               "state": "unchecked",
@@ -3675,6 +4252,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -3723,6 +4303,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -3771,6 +4354,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -3819,6 +4405,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -3867,6 +4456,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -3915,6 +4507,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -3963,6 +4558,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -4011,6 +4609,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -4059,6 +4660,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -4099,12 +4703,74 @@
                 "opacity": "1",
                 "visibility": "visible"
               }
+            }
+          ],
+          "provenance": [
+            {
+              "state": "unchecked",
+              "viewport": 390,
+              "trace": "artifacts/checkbox/unchecked/390/trace.json",
+              "sha256": "7d511fb1c0efcf47ad23e3302038e2dfefad7c7d093e2642ed0f99b8605c0418"
+            },
+            {
+              "state": "unchecked",
+              "viewport": 768,
+              "trace": "artifacts/checkbox/unchecked/768/trace.json",
+              "sha256": "fdcf4f6259a3f84c49f94fe37786cef97ec3a5dc0a17df70e5c535004d208def"
+            },
+            {
+              "state": "unchecked",
+              "viewport": 1440,
+              "trace": "artifacts/checkbox/unchecked/1440/trace.json",
+              "sha256": "0d83f68a92e41d090beed7e3524c55a30170008d5cd8020bf9f2cbb0d3f47c93"
+            },
+            {
+              "state": "checked",
+              "viewport": 390,
+              "trace": "artifacts/checkbox/checked/390/trace.json",
+              "sha256": "053fda0bb38fdb17465cc6f98718c3c140ef3cb2b18f5c31b6ca8cf107b05f48"
+            },
+            {
+              "state": "checked",
+              "viewport": 768,
+              "trace": "artifacts/checkbox/checked/768/trace.json",
+              "sha256": "3df1a57ab2b5aef0d26f2a946df7490c52f6a27f247b3d7cb2fc44a5b73aba87"
+            },
+            {
+              "state": "checked",
+              "viewport": 1440,
+              "trace": "artifacts/checkbox/checked/1440/trace.json",
+              "sha256": "1ab004956cb7e6377cda9c66b26d68000c34eeaacfb412a62d1bbfd5012db9ea"
+            },
+            {
+              "state": "indeterminate",
+              "viewport": 390,
+              "trace": "artifacts/checkbox/indeterminate/390/trace.json",
+              "sha256": "4f316dcdc58d8ed20734a2cb6beadb6dac61e5f9ab79f28fbbb1c9b5c5b95f7b"
+            },
+            {
+              "state": "indeterminate",
+              "viewport": 768,
+              "trace": "artifacts/checkbox/indeterminate/768/trace.json",
+              "sha256": "ae6f9a773c13b9876dac06d05e34ce19d85155a47d2beb23c84919b19c8f21d2"
+            },
+            {
+              "state": "indeterminate",
+              "viewport": 1440,
+              "trace": "artifacts/checkbox/indeterminate/1440/trace.json",
+              "sha256": "287ef10a80b85b63fc99368a2d175811f7c80860d5b75d0116caf3050df8a99d"
             }
           ]
         },
         {
           "id": "node-1",
           "parent": "root",
+          "order": 1,
+          "tag": "label",
+          "role": "label",
+          "semantics": "label",
+          "portalOwner": null,
+          "presence": null,
           "samples": [
             {
               "state": "unchecked",
@@ -4113,6 +4779,9 @@
               "parent": "root",
               "order": 1,
               "tag": "label",
+              "role": "label",
+              "semantics": "label",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "!m-0 !min-h-0 !text-base inline-flex items-start gap-2 flex-row cursor-pointer",
@@ -4168,6 +4837,9 @@
               "parent": "root",
               "order": 1,
               "tag": "label",
+              "role": "label",
+              "semantics": "label",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "!m-0 !min-h-0 !text-base inline-flex items-start gap-2 flex-row cursor-pointer",
@@ -4227,6 +4899,9 @@
               "parent": "root",
               "order": 1,
               "tag": "label",
+              "role": "label",
+              "semantics": "label",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "!m-0 !min-h-0 !text-base inline-flex items-start gap-2 flex-row cursor-pointer",
@@ -4282,6 +4957,9 @@
               "parent": "root",
               "order": 1,
               "tag": "label",
+              "role": "label",
+              "semantics": "label",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "!m-0 !min-h-0 !text-base inline-flex items-start gap-2 flex-row cursor-pointer",
@@ -4345,6 +5023,9 @@
               "parent": "root",
               "order": 1,
               "tag": "label",
+              "role": "label",
+              "semantics": "label",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "!m-0 !min-h-0 !text-base inline-flex items-start gap-2 flex-row cursor-pointer",
@@ -4404,6 +5085,9 @@
               "parent": "root",
               "order": 1,
               "tag": "label",
+              "role": "label",
+              "semantics": "label",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "!m-0 !min-h-0 !text-base inline-flex items-start gap-2 flex-row cursor-pointer",
@@ -4467,6 +5151,9 @@
               "parent": "root",
               "order": 1,
               "tag": "label",
+              "role": "label",
+              "semantics": "label",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "!m-0 !min-h-0 !text-base inline-flex items-start gap-2 flex-row cursor-pointer",
@@ -4522,6 +5209,9 @@
               "parent": "root",
               "order": 1,
               "tag": "label",
+              "role": "label",
+              "semantics": "label",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "!m-0 !min-h-0 !text-base inline-flex items-start gap-2 flex-row cursor-pointer",
@@ -4581,6 +5271,9 @@
               "parent": "root",
               "order": 1,
               "tag": "label",
+              "role": "label",
+              "semantics": "label",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "!m-0 !min-h-0 !text-base inline-flex items-start gap-2 flex-row cursor-pointer",
@@ -4628,12 +5321,74 @@
                 "opacity": "1",
                 "visibility": "visible"
               }
+            }
+          ],
+          "provenance": [
+            {
+              "state": "unchecked",
+              "viewport": 390,
+              "trace": "artifacts/checkbox/unchecked/390/trace.json",
+              "sha256": "7d511fb1c0efcf47ad23e3302038e2dfefad7c7d093e2642ed0f99b8605c0418"
+            },
+            {
+              "state": "unchecked",
+              "viewport": 768,
+              "trace": "artifacts/checkbox/unchecked/768/trace.json",
+              "sha256": "fdcf4f6259a3f84c49f94fe37786cef97ec3a5dc0a17df70e5c535004d208def"
+            },
+            {
+              "state": "unchecked",
+              "viewport": 1440,
+              "trace": "artifacts/checkbox/unchecked/1440/trace.json",
+              "sha256": "0d83f68a92e41d090beed7e3524c55a30170008d5cd8020bf9f2cbb0d3f47c93"
+            },
+            {
+              "state": "checked",
+              "viewport": 390,
+              "trace": "artifacts/checkbox/checked/390/trace.json",
+              "sha256": "053fda0bb38fdb17465cc6f98718c3c140ef3cb2b18f5c31b6ca8cf107b05f48"
+            },
+            {
+              "state": "checked",
+              "viewport": 768,
+              "trace": "artifacts/checkbox/checked/768/trace.json",
+              "sha256": "3df1a57ab2b5aef0d26f2a946df7490c52f6a27f247b3d7cb2fc44a5b73aba87"
+            },
+            {
+              "state": "checked",
+              "viewport": 1440,
+              "trace": "artifacts/checkbox/checked/1440/trace.json",
+              "sha256": "1ab004956cb7e6377cda9c66b26d68000c34eeaacfb412a62d1bbfd5012db9ea"
+            },
+            {
+              "state": "indeterminate",
+              "viewport": 390,
+              "trace": "artifacts/checkbox/indeterminate/390/trace.json",
+              "sha256": "4f316dcdc58d8ed20734a2cb6beadb6dac61e5f9ab79f28fbbb1c9b5c5b95f7b"
+            },
+            {
+              "state": "indeterminate",
+              "viewport": 768,
+              "trace": "artifacts/checkbox/indeterminate/768/trace.json",
+              "sha256": "ae6f9a773c13b9876dac06d05e34ce19d85155a47d2beb23c84919b19c8f21d2"
+            },
+            {
+              "state": "indeterminate",
+              "viewport": 1440,
+              "trace": "artifacts/checkbox/indeterminate/1440/trace.json",
+              "sha256": "287ef10a80b85b63fc99368a2d175811f7c80860d5b75d0116caf3050df8a99d"
             }
           ]
         },
         {
           "id": "control",
           "parent": "root",
+          "order": 2,
+          "tag": "span",
+          "role": "checkbox",
+          "semantics": "checkbox",
+          "portalOwner": null,
+          "presence": null,
           "samples": [
             {
               "state": "unchecked",
@@ -4642,6 +5397,9 @@
               "parent": "root",
               "order": 2,
               "tag": "span",
+              "role": "checkbox",
+              "semantics": "checkbox",
+              "portalOwner": null,
               "attrs": {
                 "aria-checked": {
                   "value": "false",
@@ -4739,6 +5497,9 @@
               "parent": "root",
               "order": 2,
               "tag": "span",
+              "role": "checkbox",
+              "semantics": "checkbox",
+              "portalOwner": null,
               "attrs": {
                 "aria-checked": {
                   "value": "false",
@@ -4840,6 +5601,9 @@
               "parent": "root",
               "order": 2,
               "tag": "span",
+              "role": "checkbox",
+              "semantics": "checkbox",
+              "portalOwner": null,
               "attrs": {
                 "aria-checked": {
                   "value": "false",
@@ -4937,6 +5701,9 @@
               "parent": "root",
               "order": 2,
               "tag": "span",
+              "role": "checkbox",
+              "semantics": "checkbox",
+              "portalOwner": null,
               "attrs": {
                 "aria-checked": {
                   "value": "true",
@@ -5042,6 +5809,9 @@
               "parent": "root",
               "order": 2,
               "tag": "span",
+              "role": "checkbox",
+              "semantics": "checkbox",
+              "portalOwner": null,
               "attrs": {
                 "aria-checked": {
                   "value": "true",
@@ -5143,6 +5913,9 @@
               "parent": "root",
               "order": 2,
               "tag": "span",
+              "role": "checkbox",
+              "semantics": "checkbox",
+              "portalOwner": null,
               "attrs": {
                 "aria-checked": {
                   "value": "true",
@@ -5248,6 +6021,9 @@
               "parent": "root",
               "order": 2,
               "tag": "span",
+              "role": "checkbox",
+              "semantics": "checkbox",
+              "portalOwner": null,
               "attrs": {
                 "aria-checked": {
                   "value": "mixed",
@@ -5345,6 +6121,9 @@
               "parent": "root",
               "order": 2,
               "tag": "span",
+              "role": "checkbox",
+              "semantics": "checkbox",
+              "portalOwner": null,
               "attrs": {
                 "aria-checked": {
                   "value": "mixed",
@@ -5446,6 +6225,9 @@
               "parent": "root",
               "order": 2,
               "tag": "span",
+              "role": "checkbox",
+              "semantics": "checkbox",
+              "portalOwner": null,
               "attrs": {
                 "aria-checked": {
                   "value": "mixed",
@@ -5535,12 +6317,74 @@
                 "opacity": "1",
                 "visibility": "visible"
               }
+            }
+          ],
+          "provenance": [
+            {
+              "state": "unchecked",
+              "viewport": 390,
+              "trace": "artifacts/checkbox/unchecked/390/trace.json",
+              "sha256": "7d511fb1c0efcf47ad23e3302038e2dfefad7c7d093e2642ed0f99b8605c0418"
+            },
+            {
+              "state": "unchecked",
+              "viewport": 768,
+              "trace": "artifacts/checkbox/unchecked/768/trace.json",
+              "sha256": "fdcf4f6259a3f84c49f94fe37786cef97ec3a5dc0a17df70e5c535004d208def"
+            },
+            {
+              "state": "unchecked",
+              "viewport": 1440,
+              "trace": "artifacts/checkbox/unchecked/1440/trace.json",
+              "sha256": "0d83f68a92e41d090beed7e3524c55a30170008d5cd8020bf9f2cbb0d3f47c93"
+            },
+            {
+              "state": "checked",
+              "viewport": 390,
+              "trace": "artifacts/checkbox/checked/390/trace.json",
+              "sha256": "053fda0bb38fdb17465cc6f98718c3c140ef3cb2b18f5c31b6ca8cf107b05f48"
+            },
+            {
+              "state": "checked",
+              "viewport": 768,
+              "trace": "artifacts/checkbox/checked/768/trace.json",
+              "sha256": "3df1a57ab2b5aef0d26f2a946df7490c52f6a27f247b3d7cb2fc44a5b73aba87"
+            },
+            {
+              "state": "checked",
+              "viewport": 1440,
+              "trace": "artifacts/checkbox/checked/1440/trace.json",
+              "sha256": "1ab004956cb7e6377cda9c66b26d68000c34eeaacfb412a62d1bbfd5012db9ea"
+            },
+            {
+              "state": "indeterminate",
+              "viewport": 390,
+              "trace": "artifacts/checkbox/indeterminate/390/trace.json",
+              "sha256": "4f316dcdc58d8ed20734a2cb6beadb6dac61e5f9ab79f28fbbb1c9b5c5b95f7b"
+            },
+            {
+              "state": "indeterminate",
+              "viewport": 768,
+              "trace": "artifacts/checkbox/indeterminate/768/trace.json",
+              "sha256": "ae6f9a773c13b9876dac06d05e34ce19d85155a47d2beb23c84919b19c8f21d2"
+            },
+            {
+              "state": "indeterminate",
+              "viewport": 1440,
+              "trace": "artifacts/checkbox/indeterminate/1440/trace.json",
+              "sha256": "287ef10a80b85b63fc99368a2d175811f7c80860d5b75d0116caf3050df8a99d"
             }
           ]
         },
         {
           "id": "node-3",
           "parent": "root",
+          "order": 3,
+          "tag": "path",
+          "role": "generic",
+          "semantics": "path",
+          "portalOwner": null,
+          "presence": null,
           "samples": [
             {
               "state": "unchecked",
@@ -5549,6 +6393,9 @@
               "parent": "root",
               "order": 3,
               "tag": "path",
+              "role": "generic",
+              "semantics": "path",
+              "portalOwner": null,
               "attrs": {
                 "d": {
                   "value": "M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z",
@@ -5583,6 +6430,9 @@
               "parent": "root",
               "order": 3,
               "tag": "path",
+              "role": "generic",
+              "semantics": "path",
+              "portalOwner": null,
               "attrs": {
                 "d": {
                   "value": "M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z",
@@ -5617,6 +6467,9 @@
               "parent": "root",
               "order": 3,
               "tag": "path",
+              "role": "generic",
+              "semantics": "path",
+              "portalOwner": null,
               "attrs": {
                 "d": {
                   "value": "M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z",
@@ -5651,6 +6504,9 @@
               "parent": "root",
               "order": 3,
               "tag": "path",
+              "role": "generic",
+              "semantics": "path",
+              "portalOwner": null,
               "attrs": {
                 "d": {
                   "value": "M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z",
@@ -5685,6 +6541,9 @@
               "parent": "root",
               "order": 3,
               "tag": "path",
+              "role": "generic",
+              "semantics": "path",
+              "portalOwner": null,
               "attrs": {
                 "d": {
                   "value": "M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z",
@@ -5719,6 +6578,9 @@
               "parent": "root",
               "order": 3,
               "tag": "path",
+              "role": "generic",
+              "semantics": "path",
+              "portalOwner": null,
               "attrs": {
                 "d": {
                   "value": "M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z",
@@ -5753,6 +6615,9 @@
               "parent": "root",
               "order": 3,
               "tag": "path",
+              "role": "generic",
+              "semantics": "path",
+              "portalOwner": null,
               "attrs": {
                 "d": {
                   "value": "M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128Z",
@@ -5787,6 +6652,9 @@
               "parent": "root",
               "order": 3,
               "tag": "path",
+              "role": "generic",
+              "semantics": "path",
+              "portalOwner": null,
               "attrs": {
                 "d": {
                   "value": "M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128Z",
@@ -5821,6 +6689,9 @@
               "parent": "root",
               "order": 3,
               "tag": "path",
+              "role": "generic",
+              "semantics": "path",
+              "portalOwner": null,
               "attrs": {
                 "d": {
                   "value": "M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128Z",
@@ -5847,12 +6718,74 @@
                 "opacity": "1",
                 "visibility": "visible"
               }
+            }
+          ],
+          "provenance": [
+            {
+              "state": "unchecked",
+              "viewport": 390,
+              "trace": "artifacts/checkbox/unchecked/390/trace.json",
+              "sha256": "7d511fb1c0efcf47ad23e3302038e2dfefad7c7d093e2642ed0f99b8605c0418"
+            },
+            {
+              "state": "unchecked",
+              "viewport": 768,
+              "trace": "artifacts/checkbox/unchecked/768/trace.json",
+              "sha256": "fdcf4f6259a3f84c49f94fe37786cef97ec3a5dc0a17df70e5c535004d208def"
+            },
+            {
+              "state": "unchecked",
+              "viewport": 1440,
+              "trace": "artifacts/checkbox/unchecked/1440/trace.json",
+              "sha256": "0d83f68a92e41d090beed7e3524c55a30170008d5cd8020bf9f2cbb0d3f47c93"
+            },
+            {
+              "state": "checked",
+              "viewport": 390,
+              "trace": "artifacts/checkbox/checked/390/trace.json",
+              "sha256": "053fda0bb38fdb17465cc6f98718c3c140ef3cb2b18f5c31b6ca8cf107b05f48"
+            },
+            {
+              "state": "checked",
+              "viewport": 768,
+              "trace": "artifacts/checkbox/checked/768/trace.json",
+              "sha256": "3df1a57ab2b5aef0d26f2a946df7490c52f6a27f247b3d7cb2fc44a5b73aba87"
+            },
+            {
+              "state": "checked",
+              "viewport": 1440,
+              "trace": "artifacts/checkbox/checked/1440/trace.json",
+              "sha256": "1ab004956cb7e6377cda9c66b26d68000c34eeaacfb412a62d1bbfd5012db9ea"
+            },
+            {
+              "state": "indeterminate",
+              "viewport": 390,
+              "trace": "artifacts/checkbox/indeterminate/390/trace.json",
+              "sha256": "4f316dcdc58d8ed20734a2cb6beadb6dac61e5f9ab79f28fbbb1c9b5c5b95f7b"
+            },
+            {
+              "state": "indeterminate",
+              "viewport": 768,
+              "trace": "artifacts/checkbox/indeterminate/768/trace.json",
+              "sha256": "ae6f9a773c13b9876dac06d05e34ce19d85155a47d2beb23c84919b19c8f21d2"
+            },
+            {
+              "state": "indeterminate",
+              "viewport": 1440,
+              "trace": "artifacts/checkbox/indeterminate/1440/trace.json",
+              "sha256": "287ef10a80b85b63fc99368a2d175811f7c80860d5b75d0116caf3050df8a99d"
             }
           ]
         },
         {
           "id": "node-4",
           "parent": "root",
+          "order": 4,
+          "tag": "input",
+          "role": "checkbox",
+          "semantics": "input",
+          "portalOwner": null,
+          "presence": null,
           "samples": [
             {
               "state": "unchecked",
@@ -5861,6 +6794,9 @@
               "parent": "root",
               "order": 4,
               "tag": "input",
+              "role": "checkbox",
+              "semantics": "input",
+              "portalOwner": null,
               "attrs": {
                 "aria-hidden": {
                   "value": "true",
@@ -5911,6 +6847,9 @@
               "parent": "root",
               "order": 4,
               "tag": "input",
+              "role": "checkbox",
+              "semantics": "input",
+              "portalOwner": null,
               "attrs": {
                 "aria-hidden": {
                   "value": "true",
@@ -5961,6 +6900,9 @@
               "parent": "root",
               "order": 4,
               "tag": "input",
+              "role": "checkbox",
+              "semantics": "input",
+              "portalOwner": null,
               "attrs": {
                 "aria-hidden": {
                   "value": "true",
@@ -6011,6 +6953,9 @@
               "parent": "root",
               "order": 4,
               "tag": "input",
+              "role": "checkbox",
+              "semantics": "input",
+              "portalOwner": null,
               "attrs": {
                 "aria-hidden": {
                   "value": "true",
@@ -6065,6 +7010,9 @@
               "parent": "root",
               "order": 4,
               "tag": "input",
+              "role": "checkbox",
+              "semantics": "input",
+              "portalOwner": null,
               "attrs": {
                 "aria-hidden": {
                   "value": "true",
@@ -6119,6 +7067,9 @@
               "parent": "root",
               "order": 4,
               "tag": "input",
+              "role": "checkbox",
+              "semantics": "input",
+              "portalOwner": null,
               "attrs": {
                 "aria-hidden": {
                   "value": "true",
@@ -6173,6 +7124,9 @@
               "parent": "root",
               "order": 4,
               "tag": "input",
+              "role": "checkbox",
+              "semantics": "input",
+              "portalOwner": null,
               "attrs": {
                 "aria-hidden": {
                   "value": "true",
@@ -6223,6 +7177,9 @@
               "parent": "root",
               "order": 4,
               "tag": "input",
+              "role": "checkbox",
+              "semantics": "input",
+              "portalOwner": null,
               "attrs": {
                 "aria-hidden": {
                   "value": "true",
@@ -6273,6 +7230,9 @@
               "parent": "root",
               "order": 4,
               "tag": "input",
+              "role": "checkbox",
+              "semantics": "input",
+              "portalOwner": null,
               "attrs": {
                 "aria-hidden": {
                   "value": "true",
@@ -6316,11 +7276,73 @@
                 "visibility": "visible"
               }
             }
+          ],
+          "provenance": [
+            {
+              "state": "unchecked",
+              "viewport": 390,
+              "trace": "artifacts/checkbox/unchecked/390/trace.json",
+              "sha256": "7d511fb1c0efcf47ad23e3302038e2dfefad7c7d093e2642ed0f99b8605c0418"
+            },
+            {
+              "state": "unchecked",
+              "viewport": 768,
+              "trace": "artifacts/checkbox/unchecked/768/trace.json",
+              "sha256": "fdcf4f6259a3f84c49f94fe37786cef97ec3a5dc0a17df70e5c535004d208def"
+            },
+            {
+              "state": "unchecked",
+              "viewport": 1440,
+              "trace": "artifacts/checkbox/unchecked/1440/trace.json",
+              "sha256": "0d83f68a92e41d090beed7e3524c55a30170008d5cd8020bf9f2cbb0d3f47c93"
+            },
+            {
+              "state": "checked",
+              "viewport": 390,
+              "trace": "artifacts/checkbox/checked/390/trace.json",
+              "sha256": "053fda0bb38fdb17465cc6f98718c3c140ef3cb2b18f5c31b6ca8cf107b05f48"
+            },
+            {
+              "state": "checked",
+              "viewport": 768,
+              "trace": "artifacts/checkbox/checked/768/trace.json",
+              "sha256": "3df1a57ab2b5aef0d26f2a946df7490c52f6a27f247b3d7cb2fc44a5b73aba87"
+            },
+            {
+              "state": "checked",
+              "viewport": 1440,
+              "trace": "artifacts/checkbox/checked/1440/trace.json",
+              "sha256": "1ab004956cb7e6377cda9c66b26d68000c34eeaacfb412a62d1bbfd5012db9ea"
+            },
+            {
+              "state": "indeterminate",
+              "viewport": 390,
+              "trace": "artifacts/checkbox/indeterminate/390/trace.json",
+              "sha256": "4f316dcdc58d8ed20734a2cb6beadb6dac61e5f9ab79f28fbbb1c9b5c5b95f7b"
+            },
+            {
+              "state": "indeterminate",
+              "viewport": 768,
+              "trace": "artifacts/checkbox/indeterminate/768/trace.json",
+              "sha256": "ae6f9a773c13b9876dac06d05e34ce19d85155a47d2beb23c84919b19c8f21d2"
+            },
+            {
+              "state": "indeterminate",
+              "viewport": 1440,
+              "trace": "artifacts/checkbox/indeterminate/1440/trace.json",
+              "sha256": "287ef10a80b85b63fc99368a2d175811f7c80860d5b75d0116caf3050df8a99d"
+            }
           ]
         },
         {
           "id": "node-5",
           "parent": "root",
+          "order": 5,
+          "tag": "span",
+          "role": "checkbox",
+          "semantics": "span",
+          "portalOwner": null,
+          "presence": null,
           "samples": [
             {
               "state": "unchecked",
@@ -6329,6 +7351,9 @@
               "parent": "root",
               "order": 5,
               "tag": "span",
+              "role": "checkbox",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "inline-flex items-center gap-1",
@@ -6367,6 +7392,9 @@
               "parent": "root",
               "order": 5,
               "tag": "span",
+              "role": "checkbox",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "inline-flex items-center gap-1",
@@ -6405,6 +7433,9 @@
               "parent": "root",
               "order": 5,
               "tag": "span",
+              "role": "checkbox",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "inline-flex items-center gap-1",
@@ -6443,6 +7474,9 @@
               "parent": "root",
               "order": 5,
               "tag": "span",
+              "role": "checkbox",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "inline-flex items-center gap-1",
@@ -6481,6 +7515,9 @@
               "parent": "root",
               "order": 5,
               "tag": "span",
+              "role": "checkbox",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "inline-flex items-center gap-1",
@@ -6519,6 +7556,9 @@
               "parent": "root",
               "order": 5,
               "tag": "span",
+              "role": "checkbox",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "inline-flex items-center gap-1",
@@ -6557,6 +7597,9 @@
               "parent": "root",
               "order": 5,
               "tag": "span",
+              "role": "checkbox",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "inline-flex items-center gap-1",
@@ -6595,6 +7638,9 @@
               "parent": "root",
               "order": 5,
               "tag": "span",
+              "role": "checkbox",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "inline-flex items-center gap-1",
@@ -6633,6 +7679,9 @@
               "parent": "root",
               "order": 5,
               "tag": "span",
+              "role": "checkbox",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "inline-flex items-center gap-1",
@@ -6663,6 +7712,62 @@
                 "opacity": "1",
                 "visibility": "visible"
               }
+            }
+          ],
+          "provenance": [
+            {
+              "state": "unchecked",
+              "viewport": 390,
+              "trace": "artifacts/checkbox/unchecked/390/trace.json",
+              "sha256": "7d511fb1c0efcf47ad23e3302038e2dfefad7c7d093e2642ed0f99b8605c0418"
+            },
+            {
+              "state": "unchecked",
+              "viewport": 768,
+              "trace": "artifacts/checkbox/unchecked/768/trace.json",
+              "sha256": "fdcf4f6259a3f84c49f94fe37786cef97ec3a5dc0a17df70e5c535004d208def"
+            },
+            {
+              "state": "unchecked",
+              "viewport": 1440,
+              "trace": "artifacts/checkbox/unchecked/1440/trace.json",
+              "sha256": "0d83f68a92e41d090beed7e3524c55a30170008d5cd8020bf9f2cbb0d3f47c93"
+            },
+            {
+              "state": "checked",
+              "viewport": 390,
+              "trace": "artifacts/checkbox/checked/390/trace.json",
+              "sha256": "053fda0bb38fdb17465cc6f98718c3c140ef3cb2b18f5c31b6ca8cf107b05f48"
+            },
+            {
+              "state": "checked",
+              "viewport": 768,
+              "trace": "artifacts/checkbox/checked/768/trace.json",
+              "sha256": "3df1a57ab2b5aef0d26f2a946df7490c52f6a27f247b3d7cb2fc44a5b73aba87"
+            },
+            {
+              "state": "checked",
+              "viewport": 1440,
+              "trace": "artifacts/checkbox/checked/1440/trace.json",
+              "sha256": "1ab004956cb7e6377cda9c66b26d68000c34eeaacfb412a62d1bbfd5012db9ea"
+            },
+            {
+              "state": "indeterminate",
+              "viewport": 390,
+              "trace": "artifacts/checkbox/indeterminate/390/trace.json",
+              "sha256": "4f316dcdc58d8ed20734a2cb6beadb6dac61e5f9ab79f28fbbb1c9b5c5b95f7b"
+            },
+            {
+              "state": "indeterminate",
+              "viewport": 768,
+              "trace": "artifacts/checkbox/indeterminate/768/trace.json",
+              "sha256": "ae6f9a773c13b9876dac06d05e34ce19d85155a47d2beb23c84919b19c8f21d2"
+            },
+            {
+              "state": "indeterminate",
+              "viewport": 1440,
+              "trace": "artifacts/checkbox/indeterminate/1440/trace.json",
+              "sha256": "287ef10a80b85b63fc99368a2d175811f7c80860d5b75d0116caf3050df8a99d"
             }
           ]
         }
@@ -6675,7 +7780,11 @@
             "type": "checkedChange",
             "value": true
           },
-          "focusAfter": "body"
+          "focusAfter": "body",
+          "provenance": {
+            "trace": "artifacts/checkbox/unchecked/390/trace.json",
+            "sha256": "7d511fb1c0efcf47ad23e3302038e2dfefad7c7d093e2642ed0f99b8605c0418"
+          }
         },
         {
           "state": "unchecked",
@@ -6684,7 +7793,11 @@
             "type": "checkedChange",
             "value": true
           },
-          "focusAfter": "control"
+          "focusAfter": "control",
+          "provenance": {
+            "trace": "artifacts/checkbox/unchecked/768/trace.json",
+            "sha256": "fdcf4f6259a3f84c49f94fe37786cef97ec3a5dc0a17df70e5c535004d208def"
+          }
         },
         {
           "state": "unchecked",
@@ -6693,7 +7806,11 @@
             "type": "checkedChange",
             "value": true
           },
-          "focusAfter": "body"
+          "focusAfter": "body",
+          "provenance": {
+            "trace": "artifacts/checkbox/unchecked/1440/trace.json",
+            "sha256": "0d83f68a92e41d090beed7e3524c55a30170008d5cd8020bf9f2cbb0d3f47c93"
+          }
         },
         {
           "state": "checked",
@@ -6702,7 +7819,11 @@
             "type": "checkedChange",
             "value": false
           },
-          "focusAfter": "control"
+          "focusAfter": "control",
+          "provenance": {
+            "trace": "artifacts/checkbox/checked/390/trace.json",
+            "sha256": "053fda0bb38fdb17465cc6f98718c3c140ef3cb2b18f5c31b6ca8cf107b05f48"
+          }
         },
         {
           "state": "checked",
@@ -6711,7 +7832,11 @@
             "type": "checkedChange",
             "value": false
           },
-          "focusAfter": "body"
+          "focusAfter": "body",
+          "provenance": {
+            "trace": "artifacts/checkbox/checked/768/trace.json",
+            "sha256": "3df1a57ab2b5aef0d26f2a946df7490c52f6a27f247b3d7cb2fc44a5b73aba87"
+          }
         },
         {
           "state": "checked",
@@ -6720,7 +7845,11 @@
             "type": "checkedChange",
             "value": false
           },
-          "focusAfter": "control"
+          "focusAfter": "control",
+          "provenance": {
+            "trace": "artifacts/checkbox/checked/1440/trace.json",
+            "sha256": "1ab004956cb7e6377cda9c66b26d68000c34eeaacfb412a62d1bbfd5012db9ea"
+          }
         },
         {
           "state": "indeterminate",
@@ -6729,7 +7858,11 @@
             "type": "checkedChange",
             "value": true
           },
-          "focusAfter": "body"
+          "focusAfter": "body",
+          "provenance": {
+            "trace": "artifacts/checkbox/indeterminate/390/trace.json",
+            "sha256": "4f316dcdc58d8ed20734a2cb6beadb6dac61e5f9ab79f28fbbb1c9b5c5b95f7b"
+          }
         },
         {
           "state": "indeterminate",
@@ -6738,7 +7871,11 @@
             "type": "checkedChange",
             "value": true
           },
-          "focusAfter": "control"
+          "focusAfter": "control",
+          "provenance": {
+            "trace": "artifacts/checkbox/indeterminate/768/trace.json",
+            "sha256": "ae6f9a773c13b9876dac06d05e34ce19d85155a47d2beb23c84919b19c8f21d2"
+          }
         },
         {
           "state": "indeterminate",
@@ -6747,7 +7884,11 @@
             "type": "checkedChange",
             "value": true
           },
-          "focusAfter": "body"
+          "focusAfter": "body",
+          "provenance": {
+            "trace": "artifacts/checkbox/indeterminate/1440/trace.json",
+            "sha256": "287ef10a80b85b63fc99368a2d175811f7c80860d5b75d0116caf3050df8a99d"
+          }
         }
       ],
       "accessibility": [
@@ -6783,7 +7924,11 @@
               "role": "InlineTextBox",
               "name": "Accept terms"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/checkbox/unchecked/390/trace.json",
+            "sha256": "7d511fb1c0efcf47ad23e3302038e2dfefad7c7d093e2642ed0f99b8605c0418"
+          }
         },
         {
           "state": "unchecked",
@@ -6817,7 +7962,11 @@
               "role": "InlineTextBox",
               "name": "Accept terms"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/checkbox/unchecked/768/trace.json",
+            "sha256": "fdcf4f6259a3f84c49f94fe37786cef97ec3a5dc0a17df70e5c535004d208def"
+          }
         },
         {
           "state": "unchecked",
@@ -6851,7 +8000,11 @@
               "role": "InlineTextBox",
               "name": "Accept terms"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/checkbox/unchecked/1440/trace.json",
+            "sha256": "0d83f68a92e41d090beed7e3524c55a30170008d5cd8020bf9f2cbb0d3f47c93"
+          }
         },
         {
           "state": "checked",
@@ -6889,7 +8042,11 @@
               "role": "InlineTextBox",
               "name": "Accept terms"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/checkbox/checked/390/trace.json",
+            "sha256": "053fda0bb38fdb17465cc6f98718c3c140ef3cb2b18f5c31b6ca8cf107b05f48"
+          }
         },
         {
           "state": "checked",
@@ -6927,7 +8084,11 @@
               "role": "InlineTextBox",
               "name": "Accept terms"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/checkbox/checked/768/trace.json",
+            "sha256": "3df1a57ab2b5aef0d26f2a946df7490c52f6a27f247b3d7cb2fc44a5b73aba87"
+          }
         },
         {
           "state": "checked",
@@ -6965,7 +8126,11 @@
               "role": "InlineTextBox",
               "name": "Accept terms"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/checkbox/checked/1440/trace.json",
+            "sha256": "1ab004956cb7e6377cda9c66b26d68000c34eeaacfb412a62d1bbfd5012db9ea"
+          }
         },
         {
           "state": "indeterminate",
@@ -7003,7 +8168,11 @@
               "role": "InlineTextBox",
               "name": "Accept terms"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/checkbox/indeterminate/390/trace.json",
+            "sha256": "4f316dcdc58d8ed20734a2cb6beadb6dac61e5f9ab79f28fbbb1c9b5c5b95f7b"
+          }
         },
         {
           "state": "indeterminate",
@@ -7041,7 +8210,11 @@
               "role": "InlineTextBox",
               "name": "Accept terms"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/checkbox/indeterminate/768/trace.json",
+            "sha256": "ae6f9a773c13b9876dac06d05e34ce19d85155a47d2beb23c84919b19c8f21d2"
+          }
         },
         {
           "state": "indeterminate",
@@ -7079,7 +8252,11 @@
               "role": "InlineTextBox",
               "name": "Accept terms"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/checkbox/indeterminate/1440/trace.json",
+            "sha256": "287ef10a80b85b63fc99368a2d175811f7c80860d5b75d0116caf3050df8a99d"
+          }
         }
       ],
       "provenance": {
@@ -9213,6 +10390,12 @@
         {
           "id": "root",
           "parent": null,
+          "order": 0,
+          "tag": "main",
+          "role": "main",
+          "semantics": "main",
+          "portalOwner": null,
+          "presence": null,
           "samples": [
             {
               "state": "default",
@@ -9221,6 +10404,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -9269,6 +10455,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -9317,6 +10506,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -9365,6 +10557,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -9413,6 +10608,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -9461,6 +10659,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -9509,6 +10710,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -9557,6 +10761,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -9605,6 +10812,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -9645,12 +10855,74 @@
                 "opacity": "1",
                 "visibility": "visible"
               }
+            }
+          ],
+          "provenance": [
+            {
+              "state": "default",
+              "viewport": 390,
+              "trace": "artifacts/field/default/390/trace.json",
+              "sha256": "f8fbe92f36a06669ba0aaf8f659ad8e62aabcc70a813c1bf03af0f182b10e068"
+            },
+            {
+              "state": "default",
+              "viewport": 768,
+              "trace": "artifacts/field/default/768/trace.json",
+              "sha256": "653c5630aa38adfff3aa4be17f5ff33c244db4f85c0e9caaba6ab8f0b72e3ee7"
+            },
+            {
+              "state": "default",
+              "viewport": 1440,
+              "trace": "artifacts/field/default/1440/trace.json",
+              "sha256": "2adc85a60bbd7e2465af2880efb92918865a3d1a54d735aa92c5edc427be0494"
+            },
+            {
+              "state": "error",
+              "viewport": 390,
+              "trace": "artifacts/field/error/390/trace.json",
+              "sha256": "9a18015c3557a97e24afad2390d94b627c2be2bd738302ca96cc0eb7ff01e5c6"
+            },
+            {
+              "state": "error",
+              "viewport": 768,
+              "trace": "artifacts/field/error/768/trace.json",
+              "sha256": "af847a9695f6f8f662baf7c7825d2f126a153005103f304874fe5480a550c1e4"
+            },
+            {
+              "state": "error",
+              "viewport": 1440,
+              "trace": "artifacts/field/error/1440/trace.json",
+              "sha256": "c50447b0fe6dc3a580f0085c6684e7495c6f74afdbbc9be4936c1c0710a77bd5"
+            },
+            {
+              "state": "disabled",
+              "viewport": 390,
+              "trace": "artifacts/field/disabled/390/trace.json",
+              "sha256": "39f04b8bf158bbb5f42a662bff7bfef6d28a7cb6af234fa92b0cfb52dcac15b3"
+            },
+            {
+              "state": "disabled",
+              "viewport": 768,
+              "trace": "artifacts/field/disabled/768/trace.json",
+              "sha256": "313ec5ab94385e046c1aac7ecf07fa883c0399e76cbe35528d823f9cd42a0168"
+            },
+            {
+              "state": "disabled",
+              "viewport": 1440,
+              "trace": "artifacts/field/disabled/1440/trace.json",
+              "sha256": "34c39da0f90e1eafae12347bd22effa033253c9f41fc8527f831b2ff034eb42e"
             }
           ]
         },
         {
           "id": "node-1",
           "parent": "root",
+          "order": 1,
+          "tag": "label",
+          "role": "label",
+          "semantics": "label",
+          "portalOwner": null,
+          "presence": null,
           "samples": [
             {
               "state": "default",
@@ -9659,6 +10931,9 @@
               "parent": "root",
               "order": 1,
               "tag": "label",
+              "role": "label",
+              "semantics": "label",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "m-0 select-none text-base font-medium text-kumo-default",
@@ -9707,6 +10982,9 @@
               "parent": "root",
               "order": 1,
               "tag": "label",
+              "role": "label",
+              "semantics": "label",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "m-0 select-none text-base font-medium text-kumo-default",
@@ -9755,6 +11033,9 @@
               "parent": "root",
               "order": 1,
               "tag": "label",
+              "role": "label",
+              "semantics": "label",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "m-0 select-none text-base font-medium text-kumo-default",
@@ -9803,6 +11084,9 @@
               "parent": "root",
               "order": 1,
               "tag": "label",
+              "role": "label",
+              "semantics": "label",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "m-0 select-none text-base font-medium text-kumo-default",
@@ -9851,6 +11135,9 @@
               "parent": "root",
               "order": 1,
               "tag": "label",
+              "role": "label",
+              "semantics": "label",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "m-0 select-none text-base font-medium text-kumo-default",
@@ -9899,6 +11186,9 @@
               "parent": "root",
               "order": 1,
               "tag": "label",
+              "role": "label",
+              "semantics": "label",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "m-0 select-none text-base font-medium text-kumo-default",
@@ -9947,6 +11237,9 @@
               "parent": "root",
               "order": 1,
               "tag": "label",
+              "role": "label",
+              "semantics": "label",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "m-0 select-none text-base font-medium text-kumo-default",
@@ -9995,6 +11288,9 @@
               "parent": "root",
               "order": 1,
               "tag": "label",
+              "role": "label",
+              "semantics": "label",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "m-0 select-none text-base font-medium text-kumo-default",
@@ -10043,6 +11339,9 @@
               "parent": "root",
               "order": 1,
               "tag": "label",
+              "role": "label",
+              "semantics": "label",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "m-0 select-none text-base font-medium text-kumo-default",
@@ -10083,12 +11382,74 @@
                 "opacity": "1",
                 "visibility": "visible"
               }
+            }
+          ],
+          "provenance": [
+            {
+              "state": "default",
+              "viewport": 390,
+              "trace": "artifacts/field/default/390/trace.json",
+              "sha256": "f8fbe92f36a06669ba0aaf8f659ad8e62aabcc70a813c1bf03af0f182b10e068"
+            },
+            {
+              "state": "default",
+              "viewport": 768,
+              "trace": "artifacts/field/default/768/trace.json",
+              "sha256": "653c5630aa38adfff3aa4be17f5ff33c244db4f85c0e9caaba6ab8f0b72e3ee7"
+            },
+            {
+              "state": "default",
+              "viewport": 1440,
+              "trace": "artifacts/field/default/1440/trace.json",
+              "sha256": "2adc85a60bbd7e2465af2880efb92918865a3d1a54d735aa92c5edc427be0494"
+            },
+            {
+              "state": "error",
+              "viewport": 390,
+              "trace": "artifacts/field/error/390/trace.json",
+              "sha256": "9a18015c3557a97e24afad2390d94b627c2be2bd738302ca96cc0eb7ff01e5c6"
+            },
+            {
+              "state": "error",
+              "viewport": 768,
+              "trace": "artifacts/field/error/768/trace.json",
+              "sha256": "af847a9695f6f8f662baf7c7825d2f126a153005103f304874fe5480a550c1e4"
+            },
+            {
+              "state": "error",
+              "viewport": 1440,
+              "trace": "artifacts/field/error/1440/trace.json",
+              "sha256": "c50447b0fe6dc3a580f0085c6684e7495c6f74afdbbc9be4936c1c0710a77bd5"
+            },
+            {
+              "state": "disabled",
+              "viewport": 390,
+              "trace": "artifacts/field/disabled/390/trace.json",
+              "sha256": "39f04b8bf158bbb5f42a662bff7bfef6d28a7cb6af234fa92b0cfb52dcac15b3"
+            },
+            {
+              "state": "disabled",
+              "viewport": 768,
+              "trace": "artifacts/field/disabled/768/trace.json",
+              "sha256": "313ec5ab94385e046c1aac7ecf07fa883c0399e76cbe35528d823f9cd42a0168"
+            },
+            {
+              "state": "disabled",
+              "viewport": 1440,
+              "trace": "artifacts/field/disabled/1440/trace.json",
+              "sha256": "34c39da0f90e1eafae12347bd22effa033253c9f41fc8527f831b2ff034eb42e"
             }
           ]
         },
         {
           "id": "node-2",
           "parent": "root",
+          "order": 2,
+          "tag": "span",
+          "role": "StaticText",
+          "semantics": "span",
+          "portalOwner": null,
+          "presence": null,
           "samples": [
             {
               "state": "default",
@@ -10097,6 +11458,9 @@
               "parent": "root",
               "order": 2,
               "tag": "span",
+              "role": "StaticText",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "inline-flex items-center gap-1",
@@ -10135,6 +11499,9 @@
               "parent": "root",
               "order": 2,
               "tag": "span",
+              "role": "StaticText",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "inline-flex items-center gap-1",
@@ -10173,6 +11540,9 @@
               "parent": "root",
               "order": 2,
               "tag": "span",
+              "role": "StaticText",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "inline-flex items-center gap-1",
@@ -10211,6 +11581,9 @@
               "parent": "root",
               "order": 2,
               "tag": "span",
+              "role": "StaticText",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "inline-flex items-center gap-1",
@@ -10249,6 +11622,9 @@
               "parent": "root",
               "order": 2,
               "tag": "span",
+              "role": "StaticText",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "inline-flex items-center gap-1",
@@ -10287,6 +11663,9 @@
               "parent": "root",
               "order": 2,
               "tag": "span",
+              "role": "StaticText",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "inline-flex items-center gap-1",
@@ -10325,6 +11704,9 @@
               "parent": "root",
               "order": 2,
               "tag": "span",
+              "role": "StaticText",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "inline-flex items-center gap-1",
@@ -10363,6 +11745,9 @@
               "parent": "root",
               "order": 2,
               "tag": "span",
+              "role": "StaticText",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "inline-flex items-center gap-1",
@@ -10401,6 +11786,9 @@
               "parent": "root",
               "order": 2,
               "tag": "span",
+              "role": "StaticText",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "inline-flex items-center gap-1",
@@ -10431,12 +11819,74 @@
                 "opacity": "1",
                 "visibility": "visible"
               }
+            }
+          ],
+          "provenance": [
+            {
+              "state": "default",
+              "viewport": 390,
+              "trace": "artifacts/field/default/390/trace.json",
+              "sha256": "f8fbe92f36a06669ba0aaf8f659ad8e62aabcc70a813c1bf03af0f182b10e068"
+            },
+            {
+              "state": "default",
+              "viewport": 768,
+              "trace": "artifacts/field/default/768/trace.json",
+              "sha256": "653c5630aa38adfff3aa4be17f5ff33c244db4f85c0e9caaba6ab8f0b72e3ee7"
+            },
+            {
+              "state": "default",
+              "viewport": 1440,
+              "trace": "artifacts/field/default/1440/trace.json",
+              "sha256": "2adc85a60bbd7e2465af2880efb92918865a3d1a54d735aa92c5edc427be0494"
+            },
+            {
+              "state": "error",
+              "viewport": 390,
+              "trace": "artifacts/field/error/390/trace.json",
+              "sha256": "9a18015c3557a97e24afad2390d94b627c2be2bd738302ca96cc0eb7ff01e5c6"
+            },
+            {
+              "state": "error",
+              "viewport": 768,
+              "trace": "artifacts/field/error/768/trace.json",
+              "sha256": "af847a9695f6f8f662baf7c7825d2f126a153005103f304874fe5480a550c1e4"
+            },
+            {
+              "state": "error",
+              "viewport": 1440,
+              "trace": "artifacts/field/error/1440/trace.json",
+              "sha256": "c50447b0fe6dc3a580f0085c6684e7495c6f74afdbbc9be4936c1c0710a77bd5"
+            },
+            {
+              "state": "disabled",
+              "viewport": 390,
+              "trace": "artifacts/field/disabled/390/trace.json",
+              "sha256": "39f04b8bf158bbb5f42a662bff7bfef6d28a7cb6af234fa92b0cfb52dcac15b3"
+            },
+            {
+              "state": "disabled",
+              "viewport": 768,
+              "trace": "artifacts/field/disabled/768/trace.json",
+              "sha256": "313ec5ab94385e046c1aac7ecf07fa883c0399e76cbe35528d823f9cd42a0168"
+            },
+            {
+              "state": "disabled",
+              "viewport": 1440,
+              "trace": "artifacts/field/disabled/1440/trace.json",
+              "sha256": "34c39da0f90e1eafae12347bd22effa033253c9f41fc8527f831b2ff034eb42e"
             }
           ]
         },
         {
           "id": "control",
           "parent": "root",
+          "order": 3,
+          "tag": "input",
+          "role": "textbox",
+          "semantics": "input",
+          "portalOwner": null,
+          "presence": null,
           "samples": [
             {
               "state": "default",
@@ -10445,6 +11895,9 @@
               "parent": "root",
               "order": 3,
               "tag": "input",
+              "role": "textbox",
+              "semantics": "input",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "h-9 rounded-lg px-3 ring ring-kumo-line",
@@ -10493,6 +11946,9 @@
               "parent": "root",
               "order": 3,
               "tag": "input",
+              "role": "textbox",
+              "semantics": "input",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "h-9 rounded-lg px-3 ring ring-kumo-line",
@@ -10541,6 +11997,9 @@
               "parent": "root",
               "order": 3,
               "tag": "input",
+              "role": "textbox",
+              "semantics": "input",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "h-9 rounded-lg px-3 ring ring-kumo-line",
@@ -10589,6 +12048,9 @@
               "parent": "root",
               "order": 3,
               "tag": "input",
+              "role": "textbox",
+              "semantics": "input",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "h-9 rounded-lg px-3 ring ring-kumo-line",
@@ -10637,6 +12099,9 @@
               "parent": "root",
               "order": 3,
               "tag": "input",
+              "role": "textbox",
+              "semantics": "input",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "h-9 rounded-lg px-3 ring ring-kumo-line",
@@ -10685,6 +12150,9 @@
               "parent": "root",
               "order": 3,
               "tag": "input",
+              "role": "textbox",
+              "semantics": "input",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "h-9 rounded-lg px-3 ring ring-kumo-line",
@@ -10733,6 +12201,9 @@
               "parent": "root",
               "order": 3,
               "tag": "input",
+              "role": "textbox",
+              "semantics": "input",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "h-9 rounded-lg px-3 ring ring-kumo-line",
@@ -10785,6 +12256,9 @@
               "parent": "root",
               "order": 3,
               "tag": "input",
+              "role": "textbox",
+              "semantics": "input",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "h-9 rounded-lg px-3 ring ring-kumo-line",
@@ -10837,6 +12311,9 @@
               "parent": "root",
               "order": 3,
               "tag": "input",
+              "role": "textbox",
+              "semantics": "input",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "h-9 rounded-lg px-3 ring ring-kumo-line",
@@ -10882,19 +12359,111 @@
                 "visibility": "visible"
               }
             }
+          ],
+          "provenance": [
+            {
+              "state": "default",
+              "viewport": 390,
+              "trace": "artifacts/field/default/390/trace.json",
+              "sha256": "f8fbe92f36a06669ba0aaf8f659ad8e62aabcc70a813c1bf03af0f182b10e068"
+            },
+            {
+              "state": "default",
+              "viewport": 768,
+              "trace": "artifacts/field/default/768/trace.json",
+              "sha256": "653c5630aa38adfff3aa4be17f5ff33c244db4f85c0e9caaba6ab8f0b72e3ee7"
+            },
+            {
+              "state": "default",
+              "viewport": 1440,
+              "trace": "artifacts/field/default/1440/trace.json",
+              "sha256": "2adc85a60bbd7e2465af2880efb92918865a3d1a54d735aa92c5edc427be0494"
+            },
+            {
+              "state": "error",
+              "viewport": 390,
+              "trace": "artifacts/field/error/390/trace.json",
+              "sha256": "9a18015c3557a97e24afad2390d94b627c2be2bd738302ca96cc0eb7ff01e5c6"
+            },
+            {
+              "state": "error",
+              "viewport": 768,
+              "trace": "artifacts/field/error/768/trace.json",
+              "sha256": "af847a9695f6f8f662baf7c7825d2f126a153005103f304874fe5480a550c1e4"
+            },
+            {
+              "state": "error",
+              "viewport": 1440,
+              "trace": "artifacts/field/error/1440/trace.json",
+              "sha256": "c50447b0fe6dc3a580f0085c6684e7495c6f74afdbbc9be4936c1c0710a77bd5"
+            },
+            {
+              "state": "disabled",
+              "viewport": 390,
+              "trace": "artifacts/field/disabled/390/trace.json",
+              "sha256": "39f04b8bf158bbb5f42a662bff7bfef6d28a7cb6af234fa92b0cfb52dcac15b3"
+            },
+            {
+              "state": "disabled",
+              "viewport": 768,
+              "trace": "artifacts/field/disabled/768/trace.json",
+              "sha256": "313ec5ab94385e046c1aac7ecf07fa883c0399e76cbe35528d823f9cd42a0168"
+            },
+            {
+              "state": "disabled",
+              "viewport": 1440,
+              "trace": "artifacts/field/disabled/1440/trace.json",
+              "sha256": "34c39da0f90e1eafae12347bd22effa033253c9f41fc8527f831b2ff034eb42e"
+            }
           ]
         },
         {
-          "id": "node-4",
+          "id": "node-4@p-0",
           "parent": "root",
+          "order": 4,
+          "tag": "p",
+          "role": "StaticText",
+          "semantics": "p",
+          "portalOwner": null,
+          "presence": {
+            "cells": [
+              {
+                "state": "default",
+                "viewport": 390
+              },
+              {
+                "state": "default",
+                "viewport": 768
+              },
+              {
+                "state": "default",
+                "viewport": 1440
+              },
+              {
+                "state": "disabled",
+                "viewport": 390
+              },
+              {
+                "state": "disabled",
+                "viewport": 768
+              },
+              {
+                "state": "disabled",
+                "viewport": 1440
+              }
+            ]
+          },
           "samples": [
             {
               "state": "default",
               "viewport": 390,
-              "id": "node-4",
+              "id": "node-4@p-0",
               "parent": "root",
               "order": 4,
               "tag": "p",
+              "role": "StaticText",
+              "semantics": "p",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "text-sm leading-snug text-kumo-subtle col-span-full",
@@ -10934,10 +12503,13 @@
             {
               "state": "default",
               "viewport": 768,
-              "id": "node-4",
+              "id": "node-4@p-0",
               "parent": "root",
               "order": 4,
               "tag": "p",
+              "role": "StaticText",
+              "semantics": "p",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "text-sm leading-snug text-kumo-subtle col-span-full",
@@ -10977,10 +12549,13 @@
             {
               "state": "default",
               "viewport": 1440,
-              "id": "node-4",
+              "id": "node-4@p-0",
               "parent": "root",
               "order": 4,
               "tag": "p",
+              "role": "StaticText",
+              "semantics": "p",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "text-sm leading-snug text-kumo-subtle col-span-full",
@@ -11018,141 +12593,15 @@
               }
             },
             {
-              "state": "error",
-              "viewport": 390,
-              "id": "node-4",
-              "parent": "root",
-              "order": 4,
-              "tag": "div",
-              "attrs": {
-                "class": {
-                  "value": "text-sm leading-snug text-kumo-danger col-span-full",
-                  "type": "string"
-                },
-                "id": {
-                  "value": "base-ui-_R_7_",
-                  "type": "string"
-                }
-              },
-              "classes": [
-                "col-span-full",
-                "leading-snug",
-                "text-kumo-danger",
-                "text-sm"
-              ],
-              "text": "Required",
-              "geometry": {
-                "x": 32,
-                "y": 104,
-                "width": 326,
-                "height": 17.875
-              },
-              "style": {
-                "display": "block",
-                "position": "static",
-                "color": "oklch(0.505 0.213 27.518)",
-                "background-color": "rgba(0, 0, 0, 0)",
-                "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
-                "font-size": "13px",
-                "font-weight": "400",
-                "border-radius": "0px",
-                "opacity": "1",
-                "visibility": "visible"
-              }
-            },
-            {
-              "state": "error",
-              "viewport": 768,
-              "id": "node-4",
-              "parent": "root",
-              "order": 4,
-              "tag": "div",
-              "attrs": {
-                "class": {
-                  "value": "text-sm leading-snug text-kumo-danger col-span-full",
-                  "type": "string"
-                },
-                "id": {
-                  "value": "base-ui-_R_7_",
-                  "type": "string"
-                }
-              },
-              "classes": [
-                "col-span-full",
-                "leading-snug",
-                "text-kumo-danger",
-                "text-sm"
-              ],
-              "text": "Required",
-              "geometry": {
-                "x": 32,
-                "y": 104,
-                "width": 704,
-                "height": 17.875
-              },
-              "style": {
-                "display": "block",
-                "position": "static",
-                "color": "oklch(0.505 0.213 27.518)",
-                "background-color": "rgba(0, 0, 0, 0)",
-                "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
-                "font-size": "13px",
-                "font-weight": "400",
-                "border-radius": "0px",
-                "opacity": "1",
-                "visibility": "visible"
-              }
-            },
-            {
-              "state": "error",
-              "viewport": 1440,
-              "id": "node-4",
-              "parent": "root",
-              "order": 4,
-              "tag": "div",
-              "attrs": {
-                "class": {
-                  "value": "text-sm leading-snug text-kumo-danger col-span-full",
-                  "type": "string"
-                },
-                "id": {
-                  "value": "base-ui-_R_7_",
-                  "type": "string"
-                }
-              },
-              "classes": [
-                "col-span-full",
-                "leading-snug",
-                "text-kumo-danger",
-                "text-sm"
-              ],
-              "text": "Required",
-              "geometry": {
-                "x": 32,
-                "y": 104,
-                "width": 1376,
-                "height": 17.875
-              },
-              "style": {
-                "display": "block",
-                "position": "static",
-                "color": "oklch(0.505 0.213 27.518)",
-                "background-color": "rgba(0, 0, 0, 0)",
-                "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
-                "font-size": "13px",
-                "font-weight": "400",
-                "border-radius": "0px",
-                "opacity": "1",
-                "visibility": "visible"
-              }
-            },
-            {
               "state": "disabled",
               "viewport": 390,
-              "id": "node-4",
+              "id": "node-4@p-0",
               "parent": "root",
               "order": 4,
               "tag": "p",
+              "role": "StaticText",
+              "semantics": "p",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "text-sm leading-snug text-kumo-subtle col-span-full",
@@ -11192,10 +12641,13 @@
             {
               "state": "disabled",
               "viewport": 768,
-              "id": "node-4",
+              "id": "node-4@p-0",
               "parent": "root",
               "order": 4,
               "tag": "p",
+              "role": "StaticText",
+              "semantics": "p",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "text-sm leading-snug text-kumo-subtle col-span-full",
@@ -11235,10 +12687,13 @@
             {
               "state": "disabled",
               "viewport": 1440,
-              "id": "node-4",
+              "id": "node-4@p-0",
               "parent": "root",
               "order": 4,
               "tag": "p",
+              "role": "StaticText",
+              "semantics": "p",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "text-sm leading-snug text-kumo-subtle col-span-full",
@@ -11274,6 +12729,229 @@
                 "opacity": "1",
                 "visibility": "visible"
               }
+            }
+          ],
+          "provenance": [
+            {
+              "state": "default",
+              "viewport": 390,
+              "trace": "artifacts/field/default/390/trace.json",
+              "sha256": "f8fbe92f36a06669ba0aaf8f659ad8e62aabcc70a813c1bf03af0f182b10e068"
+            },
+            {
+              "state": "default",
+              "viewport": 768,
+              "trace": "artifacts/field/default/768/trace.json",
+              "sha256": "653c5630aa38adfff3aa4be17f5ff33c244db4f85c0e9caaba6ab8f0b72e3ee7"
+            },
+            {
+              "state": "default",
+              "viewport": 1440,
+              "trace": "artifacts/field/default/1440/trace.json",
+              "sha256": "2adc85a60bbd7e2465af2880efb92918865a3d1a54d735aa92c5edc427be0494"
+            },
+            {
+              "state": "disabled",
+              "viewport": 390,
+              "trace": "artifacts/field/disabled/390/trace.json",
+              "sha256": "39f04b8bf158bbb5f42a662bff7bfef6d28a7cb6af234fa92b0cfb52dcac15b3"
+            },
+            {
+              "state": "disabled",
+              "viewport": 768,
+              "trace": "artifacts/field/disabled/768/trace.json",
+              "sha256": "313ec5ab94385e046c1aac7ecf07fa883c0399e76cbe35528d823f9cd42a0168"
+            },
+            {
+              "state": "disabled",
+              "viewport": 1440,
+              "trace": "artifacts/field/disabled/1440/trace.json",
+              "sha256": "34c39da0f90e1eafae12347bd22effa033253c9f41fc8527f831b2ff034eb42e"
+            }
+          ]
+        },
+        {
+          "id": "node-4@div-1",
+          "parent": "root",
+          "order": 4,
+          "tag": "div",
+          "role": "StaticText",
+          "semantics": "div",
+          "portalOwner": null,
+          "presence": {
+            "cells": [
+              {
+                "state": "error",
+                "viewport": 390
+              },
+              {
+                "state": "error",
+                "viewport": 768
+              },
+              {
+                "state": "error",
+                "viewport": 1440
+              }
+            ]
+          },
+          "samples": [
+            {
+              "state": "error",
+              "viewport": 390,
+              "id": "node-4@div-1",
+              "parent": "root",
+              "order": 4,
+              "tag": "div",
+              "role": "StaticText",
+              "semantics": "div",
+              "portalOwner": null,
+              "attrs": {
+                "class": {
+                  "value": "text-sm leading-snug text-kumo-danger col-span-full",
+                  "type": "string"
+                },
+                "id": {
+                  "value": "base-ui-_R_7_",
+                  "type": "string"
+                }
+              },
+              "classes": [
+                "col-span-full",
+                "leading-snug",
+                "text-kumo-danger",
+                "text-sm"
+              ],
+              "text": "Required",
+              "geometry": {
+                "x": 32,
+                "y": 104,
+                "width": 326,
+                "height": 17.875
+              },
+              "style": {
+                "display": "block",
+                "position": "static",
+                "color": "oklch(0.505 0.213 27.518)",
+                "background-color": "rgba(0, 0, 0, 0)",
+                "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+                "font-size": "13px",
+                "font-weight": "400",
+                "border-radius": "0px",
+                "opacity": "1",
+                "visibility": "visible"
+              }
+            },
+            {
+              "state": "error",
+              "viewport": 768,
+              "id": "node-4@div-1",
+              "parent": "root",
+              "order": 4,
+              "tag": "div",
+              "role": "StaticText",
+              "semantics": "div",
+              "portalOwner": null,
+              "attrs": {
+                "class": {
+                  "value": "text-sm leading-snug text-kumo-danger col-span-full",
+                  "type": "string"
+                },
+                "id": {
+                  "value": "base-ui-_R_7_",
+                  "type": "string"
+                }
+              },
+              "classes": [
+                "col-span-full",
+                "leading-snug",
+                "text-kumo-danger",
+                "text-sm"
+              ],
+              "text": "Required",
+              "geometry": {
+                "x": 32,
+                "y": 104,
+                "width": 704,
+                "height": 17.875
+              },
+              "style": {
+                "display": "block",
+                "position": "static",
+                "color": "oklch(0.505 0.213 27.518)",
+                "background-color": "rgba(0, 0, 0, 0)",
+                "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+                "font-size": "13px",
+                "font-weight": "400",
+                "border-radius": "0px",
+                "opacity": "1",
+                "visibility": "visible"
+              }
+            },
+            {
+              "state": "error",
+              "viewport": 1440,
+              "id": "node-4@div-1",
+              "parent": "root",
+              "order": 4,
+              "tag": "div",
+              "role": "StaticText",
+              "semantics": "div",
+              "portalOwner": null,
+              "attrs": {
+                "class": {
+                  "value": "text-sm leading-snug text-kumo-danger col-span-full",
+                  "type": "string"
+                },
+                "id": {
+                  "value": "base-ui-_R_7_",
+                  "type": "string"
+                }
+              },
+              "classes": [
+                "col-span-full",
+                "leading-snug",
+                "text-kumo-danger",
+                "text-sm"
+              ],
+              "text": "Required",
+              "geometry": {
+                "x": 32,
+                "y": 104,
+                "width": 1376,
+                "height": 17.875
+              },
+              "style": {
+                "display": "block",
+                "position": "static",
+                "color": "oklch(0.505 0.213 27.518)",
+                "background-color": "rgba(0, 0, 0, 0)",
+                "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+                "font-size": "13px",
+                "font-weight": "400",
+                "border-radius": "0px",
+                "opacity": "1",
+                "visibility": "visible"
+              }
+            }
+          ],
+          "provenance": [
+            {
+              "state": "error",
+              "viewport": 390,
+              "trace": "artifacts/field/error/390/trace.json",
+              "sha256": "9a18015c3557a97e24afad2390d94b627c2be2bd738302ca96cc0eb7ff01e5c6"
+            },
+            {
+              "state": "error",
+              "viewport": 768,
+              "trace": "artifacts/field/error/768/trace.json",
+              "sha256": "af847a9695f6f8f662baf7c7825d2f126a153005103f304874fe5480a550c1e4"
+            },
+            {
+              "state": "error",
+              "viewport": 1440,
+              "trace": "artifacts/field/error/1440/trace.json",
+              "sha256": "c50447b0fe6dc3a580f0085c6684e7495c6f74afdbbc9be4936c1c0710a77bd5"
             }
           ]
         }
@@ -11336,7 +13014,11 @@
               "role": "InlineTextBox",
               "name": "Kumo"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/field/default/390/trace.json",
+            "sha256": "f8fbe92f36a06669ba0aaf8f659ad8e62aabcc70a813c1bf03af0f182b10e068"
+          }
         },
         {
           "state": "default",
@@ -11394,7 +13076,11 @@
               "role": "InlineTextBox",
               "name": "Kumo"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/field/default/768/trace.json",
+            "sha256": "653c5630aa38adfff3aa4be17f5ff33c244db4f85c0e9caaba6ab8f0b72e3ee7"
+          }
         },
         {
           "state": "default",
@@ -11452,7 +13138,11 @@
               "role": "InlineTextBox",
               "name": "Kumo"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/field/default/1440/trace.json",
+            "sha256": "2adc85a60bbd7e2465af2880efb92918865a3d1a54d735aa92c5edc427be0494"
+          }
         },
         {
           "state": "error",
@@ -11510,7 +13200,11 @@
               "role": "InlineTextBox",
               "name": "Kumo"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/field/error/390/trace.json",
+            "sha256": "9a18015c3557a97e24afad2390d94b627c2be2bd738302ca96cc0eb7ff01e5c6"
+          }
         },
         {
           "state": "error",
@@ -11568,7 +13262,11 @@
               "role": "InlineTextBox",
               "name": "Kumo"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/field/error/768/trace.json",
+            "sha256": "af847a9695f6f8f662baf7c7825d2f126a153005103f304874fe5480a550c1e4"
+          }
         },
         {
           "state": "error",
@@ -11626,7 +13324,11 @@
               "role": "InlineTextBox",
               "name": "Kumo"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/field/error/1440/trace.json",
+            "sha256": "c50447b0fe6dc3a580f0085c6684e7495c6f74afdbbc9be4936c1c0710a77bd5"
+          }
         },
         {
           "state": "disabled",
@@ -11684,7 +13386,11 @@
               "role": "InlineTextBox",
               "name": "Kumo"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/field/disabled/390/trace.json",
+            "sha256": "39f04b8bf158bbb5f42a662bff7bfef6d28a7cb6af234fa92b0cfb52dcac15b3"
+          }
         },
         {
           "state": "disabled",
@@ -11742,7 +13448,11 @@
               "role": "InlineTextBox",
               "name": "Kumo"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/field/disabled/768/trace.json",
+            "sha256": "313ec5ab94385e046c1aac7ecf07fa883c0399e76cbe35528d823f9cd42a0168"
+          }
         },
         {
           "state": "disabled",
@@ -11800,7 +13510,11 @@
               "role": "InlineTextBox",
               "name": "Kumo"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/field/disabled/1440/trace.json",
+            "sha256": "34c39da0f90e1eafae12347bd22effa033253c9f41fc8527f831b2ff034eb42e"
+          }
         }
       ],
       "provenance": {
@@ -12467,6 +14181,12 @@
         {
           "id": "root",
           "parent": null,
+          "order": 0,
+          "tag": "main",
+          "role": "main",
+          "semantics": "main",
+          "portalOwner": "document.body",
+          "presence": null,
           "samples": [
             {
               "state": "closed",
@@ -12475,6 +14195,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -12523,6 +14246,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -12571,6 +14297,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -12619,6 +14348,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": "document.body",
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -12667,6 +14399,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": "document.body",
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -12715,6 +14450,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": "document.body",
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -12763,6 +14501,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -12811,6 +14552,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -12859,6 +14603,9 @@
               "parent": null,
               "order": 0,
               "tag": "main",
+              "role": "main",
+              "semantics": "main",
+              "portalOwner": null,
               "attrs": {
                 "class": {
                   "value": "p-8",
@@ -12900,19 +14647,103 @@
                 "visibility": "visible"
               }
             }
+          ],
+          "provenance": [
+            {
+              "state": "closed",
+              "viewport": 390,
+              "trace": "artifacts/popover/closed/390/trace.json",
+              "sha256": "108dd91b36b7e4bf655faaf2f31cf5dd6ed4ba5bd0ed1aaaa853f8b9f7ab818c"
+            },
+            {
+              "state": "closed",
+              "viewport": 768,
+              "trace": "artifacts/popover/closed/768/trace.json",
+              "sha256": "4ab6f6f26d8d9d6d1c10791c5b6a6b066d468d4a078b32293f54c3ceab225cb6"
+            },
+            {
+              "state": "closed",
+              "viewport": 1440,
+              "trace": "artifacts/popover/closed/1440/trace.json",
+              "sha256": "81d685d2cade46141454d08e7e19598fe7c2e9f72e799aaf6e6ae29bfe978b44"
+            },
+            {
+              "state": "open",
+              "viewport": 390,
+              "trace": "artifacts/popover/open/390/trace.json",
+              "sha256": "ad099fd8557e5a289f3dbeb5d3e843f2224f55b65dd486cfede28fabe3f074f9"
+            },
+            {
+              "state": "open",
+              "viewport": 768,
+              "trace": "artifacts/popover/open/768/trace.json",
+              "sha256": "a636b04da5eda704a6e19c681222519896ab420f324198be3712075e5dc2f94c"
+            },
+            {
+              "state": "open",
+              "viewport": 1440,
+              "trace": "artifacts/popover/open/1440/trace.json",
+              "sha256": "1d64f1f3a5a4d0b48689a8f88d10a428f6e533a71560e1b1d2a7ffb53798eb65"
+            },
+            {
+              "state": "dismissed",
+              "viewport": 390,
+              "trace": "artifacts/popover/dismissed/390/trace.json",
+              "sha256": "cc3b42506fe7654e21388a1f051b2269bfa4f3efb82fb4a98ba1d05ea93c6f7b"
+            },
+            {
+              "state": "dismissed",
+              "viewport": 768,
+              "trace": "artifacts/popover/dismissed/768/trace.json",
+              "sha256": "e5fc3e9d0c1f277adc049efad9126aa5884965346ed20c3dc442f23f18046c64"
+            },
+            {
+              "state": "dismissed",
+              "viewport": 1440,
+              "trace": "artifacts/popover/dismissed/1440/trace.json",
+              "sha256": "91c0a5ceaef8e81854e29b6ffe4b32fadcd4130e10989250c8a3f5072e41ff56"
+            }
           ]
         },
         {
-          "id": "trigger",
+          "id": "trigger@button-0",
           "parent": "root",
+          "order": 1,
+          "tag": "button",
+          "role": "button",
+          "semantics": "button",
+          "portalOwner": null,
+          "presence": {
+            "cells": [
+              {
+                "state": "closed",
+                "viewport": 390
+              },
+              {
+                "state": "closed",
+                "viewport": 1440
+              },
+              {
+                "state": "dismissed",
+                "viewport": 390
+              },
+              {
+                "state": "dismissed",
+                "viewport": 1440
+              }
+            ]
+          },
           "samples": [
             {
               "state": "closed",
               "viewport": 390,
-              "id": "trigger",
+              "id": "trigger@button-0",
               "parent": "root",
               "order": 1,
               "tag": "button",
+              "role": "button",
+              "semantics": "button",
+              "portalOwner": null,
               "attrs": {
                 "aria-expanded": {
                   "value": "false",
@@ -12974,11 +14805,282 @@
             },
             {
               "state": "closed",
+              "viewport": 1440,
+              "id": "trigger@button-0",
+              "parent": "root",
+              "order": 1,
+              "tag": "button",
+              "role": "button",
+              "semantics": "button",
+              "portalOwner": null,
+              "attrs": {
+                "aria-expanded": {
+                  "value": "false",
+                  "type": "boolean"
+                },
+                "aria-haspopup": {
+                  "value": "dialog",
+                  "type": "string"
+                },
+                "data-base-ui-click-trigger": {
+                  "value": "",
+                  "type": "boolean"
+                },
+                "data-kumo-component": {
+                  "value": "Popover",
+                  "type": "string"
+                },
+                "data-kumo-part": {
+                  "value": "trigger",
+                  "type": "string"
+                },
+                "data-part": {
+                  "value": "trigger",
+                  "type": "string"
+                },
+                "id": {
+                  "value": "base-ui-_R_d_",
+                  "type": "string"
+                },
+                "tabindex": {
+                  "value": "0",
+                  "type": "number"
+                },
+                "type": {
+                  "value": "button",
+                  "type": "string"
+                }
+              },
+              "classes": [],
+              "text": "Toggle",
+              "geometry": {
+                "x": 32,
+                "y": 32,
+                "width": 48.844,
+                "height": 24
+              },
+              "style": {
+                "display": "inline-block",
+                "position": "static",
+                "color": "rgb(0, 0, 0)",
+                "background-color": "rgba(0, 0, 0, 0)",
+                "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+                "font-size": "16px",
+                "font-weight": "400",
+                "border-radius": "0px",
+                "opacity": "1",
+                "visibility": "visible"
+              }
+            },
+            {
+              "state": "dismissed",
+              "viewport": 390,
+              "id": "trigger@button-0",
+              "parent": "root",
+              "order": 1,
+              "tag": "button",
+              "role": "button",
+              "semantics": "button",
+              "portalOwner": null,
+              "attrs": {
+                "aria-expanded": {
+                  "value": "false",
+                  "type": "boolean"
+                },
+                "aria-haspopup": {
+                  "value": "dialog",
+                  "type": "string"
+                },
+                "data-base-ui-click-trigger": {
+                  "value": "",
+                  "type": "boolean"
+                },
+                "data-kumo-component": {
+                  "value": "Popover",
+                  "type": "string"
+                },
+                "data-kumo-part": {
+                  "value": "trigger",
+                  "type": "string"
+                },
+                "data-part": {
+                  "value": "trigger",
+                  "type": "string"
+                },
+                "id": {
+                  "value": "base-ui-_R_d_",
+                  "type": "string"
+                },
+                "tabindex": {
+                  "value": "0",
+                  "type": "number"
+                },
+                "type": {
+                  "value": "button",
+                  "type": "string"
+                }
+              },
+              "classes": [],
+              "text": "Toggle",
+              "geometry": {
+                "x": 32,
+                "y": 32,
+                "width": 48.844,
+                "height": 24
+              },
+              "style": {
+                "display": "inline-block",
+                "position": "static",
+                "color": "rgb(0, 0, 0)",
+                "background-color": "rgba(0, 0, 0, 0)",
+                "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+                "font-size": "16px",
+                "font-weight": "400",
+                "border-radius": "0px",
+                "opacity": "1",
+                "visibility": "visible"
+              }
+            },
+            {
+              "state": "dismissed",
+              "viewport": 1440,
+              "id": "trigger@button-0",
+              "parent": "root",
+              "order": 1,
+              "tag": "button",
+              "role": "button",
+              "semantics": "button",
+              "portalOwner": null,
+              "attrs": {
+                "aria-expanded": {
+                  "value": "false",
+                  "type": "boolean"
+                },
+                "aria-haspopup": {
+                  "value": "dialog",
+                  "type": "string"
+                },
+                "data-base-ui-click-trigger": {
+                  "value": "",
+                  "type": "boolean"
+                },
+                "data-kumo-component": {
+                  "value": "Popover",
+                  "type": "string"
+                },
+                "data-kumo-part": {
+                  "value": "trigger",
+                  "type": "string"
+                },
+                "data-part": {
+                  "value": "trigger",
+                  "type": "string"
+                },
+                "id": {
+                  "value": "base-ui-_R_d_",
+                  "type": "string"
+                },
+                "tabindex": {
+                  "value": "0",
+                  "type": "number"
+                },
+                "type": {
+                  "value": "button",
+                  "type": "string"
+                }
+              },
+              "classes": [],
+              "text": "Toggle",
+              "geometry": {
+                "x": 32,
+                "y": 32,
+                "width": 48.844,
+                "height": 24
+              },
+              "style": {
+                "display": "inline-block",
+                "position": "static",
+                "color": "rgb(0, 0, 0)",
+                "background-color": "rgba(0, 0, 0, 0)",
+                "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+                "font-size": "16px",
+                "font-weight": "400",
+                "border-radius": "0px",
+                "opacity": "1",
+                "visibility": "visible"
+              }
+            }
+          ],
+          "provenance": [
+            {
+              "state": "closed",
+              "viewport": 390,
+              "trace": "artifacts/popover/closed/390/trace.json",
+              "sha256": "108dd91b36b7e4bf655faaf2f31cf5dd6ed4ba5bd0ed1aaaa853f8b9f7ab818c"
+            },
+            {
+              "state": "closed",
+              "viewport": 1440,
+              "trace": "artifacts/popover/closed/1440/trace.json",
+              "sha256": "81d685d2cade46141454d08e7e19598fe7c2e9f72e799aaf6e6ae29bfe978b44"
+            },
+            {
+              "state": "dismissed",
+              "viewport": 390,
+              "trace": "artifacts/popover/dismissed/390/trace.json",
+              "sha256": "cc3b42506fe7654e21388a1f051b2269bfa4f3efb82fb4a98ba1d05ea93c6f7b"
+            },
+            {
+              "state": "dismissed",
+              "viewport": 1440,
+              "trace": "artifacts/popover/dismissed/1440/trace.json",
+              "sha256": "91c0a5ceaef8e81854e29b6ffe4b32fadcd4130e10989250c8a3f5072e41ff56"
+            }
+          ]
+        },
+        {
+          "id": "trigger@button-1",
+          "parent": "root",
+          "order": 2,
+          "tag": "button",
+          "role": "button",
+          "semantics": "button",
+          "portalOwner": "document.body",
+          "presence": {
+            "cells": [
+              {
+                "state": "closed",
+                "viewport": 768
+              },
+              {
+                "state": "open",
+                "viewport": 390
+              },
+              {
+                "state": "open",
+                "viewport": 768
+              },
+              {
+                "state": "open",
+                "viewport": 1440
+              },
+              {
+                "state": "dismissed",
+                "viewport": 768
+              }
+            ]
+          },
+          "samples": [
+            {
+              "state": "closed",
               "viewport": 768,
-              "id": "trigger",
+              "id": "trigger@button-1",
               "parent": "root",
               "order": 2,
               "tag": "button",
+              "role": "button",
+              "semantics": "button",
+              "portalOwner": null,
               "attrs": {
                 "aria-controls": {
                   "value": "_R_0_",
@@ -13051,78 +15153,15 @@
               }
             },
             {
-              "state": "closed",
-              "viewport": 1440,
-              "id": "trigger",
-              "parent": "root",
-              "order": 1,
-              "tag": "button",
-              "attrs": {
-                "aria-expanded": {
-                  "value": "false",
-                  "type": "boolean"
-                },
-                "aria-haspopup": {
-                  "value": "dialog",
-                  "type": "string"
-                },
-                "data-base-ui-click-trigger": {
-                  "value": "",
-                  "type": "boolean"
-                },
-                "data-kumo-component": {
-                  "value": "Popover",
-                  "type": "string"
-                },
-                "data-kumo-part": {
-                  "value": "trigger",
-                  "type": "string"
-                },
-                "data-part": {
-                  "value": "trigger",
-                  "type": "string"
-                },
-                "id": {
-                  "value": "base-ui-_R_d_",
-                  "type": "string"
-                },
-                "tabindex": {
-                  "value": "0",
-                  "type": "number"
-                },
-                "type": {
-                  "value": "button",
-                  "type": "string"
-                }
-              },
-              "classes": [],
-              "text": "Toggle",
-              "geometry": {
-                "x": 32,
-                "y": 32,
-                "width": 48.844,
-                "height": 24
-              },
-              "style": {
-                "display": "inline-block",
-                "position": "static",
-                "color": "rgb(0, 0, 0)",
-                "background-color": "rgba(0, 0, 0, 0)",
-                "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
-                "font-size": "16px",
-                "font-weight": "400",
-                "border-radius": "0px",
-                "opacity": "1",
-                "visibility": "visible"
-              }
-            },
-            {
               "state": "open",
               "viewport": 390,
-              "id": "trigger",
+              "id": "trigger@button-1",
               "parent": "root",
               "order": 2,
               "tag": "button",
+              "role": "button",
+              "semantics": "button",
+              "portalOwner": "document.body",
               "attrs": {
                 "aria-expanded": {
                   "value": "false",
@@ -13185,10 +15224,13 @@
             {
               "state": "open",
               "viewport": 768,
-              "id": "trigger",
+              "id": "trigger@button-1",
               "parent": "root",
               "order": 2,
               "tag": "button",
+              "role": "button",
+              "semantics": "button",
+              "portalOwner": "document.body",
               "attrs": {
                 "aria-expanded": {
                   "value": "false",
@@ -13251,76 +15293,13 @@
             {
               "state": "open",
               "viewport": 1440,
-              "id": "trigger",
+              "id": "trigger@button-1",
               "parent": "root",
               "order": 2,
               "tag": "button",
-              "attrs": {
-                "aria-expanded": {
-                  "value": "false",
-                  "type": "boolean"
-                },
-                "aria-haspopup": {
-                  "value": "dialog",
-                  "type": "string"
-                },
-                "data-base-ui-click-trigger": {
-                  "value": "",
-                  "type": "boolean"
-                },
-                "data-kumo-component": {
-                  "value": "Popover",
-                  "type": "string"
-                },
-                "data-kumo-part": {
-                  "value": "trigger",
-                  "type": "string"
-                },
-                "data-part": {
-                  "value": "trigger",
-                  "type": "string"
-                },
-                "id": {
-                  "value": "base-ui-_R_d_",
-                  "type": "string"
-                },
-                "tabindex": {
-                  "value": "0",
-                  "type": "number"
-                },
-                "type": {
-                  "value": "button",
-                  "type": "string"
-                }
-              },
-              "classes": [],
-              "text": "Toggle",
-              "geometry": {
-                "x": 32,
-                "y": 32,
-                "width": 48.844,
-                "height": 24
-              },
-              "style": {
-                "display": "inline-block",
-                "position": "static",
-                "color": "rgb(0, 0, 0)",
-                "background-color": "rgba(0, 0, 0, 0)",
-                "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
-                "font-size": "16px",
-                "font-weight": "400",
-                "border-radius": "0px",
-                "opacity": "1",
-                "visibility": "visible"
-              }
-            },
-            {
-              "state": "dismissed",
-              "viewport": 390,
-              "id": "trigger",
-              "parent": "root",
-              "order": 1,
-              "tag": "button",
+              "role": "button",
+              "semantics": "button",
+              "portalOwner": "document.body",
               "attrs": {
                 "aria-expanded": {
                   "value": "false",
@@ -13383,10 +15362,13 @@
             {
               "state": "dismissed",
               "viewport": 768,
-              "id": "trigger",
+              "id": "trigger@button-1",
               "parent": "root",
               "order": 2,
               "tag": "button",
+              "role": "button",
+              "semantics": "button",
+              "portalOwner": null,
               "attrs": {
                 "aria-controls": {
                   "value": "_R_0_",
@@ -13457,78 +15439,73 @@
                 "opacity": "1",
                 "visibility": "visible"
               }
+            }
+          ],
+          "provenance": [
+            {
+              "state": "closed",
+              "viewport": 768,
+              "trace": "artifacts/popover/closed/768/trace.json",
+              "sha256": "4ab6f6f26d8d9d6d1c10791c5b6a6b066d468d4a078b32293f54c3ceab225cb6"
+            },
+            {
+              "state": "open",
+              "viewport": 390,
+              "trace": "artifacts/popover/open/390/trace.json",
+              "sha256": "ad099fd8557e5a289f3dbeb5d3e843f2224f55b65dd486cfede28fabe3f074f9"
+            },
+            {
+              "state": "open",
+              "viewport": 768,
+              "trace": "artifacts/popover/open/768/trace.json",
+              "sha256": "a636b04da5eda704a6e19c681222519896ab420f324198be3712075e5dc2f94c"
+            },
+            {
+              "state": "open",
+              "viewport": 1440,
+              "trace": "artifacts/popover/open/1440/trace.json",
+              "sha256": "1d64f1f3a5a4d0b48689a8f88d10a428f6e533a71560e1b1d2a7ffb53798eb65"
             },
             {
               "state": "dismissed",
-              "viewport": 1440,
-              "id": "trigger",
-              "parent": "root",
-              "order": 1,
-              "tag": "button",
-              "attrs": {
-                "aria-expanded": {
-                  "value": "false",
-                  "type": "boolean"
-                },
-                "aria-haspopup": {
-                  "value": "dialog",
-                  "type": "string"
-                },
-                "data-base-ui-click-trigger": {
-                  "value": "",
-                  "type": "boolean"
-                },
-                "data-kumo-component": {
-                  "value": "Popover",
-                  "type": "string"
-                },
-                "data-kumo-part": {
-                  "value": "trigger",
-                  "type": "string"
-                },
-                "data-part": {
-                  "value": "trigger",
-                  "type": "string"
-                },
-                "id": {
-                  "value": "base-ui-_R_d_",
-                  "type": "string"
-                },
-                "tabindex": {
-                  "value": "0",
-                  "type": "number"
-                },
-                "type": {
-                  "value": "button",
-                  "type": "string"
-                }
-              },
-              "classes": [],
-              "text": "Toggle",
-              "geometry": {
-                "x": 32,
-                "y": 32,
-                "width": 48.844,
-                "height": 24
-              },
-              "style": {
-                "display": "inline-block",
-                "position": "static",
-                "color": "rgb(0, 0, 0)",
-                "background-color": "rgba(0, 0, 0, 0)",
-                "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
-                "font-size": "16px",
-                "font-weight": "400",
-                "border-radius": "0px",
-                "opacity": "1",
-                "visibility": "visible"
-              }
+              "viewport": 768,
+              "trace": "artifacts/popover/dismissed/768/trace.json",
+              "sha256": "e5fc3e9d0c1f277adc049efad9126aa5884965346ed20c3dc442f23f18046c64"
             }
           ]
         },
         {
           "id": "node-1",
           "parent": "root",
+          "order": 1,
+          "tag": "span",
+          "role": "generic",
+          "semantics": "span",
+          "portalOwner": "document.body",
+          "presence": {
+            "cells": [
+              {
+                "state": "closed",
+                "viewport": 768
+              },
+              {
+                "state": "open",
+                "viewport": 390
+              },
+              {
+                "state": "open",
+                "viewport": 768
+              },
+              {
+                "state": "open",
+                "viewport": 1440
+              },
+              {
+                "state": "dismissed",
+                "viewport": 768
+              }
+            ]
+          },
           "samples": [
             {
               "state": "closed",
@@ -13537,6 +15514,9 @@
               "parent": "root",
               "order": 1,
               "tag": "span",
+              "role": "generic",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "aria-hidden": {
                   "value": "true",
@@ -13583,6 +15563,9 @@
               "parent": "root",
               "order": 1,
               "tag": "span",
+              "role": "generic",
+              "semantics": "span",
+              "portalOwner": "document.body",
               "attrs": {
                 "aria-hidden": {
                   "value": "true",
@@ -13629,6 +15612,9 @@
               "parent": "root",
               "order": 1,
               "tag": "span",
+              "role": "generic",
+              "semantics": "span",
+              "portalOwner": "document.body",
               "attrs": {
                 "aria-hidden": {
                   "value": "true",
@@ -13675,6 +15661,9 @@
               "parent": "root",
               "order": 1,
               "tag": "span",
+              "role": "generic",
+              "semantics": "span",
+              "portalOwner": "document.body",
               "attrs": {
                 "aria-hidden": {
                   "value": "true",
@@ -13721,6 +15710,9 @@
               "parent": "root",
               "order": 1,
               "tag": "span",
+              "role": "generic",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "aria-hidden": {
                   "value": "true",
@@ -13759,12 +15751,73 @@
                 "opacity": "1",
                 "visibility": "visible"
               }
+            }
+          ],
+          "provenance": [
+            {
+              "state": "closed",
+              "viewport": 768,
+              "trace": "artifacts/popover/closed/768/trace.json",
+              "sha256": "4ab6f6f26d8d9d6d1c10791c5b6a6b066d468d4a078b32293f54c3ceab225cb6"
+            },
+            {
+              "state": "open",
+              "viewport": 390,
+              "trace": "artifacts/popover/open/390/trace.json",
+              "sha256": "ad099fd8557e5a289f3dbeb5d3e843f2224f55b65dd486cfede28fabe3f074f9"
+            },
+            {
+              "state": "open",
+              "viewport": 768,
+              "trace": "artifacts/popover/open/768/trace.json",
+              "sha256": "a636b04da5eda704a6e19c681222519896ab420f324198be3712075e5dc2f94c"
+            },
+            {
+              "state": "open",
+              "viewport": 1440,
+              "trace": "artifacts/popover/open/1440/trace.json",
+              "sha256": "1d64f1f3a5a4d0b48689a8f88d10a428f6e533a71560e1b1d2a7ffb53798eb65"
+            },
+            {
+              "state": "dismissed",
+              "viewport": 768,
+              "trace": "artifacts/popover/dismissed/768/trace.json",
+              "sha256": "e5fc3e9d0c1f277adc049efad9126aa5884965346ed20c3dc442f23f18046c64"
             }
           ]
         },
         {
           "id": "node-3",
           "parent": "root",
+          "order": 3,
+          "tag": "span",
+          "role": "generic",
+          "semantics": "span",
+          "portalOwner": "document.body",
+          "presence": {
+            "cells": [
+              {
+                "state": "closed",
+                "viewport": 768
+              },
+              {
+                "state": "open",
+                "viewport": 390
+              },
+              {
+                "state": "open",
+                "viewport": 768
+              },
+              {
+                "state": "open",
+                "viewport": 1440
+              },
+              {
+                "state": "dismissed",
+                "viewport": 768
+              }
+            ]
+          },
           "samples": [
             {
               "state": "closed",
@@ -13773,6 +15826,9 @@
               "parent": "root",
               "order": 3,
               "tag": "span",
+              "role": "generic",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "aria-hidden": {
                   "value": "true",
@@ -13819,6 +15875,9 @@
               "parent": "root",
               "order": 3,
               "tag": "span",
+              "role": "generic",
+              "semantics": "span",
+              "portalOwner": "document.body",
               "attrs": {
                 "aria-hidden": {
                   "value": "true",
@@ -13865,6 +15924,9 @@
               "parent": "root",
               "order": 3,
               "tag": "span",
+              "role": "generic",
+              "semantics": "span",
+              "portalOwner": "document.body",
               "attrs": {
                 "aria-hidden": {
                   "value": "true",
@@ -13911,6 +15973,9 @@
               "parent": "root",
               "order": 3,
               "tag": "span",
+              "role": "generic",
+              "semantics": "span",
+              "portalOwner": "document.body",
               "attrs": {
                 "aria-hidden": {
                   "value": "true",
@@ -13957,6 +16022,9 @@
               "parent": "root",
               "order": 3,
               "tag": "span",
+              "role": "generic",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "aria-hidden": {
                   "value": "true",
@@ -13995,12 +16063,61 @@
                 "opacity": "1",
                 "visibility": "visible"
               }
+            }
+          ],
+          "provenance": [
+            {
+              "state": "closed",
+              "viewport": 768,
+              "trace": "artifacts/popover/closed/768/trace.json",
+              "sha256": "4ab6f6f26d8d9d6d1c10791c5b6a6b066d468d4a078b32293f54c3ceab225cb6"
+            },
+            {
+              "state": "open",
+              "viewport": 390,
+              "trace": "artifacts/popover/open/390/trace.json",
+              "sha256": "ad099fd8557e5a289f3dbeb5d3e843f2224f55b65dd486cfede28fabe3f074f9"
+            },
+            {
+              "state": "open",
+              "viewport": 768,
+              "trace": "artifacts/popover/open/768/trace.json",
+              "sha256": "a636b04da5eda704a6e19c681222519896ab420f324198be3712075e5dc2f94c"
+            },
+            {
+              "state": "open",
+              "viewport": 1440,
+              "trace": "artifacts/popover/open/1440/trace.json",
+              "sha256": "1d64f1f3a5a4d0b48689a8f88d10a428f6e533a71560e1b1d2a7ffb53798eb65"
+            },
+            {
+              "state": "dismissed",
+              "viewport": 768,
+              "trace": "artifacts/popover/dismissed/768/trace.json",
+              "sha256": "e5fc3e9d0c1f277adc049efad9126aa5884965346ed20c3dc442f23f18046c64"
             }
           ]
         },
         {
           "id": "node-4",
           "parent": "root",
+          "order": 4,
+          "tag": "span",
+          "role": "generic",
+          "semantics": "span",
+          "portalOwner": null,
+          "presence": {
+            "cells": [
+              {
+                "state": "closed",
+                "viewport": 768
+              },
+              {
+                "state": "dismissed",
+                "viewport": 768
+              }
+            ]
+          },
           "samples": [
             {
               "state": "closed",
@@ -14009,6 +16126,9 @@
               "parent": "root",
               "order": 4,
               "tag": "span",
+              "role": "generic",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "aria-hidden": {
                   "value": "true",
@@ -14059,6 +16179,9 @@
               "parent": "root",
               "order": 4,
               "tag": "span",
+              "role": "generic",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "aria-hidden": {
                   "value": "true",
@@ -14101,12 +16224,43 @@
                 "opacity": "1",
                 "visibility": "visible"
               }
+            }
+          ],
+          "provenance": [
+            {
+              "state": "closed",
+              "viewport": 768,
+              "trace": "artifacts/popover/closed/768/trace.json",
+              "sha256": "4ab6f6f26d8d9d6d1c10791c5b6a6b066d468d4a078b32293f54c3ceab225cb6"
+            },
+            {
+              "state": "dismissed",
+              "viewport": 768,
+              "trace": "artifacts/popover/dismissed/768/trace.json",
+              "sha256": "e5fc3e9d0c1f277adc049efad9126aa5884965346ed20c3dc442f23f18046c64"
             }
           ]
         },
         {
           "id": "node-5",
           "parent": "root",
+          "order": 5,
+          "tag": "span",
+          "role": "generic",
+          "semantics": "span",
+          "portalOwner": null,
+          "presence": {
+            "cells": [
+              {
+                "state": "closed",
+                "viewport": 768
+              },
+              {
+                "state": "dismissed",
+                "viewport": 768
+              }
+            ]
+          },
           "samples": [
             {
               "state": "closed",
@@ -14115,6 +16269,9 @@
               "parent": "root",
               "order": 5,
               "tag": "span",
+              "role": "generic",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "aria-owns": {
                   "value": "_r_0_",
@@ -14153,6 +16310,9 @@
               "parent": "root",
               "order": 5,
               "tag": "span",
+              "role": "generic",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "aria-owns": {
                   "value": "_r_0_",
@@ -14184,11 +16344,42 @@
                 "visibility": "visible"
               }
             }
+          ],
+          "provenance": [
+            {
+              "state": "closed",
+              "viewport": 768,
+              "trace": "artifacts/popover/closed/768/trace.json",
+              "sha256": "4ab6f6f26d8d9d6d1c10791c5b6a6b066d468d4a078b32293f54c3ceab225cb6"
+            },
+            {
+              "state": "dismissed",
+              "viewport": 768,
+              "trace": "artifacts/popover/dismissed/768/trace.json",
+              "sha256": "e5fc3e9d0c1f277adc049efad9126aa5884965346ed20c3dc442f23f18046c64"
+            }
           ]
         },
         {
           "id": "node-6",
           "parent": "root",
+          "order": 6,
+          "tag": "span",
+          "role": "generic",
+          "semantics": "span",
+          "portalOwner": null,
+          "presence": {
+            "cells": [
+              {
+                "state": "closed",
+                "viewport": 768
+              },
+              {
+                "state": "dismissed",
+                "viewport": 768
+              }
+            ]
+          },
           "samples": [
             {
               "state": "closed",
@@ -14197,6 +16388,9 @@
               "parent": "root",
               "order": 6,
               "tag": "span",
+              "role": "generic",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "aria-hidden": {
                   "value": "true",
@@ -14247,6 +16441,9 @@
               "parent": "root",
               "order": 6,
               "tag": "span",
+              "role": "generic",
+              "semantics": "span",
+              "portalOwner": null,
               "attrs": {
                 "aria-hidden": {
                   "value": "true",
@@ -14289,6 +16486,20 @@
                 "opacity": "1",
                 "visibility": "visible"
               }
+            }
+          ],
+          "provenance": [
+            {
+              "state": "closed",
+              "viewport": 768,
+              "trace": "artifacts/popover/closed/768/trace.json",
+              "sha256": "4ab6f6f26d8d9d6d1c10791c5b6a6b066d468d4a078b32293f54c3ceab225cb6"
+            },
+            {
+              "state": "dismissed",
+              "viewport": 768,
+              "trace": "artifacts/popover/dismissed/768/trace.json",
+              "sha256": "e5fc3e9d0c1f277adc049efad9126aa5884965346ed20c3dc442f23f18046c64"
             }
           ]
         }
@@ -14300,7 +16511,11 @@
           "event": {
             "type": "click"
           },
-          "focusAfter": "trigger"
+          "focusAfter": "trigger",
+          "provenance": {
+            "trace": "artifacts/popover/closed/390/trace.json",
+            "sha256": "108dd91b36b7e4bf655faaf2f31cf5dd6ed4ba5bd0ed1aaaa853f8b9f7ab818c"
+          }
         },
         {
           "state": "closed",
@@ -14308,7 +16523,11 @@
           "event": {
             "type": "click"
           },
-          "focusAfter": "close"
+          "focusAfter": "close",
+          "provenance": {
+            "trace": "artifacts/popover/closed/768/trace.json",
+            "sha256": "4ab6f6f26d8d9d6d1c10791c5b6a6b066d468d4a078b32293f54c3ceab225cb6"
+          }
         },
         {
           "state": "closed",
@@ -14316,7 +16535,11 @@
           "event": {
             "type": "click"
           },
-          "focusAfter": "trigger"
+          "focusAfter": "trigger",
+          "provenance": {
+            "trace": "artifacts/popover/closed/1440/trace.json",
+            "sha256": "81d685d2cade46141454d08e7e19598fe7c2e9f72e799aaf6e6ae29bfe978b44"
+          }
         },
         {
           "state": "open",
@@ -14324,7 +16547,11 @@
           "event": {
             "type": "click"
           },
-          "focusAfter": "close"
+          "focusAfter": "close",
+          "provenance": {
+            "trace": "artifacts/popover/open/390/trace.json",
+            "sha256": "ad099fd8557e5a289f3dbeb5d3e843f2224f55b65dd486cfede28fabe3f074f9"
+          }
         },
         {
           "state": "open",
@@ -14332,7 +16559,11 @@
           "event": {
             "type": "click"
           },
-          "focusAfter": "close"
+          "focusAfter": "close",
+          "provenance": {
+            "trace": "artifacts/popover/open/768/trace.json",
+            "sha256": "a636b04da5eda704a6e19c681222519896ab420f324198be3712075e5dc2f94c"
+          }
         },
         {
           "state": "open",
@@ -14340,7 +16571,11 @@
           "event": {
             "type": "click"
           },
-          "focusAfter": "close"
+          "focusAfter": "close",
+          "provenance": {
+            "trace": "artifacts/popover/open/1440/trace.json",
+            "sha256": "1d64f1f3a5a4d0b48689a8f88d10a428f6e533a71560e1b1d2a7ffb53798eb65"
+          }
         },
         {
           "state": "dismissed",
@@ -14348,7 +16583,11 @@
           "event": {
             "type": "click"
           },
-          "focusAfter": "trigger"
+          "focusAfter": "trigger",
+          "provenance": {
+            "trace": "artifacts/popover/dismissed/390/trace.json",
+            "sha256": "cc3b42506fe7654e21388a1f051b2269bfa4f3efb82fb4a98ba1d05ea93c6f7b"
+          }
         },
         {
           "state": "dismissed",
@@ -14356,7 +16595,11 @@
           "event": {
             "type": "click"
           },
-          "focusAfter": "close"
+          "focusAfter": "close",
+          "provenance": {
+            "trace": "artifacts/popover/dismissed/768/trace.json",
+            "sha256": "e5fc3e9d0c1f277adc049efad9126aa5884965346ed20c3dc442f23f18046c64"
+          }
         },
         {
           "state": "dismissed",
@@ -14364,7 +16607,11 @@
           "event": {
             "type": "click"
           },
-          "focusAfter": "trigger"
+          "focusAfter": "trigger",
+          "provenance": {
+            "trace": "artifacts/popover/dismissed/1440/trace.json",
+            "sha256": "91c0a5ceaef8e81854e29b6ffe4b32fadcd4130e10989250c8a3f5072e41ff56"
+          }
         }
       ],
       "accessibility": [
@@ -14400,7 +16647,11 @@
               "role": "InlineTextBox",
               "name": "Toggle"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/popover/closed/390/trace.json",
+            "sha256": "108dd91b36b7e4bf655faaf2f31cf5dd6ed4ba5bd0ed1aaaa853f8b9f7ab818c"
+          }
         },
         {
           "state": "closed",
@@ -14482,7 +16733,11 @@
               "role": "InlineTextBox",
               "name": "Close"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/popover/closed/768/trace.json",
+            "sha256": "4ab6f6f26d8d9d6d1c10791c5b6a6b066d468d4a078b32293f54c3ceab225cb6"
+          }
         },
         {
           "state": "closed",
@@ -14516,7 +16771,11 @@
               "role": "InlineTextBox",
               "name": "Toggle"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/popover/closed/1440/trace.json",
+            "sha256": "81d685d2cade46141454d08e7e19598fe7c2e9f72e799aaf6e6ae29bfe978b44"
+          }
         },
         {
           "state": "open",
@@ -14594,7 +16853,11 @@
               "role": "InlineTextBox",
               "name": "Close"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/popover/open/390/trace.json",
+            "sha256": "ad099fd8557e5a289f3dbeb5d3e843f2224f55b65dd486cfede28fabe3f074f9"
+          }
         },
         {
           "state": "open",
@@ -14672,7 +16935,11 @@
               "role": "InlineTextBox",
               "name": "Close"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/popover/open/768/trace.json",
+            "sha256": "a636b04da5eda704a6e19c681222519896ab420f324198be3712075e5dc2f94c"
+          }
         },
         {
           "state": "open",
@@ -14750,7 +17017,11 @@
               "role": "InlineTextBox",
               "name": "Close"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/popover/open/1440/trace.json",
+            "sha256": "1d64f1f3a5a4d0b48689a8f88d10a428f6e533a71560e1b1d2a7ffb53798eb65"
+          }
         },
         {
           "state": "dismissed",
@@ -14784,7 +17055,11 @@
               "role": "InlineTextBox",
               "name": "Toggle"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/popover/dismissed/390/trace.json",
+            "sha256": "cc3b42506fe7654e21388a1f051b2269bfa4f3efb82fb4a98ba1d05ea93c6f7b"
+          }
         },
         {
           "state": "dismissed",
@@ -14866,7 +17141,11 @@
               "role": "InlineTextBox",
               "name": "Close"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/popover/dismissed/768/trace.json",
+            "sha256": "e5fc3e9d0c1f277adc049efad9126aa5884965346ed20c3dc442f23f18046c64"
+          }
         },
         {
           "state": "dismissed",
@@ -14900,7 +17179,11 @@
               "role": "InlineTextBox",
               "name": "Toggle"
             }
-          ]
+          ],
+          "provenance": {
+            "trace": "artifacts/popover/dismissed/1440/trace.json",
+            "sha256": "91c0a5ceaef8e81854e29b6ffe4b32fadcd4130e10989250c8a3f5072e41ff56"
+          }
         }
       ],
       "provenance": {
