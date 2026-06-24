@@ -1,13 +1,14 @@
 {
-  "schemaVersion":"kumo.visual-compiler-spike-state/v1","status":"running","phase":"wave-2-portal-typed-attribute-repair","generation":12,
-  "completed":["frontend-authority","canonical-tracer-v3","stable-part-identity","parented-stateful-ir","verifier-v3","incremental-engine","svelte-v3-capture","vue-v3-capture"],
-  "active":["vue-portal-boolean-recapture","svelte-portal-boolean-text-recapture","solid-portal-forest-hydration-recapture"],
+  "schemaVersion":"kumo.visual-compiler-spike-state/v1","status":"running","phase":"wave-2-explicit-part-attribute-repair","generation":13,
+  "completed":["canonical-tracer-v3","parented-stateful-ir","verifier-v3","vue-forest-portal","svelte-v3-capture","authority-11-of-11","incremental-engine"],
+  "active":["vue-explicit-part-data-attrs","svelte-explicit-part-attrs-properties-svg","solid-portal-forest-hydration"],
   "failed":[
     {"artifact":"synthetic-wave","status":"retired"},
-    {"artifact":"popover-ir-v3","status":"retired","reason":"null portal parent was incorrectly replaced with main root"},
-    {"artifact":"lowering-core-v3-attrs","status":"retired","reason":"attribute type discarded, causing boolean presence attrs such as disabled to disappear"},
-    {"artifact":"target-portals-v3","status":"repairing","reason":"Vue wrapped all roots when any portal existed; targets need root-specific portal lowering"}
+    {"artifact":"variant-explicit-parts","status":"repairing","reason":"state topology variants inherited suffixed IR IDs as data-part instead of shared canonical explicit marker"},
+    {"artifact":"presence-attrs","status":"repairing","reason":"empty data attributes serialized as true"},
+    {"artifact":"svelte-svg-input","status":"repairing","reason":"duplicate SVG attribute casing and missing hydrated input value attribute"},
+    {"artifact":"solid","status":"repairing","reason":"forest/hydration incomplete"}
   ],
-  "selection":{"frontend":"typescript+oxc-preparse","tracer":"canonical-v3","ir":"part-first-v3-null-parent-preserved","loweringCore":"v3-typed-attributes","verifier":"v3-stable-id","currentParity":"9/108"},
-  "next":["fresh-108-portal-correct-cells","geometry-style-pixel-repair","zero-pixel-matrix","warm-under-1s","final-receipt"],"terminal":false,"updatedAt":"2026-06-24T12:55:00.000Z"
+  "selection":{"currentParity":"21/108","vueExact":15,"svelteExact":6,"solidExact":0,"ir":"v3 explicitPart preserved","verifier":"v3 normalized classes"},
+  "next":["fresh-108-cells","animation-determinism","geometry-style-pixel","zero-pixel-matrix","warm-under-1s","final-receipt"],"terminal":false,"updatedAt":"2026-06-24T13:02:00.000Z"
 }
