@@ -1,14 +1,12 @@
 {
-  "schemaVersion":"kumo.visual-compiler-spike-state/v1","status":"running","phase":"wave-2-stateful-target-regeneration","generation":7,
-  "completed":["frontend-typescript","frontend-oxc","frontend-equivalence-evaluator","runtime-tracer-authority-repair","ir-state-specialization-repair","lowering-core-state-specialization","verifier-provenance-repair","incremental-engine","authority-11-of-11","vue-native-capture-v1","svelte-native-capture-v1","solid-native-capture-v1"],
-  "active":["vue-stateful-regenerate-recapture","svelte-stateful-regenerate-recapture","solid-stateful-regenerate-recapture"],
+  "schemaVersion":"kumo.visual-compiler-spike-state/v1","status":"running","phase":"wave-1-tracer-topology-checkpoint-repair","generation":8,
+  "completed":["frontend-typescript","frontend-oxc","frontend-equivalence-evaluator","real-package-tracer-v2","authority-derived-ir-v2","generic-lowering-core-v2","three-generic-lowerers","three-native-harnesses","authority-11-of-11","incremental-engine"],
+  "active":["canonical-tracer-topology-checkpoint-repair"],
   "failed":[
-    {"artifact":"synthetic-authority-wave","status":"retired"},
-    {"artifact":"lowering-plans-v1","status":"retired","reason":"missing state/viewport presence and binding conditions"},
-    {"artifact":"vue-regeneration-v2","status":"repairing","reason":"duplicate attributes from ungrouped state bindings"},
-    {"artifact":"svelte-capture-v2","status":"repairing","reason":"capture freshness not bound strongly enough after source regeneration"},
-    {"artifact":"solid-regeneration-v2","status":"repairing","reason":"guard incorrectly rejected declarative emitted part IDs; hydration remained false"}
+    {"artifact":"synthetic-wave","status":"retired"},
+    {"artifact":"tracer-v2","status":"repairing","reason":"real package authority was correct, but visual checkpoint occurred after trusted mutation and parts lacked parent/order/namespace/stable DOM-path IDs; portal descendants incomplete"},
+    {"artifact":"ir/lowering-v2","status":"blocked-on-tracer","reason":"topology plans cannot be exact without canonical parent/order and pre-action state"}
   ],
-  "selection":{"frontend":"typescript+oxc-preparse","ir":"authority-derived-state-specialized-part-first","loweringCore":"kumo.lowering-plan/v1-stateful","authorityChecks":"11/11","engineWarmP95Ms":1.481},
-  "next":["fresh-108-cell-verification","differential-repair","zero-pixel-matrix","warm-under-1s","final-receipt"],"terminal":false,"updatedAt":"2026-06-24T12:00:00.000Z"
+  "selection":{"frontend":"typescript+oxc-preparse","ir":"part-first pending tracer v3","authorityChecks":"11/11 before input refresh","engineWarmP95Ms":1.481},
+  "next":["regenerate-ir-core-targets-from-tracer-v3","fresh-108-capture","differential-repair","zero-pixel-matrix","warm-under-1s","final-receipt"],"terminal":false,"updatedAt":"2026-06-24T12:05:00.000Z"
 }

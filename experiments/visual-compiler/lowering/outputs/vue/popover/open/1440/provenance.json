@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "kumo.native-harness-provenance/v1",
+  "target": "vue",
+  "generatedSourceDigest": "a8b62f5c067af1248778ec4150612becea6add47526aa2d72b1f0bc3184600c5",
+  "lowererDigest": "8a129dfb8fc7041046456ef92e8219341c3fb15211956670622c631116c58b54",
+  "nativeCompilerDigest": "58af300c0b29c8a68df845887e62f6eec0332f410016dfbd04b2c3b798280ea8",
+  "nativeBuildDigest": "eb78780cd9a9521738b167cc9b68c94a0d16381a68d5e4d5981e2f37cfc6b0ba",
+  "servedHarnessDigest": "6922513926fccf0993a2b0fd77782c1441f70b5353423cf7905cd392fb530421",
+  "captureDigest": "1d872cce95082fc5210a45c9feec22106155ce00ecedc2dd5652b336ae32ac9f",
+  "traceDigest": "2ef5840a53b3a27be4953c9cab7e8699909057e40c57318bfa3b6968563481b0",
+  "screenshotDigest": "7d7c9b12d82b58e78b577915ed56a6a1829ba7e9348ce855ce503d6ac06d1f65",
+  "canonicalSourceDigest": "f2bd84458d078a7493cf6484b85e6cc086d36461393e5c663395f9286caa0529",
+  "generatedBuild": {
+    "digest": "eb78780cd9a9521738b167cc9b68c94a0d16381a68d5e4d5981e2f37cfc6b0ba",
+    "framework": "vue",
+    "compiler": "@vue/compiler-sfc + Vite"
+  },
+  "servedHarness": {
+    "url": "http://127.0.0.1:64225/?component=popover&state=open",
+    "buildDigest": "eb78780cd9a9521738b167cc9b68c94a0d16381a68d5e4d5981e2f37cfc6b0ba",
+    "ssr": true,
+    "hydrated": true
+  },
+  "capture": {
+    "driver": "CDP",
+    "trusted": true,
+    "independent": true,
+    "id": "14cd91ca-5013-4ff5-8c6e-ca0982072094",
+    "capturedAt": "2026-06-24T12:00:42.577Z",
+    "canonicalArtifactUsed": false,
+    "buildDigest": "eb78780cd9a9521738b167cc9b68c94a0d16381a68d5e4d5981e2f37cfc6b0ba",
+    "harnessDigest": "6922513926fccf0993a2b0fd77782c1441f70b5353423cf7905cd392fb530421"
+  }
+}

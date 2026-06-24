@@ -1,10 +1,10 @@
 {
   "schemaVersion": "kumo.visual-compiler-authority/v1",
-  "status": "failed",
+  "status": "passed",
   "failClosed": true,
   "deterministic": true,
   "policyVersion": "1",
-  "inputDigest": "9c7163d24eb1de900c927342b69e18ee96a6acf57355804ede8211710656f167",
+  "inputDigest": "4802324cb3c58ce89ce5366db251d268a54adf14ae812252d09552376a70c1a1",
   "checks": [
     {
       "id": "tracer-real-package",
@@ -80,7 +80,7 @@
     },
     {
       "id": "generic-lowerers",
-      "status": "failed",
+      "status": "passed",
       "detail": "lowerers may not branch on component IDs",
       "evidence": [
         "lowering/solid/lower.mjs",
@@ -98,13 +98,11 @@
     }
   ],
   "summary": {
-    "passed": 10,
-    "failed": 1,
+    "passed": 11,
+    "failed": 0,
     "total": 11
   },
-  "failures": [
-    "generic-lowerers: lowerers may not branch on component IDs"
-  ],
+  "failures": [],
   "commands": {
     "check": "node experiments/visual-compiler/authority/self-check.mjs"
   }

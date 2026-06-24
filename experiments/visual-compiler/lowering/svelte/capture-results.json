@@ -1,0 +1,284 @@
+{
+  "schemaVersion": "kumo.svelte-native-capture/v1",
+  "status": "passed",
+  "coverage": {
+    "cells": 36,
+    "expectedCells": 36
+  },
+  "native": {
+    "compiler": "Svelte 5",
+    "bundler": "Vite",
+    "ssr": true,
+    "hydrate": true,
+    "servedHttp": true,
+    "trustedCDPInput": true
+  },
+  "digests": {
+    "generatedSource": "751c23f4baf1e61e6ce95f3a33360c8499a7dcd5bf591cd230d9c27b484e7c0b",
+    "lowerer": "2a9e5d37c3fbeffd51f5e8cbfbb4a2a661169a39a94a68f5fe50212e3176ba7c",
+    "compiler": "304ef60f002d9415ea7c1507c3289f361b8dc70502eb2fce619c3dc5581803e7",
+    "build": "9b97fa8838532547802de777273c77be1815a96c463bb41dd23bbec375281688",
+    "harness": "5eaa5e42dfe924be174dbf1597ba7c0784f490888f64f0df717c576b30da5135"
+  },
+  "benchmarks": {
+    "coldMs": 10093.379
+  },
+  "records": [
+    {
+      "component": "button",
+      "state": "default",
+      "viewport": 390,
+      "traceDigest": "48ec079b1ae94577fdd9b2bde3e18059789577150c7400e1db24f20dfe72e2a0",
+      "screenshotDigest": "51edb4af22f46944aeb6e428b652bf56d8a7d5aadce09c688d4670c3df7c3ff2"
+    },
+    {
+      "component": "button",
+      "state": "default",
+      "viewport": 768,
+      "traceDigest": "fe8de9d798cd5f868b046c57669d4db9a62a4ea76801a0aa7bbbe1ef00ec6cc7",
+      "screenshotDigest": "27af05c742490989ac3dac653496798a86234828de3752e01f2a7f1e225b8487"
+    },
+    {
+      "component": "button",
+      "state": "default",
+      "viewport": 1440,
+      "traceDigest": "f3c980d9a4b6333a07c34f35faf6e04635ede8039d4eb5ca0c58e2255bfb9815",
+      "screenshotDigest": "00f05e1da4e5a3bcc350227c9163439455273bc5374f3f223d96f7804430811e"
+    },
+    {
+      "component": "button",
+      "state": "disabled",
+      "viewport": 390,
+      "traceDigest": "75fab5213d5b16a830ffe93acc5333365de3185b7d9a902d805afb6fa90b085a",
+      "screenshotDigest": "328dd33ccb768e846be570dcbe3b0df0e90658f35c45137547b8b2cc642b64e1"
+    },
+    {
+      "component": "button",
+      "state": "disabled",
+      "viewport": 768,
+      "traceDigest": "eb7601072982794c68596eafc6b10f438fba6f1cab97c0ec08fafbe764b58ac1",
+      "screenshotDigest": "06528fc96f9388307975aa71e74e279b657f19f3446ae8f320076c6e3e6297f6"
+    },
+    {
+      "component": "button",
+      "state": "disabled",
+      "viewport": 1440,
+      "traceDigest": "cb04aed55c76d272819b730b8c17f12910e31232006bee1a53eec1b42739ac68",
+      "screenshotDigest": "c854e0dfe555566d6ef8ace9068035ac6f96db1e1f548200e50a4a5e61374c56"
+    },
+    {
+      "component": "button",
+      "state": "loading",
+      "viewport": 390,
+      "traceDigest": "780f625cec8ce162597687fa3aae6ff1af65185016c9355d42d94c195749efb9",
+      "screenshotDigest": "d88f35221efc7cff23a79cd627257e1158b274a80e581b67a36ed3398d21d2cc"
+    },
+    {
+      "component": "button",
+      "state": "loading",
+      "viewport": 768,
+      "traceDigest": "a3d43c1b5cc5d83b2a11b530e6bd64ac7bf807bc812e741f44a7d62620375b76",
+      "screenshotDigest": "ee9ffcf3e7f01e58d6614cab960102c0ca33e9bc2e2d4c449cfed6497c47234a"
+    },
+    {
+      "component": "button",
+      "state": "loading",
+      "viewport": 1440,
+      "traceDigest": "4ae2b5f649719163de68c218494471897c57975048094aace38d70024ddbcb0e",
+      "screenshotDigest": "13e3a5acccb692a29b6d75e5b38f52314a3c6dc56a1485cf50ce4f748d8a4eb3"
+    },
+    {
+      "component": "checkbox",
+      "state": "unchecked",
+      "viewport": 390,
+      "traceDigest": "0a1883a5d7c6e4297ab37ec6b19bfc4da4ce5d1d88757e778954afccaee85ba2",
+      "screenshotDigest": "d8cc6c7191ba5d978f81ad6c0e937b81266627d0b86ab24b29dbf330b30caf31"
+    },
+    {
+      "component": "checkbox",
+      "state": "unchecked",
+      "viewport": 768,
+      "traceDigest": "d6a46d736e45b66a62c914de8af91584fe3ddf883ecfb367265a93586acee6ba",
+      "screenshotDigest": "1d0025c73dbe90b7b2bb13227c036d4a8359e439cffc50597326501e82fc9e93"
+    },
+    {
+      "component": "checkbox",
+      "state": "unchecked",
+      "viewport": 1440,
+      "traceDigest": "1244772afa2d4a829faf9014f6a9ae2f0f8532b7721060e3676a636f87450687",
+      "screenshotDigest": "cef9fe0b5d7912c19d86c0b3b87a5b554fb69fb9497bbf18638b4c3e36fd447c"
+    },
+    {
+      "component": "checkbox",
+      "state": "checked",
+      "viewport": 390,
+      "traceDigest": "c90543231928d0ddbb5df29c74ea8b02906d94c1b3635832807d2ccda8c941d3",
+      "screenshotDigest": "5a3b6df6d8977fd4411d0cf74db7725d2986b975e00cef6b58659e527eb17396"
+    },
+    {
+      "component": "checkbox",
+      "state": "checked",
+      "viewport": 768,
+      "traceDigest": "5d0172bcdfbb4776ce9df0a970fefc7df08b00cddbd1760115bb4435e51fdd81",
+      "screenshotDigest": "f94f6e096c6bb9da4ff2ab17a5cb1dd0f11d6ac70c2722167b838ac766e654f3"
+    },
+    {
+      "component": "checkbox",
+      "state": "checked",
+      "viewport": 1440,
+      "traceDigest": "19f470cae6c8457777cf25aa7b139976da7730f05b855f2789ed72504ced9934",
+      "screenshotDigest": "aad40074f705dd6f06f4a74657403a655b6902042f959d9c0b68c8db3302b980"
+    },
+    {
+      "component": "checkbox",
+      "state": "indeterminate",
+      "viewport": 390,
+      "traceDigest": "96a43d8be000408efee26146f60d51dbb803f85d2dd4650435b40759794926e1",
+      "screenshotDigest": "04b0ed749e53816274ace68c512509ab6de270e2aa5578fd3656850b5f796236"
+    },
+    {
+      "component": "checkbox",
+      "state": "indeterminate",
+      "viewport": 768,
+      "traceDigest": "247b91b017a88039abed778bef8c1ce2632efb0d1d7fd3ee846b2321c1b3661d",
+      "screenshotDigest": "988873726331992466987a080c36bde7e6a82594a253a2c31293ec5fa2cf3769"
+    },
+    {
+      "component": "checkbox",
+      "state": "indeterminate",
+      "viewport": 1440,
+      "traceDigest": "bfc1add9b96ac4445b2522b4c2a22c8b2a23fab81fd6e4933d62b80accce5457",
+      "screenshotDigest": "b28018394f50c369e8bd7c7b977523ede10778c084fd14f9c88a5e65e252d3ee"
+    },
+    {
+      "component": "field",
+      "state": "default",
+      "viewport": 390,
+      "traceDigest": "b3f6a41d942ccf0010fdcefc3ce3a0d44313ab1f4b9a9c94458a81d60bbb75a8",
+      "screenshotDigest": "bd2d9977b8e8b580a2194d0c1c0abf8f4ea97cc5644c835072eae3f1927ac987"
+    },
+    {
+      "component": "field",
+      "state": "default",
+      "viewport": 768,
+      "traceDigest": "cd9934091c60f8b55794433a337ddc0332145dce704ed563197105abc5acb78c",
+      "screenshotDigest": "1b55fa954ebb46903bb447d24ccc12f9153467cf7b7226989b5bb63c7945f0eb"
+    },
+    {
+      "component": "field",
+      "state": "default",
+      "viewport": 1440,
+      "traceDigest": "1b8eab32e22f71ddd6e065e5e471d88a43cf04ca0c7e5cb20717c3c5e0d9acb3",
+      "screenshotDigest": "08c548de1d04207125ab13ce2d4285fef9db230dc87d7675ebd48ce64ba6a0d4"
+    },
+    {
+      "component": "field",
+      "state": "error",
+      "viewport": 390,
+      "traceDigest": "a255905a428a5168ec1518124f581848f7b827e24b240fdf25ae046584f25da3",
+      "screenshotDigest": "a9b6cca52cb2c1815474b056932fd5c237d2338eb908b013aafef2be80a4b902"
+    },
+    {
+      "component": "field",
+      "state": "error",
+      "viewport": 768,
+      "traceDigest": "d1fa5fb684b71d81147c8822fbc89618d59a0c7db40e8c1121ec610ef399cbfb",
+      "screenshotDigest": "13289b06c2d228954561e1d3f873d900e23ccbc3379ab3f23d9bfeb8c095281f"
+    },
+    {
+      "component": "field",
+      "state": "error",
+      "viewport": 1440,
+      "traceDigest": "243873310d44a10998699aa378267d5c410a4ca4330fb47518ce1167e819fdd2",
+      "screenshotDigest": "5acea1c3b68cca61f82d2b12a0952b33e7b99e1e2e363bf8a451b07d28babeeb"
+    },
+    {
+      "component": "field",
+      "state": "disabled",
+      "viewport": 390,
+      "traceDigest": "537ee02ae90eaf90f2d4e510a5aa9f878822a476f63574e3b946dfd57b837343",
+      "screenshotDigest": "bd2d9977b8e8b580a2194d0c1c0abf8f4ea97cc5644c835072eae3f1927ac987"
+    },
+    {
+      "component": "field",
+      "state": "disabled",
+      "viewport": 768,
+      "traceDigest": "5e2510d54064ca89eebad7b88a9acc267d2535efb586ee8380fe8e6738f3947f",
+      "screenshotDigest": "1b55fa954ebb46903bb447d24ccc12f9153467cf7b7226989b5bb63c7945f0eb"
+    },
+    {
+      "component": "field",
+      "state": "disabled",
+      "viewport": 1440,
+      "traceDigest": "08bf898b4bef0697b1f9c13a6636bd4041ef26592896911960cb81b99a406307",
+      "screenshotDigest": "08c548de1d04207125ab13ce2d4285fef9db230dc87d7675ebd48ce64ba6a0d4"
+    },
+    {
+      "component": "popover",
+      "state": "closed",
+      "viewport": 390,
+      "traceDigest": "6f4d5b95030167648c4875e6385e08a3e863b8f5fd72f394b967e1ca04c21680",
+      "screenshotDigest": "edcd721fa2225bc95a2214f73cc1d05e3cd60c03189f2685623ee4c7970c8f61"
+    },
+    {
+      "component": "popover",
+      "state": "closed",
+      "viewport": 768,
+      "traceDigest": "cbe0b71d3601980fab05f22e00d9c351ac2afd5515de2a40a28f7acf8ab291a1",
+      "screenshotDigest": "ec0d47773daa4e4e3c2f799dc27fd2d8aeea0a225099c779164be2f70bb0a21d"
+    },
+    {
+      "component": "popover",
+      "state": "closed",
+      "viewport": 1440,
+      "traceDigest": "a8b1cb78d9818d66aeee68fef08602578273070c5498fe85d40beb108a34b2eb",
+      "screenshotDigest": "f9911050662120fcc984061b8bd667a91add2eb1f9e6a5972aedda967654db23"
+    },
+    {
+      "component": "popover",
+      "state": "open",
+      "viewport": 390,
+      "traceDigest": "8501a5f03215d6bf111f15f70cd620bbcb57023c5cf78b8a93ce3b40c4d2086a",
+      "screenshotDigest": "edcd721fa2225bc95a2214f73cc1d05e3cd60c03189f2685623ee4c7970c8f61"
+    },
+    {
+      "component": "popover",
+      "state": "open",
+      "viewport": 768,
+      "traceDigest": "1aeaf1c1817da15a32e465b2f1ed99be9f737c15b704df37cea274b59c395cd2",
+      "screenshotDigest": "ec0d47773daa4e4e3c2f799dc27fd2d8aeea0a225099c779164be2f70bb0a21d"
+    },
+    {
+      "component": "popover",
+      "state": "open",
+      "viewport": 1440,
+      "traceDigest": "4131464a857831f9b0996b7c0564c14c7cac45fa645527769c06f296b73303b1",
+      "screenshotDigest": "f9911050662120fcc984061b8bd667a91add2eb1f9e6a5972aedda967654db23"
+    },
+    {
+      "component": "popover",
+      "state": "dismissed",
+      "viewport": 390,
+      "traceDigest": "67ee717980230aef52ab5655e8eb4efd7c469927687ccc0f3f64aecbeaee815e",
+      "screenshotDigest": "edcd721fa2225bc95a2214f73cc1d05e3cd60c03189f2685623ee4c7970c8f61"
+    },
+    {
+      "component": "popover",
+      "state": "dismissed",
+      "viewport": 768,
+      "traceDigest": "22ab4715f4b975b1b44f810dd205032fa072a40d7dfd8bb0e64049888b700a4e",
+      "screenshotDigest": "ec0d47773daa4e4e3c2f799dc27fd2d8aeea0a225099c779164be2f70bb0a21d"
+    },
+    {
+      "component": "popover",
+      "state": "dismissed",
+      "viewport": 1440,
+      "traceDigest": "708c09b4e8efbdabe0a2d16f7de3e26bea6ec5e453edee4c6a59295e7d63abc6",
+      "screenshotDigest": "f9911050662120fcc984061b8bd667a91add2eb1f9e6a5972aedda967654db23"
+    }
+  ],
+  "commands": {
+    "capture": "node experiments/visual-compiler/lowering/svelte/capture.mjs",
+    "check": "node experiments/visual-compiler/lowering/svelte/self-check.mjs"
+  }
+}

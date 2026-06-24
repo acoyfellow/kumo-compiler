@@ -1,0 +1,182 @@
+{
+  "schemaVersion": "kumo.visual-trace/v2",
+  "component": "popover",
+  "state": "open",
+  "viewport": 768,
+  "url": "http://127.0.0.1:64302/?component=popover&state=open&viewport=768",
+  "hydrated": true,
+  "dom": "<main data-part=\"root\" data-component=\"popover\" data-state=\"open\" class=\"p-8\">Toggle <!--[0--><!--[0--><span data-part=\"node-1\" aria-hidden=\"true\" data-base-ui-focus-guard=\"\" style=\"clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;\" tabindex=\"0\"></span><!--]--><!--]--> <!--[0--><!--[0--><span data-part=\"node-3\" aria-hidden=\"true\" data-base-ui-focus-guard=\"\" style=\"clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;\" tabindex=\"0\"></span><!--]--><!--]--> <!--[-1--><!--]--> <!--[-1--><!--]--> <!--[-1--><!--]--> <!--[-1--><!--]--> <!--[0--><!--[0--><button data-part=\"trigger@button-1\" aria-expanded=\"false\" aria-haspopup=\"dialog\" data-base-ui-click-trigger=\"\" data-kumo-component=\"Popover\" data-kumo-part=\"trigger\" id=\"base-ui-_R_d_\" tabindex=\"0\" type=\"button\">Toggle</button><!--]--><!--]--></main>",
+  "parts": [
+    {
+      "part": "root",
+      "tag": "main",
+      "attrs": {
+        "class": "p-8",
+        "data-component": "popover",
+        "data-part": "root",
+        "data-state": "open"
+      },
+      "classes": [
+        "p-8"
+      ],
+      "text": "Toggle       Toggle",
+      "geometry": {
+        "x": 0,
+        "y": 0,
+        "width": 768,
+        "height": 88
+      },
+      "style": {
+        "display": "block",
+        "position": "static",
+        "color": "rgb(0, 0, 0)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "font-size": "16px",
+        "font-weight": "400",
+        "border-radius": "0px",
+        "opacity": "1",
+        "visibility": "visible"
+      }
+    },
+    {
+      "part": "node-1",
+      "tag": "span",
+      "attrs": {
+        "aria-hidden": "true",
+        "data-base-ui-focus-guard": "",
+        "data-part": "node-1",
+        "style": "clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;",
+        "tabindex": "0"
+      },
+      "classes": [],
+      "text": "",
+      "geometry": {
+        "x": -1,
+        "y": -1,
+        "width": 1,
+        "height": 1
+      },
+      "style": {
+        "display": "block",
+        "position": "fixed",
+        "color": "rgb(0, 0, 0)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "font-size": "16px",
+        "font-weight": "400",
+        "border-radius": "0px",
+        "opacity": "1",
+        "visibility": "visible"
+      }
+    },
+    {
+      "part": "node-3",
+      "tag": "span",
+      "attrs": {
+        "aria-hidden": "true",
+        "data-base-ui-focus-guard": "",
+        "data-part": "node-3",
+        "style": "clip-path: inset(50%); overflow: hidden; white-space: nowrap; border: 0px; padding: 0px; width: 1px; height: 1px; margin: -1px; position: fixed; top: 0px; left: 0px;",
+        "tabindex": "0"
+      },
+      "classes": [],
+      "text": "",
+      "geometry": {
+        "x": -1,
+        "y": -1,
+        "width": 1,
+        "height": 1
+      },
+      "style": {
+        "display": "block",
+        "position": "fixed",
+        "color": "rgb(0, 0, 0)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "font-size": "16px",
+        "font-weight": "400",
+        "border-radius": "0px",
+        "opacity": "1",
+        "visibility": "visible"
+      }
+    },
+    {
+      "part": "trigger@button-1",
+      "tag": "button",
+      "attrs": {
+        "aria-expanded": "false",
+        "aria-haspopup": "dialog",
+        "data-base-ui-click-trigger": "",
+        "data-kumo-component": "Popover",
+        "data-kumo-part": "trigger",
+        "data-part": "trigger@button-1",
+        "id": "base-ui-_R_d_",
+        "tabindex": "0",
+        "type": "button"
+      },
+      "classes": [],
+      "text": "Toggle",
+      "geometry": {
+        "x": 85.031,
+        "y": 32,
+        "width": 48.844,
+        "height": 24
+      },
+      "style": {
+        "display": "inline-block",
+        "position": "static",
+        "color": "rgb(0, 0, 0)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "font-size": "16px",
+        "font-weight": "400",
+        "border-radius": "0px",
+        "opacity": "1",
+        "visibility": "visible"
+      }
+    }
+  ],
+  "focus": {
+    "active": "body"
+  },
+  "events": [],
+  "a11y": [
+    {
+      "role": "RootWebArea",
+      "name": ""
+    },
+    {
+      "role": "generic",
+      "name": ""
+    },
+    {
+      "role": "main",
+      "name": ""
+    },
+    {
+      "role": "StaticText",
+      "name": "Toggle "
+    },
+    {
+      "role": "button",
+      "name": "Toggle"
+    },
+    {
+      "role": "InlineTextBox",
+      "name": "Toggle "
+    },
+    {
+      "role": "StaticText",
+      "name": "Toggle"
+    },
+    {
+      "role": "InlineTextBox",
+      "name": "Toggle"
+    }
+  ],
+  "screenshot": {
+    "sha256": "ec0d47773daa4e4e3c2f799dc27fd2d8aeea0a225099c779164be2f70bb0a21d",
+    "bytes": 4845
+  }
+}
