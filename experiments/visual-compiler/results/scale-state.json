@@ -89,26 +89,26 @@
     "grid",
     "grid-item",
     "layer-card",
-    "radio"
+    "radio",
+    "breadcrumbs",
+    "tabs",
+    "table",
+    "table-of-contents",
+    "input-group"
   ],
   "remaining": [
     "autocomplete",
-    "breadcrumbs",
     "combobox",
     "command-palette",
     "date-picker",
     "date-range-picker",
     "dialog",
     "dropdown-menu",
-    "input-group",
     "menu-bar",
     "pagination",
     "select",
     "sensitive-input",
     "sidebar",
-    "table",
-    "table-of-contents",
-    "tabs",
     "toasty"
   ],
   "blockedWithReason": {},
@@ -296,6 +296,55 @@
         "solid": 9
       },
       "status": "passed"
+    },
+    "breadcrumbs": {
+      "parity": {
+        "vue": 9,
+        "svelte": 9,
+        "solid": 9
+      },
+      "status": "passed"
+    },
+    "tabs": {
+      "parity": {
+        "vue": 9,
+        "svelte": 9,
+        "solid": 9
+      },
+      "status": "passed"
+    },
+    "table": {
+      "parity": {
+        "vue": 9,
+        "svelte": 9,
+        "solid": 9
+      },
+      "status": "passed"
+    },
+    "table-of-contents": {
+      "parity": {
+        "vue": 9,
+        "svelte": 9,
+        "solid": 9
+      },
+      "status": "passed"
+    },
+    "input-group": {
+      "parity": {
+        "vue": 9,
+        "svelte": 9,
+        "solid": 9
+      },
+      "status": "passed"
+    },
+    "pagination": {
+      "parity": {
+        "vue": 0,
+        "svelte": 0,
+        "solid": 0
+      },
+      "status": "in-progress",
+      "note": "tracer drops interleaved text nodes (Showing X-Y of Z); needs mixed-content text capture"
     }
   },
   "marginalWorkSurface": {

@@ -63,15 +63,22 @@ function renderNode(item, depth = 0) {
   const eventGroups=new Map();for(const op of item.ops.filter(op=>op.kind==='event.listen')){const group=eventGroups.get(op.event)??[];group.push(op);eventGroups.set(op.event,group)}
   for(const [event,ops] of eventGroups){const expression=ops.map(op=>`(${condition(op.when)}) ? dispatch(${q(op.dispatch)}, ${q(op.value)}, event) : `).join('')+'undefined';attributes.push(`on${event}={(event) => ${expression}}`)}
   const text = item.children.some(child => child.create.kind === 'node.text') ? null : merged(item.ops, 'node.text');
-  // Whitespace-significant elements (pre, textarea, or white-space:pre* style) must NOT
-  // receive formatting newlines/indentation inside them — that whitespace is rendered.
-  const ws = (item.create.style && /^pre/.test(item.create.style['white-space'] || '')) || tag === 'pre' || tag === 'textarea';
+  // Emit a TIGHT body (no formatting newlines/indentation) for two element classes:
+  //  (1) whitespace-significant elements (pre/textarea, white-space:pre*) where injected
+  //      whitespace would render visibly; and
+  //  (2) restricted content-model elements (table family, lists, select groups) where a
+  //      whitespace text node is an illegal child the Svelte compiler rejects
+  //      (`<#text> cannot be a child of <table>`).
+  const RESTRICTED = new Set(['table','thead','tbody','tfoot','tr','colgroup','ul','ol','select','optgroup','dl','menu']);
+  const restricted = RESTRICTED.has(tag); // content model forbids direct text nodes
+  const ws = (item.create.style && /^pre/.test(item.create.style['white-space'] || '')) || tag === 'pre' || tag === 'textarea' || restricted;
   const children = item.children.map(child => renderNode(child, ws ? 0 : depth + 1)).join(ws ? '' : '\n');
   let source;
   if (voidTags.has(tag)) source = `${pad}<${tag} ${attributes.join(' ')} />`;
   else if (ws) {
-    // tight body: no surrounding whitespace
-    const tbody = (text ? `{String(${text} ?? '')}` : '') + children;
+    // tight body: no surrounding whitespace. Restricted-content elements (table/list
+    // family) may not contain a text-node child at all, so suppress the text expression.
+    const tbody = (text && !restricted ? `{String(${text} ?? '')}` : '') + children;
     source = `${pad}<${tag} ${attributes.join(' ')}>${tbody}</${tag}>`;
   } else {
     const body = [text ? `${pad}  {String(${text} ?? '')}` : '', children].filter(Boolean).join('\n');

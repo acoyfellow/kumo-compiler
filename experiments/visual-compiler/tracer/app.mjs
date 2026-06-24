@@ -21,6 +21,12 @@ import {Switch} from '@cloudflare/kumo/components/switch';
 import {Grid, GridItem} from '@cloudflare/kumo/components/grid';
 import {LayerCard} from '@cloudflare/kumo/components/layer-card';
 import {Radio} from '@cloudflare/kumo/components/radio';
+import {Breadcrumbs} from '@cloudflare/kumo/components/breadcrumbs';
+import {Pagination} from '@cloudflare/kumo/components/pagination';
+import {Tabs} from '@cloudflare/kumo/components/tabs';
+import {Table} from '@cloudflare/kumo/components/table';
+import {TableOfContents} from '@cloudflare/kumo/components/table-of-contents';
+import {InputGroup} from '@cloudflare/kumo/components/input-group';
 
 const h=React.createElement;
 export function App({component,state}){
@@ -49,6 +55,12 @@ export function App({component,state}){
  if(component==='grid-item') child=h(Grid,{gap:'sm'},h(GridItem,{'data-part':'control',colSpan:state==='full'?3:state==='wide'?2:1},'Cell'),h(GridItem,null,'Other'));
  if(component==='layer-card') child=h(LayerCard,{'data-part':'control'},h(LayerCard.Secondary,null,state==='compact'?'Step':'Next Steps'),h(LayerCard.Primary,null,state==='error'?'Action failed':state==='compact'?'Go':'Get started with Kumo'));
  if(component==='radio') child=h(Radio.Group,{'data-part':'control',legend:'Notification preference',orientation:state==='horizontal'?'horizontal':'vertical',defaultValue:state==='sms'?'sms':'email',onValueChange:v=>log('valueChange',{value:v})},h(Radio.Item,{label:'Email',value:'email'}),h(Radio.Item,{label:'SMS',value:'sms'}));
+ if(component==='breadcrumbs'){const items=state==='short'?[h(Breadcrumbs.Link,{href:'/',key:'h'},'Home'),h(Breadcrumbs.Separator,{key:'s'}),h(Breadcrumbs.Current,{key:'c'},'Guide')]:state==='deep'?[h(Breadcrumbs.Link,{href:'/',key:'h'},'Home'),h(Breadcrumbs.Separator,{key:'s1'}),h(Breadcrumbs.Link,{href:'/docs',key:'d'},'Docs'),h(Breadcrumbs.Separator,{key:'s2'}),h(Breadcrumbs.Link,{href:'/docs/api',key:'a'},'API'),h(Breadcrumbs.Separator,{key:'s3'}),h(Breadcrumbs.Current,{key:'c'},'Reference')]:[h(Breadcrumbs.Link,{href:'/',key:'h'},'Home'),h(Breadcrumbs.Separator,{key:'s1'}),h(Breadcrumbs.Link,{href:'/docs',key:'d'},'Docs'),h(Breadcrumbs.Separator,{key:'s2'}),h(Breadcrumbs.Current,{key:'c'},'Guide')];child=h(Breadcrumbs,{'data-part':'control'},...items);}
+ if(component==='pagination') child=h(Pagination,{'data-part':'control',page:state==='last'?10:state==='mid'?5:1,setPage:p=>log('setPage',{value:p}),perPage:50,totalCount:500},h(Pagination.Info),h(Pagination.Controls));
+ if(component==='tabs') child=h(Tabs,{'data-part':'control',tabs:[{value:'overview',label:'Overview'},{value:'settings',label:'Settings'},{value:'billing',label:'Billing'}],value:state==='settings'?'settings':state==='billing'?'billing':'overview',onValueChange:v=>log('valueChange',{value:v})});
+ if(component==='table'){const rows=state==='empty'?[]:state==='error'?[h(Table.Row,{key:'r1'},h(Table.Cell,null,'Worker'),h(Table.Cell,null,'Failed'))]:[h(Table.Row,{key:'r1'},h(Table.Cell,null,'Worker'),h(Table.Cell,null,'Active')),h(Table.Row,{key:'r2'},h(Table.Cell,null,'Bucket'),h(Table.Cell,null,'Ready'))];child=h(Table,{'data-part':'control'},h(Table.Header,null,h(Table.Row,null,h(Table.Head,null,'Name'),h(Table.Head,null,'Status'))),h(Table.Body,null,...rows));}
+ if(component==='table-of-contents') child=h(TableOfContents,{'data-part':'control'},h(TableOfContents.Title,null,'On this page'),h(TableOfContents.List,null,h(TableOfContents.Item,{href:'#intro',active:state==='intro'},'Introduction'),h(TableOfContents.Item,{href:'#usage',active:state==='usage'},'Usage')));
+ if(component==='input-group') child=h(InputGroup,{'data-part':'control'},h(InputGroup.Addon,null,'https://'),h(InputGroup.Input,{placeholder:'example',defaultValue:state==='filled'?'mysite':undefined,disabled:state==='disabled'}),h(InputGroup.Suffix,null,'.com'));
  return h('main',{'data-component':component,'data-state':state,'data-part':'root',className:'p-8'},child);
 }
 if(typeof document!=='undefined'){
