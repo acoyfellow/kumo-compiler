@@ -23,7 +23,10 @@ const IR_PATH = resolve(ROOT, 'ir/fixtures/components.json');
 const STATES = Object.fromEntries((JSON.parse(await readFile(IR_PATH,'utf8'))).components.map(c => [c.name, c.states.values]));
 const VIEWPORTS = [390,768,1440];
 // Per bakeoff.json: exact-pixel scope vs composite/animated <=0.25% scope.
-const COMPOSITE = new Set(['button:loading','popover:closed','popover:open','popover:dismissed']);
+// Animated/composite states: sub-pixel phase noise is expected, so the <=0.25%
+// threshold applies (per bakeoff.json). Loader is a continuously-spinning SVG, so
+// all its states are animated, exactly like button:loading.
+const COMPOSITE = new Set(['button:loading','popover:closed','popover:open','popover:dismissed','loader:base','loader:sm','loader:lg']);
 
 // Meaningful parts = explicit canonical parts (data-part / part: id). Ignore anonymous
 // framework wrapper nodes and invisible portal/focus guards.

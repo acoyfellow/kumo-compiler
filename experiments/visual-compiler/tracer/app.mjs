@@ -10,6 +10,12 @@ import {Text} from '@cloudflare/kumo/components/text';
 import {Link} from '@cloudflare/kumo/components/link';
 import {Surface} from '@cloudflare/kumo/components/surface';
 import {Banner} from '@cloudflare/kumo/components/banner';
+import {Empty} from '@cloudflare/kumo/components/empty';
+import {Loader} from '@cloudflare/kumo/components/loader';
+import {Meter} from '@cloudflare/kumo/components/meter';
+import {Code} from '@cloudflare/kumo/components/code';
+import {CloudflareLogo} from '@cloudflare/kumo/components/cloudflare-logo';
+import {ClipboardText} from '@cloudflare/kumo/components/clipboard-text';
 
 const h=React.createElement;
 export function App({component,state}){
@@ -25,6 +31,12 @@ export function App({component,state}){
  if(component==='link') child=h(Link,{'data-part':'control',href:'#',variant:state==='current'?'current':'inline'},state==='current'?'Current page':'Documentation');
  if(component==='surface') child=h(Surface,{'data-part':'control',color:state==='secondary'?'secondary':'primary'},h('span',null,state==='secondary'?'Secondary surface':'Primary surface'));
  if(component==='banner') child=h(Banner,{'data-part':'control',variant:state==='error'?'error':state==='alert'?'alert':'default'},state==='error'?'An error occurred':state==='alert'?'Heads up':'Informational message');
+ if(component==='empty') child=h(Empty,{'data-part':'control',size:state==='sm'?'sm':state==='lg'?'lg':'base',title:'No results',description:'Try a different search.'});
+ if(component==='loader') child=h(Loader,{'data-part':'control',size:state==='sm'?'sm':state==='lg'?'lg':'base','aria-label':'Loading'});
+ if(component==='meter') child=h(Meter,{'data-part':'control',label:'Storage used',value:state==='full'?100:state==='low'?15:65});
+ if(component==='code') child=h(Code,{'data-part':'control',lang:state==='css'?'css':state==='bash'?'bash':'ts',code:state==='css'?'.a{color:red}':state==='bash'?'npm run build':'const x = 1;'});
+ if(component==='cloudflare-logo') child=h(CloudflareLogo,{'data-part':'control',variant:state==='glyph'?'glyph':state==='white'?'white':'full'});
+ if(component==='clipboard-text') child=h(ClipboardText,{'data-part':'control',size:state==='sm'?'sm':state==='lg'?'lg':'base',text:'abc123',textToCopy:'abc123'});
  return h('main',{'data-component':component,'data-state':state,'data-part':'root',className:'p-8'},child);
 }
 if(typeof document!=='undefined'){

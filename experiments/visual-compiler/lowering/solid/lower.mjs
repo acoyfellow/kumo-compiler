@@ -5,6 +5,7 @@ import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { performance } from 'node:perf_hooks';
 import { lower as plan, validatePlan } from '../core/core.mjs';
+const nativeBooleanAttributes = new Set(['disabled', 'checked', 'required', 'readonly', 'multiple', 'selected', 'autofocus', 'hidden', 'open', 'indeterminate']);
 import { guardSource } from '../core/guard.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -44,7 +45,11 @@ function render(node, depth = 2) {
   for (const [attrName, ops] of setByName) {
     // Merge all same-name attribute.set ops into ONE chained-ternary expression so
     // JSX keeps a single attribute (multiple same-name JSX attrs => only last wins).
-    const val = op => op.valueType === 'boolean' ? expression(true) : expression(op.value);
+    // A boolean-typed value coerces to `true` ONLY for genuine HTML boolean attributes
+    // or data-* presence attributes; otherwise an empty string is a string (e.g.
+    // class="" must stay empty, never become "true"). Mirrors the Vue lowerer.
+    const presenceAttr = nativeBooleanAttributes.has(attrName.toLowerCase()) || attrName.startsWith('data-');
+    const val = op => (op.valueType === 'boolean' && presenceAttr) ? expression(true) : expression(op.value);
     // Build right-to-left so an unconditional op becomes the fallback; conditional
     // ops wrap it as (cond) ? value : <rest>. Default fallback is undefined.
     const finalExpr = ops.reduceRight((rest, op) =>
