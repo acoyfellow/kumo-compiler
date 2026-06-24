@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "kumo.bakeoff-lane-a/v1",
+  "lane": "A-generic-compiler",
+  "measuredAt": "2026-06-24T15:13:00.000Z",
+  "frozenCommit": "47e6a1f7397532b0818d9804c41de3957dac539b",
+  "architectureGate": {
+    "oneFrontend": true,
+    "oneValidatedIr": true,
+    "oneGenericLowererPerTarget": true,
+    "zeroComponentIdsInLowererControlFlow": {
+      "result": "PASS",
+      "evidence": "grep across lowering/{vue,svelte,solid}/lower.mjs and lowering/core/core.mjs found NO component-name branches (button/checkbox/field/popover). Only matches are semantic-role lookups (semantics==='checkbox' -> input type, semantics==='button' -> tag), which are role-driven, not component-identity-driven.",
+      "note": "This is the single most important positive architectural result: lowerers are genuinely generic."
+    }
+  },
+  "compileSpeed": {
+    "svelteLowerWarmMs": 31.52,
+    "irNormalizationMs": "~0.02 (prior)",
+    "loweringCoreMs": "~6 (prior)",
+    "incrementalEngineWarmP95Ms": 1.48,
+    "note": "Pure compile/lowering is comfortably sub-second. Browser proof (build+SSR+hydrate+CDP capture of 36 cells) is the dominant cost, ~minutes per target, identical cost burden for hand-port lane."
+  },
+  "currentParity": {
+    "verifierStatus": "failed",
+    "exactCells": "9/108",
+    "byTarget": {
+      "vue": {"passed": 6, "trustedBehavior": 27, "geometry": 3},
+      "svelte": {"passed": 3, "trustedBehavior": 15, "attributesClasses": 15, "topology": 3},
+      "solid": {"passed": 0, "trustedBehavior": 3, "attributesClasses": 24, "topology": 9}
+    },
+    "dominantFailure": "trustedBehavior (45 cells)",
+    "rootCause": "Canonical React click logs after.events=[{type:'click'}]; native captures show after.events=[]. The generated event-listen dispatch did not produce a logged raw event during the trusted CDP click. Vue/Solid populate behavior.action; Svelte behavior.action was empty ({}) — separate target-detection bug in svelte capture. This is a wiring gap, not a structural impossibility."
+  },
+  "visualOnlyPeak": {
+    "note": "Before behavior strictness, full-matrix peaked at 48/108 exact (Vue 30/36 incl. Checkbox 9/9 + Field 9/9 exact, Svelte 18/36, Solid valid captures). Visual parity for primitives/forms is demonstrably reachable.",
+    "vueExactComponents": ["checkbox (9/9)", "field (9/9)", "button (6/9)", "popover (6/9)"]
+  }
+}

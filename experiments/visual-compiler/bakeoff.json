@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "kumo.visual-compiler-bakeoff/v1",
+  "question": "For Button, Checkbox, Field, and Popover, does the generic compiler produce acceptable native Vue/Svelte/Solid components faster and cheaper than expert hand-maintained ports?",
+  "frozenAt": {
+    "commit": "47e6a1f7397532b0818d9804c41de3957dac539b",
+    "node": "v24.18.0",
+    "chrome": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "machine": "darwin-arm64"
+  },
+  "components": ["button", "checkbox", "field", "popover"],
+  "viewports": [390, 768, 1440],
+  "states": {
+    "button": ["default", "disabled", "loading"],
+    "checkbox": ["unchecked", "checked", "indeterminate"],
+    "field": ["default", "error", "disabled"],
+    "popover": ["closed", "open", "dismissed"]
+  },
+  "lanes": {
+    "A": {
+      "name": "generic-compiler",
+      "description": "Existing spike: canonical source frontend -> tracer -> part-first IR -> generic per-target lowerers -> native harness -> differential verifier.",
+      "constraint": "Target lowerers MUST NOT contain component-specific branches or component IDs in control flow."
+    },
+    "B": {
+      "name": "hand-port-baseline",
+      "description": "Expert-competent native Vue/Svelte/Solid implementations of the same four components using canonical Kumo CSS/tokens, no React runtime, no generator.",
+      "paths": {
+        "vue": "experiments/visual-compiler/baseline/vue",
+        "svelte": "experiments/visual-compiler/baseline/svelte",
+        "solid": "experiments/visual-compiler/baseline/solid"
+      }
+    }
+  },
+  "productParity": {
+    "required": [
+      "idiomatic documented public API",
+      "visible output matches canonical Kumo",
+      "meaningful-part geometry matches within 1 CSS pixel",
+      "accessibility roles/names/states match",
+      "documented trusted interactions match",
+      "package CSS owns presentation",
+      "SSR + hydration works",
+      "empty console/network/hydration diagnostics",
+      "no React dependency in output"
+    ],
+    "visualThreshold": {
+      "exactPrimitives": {
+        "scope": ["button:default", "button:disabled", "checkbox:unchecked", "checkbox:checked", "checkbox:indeterminate", "field:default", "field:error", "field:disabled"],
+        "rule": "zero differing pixels after declared nondeterminism handling"
+      },
+      "compositeAndAnimated": {
+        "scope": ["button:loading", "popover:closed", "popover:open", "popover:dismissed"],
+        "rule": "pixel mismatch <= 0.25% AND no meaningful-part geometry diff > 1 CSS pixel; invisible portal/focus wrappers excluded"
+      }
+    }
+  },
+  "architectureSuccess": {
+    "oneFrontend": true,
+    "oneValidatedIr": true,
+    "oneGenericLowererPerTarget": true,
+    "zeroComponentIdsInLowererControlFlow": true,
+    "newStateOrVariantRequiresNoEmitterChange": true
+  },
+  "economicMetrics": {
+    "perCell": ["wallMinutes", "agentRuns", "toolCalls", "filesChanged", "locAdded", "locDeleted", "frameworkSpecificLoc", "focusedBuildMs", "warmProofMs", "iterationsToPass", "firstFailureClasses"],
+    "costCategories": ["sunkResearch", "platformCompletion", "marginalComponent"]
+  },
+  "unseenExtension": {
+    "description": "After both lanes pass the initial four, introduce one previously-unfrozen change and measure marginal work in both lanes.",
+    "candidate": "checkbox:disabled (4th state) OR button:destructive variant"
+  },
+  "decisionWeights": {
+    "productParity": 0.35,
+    "marginalExtensionCost": 0.25,
+    "maintenanceSurface": 0.15,
+    "warmCompileProofSpeed": 0.10,
+    "generatedCodeQuality": 0.10,
+    "initialImplementationCost": 0.05
+  },
+  "verdicts": ["promote-compiler", "hybrid", "stop-compiler"],
+  "promoteCriteria": [
+    "four proving components pass product parity in all three targets",
+    "no component-specific branches in lowerers",
+    "all three targets native + package-backed",
+    "warm focused compile+proof < 1s",
+    "unseen extension requires no lowerer change",
+    "compiler marginal effort >= 2x cheaper than hand ports",
+    "projected 41-component cost <= 50% of hand-port effort",
+    "generated output maintainable"
+  ],
+  "hybridCriteria": [
+    "compiler wins for primitives/forms",
+    "Popover needs target-owned portal/focus adapter via explicit measured plugin API (not hidden component branches)",
+    "shared visual+behavior contracts retained"
+  ],
+  "stopCriteria": [
+    "lowerers need component names",
+    "unseen state requires emitter edits",
+    "generated code harder to own than hand code",
+    "four components exceed time box",
+    "compiler marginal work not >= 2x cheaper",
+    "verifier policy dominates implementation work"
+  ],
+  "timeBox": {
+    "compilerLaneToParity": "1 focused day",
+    "handBaseline": "4 hours",
+    "unseenExtension": "2 hours"
+  },
+  "output": "experiments/visual-compiler/results/bakeoff-final.json"
+}

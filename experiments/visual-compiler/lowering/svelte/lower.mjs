@@ -14,6 +14,7 @@ const outDir = path.join(here, 'generated');
 const sha = value => createHash('sha256').update(value).digest('hex');
 const q = value => JSON.stringify(value);
 const voidTags = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']);
+const nativeBooleanAttributes = new Set(['allowfullscreen', 'async', 'autofocus', 'autoplay', 'checked', 'controls', 'default', 'defer', 'disabled', 'formnovalidate', 'hidden', 'inert', 'ismap', 'itemscope', 'loop', 'multiple', 'muted', 'nomodule', 'novalidate', 'open', 'playsinline', 'readonly', 'required', 'reversed', 'selected']);
 
 function expression(value) {
   if (value && typeof value === 'object' && typeof value.expression === 'string') return value.expression;
@@ -31,41 +32,63 @@ function condition(when) {
   const viewports = when?.viewports?.map(value => `viewport === ${q(value)}`) ?? [];
   return [...(states.length ? [`(${states.join(' || ')})`] : []), ...(viewports.length ? [`(${viewports.join(' || ')})`] : [])].join(' && ') || 'true';
 }
-function elementTag(semantics) {
-  const candidate = String(semantics || 'div').toLowerCase();
+function elementTag(tag) {
+  const candidate = String(tag || 'div').toLowerCase();
   return /^[a-z][a-z0-9-]*$/.test(candidate) ? candidate : 'div';
 }
-function merged(ops, kind, key) {
+function merged(ops, kind, key, mapValue = expression) {
   const values = ops.filter(op => op.kind === kind && (!key || op.name === key));
   if (!values.length) return null;
-  return values.map(op => `((${condition(op.when)}) ? ${expression(op.value)} : undefined)`).join(' ?? ');
+  return values.map(op => `((${condition(op.when)}) ? ${mapValue(op.value, op)} : undefined)`).join(' ?? ');
+}
+function attributeExpression(ops, name) {
+  return merged(ops, 'attribute.set', name, value => nativeBooleanAttributes.has(name.toLowerCase()) ? 'true' : expression(value));
+}
+function explicitPartExpression(create, ops) {
+  const candidates = [create, ...ops.filter(op => op.kind === 'node.create')].filter(op => op.explicitPart !== null && op.explicitPart !== undefined);
+  if (!candidates.length) return null;
+  return candidates.map(op => `((${condition(op.when)}) ? ${q(op.explicitPart)} : undefined)`).join(' ?? ');
 }
 function renderNode(item, depth = 0) {
   const pad = '  '.repeat(depth);
   if (item.create.kind === 'node.text') return `${pad}{String(${merged([item.create], 'node.text') ?? expression(item.create.value ?? '')})}`;
-  const tag = elementTag(item.create.semantics);
-  const attributes = [`data-part=${q(item.create.part)}`];
+  const tag = elementTag(item.create.tag);
+  const attributes = [];
+  const explicitPart = explicitPartExpression(item.create, item.creates);
+  if (explicitPart) attributes.push(`data-part={${explicitPart}}`);
   const names = [...new Set(item.ops.filter(op => op.kind === 'attribute.set' && op.name !== 'class' && op.name !== 'data-part').map(op => op.name))];
-  for (const name of names) attributes.push(`${name}={${merged(item.ops, 'attribute.set', name)}}`);
+  for (const name of names) attributes.push(`${name}={${attributeExpression(item.ops, name)}}`);
   const classes = [...new Set(item.ops.filter(op => op.kind === 'class.add').map(op => op.value))];
   if (classes.length) attributes.push(`class={{${classes.map(value => `${q(value)}: ${item.ops.filter(op => op.kind === 'class.add' && op.value === value).map(op => `(${condition(op.when)})`).join(' || ')}`).join(', ')}}}`);
-  for (const op of item.ops.filter(op => op.kind === 'event.listen')) attributes.push(`on${op.event}={(event) => dispatch(${q(op.dispatch)}, event)}`);
-  const text = merged(item.ops, 'node.text');
+  const eventGroups=new Map();for(const op of item.ops.filter(op=>op.kind==='event.listen')){const group=eventGroups.get(op.event)??[];group.push(op);eventGroups.set(op.event,group)}
+  for(const [event,ops] of eventGroups){const expression=ops.map(op=>`(${condition(op.when)}) ? dispatch(${q(op.dispatch)}, ${q(op.value)}, event) : `).join('')+'undefined';attributes.push(`on${event}={(event) => ${expression}}`)}
+  const text = item.children.some(child => child.create.kind === 'node.text') ? null : merged(item.ops, 'node.text');
   const children = item.children.map(child => renderNode(child, depth + 1)).join('\n');
   const body = [text ? `${pad}  {String(${text} ?? '')}` : '', children].filter(Boolean).join('\n');
   let source = voidTags.has(tag) ? `${pad}<${tag} ${attributes.join(' ')} />` : `${pad}<${tag} ${attributes.join(' ')}>${body ? `\n${body}\n${pad}` : ''}</${tag}>`;
   const presence = condition(item.create.when);
   if (presence !== 'true') source = `${pad}{#if ${presence}}\n${source}\n${pad}{/if}`;
-  const portal = item.ops.find(op => op.kind === 'portal.mount');
-  if (portal) source = `${pad}{#if ${condition(portal.when)}}\n${pad}  {@const portalTarget = ${expression(portal.target)}}\n${source}\n${pad}{/if}`;
+  if (item.portal) source = `${pad}{#if ${condition(item.portal.when)}}\n${pad}  {@const portalTarget = ${expression(item.portal.target)}}\n${source}\n${pad}{/if}`;
   return source;
 }
 function emit(shard) {
   const nodes = new Map();
-  for (const create of shard.operations.filter(op => op.kind === 'node.create')) nodes.set(create.part, { create, ops: [], children: [] });
+  for (const create of shard.operations.filter(op => op.kind === 'node.create')) {
+    const item = nodes.get(create.part);
+    if (item) item.creates.push(create);
+    else nodes.set(create.part, { create, creates: [create], ops: [], children: [], portal: null });
+  }
   for (const op of shard.operations) if (op.part !== null && nodes.has(op.part) && op.kind !== 'node.create') nodes.get(op.part).ops.push(op);
   const roots = [];
-  for (const item of nodes.values()) item.create.parent !== null && nodes.has(item.create.parent) ? nodes.get(item.create.parent).children.push(item) : roots.push(item);
+  for (const item of nodes.values()) {
+    if (item.create.parent !== null && nodes.has(item.create.parent)) nodes.get(item.create.parent).children.push(item);
+    else {
+      item.portal = item.ops.find(op => op.kind === 'portal.mount') ?? null;
+      roots.push(item);
+    }
+  }
+  for (const item of nodes.values()) item.children.sort((a, b) => (a.create.order ?? 0) - (b.create.order ?? 0));
+  roots.sort((a, b) => (a.create.order ?? 0) - (b.create.order ?? 0));
   const defaults = Object.entries(shard.inputs).map(([name, spec]) => `${name} = ${q(spec?.default)}`);
   const transitions = shard.operations.filter(op => op.kind === 'state.transition');
   const script = `<script>\n  let { ${[...defaults, `state = ${q(shard.initialState)}`, 'viewport = 1440', 'dispatch = () => {}'].join(', ')} } = $props();\n  const transitions = ${q(transitions)};\n</script>`;
