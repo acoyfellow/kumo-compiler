@@ -42,13 +42,18 @@
   let state_endDate = $state(null);
   let state_months = $state("current and next month");
   let state_startDate = $state(null);
-  type DateRangeDay = { iso: string; label: number };
-  const dateRangeDays: DateRangeDay[] = Array.from({ length: 84 }, (_, index) => { const date = new Date(Date.UTC(2000, 0, index + 1)); return { iso: date.toISOString().slice(0, 10), label: date.getUTCDate() }; });
+  type DateRangeDay = { iso: string; day: number; inMonth: boolean };
+  type DateRangeMonth = { key: string; label: string; days: DateRangeDay[] };
+  let dateRangeMonth = $state('2026-06-01');
   let dateRangeStart = $state<string | null>(null);
   let dateRangeEnd = $state<string | null>(null);
   let dateRangeRoot: HTMLElement | undefined = $state();
-  function selectDateRangeDay(iso: string) { if (dateRangeStart === null || dateRangeEnd !== null || iso < dateRangeStart) { dateRangeStart = iso; dateRangeEnd = null; onStartChange?.(iso); return; } dateRangeEnd = iso; onEndChange?.(iso); }
-  function resetDateRange() { dateRangeStart = null; dateRangeEnd = null; onStartChange?.(null); onEndChange?.(null); dateRangeRoot?.focus(); }
+  function buildDateRangeMonth(value: string): DateRangeMonth { const base = new Date(value + 'T00:00:00.000Z'); const year = base.getUTCFullYear(), month = base.getUTCMonth(); const first = new Date(Date.UTC(year, month, 1)), start = new Date(first); start.setUTCDate(1 - first.getUTCDay()); const days = Array.from({length:42}, (_, index) => { const date = new Date(start); date.setUTCDate(start.getUTCDate() + index); return {iso:date.toISOString().slice(0,10),day:date.getUTCDate(),inMonth:date.getUTCMonth() === month}; }); return {key:year + '-' + month,label:new Intl.DateTimeFormat('en-US',{month:'long',year:'numeric',timeZone:'UTC'}).format(first),days}; }
+  const dateRangeMonths = $derived.by(() => [0,1].map(offset => { const date = new Date(dateRangeMonth + 'T00:00:00.000Z'); date.setUTCMonth(date.getUTCMonth() + offset); return buildDateRangeMonth(date.toISOString().slice(0,7) + '-01'); }));
+  function moveDateRangeMonth(delta: number) { const date = new Date(dateRangeMonth + 'T00:00:00.000Z'); date.setUTCMonth(date.getUTCMonth() + delta); dateRangeMonth = date.toISOString().slice(0,7) + '-01'; }
+  function isDateRangeDayInRange(iso: string) { return Boolean(dateRangeStart && dateRangeEnd && iso >= dateRangeStart && iso <= dateRangeEnd); }
+  function selectDateRangeDay(iso: string) { if (dateRangeStart === null || dateRangeEnd !== null || iso < dateRangeStart) { dateRangeStart = iso; dateRangeEnd = null; onStartChange?.(iso); onStartDateChange?.(iso); return; } dateRangeEnd = iso; onEndChange?.(iso); onEndDateChange?.(iso); }
+  function resetDateRange() { dateRangeStart = null; dateRangeEnd = null; onStartChange?.(null); onStartDateChange?.(null); onEndChange?.(null); onEndDateChange?.(null); dateRangeRoot?.focus(); }
 
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "className": className, "onEndDateChange": onEndDateChange, "onStartDateChange": onStartDateChange, "size": size, "timezone": timezone, "variant": variant, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
@@ -70,4 +75,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<div bind:this={dateRangeRoot} tabindex="-1" class={size === 'sm' && variant === 'subtle' ? "p-3 bg-kumo-base" : "p-4 bg-kumo-overlay"}><button type="button" data-nav="previous"></button><button type="button" data-nav="next"></button>{#each dateRangeDays as day (day.iso)}<button type="button" data-day={day.iso} onclick={() => selectDateRangeDay(day.iso)}>{day.label}</button>{/each}<button type="button" data-reset onclick={resetDateRange}></button></div>
+<div bind:this={dateRangeRoot} tabindex="-1" class="kumo-date-range {size === 'sm' && variant === 'subtle' ? "p-3 bg-kumo-base" : "p-4 bg-kumo-overlay"}"><div class="kumo-date-range__toolbar"><button type="button" data-navigation="previous" aria-label="Previous month" onclick={() => moveDateRangeMonth(-1)}>Previous</button><button type="button" data-navigation="next" aria-label="Next month" onclick={() => moveDateRangeMonth(1)}>Next</button></div><div class="kumo-date-range__months">{#each dateRangeMonths as month (month.key)}<section class="kumo-date-range__month"><h3>{month.label}</h3><div class="kumo-date-range__weekdays" aria-hidden="true">{#each ['Su','Mo','Tu','We','Th','Fr','Sa'] as weekday}<span>{weekday}</span>{/each}</div><div class="kumo-date-range__grid" role="grid">{#each month.days as day (day.iso)}<button type="button" data-day={day.iso} data-outside-month={!day.inMonth || undefined} aria-label={day.iso} aria-selected={day.iso === dateRangeStart || day.iso === dateRangeEnd || undefined} data-in-range={isDateRangeDayInRange(day.iso) || undefined} onclick={() => selectDateRangeDay(day.iso)}>{day.day}</button>{/each}</div></section>{/each}</div><div class="kumo-date-range__footer"><span aria-live="polite">{dateRangeStart ? (dateRangeEnd ? dateRangeStart + ' – ' + dateRangeEnd : 'Start: ' + dateRangeStart) : 'Choose a start date'}</span><button type="button" data-reset onclick={resetDateRange}>Reset dates</button></div></div>

@@ -38,18 +38,23 @@ export function DateRangePicker(incoming: DateRangePickerProps): JSX.Element {
   const renderContent = normalizeRenderContent(props.children, true);
   const normalizedFixture = normalizeFixture(fixture);
   const state: Record<string, () => unknown> = {};
-  type DateRangeDay = {iso: string; label: number};
-  const rangeDays: DateRangeDay[] = Array.from({length:84}, (_, index) => { const date = new Date(Date.UTC(2000, 0, index + 1)); return {iso:date.toISOString().slice(0, 10), label:date.getUTCDate()}; });
+  type DateRangeDay = {iso: string; day: number; inMonth: boolean};
+  type DateRangeMonth = {key: string; label: string; days: DateRangeDay[]};
+  const [rangeMonth, setRangeMonth] = createSignal("2026-06-01");
   const [rangeStart, setRangeStart] = createSignal<string | null>(null);
   const [rangeEnd, setRangeEnd] = createSignal<string | null>(null);
   let dateRangeRoot: HTMLDivElement | undefined;
+  const buildRangeMonth = (value: string): DateRangeMonth => { const base=new Date(value+"T00:00:00.000Z"), year=base.getUTCFullYear(), month=base.getUTCMonth(), first=new Date(Date.UTC(year,month,1)), start=new Date(first); start.setUTCDate(1-first.getUTCDay()); const days=Array.from({length:42},(_,index)=>{const date=new Date(start);date.setUTCDate(start.getUTCDate()+index);return {iso:date.toISOString().slice(0,10),day:date.getUTCDate(),inMonth:date.getUTCMonth()===month};}); return {key:year+"-"+month,label:new Intl.DateTimeFormat("en-US",{month:"long",year:"numeric",timeZone:"UTC"}).format(first),days}; };
+  const rangeMonths = () => [0,1].map(offset => { const date=new Date(rangeMonth()+"T00:00:00.000Z"); date.setUTCMonth(date.getUTCMonth()+offset); return buildRangeMonth(date.toISOString().slice(0,7)+"-01"); });
+  const moveRangeMonth = (delta: number) => { const date=new Date(rangeMonth()+"T00:00:00.000Z");date.setUTCMonth(date.getUTCMonth()+delta);setRangeMonth(date.toISOString().slice(0,7)+"-01"); };
   const rangeClasses = () => props.size === "sm" && props.variant === "subtle" ? "p-3 bg-kumo-base" : "p-4 bg-kumo-overlay";
-  const selectRangeDay = (iso: string) => { if (rangeStart() === null || rangeEnd() !== null || iso < rangeStart()!) { setRangeStart(iso); setRangeEnd(null); (props.onStartChange as ((value: string | null) => void) | undefined)?.(iso); return; } setRangeEnd(iso); (props.onEndChange as ((value: string | null) => void) | undefined)?.(iso); };
-  const resetDateRange = () => { setRangeStart(null); setRangeEnd(null); (props.onStartChange as ((value: string | null) => void) | undefined)?.(null); (props.onEndChange as ((value: string | null) => void) | undefined)?.(null); dateRangeRoot?.focus(); };
+  const rangeDayInRange = (iso: string) => Boolean(rangeStart() && rangeEnd() && iso >= rangeStart()! && iso <= rangeEnd()!);
+  const selectRangeDay = (iso: string) => { if (rangeStart() === null || rangeEnd() !== null || iso < rangeStart()!) { setRangeStart(iso); setRangeEnd(null); (props.onStartChange as ((value: string | null) => void) | undefined)?.(iso); (props.onStartDateChange as ((value: string | null) => void) | undefined)?.(iso); return; } setRangeEnd(iso); (props.onEndChange as ((value: string | null) => void) | undefined)?.(iso); (props.onEndDateChange as ((value: string | null) => void) | undefined)?.(iso); };
+  const resetDateRange = () => { setRangeStart(null); setRangeEnd(null); (props.onStartChange as ((value: string | null) => void) | undefined)?.(null); (props.onStartDateChange as ((value: string | null) => void) | undefined)?.(null); (props.onEndChange as ((value: string | null) => void) | undefined)?.(null); (props.onEndDateChange as ((value: string | null) => void) | undefined)?.(null); dateRangeRoot?.focus(); };
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as DateRangePickerProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  return (<div ref={dateRangeRoot} tabindex="-1" class={rangeClasses()}><button type="button" data-navigation="previous">Previous</button><button type="button" data-navigation="next">Next</button><For each={rangeDays} children={day => <button type="button" data-day={day.iso} onClick={() => selectRangeDay(day.iso)}>{day.label}</button>} /><button type="button" data-reset onClick={resetDateRange}>Reset</button></div>);
+  return (<div ref={dateRangeRoot} tabindex="-1" class={"kumo-date-range " + rangeClasses()}><div class="kumo-date-range__toolbar"><button type="button" data-navigation="previous" aria-label="Previous month" onClick={() => moveRangeMonth(-1)}>Previous</button><button type="button" data-navigation="next" aria-label="Next month" onClick={() => moveRangeMonth(1)}>Next</button></div><div class="kumo-date-range__months"><For each={rangeMonths()} children={month => <section class="kumo-date-range__month"><h3>{month.label}</h3><div class="kumo-date-range__weekdays" aria-hidden="true"><For each={["Su","Mo","Tu","We","Th","Fr","Sa"]} children={day => <span>{day}</span>} /></div><div class="kumo-date-range__grid" role="grid"><For each={month.days} children={day => <button type="button" data-day={day.iso} data-outside-month={!day.inMonth || undefined} aria-label={day.iso} aria-selected={day.iso === rangeStart() || day.iso === rangeEnd() || undefined} data-in-range={rangeDayInRange(day.iso) || undefined} onClick={() => selectRangeDay(day.iso)}>{day.day}</button>} /></div></section>} /></div><div class="kumo-date-range__footer"><span aria-live="polite">{rangeStart() ? (rangeEnd() ? rangeStart() + " – " + rangeEnd() : "Start: " + rangeStart()) : "Choose a start date"}</span><button type="button" data-reset onClick={resetDateRange}>Reset dates</button></div></div>);
 }
 
 export default DateRangePicker;

@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "scope": {
     "classified": 45,
     "executable": 41,
@@ -12,7 +12,7 @@
       "Flow"
     ]
   },
-  "currentPhase": "complete",
+  "currentPhase": "production",
   "phases": [
     {
       "id": "contracts",
@@ -57,11 +57,18 @@
       "status": "passed"
     },
     {
-      "id": "production",
-      "label": "Final production proof",
-      "done": 1,
-      "total": 1,
+      "id": "native-demo-fidelity",
+      "label": "Native homepage demo fidelity",
+      "done": 41,
+      "total": 41,
       "status": "passed"
+    },
+    {
+      "id": "production",
+      "label": "Production proof for current frontend",
+      "done": 0,
+      "total": 1,
+      "status": "not-run"
     }
   ],
   "conformedComponents": [
@@ -112,9 +119,10 @@
     "@acoyfellow/kumo-svelte",
     "@acoyfellow/kumo-solid"
   ],
+  "knownProductGaps": [],
   "humanOnly": [
     "Git remote and GitHub release upload",
     "Optional npm authentication and publish"
   ],
-  "digest": "930b3bf5b9dfd88d9651f94ee8992dd1accb49fde0d6f679733d87d4b7b536fe"
+  "digest": "631873165ec8333b1ddaaeb8d2fdcf69159bcf92acdfdc7377344208353026ad"
 }

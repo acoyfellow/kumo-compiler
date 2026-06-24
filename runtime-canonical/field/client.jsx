@@ -1,3 +1,4 @@
+import '@cloudflare/kumo/styles/standalone';
 import './fixture.css';
 import React from 'react';
 import {hydrateRoot} from 'react-dom/client';

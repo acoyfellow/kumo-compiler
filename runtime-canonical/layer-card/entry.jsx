@@ -2,4 +2,4 @@ import React from 'react';
 import {LayerCard as CanonicalComponent} from '@cloudflare/kumo/components/layer-card';
 import {fixture} from './fixture.jsx';
 export const packageExport="@cloudflare/kumo/components/layer-card";
-export function App(){return <main data-canonical-component="layer-card"><CanonicalComponent>{fixture}</CanonicalComponent></main>}
+export function App(){return <main data-canonical-component="layer-card"><CanonicalComponent>Primary layer content</CanonicalComponent></main>}

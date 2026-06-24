@@ -1,6 +1,6 @@
 # Kumo completion progress
 
-Current phase: **complete**  
+Current phase: **production**
 Machine receipt: `proof/progress/latest.json`
 
 - ✓ **Canonical contracts** — 41/41
@@ -15,8 +15,10 @@ Machine receipt: `proof/progress/latest.json`
   `████████████████████`
 - ✓ **Complete component examples and docs** — 41/41
   `████████████████████`
-- ✓ **Final production proof** — 1/1
+- ✓ **Native homepage demo fidelity** — 41/41
   `████████████████████`
+- ○ **Production proof for current frontend** — 0/1
+  `░░░░░░░░░░░░░░░░░░░░`
 
 ## Scope
 

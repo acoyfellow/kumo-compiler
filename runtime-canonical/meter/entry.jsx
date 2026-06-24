@@ -2,4 +2,4 @@ import React from 'react';
 import {Meter as CanonicalComponent} from '@cloudflare/kumo/components/meter';
 import {fixture} from './fixture.jsx';
 export const packageExport="@cloudflare/kumo/components/meter";
-export function App(){return <main data-canonical-component="meter"><CanonicalComponent label="Usage" value={65} /></main>}
+export function App(){return <main data-canonical-component="meter"><CanonicalComponent label="Storage" value={65} /></main>}

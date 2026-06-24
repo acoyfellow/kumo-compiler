@@ -93,8 +93,9 @@ const builtRuntime=c=>{
  const selectedRoot=framework==='react'?canonicalRuntimeRoot:runtimeRoot;
  const file=framework==='react'?resolve(selectedRoot,component,'public-runtime',suffix):resolve(selectedRoot,component,framework,'public-runtime',suffix);
  if(!file.startsWith(selectedRoot+'/')||!existsSync(file)||!statSync(file).isFile())return c.notFound();
- const ext=file.split('.').pop(),contentType={html:'text/html; charset=utf-8',css:'text/css; charset=utf-8',js:'text/javascript; charset=utf-8',svg:'image/svg+xml'}[ext]||'application/octet-stream';return c.body(readFileSync(file),200,{'Content-Type':contentType});
+ const ext=file.split('.').pop(),contentType={html:'text/html; charset=utf-8',css:'text/css; charset=utf-8',js:'text/javascript; charset=utf-8',svg:'image/svg+xml'}[ext]||'application/octet-stream';let body=readFileSync(file);if(ext==='html')body=Buffer.from(body.toString('utf8').replace('<head>','<head><base href="/'+component+'/'+framework+'/">'));return c.body(body,200,{'Content-Type':contentType});
 };
+app.get('/:component/:framework',builtRuntime);
 app.get('/:component/:framework/',builtRuntime);
 app.get('/:component/:framework/*',builtRuntime);
 // Serve generated deploy and Astro directory artifacts that do not need bespoke

@@ -1,0 +1,872 @@
+{
+  "schemaVersion": "kumo.browser-smoke/v1",
+  "origin": "http://127.0.0.1:4321",
+  "strictConsole": false,
+  "componentCount": 41,
+  "routeCount": 210,
+  "visited": [
+    {
+      "route": "/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/examples/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/docs/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/docs/progress/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/docs/reference/packages/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/autocomplete/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/badge/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/banner/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/breadcrumbs/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/button/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/checkbox/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/clipboard-text/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/cloudflare-logo/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/code/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/combobox/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/command-palette/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/date-picker/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/date-range-picker/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/dialog/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/dropdown-menu/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/empty/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/field/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/grid/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/grid-item/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/input/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/input-area/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/input-group/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/label/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/layer-card/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/link/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/loader/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/menu-bar/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/meter/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/pagination/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/popover/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/radio/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/select/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/sensitive-input/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/sidebar/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/surface/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/switch/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/table/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/table-of-contents/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/tabs/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/text/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/components/toasty/",
+      "diagnostics": 0
+    },
+    {
+      "route": "/autocomplete/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/badge/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/banner/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/breadcrumbs/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/button/vue",
+      "diagnostics": 1
+    },
+    {
+      "route": "/checkbox/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/clipboard-text/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/cloudflare-logo/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/code/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/combobox/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/command-palette/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/date-picker/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/date-range-picker/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/dialog/vue",
+      "diagnostics": 1
+    },
+    {
+      "route": "/dropdown-menu/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/empty/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/field/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/grid/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/grid-item/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/input/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/input-area/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/input-group/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/label/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/layer-card/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/link/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/loader/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/menu-bar/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/meter/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/pagination/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/popover/vue",
+      "diagnostics": 1
+    },
+    {
+      "route": "/radio/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/select/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/sensitive-input/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/sidebar/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/surface/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/switch/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/table/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/table-of-contents/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/tabs/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/text/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/toasty/vue",
+      "diagnostics": 0
+    },
+    {
+      "route": "/autocomplete/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/badge/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/banner/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/breadcrumbs/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/button/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/checkbox/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/clipboard-text/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/cloudflare-logo/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/code/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/combobox/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/command-palette/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/date-picker/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/date-range-picker/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/dialog/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/dropdown-menu/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/empty/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/field/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/grid/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/grid-item/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/input/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/input-area/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/input-group/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/label/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/layer-card/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/link/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/loader/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/menu-bar/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/meter/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/pagination/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/popover/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/radio/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/select/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/sensitive-input/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/sidebar/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/surface/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/switch/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/table/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/table-of-contents/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/tabs/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/text/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/toasty/svelte",
+      "diagnostics": 0
+    },
+    {
+      "route": "/autocomplete/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/badge/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/banner/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/breadcrumbs/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/button/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/checkbox/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/clipboard-text/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/cloudflare-logo/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/code/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/combobox/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/command-palette/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/date-picker/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/date-range-picker/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/dialog/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/dropdown-menu/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/empty/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/field/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/grid/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/grid-item/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/input/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/input-area/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/input-group/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/label/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/layer-card/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/link/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/loader/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/menu-bar/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/meter/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/pagination/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/popover/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/radio/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/select/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/sensitive-input/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/sidebar/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/surface/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/switch/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/table/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/table-of-contents/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/tabs/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/text/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/toasty/solid",
+      "diagnostics": 0
+    },
+    {
+      "route": "/autocomplete/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/badge/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/banner/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/breadcrumbs/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/button/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/checkbox/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/clipboard-text/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/cloudflare-logo/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/code/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/combobox/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/command-palette/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/date-picker/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/date-range-picker/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/dialog/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/dropdown-menu/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/empty/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/field/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/grid/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/grid-item/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/input/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/input-area/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/input-group/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/label/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/layer-card/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/link/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/loader/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/menu-bar/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/meter/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/pagination/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/popover/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/radio/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/select/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/sensitive-input/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/sidebar/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/surface/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/switch/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/table/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/table-of-contents/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/tabs/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/text/react",
+      "diagnostics": 0
+    },
+    {
+      "route": "/toasty/react",
+      "diagnostics": 0
+    }
+  ],
+  "diagnostics": [
+    {
+      "route": "/button/vue",
+      "kind": "console",
+      "level": "error",
+      "args": "Hydration completed but contains mismatches."
+    },
+    {
+      "route": "/dialog/vue",
+      "kind": "console",
+      "level": "error",
+      "args": "Hydration completed but contains mismatches."
+    },
+    {
+      "route": "/popover/vue",
+      "kind": "console",
+      "level": "error",
+      "args": "Hydration completed but contains mismatches."
+    }
+  ],
+  "failures": [],
+  "status": "passed",
+  "observedAt": "2026-06-24T09:15:58.055Z"
+}

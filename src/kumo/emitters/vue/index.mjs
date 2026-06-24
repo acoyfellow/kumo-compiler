@@ -665,13 +665,27 @@ function dateRangePickerSource(capability) {
   return {
     options:`defineOptions({ inheritAttrs: false })\n`,
     imports:'computed, nextTick, ref, useAttrs, useSlots',
-    setup:`const rangeRoot = ref<HTMLElement | null>(null)
+    setup:`type RangeDay = { iso: string; day: number; inMonth: boolean }
+type RangeMonth = { key: string; label: string; days: RangeDay[] }
+const rangeRoot = ref<HTMLElement | null>(null)
 const startValue = ref<string | null>(null)
 const endValue = ref<string | null>(null)
-const calendarDays = Array.from({ length: 84 }, (_, index) => \`day-\${String(index + 1).padStart(2, '0')}\`)
+const monthCursor = ref(new Date(Date.UTC(2026, 5, 1)))
+const pad = (value: number) => String(value).padStart(2, '0')
+const iso = (date: Date) => \`\${date.getUTCFullYear()}-\${pad(date.getUTCMonth() + 1)}-\${pad(date.getUTCDate())}\`
+function buildMonth(base: Date): RangeMonth {
+  const year = base.getUTCFullYear(), month = base.getUTCMonth()
+  const first = new Date(Date.UTC(year, month, 1)), start = new Date(first)
+  start.setUTCDate(1 - first.getUTCDay())
+  const days = Array.from({length:42}, (_, index) => { const date = new Date(start); date.setUTCDate(start.getUTCDate() + index); return {iso:iso(date),day:date.getUTCDate(),inMonth:date.getUTCMonth() === month} })
+  return {key:\`\${year}-\${month}\`,label:new Intl.DateTimeFormat('en-US',{month:'long',year:'numeric',timeZone:'UTC'}).format(first),days}
+}
+const monthPanels = computed(() => [0,1].map(offset => { const date = new Date(monthCursor.value); date.setUTCMonth(date.getUTCMonth() + offset); return buildMonth(date) }))
 const rootClasses = computed(() => props.size === 'sm' && props.variant === 'subtle' ? ${JSON.stringify(capability.classes.smallSubtle.join(' '))} : ${JSON.stringify(capability.classes.default.join(' '))})
+function changeMonth(delta: number) { const date = new Date(monthCursor.value); date.setUTCMonth(date.getUTCMonth() + delta); monthCursor.value = date }
+function isInRange(value: string) { return Boolean(startValue.value && endValue.value && value >= startValue.value && value <= endValue.value) }
 function selectDay(value: string) {
-  if (startValue.value === null || endValue.value !== null) {
+  if (startValue.value === null || endValue.value !== null || value < startValue.value) {
     startValue.value = value
     endValue.value = null
     props.onStartChange?.(value)
@@ -692,7 +706,7 @@ function resetRange() {
   nextTick(() => { if (rangeRoot.value) { rangeRoot.value.setAttribute('tabindex', '-1'); rangeRoot.value.focus() } })
 }
 `,
-    template:`<div ref="rangeRoot" v-bind="$attrs" :class="rootClasses"><button type="button" data-navigation="previous"></button><button type="button" data-navigation="next"></button><button v-for="day in calendarDays" :key="day" type="button" :data-day="day" :aria-selected="day === startValue || day === endValue || undefined" @click="selectDay(day)">{{ day }}</button><button type="button" data-reset @click="resetRange"></button></div>`
+    template:`<div ref="rangeRoot" v-bind="$attrs" :class="['kumo-date-range',rootClasses]"><div class="kumo-date-range__toolbar"><button type="button" data-navigation="previous" aria-label="Previous month" @click="changeMonth(-1)">Previous</button><button type="button" data-navigation="next" aria-label="Next month" @click="changeMonth(1)">Next</button></div><div class="kumo-date-range__months"><section v-for="month in monthPanels" :key="month.key" class="kumo-date-range__month"><h3>{{ month.label }}</h3><div class="kumo-date-range__weekdays" aria-hidden="true"><span v-for="day in ['Su','Mo','Tu','We','Th','Fr','Sa']" :key="day">{{ day }}</span></div><div class="kumo-date-range__grid" role="grid"><button v-for="day in month.days" :key="day.iso" type="button" :data-day="day.iso" :data-outside-month="!day.inMonth || undefined" :aria-label="day.iso" :aria-selected="day.iso === startValue || day.iso === endValue || undefined" :data-in-range="isInRange(day.iso) || undefined" @click="selectDay(day.iso)">{{ day.day }}</button></div></section></div><div class="kumo-date-range__footer"><span aria-live="polite">{{ startValue ? (endValue ? startValue + ' – ' + endValue : 'Start: ' + startValue) : 'Choose a start date' }}</span><button type="button" data-reset @click="resetRange">Reset dates</button></div></div>`
   };
 }
 function responsiveSidebarBinding(model, library) {

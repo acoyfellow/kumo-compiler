@@ -2,4 +2,4 @@ import React from 'react';
 import {GridItem as CanonicalComponent} from '@cloudflare/kumo/components/grid';
 import {fixture} from './fixture.jsx';
 export const packageExport="@cloudflare/kumo/components/grid";
-export function App(){return <main data-canonical-component="grid-item"><CanonicalComponent>{fixture}</CanonicalComponent></main>}
+export function App(){return <main data-canonical-component="grid-item"><CanonicalComponent>Grid item</CanonicalComponent></main>}

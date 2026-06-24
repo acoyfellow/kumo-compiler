@@ -15,7 +15,8 @@ const names = { react: 'React', vue: 'Vue', svelte: 'Svelte', solid: 'Solid' };
     for (const button of document.querySelectorAll('[data-framework]')) button.addEventListener('click', () => {
       document.querySelectorAll('[data-framework]').forEach(item => item.setAttribute('aria-selected', String(item === button)));
       const frame = document.querySelector('#runtime-frame');
-      frame.src = `/${componentId}/${button.dataset.framework}`;
+      const framework = button.dataset.framework;
+      frame.src = framework === 'react' ? `/${componentId}/react` : `/library-gallery/${framework}/?component=${componentId}`;
       frame.title = `${componentId} ${names[button.dataset.framework]} runtime`;
     });
   </script>
