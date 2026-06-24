@@ -11,7 +11,7 @@ const whenCell = sample => ({states:[sample.state],viewports:[sample.viewport]})
 function observedOperations(part) {
   if (!part.samples?.length) return [];
   const createWhen=part.presence??null, first=part.samples[0];
-  const operations=[op('node.create',part.id,{parent:part.parent??null,order:part.order??first.order??0,tag:part.tag??first.tag,role:part.role??first.role??'generic',semantics:part.semantics??first.semantics??first.tag,when:createWhen})];
+  const operations=[op('node.create',part.id,{parent:part.parent??null,order:part.order??first.order??0,tag:part.tag??first.tag,namespace:part.namespace??first.namespace??null,role:part.role??first.role??'generic',semantics:part.semantics??first.semantics??first.tag,explicitPart:part.id.startsWith('part:')?part.id.slice(5):null,when:createWhen})];
   for(const sample of part.samples){
     const when=whenCell(sample);
     operations.push(op('node.text',part.id,{value:sample.text??'',when}));
@@ -24,7 +24,7 @@ function observedOperations(part) {
 function partOperations(part) {
   if(part.samples?.length)return observedOperations(part);
   const kind=part.kind??'element', when=part.presence??null;
-  const operations=[op(kind==='text'?'node.text':'node.create',part.id,{parent:part.parent??null,semantics:part.semantics??'generic',when})];
+  const operations=[op(kind==='text'?'node.text':'node.create',part.id,{parent:part.parent??null,tag:part.tag??null,namespace:part.namespace??null,semantics:part.semantics??'generic',explicitPart:part.id.startsWith('part:')?part.id.slice(5):null,when})];
   for (const binding of part.bindings ?? []) {
     const condition = binding.when ?? when;
     if (binding.type === 'attribute') operations.push(op(binding.remove ? 'attribute.remove' : 'attribute.set', part.id, { name: binding.name, value: binding.value ?? null, when:condition }));

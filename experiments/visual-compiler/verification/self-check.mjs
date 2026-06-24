@@ -33,5 +33,30 @@ try{
  const attack=await verifyCell(record,'vue',{base:root});
  assert.equal(attack.status,'failed','canonical copy attack must fail');
  assert.match(attack.diagnostics[0].message,/copy attack/);
+
+ // A provenance-valid v2 candidate still fails closed before projections.
+ const v2={...JSON.parse(trace),schemaVersion:'kumo.visual-trace/v2',parts:[{part:'root',tag:'main',attrs:{'data-part':'root'},classes:[],geometry:{},style:{}}]};
+ const v2Bytes=Buffer.from(JSON.stringify(v2));
+ await writeFile(resolve(out,'trace.json'),v2Bytes);
+ const provenance=JSON.parse(await readFile(resolve(out,'provenance.json'),'utf8'));
+ provenance.traceDigest=sha(v2Bytes);
+ provenance.generatedSourceDigest='b'.repeat(64);
+ await writeFile(resolve(out,'provenance.json'),JSON.stringify(provenance));
+ const rejectedV2=await verifyCell(record,'vue',{base:root});
+ assert.equal(rejectedV2.status,'failed','v2 candidate must be rejected');
+ assert.match(rejectedV2.diagnostics[0].message,/unsupported candidate trace schema/);
+ assert.match(rejectedV2.diagnostics[0].message,/lacks parent\/order\/namespace/);
+
+ // An exact tracer-v3 fixture exercises anonymous-node IDs and all topology fields.
+ const exact=JSON.parse(trace);
+ await writeFile(resolve(out,'trace.json'),trace);
+ provenance.traceDigest=sha(trace);
+ provenance.generatedSourceDigest='b'.repeat(64);
+ provenance.generatedBuild.digest=fake;
+ await writeFile(resolve(out,'provenance.json'),JSON.stringify(provenance));
+ const exactV3=await verifyCell(record,'vue',{base:root});
+ assert.equal(exact.schemaVersion,'kumo.visual-trace/v3');
+ assert.equal(exactV3.status,'passed','exact v3 fixture must pass every projection');
+ assert.ok(exactV3.stages.every(stage=>stage.status==='passed'));
 }finally{await rm(root,{recursive:true,force:true})}
 console.log(`self-check passed: fail-closed receipt; missing-output and copy-attack tests rejected`);

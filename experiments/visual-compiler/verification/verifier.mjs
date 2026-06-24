@@ -14,17 +14,17 @@ const sha=x=>createHash('sha256').update(x).digest('hex');
 const canonical=x=>JSON.stringify(sort(x));
 function sort(x){if(Array.isArray(x))return x.map(sort);if(x&&typeof x==='object')return Object.fromEntries(Object.keys(x).sort().map(k=>[k,sort(x[k])]));return x}
 async function json(path){return JSON.parse(await readFile(path,'utf8'))}
-function pick(o,keys){return Object.fromEntries(keys.map(k=>[k,o?.[k]]))}
-function normalizeParts(parts=[]){return [...parts].sort((a,b)=>String(a.part).localeCompare(String(b.part)))}
+function stablePartId(p){return p?.id??p?.attrs?.['data-part']??p?.part??null}
+function normalizeParts(parts=[]){return parts.map(p=>({...p,id:stablePartId(p)})).sort((a,b)=>String(a.id).localeCompare(String(b.id)))}
 function projections(trace){const parts=normalizeParts(trace.parts);return {
  irDigest:trace.irDigest||trace.ir?.digest||null,
- topology:parts.map(p=>pick(p,['part','tag','role'])),
- attributesClasses:parts.map(p=>({part:p.part,attrs:sort(p.attrs||{}),classes:[...(p.classes||[])].sort()})),
- geometry:parts.map(p=>({part:p.part,geometry:p.geometry})),
- computedStyles:parts.map(p=>({part:p.part,style:sort(p.style||p.computedStyles||{})})),
+ topology:parts.map(p=>({id:p.id,parentId:p.parentId,order:p.order,namespace:p.namespace,tag:p.tag,role:p.role??null})),
+ attributesClasses:parts.map(p=>({id:p.id,attrs:sort(p.attrs||{}),classes:[...(p.classes||[])].sort()})),
+ geometry:parts.map(p=>({id:p.id,geometry:p.geometry})),
+ computedStyles:parts.map(p=>({id:p.id,style:sort(p.style||p.computedStyles||{})})),
  pixels:trace.screenshot?.sha256||trace.screenshotSha256||trace.pixels?.sha256||null,
  trustedBehavior:sort({focus:trace.focus||null,events:trace.events||[],a11y:trace.a11y||[]})};}
-function diagnostic(stage,expected,actual){const ep=new Map((expected.parts||[]).map(p=>[p.part,p])),ap=new Map((actual.parts||[]).map(p=>[p.part,p]));const ids=[...new Set([...ep.keys(),...ap.keys()])].sort();const details=[];for(const part of ids){const e=projections({...expected,parts:ep.has(part)?[ep.get(part)]:[]})[stage],a=projections({...actual,parts:ap.has(part)?[ap.get(part)]:[]})[stage];if(canonical(e)!==canonical(a))details.push({part,expected:e,actual:a})}return details.length?details:[{part:'$cell',expected:projections(expected)[stage],actual:projections(actual)[stage]}]}
+function diagnostic(stage,expected,actual){const ep=new Map((expected.parts||[]).map(p=>[stablePartId(p),p])),ap=new Map((actual.parts||[]).map(p=>[stablePartId(p),p]));const ids=[...new Set([...ep.keys(),...ap.keys()])].sort();const details=[];for(const part of ids){const e=projections({...expected,parts:ep.has(part)?[ep.get(part)]:[]})[stage],a=projections({...actual,parts:ap.has(part)?[ap.get(part)]:[]})[stage];if(canonical(e)!==canonical(a))details.push({part,expected:e,actual:a})}return details.length?details:[{part:'$cell',expected:projections(expected)[stage],actual:projections(actual)[stage]}]}
 function cellDir(record,target,base=ROOT){return resolve(base,'lowering','outputs',target,record.component,record.state,String(record.viewport))}
 function paths(record,target,base=ROOT){const dir=cellDir(record,target,base);return {dir,trace:resolve(dir,'trace.json'),screenshot:resolve(dir,'screenshot.png'),provenance:resolve(dir,'provenance.json')}}
 async function fileDigest(path){return sha(await readFile(path))}
@@ -43,6 +43,10 @@ export async function verifyCell(record,target,{base=ROOT}={}){
  const canonicalTraceDigest=await fileDigest(canonicalPath),canonicalScreenshotDigest=existsSync(canonicalScreenshot)?await fileDigest(canonicalScreenshot):null;
  const p=outputProvenance;
  const provenanceErrors=[];
+ if(expected.schemaVersion!=='kumo.visual-trace/v3')provenanceErrors.push('unsupported canonical trace schema');
+ if(actual.schemaVersion!=='kumo.visual-trace/v3')provenanceErrors.push('unsupported candidate trace schema');
+ const incompleteTopology=(actual.parts||[]).find(part=>!Object.hasOwn(part,'parentId')||!Object.hasOwn(part,'order')||!Object.hasOwn(part,'namespace'));
+ if(incompleteTopology)provenanceErrors.push(`candidate capture lacks parent/order/namespace for ${stablePartId(incompleteTopology)??'anonymous node'}`);
  if(p.schemaVersion!=='kumo.native-harness-provenance/v1')provenanceErrors.push('unsupported provenance schema');
  if(p.target!==target)provenanceErrors.push('target mismatch');
  for(const key of ['generatedSourceDigest','lowererDigest','nativeCompilerDigest','nativeBuildDigest','servedHarnessDigest','captureDigest'])if(!hex(p[key]))provenanceErrors.push(`missing ${key}`);

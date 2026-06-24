@@ -1,13 +1,12 @@
 {
-  "schemaVersion":"kumo.visual-compiler-spike-state/v1","status":"running","phase":"wave-2-forest-and-trace-v3-repair","generation":10,
-  "completed":["frontend-authority","canonical-tracer-v3","stateful-ir-v3","lowering-core-v3","native-harness-infrastructure","authority-11-of-11","incremental-engine"],
-  "active":["vue-forest-repair","solid-forest-hydration-repair","svelte-trace-v3-recapture","verifier-v3-projection"],
+  "schemaVersion":"kumo.visual-compiler-spike-state/v1","status":"running","phase":"wave-2-part-identity-repair","generation":11,
+  "completed":["frontend-authority","canonical-tracer-v3","parented-stateful-ir-v3","native-harness-infrastructure","verifier-v3","incremental-engine"],
+  "active":["vue-explicit-path-identity","svelte-explicit-path-identity","solid-explicit-path-identity-forest-hydration"],
   "failed":[
     {"artifact":"synthetic-wave","status":"retired"},
-    {"artifact":"target-captures-v2","status":"retired","reason":"candidate traces lacked stable id,parentId,order,namespace and verifier keyed by nullable part"},
-    {"artifact":"vue-tree-v3","status":"repairing","reason":"nodes rendered as separate roots instead of planned forest"},
-    {"artifact":"solid-tree-v3","status":"repairing","reason":"nested planned path omitted and hydration false"}
+    {"artifact":"candidate-trace-v2","status":"retired"},
+    {"artifact":"target-identity-v3","status":"repairing","reason":"lowerers emitted all IR IDs as data-part, so native capture escaped canonical path IDs; core lacked explicitPart/tag/namespace distinction"}
   ],
-  "selection":{"frontend":"typescript+oxc-preparse","tracer":"real-package-v3","ir":"parented-part-first-v3","loweringCore":"stateful-plan-v3","engineWarmP95Ms":1.481},
-  "next":["fresh-108-v3-cells","ordered-differential-repair","zero-pixel-matrix","warm-under-1s","final-receipt"],"terminal":false,"updatedAt":"2026-06-24T12:22:30.000Z"
+  "selection":{"frontend":"typescript+oxc-preparse","tracer":"canonical-v3","ir":"parented-part-first-v3","loweringCore":"v3 with tag/namespace/explicitPart","verifier":"stable-v3-provenance","engineWarmP95Ms":1.481},
+  "next":["fresh-108-identity-aligned-cells","attributes-classes-repair","geometry-style-pixel","warm-under-1s","final-receipt"],"terminal":false,"updatedAt":"2026-06-24T12:29:30.000Z"
 }
