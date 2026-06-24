@@ -4,7 +4,7 @@
   "deterministic": true,
   "authority": {
     "inputs": {
-      "tracerResultsSha256": "838a627460248020f76be5e2e03e1a729e7842593ef4491305533baa31d2557a",
+      "tracerResultsSha256": "b620ef4d62ecc60d62a01d5a63048d4a96c55594e2f0c3b0210093fd27669e95",
       "frontend": {
         "frontend/typescript/results.json": "63c637b0d60af00ecd5dcf7c4958d7a4aabeeffc04498940b9df1f47fb04ac52",
         "frontend/oxc/results.json": "b09d7f7ea439fa37f611010430ef88bf3909e8cb1dcaae88b348a6bf0723c239"
@@ -45,7 +45,7 @@
   "winner": {
     "id": "part-first",
     "coreIR": "fixtures/components.json",
-    "coreIRSha256": "50f552bab895eb24f4efcefcabec78e41ffbac26f75b0fc2b47f1ce4b9527b96"
+    "coreIRSha256": "58c79ff04d0bc005142f7639ebe57c7b190758710ebc0934fa24b79d7f66b23c"
   },
   "measuredChecks": [
     "authorityInputsAccepted",
@@ -58,7 +58,7 @@
     "frontendAgreement"
   ],
   "summary": {
-    "subsetStateOrViewportParts": 15
+    "subsetStateOrViewportParts": 26
   },
   "limitations": [
     "Frontend agreement is measured as syntax element-count parity; Oxc reports syntax-only symbol resolution.",

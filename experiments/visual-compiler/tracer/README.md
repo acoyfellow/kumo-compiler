@@ -7,6 +7,6 @@ node experiments/visual-compiler/tracer/tracer.mjs
 node experiments/visual-compiler/tracer/self-check.mjs
 ```
 
-The 36 trace cells include DOM, classes, computed styles, geometry, browser accessibility nodes, focus, package callbacks, and real CDP screenshots. Trusted CDP mouse/keyboard input is used; the page does not synthesize DOM events. `results.json` records hashes for the installed package manifest, canonical component sources, Kumo CSS, browser bundle, and browser version. Artifacts are confined to this directory.
+Each of the 36 trace cells records an immutable initial checkpoint before interaction, then uses trusted CDP mouse/keyboard input and records a separate after checkpoint plus before/after focus and callback behavior. Initial projections include DOM, stable explicit-or-path part IDs, complete parent/order/namespace topology, classes, computed styles, geometry, accessibility, and a real screenshot. Portal content associated through explicit parts and ownership links is included. The page does not synthesize DOM events. `results.json` records hashes for the installed package manifest, canonical component sources, Kumo CSS, browser bundle, browser version, traces, and both screenshots. Artifacts are confined to this directory.
 
-`self-check.mjs` rejects data URLs, fixture HTML builders, `dispatchEvent`, synthetic authority, missing canonical imports/hashes, non-local navigation, incomplete hydration, and any matrix/hash discrepancy.
+`self-check.mjs` additionally verifies immutable initial projections, complete topology, stable IDs across viewports, initial checked/open state preservation, portal content, loading-node isolation, and all matrix/artifact hashes.

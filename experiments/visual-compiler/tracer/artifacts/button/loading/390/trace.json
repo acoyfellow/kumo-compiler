@@ -1,15 +1,18 @@
 {
-  "schemaVersion": "kumo.visual-trace/v2",
+  "schemaVersion": "kumo.visual-trace/v3",
   "component": "button",
   "state": "loading",
   "viewport": 390,
-  "url": "http://127.0.0.1:62234/?component=button&state=loading",
-  "hydrated": true,
   "dom": "<main data-component=\"button\" data-state=\"loading\" data-part=\"root\" class=\"p-8\"><button data-kumo-component=\"Button\" class=\"group flex w-max shrink-0 items-center font-medium select-none border-0 shadow-xs focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand cursor-pointer disabled:cursor-not-allowed disabled:text-kumo-subtle bg-kumo-base !text-kumo-default ring not-disabled:hover:bg-kumo-tint disabled:bg-kumo-base/50 disabled:!text-kumo-default/70 ring-kumo-line data-[state=open]:bg-kumo-base h-9 gap-1.5 rounded-lg px-3 text-base\" disabled=\"\" type=\"button\" data-part=\"control\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" stroke=\"currentColor\" style=\"height:14px;width:14px\" role=\"status\" aria-label=\"Loading\"><circle cx=\"12\" cy=\"12\" r=\"9.5\" fill=\"none\" stroke-width=\"2\" stroke-linecap=\"round\"><animateTransform attributeName=\"transform\" type=\"rotate\" from=\"0 12 12\" to=\"360 12 12\" dur=\"2s\" repeatCount=\"indefinite\"></animateTransform><animate attributeName=\"stroke-dasharray\" values=\"0 150;42 150;42 150\" keyTimes=\"0;0.5;1\" dur=\"1.5s\" repeatCount=\"indefinite\"></animate><animate attributeName=\"stroke-dashoffset\" values=\"0;-16;-59\" keyTimes=\"0;0.5;1\" dur=\"1.5s\" repeatCount=\"indefinite\"></animate></circle><circle cx=\"12\" cy=\"12\" r=\"9.5\" fill=\"none\" opacity=\"0.1\" stroke-width=\"2\" stroke-linecap=\"round\"></circle></svg><span class=\"contents\">Loading</span></button></main>",
   "parts": [
     {
+      "id": "part:root",
       "part": "root",
+      "parentId": null,
+      "order": 0,
+      "namespace": "http://www.w3.org/1999/xhtml",
       "tag": "main",
+      "role": null,
       "attrs": {
         "class": "p-8",
         "data-component": "button",
@@ -19,7 +22,7 @@
       "classes": [
         "p-8"
       ],
-      "text": "Loading",
+      "text": null,
       "geometry": {
         "x": 0,
         "y": 0,
@@ -40,8 +43,13 @@
       }
     },
     {
+      "id": "part:control",
       "part": "control",
+      "parentId": "part:root",
+      "order": 0,
+      "namespace": "http://www.w3.org/1999/xhtml",
       "tag": "button",
+      "role": null,
       "attrs": {
         "class": "group flex w-max shrink-0 items-center font-medium select-none border-0 shadow-xs focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand cursor-pointer disabled:cursor-not-allowed disabled:text-kumo-subtle bg-kumo-base !text-kumo-default ring not-disabled:hover:bg-kumo-tint disabled:bg-kumo-base/50 disabled:!text-kumo-default/70 ring-kumo-line data-[state=open]:bg-kumo-base h-9 gap-1.5 rounded-lg px-3 text-base",
         "data-kumo-component": "Button",
@@ -80,7 +88,7 @@
         "text-base",
         "w-max"
       ],
-      "text": "Loading",
+      "text": null,
       "geometry": {
         "x": 32,
         "y": 32,
@@ -101,8 +109,89 @@
       }
     },
     {
-      "part": "node-2",
-      "tag": "animatetransform",
+      "id": "path:html:0/body:1/div:0/main:0/button:0/svg:0",
+      "part": null,
+      "parentId": "part:control",
+      "order": 0,
+      "namespace": "http://www.w3.org/2000/svg",
+      "tag": "svg",
+      "role": "status",
+      "attrs": {
+        "aria-label": "Loading",
+        "height": "24",
+        "role": "status",
+        "stroke": "currentColor",
+        "style": "height:14px;width:14px",
+        "viewBox": "0 0 24 24",
+        "width": "24",
+        "xmlns": "http://www.w3.org/2000/svg"
+      },
+      "classes": [],
+      "text": null,
+      "geometry": {
+        "x": 44,
+        "y": 43,
+        "width": 14,
+        "height": 14
+      },
+      "style": {
+        "display": "block",
+        "position": "static",
+        "color": "oklab(0.205 0 0 / 0.7)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "font-size": "14px",
+        "font-weight": "500",
+        "border-radius": "0px",
+        "opacity": "1",
+        "visibility": "visible"
+      }
+    },
+    {
+      "id": "path:html:0/body:1/div:0/main:0/button:0/svg:0/circle:0",
+      "part": null,
+      "parentId": "path:html:0/body:1/div:0/main:0/button:0/svg:0",
+      "order": 0,
+      "namespace": "http://www.w3.org/2000/svg",
+      "tag": "circle",
+      "role": null,
+      "attrs": {
+        "cx": "12",
+        "cy": "12",
+        "fill": "none",
+        "r": "9.5",
+        "stroke-linecap": "round",
+        "stroke-width": "2"
+      },
+      "classes": [],
+      "text": null,
+      "geometry": {
+        "x": 43.612,
+        "y": 42.612,
+        "width": 14.776,
+        "height": 14.776
+      },
+      "style": {
+        "display": "inline",
+        "position": "static",
+        "color": "oklab(0.205 0 0 / 0.7)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "font-size": "14px",
+        "font-weight": "500",
+        "border-radius": "0px",
+        "opacity": "1",
+        "visibility": "visible"
+      }
+    },
+    {
+      "id": "path:html:0/body:1/div:0/main:0/button:0/svg:0/circle:0/animateTransform:0",
+      "part": null,
+      "parentId": "path:html:0/body:1/div:0/main:0/button:0/svg:0/circle:0",
+      "order": 0,
+      "namespace": "http://www.w3.org/2000/svg",
+      "tag": "animateTransform",
+      "role": null,
       "attrs": {
         "attributeName": "transform",
         "dur": "2s",
@@ -133,8 +222,13 @@
       }
     },
     {
-      "part": "node-3",
+      "id": "path:html:0/body:1/div:0/main:0/button:0/svg:0/circle:0/animate:1",
+      "part": null,
+      "parentId": "path:html:0/body:1/div:0/main:0/button:0/svg:0/circle:0",
+      "order": 1,
+      "namespace": "http://www.w3.org/2000/svg",
       "tag": "animate",
+      "role": null,
       "attrs": {
         "attributeName": "stroke-dasharray",
         "dur": "1.5s",
@@ -164,8 +258,13 @@
       }
     },
     {
-      "part": "node-4",
+      "id": "path:html:0/body:1/div:0/main:0/button:0/svg:0/circle:0/animate:2",
+      "part": null,
+      "parentId": "path:html:0/body:1/div:0/main:0/button:0/svg:0/circle:0",
+      "order": 2,
+      "namespace": "http://www.w3.org/2000/svg",
       "tag": "animate",
+      "role": null,
       "attrs": {
         "attributeName": "stroke-dashoffset",
         "dur": "1.5s",
@@ -195,8 +294,13 @@
       }
     },
     {
-      "part": "node-5",
+      "id": "path:html:0/body:1/div:0/main:0/button:0/svg:0/circle:1",
+      "part": null,
+      "parentId": "path:html:0/body:1/div:0/main:0/button:0/svg:0",
+      "order": 1,
+      "namespace": "http://www.w3.org/2000/svg",
       "tag": "circle",
+      "role": null,
       "attrs": {
         "cx": "12",
         "cy": "12",
@@ -228,8 +332,13 @@
       }
     },
     {
-      "part": "node-6",
+      "id": "path:html:0/body:1/div:0/main:0/button:0/span:1",
+      "part": null,
+      "parentId": "part:control",
+      "order": 1,
+      "namespace": "http://www.w3.org/1999/xhtml",
       "tag": "span",
+      "role": null,
       "attrs": {
         "class": "contents"
       },
@@ -257,10 +366,6 @@
       }
     }
   ],
-  "focus": {
-    "active": "body"
-  },
-  "events": [],
   "a11y": [
     {
       "role": "RootWebArea",
@@ -292,7 +397,833 @@
     }
   ],
   "screenshot": {
-    "sha256": "8bc4df1ef1fe831f3bb53f744bf20da323761e48892c9c19fb721e983f76a530",
-    "bytes": 4216
+    "sha256": "1eb6938554125514491c6c64e9fdbf4109990722747ad5030da61455e8f96147",
+    "bytes": 4219
+  },
+  "checkpoint": {
+    "initial": {
+      "url": "http://127.0.0.1:64659/?component=button&state=loading",
+      "hydrated": true,
+      "dom": "<main data-component=\"button\" data-state=\"loading\" data-part=\"root\" class=\"p-8\"><button data-kumo-component=\"Button\" class=\"group flex w-max shrink-0 items-center font-medium select-none border-0 shadow-xs focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand cursor-pointer disabled:cursor-not-allowed disabled:text-kumo-subtle bg-kumo-base !text-kumo-default ring not-disabled:hover:bg-kumo-tint disabled:bg-kumo-base/50 disabled:!text-kumo-default/70 ring-kumo-line data-[state=open]:bg-kumo-base h-9 gap-1.5 rounded-lg px-3 text-base\" disabled=\"\" type=\"button\" data-part=\"control\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" stroke=\"currentColor\" style=\"height:14px;width:14px\" role=\"status\" aria-label=\"Loading\"><circle cx=\"12\" cy=\"12\" r=\"9.5\" fill=\"none\" stroke-width=\"2\" stroke-linecap=\"round\"><animateTransform attributeName=\"transform\" type=\"rotate\" from=\"0 12 12\" to=\"360 12 12\" dur=\"2s\" repeatCount=\"indefinite\"></animateTransform><animate attributeName=\"stroke-dasharray\" values=\"0 150;42 150;42 150\" keyTimes=\"0;0.5;1\" dur=\"1.5s\" repeatCount=\"indefinite\"></animate><animate attributeName=\"stroke-dashoffset\" values=\"0;-16;-59\" keyTimes=\"0;0.5;1\" dur=\"1.5s\" repeatCount=\"indefinite\"></animate></circle><circle cx=\"12\" cy=\"12\" r=\"9.5\" fill=\"none\" opacity=\"0.1\" stroke-width=\"2\" stroke-linecap=\"round\"></circle></svg><span class=\"contents\">Loading</span></button></main>",
+      "parts": [
+        {
+          "id": "part:root",
+          "part": "root",
+          "parentId": null,
+          "order": 0,
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "tag": "main",
+          "role": null,
+          "attrs": {
+            "class": "p-8",
+            "data-component": "button",
+            "data-part": "root",
+            "data-state": "loading"
+          },
+          "classes": [
+            "p-8"
+          ],
+          "text": null,
+          "geometry": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 100
+          },
+          "style": {
+            "display": "block",
+            "position": "static",
+            "color": "rgb(0, 0, 0)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "16px",
+            "font-weight": "400",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "part:control",
+          "part": "control",
+          "parentId": "part:root",
+          "order": 0,
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "tag": "button",
+          "role": null,
+          "attrs": {
+            "class": "group flex w-max shrink-0 items-center font-medium select-none border-0 shadow-xs focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand cursor-pointer disabled:cursor-not-allowed disabled:text-kumo-subtle bg-kumo-base !text-kumo-default ring not-disabled:hover:bg-kumo-tint disabled:bg-kumo-base/50 disabled:!text-kumo-default/70 ring-kumo-line data-[state=open]:bg-kumo-base h-9 gap-1.5 rounded-lg px-3 text-base",
+            "data-kumo-component": "Button",
+            "data-part": "control",
+            "disabled": "",
+            "type": "button"
+          },
+          "classes": [
+            "!text-kumo-default",
+            "bg-kumo-base",
+            "border-0",
+            "cursor-pointer",
+            "data-[state=open]:bg-kumo-base",
+            "disabled:!text-kumo-default/70",
+            "disabled:bg-kumo-base/50",
+            "disabled:cursor-not-allowed",
+            "disabled:text-kumo-subtle",
+            "flex",
+            "focus-visible:ring-2",
+            "focus-visible:ring-kumo-brand",
+            "focus:outline-none",
+            "focus:ring-kumo-focus/50",
+            "font-medium",
+            "gap-1.5",
+            "group",
+            "h-9",
+            "items-center",
+            "not-disabled:hover:bg-kumo-tint",
+            "px-3",
+            "ring",
+            "ring-kumo-line",
+            "rounded-lg",
+            "select-none",
+            "shadow-xs",
+            "shrink-0",
+            "text-base",
+            "w-max"
+          ],
+          "text": null,
+          "geometry": {
+            "x": 32,
+            "y": 32,
+            "width": 96.484,
+            "height": 36
+          },
+          "style": {
+            "display": "flex",
+            "position": "static",
+            "color": "oklab(0.205 0 0 / 0.7)",
+            "background-color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.5)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "500",
+            "border-radius": "8px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "path:html:0/body:1/div:0/main:0/button:0/svg:0",
+          "part": null,
+          "parentId": "part:control",
+          "order": 0,
+          "namespace": "http://www.w3.org/2000/svg",
+          "tag": "svg",
+          "role": "status",
+          "attrs": {
+            "aria-label": "Loading",
+            "height": "24",
+            "role": "status",
+            "stroke": "currentColor",
+            "style": "height:14px;width:14px",
+            "viewBox": "0 0 24 24",
+            "width": "24",
+            "xmlns": "http://www.w3.org/2000/svg"
+          },
+          "classes": [],
+          "text": null,
+          "geometry": {
+            "x": 44,
+            "y": 43,
+            "width": 14,
+            "height": 14
+          },
+          "style": {
+            "display": "block",
+            "position": "static",
+            "color": "oklab(0.205 0 0 / 0.7)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "500",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "path:html:0/body:1/div:0/main:0/button:0/svg:0/circle:0",
+          "part": null,
+          "parentId": "path:html:0/body:1/div:0/main:0/button:0/svg:0",
+          "order": 0,
+          "namespace": "http://www.w3.org/2000/svg",
+          "tag": "circle",
+          "role": null,
+          "attrs": {
+            "cx": "12",
+            "cy": "12",
+            "fill": "none",
+            "r": "9.5",
+            "stroke-linecap": "round",
+            "stroke-width": "2"
+          },
+          "classes": [],
+          "text": null,
+          "geometry": {
+            "x": 43.612,
+            "y": 42.612,
+            "width": 14.776,
+            "height": 14.776
+          },
+          "style": {
+            "display": "inline",
+            "position": "static",
+            "color": "oklab(0.205 0 0 / 0.7)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "500",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "path:html:0/body:1/div:0/main:0/button:0/svg:0/circle:0/animateTransform:0",
+          "part": null,
+          "parentId": "path:html:0/body:1/div:0/main:0/button:0/svg:0/circle:0",
+          "order": 0,
+          "namespace": "http://www.w3.org/2000/svg",
+          "tag": "animateTransform",
+          "role": null,
+          "attrs": {
+            "attributeName": "transform",
+            "dur": "2s",
+            "from": "0 12 12",
+            "repeatCount": "indefinite",
+            "to": "360 12 12",
+            "type": "rotate"
+          },
+          "classes": [],
+          "text": "",
+          "geometry": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          "style": {
+            "display": "inline",
+            "position": "static",
+            "color": "oklab(0.205 0 0 / 0.7)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "500",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "path:html:0/body:1/div:0/main:0/button:0/svg:0/circle:0/animate:1",
+          "part": null,
+          "parentId": "path:html:0/body:1/div:0/main:0/button:0/svg:0/circle:0",
+          "order": 1,
+          "namespace": "http://www.w3.org/2000/svg",
+          "tag": "animate",
+          "role": null,
+          "attrs": {
+            "attributeName": "stroke-dasharray",
+            "dur": "1.5s",
+            "keyTimes": "0;0.5;1",
+            "repeatCount": "indefinite",
+            "values": "0 150;42 150;42 150"
+          },
+          "classes": [],
+          "text": "",
+          "geometry": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          "style": {
+            "display": "inline",
+            "position": "static",
+            "color": "oklab(0.205 0 0 / 0.7)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "500",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "path:html:0/body:1/div:0/main:0/button:0/svg:0/circle:0/animate:2",
+          "part": null,
+          "parentId": "path:html:0/body:1/div:0/main:0/button:0/svg:0/circle:0",
+          "order": 2,
+          "namespace": "http://www.w3.org/2000/svg",
+          "tag": "animate",
+          "role": null,
+          "attrs": {
+            "attributeName": "stroke-dashoffset",
+            "dur": "1.5s",
+            "keyTimes": "0;0.5;1",
+            "repeatCount": "indefinite",
+            "values": "0;-16;-59"
+          },
+          "classes": [],
+          "text": "",
+          "geometry": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          "style": {
+            "display": "inline",
+            "position": "static",
+            "color": "oklab(0.205 0 0 / 0.7)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "500",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "path:html:0/body:1/div:0/main:0/button:0/svg:0/circle:1",
+          "part": null,
+          "parentId": "path:html:0/body:1/div:0/main:0/button:0/svg:0",
+          "order": 1,
+          "namespace": "http://www.w3.org/2000/svg",
+          "tag": "circle",
+          "role": null,
+          "attrs": {
+            "cx": "12",
+            "cy": "12",
+            "fill": "none",
+            "opacity": "0.1",
+            "r": "9.5",
+            "stroke-linecap": "round",
+            "stroke-width": "2"
+          },
+          "classes": [],
+          "text": "",
+          "geometry": {
+            "x": 45.458,
+            "y": 44.458,
+            "width": 11.083,
+            "height": 11.083
+          },
+          "style": {
+            "display": "inline",
+            "position": "static",
+            "color": "oklab(0.205 0 0 / 0.7)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "500",
+            "border-radius": "0px",
+            "opacity": "0.1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "path:html:0/body:1/div:0/main:0/button:0/span:1",
+          "part": null,
+          "parentId": "part:control",
+          "order": 1,
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "tag": "span",
+          "role": null,
+          "attrs": {
+            "class": "contents"
+          },
+          "classes": [
+            "contents"
+          ],
+          "text": "Loading",
+          "geometry": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          "style": {
+            "display": "contents",
+            "position": "static",
+            "color": "oklab(0.205 0 0 / 0.7)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "500",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        }
+      ],
+      "focus": {
+        "active": "body"
+      },
+      "events": [],
+      "a11y": [
+        {
+          "role": "RootWebArea",
+          "name": ""
+        },
+        {
+          "role": "generic",
+          "name": ""
+        },
+        {
+          "role": "main",
+          "name": ""
+        },
+        {
+          "role": "button",
+          "name": "Loading Loading"
+        },
+        {
+          "role": "status",
+          "name": "Loading"
+        },
+        {
+          "role": "StaticText",
+          "name": "Loading"
+        },
+        {
+          "role": "InlineTextBox",
+          "name": "Loading"
+        }
+      ],
+      "screenshot": {
+        "sha256": "1eb6938554125514491c6c64e9fdbf4109990722747ad5030da61455e8f96147",
+        "bytes": 4219
+      }
+    },
+    "after": {
+      "url": "http://127.0.0.1:64659/?component=button&state=loading",
+      "hydrated": true,
+      "dom": "<main data-component=\"button\" data-state=\"loading\" data-part=\"root\" class=\"p-8\"><button data-kumo-component=\"Button\" class=\"group flex w-max shrink-0 items-center font-medium select-none border-0 shadow-xs focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand cursor-pointer disabled:cursor-not-allowed disabled:text-kumo-subtle bg-kumo-base !text-kumo-default ring not-disabled:hover:bg-kumo-tint disabled:bg-kumo-base/50 disabled:!text-kumo-default/70 ring-kumo-line data-[state=open]:bg-kumo-base h-9 gap-1.5 rounded-lg px-3 text-base\" disabled=\"\" type=\"button\" data-part=\"control\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" stroke=\"currentColor\" style=\"height:14px;width:14px\" role=\"status\" aria-label=\"Loading\"><circle cx=\"12\" cy=\"12\" r=\"9.5\" fill=\"none\" stroke-width=\"2\" stroke-linecap=\"round\"><animateTransform attributeName=\"transform\" type=\"rotate\" from=\"0 12 12\" to=\"360 12 12\" dur=\"2s\" repeatCount=\"indefinite\"></animateTransform><animate attributeName=\"stroke-dasharray\" values=\"0 150;42 150;42 150\" keyTimes=\"0;0.5;1\" dur=\"1.5s\" repeatCount=\"indefinite\"></animate><animate attributeName=\"stroke-dashoffset\" values=\"0;-16;-59\" keyTimes=\"0;0.5;1\" dur=\"1.5s\" repeatCount=\"indefinite\"></animate></circle><circle cx=\"12\" cy=\"12\" r=\"9.5\" fill=\"none\" opacity=\"0.1\" stroke-width=\"2\" stroke-linecap=\"round\"></circle></svg><span class=\"contents\">Loading</span></button></main>",
+      "parts": [
+        {
+          "id": "part:root",
+          "part": "root",
+          "parentId": null,
+          "order": 0,
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "tag": "main",
+          "role": null,
+          "attrs": {
+            "class": "p-8",
+            "data-component": "button",
+            "data-part": "root",
+            "data-state": "loading"
+          },
+          "classes": [
+            "p-8"
+          ],
+          "text": null,
+          "geometry": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 100
+          },
+          "style": {
+            "display": "block",
+            "position": "static",
+            "color": "rgb(0, 0, 0)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "16px",
+            "font-weight": "400",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "part:control",
+          "part": "control",
+          "parentId": "part:root",
+          "order": 0,
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "tag": "button",
+          "role": null,
+          "attrs": {
+            "class": "group flex w-max shrink-0 items-center font-medium select-none border-0 shadow-xs focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand cursor-pointer disabled:cursor-not-allowed disabled:text-kumo-subtle bg-kumo-base !text-kumo-default ring not-disabled:hover:bg-kumo-tint disabled:bg-kumo-base/50 disabled:!text-kumo-default/70 ring-kumo-line data-[state=open]:bg-kumo-base h-9 gap-1.5 rounded-lg px-3 text-base",
+            "data-kumo-component": "Button",
+            "data-part": "control",
+            "disabled": "",
+            "type": "button"
+          },
+          "classes": [
+            "!text-kumo-default",
+            "bg-kumo-base",
+            "border-0",
+            "cursor-pointer",
+            "data-[state=open]:bg-kumo-base",
+            "disabled:!text-kumo-default/70",
+            "disabled:bg-kumo-base/50",
+            "disabled:cursor-not-allowed",
+            "disabled:text-kumo-subtle",
+            "flex",
+            "focus-visible:ring-2",
+            "focus-visible:ring-kumo-brand",
+            "focus:outline-none",
+            "focus:ring-kumo-focus/50",
+            "font-medium",
+            "gap-1.5",
+            "group",
+            "h-9",
+            "items-center",
+            "not-disabled:hover:bg-kumo-tint",
+            "px-3",
+            "ring",
+            "ring-kumo-line",
+            "rounded-lg",
+            "select-none",
+            "shadow-xs",
+            "shrink-0",
+            "text-base",
+            "w-max"
+          ],
+          "text": null,
+          "geometry": {
+            "x": 32,
+            "y": 32,
+            "width": 96.484,
+            "height": 36
+          },
+          "style": {
+            "display": "flex",
+            "position": "static",
+            "color": "oklab(0.205 0 0 / 0.7)",
+            "background-color": "oklab(0.999994 0.0000455678 0.0000200868 / 0.5)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "500",
+            "border-radius": "8px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "path:html:0/body:1/div:0/main:0/button:0/svg:0",
+          "part": null,
+          "parentId": "part:control",
+          "order": 0,
+          "namespace": "http://www.w3.org/2000/svg",
+          "tag": "svg",
+          "role": "status",
+          "attrs": {
+            "aria-label": "Loading",
+            "height": "24",
+            "role": "status",
+            "stroke": "currentColor",
+            "style": "height:14px;width:14px",
+            "viewBox": "0 0 24 24",
+            "width": "24",
+            "xmlns": "http://www.w3.org/2000/svg"
+          },
+          "classes": [],
+          "text": null,
+          "geometry": {
+            "x": 44,
+            "y": 43,
+            "width": 14,
+            "height": 14
+          },
+          "style": {
+            "display": "block",
+            "position": "static",
+            "color": "oklab(0.205 0 0 / 0.7)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "500",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "path:html:0/body:1/div:0/main:0/button:0/svg:0/circle:0",
+          "part": null,
+          "parentId": "path:html:0/body:1/div:0/main:0/button:0/svg:0",
+          "order": 0,
+          "namespace": "http://www.w3.org/2000/svg",
+          "tag": "circle",
+          "role": null,
+          "attrs": {
+            "cx": "12",
+            "cy": "12",
+            "fill": "none",
+            "r": "9.5",
+            "stroke-linecap": "round",
+            "stroke-width": "2"
+          },
+          "classes": [],
+          "text": null,
+          "geometry": {
+            "x": 43.429,
+            "y": 42.429,
+            "width": 15.142,
+            "height": 15.142
+          },
+          "style": {
+            "display": "inline",
+            "position": "static",
+            "color": "oklab(0.205 0 0 / 0.7)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "500",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "path:html:0/body:1/div:0/main:0/button:0/svg:0/circle:0/animateTransform:0",
+          "part": null,
+          "parentId": "path:html:0/body:1/div:0/main:0/button:0/svg:0/circle:0",
+          "order": 0,
+          "namespace": "http://www.w3.org/2000/svg",
+          "tag": "animateTransform",
+          "role": null,
+          "attrs": {
+            "attributeName": "transform",
+            "dur": "2s",
+            "from": "0 12 12",
+            "repeatCount": "indefinite",
+            "to": "360 12 12",
+            "type": "rotate"
+          },
+          "classes": [],
+          "text": "",
+          "geometry": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          "style": {
+            "display": "inline",
+            "position": "static",
+            "color": "oklab(0.205 0 0 / 0.7)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "500",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "path:html:0/body:1/div:0/main:0/button:0/svg:0/circle:0/animate:1",
+          "part": null,
+          "parentId": "path:html:0/body:1/div:0/main:0/button:0/svg:0/circle:0",
+          "order": 1,
+          "namespace": "http://www.w3.org/2000/svg",
+          "tag": "animate",
+          "role": null,
+          "attrs": {
+            "attributeName": "stroke-dasharray",
+            "dur": "1.5s",
+            "keyTimes": "0;0.5;1",
+            "repeatCount": "indefinite",
+            "values": "0 150;42 150;42 150"
+          },
+          "classes": [],
+          "text": "",
+          "geometry": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          "style": {
+            "display": "inline",
+            "position": "static",
+            "color": "oklab(0.205 0 0 / 0.7)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "500",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "path:html:0/body:1/div:0/main:0/button:0/svg:0/circle:0/animate:2",
+          "part": null,
+          "parentId": "path:html:0/body:1/div:0/main:0/button:0/svg:0/circle:0",
+          "order": 2,
+          "namespace": "http://www.w3.org/2000/svg",
+          "tag": "animate",
+          "role": null,
+          "attrs": {
+            "attributeName": "stroke-dashoffset",
+            "dur": "1.5s",
+            "keyTimes": "0;0.5;1",
+            "repeatCount": "indefinite",
+            "values": "0;-16;-59"
+          },
+          "classes": [],
+          "text": "",
+          "geometry": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          "style": {
+            "display": "inline",
+            "position": "static",
+            "color": "oklab(0.205 0 0 / 0.7)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "500",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "path:html:0/body:1/div:0/main:0/button:0/svg:0/circle:1",
+          "part": null,
+          "parentId": "path:html:0/body:1/div:0/main:0/button:0/svg:0",
+          "order": 1,
+          "namespace": "http://www.w3.org/2000/svg",
+          "tag": "circle",
+          "role": null,
+          "attrs": {
+            "cx": "12",
+            "cy": "12",
+            "fill": "none",
+            "opacity": "0.1",
+            "r": "9.5",
+            "stroke-linecap": "round",
+            "stroke-width": "2"
+          },
+          "classes": [],
+          "text": "",
+          "geometry": {
+            "x": 45.458,
+            "y": 44.458,
+            "width": 11.083,
+            "height": 11.083
+          },
+          "style": {
+            "display": "inline",
+            "position": "static",
+            "color": "oklab(0.205 0 0 / 0.7)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "500",
+            "border-radius": "0px",
+            "opacity": "0.1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "path:html:0/body:1/div:0/main:0/button:0/span:1",
+          "part": null,
+          "parentId": "part:control",
+          "order": 1,
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "tag": "span",
+          "role": null,
+          "attrs": {
+            "class": "contents"
+          },
+          "classes": [
+            "contents"
+          ],
+          "text": "Loading",
+          "geometry": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          "style": {
+            "display": "contents",
+            "position": "static",
+            "color": "oklab(0.205 0 0 / 0.7)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "500",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        }
+      ],
+      "focus": {
+        "active": "body"
+      },
+      "events": [],
+      "a11y": [
+        {
+          "role": "RootWebArea",
+          "name": ""
+        },
+        {
+          "role": "generic",
+          "name": ""
+        },
+        {
+          "role": "main",
+          "name": ""
+        },
+        {
+          "role": "button",
+          "name": "Loading Loading"
+        },
+        {
+          "role": "status",
+          "name": "Loading"
+        },
+        {
+          "role": "StaticText",
+          "name": "Loading"
+        },
+        {
+          "role": "InlineTextBox",
+          "name": "Loading"
+        }
+      ],
+      "screenshot": {
+        "sha256": "d162d2560aa0131ce2a1523916727aaea2403d7d7c066c94c02cb324666ba894",
+        "bytes": 4205
+      }
+    }
+  },
+  "behavior": {
+    "before": {
+      "focus": {
+        "active": "body"
+      },
+      "events": []
+    },
+    "after": {
+      "focus": {
+        "active": "body"
+      },
+      "events": []
+    }
   }
 }

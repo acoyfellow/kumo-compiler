@@ -1,15 +1,18 @@
 {
-  "schemaVersion": "kumo.visual-trace/v2",
+  "schemaVersion": "kumo.visual-trace/v3",
   "component": "popover",
   "state": "closed",
   "viewport": 390,
-  "url": "http://127.0.0.1:62234/?component=popover&state=closed",
-  "hydrated": true,
   "dom": "<main data-component=\"popover\" data-state=\"closed\" data-part=\"root\" class=\"p-8\"><button type=\"button\" tabindex=\"0\" data-base-ui-click-trigger=\"\" id=\"base-ui-_R_d_\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-kumo-component=\"Popover\" data-kumo-part=\"trigger\" data-part=\"trigger\">Toggle</button></main>",
   "parts": [
     {
+      "id": "part:root",
       "part": "root",
+      "parentId": null,
+      "order": 0,
+      "namespace": "http://www.w3.org/1999/xhtml",
       "tag": "main",
+      "role": null,
       "attrs": {
         "class": "p-8",
         "data-component": "popover",
@@ -19,7 +22,7 @@
       "classes": [
         "p-8"
       ],
-      "text": "Toggle",
+      "text": null,
       "geometry": {
         "x": 0,
         "y": 0,
@@ -40,8 +43,13 @@
       }
     },
     {
+      "id": "part:trigger",
       "part": "trigger",
+      "parentId": "part:root",
+      "order": 0,
+      "namespace": "http://www.w3.org/1999/xhtml",
       "tag": "button",
+      "role": null,
       "attrs": {
         "aria-expanded": "false",
         "aria-haspopup": "dialog",
@@ -75,21 +83,9 @@
       }
     }
   ],
-  "focus": {
-    "active": "trigger"
-  },
-  "events": [
-    {
-      "type": "click"
-    }
-  ],
   "a11y": [
     {
       "role": "RootWebArea",
-      "name": ""
-    },
-    {
-      "role": "generic",
       "name": ""
     },
     {
@@ -114,7 +110,271 @@
     }
   ],
   "screenshot": {
-    "sha256": "ba63b050d283ba6e4a5e50c17b6e95b830974459f15e314eeff0478a85cc8b29",
-    "bytes": 3891
+    "sha256": "1e8b8e477908ee92d102a202360b8190ab01817b0a64111abdc4109ca3554661",
+    "bytes": 3626
+  },
+  "checkpoint": {
+    "initial": {
+      "url": "http://127.0.0.1:64659/?component=popover&state=closed",
+      "hydrated": true,
+      "dom": "<main data-component=\"popover\" data-state=\"closed\" data-part=\"root\" class=\"p-8\"><button type=\"button\" tabindex=\"0\" data-base-ui-click-trigger=\"\" id=\"base-ui-_R_d_\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-kumo-component=\"Popover\" data-kumo-part=\"trigger\" data-part=\"trigger\">Toggle</button></main>",
+      "parts": [
+        {
+          "id": "part:root",
+          "part": "root",
+          "parentId": null,
+          "order": 0,
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "tag": "main",
+          "role": null,
+          "attrs": {
+            "class": "p-8",
+            "data-component": "popover",
+            "data-part": "root",
+            "data-state": "closed"
+          },
+          "classes": [
+            "p-8"
+          ],
+          "text": null,
+          "geometry": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 88
+          },
+          "style": {
+            "display": "block",
+            "position": "static",
+            "color": "rgb(0, 0, 0)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "16px",
+            "font-weight": "400",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "part:trigger",
+          "part": "trigger",
+          "parentId": "part:root",
+          "order": 0,
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "tag": "button",
+          "role": null,
+          "attrs": {
+            "aria-expanded": "false",
+            "aria-haspopup": "dialog",
+            "data-base-ui-click-trigger": "",
+            "data-kumo-component": "Popover",
+            "data-kumo-part": "trigger",
+            "data-part": "trigger",
+            "id": "base-ui-_R_d_",
+            "tabindex": "0",
+            "type": "button"
+          },
+          "classes": [],
+          "text": "Toggle",
+          "geometry": {
+            "x": 32,
+            "y": 32,
+            "width": 48.844,
+            "height": 24
+          },
+          "style": {
+            "display": "inline-block",
+            "position": "static",
+            "color": "rgb(0, 0, 0)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "16px",
+            "font-weight": "400",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        }
+      ],
+      "focus": {
+        "active": "body"
+      },
+      "events": [],
+      "a11y": [
+        {
+          "role": "RootWebArea",
+          "name": ""
+        },
+        {
+          "role": "generic",
+          "name": ""
+        },
+        {
+          "role": "main",
+          "name": ""
+        },
+        {
+          "role": "button",
+          "name": "Toggle"
+        },
+        {
+          "role": "StaticText",
+          "name": "Toggle"
+        },
+        {
+          "role": "InlineTextBox",
+          "name": "Toggle"
+        }
+      ],
+      "screenshot": {
+        "sha256": "1e8b8e477908ee92d102a202360b8190ab01817b0a64111abdc4109ca3554661",
+        "bytes": 3626
+      }
+    },
+    "after": {
+      "url": "http://127.0.0.1:64659/?component=popover&state=closed",
+      "hydrated": true,
+      "dom": "<main data-component=\"popover\" data-state=\"closed\" data-part=\"root\" class=\"p-8\"><button type=\"button\" tabindex=\"0\" data-base-ui-click-trigger=\"\" id=\"base-ui-_R_d_\" aria-haspopup=\"dialog\" aria-expanded=\"false\" data-kumo-component=\"Popover\" data-kumo-part=\"trigger\" data-part=\"trigger\">Toggle</button></main>",
+      "parts": [
+        {
+          "id": "part:root",
+          "part": "root",
+          "parentId": null,
+          "order": 0,
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "tag": "main",
+          "role": null,
+          "attrs": {
+            "class": "p-8",
+            "data-component": "popover",
+            "data-part": "root",
+            "data-state": "closed"
+          },
+          "classes": [
+            "p-8"
+          ],
+          "text": null,
+          "geometry": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 88
+          },
+          "style": {
+            "display": "block",
+            "position": "static",
+            "color": "rgb(0, 0, 0)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "16px",
+            "font-weight": "400",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "part:trigger",
+          "part": "trigger",
+          "parentId": "part:root",
+          "order": 0,
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "tag": "button",
+          "role": null,
+          "attrs": {
+            "aria-expanded": "false",
+            "aria-haspopup": "dialog",
+            "data-base-ui-click-trigger": "",
+            "data-kumo-component": "Popover",
+            "data-kumo-part": "trigger",
+            "data-part": "trigger",
+            "id": "base-ui-_R_d_",
+            "tabindex": "0",
+            "type": "button"
+          },
+          "classes": [],
+          "text": "Toggle",
+          "geometry": {
+            "x": 32,
+            "y": 32,
+            "width": 48.844,
+            "height": 24
+          },
+          "style": {
+            "display": "inline-block",
+            "position": "static",
+            "color": "rgb(0, 0, 0)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "16px",
+            "font-weight": "400",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        }
+      ],
+      "focus": {
+        "active": "part:trigger"
+      },
+      "events": [
+        {
+          "type": "click"
+        }
+      ],
+      "a11y": [
+        {
+          "role": "RootWebArea",
+          "name": ""
+        },
+        {
+          "role": "generic",
+          "name": ""
+        },
+        {
+          "role": "generic",
+          "name": ""
+        },
+        {
+          "role": "main",
+          "name": ""
+        },
+        {
+          "role": "button",
+          "name": "Toggle"
+        },
+        {
+          "role": "StaticText",
+          "name": "Toggle"
+        },
+        {
+          "role": "InlineTextBox",
+          "name": "Toggle"
+        }
+      ],
+      "screenshot": {
+        "sha256": "ba63b050d283ba6e4a5e50c17b6e95b830974459f15e314eeff0478a85cc8b29",
+        "bytes": 3891
+      }
+    }
+  },
+  "behavior": {
+    "before": {
+      "focus": {
+        "active": "body"
+      },
+      "events": []
+    },
+    "after": {
+      "focus": {
+        "active": "part:trigger"
+      },
+      "events": [
+        {
+          "type": "click"
+        }
+      ]
+    }
   }
 }

@@ -1,12 +1,15 @@
 {
-  "schemaVersion":"kumo.visual-compiler-spike-state/v1","status":"running","phase":"wave-1-tracer-topology-checkpoint-repair","generation":8,
-  "completed":["frontend-typescript","frontend-oxc","frontend-equivalence-evaluator","real-package-tracer-v2","authority-derived-ir-v2","generic-lowering-core-v2","three-generic-lowerers","three-native-harnesses","authority-11-of-11","incremental-engine"],
-  "active":["canonical-tracer-topology-checkpoint-repair"],
+  "schemaVersion":"kumo.visual-compiler-spike-state/v1","status":"running","phase":"wave-2-tracer-v3-target-recapture","generation":9,
+  "completed":["frontend-typescript","frontend-oxc","frontend-equivalence","canonical-tracer-v3","authority-derived-ir-v3","stateful-lowering-core-v3","verifier-v2","incremental-engine","authority-11-of-11"],
+  "active":["vue-v3-recapture","svelte-v3-recapture","solid-v3-lowering-hydration-recapture"],
   "failed":[
     {"artifact":"synthetic-wave","status":"retired"},
-    {"artifact":"tracer-v2","status":"repairing","reason":"real package authority was correct, but visual checkpoint occurred after trusted mutation and parts lacked parent/order/namespace/stable DOM-path IDs; portal descendants incomplete"},
-    {"artifact":"ir/lowering-v2","status":"blocked-on-tracer","reason":"topology plans cannot be exact without canonical parent/order and pre-action state"}
+    {"artifact":"tracer-v2","status":"retired","reason":"post-action visual snapshot and incomplete topology"},
+    {"artifact":"ir/core-v2","status":"retired","reason":"derived from incomplete tracer topology"},
+    {"artifact":"vue-v3","status":"recapturing","reason":"generated source changed; prior captures stale"},
+    {"artifact":"svelte-v3","status":"recapturing","reason":"freshness guard correctly rejected prior captures"},
+    {"artifact":"solid-v3","status":"repairing","reason":"generic forest omitted nested planned path; hydration previously false"}
   ],
-  "selection":{"frontend":"typescript+oxc-preparse","ir":"part-first pending tracer v3","authorityChecks":"11/11 before input refresh","engineWarmP95Ms":1.481},
-  "next":["regenerate-ir-core-targets-from-tracer-v3","fresh-108-capture","differential-repair","zero-pixel-matrix","warm-under-1s","final-receipt"],"terminal":false,"updatedAt":"2026-06-24T12:05:00.000Z"
+  "selection":{"frontend":"typescript+oxc-preparse","tracer":"real-package-v3-initial-plus-after","ir":"part-first-v3-parented","authorityChecks":"pending input refresh","engineWarmP95Ms":1.481},
+  "next":["fresh-108-cell-v3-verification","differential-repair","zero-pixel-matrix","warm-under-1s","final-receipt"],"terminal":false,"updatedAt":"2026-06-24T12:19:00.000Z"
 }

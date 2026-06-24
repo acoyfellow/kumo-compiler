@@ -1,15 +1,18 @@
 {
-  "schemaVersion": "kumo.visual-trace/v2",
+  "schemaVersion": "kumo.visual-trace/v3",
   "component": "checkbox",
   "state": "checked",
   "viewport": 390,
-  "url": "http://127.0.0.1:62234/?component=checkbox&state=checked",
-  "hydrated": true,
-  "dom": "<main data-component=\"checkbox\" data-state=\"checked\" data-part=\"root\" class=\"p-8\"><div class=\"inline-flex\" data-filled=\"\" data-touched=\"\" data-focused=\"\"><label id=\"base-ui-_R_1_\" for=\"base-ui-_R_0_\" class=\"!m-0 !min-h-0 !text-base inline-flex items-start gap-2 flex-row cursor-pointer\" data-filled=\"\" data-touched=\"\" data-focused=\"\"><span data-checked=\"\" role=\"checkbox\" tabindex=\"0\" id=\"base-ui-_R_7_\" aria-checked=\"true\" data-kumo-component=\"Checkbox\" data-part=\"control\" class=\"relative flex h-4 w-4 shrink-0 items-center justify-center rounded-sm border-0 bg-kumo-base ring focus:outline-none after:absolute after:-inset-x-3 after:-inset-y-2 mt-0.5 ring-kumo-hairline hover:ring-kumo-hairline focus:ring-kumo-focus focus:ring-2 focus-visible:ring-2 focus-visible:ring-kumo-brand data-[checked]:bg-kumo-contrast data-[checked]:ring-kumo-contrast data-[indeterminate]:bg-kumo-contrast data-[indeterminate]:ring-kumo-contrast\" data-filled=\"\" aria-labelledby=\"base-ui-_R_1_\" data-touched=\"\" data-focused=\"\"><span data-checked=\"\" class=\"flex items-center justify-center text-kumo-inverse data-[unchecked]:invisible\" data-filled=\"\" data-touched=\"\" data-focused=\"\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" fill=\"currentColor\" viewBox=\"0 0 256 256\"><path d=\"M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z\"></path></svg></span></span><input id=\"base-ui-_R_0_\" style=\"clip-path:inset(50%);overflow:hidden;white-space:nowrap;border:0;padding:0;width:1px;height:1px;margin:-1px;position:fixed;top:0;left:0\" tabindex=\"-1\" type=\"checkbox\" aria-hidden=\"true\" checked=\"\"><span class=\"inline-flex items-center gap-1\">Accept terms</span></label></div></main>",
+  "dom": "<main data-component=\"checkbox\" data-state=\"checked\" data-part=\"root\" class=\"p-8\"><div class=\"inline-flex\" data-filled=\"\"><label id=\"base-ui-_R_1_\" for=\"base-ui-_R_0_\" class=\"!m-0 !min-h-0 !text-base inline-flex items-start gap-2 flex-row cursor-pointer\" data-filled=\"\"><span data-checked=\"\" role=\"checkbox\" tabindex=\"0\" id=\"base-ui-_R_7_\" aria-checked=\"true\" data-kumo-component=\"Checkbox\" data-part=\"control\" class=\"relative flex h-4 w-4 shrink-0 items-center justify-center rounded-sm border-0 bg-kumo-base ring focus:outline-none after:absolute after:-inset-x-3 after:-inset-y-2 mt-0.5 ring-kumo-hairline hover:ring-kumo-hairline focus:ring-kumo-focus focus:ring-2 focus-visible:ring-2 focus-visible:ring-kumo-brand data-[checked]:bg-kumo-contrast data-[checked]:ring-kumo-contrast data-[indeterminate]:bg-kumo-contrast data-[indeterminate]:ring-kumo-contrast\" data-filled=\"\" aria-labelledby=\"base-ui-_R_1_\"><span data-checked=\"\" class=\"flex items-center justify-center text-kumo-inverse data-[unchecked]:invisible\" data-filled=\"\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" fill=\"currentColor\" viewBox=\"0 0 256 256\"><path d=\"M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z\"></path></svg></span></span><input id=\"base-ui-_R_0_\" style=\"clip-path:inset(50%);overflow:hidden;white-space:nowrap;border:0;padding:0;width:1px;height:1px;margin:-1px;position:fixed;top:0;left:0\" tabindex=\"-1\" type=\"checkbox\" aria-hidden=\"true\" checked=\"\"><span class=\"inline-flex items-center gap-1\">Accept terms</span></label></div></main>",
   "parts": [
     {
+      "id": "part:root",
       "part": "root",
+      "parentId": null,
+      "order": 0,
+      "namespace": "http://www.w3.org/1999/xhtml",
       "tag": "main",
+      "role": null,
       "attrs": {
         "class": "p-8",
         "data-component": "checkbox",
@@ -19,7 +22,7 @@
       "classes": [
         "p-8"
       ],
-      "text": "Accept terms",
+      "text": null,
       "geometry": {
         "x": 0,
         "y": 0,
@@ -40,13 +43,51 @@
       }
     },
     {
-      "part": "node-1",
+      "id": "path:html:0/body:1/div:0/main:0/div:0",
+      "part": null,
+      "parentId": "part:root",
+      "order": 0,
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "tag": "div",
+      "role": null,
+      "attrs": {
+        "class": "inline-flex",
+        "data-filled": ""
+      },
+      "classes": [
+        "inline-flex"
+      ],
+      "text": null,
+      "geometry": {
+        "x": 32,
+        "y": 34,
+        "width": 110.422,
+        "height": 20
+      },
+      "style": {
+        "display": "inline-flex",
+        "position": "static",
+        "color": "rgb(0, 0, 0)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "font-size": "16px",
+        "font-weight": "400",
+        "border-radius": "0px",
+        "opacity": "1",
+        "visibility": "visible"
+      }
+    },
+    {
+      "id": "path:html:0/body:1/div:0/main:0/div:0/label:0",
+      "part": null,
+      "parentId": "path:html:0/body:1/div:0/main:0/div:0",
+      "order": 0,
+      "namespace": "http://www.w3.org/1999/xhtml",
       "tag": "label",
+      "role": null,
       "attrs": {
         "class": "!m-0 !min-h-0 !text-base inline-flex items-start gap-2 flex-row cursor-pointer",
         "data-filled": "",
-        "data-focused": "",
-        "data-touched": "",
         "for": "base-ui-_R_0_",
         "id": "base-ui-_R_1_"
       },
@@ -60,7 +101,7 @@
         "inline-flex",
         "items-start"
       ],
-      "text": "Accept terms",
+      "text": null,
       "geometry": {
         "x": 32,
         "y": 34,
@@ -81,18 +122,21 @@
       }
     },
     {
+      "id": "part:control",
       "part": "control",
+      "parentId": "path:html:0/body:1/div:0/main:0/div:0/label:0",
+      "order": 0,
+      "namespace": "http://www.w3.org/1999/xhtml",
       "tag": "span",
+      "role": "checkbox",
       "attrs": {
         "aria-checked": "true",
         "aria-labelledby": "base-ui-_R_1_",
         "class": "relative flex h-4 w-4 shrink-0 items-center justify-center rounded-sm border-0 bg-kumo-base ring focus:outline-none after:absolute after:-inset-x-3 after:-inset-y-2 mt-0.5 ring-kumo-hairline hover:ring-kumo-hairline focus:ring-kumo-focus focus:ring-2 focus-visible:ring-2 focus-visible:ring-kumo-brand data-[checked]:bg-kumo-contrast data-[checked]:ring-kumo-contrast data-[indeterminate]:bg-kumo-contrast data-[indeterminate]:ring-kumo-contrast",
         "data-checked": "",
         "data-filled": "",
-        "data-focused": "",
         "data-kumo-component": "Checkbox",
         "data-part": "control",
-        "data-touched": "",
         "id": "base-ui-_R_7_",
         "role": "checkbox",
         "tabindex": "0"
@@ -125,7 +169,7 @@
         "shrink-0",
         "w-4"
       ],
-      "text": "",
+      "text": null,
       "geometry": {
         "x": 32,
         "y": 36,
@@ -146,8 +190,89 @@
       }
     },
     {
-      "part": "node-3",
+      "id": "path:html:0/body:1/div:0/main:0/div:0/label:0/span:0/span:0",
+      "part": null,
+      "parentId": "part:control",
+      "order": 0,
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "tag": "span",
+      "role": null,
+      "attrs": {
+        "class": "flex items-center justify-center text-kumo-inverse data-[unchecked]:invisible",
+        "data-checked": "",
+        "data-filled": ""
+      },
+      "classes": [
+        "data-[unchecked]:invisible",
+        "flex",
+        "items-center",
+        "justify-center",
+        "text-kumo-inverse"
+      ],
+      "text": null,
+      "geometry": {
+        "x": 34,
+        "y": 38,
+        "width": 12,
+        "height": 12
+      },
+      "style": {
+        "display": "flex",
+        "position": "static",
+        "color": "oklch(0.97 0 0)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "font-size": "14px",
+        "font-weight": "400",
+        "border-radius": "0px",
+        "opacity": "1",
+        "visibility": "visible"
+      }
+    },
+    {
+      "id": "path:html:0/body:1/div:0/main:0/div:0/label:0/span:0/span:0/svg:0",
+      "part": null,
+      "parentId": "path:html:0/body:1/div:0/main:0/div:0/label:0/span:0/span:0",
+      "order": 0,
+      "namespace": "http://www.w3.org/2000/svg",
+      "tag": "svg",
+      "role": null,
+      "attrs": {
+        "fill": "currentColor",
+        "height": "12",
+        "viewBox": "0 0 256 256",
+        "width": "12",
+        "xmlns": "http://www.w3.org/2000/svg"
+      },
+      "classes": [],
+      "text": null,
+      "geometry": {
+        "x": 34,
+        "y": 38,
+        "width": 12,
+        "height": 12
+      },
+      "style": {
+        "display": "block",
+        "position": "static",
+        "color": "oklch(0.97 0 0)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "font-size": "14px",
+        "font-weight": "400",
+        "border-radius": "0px",
+        "opacity": "1",
+        "visibility": "visible"
+      }
+    },
+    {
+      "id": "path:html:0/body:1/div:0/main:0/div:0/label:0/span:0/span:0/svg:0/path:0",
+      "part": null,
+      "parentId": "path:html:0/body:1/div:0/main:0/div:0/label:0/span:0/span:0/svg:0",
+      "order": 0,
+      "namespace": "http://www.w3.org/2000/svg",
       "tag": "path",
+      "role": null,
       "attrs": {
         "d": "M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"
       },
@@ -173,8 +298,13 @@
       }
     },
     {
-      "part": "node-4",
+      "id": "path:html:0/body:1/div:0/main:0/div:0/label:0/input:1",
+      "part": null,
+      "parentId": "path:html:0/body:1/div:0/main:0/div:0/label:0",
+      "order": 1,
+      "namespace": "http://www.w3.org/1999/xhtml",
       "tag": "input",
+      "role": null,
       "attrs": {
         "aria-hidden": "true",
         "checked": "",
@@ -205,8 +335,13 @@
       }
     },
     {
-      "part": "node-5",
+      "id": "path:html:0/body:1/div:0/main:0/div:0/label:0/span:2",
+      "part": null,
+      "parentId": "path:html:0/body:1/div:0/main:0/div:0/label:0",
+      "order": 2,
+      "namespace": "http://www.w3.org/1999/xhtml",
       "tag": "span",
+      "role": null,
       "attrs": {
         "class": "inline-flex items-center gap-1"
       },
@@ -234,15 +369,6 @@
         "opacity": "1",
         "visibility": "visible"
       }
-    }
-  ],
-  "focus": {
-    "active": "control"
-  },
-  "events": [
-    {
-      "type": "checkedChange",
-      "value": false
     }
   ],
   "a11y": [
@@ -280,7 +406,869 @@
     }
   ],
   "screenshot": {
-    "sha256": "6dde7366944b72d507dd52f01c1d99930ee70ea1e984d1ae27cabe9ed2890fb2",
-    "bytes": 4571
+    "sha256": "aefd25db202861f520189d8f428ef69b5736aab3f77b889789408d95a0ef09f8",
+    "bytes": 4527
+  },
+  "checkpoint": {
+    "initial": {
+      "url": "http://127.0.0.1:64659/?component=checkbox&state=checked",
+      "hydrated": true,
+      "dom": "<main data-component=\"checkbox\" data-state=\"checked\" data-part=\"root\" class=\"p-8\"><div class=\"inline-flex\" data-filled=\"\"><label id=\"base-ui-_R_1_\" for=\"base-ui-_R_0_\" class=\"!m-0 !min-h-0 !text-base inline-flex items-start gap-2 flex-row cursor-pointer\" data-filled=\"\"><span data-checked=\"\" role=\"checkbox\" tabindex=\"0\" id=\"base-ui-_R_7_\" aria-checked=\"true\" data-kumo-component=\"Checkbox\" data-part=\"control\" class=\"relative flex h-4 w-4 shrink-0 items-center justify-center rounded-sm border-0 bg-kumo-base ring focus:outline-none after:absolute after:-inset-x-3 after:-inset-y-2 mt-0.5 ring-kumo-hairline hover:ring-kumo-hairline focus:ring-kumo-focus focus:ring-2 focus-visible:ring-2 focus-visible:ring-kumo-brand data-[checked]:bg-kumo-contrast data-[checked]:ring-kumo-contrast data-[indeterminate]:bg-kumo-contrast data-[indeterminate]:ring-kumo-contrast\" data-filled=\"\" aria-labelledby=\"base-ui-_R_1_\"><span data-checked=\"\" class=\"flex items-center justify-center text-kumo-inverse data-[unchecked]:invisible\" data-filled=\"\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" fill=\"currentColor\" viewBox=\"0 0 256 256\"><path d=\"M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z\"></path></svg></span></span><input id=\"base-ui-_R_0_\" style=\"clip-path:inset(50%);overflow:hidden;white-space:nowrap;border:0;padding:0;width:1px;height:1px;margin:-1px;position:fixed;top:0;left:0\" tabindex=\"-1\" type=\"checkbox\" aria-hidden=\"true\" checked=\"\"><span class=\"inline-flex items-center gap-1\">Accept terms</span></label></div></main>",
+      "parts": [
+        {
+          "id": "part:root",
+          "part": "root",
+          "parentId": null,
+          "order": 0,
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "tag": "main",
+          "role": null,
+          "attrs": {
+            "class": "p-8",
+            "data-component": "checkbox",
+            "data-part": "root",
+            "data-state": "checked"
+          },
+          "classes": [
+            "p-8"
+          ],
+          "text": null,
+          "geometry": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 88
+          },
+          "style": {
+            "display": "block",
+            "position": "static",
+            "color": "rgb(0, 0, 0)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "16px",
+            "font-weight": "400",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "path:html:0/body:1/div:0/main:0/div:0",
+          "part": null,
+          "parentId": "part:root",
+          "order": 0,
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "tag": "div",
+          "role": null,
+          "attrs": {
+            "class": "inline-flex",
+            "data-filled": ""
+          },
+          "classes": [
+            "inline-flex"
+          ],
+          "text": null,
+          "geometry": {
+            "x": 32,
+            "y": 34,
+            "width": 110.422,
+            "height": 20
+          },
+          "style": {
+            "display": "inline-flex",
+            "position": "static",
+            "color": "rgb(0, 0, 0)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "16px",
+            "font-weight": "400",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "path:html:0/body:1/div:0/main:0/div:0/label:0",
+          "part": null,
+          "parentId": "path:html:0/body:1/div:0/main:0/div:0",
+          "order": 0,
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "tag": "label",
+          "role": null,
+          "attrs": {
+            "class": "!m-0 !min-h-0 !text-base inline-flex items-start gap-2 flex-row cursor-pointer",
+            "data-filled": "",
+            "for": "base-ui-_R_0_",
+            "id": "base-ui-_R_1_"
+          },
+          "classes": [
+            "!m-0",
+            "!min-h-0",
+            "!text-base",
+            "cursor-pointer",
+            "flex-row",
+            "gap-2",
+            "inline-flex",
+            "items-start"
+          ],
+          "text": null,
+          "geometry": {
+            "x": 32,
+            "y": 34,
+            "width": 110.422,
+            "height": 20
+          },
+          "style": {
+            "display": "flex",
+            "position": "static",
+            "color": "rgb(0, 0, 0)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "400",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "part:control",
+          "part": "control",
+          "parentId": "path:html:0/body:1/div:0/main:0/div:0/label:0",
+          "order": 0,
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "tag": "span",
+          "role": "checkbox",
+          "attrs": {
+            "aria-checked": "true",
+            "aria-labelledby": "base-ui-_R_1_",
+            "class": "relative flex h-4 w-4 shrink-0 items-center justify-center rounded-sm border-0 bg-kumo-base ring focus:outline-none after:absolute after:-inset-x-3 after:-inset-y-2 mt-0.5 ring-kumo-hairline hover:ring-kumo-hairline focus:ring-kumo-focus focus:ring-2 focus-visible:ring-2 focus-visible:ring-kumo-brand data-[checked]:bg-kumo-contrast data-[checked]:ring-kumo-contrast data-[indeterminate]:bg-kumo-contrast data-[indeterminate]:ring-kumo-contrast",
+            "data-checked": "",
+            "data-filled": "",
+            "data-kumo-component": "Checkbox",
+            "data-part": "control",
+            "id": "base-ui-_R_7_",
+            "role": "checkbox",
+            "tabindex": "0"
+          },
+          "classes": [
+            "after:-inset-x-3",
+            "after:-inset-y-2",
+            "after:absolute",
+            "bg-kumo-base",
+            "border-0",
+            "data-[checked]:bg-kumo-contrast",
+            "data-[checked]:ring-kumo-contrast",
+            "data-[indeterminate]:bg-kumo-contrast",
+            "data-[indeterminate]:ring-kumo-contrast",
+            "flex",
+            "focus-visible:ring-2",
+            "focus-visible:ring-kumo-brand",
+            "focus:outline-none",
+            "focus:ring-2",
+            "focus:ring-kumo-focus",
+            "h-4",
+            "hover:ring-kumo-hairline",
+            "items-center",
+            "justify-center",
+            "mt-0.5",
+            "relative",
+            "ring",
+            "ring-kumo-hairline",
+            "rounded-sm",
+            "shrink-0",
+            "w-4"
+          ],
+          "text": null,
+          "geometry": {
+            "x": 32,
+            "y": 36,
+            "width": 16,
+            "height": 16
+          },
+          "style": {
+            "display": "flex",
+            "position": "relative",
+            "color": "rgb(0, 0, 0)",
+            "background-color": "oklch(0.12 0 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "400",
+            "border-radius": "4px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "path:html:0/body:1/div:0/main:0/div:0/label:0/span:0/span:0",
+          "part": null,
+          "parentId": "part:control",
+          "order": 0,
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "tag": "span",
+          "role": null,
+          "attrs": {
+            "class": "flex items-center justify-center text-kumo-inverse data-[unchecked]:invisible",
+            "data-checked": "",
+            "data-filled": ""
+          },
+          "classes": [
+            "data-[unchecked]:invisible",
+            "flex",
+            "items-center",
+            "justify-center",
+            "text-kumo-inverse"
+          ],
+          "text": null,
+          "geometry": {
+            "x": 34,
+            "y": 38,
+            "width": 12,
+            "height": 12
+          },
+          "style": {
+            "display": "flex",
+            "position": "static",
+            "color": "oklch(0.97 0 0)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "400",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "path:html:0/body:1/div:0/main:0/div:0/label:0/span:0/span:0/svg:0",
+          "part": null,
+          "parentId": "path:html:0/body:1/div:0/main:0/div:0/label:0/span:0/span:0",
+          "order": 0,
+          "namespace": "http://www.w3.org/2000/svg",
+          "tag": "svg",
+          "role": null,
+          "attrs": {
+            "fill": "currentColor",
+            "height": "12",
+            "viewBox": "0 0 256 256",
+            "width": "12",
+            "xmlns": "http://www.w3.org/2000/svg"
+          },
+          "classes": [],
+          "text": null,
+          "geometry": {
+            "x": 34,
+            "y": 38,
+            "width": 12,
+            "height": 12
+          },
+          "style": {
+            "display": "block",
+            "position": "static",
+            "color": "oklch(0.97 0 0)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "400",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "path:html:0/body:1/div:0/main:0/div:0/label:0/span:0/span:0/svg:0/path:0",
+          "part": null,
+          "parentId": "path:html:0/body:1/div:0/main:0/div:0/label:0/span:0/span:0/svg:0",
+          "order": 0,
+          "namespace": "http://www.w3.org/2000/svg",
+          "tag": "path",
+          "role": null,
+          "attrs": {
+            "d": "M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"
+          },
+          "classes": [],
+          "text": "",
+          "geometry": {
+            "x": 35.311,
+            "y": 40.812,
+            "width": 9.753,
+            "height": 7.126
+          },
+          "style": {
+            "display": "inline",
+            "position": "static",
+            "color": "oklch(0.97 0 0)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "400",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "path:html:0/body:1/div:0/main:0/div:0/label:0/input:1",
+          "part": null,
+          "parentId": "path:html:0/body:1/div:0/main:0/div:0/label:0",
+          "order": 1,
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "tag": "input",
+          "role": null,
+          "attrs": {
+            "aria-hidden": "true",
+            "checked": "",
+            "id": "base-ui-_R_0_",
+            "style": "clip-path:inset(50%);overflow:hidden;white-space:nowrap;border:0;padding:0;width:1px;height:1px;margin:-1px;position:fixed;top:0;left:0",
+            "tabindex": "-1",
+            "type": "checkbox"
+          },
+          "classes": [],
+          "text": "",
+          "geometry": {
+            "x": -1,
+            "y": -1,
+            "width": 1,
+            "height": 1
+          },
+          "style": {
+            "display": "block",
+            "position": "fixed",
+            "color": "rgb(0, 0, 0)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "400",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "path:html:0/body:1/div:0/main:0/div:0/label:0/span:2",
+          "part": null,
+          "parentId": "path:html:0/body:1/div:0/main:0/div:0/label:0",
+          "order": 2,
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "tag": "span",
+          "role": null,
+          "attrs": {
+            "class": "inline-flex items-center gap-1"
+          },
+          "classes": [
+            "gap-1",
+            "inline-flex",
+            "items-center"
+          ],
+          "text": "Accept terms",
+          "geometry": {
+            "x": 56,
+            "y": 34,
+            "width": 86.422,
+            "height": 20
+          },
+          "style": {
+            "display": "flex",
+            "position": "static",
+            "color": "rgb(0, 0, 0)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "400",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        }
+      ],
+      "focus": {
+        "active": "body"
+      },
+      "events": [],
+      "a11y": [
+        {
+          "role": "RootWebArea",
+          "name": ""
+        },
+        {
+          "role": "generic",
+          "name": ""
+        },
+        {
+          "role": "main",
+          "name": ""
+        },
+        {
+          "role": "LabelText",
+          "name": ""
+        },
+        {
+          "role": "checkbox",
+          "name": "Accept terms"
+        },
+        {
+          "role": "StaticText",
+          "name": "Accept terms"
+        },
+        {
+          "role": "image",
+          "name": ""
+        },
+        {
+          "role": "InlineTextBox",
+          "name": "Accept terms"
+        }
+      ],
+      "screenshot": {
+        "sha256": "aefd25db202861f520189d8f428ef69b5736aab3f77b889789408d95a0ef09f8",
+        "bytes": 4527
+      }
+    },
+    "after": {
+      "url": "http://127.0.0.1:64659/?component=checkbox&state=checked",
+      "hydrated": true,
+      "dom": "<main data-component=\"checkbox\" data-state=\"checked\" data-part=\"root\" class=\"p-8\"><div class=\"inline-flex\" data-filled=\"\" data-touched=\"\" data-focused=\"\"><label id=\"base-ui-_R_1_\" for=\"base-ui-_R_0_\" class=\"!m-0 !min-h-0 !text-base inline-flex items-start gap-2 flex-row cursor-pointer\" data-filled=\"\" data-touched=\"\" data-focused=\"\"><span data-checked=\"\" role=\"checkbox\" tabindex=\"0\" id=\"base-ui-_R_7_\" aria-checked=\"true\" data-kumo-component=\"Checkbox\" data-part=\"control\" class=\"relative flex h-4 w-4 shrink-0 items-center justify-center rounded-sm border-0 bg-kumo-base ring focus:outline-none after:absolute after:-inset-x-3 after:-inset-y-2 mt-0.5 ring-kumo-hairline hover:ring-kumo-hairline focus:ring-kumo-focus focus:ring-2 focus-visible:ring-2 focus-visible:ring-kumo-brand data-[checked]:bg-kumo-contrast data-[checked]:ring-kumo-contrast data-[indeterminate]:bg-kumo-contrast data-[indeterminate]:ring-kumo-contrast\" data-filled=\"\" aria-labelledby=\"base-ui-_R_1_\" data-touched=\"\" data-focused=\"\"><span data-checked=\"\" class=\"flex items-center justify-center text-kumo-inverse data-[unchecked]:invisible\" data-filled=\"\" data-touched=\"\" data-focused=\"\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"12\" height=\"12\" fill=\"currentColor\" viewBox=\"0 0 256 256\"><path d=\"M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z\"></path></svg></span></span><input id=\"base-ui-_R_0_\" style=\"clip-path:inset(50%);overflow:hidden;white-space:nowrap;border:0;padding:0;width:1px;height:1px;margin:-1px;position:fixed;top:0;left:0\" tabindex=\"-1\" type=\"checkbox\" aria-hidden=\"true\" checked=\"\"><span class=\"inline-flex items-center gap-1\">Accept terms</span></label></div></main>",
+      "parts": [
+        {
+          "id": "part:root",
+          "part": "root",
+          "parentId": null,
+          "order": 0,
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "tag": "main",
+          "role": null,
+          "attrs": {
+            "class": "p-8",
+            "data-component": "checkbox",
+            "data-part": "root",
+            "data-state": "checked"
+          },
+          "classes": [
+            "p-8"
+          ],
+          "text": null,
+          "geometry": {
+            "x": 0,
+            "y": 0,
+            "width": 390,
+            "height": 88
+          },
+          "style": {
+            "display": "block",
+            "position": "static",
+            "color": "rgb(0, 0, 0)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "16px",
+            "font-weight": "400",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "path:html:0/body:1/div:0/main:0/div:0",
+          "part": null,
+          "parentId": "part:root",
+          "order": 0,
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "tag": "div",
+          "role": null,
+          "attrs": {
+            "class": "inline-flex",
+            "data-filled": "",
+            "data-focused": "",
+            "data-touched": ""
+          },
+          "classes": [
+            "inline-flex"
+          ],
+          "text": null,
+          "geometry": {
+            "x": 32,
+            "y": 34,
+            "width": 110.422,
+            "height": 20
+          },
+          "style": {
+            "display": "inline-flex",
+            "position": "static",
+            "color": "rgb(0, 0, 0)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "16px",
+            "font-weight": "400",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "path:html:0/body:1/div:0/main:0/div:0/label:0",
+          "part": null,
+          "parentId": "path:html:0/body:1/div:0/main:0/div:0",
+          "order": 0,
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "tag": "label",
+          "role": null,
+          "attrs": {
+            "class": "!m-0 !min-h-0 !text-base inline-flex items-start gap-2 flex-row cursor-pointer",
+            "data-filled": "",
+            "data-focused": "",
+            "data-touched": "",
+            "for": "base-ui-_R_0_",
+            "id": "base-ui-_R_1_"
+          },
+          "classes": [
+            "!m-0",
+            "!min-h-0",
+            "!text-base",
+            "cursor-pointer",
+            "flex-row",
+            "gap-2",
+            "inline-flex",
+            "items-start"
+          ],
+          "text": null,
+          "geometry": {
+            "x": 32,
+            "y": 34,
+            "width": 110.422,
+            "height": 20
+          },
+          "style": {
+            "display": "flex",
+            "position": "static",
+            "color": "rgb(0, 0, 0)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "400",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "part:control",
+          "part": "control",
+          "parentId": "path:html:0/body:1/div:0/main:0/div:0/label:0",
+          "order": 0,
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "tag": "span",
+          "role": "checkbox",
+          "attrs": {
+            "aria-checked": "true",
+            "aria-labelledby": "base-ui-_R_1_",
+            "class": "relative flex h-4 w-4 shrink-0 items-center justify-center rounded-sm border-0 bg-kumo-base ring focus:outline-none after:absolute after:-inset-x-3 after:-inset-y-2 mt-0.5 ring-kumo-hairline hover:ring-kumo-hairline focus:ring-kumo-focus focus:ring-2 focus-visible:ring-2 focus-visible:ring-kumo-brand data-[checked]:bg-kumo-contrast data-[checked]:ring-kumo-contrast data-[indeterminate]:bg-kumo-contrast data-[indeterminate]:ring-kumo-contrast",
+            "data-checked": "",
+            "data-filled": "",
+            "data-focused": "",
+            "data-kumo-component": "Checkbox",
+            "data-part": "control",
+            "data-touched": "",
+            "id": "base-ui-_R_7_",
+            "role": "checkbox",
+            "tabindex": "0"
+          },
+          "classes": [
+            "after:-inset-x-3",
+            "after:-inset-y-2",
+            "after:absolute",
+            "bg-kumo-base",
+            "border-0",
+            "data-[checked]:bg-kumo-contrast",
+            "data-[checked]:ring-kumo-contrast",
+            "data-[indeterminate]:bg-kumo-contrast",
+            "data-[indeterminate]:ring-kumo-contrast",
+            "flex",
+            "focus-visible:ring-2",
+            "focus-visible:ring-kumo-brand",
+            "focus:outline-none",
+            "focus:ring-2",
+            "focus:ring-kumo-focus",
+            "h-4",
+            "hover:ring-kumo-hairline",
+            "items-center",
+            "justify-center",
+            "mt-0.5",
+            "relative",
+            "ring",
+            "ring-kumo-hairline",
+            "rounded-sm",
+            "shrink-0",
+            "w-4"
+          ],
+          "text": null,
+          "geometry": {
+            "x": 32,
+            "y": 36,
+            "width": 16,
+            "height": 16
+          },
+          "style": {
+            "display": "flex",
+            "position": "relative",
+            "color": "rgb(0, 0, 0)",
+            "background-color": "oklch(0.12 0 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "400",
+            "border-radius": "4px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "path:html:0/body:1/div:0/main:0/div:0/label:0/span:0/span:0",
+          "part": null,
+          "parentId": "part:control",
+          "order": 0,
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "tag": "span",
+          "role": null,
+          "attrs": {
+            "class": "flex items-center justify-center text-kumo-inverse data-[unchecked]:invisible",
+            "data-checked": "",
+            "data-filled": "",
+            "data-focused": "",
+            "data-touched": ""
+          },
+          "classes": [
+            "data-[unchecked]:invisible",
+            "flex",
+            "items-center",
+            "justify-center",
+            "text-kumo-inverse"
+          ],
+          "text": null,
+          "geometry": {
+            "x": 34,
+            "y": 38,
+            "width": 12,
+            "height": 12
+          },
+          "style": {
+            "display": "flex",
+            "position": "static",
+            "color": "oklch(0.97 0 0)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "400",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "path:html:0/body:1/div:0/main:0/div:0/label:0/span:0/span:0/svg:0",
+          "part": null,
+          "parentId": "path:html:0/body:1/div:0/main:0/div:0/label:0/span:0/span:0",
+          "order": 0,
+          "namespace": "http://www.w3.org/2000/svg",
+          "tag": "svg",
+          "role": null,
+          "attrs": {
+            "fill": "currentColor",
+            "height": "12",
+            "viewBox": "0 0 256 256",
+            "width": "12",
+            "xmlns": "http://www.w3.org/2000/svg"
+          },
+          "classes": [],
+          "text": null,
+          "geometry": {
+            "x": 34,
+            "y": 38,
+            "width": 12,
+            "height": 12
+          },
+          "style": {
+            "display": "block",
+            "position": "static",
+            "color": "oklch(0.97 0 0)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "400",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "path:html:0/body:1/div:0/main:0/div:0/label:0/span:0/span:0/svg:0/path:0",
+          "part": null,
+          "parentId": "path:html:0/body:1/div:0/main:0/div:0/label:0/span:0/span:0/svg:0",
+          "order": 0,
+          "namespace": "http://www.w3.org/2000/svg",
+          "tag": "path",
+          "role": null,
+          "attrs": {
+            "d": "M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"
+          },
+          "classes": [],
+          "text": "",
+          "geometry": {
+            "x": 35.311,
+            "y": 40.812,
+            "width": 9.753,
+            "height": 7.126
+          },
+          "style": {
+            "display": "inline",
+            "position": "static",
+            "color": "oklch(0.97 0 0)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "400",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "path:html:0/body:1/div:0/main:0/div:0/label:0/input:1",
+          "part": null,
+          "parentId": "path:html:0/body:1/div:0/main:0/div:0/label:0",
+          "order": 1,
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "tag": "input",
+          "role": null,
+          "attrs": {
+            "aria-hidden": "true",
+            "checked": "",
+            "id": "base-ui-_R_0_",
+            "style": "clip-path:inset(50%);overflow:hidden;white-space:nowrap;border:0;padding:0;width:1px;height:1px;margin:-1px;position:fixed;top:0;left:0",
+            "tabindex": "-1",
+            "type": "checkbox"
+          },
+          "classes": [],
+          "text": "",
+          "geometry": {
+            "x": -1,
+            "y": -1,
+            "width": 1,
+            "height": 1
+          },
+          "style": {
+            "display": "block",
+            "position": "fixed",
+            "color": "rgb(0, 0, 0)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "400",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        },
+        {
+          "id": "path:html:0/body:1/div:0/main:0/div:0/label:0/span:2",
+          "part": null,
+          "parentId": "path:html:0/body:1/div:0/main:0/div:0/label:0",
+          "order": 2,
+          "namespace": "http://www.w3.org/1999/xhtml",
+          "tag": "span",
+          "role": null,
+          "attrs": {
+            "class": "inline-flex items-center gap-1"
+          },
+          "classes": [
+            "gap-1",
+            "inline-flex",
+            "items-center"
+          ],
+          "text": "Accept terms",
+          "geometry": {
+            "x": 56,
+            "y": 34,
+            "width": 86.422,
+            "height": 20
+          },
+          "style": {
+            "display": "flex",
+            "position": "static",
+            "color": "rgb(0, 0, 0)",
+            "background-color": "rgba(0, 0, 0, 0)",
+            "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+            "font-size": "14px",
+            "font-weight": "400",
+            "border-radius": "0px",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        }
+      ],
+      "focus": {
+        "active": "part:control"
+      },
+      "events": [
+        {
+          "type": "checkedChange",
+          "value": false
+        }
+      ],
+      "a11y": [
+        {
+          "role": "RootWebArea",
+          "name": ""
+        },
+        {
+          "role": "generic",
+          "name": ""
+        },
+        {
+          "role": "main",
+          "name": ""
+        },
+        {
+          "role": "LabelText",
+          "name": ""
+        },
+        {
+          "role": "checkbox",
+          "name": "Accept terms"
+        },
+        {
+          "role": "StaticText",
+          "name": "Accept terms"
+        },
+        {
+          "role": "image",
+          "name": ""
+        },
+        {
+          "role": "InlineTextBox",
+          "name": "Accept terms"
+        }
+      ],
+      "screenshot": {
+        "sha256": "6dde7366944b72d507dd52f01c1d99930ee70ea1e984d1ae27cabe9ed2890fb2",
+        "bytes": 4571
+      }
+    }
+  },
+  "behavior": {
+    "before": {
+      "focus": {
+        "active": "body"
+      },
+      "events": []
+    },
+    "after": {
+      "focus": {
+        "active": "part:control"
+      },
+      "events": [
+        {
+          "type": "checkedChange",
+          "value": false
+        }
+      ]
+    }
   }
 }
