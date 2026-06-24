@@ -1,18 +1,12 @@
-# Canonical React CDP tracer
+# Canonical Kumo React CDP tracer
 
-Captures the trusted Button, Checkbox, Field, and Popover journey matrix at 390, 768, and 1440 CSS pixels. Each trace contains deterministic DOM and sorted attributes/classes, inferred accessibility roles/state, selected computed presentation, rounded geometry, focus and event vectors, stable `data-part` identities, and a real CDP PNG digest.
-
-The implementation reuses the repository's direct Chrome DevTools Protocol architecture: an isolated Chrome profile, zero browser framework dependency, device metrics emulation, runtime evaluation, diagnostics, and `Page.captureScreenshot`. Artifacts are confined to this directory.
-
-## Exact commands
+This harness imports Button, Checkbox, Field, and Popover directly from `@cloudflare/kumo@2.5.2`, renders each state with React SSR, hydrates it in a locally served page, and records the live package DOM at 390, 768, and 1440 CSS pixels.
 
 ```sh
 node experiments/visual-compiler/tracer/tracer.mjs
 node experiments/visual-compiler/tracer/self-check.mjs
 ```
 
-Override Chrome with `CHROME_PATH=/absolute/path/to/chrome`. `results.json` records browser provenance, all 36 content-addressed cells, diagnostics/failures, commands, and cold/mean timings. `self-check.mjs` independently validates coverage, authority, receipt and PNG hashes, and required facts.
+The 36 trace cells include DOM, classes, computed styles, geometry, browser accessibility nodes, focus, package callbacks, and real CDP screenshots. Trusted CDP mouse/keyboard input is used; the page does not synthesize DOM events. `results.json` records hashes for the installed package manifest, canonical component sources, Kumo CSS, browser bundle, and browser version. Artifacts are confined to this directory.
 
-## Determinism boundary
-
-Run hashes are deterministic for the recorded browser, OS fonts, viewport, fixture bytes, and package/runtime inputs. Browser provenance is explicit because PNG and computed-style hashes are intentionally not claimed portable across Chrome/font versions. Re-running overwrites only this spike's artifacts and exposes drift as changed hashes.
+`self-check.mjs` rejects data URLs, fixture HTML builders, `dispatchEvent`, synthetic authority, missing canonical imports/hashes, non-local navigation, incomplete hydration, and any matrix/hash discrepancy.

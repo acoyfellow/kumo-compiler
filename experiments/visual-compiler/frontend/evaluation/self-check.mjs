@@ -1,0 +1,10 @@
+import { spawnSync } from "node:child_process";
+import { readFileSync } from "node:fs";
+const evaluate = new URL("evaluate.mjs", import.meta.url);
+const run = spawnSync(process.execPath, [evaluate.pathname, "--check"], { encoding: "utf8" });
+if (run.status !== 0) throw new Error(run.stderr || run.stdout);
+const result = JSON.parse(readFileSync(new URL("results.json", import.meta.url)));
+if (result.status !== "not-equivalent" || !result.cacheDecision.failClosed) throw new Error("evaluation must fail closed");
+if (result.components.length !== 4 || !result.benchmark.identicalBoundary) throw new Error("invalid benchmark boundary");
+if (result.cacheDecision.safeOxcOutputs.includes("symbol resolution")) throw new Error("unsafe cache selection");
+console.log("frontend evaluation self-check passed");

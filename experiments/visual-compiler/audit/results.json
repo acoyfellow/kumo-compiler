@@ -1,0 +1,1725 @@
+{
+  "contentDigest": "4f4609f84184b041ef3e76f060388673f38425c1db5e0ac6e76dfccaca82efb5",
+  "deterministic": true,
+  "findings": {
+    "canonicalEvidence": {
+      "authority": {
+        "bundleSha256": "b34253b6bba194be16dc6317aa9d1ba172e56d5cdf2668f0850229d0c07053c9",
+        "cssSha256": "c7b792045c25e3e47f108f694732c4428542d28237807363c0c3c5d0d393218a",
+        "imports": [
+          "@cloudflare/kumo/components/button",
+          "@cloudflare/kumo/components/checkbox",
+          "@cloudflare/kumo/components/field",
+          "@cloudflare/kumo/components/popover"
+        ],
+        "package": "@cloudflare/kumo",
+        "packageJsonSha256": "c405c3bf83d49bb4bb61f38d7e10bcd37b2f62c04c2d99dee314aae1faa8cd7b",
+        "runtime": "React SSR + hydrateRoot",
+        "sourceSha256": "d76023057bff27e7308a5bb56211583527bbe27aab77f601a4038947b177ada2",
+        "synthetic": false,
+        "version": "2.5.2"
+      },
+      "recordCount": 36,
+      "traces": {
+        "button/default/1440": {
+          "classes": {
+            "control": [
+              "!text-kumo-default",
+              "bg-kumo-base",
+              "border-0",
+              "cursor-pointer",
+              "data-[state=open]:bg-kumo-base",
+              "disabled:!text-kumo-default/70",
+              "disabled:bg-kumo-base/50",
+              "disabled:cursor-not-allowed",
+              "disabled:text-kumo-subtle",
+              "flex",
+              "focus-visible:ring-2",
+              "focus-visible:ring-kumo-brand",
+              "focus:outline-none",
+              "focus:ring-kumo-focus/50",
+              "font-medium",
+              "gap-1.5",
+              "group",
+              "h-9",
+              "items-center",
+              "not-disabled:hover:bg-kumo-tint",
+              "px-3",
+              "ring",
+              "ring-kumo-line",
+              "rounded-lg",
+              "select-none",
+              "shadow-xs",
+              "shrink-0",
+              "text-base",
+              "w-max"
+            ],
+            "node-2": [
+              "contents"
+            ],
+            "root": [
+              "p-8"
+            ]
+          },
+          "domSha256": "2c0468624a89703cd26310c3b5b11b22248fc6ff0643828114882fbcac6515ba",
+          "parts": [
+            "root",
+            "control",
+            "node-2"
+          ]
+        },
+        "button/default/390": {
+          "classes": {
+            "control": [
+              "!text-kumo-default",
+              "bg-kumo-base",
+              "border-0",
+              "cursor-pointer",
+              "data-[state=open]:bg-kumo-base",
+              "disabled:!text-kumo-default/70",
+              "disabled:bg-kumo-base/50",
+              "disabled:cursor-not-allowed",
+              "disabled:text-kumo-subtle",
+              "flex",
+              "focus-visible:ring-2",
+              "focus-visible:ring-kumo-brand",
+              "focus:outline-none",
+              "focus:ring-kumo-focus/50",
+              "font-medium",
+              "gap-1.5",
+              "group",
+              "h-9",
+              "items-center",
+              "not-disabled:hover:bg-kumo-tint",
+              "px-3",
+              "ring",
+              "ring-kumo-line",
+              "rounded-lg",
+              "select-none",
+              "shadow-xs",
+              "shrink-0",
+              "text-base",
+              "w-max"
+            ],
+            "node-2": [
+              "contents"
+            ],
+            "root": [
+              "p-8"
+            ]
+          },
+          "domSha256": "2c0468624a89703cd26310c3b5b11b22248fc6ff0643828114882fbcac6515ba",
+          "parts": [
+            "root",
+            "control",
+            "node-2"
+          ]
+        },
+        "button/default/768": {
+          "classes": {
+            "control": [
+              "!text-kumo-default",
+              "bg-kumo-base",
+              "border-0",
+              "cursor-pointer",
+              "data-[state=open]:bg-kumo-base",
+              "disabled:!text-kumo-default/70",
+              "disabled:bg-kumo-base/50",
+              "disabled:cursor-not-allowed",
+              "disabled:text-kumo-subtle",
+              "flex",
+              "focus-visible:ring-2",
+              "focus-visible:ring-kumo-brand",
+              "focus:outline-none",
+              "focus:ring-kumo-focus/50",
+              "font-medium",
+              "gap-1.5",
+              "group",
+              "h-9",
+              "items-center",
+              "not-disabled:hover:bg-kumo-tint",
+              "px-3",
+              "ring",
+              "ring-kumo-line",
+              "rounded-lg",
+              "select-none",
+              "shadow-xs",
+              "shrink-0",
+              "text-base",
+              "w-max"
+            ],
+            "node-2": [
+              "contents"
+            ],
+            "root": [
+              "p-8"
+            ]
+          },
+          "domSha256": "2c0468624a89703cd26310c3b5b11b22248fc6ff0643828114882fbcac6515ba",
+          "parts": [
+            "root",
+            "control",
+            "node-2"
+          ]
+        },
+        "button/disabled/1440": {
+          "classes": {
+            "control": [
+              "!text-kumo-default",
+              "bg-kumo-base",
+              "border-0",
+              "cursor-not-allowed",
+              "data-[state=open]:bg-kumo-base",
+              "disabled:!text-kumo-default/70",
+              "disabled:bg-kumo-base/50",
+              "disabled:cursor-not-allowed",
+              "disabled:text-kumo-subtle",
+              "flex",
+              "focus-visible:ring-2",
+              "focus-visible:ring-kumo-brand",
+              "focus:outline-none",
+              "focus:ring-kumo-focus/50",
+              "font-medium",
+              "gap-1.5",
+              "group",
+              "h-9",
+              "items-center",
+              "not-disabled:hover:bg-kumo-tint",
+              "opacity-50",
+              "px-3",
+              "ring",
+              "ring-kumo-line",
+              "rounded-lg",
+              "select-none",
+              "shadow-xs",
+              "shrink-0",
+              "text-base",
+              "w-max"
+            ],
+            "node-2": [
+              "contents"
+            ],
+            "root": [
+              "p-8"
+            ]
+          },
+          "domSha256": "a066fa9f88def77f8218107a0778f3d64759c6179f955c7ba168a6012a19d9c6",
+          "parts": [
+            "root",
+            "control",
+            "node-2"
+          ]
+        },
+        "button/disabled/390": {
+          "classes": {
+            "control": [
+              "!text-kumo-default",
+              "bg-kumo-base",
+              "border-0",
+              "cursor-not-allowed",
+              "data-[state=open]:bg-kumo-base",
+              "disabled:!text-kumo-default/70",
+              "disabled:bg-kumo-base/50",
+              "disabled:cursor-not-allowed",
+              "disabled:text-kumo-subtle",
+              "flex",
+              "focus-visible:ring-2",
+              "focus-visible:ring-kumo-brand",
+              "focus:outline-none",
+              "focus:ring-kumo-focus/50",
+              "font-medium",
+              "gap-1.5",
+              "group",
+              "h-9",
+              "items-center",
+              "not-disabled:hover:bg-kumo-tint",
+              "opacity-50",
+              "px-3",
+              "ring",
+              "ring-kumo-line",
+              "rounded-lg",
+              "select-none",
+              "shadow-xs",
+              "shrink-0",
+              "text-base",
+              "w-max"
+            ],
+            "node-2": [
+              "contents"
+            ],
+            "root": [
+              "p-8"
+            ]
+          },
+          "domSha256": "a066fa9f88def77f8218107a0778f3d64759c6179f955c7ba168a6012a19d9c6",
+          "parts": [
+            "root",
+            "control",
+            "node-2"
+          ]
+        },
+        "button/disabled/768": {
+          "classes": {
+            "control": [
+              "!text-kumo-default",
+              "bg-kumo-base",
+              "border-0",
+              "cursor-not-allowed",
+              "data-[state=open]:bg-kumo-base",
+              "disabled:!text-kumo-default/70",
+              "disabled:bg-kumo-base/50",
+              "disabled:cursor-not-allowed",
+              "disabled:text-kumo-subtle",
+              "flex",
+              "focus-visible:ring-2",
+              "focus-visible:ring-kumo-brand",
+              "focus:outline-none",
+              "focus:ring-kumo-focus/50",
+              "font-medium",
+              "gap-1.5",
+              "group",
+              "h-9",
+              "items-center",
+              "not-disabled:hover:bg-kumo-tint",
+              "opacity-50",
+              "px-3",
+              "ring",
+              "ring-kumo-line",
+              "rounded-lg",
+              "select-none",
+              "shadow-xs",
+              "shrink-0",
+              "text-base",
+              "w-max"
+            ],
+            "node-2": [
+              "contents"
+            ],
+            "root": [
+              "p-8"
+            ]
+          },
+          "domSha256": "a066fa9f88def77f8218107a0778f3d64759c6179f955c7ba168a6012a19d9c6",
+          "parts": [
+            "root",
+            "control",
+            "node-2"
+          ]
+        },
+        "button/loading/1440": {
+          "classes": {
+            "control": [
+              "!text-kumo-default",
+              "bg-kumo-base",
+              "border-0",
+              "cursor-pointer",
+              "data-[state=open]:bg-kumo-base",
+              "disabled:!text-kumo-default/70",
+              "disabled:bg-kumo-base/50",
+              "disabled:cursor-not-allowed",
+              "disabled:text-kumo-subtle",
+              "flex",
+              "focus-visible:ring-2",
+              "focus-visible:ring-kumo-brand",
+              "focus:outline-none",
+              "focus:ring-kumo-focus/50",
+              "font-medium",
+              "gap-1.5",
+              "group",
+              "h-9",
+              "items-center",
+              "not-disabled:hover:bg-kumo-tint",
+              "px-3",
+              "ring",
+              "ring-kumo-line",
+              "rounded-lg",
+              "select-none",
+              "shadow-xs",
+              "shrink-0",
+              "text-base",
+              "w-max"
+            ],
+            "node-2": [],
+            "node-3": [],
+            "node-4": [],
+            "node-5": [],
+            "node-6": [
+              "contents"
+            ],
+            "root": [
+              "p-8"
+            ]
+          },
+          "domSha256": "96b496a838736d7e0e01811c0951d7da717671c55efaa097c0cc1c90df025f56",
+          "parts": [
+            "root",
+            "control",
+            "node-2",
+            "node-3",
+            "node-4",
+            "node-5",
+            "node-6"
+          ]
+        },
+        "button/loading/390": {
+          "classes": {
+            "control": [
+              "!text-kumo-default",
+              "bg-kumo-base",
+              "border-0",
+              "cursor-pointer",
+              "data-[state=open]:bg-kumo-base",
+              "disabled:!text-kumo-default/70",
+              "disabled:bg-kumo-base/50",
+              "disabled:cursor-not-allowed",
+              "disabled:text-kumo-subtle",
+              "flex",
+              "focus-visible:ring-2",
+              "focus-visible:ring-kumo-brand",
+              "focus:outline-none",
+              "focus:ring-kumo-focus/50",
+              "font-medium",
+              "gap-1.5",
+              "group",
+              "h-9",
+              "items-center",
+              "not-disabled:hover:bg-kumo-tint",
+              "px-3",
+              "ring",
+              "ring-kumo-line",
+              "rounded-lg",
+              "select-none",
+              "shadow-xs",
+              "shrink-0",
+              "text-base",
+              "w-max"
+            ],
+            "node-2": [],
+            "node-3": [],
+            "node-4": [],
+            "node-5": [],
+            "node-6": [
+              "contents"
+            ],
+            "root": [
+              "p-8"
+            ]
+          },
+          "domSha256": "96b496a838736d7e0e01811c0951d7da717671c55efaa097c0cc1c90df025f56",
+          "parts": [
+            "root",
+            "control",
+            "node-2",
+            "node-3",
+            "node-4",
+            "node-5",
+            "node-6"
+          ]
+        },
+        "button/loading/768": {
+          "classes": {
+            "control": [
+              "!text-kumo-default",
+              "bg-kumo-base",
+              "border-0",
+              "cursor-pointer",
+              "data-[state=open]:bg-kumo-base",
+              "disabled:!text-kumo-default/70",
+              "disabled:bg-kumo-base/50",
+              "disabled:cursor-not-allowed",
+              "disabled:text-kumo-subtle",
+              "flex",
+              "focus-visible:ring-2",
+              "focus-visible:ring-kumo-brand",
+              "focus:outline-none",
+              "focus:ring-kumo-focus/50",
+              "font-medium",
+              "gap-1.5",
+              "group",
+              "h-9",
+              "items-center",
+              "not-disabled:hover:bg-kumo-tint",
+              "px-3",
+              "ring",
+              "ring-kumo-line",
+              "rounded-lg",
+              "select-none",
+              "shadow-xs",
+              "shrink-0",
+              "text-base",
+              "w-max"
+            ],
+            "node-2": [],
+            "node-3": [],
+            "node-4": [],
+            "node-5": [],
+            "node-6": [
+              "contents"
+            ],
+            "root": [
+              "p-8"
+            ]
+          },
+          "domSha256": "96b496a838736d7e0e01811c0951d7da717671c55efaa097c0cc1c90df025f56",
+          "parts": [
+            "root",
+            "control",
+            "node-2",
+            "node-3",
+            "node-4",
+            "node-5",
+            "node-6"
+          ]
+        },
+        "checkbox/checked/1440": {
+          "classes": {
+            "control": [
+              "after:-inset-x-3",
+              "after:-inset-y-2",
+              "after:absolute",
+              "bg-kumo-base",
+              "border-0",
+              "data-[checked]:bg-kumo-contrast",
+              "data-[checked]:ring-kumo-contrast",
+              "data-[indeterminate]:bg-kumo-contrast",
+              "data-[indeterminate]:ring-kumo-contrast",
+              "flex",
+              "focus-visible:ring-2",
+              "focus-visible:ring-kumo-brand",
+              "focus:outline-none",
+              "focus:ring-2",
+              "focus:ring-kumo-focus",
+              "h-4",
+              "hover:ring-kumo-hairline",
+              "items-center",
+              "justify-center",
+              "mt-0.5",
+              "relative",
+              "ring",
+              "ring-kumo-hairline",
+              "rounded-sm",
+              "shrink-0",
+              "w-4"
+            ],
+            "node-1": [
+              "!m-0",
+              "!min-h-0",
+              "!text-base",
+              "cursor-pointer",
+              "flex-row",
+              "gap-2",
+              "inline-flex",
+              "items-start"
+            ],
+            "node-3": [],
+            "node-4": [],
+            "node-5": [
+              "gap-1",
+              "inline-flex",
+              "items-center"
+            ],
+            "root": [
+              "p-8"
+            ]
+          },
+          "domSha256": "36c8a30ba34485bc9661c0407e1722a02c475ed8aa454c30ee5e139d59bd3f9d",
+          "parts": [
+            "root",
+            "node-1",
+            "control",
+            "node-3",
+            "node-4",
+            "node-5"
+          ]
+        },
+        "checkbox/checked/390": {
+          "classes": {
+            "control": [
+              "after:-inset-x-3",
+              "after:-inset-y-2",
+              "after:absolute",
+              "bg-kumo-base",
+              "border-0",
+              "data-[checked]:bg-kumo-contrast",
+              "data-[checked]:ring-kumo-contrast",
+              "data-[indeterminate]:bg-kumo-contrast",
+              "data-[indeterminate]:ring-kumo-contrast",
+              "flex",
+              "focus-visible:ring-2",
+              "focus-visible:ring-kumo-brand",
+              "focus:outline-none",
+              "focus:ring-2",
+              "focus:ring-kumo-focus",
+              "h-4",
+              "hover:ring-kumo-hairline",
+              "items-center",
+              "justify-center",
+              "mt-0.5",
+              "relative",
+              "ring",
+              "ring-kumo-hairline",
+              "rounded-sm",
+              "shrink-0",
+              "w-4"
+            ],
+            "node-1": [
+              "!m-0",
+              "!min-h-0",
+              "!text-base",
+              "cursor-pointer",
+              "flex-row",
+              "gap-2",
+              "inline-flex",
+              "items-start"
+            ],
+            "node-3": [],
+            "node-4": [],
+            "node-5": [
+              "gap-1",
+              "inline-flex",
+              "items-center"
+            ],
+            "root": [
+              "p-8"
+            ]
+          },
+          "domSha256": "36c8a30ba34485bc9661c0407e1722a02c475ed8aa454c30ee5e139d59bd3f9d",
+          "parts": [
+            "root",
+            "node-1",
+            "control",
+            "node-3",
+            "node-4",
+            "node-5"
+          ]
+        },
+        "checkbox/checked/768": {
+          "classes": {
+            "control": [
+              "after:-inset-x-3",
+              "after:-inset-y-2",
+              "after:absolute",
+              "bg-kumo-base",
+              "border-0",
+              "data-[checked]:bg-kumo-contrast",
+              "data-[checked]:ring-kumo-contrast",
+              "data-[indeterminate]:bg-kumo-contrast",
+              "data-[indeterminate]:ring-kumo-contrast",
+              "flex",
+              "focus-visible:ring-2",
+              "focus-visible:ring-kumo-brand",
+              "focus:outline-none",
+              "focus:ring-2",
+              "focus:ring-kumo-focus",
+              "h-4",
+              "hover:ring-kumo-hairline",
+              "items-center",
+              "justify-center",
+              "mt-0.5",
+              "relative",
+              "ring",
+              "ring-kumo-hairline",
+              "rounded-sm",
+              "shrink-0",
+              "w-4"
+            ],
+            "node-1": [
+              "!m-0",
+              "!min-h-0",
+              "!text-base",
+              "cursor-pointer",
+              "flex-row",
+              "gap-2",
+              "inline-flex",
+              "items-start"
+            ],
+            "node-3": [],
+            "node-4": [],
+            "node-5": [
+              "gap-1",
+              "inline-flex",
+              "items-center"
+            ],
+            "root": [
+              "p-8"
+            ]
+          },
+          "domSha256": "56d2dc0c33e75042b1e03d32258886e51e4148c3c59fbcc1ffe5c6f9412238bc",
+          "parts": [
+            "root",
+            "node-1",
+            "control",
+            "node-3",
+            "node-4",
+            "node-5"
+          ]
+        },
+        "checkbox/indeterminate/1440": {
+          "classes": {
+            "control": [
+              "after:-inset-x-3",
+              "after:-inset-y-2",
+              "after:absolute",
+              "bg-kumo-base",
+              "border-0",
+              "data-[checked]:bg-kumo-contrast",
+              "data-[checked]:ring-kumo-contrast",
+              "data-[indeterminate]:bg-kumo-contrast",
+              "data-[indeterminate]:ring-kumo-contrast",
+              "flex",
+              "focus-visible:ring-2",
+              "focus-visible:ring-kumo-brand",
+              "focus:outline-none",
+              "focus:ring-2",
+              "focus:ring-kumo-focus",
+              "h-4",
+              "hover:ring-kumo-hairline",
+              "items-center",
+              "justify-center",
+              "mt-0.5",
+              "relative",
+              "ring",
+              "ring-kumo-hairline",
+              "rounded-sm",
+              "shrink-0",
+              "w-4"
+            ],
+            "node-1": [
+              "!m-0",
+              "!min-h-0",
+              "!text-base",
+              "cursor-pointer",
+              "flex-row",
+              "gap-2",
+              "inline-flex",
+              "items-start"
+            ],
+            "node-3": [],
+            "node-4": [],
+            "node-5": [
+              "gap-1",
+              "inline-flex",
+              "items-center"
+            ],
+            "root": [
+              "p-8"
+            ]
+          },
+          "domSha256": "e7d731ec4e693263843cadacaef74e363d554282596028a37556d9f97c634c28",
+          "parts": [
+            "root",
+            "node-1",
+            "control",
+            "node-3",
+            "node-4",
+            "node-5"
+          ]
+        },
+        "checkbox/indeterminate/390": {
+          "classes": {
+            "control": [
+              "after:-inset-x-3",
+              "after:-inset-y-2",
+              "after:absolute",
+              "bg-kumo-base",
+              "border-0",
+              "data-[checked]:bg-kumo-contrast",
+              "data-[checked]:ring-kumo-contrast",
+              "data-[indeterminate]:bg-kumo-contrast",
+              "data-[indeterminate]:ring-kumo-contrast",
+              "flex",
+              "focus-visible:ring-2",
+              "focus-visible:ring-kumo-brand",
+              "focus:outline-none",
+              "focus:ring-2",
+              "focus:ring-kumo-focus",
+              "h-4",
+              "hover:ring-kumo-hairline",
+              "items-center",
+              "justify-center",
+              "mt-0.5",
+              "relative",
+              "ring",
+              "ring-kumo-hairline",
+              "rounded-sm",
+              "shrink-0",
+              "w-4"
+            ],
+            "node-1": [
+              "!m-0",
+              "!min-h-0",
+              "!text-base",
+              "cursor-pointer",
+              "flex-row",
+              "gap-2",
+              "inline-flex",
+              "items-start"
+            ],
+            "node-3": [],
+            "node-4": [],
+            "node-5": [
+              "gap-1",
+              "inline-flex",
+              "items-center"
+            ],
+            "root": [
+              "p-8"
+            ]
+          },
+          "domSha256": "e7d731ec4e693263843cadacaef74e363d554282596028a37556d9f97c634c28",
+          "parts": [
+            "root",
+            "node-1",
+            "control",
+            "node-3",
+            "node-4",
+            "node-5"
+          ]
+        },
+        "checkbox/indeterminate/768": {
+          "classes": {
+            "control": [
+              "after:-inset-x-3",
+              "after:-inset-y-2",
+              "after:absolute",
+              "bg-kumo-base",
+              "border-0",
+              "data-[checked]:bg-kumo-contrast",
+              "data-[checked]:ring-kumo-contrast",
+              "data-[indeterminate]:bg-kumo-contrast",
+              "data-[indeterminate]:ring-kumo-contrast",
+              "flex",
+              "focus-visible:ring-2",
+              "focus-visible:ring-kumo-brand",
+              "focus:outline-none",
+              "focus:ring-2",
+              "focus:ring-kumo-focus",
+              "h-4",
+              "hover:ring-kumo-hairline",
+              "items-center",
+              "justify-center",
+              "mt-0.5",
+              "relative",
+              "ring",
+              "ring-kumo-hairline",
+              "rounded-sm",
+              "shrink-0",
+              "w-4"
+            ],
+            "node-1": [
+              "!m-0",
+              "!min-h-0",
+              "!text-base",
+              "cursor-pointer",
+              "flex-row",
+              "gap-2",
+              "inline-flex",
+              "items-start"
+            ],
+            "node-3": [],
+            "node-4": [],
+            "node-5": [
+              "gap-1",
+              "inline-flex",
+              "items-center"
+            ],
+            "root": [
+              "p-8"
+            ]
+          },
+          "domSha256": "3aa8e56c0562e4d06a1e1bb275f69e9d6f98dbf82cbadfb1a4da7c0289578240",
+          "parts": [
+            "root",
+            "node-1",
+            "control",
+            "node-3",
+            "node-4",
+            "node-5"
+          ]
+        },
+        "checkbox/unchecked/1440": {
+          "classes": {
+            "control": [
+              "after:-inset-x-3",
+              "after:-inset-y-2",
+              "after:absolute",
+              "bg-kumo-base",
+              "border-0",
+              "data-[checked]:bg-kumo-contrast",
+              "data-[checked]:ring-kumo-contrast",
+              "data-[indeterminate]:bg-kumo-contrast",
+              "data-[indeterminate]:ring-kumo-contrast",
+              "flex",
+              "focus-visible:ring-2",
+              "focus-visible:ring-kumo-brand",
+              "focus:outline-none",
+              "focus:ring-2",
+              "focus:ring-kumo-focus",
+              "h-4",
+              "hover:ring-kumo-hairline",
+              "items-center",
+              "justify-center",
+              "mt-0.5",
+              "relative",
+              "ring",
+              "ring-kumo-hairline",
+              "rounded-sm",
+              "shrink-0",
+              "w-4"
+            ],
+            "node-1": [
+              "!m-0",
+              "!min-h-0",
+              "!text-base",
+              "cursor-pointer",
+              "flex-row",
+              "gap-2",
+              "inline-flex",
+              "items-start"
+            ],
+            "node-3": [],
+            "node-4": [],
+            "node-5": [
+              "gap-1",
+              "inline-flex",
+              "items-center"
+            ],
+            "root": [
+              "p-8"
+            ]
+          },
+          "domSha256": "0fdf2da79d37e7b8ca8e828bdd26c75f4ca48e9458bd2c0a1c32fa008e0db424",
+          "parts": [
+            "root",
+            "node-1",
+            "control",
+            "node-3",
+            "node-4",
+            "node-5"
+          ]
+        },
+        "checkbox/unchecked/390": {
+          "classes": {
+            "control": [
+              "after:-inset-x-3",
+              "after:-inset-y-2",
+              "after:absolute",
+              "bg-kumo-base",
+              "border-0",
+              "data-[checked]:bg-kumo-contrast",
+              "data-[checked]:ring-kumo-contrast",
+              "data-[indeterminate]:bg-kumo-contrast",
+              "data-[indeterminate]:ring-kumo-contrast",
+              "flex",
+              "focus-visible:ring-2",
+              "focus-visible:ring-kumo-brand",
+              "focus:outline-none",
+              "focus:ring-2",
+              "focus:ring-kumo-focus",
+              "h-4",
+              "hover:ring-kumo-hairline",
+              "items-center",
+              "justify-center",
+              "mt-0.5",
+              "relative",
+              "ring",
+              "ring-kumo-hairline",
+              "rounded-sm",
+              "shrink-0",
+              "w-4"
+            ],
+            "node-1": [
+              "!m-0",
+              "!min-h-0",
+              "!text-base",
+              "cursor-pointer",
+              "flex-row",
+              "gap-2",
+              "inline-flex",
+              "items-start"
+            ],
+            "node-3": [],
+            "node-4": [],
+            "node-5": [
+              "gap-1",
+              "inline-flex",
+              "items-center"
+            ],
+            "root": [
+              "p-8"
+            ]
+          },
+          "domSha256": "0fdf2da79d37e7b8ca8e828bdd26c75f4ca48e9458bd2c0a1c32fa008e0db424",
+          "parts": [
+            "root",
+            "node-1",
+            "control",
+            "node-3",
+            "node-4",
+            "node-5"
+          ]
+        },
+        "checkbox/unchecked/768": {
+          "classes": {
+            "control": [
+              "after:-inset-x-3",
+              "after:-inset-y-2",
+              "after:absolute",
+              "bg-kumo-base",
+              "border-0",
+              "data-[checked]:bg-kumo-contrast",
+              "data-[checked]:ring-kumo-contrast",
+              "data-[indeterminate]:bg-kumo-contrast",
+              "data-[indeterminate]:ring-kumo-contrast",
+              "flex",
+              "focus-visible:ring-2",
+              "focus-visible:ring-kumo-brand",
+              "focus:outline-none",
+              "focus:ring-2",
+              "focus:ring-kumo-focus",
+              "h-4",
+              "hover:ring-kumo-hairline",
+              "items-center",
+              "justify-center",
+              "mt-0.5",
+              "relative",
+              "ring",
+              "ring-kumo-hairline",
+              "rounded-sm",
+              "shrink-0",
+              "w-4"
+            ],
+            "node-1": [
+              "!m-0",
+              "!min-h-0",
+              "!text-base",
+              "cursor-pointer",
+              "flex-row",
+              "gap-2",
+              "inline-flex",
+              "items-start"
+            ],
+            "node-3": [],
+            "node-4": [],
+            "node-5": [
+              "gap-1",
+              "inline-flex",
+              "items-center"
+            ],
+            "root": [
+              "p-8"
+            ]
+          },
+          "domSha256": "658082a4934bea87b1f4bf9dc90696abdea68ec2fa2e8e760a68fd89f5862317",
+          "parts": [
+            "root",
+            "node-1",
+            "control",
+            "node-3",
+            "node-4",
+            "node-5"
+          ]
+        },
+        "field/default/1440": {
+          "classes": {
+            "control": [
+              "h-9",
+              "px-3",
+              "ring",
+              "ring-kumo-line",
+              "rounded-lg"
+            ],
+            "node-1": [
+              "font-medium",
+              "m-0",
+              "select-none",
+              "text-base",
+              "text-kumo-default"
+            ],
+            "node-2": [
+              "gap-1",
+              "inline-flex",
+              "items-center"
+            ],
+            "node-4": [
+              "col-span-full",
+              "leading-snug",
+              "text-kumo-subtle",
+              "text-sm"
+            ],
+            "root": [
+              "p-8"
+            ]
+          },
+          "domSha256": "e333952c3d15697f5b270374033fd7fac85cde1747d15c162941cd0590541a6f",
+          "parts": [
+            "root",
+            "node-1",
+            "node-2",
+            "control",
+            "node-4"
+          ]
+        },
+        "field/default/390": {
+          "classes": {
+            "control": [
+              "h-9",
+              "px-3",
+              "ring",
+              "ring-kumo-line",
+              "rounded-lg"
+            ],
+            "node-1": [
+              "font-medium",
+              "m-0",
+              "select-none",
+              "text-base",
+              "text-kumo-default"
+            ],
+            "node-2": [
+              "gap-1",
+              "inline-flex",
+              "items-center"
+            ],
+            "node-4": [
+              "col-span-full",
+              "leading-snug",
+              "text-kumo-subtle",
+              "text-sm"
+            ],
+            "root": [
+              "p-8"
+            ]
+          },
+          "domSha256": "e333952c3d15697f5b270374033fd7fac85cde1747d15c162941cd0590541a6f",
+          "parts": [
+            "root",
+            "node-1",
+            "node-2",
+            "control",
+            "node-4"
+          ]
+        },
+        "field/default/768": {
+          "classes": {
+            "control": [
+              "h-9",
+              "px-3",
+              "ring",
+              "ring-kumo-line",
+              "rounded-lg"
+            ],
+            "node-1": [
+              "font-medium",
+              "m-0",
+              "select-none",
+              "text-base",
+              "text-kumo-default"
+            ],
+            "node-2": [
+              "gap-1",
+              "inline-flex",
+              "items-center"
+            ],
+            "node-4": [
+              "col-span-full",
+              "leading-snug",
+              "text-kumo-subtle",
+              "text-sm"
+            ],
+            "root": [
+              "p-8"
+            ]
+          },
+          "domSha256": "e333952c3d15697f5b270374033fd7fac85cde1747d15c162941cd0590541a6f",
+          "parts": [
+            "root",
+            "node-1",
+            "node-2",
+            "control",
+            "node-4"
+          ]
+        },
+        "field/disabled/1440": {
+          "classes": {
+            "control": [
+              "h-9",
+              "px-3",
+              "ring",
+              "ring-kumo-line",
+              "rounded-lg"
+            ],
+            "node-1": [
+              "font-medium",
+              "m-0",
+              "select-none",
+              "text-base",
+              "text-kumo-default"
+            ],
+            "node-2": [
+              "gap-1",
+              "inline-flex",
+              "items-center"
+            ],
+            "node-4": [
+              "col-span-full",
+              "leading-snug",
+              "text-kumo-subtle",
+              "text-sm"
+            ],
+            "root": [
+              "p-8"
+            ]
+          },
+          "domSha256": "de1e2f1e579c90d189fd2856b470698c7ed5411ffc95ac00dff807df68422550",
+          "parts": [
+            "root",
+            "node-1",
+            "node-2",
+            "control",
+            "node-4"
+          ]
+        },
+        "field/disabled/390": {
+          "classes": {
+            "control": [
+              "h-9",
+              "px-3",
+              "ring",
+              "ring-kumo-line",
+              "rounded-lg"
+            ],
+            "node-1": [
+              "font-medium",
+              "m-0",
+              "select-none",
+              "text-base",
+              "text-kumo-default"
+            ],
+            "node-2": [
+              "gap-1",
+              "inline-flex",
+              "items-center"
+            ],
+            "node-4": [
+              "col-span-full",
+              "leading-snug",
+              "text-kumo-subtle",
+              "text-sm"
+            ],
+            "root": [
+              "p-8"
+            ]
+          },
+          "domSha256": "de1e2f1e579c90d189fd2856b470698c7ed5411ffc95ac00dff807df68422550",
+          "parts": [
+            "root",
+            "node-1",
+            "node-2",
+            "control",
+            "node-4"
+          ]
+        },
+        "field/disabled/768": {
+          "classes": {
+            "control": [
+              "h-9",
+              "px-3",
+              "ring",
+              "ring-kumo-line",
+              "rounded-lg"
+            ],
+            "node-1": [
+              "font-medium",
+              "m-0",
+              "select-none",
+              "text-base",
+              "text-kumo-default"
+            ],
+            "node-2": [
+              "gap-1",
+              "inline-flex",
+              "items-center"
+            ],
+            "node-4": [
+              "col-span-full",
+              "leading-snug",
+              "text-kumo-subtle",
+              "text-sm"
+            ],
+            "root": [
+              "p-8"
+            ]
+          },
+          "domSha256": "de1e2f1e579c90d189fd2856b470698c7ed5411ffc95ac00dff807df68422550",
+          "parts": [
+            "root",
+            "node-1",
+            "node-2",
+            "control",
+            "node-4"
+          ]
+        },
+        "field/error/1440": {
+          "classes": {
+            "control": [
+              "h-9",
+              "px-3",
+              "ring",
+              "ring-kumo-line",
+              "rounded-lg"
+            ],
+            "node-1": [
+              "font-medium",
+              "m-0",
+              "select-none",
+              "text-base",
+              "text-kumo-default"
+            ],
+            "node-2": [
+              "gap-1",
+              "inline-flex",
+              "items-center"
+            ],
+            "node-4": [
+              "col-span-full",
+              "leading-snug",
+              "text-kumo-danger",
+              "text-sm"
+            ],
+            "root": [
+              "p-8"
+            ]
+          },
+          "domSha256": "18bdec2ccfd9576181f7e10d4e2110d9c6ebcf25e5e51f207f078631267d4829",
+          "parts": [
+            "root",
+            "node-1",
+            "node-2",
+            "control",
+            "node-4"
+          ]
+        },
+        "field/error/390": {
+          "classes": {
+            "control": [
+              "h-9",
+              "px-3",
+              "ring",
+              "ring-kumo-line",
+              "rounded-lg"
+            ],
+            "node-1": [
+              "font-medium",
+              "m-0",
+              "select-none",
+              "text-base",
+              "text-kumo-default"
+            ],
+            "node-2": [
+              "gap-1",
+              "inline-flex",
+              "items-center"
+            ],
+            "node-4": [
+              "col-span-full",
+              "leading-snug",
+              "text-kumo-danger",
+              "text-sm"
+            ],
+            "root": [
+              "p-8"
+            ]
+          },
+          "domSha256": "18bdec2ccfd9576181f7e10d4e2110d9c6ebcf25e5e51f207f078631267d4829",
+          "parts": [
+            "root",
+            "node-1",
+            "node-2",
+            "control",
+            "node-4"
+          ]
+        },
+        "field/error/768": {
+          "classes": {
+            "control": [
+              "h-9",
+              "px-3",
+              "ring",
+              "ring-kumo-line",
+              "rounded-lg"
+            ],
+            "node-1": [
+              "font-medium",
+              "m-0",
+              "select-none",
+              "text-base",
+              "text-kumo-default"
+            ],
+            "node-2": [
+              "gap-1",
+              "inline-flex",
+              "items-center"
+            ],
+            "node-4": [
+              "col-span-full",
+              "leading-snug",
+              "text-kumo-danger",
+              "text-sm"
+            ],
+            "root": [
+              "p-8"
+            ]
+          },
+          "domSha256": "18bdec2ccfd9576181f7e10d4e2110d9c6ebcf25e5e51f207f078631267d4829",
+          "parts": [
+            "root",
+            "node-1",
+            "node-2",
+            "control",
+            "node-4"
+          ]
+        },
+        "popover/closed/1440": {
+          "classes": {
+            "root": [
+              "p-8"
+            ],
+            "trigger": []
+          },
+          "domSha256": "06387c07ea2dc8f3894dda4da2e134494fcec1425f0cf54c5fa3f5ae7eaf0684",
+          "parts": [
+            "root",
+            "trigger"
+          ]
+        },
+        "popover/closed/390": {
+          "classes": {
+            "root": [
+              "p-8"
+            ],
+            "trigger": []
+          },
+          "domSha256": "06387c07ea2dc8f3894dda4da2e134494fcec1425f0cf54c5fa3f5ae7eaf0684",
+          "parts": [
+            "root",
+            "trigger"
+          ]
+        },
+        "popover/closed/768": {
+          "classes": {
+            "node-1": [],
+            "node-3": [],
+            "node-4": [],
+            "node-5": [],
+            "node-6": [],
+            "root": [
+              "p-8"
+            ],
+            "trigger": []
+          },
+          "domSha256": "4e7a154c68a695b428d64667022d87d4c49795c89e66b1be2aea04ad7ff55893",
+          "parts": [
+            "root",
+            "node-1",
+            "trigger",
+            "node-3",
+            "node-4",
+            "node-5",
+            "node-6"
+          ]
+        },
+        "popover/dismissed/1440": {
+          "classes": {
+            "root": [
+              "p-8"
+            ],
+            "trigger": []
+          },
+          "domSha256": "3508e7d47ab35be89932a0cc47da0b470908fdd21cdb2bf42cbb0d2299da0d97",
+          "parts": [
+            "root",
+            "trigger"
+          ]
+        },
+        "popover/dismissed/390": {
+          "classes": {
+            "root": [
+              "p-8"
+            ],
+            "trigger": []
+          },
+          "domSha256": "3508e7d47ab35be89932a0cc47da0b470908fdd21cdb2bf42cbb0d2299da0d97",
+          "parts": [
+            "root",
+            "trigger"
+          ]
+        },
+        "popover/dismissed/768": {
+          "classes": {
+            "root": [
+              "p-8"
+            ],
+            "trigger": []
+          },
+          "domSha256": "3508e7d47ab35be89932a0cc47da0b470908fdd21cdb2bf42cbb0d2299da0d97",
+          "parts": [
+            "root",
+            "trigger"
+          ]
+        },
+        "popover/open/1440": {
+          "classes": {
+            "node-1": [],
+            "node-3": [],
+            "root": [
+              "p-8"
+            ],
+            "trigger": []
+          },
+          "domSha256": "79842af5728dba7f4dc57020f6d50ed00d38c2e1a79f4f2a81164f416dc81538",
+          "parts": [
+            "root",
+            "node-1",
+            "trigger",
+            "node-3"
+          ]
+        },
+        "popover/open/390": {
+          "classes": {
+            "node-1": [],
+            "node-3": [],
+            "root": [
+              "p-8"
+            ],
+            "trigger": []
+          },
+          "domSha256": "79842af5728dba7f4dc57020f6d50ed00d38c2e1a79f4f2a81164f416dc81538",
+          "parts": [
+            "root",
+            "node-1",
+            "trigger",
+            "node-3"
+          ]
+        },
+        "popover/open/768": {
+          "classes": {
+            "node-1": [],
+            "node-3": [],
+            "root": [
+              "p-8"
+            ],
+            "trigger": []
+          },
+          "domSha256": "79842af5728dba7f4dc57020f6d50ed00d38c2e1a79f4f2a81164f416dc81538",
+          "parts": [
+            "root",
+            "node-1",
+            "trigger",
+            "node-3"
+          ]
+        }
+      }
+    },
+    "contract": {
+      "components": [
+        "button",
+        "checkbox",
+        "field",
+        "popover"
+      ],
+      "hardRules": [
+        "Canonical @cloudflare/kumo@2.5.2 remains immutable authority.",
+        "Experiments may not weaken, replace, or fabricate current conformance receipts.",
+        "No React runtime dependency in downstream output.",
+        "No component IDs or component-specific branches in target lowerers.",
+        "No copied final HTML, screenshot-to-code inference, gallery repair CSS, innerHTML/@html, or post-mount reconstruction.",
+        "One writer per exact path; maximum four parallel workers.",
+        "Every result is deterministic, content-addressed, benchmarked, and includes exact commands and failures.",
+        "A failed approach is recorded and retired rather than patched indefinitely."
+      ],
+      "states": {
+        "button": [
+          "default",
+          "disabled",
+          "loading"
+        ],
+        "checkbox": [
+          "unchecked",
+          "checked",
+          "indeterminate"
+        ],
+        "field": [
+          "default",
+          "error",
+          "disabled"
+        ],
+        "popover": [
+          "closed",
+          "open",
+          "dismissed"
+        ]
+      },
+      "viewports": [
+        390,
+        768,
+        1440
+      ]
+    },
+    "decisions": {
+      "overall": "reject-wave-2",
+      "solid": "salvage lowerer scaffolding only: consumes synthetic IR and compiles, but ID-based tag branches violate genericity and states/classes/behavior are absent",
+      "svelte": "salvage lowerer scaffolding only: consumes synthetic IR and compiles, but ignores states, bindings, classes, canonical topology and behavior",
+      "verification": "retire: disconnected from generated code and trivially gameable by copied traces",
+      "vue": "retire: violates no copied final HTML by rebuilding templates from trace.dom; state snapshots are copied evidence, not IR lowering"
+    },
+    "ir": {
+      "evidence": [
+        "provenance.source uses nonexistent canonical/*.tsx placeholders",
+        "parts have empty conditions and bindings and generic token names",
+        "IR topology conflicts with observed trace parts (for example button IR label/spinner versus canonical root/control)"
+      ],
+      "expected": {
+        "button": {
+          "irParts": [
+            "root",
+            "label",
+            "spinner"
+          ],
+          "states": [
+            "default",
+            "disabled",
+            "loading"
+          ]
+        },
+        "checkbox": {
+          "irParts": [
+            "root",
+            "control",
+            "indicator",
+            "label"
+          ],
+          "states": [
+            "unchecked",
+            "checked",
+            "indeterminate"
+          ]
+        },
+        "field": {
+          "irParts": [
+            "root",
+            "label",
+            "control",
+            "description",
+            "message"
+          ],
+          "states": [
+            "default",
+            "error",
+            "disabled"
+          ]
+        },
+        "popover": {
+          "irParts": [
+            "root",
+            "trigger",
+            "content"
+          ],
+          "states": [
+            "closed",
+            "open",
+            "dismissed"
+          ]
+        }
+      },
+      "path": "experiments/visual-compiler/ir/fixtures/components.json",
+      "synthetic": true
+    },
+    "repairPlan": [
+      "Replace fixture IR with validated frontend-derived IR carrying exact structure, bindings, classes, conditions, state transitions, and provenance; reject placeholder canonical paths.",
+      "Define a target-neutral semantics/tag model so lowerers do not branch on component or part IDs; add static AST checks for component and part-ID branching.",
+      "Generate native stateful source from IR only. Do not read canonical trace DOM or presentation to construct output.",
+      "Build each generated shard with its real Vue/Svelte/Solid compiler and mount it in isolated native harnesses for every contract state and viewport.",
+      "Recapture candidate DOM, accessibility, events, geometry, styles, and screenshots from those harnesses; bind receipts to generated-source/build/harness digests.",
+      "Keep canonical traces read-only and outside candidate output paths; reject byte-identical trace/screenshot reuse and add a copy-attack self-test that must fail.",
+      "Require exact topology, classes, states, behavior and zero-pixel-diff matrices for all 108 cells before passing.",
+      "Make verification self-check fail when the audited matrix fails; separately test deterministic failure receipts."
+    ],
+    "targets": {
+      "solid": {
+        "compiled": true,
+        "componentIdLiterals": [
+          "button",
+          "checkbox",
+          "field",
+          "popover"
+        ],
+        "componentSpecificBranches": true,
+        "copiesTraceDom": false,
+        "decision": "salvage-shell-only",
+        "errors": [],
+        "files": [
+          "experiments/visual-compiler/lowering/solid/generated/button.tsx",
+          "experiments/visual-compiler/lowering/solid/generated/checkbox.tsx",
+          "experiments/visual-compiler/lowering/solid/generated/field.tsx",
+          "experiments/visual-compiler/lowering/solid/generated/popover.tsx"
+        ],
+        "forbiddenHtmlInjection": false,
+        "readsCanonicalTraces": true,
+        "readsIr": true,
+        "source": "experiments/visual-compiler/lowering/solid/lower.mjs"
+      },
+      "svelte": {
+        "compiled": true,
+        "componentIdLiterals": [
+          "button",
+          "checkbox"
+        ],
+        "componentSpecificBranches": true,
+        "copiesTraceDom": false,
+        "decision": "salvage-shell-only",
+        "errors": [],
+        "files": [
+          "experiments/visual-compiler/lowering/svelte/generated/button.svelte",
+          "experiments/visual-compiler/lowering/svelte/generated/checkbox.svelte",
+          "experiments/visual-compiler/lowering/svelte/generated/field.svelte",
+          "experiments/visual-compiler/lowering/svelte/generated/popover.svelte"
+        ],
+        "forbiddenHtmlInjection": false,
+        "readsCanonicalTraces": true,
+        "readsIr": true,
+        "source": "experiments/visual-compiler/lowering/svelte/lower.mjs"
+      },
+      "vue": {
+        "compiled": true,
+        "componentIdLiterals": [],
+        "componentSpecificBranches": false,
+        "copiesTraceDom": true,
+        "decision": "retire",
+        "errors": [],
+        "files": [
+          "experiments/visual-compiler/lowering/vue/generated/Button.vue",
+          "experiments/visual-compiler/lowering/vue/generated/Checkbox.vue",
+          "experiments/visual-compiler/lowering/vue/generated/Field.vue",
+          "experiments/visual-compiler/lowering/vue/generated/Popover.vue"
+        ],
+        "forbiddenHtmlInjection": false,
+        "readsCanonicalTraces": true,
+        "readsIr": true,
+        "source": "experiments/visual-compiler/lowering/vue/lower.mjs"
+      }
+    },
+    "verifier": {
+      "attackExplanation": "copying each canonical tracer trace byte-for-byte into any searched target path makes every projected stage equal; verifier has no build, native runtime, framework identity, provenance separation, or screenshot recapture check",
+      "copyAttackPasses": true,
+      "currentOutputsConsumed": false,
+      "decision": "retire",
+      "reason": "candidate paths only accept trace.json files, while lowerers emit framework source and no browser traces",
+      "selfCheckExplanation": "self-check exits zero when the receipt status is failed and only requires missing-output diagnostics",
+      "selfCheckFalsePositive": true,
+      "source": "experiments/visual-compiler/verification/verifier.mjs"
+    }
+  },
+  "schemaVersion": "kumo.visual-compiler-wave2-audit/v1",
+  "status": "rejected"
+}

@@ -1,34 +1,38 @@
 {
-  "schemaVersion": "kumo.visual-trace/v1",
+  "schemaVersion": "kumo.visual-trace/v2",
   "component": "button",
   "state": "default",
   "viewport": 390,
-  "dom": "<main data-part=\"root\" data-component=\"button\" data-state=\"default\"><button data-part=\"control\" class=\"part\" aria-busy=\"false\">Continue</button></main>",
+  "url": "http://127.0.0.1:62234/?component=button&state=default",
+  "hydrated": true,
+  "dom": "<main data-component=\"button\" data-state=\"default\" data-part=\"root\" class=\"p-8\"><button data-kumo-component=\"Button\" class=\"group flex w-max shrink-0 items-center font-medium select-none border-0 shadow-xs focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand cursor-pointer disabled:cursor-not-allowed disabled:text-kumo-subtle bg-kumo-base !text-kumo-default ring not-disabled:hover:bg-kumo-tint disabled:bg-kumo-base/50 disabled:!text-kumo-default/70 ring-kumo-line data-[state=open]:bg-kumo-base h-9 gap-1.5 rounded-lg px-3 text-base\" type=\"button\" data-part=\"control\"><span class=\"contents\">Continue</span></button></main>",
   "parts": [
     {
       "part": "root",
       "tag": "main",
-      "role": null,
       "attrs": {
+        "class": "p-8",
         "data-component": "button",
         "data-part": "root",
         "data-state": "default"
       },
-      "classes": [],
+      "classes": [
+        "p-8"
+      ],
       "text": "Continue",
       "geometry": {
-        "x": 32,
-        "y": 32,
-        "width": 326,
-        "height": 34
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 100
       },
       "style": {
         "display": "block",
         "position": "static",
-        "color": "rgb(17, 17, 17)",
+        "color": "rgb(0, 0, 0)",
         "background-color": "rgba(0, 0, 0, 0)",
-        "font-family": "Arial",
-        "font-size": "14px",
+        "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "font-size": "16px",
         "font-weight": "400",
         "border-radius": "0px",
         "opacity": "1",
@@ -38,72 +42,129 @@
     {
       "part": "control",
       "tag": "button",
-      "role": "button",
       "attrs": {
-        "aria-busy": "false",
-        "class": "part",
-        "data-part": "control"
+        "class": "group flex w-max shrink-0 items-center font-medium select-none border-0 shadow-xs focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand cursor-pointer disabled:cursor-not-allowed disabled:text-kumo-subtle bg-kumo-base !text-kumo-default ring not-disabled:hover:bg-kumo-tint disabled:bg-kumo-base/50 disabled:!text-kumo-default/70 ring-kumo-line data-[state=open]:bg-kumo-base h-9 gap-1.5 rounded-lg px-3 text-base",
+        "data-kumo-component": "Button",
+        "data-part": "control",
+        "type": "button"
       },
       "classes": [
-        "part"
+        "!text-kumo-default",
+        "bg-kumo-base",
+        "border-0",
+        "cursor-pointer",
+        "data-[state=open]:bg-kumo-base",
+        "disabled:!text-kumo-default/70",
+        "disabled:bg-kumo-base/50",
+        "disabled:cursor-not-allowed",
+        "disabled:text-kumo-subtle",
+        "flex",
+        "focus-visible:ring-2",
+        "focus-visible:ring-kumo-brand",
+        "focus:outline-none",
+        "focus:ring-kumo-focus/50",
+        "font-medium",
+        "gap-1.5",
+        "group",
+        "h-9",
+        "items-center",
+        "not-disabled:hover:bg-kumo-tint",
+        "px-3",
+        "ring",
+        "ring-kumo-line",
+        "rounded-lg",
+        "select-none",
+        "shadow-xs",
+        "shrink-0",
+        "text-base",
+        "w-max"
       ],
       "text": "Continue",
       "geometry": {
         "x": 32,
         "y": 32,
-        "width": 82.047,
-        "height": 34
+        "width": 83.563,
+        "height": 36
       },
       "style": {
-        "display": "inline-block",
+        "display": "flex",
         "position": "static",
-        "color": "rgb(0, 0, 0)",
-        "background-color": "rgb(239, 239, 239)",
-        "font-family": "Arial",
+        "color": "oklch(0.205 0 0)",
+        "background-color": "oklch(0.97 0 0)",
+        "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
         "font-size": "14px",
-        "font-weight": "400",
-        "border-radius": "6px",
+        "font-weight": "500",
+        "border-radius": "8px",
+        "opacity": "1",
+        "visibility": "visible"
+      }
+    },
+    {
+      "part": "node-2",
+      "tag": "span",
+      "attrs": {
+        "class": "contents"
+      },
+      "classes": [
+        "contents"
+      ],
+      "text": "Continue",
+      "geometry": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "style": {
+        "display": "contents",
+        "position": "static",
+        "color": "oklch(0.205 0 0)",
+        "background-color": "rgba(0, 0, 0, 0)",
+        "font-family": "ui-sans-serif, system-ui, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "font-size": "14px",
+        "font-weight": "500",
+        "border-radius": "0px",
         "opacity": "1",
         "visibility": "visible"
       }
     }
   ],
   "focus": {
-    "active": "control",
-    "tabIndex": 0
+    "active": "control"
   },
   "events": [
     {
-      "type": "keydown",
-      "target": "control",
-      "key": "Enter"
-    },
-    {
-      "type": "click",
-      "target": "control",
-      "key": null
+      "type": "click"
     }
   ],
   "a11y": [
     {
-      "part": "root",
-      "role": null,
-      "name": null,
-      "checked": null,
-      "expanded": null,
-      "disabled": false
+      "role": "RootWebArea",
+      "name": ""
     },
     {
-      "part": "control",
+      "role": "generic",
+      "name": ""
+    },
+    {
+      "role": "main",
+      "name": ""
+    },
+    {
       "role": "button",
-      "name": null,
-      "checked": null,
-      "expanded": null,
-      "disabled": false
+      "name": "Continue"
+    },
+    {
+      "role": "StaticText",
+      "name": "Continue"
+    },
+    {
+      "role": "InlineTextBox",
+      "name": "Continue"
     }
   ],
   "screenshot": {
-    "sha256": "0215949252c5ae9589cc00ac6fef2df79cf62c7370a239fc671e2ebaa1a8a1d5",
-    "bytes": 3972
+    "sha256": "4b95d34a640637ffa4c3dd1903f03da55d6a1c2c00b0beea4343d047d2e67a8b",
+    "bytes": 4353
   }
 }

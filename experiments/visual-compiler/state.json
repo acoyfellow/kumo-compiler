@@ -1,34 +1,47 @@
 {
   "schemaVersion": "kumo.visual-compiler-spike-state/v1",
   "status": "running",
-  "phase": "wave-2-lowering-verifier",
-  "generation": 2,
+  "phase": "wave-1-repair-authority",
+  "generation": 3,
   "completed": [
     "frontend-typescript",
-    "frontend-oxc",
-    "runtime-tracer",
-    "ir-shootout"
+    "frontend-oxc"
   ],
   "active": [],
   "failed": [
     {
       "wave": "wave-1-initial",
       "reason": "configured opencode model kindle-alpha-api was unavailable",
-      "recovery": "retried once with explicit pi runner and kindle-alpha; all four paths passed"
+      "recovery": "retried once with explicit pi runner and kindle-alpha"
+    },
+    {
+      "artifact": "runtime-tracer",
+      "reason": "rejected: tracer generated synthetic data: HTML and fixture functions instead of executing canonical @cloudflare/kumo@2.5.2",
+      "recovery": "replace with actual package-backed React harness and trusted CDP journeys"
+    },
+    {
+      "artifact": "ir-shootout",
+      "reason": "rejected: candidate normalized input was hand-authored synthetic facts and exactness scores were not measured against canonical traces",
+      "recovery": "regenerate candidates only from accepted TypeScript/Oxc facts and repaired canonical traces"
+    },
+    {
+      "artifact": "wave-2-lowerers",
+      "reason": "rejected pending authority repair: deterministic code generation passed but consumed invalid synthetic IR and did not prove visual/behavior parity",
+      "recovery": "retain code only as disposable implementation experiments; rerun from repaired IR"
     }
   ],
   "selection": {
     "frontend": "typescript-primary-with-oxc-syntax-fast-path",
-    "frontendReason": "TypeScript provides required cross-module symbols; oxc is 2.8x faster but syntax-only and retained as a cacheable preparse path.",
-    "ir": "part-first",
-    "irWeightedScore": 96.5
+    "frontendReason": "TypeScript provides cross-module symbols; oxc is faster but syntax-only.",
+    "ir": null
   },
   "next": [
-    "lowering-vue",
-    "lowering-svelte",
-    "lowering-solid",
-    "differential-verifier"
+    "runtime-tracer-authority-repair",
+    "frontend-equivalence-evaluator",
+    "authority-guard",
+    "wave-2-audit",
+    "ir-shootout-repair"
   ],
   "terminal": false,
-  "updatedAt": "2026-06-24T11:22:00.000Z"
+  "updatedAt": "2026-06-24T11:28:00.000Z"
 }

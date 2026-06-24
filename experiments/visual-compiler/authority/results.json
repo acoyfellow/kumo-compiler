@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "kumo.visual-compiler-authority/v1",
+  "status": "failed",
+  "failClosed": true,
+  "deterministic": true,
+  "policyVersion": "1",
+  "inputDigest": "794062830259f391ac7aa569e09e83f07ee2375d549546e77b993ee259ee225a",
+  "checks": [
+    {
+      "id": "tracer-real-package",
+      "status": "passed",
+      "detail": "must attest execution of actual @cloudflare/kumo@2.5.2 imports over served HTTP",
+      "evidence": [
+        "tracer/results.json"
+      ]
+    },
+    {
+      "id": "tracer-content-bindings",
+      "status": "passed",
+      "detail": "package, source, CSS, executable, and browser product hashes are mandatory",
+      "evidence": [
+        "tracer/results.json"
+      ]
+    },
+    {
+      "id": "tracer-trusted-cdp",
+      "status": "passed",
+      "detail": "journeys must name trusted CDP Input actions",
+      "evidence": [
+        "tracer/results.json"
+      ]
+    },
+    {
+      "id": "tracer-no-data-url",
+      "status": "passed",
+      "detail": "tracer source must not contain data-url",
+      "evidence": [
+        "tracer/tracer.mjs"
+      ]
+    },
+    {
+      "id": "tracer-no-fixture-markup",
+      "status": "passed",
+      "detail": "tracer source must not contain fixture-markup",
+      "evidence": [
+        "tracer/tracer.mjs"
+      ]
+    },
+    {
+      "id": "tracer-no-dispatch-event",
+      "status": "passed",
+      "detail": "tracer source must not contain dispatch-event",
+      "evidence": [
+        "tracer/tracer.mjs"
+      ]
+    },
+    {
+      "id": "tracer-no-inline-markup",
+      "status": "passed",
+      "detail": "tracer source must not contain inline-markup",
+      "evidence": [
+        "tracer/tracer.mjs"
+      ]
+    },
+    {
+      "id": "ir-artifact-bindings",
+      "status": "failed",
+      "detail": "IR must bind accepted tracer and frontend result bytes",
+      "evidence": [
+        "ir/results.json"
+      ]
+    },
+    {
+      "id": "ir-measured-scores",
+      "status": "failed",
+      "detail": "every score must equal a recorded measured check",
+      "evidence": [
+        "ir/results.json"
+      ]
+    },
+    {
+      "id": "generic-lowerers",
+      "status": "failed",
+      "detail": "lowerers may not branch on component IDs",
+      "evidence": [
+        "lowering/solid/lower.mjs",
+        "lowering/svelte/lower.mjs",
+        "lowering/vue/lower.mjs"
+      ]
+    },
+    {
+      "id": "verifier-generated-origin",
+      "status": "failed",
+      "detail": "verifier must require lowerer provenance and must not accept copied canonical traces",
+      "evidence": [
+        "verification/verifier.mjs"
+      ]
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 4,
+    "total": 11
+  },
+  "failures": [
+    "ir-artifact-bindings: IR must bind accepted tracer and frontend result bytes",
+    "ir-measured-scores: every score must equal a recorded measured check",
+    "generic-lowerers: lowerers may not branch on component IDs",
+    "verifier-generated-origin: verifier must require lowerer provenance and must not accept copied canonical traces"
+  ],
+  "commands": {
+    "check": "node experiments/visual-compiler/authority/self-check.mjs"
+  }
+}
