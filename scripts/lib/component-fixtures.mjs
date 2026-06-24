@@ -1,3 +1,5 @@
+import {createHash} from 'node:crypto';
+
 // Single framework-neutral product fixture authority for the component catalog.
 // Framework builders may adapt these values to native children/slot APIs, but must
 // not maintain independent fixture content.
@@ -98,5 +100,7 @@ export function fixtureFor(name, contract, symbol){
   }
   if(name==='select'||name==='autocomplete'||name==='combobox')value['aria-label']=value['aria-label']||symbol;
   if(vector?.fixture&&!omitContractFixture.has(name))value.fixture=vector.fixture;
-  return {vector,props:value,children:Object.prototype.hasOwnProperty.call(children,name)?children[name]:symbol.replace(/([a-z])([A-Z])/g,'$1 $2')};
+  const childValue=Object.prototype.hasOwnProperty.call(children,name)?children[name]:symbol.replace(/([a-z])([A-Z])/g,'$1 $2');
+  const authority={component:name,vectorId:vector?.id??null,props:value,children:childValue,reactAdapter:reactComposition[name]??null};
+  return {vector,props:value,children:childValue,digest:createHash('sha256').update(JSON.stringify(authority)).digest('hex')};
 }

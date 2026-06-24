@@ -2,4 +2,4 @@ import React from 'react';
 import {Radio as CanonicalComponent} from '@cloudflare/kumo/components/radio';
 import {fixture} from './fixture.jsx';
 export const packageExport="@cloudflare/kumo/components/radio";
-export function App(){return <main data-canonical-component="radio"><CanonicalComponent aria-label="Plan" defaultValue="free"><CanonicalComponent.Item value="free">Free</CanonicalComponent.Item><CanonicalComponent.Item value="pro">Pro</CanonicalComponent.Item></CanonicalComponent></main>}
+export function App(){return <main data-canonical-component="radio" data-fixture-digest="1a153a3790b3e21346c9698bf193c2d0fbc28d17e82d99901ce3827c086b0e28"><CanonicalComponent aria-label="Plan" defaultValue="free"><CanonicalComponent.Item value="free">Free</CanonicalComponent.Item><CanonicalComponent.Item value="pro">Pro</CanonicalComponent.Item></CanonicalComponent></main>}

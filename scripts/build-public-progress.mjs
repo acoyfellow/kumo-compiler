@@ -3,7 +3,7 @@ import{createHash}from'node:crypto';
 import{resolve}from'node:path';
 const root=resolve(import.meta.dirname,'..');
 const json=async p=>JSON.parse(await readFile(resolve(root,p),'utf8'));
-const [status,canonical,readiness,packages,libraryPages,examples,docs,vueReceipt,svelteReceipt,solidReceipt,nativeDemo,production]=await Promise.all([
+const [status,canonical,readiness,packages,libraryPages,examples,docs,vueReceipt,svelteReceipt,solidReceipt,nativeDemo,componentPages,production]=await Promise.all([
  json('proof/observable-contracts/status.json'),
  json('proof/observable-contracts/canonical.json'),
  json('proof/readiness/latest.json'),
@@ -15,6 +15,7 @@ const [status,canonical,readiness,packages,libraryPages,examples,docs,vueReceipt
  json('proof/dx/conformance/svelte/receipt.json'),
  json('proof/dx/conformance/solid/receipt.json'),
  json('proof/native-demo-fidelity/latest.json').catch(()=>({status:'not-run'})),
+ json('proof/component-pages/latest.json').catch(()=>({status:'not-run'})),
  json('proof/production-terminal/latest.json').catch(()=>({status:'not-run'})),
 ]);
 const componentId=x=>x.replace(/([a-z0-9])([A-Z])/g,'$1-$2').toLowerCase();
@@ -39,7 +40,7 @@ const knownProductGaps=[
  {component:'checkbox/switch',issue:'Visual state currently depends on gallery affordance CSS; native state interaction needs proof.'},
  {component:'field/breadcrumbs',issue:'Generated semantic paths have shown bad output and need source-level repair, not just gallery fixtures.'}
 ];
-const nativeDemoDone=nativeDemo.status==='passed'&&nativeDemo.componentCount===41&&nativeDemo.frameworks?.length===3&&nativeDemo.failures?.length===0?41:0;
+const nativeDemoDone=nativeDemo.status==='passed'&&nativeDemo.componentCount===41&&nativeDemo.frameworks?.length===3&&nativeDemo.failures?.length===0&&componentPages.status==='passed'&&componentPages.componentCount===41&&componentPages.pages?.length===41&&componentPages.failures?.length===0?41:0;
 const phases=[
  {id:'contracts',label:'Canonical contracts',done:status.counts.contracted,total:41,status:status.counts.contracted===41?'passed':'in-progress'},
  {id:'canonical',label:'Canonical browser vectors',done:canonical.counts.passed??0,total:canonical.cells.length,status:canonical.status},

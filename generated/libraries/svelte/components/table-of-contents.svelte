@@ -32,6 +32,13 @@
     ...rest
   }: Props = $props();
   let state_active = $state("exactly as supplied per Item or linked Group; no internal selection state");
+  type TocNode = { export?: string; text?: string; props?: Record<string, unknown>; children?: TocNode[] };
+  const tocFixture = $derived(fixture as TocNode | undefined);
+  const tocChildren = (node: TocNode | undefined): TocNode[] => node?.children ?? [];
+  const tocText = (node: TocNode | undefined): string => node ? String(node.text ?? '') + tocChildren(node).map(tocText).join('') : '';
+  const tocTitle = $derived(tocText(tocChildren(tocFixture).find(node => node.export === '.Title')));
+  const tocList = $derived(tocChildren(tocFixture).find(node => node.export === '.List'));
+  const tocItems = $derived(tocChildren(tocList).flatMap(node => node.export === '.Group' ? [node, ...tocChildren(node)] : [node]).filter(node => node.export === '.Item' || node.export === '.Group').map(node => ({href:String(node.props?.href ?? '#'),active:Boolean(node.props?.active),label:String(node.props?.label ?? tocText(node)),group:node.export === '.Group'})));
 
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "Group": Group, "Item": Item, "List": List, "root": root, "Title": Title, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
@@ -53,29 +60,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if semanticEqual(fixture, {"export":"root","props":{"aria-label":"Article sections"},"children":[{"export":".Title","props":{},"children":[{"text":"On this page"}]},{"export":".List","props":{},"children":[{"export":".Item","props":{"href":"#intro","active":true},"children":[{"text":"Introduction"}]},{"export":".Item","props":{"href":"#install"},"children":[{"text":"Installation"}]}]}]})}
-  <nav aria-label={"Article sections"}>
-    <p>
-      {"On this page"}
-    </p>
-    <ul></ul>
-    <a></a>
-    <a></a>
-  </nav>
-{:else if semanticEqual(fixture, {"export":"root","props":{},"children":[{"export":".List","props":{},"children":[{"export":".Group","props":{"label":"Getting started","href":"#getting-started","active":true},"children":[{"export":".Item","props":{"href":"#install"},"children":[{"text":"Install"}]},{"export":".Item","props":{"href":"#setup"},"children":[{"text":"Setup"}]}]}]}]})}
-  <nav aria-label={"Table of contents"}>
-    <ul></ul>
-    <li></li>
-    <li></li>
-    <a></a>
-    <a></a>
-    <a></a>
-  </nav>
-{:else}
-<section data-kumo-part="root">
-  {#if root}{@render root()}{/if}
-</section>
-<section data-kumo-part="collection">
-  {#if collection}{@render collection()}{/if}
-</section>
-{/if}
+<nav aria-label={String(tocFixture?.props?.['aria-label'] ?? 'Table of contents')}>{#if tocTitle}<p>{tocTitle}</p>{/if}<ul>{#each tocItems as item (item.href)}{#if item.group}<a href={item.href} aria-current={item.active ? 'location' : undefined}>{item.label}</a>{:else}<li><a href={item.href} aria-current={item.active ? 'location' : undefined}>{item.label}</a></li>{/if}{/each}</ul></nav>

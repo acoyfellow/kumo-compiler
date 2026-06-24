@@ -16,6 +16,13 @@ interface TableOfContentsProps {
   semanticContent?: unknown
 }
 const props = withDefaults(defineProps<TableOfContentsProps>(), {})
+type TocNode = { export?: string; text?: string; props?: Record<string, any>; children?: TocNode[] }
+const tocRoot = computed(() => props.fixture as TocNode | undefined)
+const tocChildren = (node?: TocNode) => node?.children ?? []
+const tocText = (node?: TocNode): string => node ? String(node.text ?? '') + tocChildren(node).map(tocText).join('') : ''
+const tocTitle = computed(() => tocText(tocChildren(tocRoot.value).find(node => node.export === '.Title')))
+const tocList = computed(() => tocChildren(tocRoot.value).find(node => node.export === '.List'))
+const tocItems = computed(() => tocChildren(tocList.value).flatMap(node => node.export === '.Group' ? [node, ...tocChildren(node)] : [node]).filter(node => node.export === '.Item' || node.export === '.Group').map(node => ({href:String(node.props?.href ?? '#'),active:Boolean(node.props?.active),label:String(node.props?.label ?? tocText(node)),group:node.export === '.Group'})))
 const slots = useSlots()
 const styles: Record<string,string> = {}
 const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
@@ -27,5 +34,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template v-if="semanticEqual(fixture, {&quot;export&quot;:&quot;root&quot;,&quot;props&quot;:{&quot;aria-label&quot;:&quot;Article sections&quot;},&quot;children&quot;:[{&quot;export&quot;:&quot;.Title&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;text&quot;:&quot;On this page&quot;}]},{&quot;export&quot;:&quot;.List&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;export&quot;:&quot;.Item&quot;,&quot;props&quot;:{&quot;href&quot;:&quot;#intro&quot;,&quot;active&quot;:true},&quot;children&quot;:[{&quot;text&quot;:&quot;Introduction&quot;}]},{&quot;export&quot;:&quot;.Item&quot;,&quot;props&quot;:{&quot;href&quot;:&quot;#install&quot;},&quot;children&quot;:[{&quot;text&quot;:&quot;Installation&quot;}]}]}]})"><nav aria-label="Article sections"><p>{{ "On this page" }}</p><ul></ul><a></a><a></a></nav></template><template v-else-if="semanticEqual(fixture, {&quot;export&quot;:&quot;root&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;export&quot;:&quot;.List&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;export&quot;:&quot;.Group&quot;,&quot;props&quot;:{&quot;label&quot;:&quot;Getting started&quot;,&quot;href&quot;:&quot;#getting-started&quot;,&quot;active&quot;:true},&quot;children&quot;:[{&quot;export&quot;:&quot;.Item&quot;,&quot;props&quot;:{&quot;href&quot;:&quot;#install&quot;},&quot;children&quot;:[{&quot;text&quot;:&quot;Install&quot;}]},{&quot;export&quot;:&quot;.Item&quot;,&quot;props&quot;:{&quot;href&quot;:&quot;#setup&quot;},&quot;children&quot;:[{&quot;text&quot;:&quot;Setup&quot;}]}]}]}]})"><nav aria-label="Table of contents"><ul></ul><li></li><li></li><a></a><a></a><a></a></nav></template><template v-else><div data-kumo-compound="table-of-contents" :class="styles.root"><section data-kumo-part="root"><slot name="root"></slot></section><section data-kumo-part="collection"><slot name="collection"></slot></section></div></template>
+  <nav :aria-label="String((tocRoot?.props as any)?.['aria-label'] ?? 'Table of contents')"><p v-if="tocTitle">{{ tocTitle }}</p><ul><template v-for="item in tocItems" :key="item.href"><a v-if="item.group" :href="item.href" :aria-current="item.active ? 'location' : undefined">{{ item.label }}</a><li v-else><a :href="item.href" :aria-current="item.active ? 'location' : undefined">{{ item.label }}</a></li></template></ul></nav>
 </template>
