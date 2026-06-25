@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "kumo.fanout-blocked/v1",
+  "note": "These 5 remaining overlay components are a DIFFERENT SHAPE from the 7 declarative overlays already done (dropdown-menu/select/dialog/popover/combobox/menu-bar/autocomplete). They are imperative / hook-driven / calendar-grid, which the static-canonical-fixture + Ark-data-part pattern does not cleanly fit. Recorded honestly rather than fabricating non-representative fixtures or thrashing. None are permanently impossible; each needs a different capture approach.",
+  "components": {
+    "toasty": {
+      "reason": "Kumo Toast is IMPERATIVE-only: <Toast.Provider> + Toast.useToastManager(); you call toast(...) to show one. There is no declarative <Toast.Root> to render a stable canonical fixture. Capturing requires orchestrating the manager to emit a toast at render time and waiting for its enter animation to settle — a different harness than the declarative components.",
+      "arkEquivalent": "@ark-ui/<fw>/toast (Toaster + createToaster) — also imperative; mappable but needs an imperative capture harness.",
+      "tractable": true
+    },
+    "sidebar": {
+      "reason": "Sidebar is a LAYOUT SYSTEM driven by useSidebar() hook + <Sidebar.Provider> with expanded/collapsed/mobile states from context, not a single overlay. Canonical fixture must set up the provider + drive state; it is bespoke (no direct Ark primitive — Ark has no 'sidebar').",
+      "arkEquivalent": "none (bespoke; mostly presentation + a collapse toggle — could be native, not Ark)",
+      "tractable": true
+    },
+    "date-picker": {
+      "reason": "Built on react-day-picker; a large calendar grid with mode=single|multiple|range and useState. Canonical fixture is stateful; the rendered grid is big. Ark @ark-ui/<fw>/date-picker exists and is mappable, but the calendar DOM is large and the two libraries' day-grid structure differs (tier C handles structure, but this is a substantial per-state fixture).",
+      "arkEquivalent": "@ark-ui/<fw>/date-picker",
+      "tractable": true
+    },
+    "date-range-picker": {
+      "reason": "Same as date-picker (range mode); large calendar grid, react-day-picker based, stateful.",
+      "arkEquivalent": "@ark-ui/<fw>/date-picker (range)",
+      "tractable": true
+    },
+    "command-palette": {
+      "reason": "A combobox-in-a-dialog: <CommandPalette.Dialog open> wrapping <CommandPalette.Panel items>. Nested overlay (dialog + combobox + zone picker). Mappable as Ark dialog + combobox composed, but it is the most complex composition.",
+      "arkEquivalent": "@ark-ui/<fw>/dialog + @ark-ui/<fw>/combobox composed",
+      "tractable": true
+    }
+  },
+  "recommendation": "Build the live dog-food homepage NOW with the 7 done overlays + the presentational/form set (a real, honest, interactive demo of the compiler working across Vue/Svelte/Solid). Then return for these 5 with shape-appropriate capture harnesses (imperative-toast harness, hook-driven sidebar, calendar-grid date pickers, composed command-palette) — each is its own focused effort, not a blocker to a visible demo."
+}
