@@ -156,7 +156,7 @@ async function overlayPartPixelMismatch(canon, cand, canonPng, candPng){
   // Anchor on the SAME logical popup part in both traces: prefer 'content', else the
   // largest non-root meaningful part. Comparing the popup's own pixels (placement-
   // invariant) proves the menu renders correctly regardless of where it is positioned.
-  const pick = trace => { const mp=meaningfulParts(trace).filter(p=>partKey(p)!=='root'); const byPart=mp.find(p=>partKey(p)==='content'); if(byPart) return byPart; return mp.sort((a,b)=>((b.geometry?.width||0)*(b.geometry?.height||0))-((a.geometry?.width||0)*(a.geometry?.height||0)))[0]; };
+  const pick = trace => { const mp=meaningfulParts(trace).filter(p=>partKey(p)!=='root'); const byPart=mp.find(p=>partKey(p)==='content'); if(byPart) return byPart; const nonRoot=mp.sort((a,b)=>((b.geometry?.width||0)*(b.geometry?.height||0))-((a.geometry?.width||0)*(a.geometry?.height||0)))[0]; if(nonRoot) return nonRoot; return meaningfulParts(trace).find(p=>partKey(p)==='root'); };
   const ce=pick(canon), ae=pick(cand);
   if(!ce||!ae||!ce.geometry||!ae.geometry) return {pct:100, reason:'no popup part'};
   if(!existsSync(canonPng)||!existsSync(candPng)) return {pct:100, reason:'missing screenshot'};

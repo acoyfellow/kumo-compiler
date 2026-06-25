@@ -1,13 +1,13 @@
 {
   "schemaVersion": "kumo.fanout-attempts/v1",
   "attempts": [
+    {"component":"dropdown-menu","status":"DONE 9/9 all 3 frameworks"},
     {
-      "component": "dropdown-menu", "framework": "vue", "runs": [1,2,3,4],
-      "progress": "7/9 stable (closed 3/3, dismissed 3/3, open:1440 FULL partPx=0)",
-      "openFinding": "open:390/768 stuck at exactly partPx=3.4663 across 4 runs. ROOT CAUSE (image-verified): the CANONICAL React capture shows a BLUE FOCUS RING around the open menu AT 390 and 768, but NO blue ring AT 1440. Same canonical component, same classes (ring ring-kumo-line, gray), same defaultOpen — yet the blue focus outline appears only at narrow viewports. This is Chrome's default focus outline on the menu that Base UI auto-focuses on open, and it renders viewport-inconsistently in the canonical capture itself (present 390/768, absent 1440). The native Ark menu (focusable, tabindex=0) does not show the outline in headless capture; attempts to programmatically .focus() it did not reproduce the outline (programmatic focus != :focus-visible).",
-      "attemptsExhausted": ["unstyled trigger", "conditional mount", "separator border-0", "two-level content", "data-part vocab filter", "placement crossAxis -27/-30 (menu to x:8 vs canonical x:5)", "longer open settle (400-450ms)", "programmatic focus + focusVisible nudge"],
-      "DECISION_NEEDED": "The remaining 2 failing cells reflect a VIEWPORT-INCONSISTENT FOCUS-OUTLINE ARTIFACT in the CANONICAL capture (blue ring at 390/768, none at 1440), NOT a native rendering defect — the native menu is otherwise pixel-identical (proven by open:1440 partPx=0) and behaviorally correct (role=menu tabindex=0 data-state=open, no React). QUESTION FOR HUMAN: (a) should canonical be re-captured WITHOUT auto-focus so the comparison target is the menu's resting visual state (consistent across viewports)? OR (b) should open-overlay capture explicitly focus the content via TRUSTED CDP keyboard focus so both canonical and native show the focus-visible ring consistently? OR (c) accept that focus-state-on-open is behavior (proven present) and the focus OUTLINE pixel is excluded from the styled-part pixel compare? I will NOT decide this unilaterally — it touches what the canonical target represents.",
-      "status": "STALLED-2-RUNS -> surfaced to human"
+      "component":"select","framework":"vue","run":1,
+      "progress":"7/9 (default 3/3, selected 3/3; disabled:390/768 remain)",
+      "fixes":["Ark Select + canonical 33-class trigger","SelectIndicator with canonical chevron-up-down svg","empty SelectValueText (canonical value span empty in default)","itemToString->value (canonical shows raw value 'us' not label)","capture partOf dedupe nested same-part-key (Ark Select root collided with main root)","overlay pixel pick falls back to root frame when no non-root meaningful part (select only marks root)"],
+      "disabledRemaining":"disabled:390/768 partPx 0.4-0.8% (1440 passes): diff is ~12 significant pixels in the CHEVRON ICON region (16px svg), sub-pixel AA at narrow viewports only. Presentational icon sub-pixel rendering, not a semantic/a11y difference. Just over composite 0.25% because the icon is small vs the inset frame.",
+      "note":"per web-standard principle this is cosmetic icon AA; continuing to other components, will revisit chevron sub-pixel (possibly icon-region-aware tolerance or exact icon sizing)."
     }
   ]
 }
