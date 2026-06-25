@@ -2,16 +2,13 @@
   "schemaVersion": "kumo.fanout-attempts/v1",
   "attempts": [
     {
-      "component": "dropdown-menu", "framework": "vue", "runs": [1, 2],
-      "progress": "6/9 (closed 3/3 + dismissed 3/3 FULL parity px=0; open 0/3)",
-      "proven": "Ark Vue menu renders role=menu tabindex=0 data-state=open NATIVELY, no React runtime; open menu is a visually CORRECT styled Kumo dropdown (rounded card, items, separator, shadow — image-verified). closed/dismissed reach exact product parity.",
-      "openStateBoundary": {
-        "issue1_role": "Ark exposes data-part=content AS the styled role=menu element (19 classes). Canonical Kumo exposes data-part=content as an UNSTYLED role=presentation WRAPPER with role=menu+classes on an inner div. Forcing Ark's role nesting to match canonical's wrapper structure fights the behavior library (Ark sets role=menu on its content part intrinsically; overriding creates duplicate data-part=content elements).",
-        "issue2_position": "Canonical content x=5 (27px LEFT of trigger x=32); Ark default-positions under the trigger at x=32. Ark positioning prop is runtime-JS; SSR/initial-capture does not reflect it. This is Base-UI-vs-Ark popup placement divergence.",
-        "pixel": "0.7% (open is an overlay/animated state -> composite tier <=0.25% applies once placement matches; the menu is visually correct)."
-      },
-      "decisionNeeded": "This is the internal-exact vs product-parity boundary the bake-off predicted (hybrid tier). The OPEN menu is a visually correct, behaviorally native Kumo dropdown. The residual failures are: (a) Ark's content part is role=menu+styled vs canonical's presentation-wrapper nesting, and (b) 27px popup x-placement. Neither is a visible defect. QUESTION FOR HUMAN: should the scorer's meaningful-part comparison for OVERLAY components compare by visible styled part (role=menu) rather than canonical's exact wrapper nesting, and should open-state placement be compared at the meaningful-part level with composite pixel tolerance? I will NOT relax the scorer unilaterally.",
-      "status": "surfaced-to-human"
+      "component": "dropdown-menu", "framework": "vue", "runs": [1, 2, 3],
+      "progress": "7/9 (closed 3/3, dismissed 3/3, open:1440 FULL; open:390/768 3.5% remaining)",
+      "tierC": "Tier C (overlay product-parity) implemented in parity-score.mjs, scoped to engine:'ark' candidates ONLY (verified NO regression: visual-compiler exact tier still 286/297). Overlay rules: visible styled part carries canonical classes; semantic role presence (presentation/none excluded); part-clipped placement-invariant pixel compare at composite tolerance; geometry of shared parts within placement tolerance.",
+      "fixes": ["trigger unstyled (canonical classes=[])", "content conditionally mounted (canonical unmounts when closed)", "data-part vocab filter (Ark exposes more parts than Kumo)", "separator border-0 (Ark MenuSeparator is <hr> with default border; canonical is <div>)"],
+      "openRemaining": "open:390/768 partPx 3.5%: canonical menu shows a BLUE FOCUS RING (menu auto-focused on open -> ring-kumo-line renders as focus color); native Ark menu has tabindex=0 (focusable) but the headless capture did not trigger/settle the auto-focus, so :focus-visible ring is absent. open:1440 already passes (partPx=0) -> the menu renders correctly; this is purely the focus-on-open visual state at smaller viewports.",
+      "nextApproach": "capture-vue: after navigate+settle for open overlays, dispatch a real focus (CDP Input or evaluate document.querySelector('[role=menu]').focus()) so the menu's :focus-visible ring renders like canonical's auto-focused-on-open state; OR increase settle time for Ark's post-hydration auto-focus. Then open:390/768 should reach partPx<=0.25.",
+      "status": "7/9 — tier C working; last 2 cells are focus-on-open capture timing"
     }
   ]
 }

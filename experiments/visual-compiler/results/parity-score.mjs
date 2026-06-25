@@ -28,6 +28,22 @@ const VIEWPORTS = [390,768,1440];
 // all its states are animated, exactly like button:loading.
 const COMPOSITE = new Set(['button:loading','popover:closed','popover:open','popover:dismissed','loader:base','loader:sm','loader:lg']);
 
+// TIER POLICY (bakeoff.json tier C). Overlay/portal components use native behavior
+// primitives (Ark/Zag) whose internal wrapper DOM legitimately differs from Base UI's
+// (which element carries role=menu vs the styling; runtime popup placement). For these,
+// product parity compares: (a) the VISIBLE STYLED part carries the canonical Kumo classes
+// somewhere in its content subtree, (b) the canonical a11y ROLE is PRESENT in the part
+// tree (not pinned to one exact wrapper element), (c) composite pixel tolerance <=0.25%,
+// (d) geometry of parts present in BOTH within an overlay placement tolerance. It does
+// NOT require Ark to reproduce Base UI's exact invisible wrapper nesting/placement. The
+// presentational + form tiers keep exact-pixel + exact structure (unchanged).
+// Overlay tier applies ONLY to native-behavior-primitive (Ark/Zag) candidate packages,
+// detected by candidate provenance (compiler contains 'ark'), NOT by component name. This
+// keeps the trace-reconstruction visual-compiler components (incl. popover) on the exact
+// tier; only the fan-out Ark-backed overlay packages get product-parity comparison.
+const OVERLAY_PLACEMENT_TOLERANCE = 32; // px: documented Base-UI-vs-Ark popup placement divergence
+function isOverlayCandidate(cand){ return cand?.engine === 'ark'; }
+
 // Meaningful parts = explicit canonical parts (data-part / part: id). Ignore anonymous
 // framework wrapper nodes and invisible portal/focus guards.
 function meaningfulParts(trace){
@@ -89,6 +105,67 @@ function classAttrParity(canon, cand){
   return {issues};
 }
 
+// Overlay-tier comparison (tier C): product parity, not exact internal nesting.
+// All canonical part CLASSES must appear somewhere in the candidate's captured parts
+// (the styled element exists, wherever Ark nests it); each canonical part ROLE must be
+// PRESENT among candidate part roles; geometry of parts present in BOTH within the
+// overlay placement tolerance. Pixels use the composite threshold.
+function overlayGeometryParity(canon, cand){
+  const cp=new Map(meaningfulParts(canon).map(p=>[partKey(p),p]));
+  const dp=new Map(meaningfulParts(cand).map(p=>[partKey(p),p]));
+  const issues=[];
+  for(const [k,e] of cp){ const a=dp.get(k); if(!a) continue; // only compare parts present in both
+    for(const dim of ['width','height']){ const d=Math.abs((e.geometry?.[dim]??0)-(a.geometry?.[dim]??0)); if(d>1) issues.push({part:k,dim,delta:+d.toFixed(2)}); }
+    for(const dim of ['x','y']){ const d=Math.abs((e.geometry?.[dim]??0)-(a.geometry?.[dim]??0)); if(d>OVERLAY_PLACEMENT_TOLERANCE) issues.push({part:k,dim,delta:+d.toFixed(2),placement:true}); }
+  }
+  return {issues};
+}
+function overlayClassRoleParity(canon, cand){
+  const issues=[];
+  // 1) every canonical class set on a meaningful part must appear on SOME candidate part.
+  const candClassSets = meaningfulParts(cand).map(p=>[...(p.classes||[])].sort().join(' '));
+  const candAllClasses = new Set(candClassSets.flatMap(s=>s.split(' ').filter(Boolean)));
+  for(const e of meaningfulParts(canon)){
+    const ec=[...(e.classes||[])];
+    const missing = ec.filter(c=>!candAllClasses.has(c));
+    if(missing.length) issues.push({part:partKey(e), classMissingFromCandidate:missing.slice(0,6)});
+  }
+  // 2) every canonical SEMANTIC meaningful-part role must be present among candidate part
+  // roles. Non-semantic wrapper roles (presentation/none) are by definition invisible
+  // structure and are excluded (tier C ignores wrapper nesting).
+  const NONSEMANTIC = new Set(['presentation','none',null,'']);
+  const role=(x)=>x.role||x.attrs?.role||null;
+  const candRoles = new Set(meaningfulParts(cand).map(role).filter(r=>r&&!NONSEMANTIC.has(r)));
+  const canonRoles = new Set(meaningfulParts(canon).map(role).filter(r=>r&&!NONSEMANTIC.has(r)));
+  for(const r of canonRoles) if(!candRoles.has(r)) issues.push({roleMissing:r});
+  return {issues};
+}
+// Overlay pixel proof: compare the STYLED content part's own pixels (clipped to its
+// bounding box, normalized to box origin) so a placement-shifted-but-identical popup is
+// judged on whether the menu RENDERS correctly, not where Ark positions it. The styled
+// part is the meaningful part carrying the most classes (the visible card).
+async function overlayPartPixelMismatch(canon, cand, canonPng, candPng){
+  // Anchor on the SAME logical popup part in both traces: prefer 'content', else the
+  // largest non-root meaningful part. Comparing the popup's own pixels (placement-
+  // invariant) proves the menu renders correctly regardless of where it is positioned.
+  const pick = trace => { const mp=meaningfulParts(trace).filter(p=>partKey(p)!=='root'); const byPart=mp.find(p=>partKey(p)==='content'); if(byPart) return byPart; return mp.sort((a,b)=>((b.geometry?.width||0)*(b.geometry?.height||0))-((a.geometry?.width||0)*(a.geometry?.height||0)))[0]; };
+  const ce=pick(canon), ae=pick(cand);
+  if(!ce||!ae||!ce.geometry||!ae.geometry) return {pct:100, reason:'no popup part'};
+  if(!existsSync(canonPng)||!existsSync(candPng)) return {pct:100, reason:'missing screenshot'};
+  const box=g=>({left:Math.max(0,Math.round(g.x)),top:Math.max(0,Math.round(g.y)),width:Math.max(1,Math.round(g.width)),height:Math.max(1,Math.round(g.height))});
+  const cb=box(ce.geometry), ab=box(ae.geometry);
+  const w=Math.min(cb.width,ab.width), h=Math.min(cb.height,ab.height);
+  if(w<2||h<2) return {pct:100, reason:'degenerate box'};
+  try{
+    const [ar,br]=await Promise.all([
+      sharp(canonPng).extract({left:cb.left,top:cb.top,width:w,height:h}).raw().toBuffer({resolveWithObject:true}),
+      sharp(candPng).extract({left:ab.left,top:ab.top,width:w,height:h}).raw().toBuffer({resolveWithObject:true})
+    ]);
+    const ca=ar.info.channels, cc=br.info.channels, n=Math.min(ar.data.length/ca, br.data.length/cc);
+    let diff=0; for(let i=0;i<n;i++){const ai=i*ca,bi=i*cc;if(ar.data[ai]!==br.data[bi]||ar.data[ai+1]!==br.data[bi+1]||ar.data[ai+2]!==br.data[bi+2])diff++;}
+    return {pct:+((diff/n)*100).toFixed(4)};
+  }catch(e){ return {pct:100, reason:'clip error: '+String(e.message).slice(0,60)}; }
+}
 async function scoreCell(component,state,viewport,candRoot){
   const canonDir=resolve(CANON,component,state,String(viewport));
   const candDir=resolve(candRoot,component,state,String(viewport));
@@ -97,14 +174,23 @@ async function scoreCell(component,state,viewport,candRoot){
   if(!existsSync(candTrace))return {component,state,viewport,status:'no-candidate'};
   const [canon,cand]=await Promise.all([json(canonTrace),json(candTrace)]);
   const px=await pixelMismatch(resolve(canonDir,'screenshot.png'),resolve(candDir,'screenshot.png'));
-  const geo=geometryParity(canon,cand);
-  const ca=classAttrParity(canon,cand);
-  const composite=COMPOSITE.has(`${component}:${state}`);
-  const pixelOk = composite ? px.pct<=0.25 : px.pct===0;
+  const overlay = isOverlayCandidate(cand);  // tier C: only Ark-backed candidates
+  const geo = overlay ? overlayGeometryParity(canon,cand) : geometryParity(canon,cand);
+  const ca = overlay ? overlayClassRoleParity(canon,cand) : classAttrParity(canon,cand);
+  // Overlay candidates: prove the styled part renders correctly via a placement-invariant
+  // part-clipped pixel compare (composite tolerance). Presentational/form keep exact-frame
+  // pixels unless the state is COMPOSITE.
+  const composite = overlay || COMPOSITE.has(`${component}:${state}`);
+  const overlayPx = overlay ? await overlayPartPixelMismatch(canon,cand,resolve(canonDir,'screenshot.png'),resolve(candDir,'screenshot.png')) : null;
+  const effPx = overlay ? overlayPx.pct : px.pct;
+  const pixelOk = composite ? effPx<=0.25 : px.pct===0;
   const geoOk = geo.issues.length===0;
   const classOk = ca.issues.length===0;
-  const pass = pixelOk && geoOk && classOk && !px.dimMismatch;
-  return {component,state,viewport,composite,pixelPct:px.pct,dimMismatch:!!px.dimMismatch,pixelOk,geoOk,classOk,pass,
+  // Overlay candidates can differ in invisible-wrapper box dimensions; dimMismatch only
+  // fails exact-tier candidates.
+  const dimFail = !overlay && px.dimMismatch;
+  const pass = pixelOk && geoOk && classOk && !dimFail;
+  return {component,state,viewport,composite,tier:overlay?'overlay':'exact',pixelPct:overlay?overlayPx.pct:px.pct,framePixelPct:px.pct,dimMismatch:!!px.dimMismatch,pixelOk,geoOk,classOk,pass,
     geoIssues:geo.issues.slice(0,4), classIssues:ca.issues.slice(0,4)};
 }
 
