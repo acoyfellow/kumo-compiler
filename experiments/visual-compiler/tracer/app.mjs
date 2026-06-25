@@ -31,6 +31,9 @@ import {SensitiveInput} from '@cloudflare/kumo/components/sensitive-input';
 import {Select} from '@cloudflare/kumo/components/select';
 import {Dialog} from '@cloudflare/kumo/components/dialog';
 import {DropdownMenu} from '@cloudflare/kumo/components/dropdown';
+import {Combobox} from '@cloudflare/kumo/components/combobox';
+import {Autocomplete} from '@cloudflare/kumo/components/autocomplete';
+import {MenuBar} from '@cloudflare/kumo/components/menubar';
 
 const h=React.createElement;
 export function App({component,state}){
@@ -69,6 +72,9 @@ export function App({component,state}){
  if(component==='select') child=h(Select,{'data-part':'control','aria-label':'Country',defaultValue:state==='selected'?'us':undefined,disabled:state==='disabled'},h(Select.Option,{value:'us'},'United States'),h(Select.Option,{value:'uk'},'United Kingdom'));
  if(component==='dialog') child=h(Dialog.Root,{defaultOpen:state==='open'},h(Dialog.Trigger,{'data-part':'trigger',onClick:()=>log('click')},'Open dialog'),h(Dialog,{'data-part':'content'},h(Dialog.Title,null,'Confirm action'),h(Dialog.Description,null,'Are you sure?'),h(Dialog.Close,{'data-part':'close'},'Cancel')));
  if(component==='dropdown-menu') child=h(DropdownMenu,{defaultOpen:state==='open'},h(DropdownMenu.Trigger,{'data-part':'trigger',onClick:()=>log('click')},'Menu'),h(DropdownMenu.Content,{'data-part':'content'},h(DropdownMenu.Item,null,'Edit'),h(DropdownMenu.Item,null,'Duplicate'),h(DropdownMenu.Separator),h(DropdownMenu.Item,null,'Delete')));
+ if(component==='combobox'){const items=['United States','United Kingdom','Canada'];child=h(Combobox,{'data-part':'control',items,value:state==='selected'?['United States']:[],defaultOpen:state==='open',onValueChange:v=>log('valueChange',{value:v})},h(Combobox.TriggerInput,{placeholder:'Search…'}),h(Combobox.Content,null,h(Combobox.List,null,items.map(it=>h(Combobox.Item,{key:it,value:it},it)))));}
+ if(component==='autocomplete'){const items=['United States','United Kingdom','Canada'];child=h(Autocomplete,{'data-part':'control',label:'Country',items,defaultOpen:state==='open',inputValue:state==='filled'?'United':undefined},h(Autocomplete.InputGroup),h(Autocomplete.Content,null,h(Autocomplete.List,null,items.map(it=>h(Autocomplete.Item,{key:it,value:it},it)))));}
+ if(component==='menu-bar') child=h(MenuBar,{'data-part':'control',isActive:state==='second'?1:0,options:[{tooltip:'List view',label:'List',onClick:()=>log('click')},{tooltip:'Grid view',label:'Grid',onClick:()=>log('click')},{tooltip:'Board view',label:'Board',onClick:()=>log('click')}]});
  return h('main',{'data-component':component,'data-state':state,'data-part':'root',className:'p-8'},child);
 }
 if(typeof document!=='undefined'){
