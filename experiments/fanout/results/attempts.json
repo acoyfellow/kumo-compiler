@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "kumo.fanout-attempts/v1",
+  "attempts": [
+    {
+      "component": "dropdown-menu",
+      "framework": "vue",
+      "run": 1,
+      "progress": "6/9 (closed+dismissed full; open 3/9 remain)",
+      "proven": "Ark Vue menu renders role=menu tabindex=0 data-state=open NATIVELY (no React runtime) — the exact focus-on-open behavior trace-reconstruction failed on. closed/dismissed reach full product parity (px=0, classes match).",
+      "openStateRemaining": {
+        "geo": "content x-position delta 27px (Ark positioner vs Base UI placement)",
+        "class": "canonical data-part=content is an UNSTYLED presentation wrapper; the 19 Kumo classes live on a SEPARATE inner role=menu div. Native put classes on the data-part=content element. Fix: mark data-part=content on an unstyled wrapper, put contentClass on the inner menu element.",
+        "tier": "open is an overlay state -> belongs in composite tier (<=0.25%) once structure matches"
+      },
+      "nextApproach": "restructure Vue component so data-part=content wraps an inner styled menu div (matching canonical 2-level structure); fix positioner anchoring so content x matches; classify open as composite."
+    }
+  ]
+}
