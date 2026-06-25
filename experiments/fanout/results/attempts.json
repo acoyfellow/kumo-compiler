@@ -2,17 +2,16 @@
   "schemaVersion": "kumo.fanout-attempts/v1",
   "attempts": [
     {
-      "component": "dropdown-menu",
-      "framework": "vue",
-      "run": 1,
-      "progress": "6/9 (closed+dismissed full; open 3/9 remain)",
-      "proven": "Ark Vue menu renders role=menu tabindex=0 data-state=open NATIVELY (no React runtime) — the exact focus-on-open behavior trace-reconstruction failed on. closed/dismissed reach full product parity (px=0, classes match).",
-      "openStateRemaining": {
-        "geo": "content x-position delta 27px (Ark positioner vs Base UI placement)",
-        "class": "canonical data-part=content is an UNSTYLED presentation wrapper; the 19 Kumo classes live on a SEPARATE inner role=menu div. Native put classes on the data-part=content element. Fix: mark data-part=content on an unstyled wrapper, put contentClass on the inner menu element.",
-        "tier": "open is an overlay state -> belongs in composite tier (<=0.25%) once structure matches"
+      "component": "dropdown-menu", "framework": "vue", "runs": [1, 2],
+      "progress": "6/9 (closed 3/3 + dismissed 3/3 FULL parity px=0; open 0/3)",
+      "proven": "Ark Vue menu renders role=menu tabindex=0 data-state=open NATIVELY, no React runtime; open menu is a visually CORRECT styled Kumo dropdown (rounded card, items, separator, shadow — image-verified). closed/dismissed reach exact product parity.",
+      "openStateBoundary": {
+        "issue1_role": "Ark exposes data-part=content AS the styled role=menu element (19 classes). Canonical Kumo exposes data-part=content as an UNSTYLED role=presentation WRAPPER with role=menu+classes on an inner div. Forcing Ark's role nesting to match canonical's wrapper structure fights the behavior library (Ark sets role=menu on its content part intrinsically; overriding creates duplicate data-part=content elements).",
+        "issue2_position": "Canonical content x=5 (27px LEFT of trigger x=32); Ark default-positions under the trigger at x=32. Ark positioning prop is runtime-JS; SSR/initial-capture does not reflect it. This is Base-UI-vs-Ark popup placement divergence.",
+        "pixel": "0.7% (open is an overlay/animated state -> composite tier <=0.25% applies once placement matches; the menu is visually correct)."
       },
-      "nextApproach": "restructure Vue component so data-part=content wraps an inner styled menu div (matching canonical 2-level structure); fix positioner anchoring so content x matches; classify open as composite."
+      "decisionNeeded": "This is the internal-exact vs product-parity boundary the bake-off predicted (hybrid tier). The OPEN menu is a visually correct, behaviorally native Kumo dropdown. The residual failures are: (a) Ark's content part is role=menu+styled vs canonical's presentation-wrapper nesting, and (b) 27px popup x-placement. Neither is a visible defect. QUESTION FOR HUMAN: should the scorer's meaningful-part comparison for OVERLAY components compare by visible styled part (role=menu) rather than canonical's exact wrapper nesting, and should open-state placement be compared at the meaningful-part level with composite pixel tolerance? I will NOT relax the scorer unilaterally.",
+      "status": "surfaced-to-human"
     }
   ]
 }
