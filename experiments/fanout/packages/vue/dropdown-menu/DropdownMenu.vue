@@ -7,7 +7,9 @@ const props = defineProps({ state: { type: String, default: 'closed' }, viewport
 const open = props.state === 'open'
 // Match canonical Base UI placement: menu aligned so its left edge sits ~27px left of the
 // trigger's left (canonical content x=5, trigger x=32). bottom-end + offset reproduces it.
-const positioning = { placement: 'bottom-end', offset: { mainAxis: 8, crossAxis: 0 } }
+// Match canonical Base UI placement (content x=5 vs trigger x=32): align the menu so its
+// left sits ~27px left of the trigger. bottom-start with negative crossAxis reproduces it.
+const positioning = { placement: 'bottom-start', offset: { mainAxis: 8, crossAxis: -30 } }
 // Canonical Kumo dropdown trigger is an UNSTYLED button (classes:[]); styling is the
 // consumer's choice. Match canonical exactly: no trigger classes.
 const contentClass = 'bg-kumo-control data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 min-w-36 overflow-hidden p-1.5 ring ring-kumo-line rounded-lg shadow-lg text-kumo-default'
