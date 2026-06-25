@@ -12,7 +12,9 @@ const props = defineProps({ state: { type: String, default: 'default' }, viewpor
 const collection = createListCollection({ items: [{ value: 'us' }, { value: 'uk' }], itemToString: i => i.value, itemToValue: i => i.value })
 const value = props.state === 'selected' ? ['us'] : []
 const disabled = props.state === 'disabled'
-const triggerClass = '!text-kumo-default *:in-focus:opacity-100 bg-kumo-base border-0 cursor-pointer data-[state=open]:bg-kumo-base disabled:!text-kumo-default/70 disabled:bg-kumo-base/50 disabled:cursor-not-allowed disabled:text-kumo-subtle flex focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-kumo-brand focus:opacity-100 focus:outline-none focus:ring-kumo-focus/50 font-normal gap-1.5 group h-9 items-center justify-between not-disabled:hover:bg-kumo-tint px-3 ring ring-kumo-line rounded-lg select-none shadow-xs shrink-0 text-base w-max'
+// Canonical disabled select trigger adds opacity-50 (state-conditional class).
+const triggerBase = '!text-kumo-default *:in-focus:opacity-100 bg-kumo-base border-0 cursor-pointer data-[state=open]:bg-kumo-base disabled:!text-kumo-default/70 disabled:bg-kumo-base/50 disabled:cursor-not-allowed disabled:text-kumo-subtle flex focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-kumo-brand focus:opacity-100 focus:outline-none focus:ring-kumo-focus/50 font-normal gap-1.5 group h-9 items-center justify-between not-disabled:hover:bg-kumo-tint px-3 ring ring-kumo-line rounded-lg select-none shadow-xs shrink-0 text-base w-max'
+const triggerClass = disabled ? triggerBase + ' opacity-50' : triggerBase
 const valueClass = 'data-[placeholder]:text-kumo-placeholder min-w-0 truncate'
 const indicatorClass = 'flex shrink-0 items-center text-kumo-subtle'
 // Canonical dropdown chevron (chevron-up-down, viewBox 0 0 256 256).
