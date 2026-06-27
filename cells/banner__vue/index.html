@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="data:," />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>banner / vue</title>
+  <link rel="stylesheet" href="./kumo.css" />
+<style id="kumo-gallery-frame-fix">
+  html{background:transparent}
+  body{margin:0;background:transparent;display:flex;align-items:center;justify-content:center;min-height:auto}
+  /* Tame the demo wrapper's large p-8 padding and center its content. */
+  main[data-part="root"]{padding:1.25rem!important;margin:0!important;width:auto!important;
+    display:flex;align-items:center;justify-content:center}
+  /* JS-mounted apps (overlays) mount here. */
+  #app{width:100%;display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+<main class="p-8" data-component="banner" data-part="root" data-state="alert"><div class="bg-kumo-banner-warning flex gap-3 items-start px-4 py-3 rounded-lg text-base text-kumo-warning w-full" data-part="control"><p>Heads up</p></div></main>
+</body>
+</html>

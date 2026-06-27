@@ -1,0 +1,1203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="data:," />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kumo Components · Compiled to native Vue · Svelte · Solid</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <a class="brand" href="#top">
+        <span class="brand-mark">◆</span>
+        <span class="brand-text">Kumo<br/><small>compiler gallery</small></span>
+      </a>
+      <nav class="nav">
+      <div class="nav-group">
+        <a class="nav-link nav-link-cta" href="#get-started">Get started</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-title">Presentational</div>
+        <a class="nav-link" href="#badge">Badge</a>
+        <a class="nav-link" href="#banner">Banner</a>
+        <a class="nav-link" href="#breadcrumbs">Breadcrumbs</a>
+        <a class="nav-link" href="#cloudflare-logo">Cloudflare Logo</a>
+        <a class="nav-link" href="#code">Code</a>
+        <a class="nav-link" href="#empty">Empty</a>
+        <a class="nav-link" href="#grid">Grid</a>
+        <a class="nav-link" href="#grid-item">Grid Item</a>
+        <a class="nav-link" href="#layer-card">Layer Card</a>
+        <a class="nav-link" href="#link">Link</a>
+        <a class="nav-link" href="#loader">Loader</a>
+        <a class="nav-link" href="#meter">Meter</a>
+        <a class="nav-link" href="#surface">Surface</a>
+        <a class="nav-link" href="#table">Table</a>
+        <a class="nav-link" href="#table-of-contents">Table Of Contents</a>
+        <a class="nav-link" href="#text">Text</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-title">Forms & inputs</div>
+        <a class="nav-link" href="#button">Button</a>
+        <a class="nav-link" href="#checkbox">Checkbox</a>
+        <a class="nav-link" href="#clipboard-text">Clipboard Text</a>
+        <a class="nav-link" href="#field">Field</a>
+        <a class="nav-link" href="#input">Input</a>
+        <a class="nav-link" href="#input-area">Input Area</a>
+        <a class="nav-link" href="#input-group">Input Group</a>
+        <a class="nav-link" href="#label">Label</a>
+        <a class="nav-link" href="#pagination">Pagination</a>
+        <a class="nav-link" href="#radio">Radio</a>
+        <a class="nav-link" href="#sensitive-input">Sensitive Input</a>
+        <a class="nav-link" href="#switch">Switch</a>
+      </div>
+      <div class="nav-group">
+        <div class="nav-group-title">Interactive & overlays</div>
+        <a class="nav-link" href="#autocomplete">Autocomplete</a>
+        <a class="nav-link" href="#combobox">Combobox</a>
+        <a class="nav-link" href="#dialog">Dialog</a>
+        <a class="nav-link" href="#dropdown-menu">Dropdown Menu</a>
+        <a class="nav-link" href="#menu-bar">Menu Bar</a>
+        <a class="nav-link" href="#popover">Popover</a>
+        <a class="nav-link" href="#select">Select</a>
+        <a class="nav-link" href="#tabs">Tabs</a>
+      </div>
+      </nav>
+    </aside>
+
+    <main class="main" id="top">
+      <header class="hero">
+        <div class="hero-eyebrow">Component compiler · referencer</div>
+        <h1 class="hero-title">One source. <span class="grad">Native everywhere.</span></h1>
+        <p class="hero-lede">
+          Each Kumo component is authored once as a canonical definition and
+          <strong>compiled to native Vue, Svelte, and Solid</strong> — not wrapped,
+          not transpiled at runtime, but emitted as real framework-native components.
+          Every tile below is the <em>actual compiled output</em>, rendered live in an
+          isolated frame. Open the menus and dialogs: they work.
+        </p>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num">36</span><span class="stat-lbl">components</span></div>
+          <div class="stat"><span class="stat-num">3</span><span class="stat-lbl">native targets</span></div>
+          <div class="stat"><span class="stat-num">108</span><span class="stat-lbl">compiled cells</span></div>
+        </div>
+        <div class="hero-targets">
+          <span class="fw fw-vue">Vue</span>
+          <span class="fw fw-svelte">Svelte</span>
+          <span class="fw fw-solid">Solid</span>
+          <span class="fw fw-react">React<small> · canonical source</small></span>
+        </div>
+        <div class="about" id="about">
+          <h2 class="about-title">About this compiler</h2>
+          <p class="about-text">
+            Kumo is a component compiler. Each component is authored once as a
+            canonical definition — <strong>canonical React is the source of
+            truth</strong> — and compiled to real native Vue, Svelte, and Solid
+            components. The output is genuine framework-native code, not
+            runtime-wrapped React, so every target ships and behaves like a
+            component a human would have written by hand.
+          </p>
+          <a class="about-source" href="https://github.com/acoyfellow/kumo-compiler" target="_blank" rel="noopener noreferrer">
+            <span class="about-source-mark">★</span> View source on GitHub
+          </a>
+        </div>
+      </header>
+
+      <section class="getstarted" id="get-started">
+        <div class="gs-head">
+          <h2 class="gs-title">Get started</h2>
+          <p class="gs-lede">
+            Each target ships as its own native npm package. Install the one for
+            your framework, import a component, render it — no wrappers, no
+            runtime transpile. Every component (e.g. <code class="gs-inline">DropdownMenu</code>)
+            is a named export.
+          </p>
+        </div>
+        <div class="gs-grid">
+          <article class="gs-card">
+            <header class="gs-card-head">
+              <span class="fw fw-vue">Vue</span>
+              <code class="gs-pkg">@acoyfellow/kumo-vue</code>
+            </header>
+            <div class="gs-step">1 · Install</div>
+            <pre class="gs-code"><code>npm i @acoyfellow/kumo-vue</code></pre>
+            <div class="gs-step">2 · Import &amp; use</div>
+            <pre class="gs-code"><code>&lt;script setup&gt;
+import { DropdownMenu } from '@acoyfellow/kumo-vue'
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;DropdownMenu /&gt;
+&lt;/template&gt;</code></pre>
+          </article>
+          <article class="gs-card">
+            <header class="gs-card-head">
+              <span class="fw fw-svelte">Svelte</span>
+              <code class="gs-pkg">@acoyfellow/kumo-svelte</code>
+            </header>
+            <div class="gs-step">1 · Install</div>
+            <pre class="gs-code"><code>npm i @acoyfellow/kumo-svelte</code></pre>
+            <div class="gs-step">2 · Import &amp; use</div>
+            <pre class="gs-code"><code>&lt;script&gt;
+  import { DropdownMenu } from '@acoyfellow/kumo-svelte'
+&lt;/script&gt;
+
+&lt;DropdownMenu /&gt;</code></pre>
+          </article>
+          <article class="gs-card">
+            <header class="gs-card-head">
+              <span class="fw fw-solid">Solid</span>
+              <code class="gs-pkg">@acoyfellow/kumo-solid</code>
+            </header>
+            <div class="gs-step">1 · Install</div>
+            <pre class="gs-code"><code>npm i @acoyfellow/kumo-solid</code></pre>
+            <div class="gs-step">2 · Import &amp; use</div>
+            <pre class="gs-code"><code>import { render } from 'solid-js/web'
+import { DropdownMenu } from '@acoyfellow/kumo-solid'
+
+render(() =&gt; &lt;DropdownMenu /&gt;,
+  document.getElementById('app')!)</code></pre>
+          </article>
+        </div>
+        <p class="gs-note">
+          <strong>Canonical React source</strong> means every component is authored
+          once as a single React-shaped definition; the Vue, Svelte and Solid
+          packages above are <em>compiled from</em> that source, so all three stay
+          in lockstep with one canonical API.
+        </p>
+      </section>
+
+    <div class="group" id="group-presentational">
+      <div class="group-head">
+        <h2 class="group-title">Presentational</h2>
+        <p class="group-blurb">Static, content-driven primitives — rendered server-clean with zero JavaScript where possible.</p>
+      </div>
+      <section class="component" id="badge">
+        <header class="component-head">
+          <h3 class="component-name">Badge</h3>
+          <code class="component-tag">&lt;kumo-badge&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="badge / vue" src="./cells/badge__vue/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="badge / svelte" src="./cells/badge__svelte/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="badge / solid" src="./cells/badge__solid/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="banner">
+        <header class="component-head">
+          <h3 class="component-name">Banner</h3>
+          <code class="component-tag">&lt;kumo-banner&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="banner / vue" src="./cells/banner__vue/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="banner / svelte" src="./cells/banner__svelte/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="banner / solid" src="./cells/banner__solid/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="breadcrumbs">
+        <header class="component-head">
+          <h3 class="component-name">Breadcrumbs</h3>
+          <code class="component-tag">&lt;kumo-breadcrumbs&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="breadcrumbs / vue" src="./cells/breadcrumbs__vue/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="breadcrumbs / svelte" src="./cells/breadcrumbs__svelte/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="breadcrumbs / solid" src="./cells/breadcrumbs__solid/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="cloudflare-logo">
+        <header class="component-head">
+          <h3 class="component-name">Cloudflare Logo</h3>
+          <code class="component-tag">&lt;kumo-cloudflare-logo&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="cloudflare-logo / vue" src="./cells/cloudflare-logo__vue/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="cloudflare-logo / svelte" src="./cells/cloudflare-logo__svelte/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="cloudflare-logo / solid" src="./cells/cloudflare-logo__solid/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="code">
+        <header class="component-head">
+          <h3 class="component-name">Code</h3>
+          <code class="component-tag">&lt;kumo-code&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="code / vue" src="./cells/code__vue/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="code / svelte" src="./cells/code__svelte/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="code / solid" src="./cells/code__solid/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="empty">
+        <header class="component-head">
+          <h3 class="component-name">Empty</h3>
+          <code class="component-tag">&lt;kumo-empty&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="empty / vue" src="./cells/empty__vue/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="empty / svelte" src="./cells/empty__svelte/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="empty / solid" src="./cells/empty__solid/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="grid">
+        <header class="component-head">
+          <h3 class="component-name">Grid</h3>
+          <code class="component-tag">&lt;kumo-grid&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="grid / vue" src="./cells/grid__vue/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="grid / svelte" src="./cells/grid__svelte/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="grid / solid" src="./cells/grid__solid/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="grid-item">
+        <header class="component-head">
+          <h3 class="component-name">Grid Item</h3>
+          <code class="component-tag">&lt;kumo-grid-item&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="grid-item / vue" src="./cells/grid-item__vue/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="grid-item / svelte" src="./cells/grid-item__svelte/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="grid-item / solid" src="./cells/grid-item__solid/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="layer-card">
+        <header class="component-head">
+          <h3 class="component-name">Layer Card</h3>
+          <code class="component-tag">&lt;kumo-layer-card&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="layer-card / vue" src="./cells/layer-card__vue/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="layer-card / svelte" src="./cells/layer-card__svelte/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="layer-card / solid" src="./cells/layer-card__solid/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="link">
+        <header class="component-head">
+          <h3 class="component-name">Link</h3>
+          <code class="component-tag">&lt;kumo-link&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="link / vue" src="./cells/link__vue/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="link / svelte" src="./cells/link__svelte/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="link / solid" src="./cells/link__solid/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="loader">
+        <header class="component-head">
+          <h3 class="component-name">Loader</h3>
+          <code class="component-tag">&lt;kumo-loader&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="loader / vue" src="./cells/loader__vue/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="loader / svelte" src="./cells/loader__svelte/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="loader / solid" src="./cells/loader__solid/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="meter">
+        <header class="component-head">
+          <h3 class="component-name">Meter</h3>
+          <code class="component-tag">&lt;kumo-meter&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="meter / vue" src="./cells/meter__vue/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="meter / svelte" src="./cells/meter__svelte/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="meter / solid" src="./cells/meter__solid/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="surface">
+        <header class="component-head">
+          <h3 class="component-name">Surface</h3>
+          <code class="component-tag">&lt;kumo-surface&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="surface / vue" src="./cells/surface__vue/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="surface / svelte" src="./cells/surface__svelte/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="surface / solid" src="./cells/surface__solid/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="table">
+        <header class="component-head">
+          <h3 class="component-name">Table</h3>
+          <code class="component-tag">&lt;kumo-table&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="table / vue" src="./cells/table__vue/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="table / svelte" src="./cells/table__svelte/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="table / solid" src="./cells/table__solid/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="table-of-contents">
+        <header class="component-head">
+          <h3 class="component-name">Table Of Contents</h3>
+          <code class="component-tag">&lt;kumo-table-of-contents&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="table-of-contents / vue" src="./cells/table-of-contents__vue/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="table-of-contents / svelte" src="./cells/table-of-contents__svelte/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="table-of-contents / solid" src="./cells/table-of-contents__solid/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="text">
+        <header class="component-head">
+          <h3 class="component-name">Text</h3>
+          <code class="component-tag">&lt;kumo-text&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="text / vue" src="./cells/text__vue/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="text / svelte" src="./cells/text__svelte/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="text / solid" src="./cells/text__solid/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+    </div>
+    <div class="group" id="group-forms">
+      <div class="group-head">
+        <h2 class="group-title">Forms & inputs</h2>
+        <p class="group-blurb">Interactive controls — buttons, fields, toggles and selection inputs.</p>
+      </div>
+      <section class="component" id="button">
+        <header class="component-head">
+          <h3 class="component-name">Button</h3>
+          <code class="component-tag">&lt;kumo-button&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="button / vue" src="./cells/button__vue/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="button / svelte" src="./cells/button__svelte/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="button / solid" src="./cells/button__solid/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="checkbox">
+        <header class="component-head">
+          <h3 class="component-name">Checkbox</h3>
+          <code class="component-tag">&lt;kumo-checkbox&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="checkbox / vue" src="./cells/checkbox__vue/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="checkbox / svelte" src="./cells/checkbox__svelte/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="checkbox / solid" src="./cells/checkbox__solid/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="clipboard-text">
+        <header class="component-head">
+          <h3 class="component-name">Clipboard Text</h3>
+          <code class="component-tag">&lt;kumo-clipboard-text&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="clipboard-text / vue" src="./cells/clipboard-text__vue/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="clipboard-text / svelte" src="./cells/clipboard-text__svelte/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="clipboard-text / solid" src="./cells/clipboard-text__solid/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="field">
+        <header class="component-head">
+          <h3 class="component-name">Field</h3>
+          <code class="component-tag">&lt;kumo-field&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="field / vue" src="./cells/field__vue/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="field / svelte" src="./cells/field__svelte/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="field / solid" src="./cells/field__solid/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="input">
+        <header class="component-head">
+          <h3 class="component-name">Input</h3>
+          <code class="component-tag">&lt;kumo-input&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="input / vue" src="./cells/input__vue/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="input / svelte" src="./cells/input__svelte/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="input / solid" src="./cells/input__solid/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="input-area">
+        <header class="component-head">
+          <h3 class="component-name">Input Area</h3>
+          <code class="component-tag">&lt;kumo-input-area&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="input-area / vue" src="./cells/input-area__vue/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="input-area / svelte" src="./cells/input-area__svelte/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="input-area / solid" src="./cells/input-area__solid/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="input-group">
+        <header class="component-head">
+          <h3 class="component-name">Input Group</h3>
+          <code class="component-tag">&lt;kumo-input-group&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="input-group / vue" src="./cells/input-group__vue/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="input-group / svelte" src="./cells/input-group__svelte/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="input-group / solid" src="./cells/input-group__solid/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="label">
+        <header class="component-head">
+          <h3 class="component-name">Label</h3>
+          <code class="component-tag">&lt;kumo-label&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="label / vue" src="./cells/label__vue/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="label / svelte" src="./cells/label__svelte/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="label / solid" src="./cells/label__solid/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="pagination">
+        <header class="component-head">
+          <h3 class="component-name">Pagination</h3>
+          <code class="component-tag">&lt;kumo-pagination&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="pagination / vue" src="./cells/pagination__vue/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="pagination / svelte" src="./cells/pagination__svelte/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="pagination / solid" src="./cells/pagination__solid/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="radio">
+        <header class="component-head">
+          <h3 class="component-name">Radio</h3>
+          <code class="component-tag">&lt;kumo-radio&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="radio / vue" src="./cells/radio__vue/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="radio / svelte" src="./cells/radio__svelte/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="radio / solid" src="./cells/radio__solid/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="sensitive-input">
+        <header class="component-head">
+          <h3 class="component-name">Sensitive Input</h3>
+          <code class="component-tag">&lt;kumo-sensitive-input&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="sensitive-input / vue" src="./cells/sensitive-input__vue/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="sensitive-input / svelte" src="./cells/sensitive-input__svelte/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="sensitive-input / solid" src="./cells/sensitive-input__solid/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="switch">
+        <header class="component-head">
+          <h3 class="component-name">Switch</h3>
+          <code class="component-tag">&lt;kumo-switch&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="switch / vue" src="./cells/switch__vue/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="switch / svelte" src="./cells/switch__svelte/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="switch / solid" src="./cells/switch__solid/index.html" style="width:100%;height:132px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+    </div>
+    <div class="group" id="group-overlays">
+      <div class="group-head">
+        <h2 class="group-title">Interactive & overlays</h2>
+        <p class="group-blurb">Stateful components with floating surfaces — open the menus, dialogs, listboxes and popovers; they really work.</p>
+      </div>
+      <section class="component" id="autocomplete">
+        <header class="component-head">
+          <h3 class="component-name">Autocomplete</h3>
+          <code class="component-tag">&lt;kumo-autocomplete&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants variants-tall">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap" data-overlay="1">
+              <iframe class="cell-frame" loading="lazy" title="autocomplete / vue" src="./cells/autocomplete__vue/index.html" style="width:100%;height:320px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap" data-overlay="1">
+              <iframe class="cell-frame" loading="lazy" title="autocomplete / svelte" src="./cells/autocomplete__svelte/index.html" style="width:100%;height:320px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap" data-overlay="1">
+              <iframe class="cell-frame" loading="lazy" title="autocomplete / solid" src="./cells/autocomplete__solid/index.html" style="width:100%;height:320px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="combobox">
+        <header class="component-head">
+          <h3 class="component-name">Combobox</h3>
+          <code class="component-tag">&lt;kumo-combobox&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants variants-tall">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap" data-overlay="1">
+              <iframe class="cell-frame" loading="lazy" title="combobox / vue" src="./cells/combobox__vue/index.html" style="width:100%;height:320px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap" data-overlay="1">
+              <iframe class="cell-frame" loading="lazy" title="combobox / svelte" src="./cells/combobox__svelte/index.html" style="width:100%;height:320px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap" data-overlay="1">
+              <iframe class="cell-frame" loading="lazy" title="combobox / solid" src="./cells/combobox__solid/index.html" style="width:100%;height:320px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="dialog">
+        <header class="component-head">
+          <h3 class="component-name">Dialog</h3>
+          <code class="component-tag">&lt;kumo-dialog&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants variants-tall">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap" data-overlay="1">
+              <iframe class="cell-frame" loading="lazy" title="dialog / vue" src="./cells/dialog__vue/index.html" style="width:100%;height:320px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap" data-overlay="1">
+              <iframe class="cell-frame" loading="lazy" title="dialog / svelte" src="./cells/dialog__svelte/index.html" style="width:100%;height:320px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap" data-overlay="1">
+              <iframe class="cell-frame" loading="lazy" title="dialog / solid" src="./cells/dialog__solid/index.html" style="width:100%;height:320px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="dropdown-menu">
+        <header class="component-head">
+          <h3 class="component-name">Dropdown Menu</h3>
+          <code class="component-tag">&lt;kumo-dropdown-menu&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants variants-tall">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap" data-overlay="1">
+              <iframe class="cell-frame" loading="lazy" title="dropdown-menu / vue" src="./cells/dropdown-menu__vue/index.html" style="width:100%;height:320px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap" data-overlay="1">
+              <iframe class="cell-frame" loading="lazy" title="dropdown-menu / svelte" src="./cells/dropdown-menu__svelte/index.html" style="width:100%;height:320px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap" data-overlay="1">
+              <iframe class="cell-frame" loading="lazy" title="dropdown-menu / solid" src="./cells/dropdown-menu__solid/index.html" style="width:100%;height:320px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="menu-bar">
+        <header class="component-head">
+          <h3 class="component-name">Menu Bar</h3>
+          <code class="component-tag">&lt;kumo-menu-bar&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants variants-tall">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap" data-overlay="1">
+              <iframe class="cell-frame" loading="lazy" title="menu-bar / vue" src="./cells/menu-bar__vue/index.html" style="width:100%;height:320px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap" data-overlay="1">
+              <iframe class="cell-frame" loading="lazy" title="menu-bar / svelte" src="./cells/menu-bar__svelte/index.html" style="width:100%;height:320px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap" data-overlay="1">
+              <iframe class="cell-frame" loading="lazy" title="menu-bar / solid" src="./cells/menu-bar__solid/index.html" style="width:100%;height:320px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="popover">
+        <header class="component-head">
+          <h3 class="component-name">Popover</h3>
+          <code class="component-tag">&lt;kumo-popover&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants variants-tall">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap" data-overlay="1">
+              <iframe class="cell-frame" loading="lazy" title="popover / vue" src="./cells/popover__vue/index.html" style="width:100%;height:320px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap" data-overlay="1">
+              <iframe class="cell-frame" loading="lazy" title="popover / svelte" src="./cells/popover__svelte/index.html" style="width:100%;height:320px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap" data-overlay="1">
+              <iframe class="cell-frame" loading="lazy" title="popover / solid" src="./cells/popover__solid/index.html" style="width:100%;height:320px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="select">
+        <header class="component-head">
+          <h3 class="component-name">Select</h3>
+          <code class="component-tag">&lt;kumo-select&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants variants-tall">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap" data-overlay="1">
+              <iframe class="cell-frame" loading="lazy" title="select / vue" src="./cells/select__vue/index.html" style="width:100%;height:320px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap" data-overlay="1">
+              <iframe class="cell-frame" loading="lazy" title="select / svelte" src="./cells/select__svelte/index.html" style="width:100%;height:320px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap" data-overlay="1">
+              <iframe class="cell-frame" loading="lazy" title="select / solid" src="./cells/select__solid/index.html" style="width:100%;height:320px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section class="component" id="tabs">
+        <header class="component-head">
+          <h3 class="component-name">Tabs</h3>
+          <code class="component-tag">&lt;kumo-tabs&gt;</code>
+          <span class="variant-count">3 native variants</span>
+        </header>
+        <div class="variants">
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-vue">vue</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="tabs / vue" src="./cells/tabs__vue/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-svelte">svelte</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="tabs / svelte" src="./cells/tabs__svelte/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+          <figure class="variant">
+            <figcaption class="variant-label"><span class="fw fw-solid">solid</span></figcaption>
+            <div class="frame-wrap">
+              <iframe class="cell-frame" loading="lazy" title="tabs / solid" src="./cells/tabs__solid/index.html" style="width:100%;height:120px"></iframe>
+            </div>
+          </figure>
+        </div>
+      </section>
+    </div>
+
+      <footer class="footer">
+        Kumo compiler gallery · 36 components × native Vue/Svelte/Solid ·
+        every frame is real compiled output.
+      </footer>
+    </main>
+  </div>
+  <script>
+  // Content-fit each non-overlay iframe to its component's height so tiles hug
+  // the component instead of being fixed huge boxes. Overlays keep their
+  // reserved min-height so open menus/dialogs/listboxes are never clipped.
+  (function () {
+    var MAX = 480; // safety cap so nothing runs away
+    function fit(frame) {
+      try {
+        var wrap = frame.closest('.frame-wrap');
+        if (wrap && wrap.getAttribute('data-overlay') === '1') return; // leave overlays
+        var doc = frame.contentDocument;
+        if (!doc || !doc.body) return;
+        // Measure the REAL content via body.scrollHeight. (documentElement.scrollHeight
+        // stretches to the iframe's own height, which would create a false floor.)
+        var h = doc.body.scrollHeight;
+        if (!h) return;
+        h = Math.max(56, Math.min(h, MAX));
+        frame.style.height = h + 'px';
+      } catch (e) { /* same-origin only; ignore */ }
+    }
+    function bind(frame) {
+      var run = function () { fit(frame); setTimeout(function () { fit(frame); }, 200); setTimeout(function () { fit(frame); }, 600); };
+      frame.addEventListener('load', run);
+      try {
+        if (frame.contentDocument && frame.contentDocument.readyState === 'complete') run();
+      } catch (e) {}
+    }
+    var frames = document.querySelectorAll('iframe.cell-frame');
+    for (var i = 0; i < frames.length; i++) bind(frames[i]);
+    window.addEventListener('resize', function () {
+      for (var j = 0; j < frames.length; j++) fit(frames[j]);
+    });
+  })();
+  </script>
+</body>
+</html>

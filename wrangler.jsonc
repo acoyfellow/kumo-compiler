@@ -1,0 +1,14 @@
+{
+  // Kumo compiler gallery — deploy as a Cloudflare static-assets site.
+  // Deploy:  npx wrangler deploy   (run from experiments/o3/gallery/)
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "kumo-compiler-gallery",
+  "compatibility_date": "2025-06-01",
+  "account_id": "31b91e7f9954ad8aa334d46f012bd8ed",
+  "assets": {
+    // Serve this directory (the gallery root) as a fully static site.
+    "directory": "./",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}

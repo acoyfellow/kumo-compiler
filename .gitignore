@@ -1,0 +1,22 @@
+# Dependencies — never commit installed packages
+node_modules/
+cells/*/node_modules/
+**/node_modules/
+
+# Build / framework caches
+.wrangler/
+.cache/
+.turbo/
+
+# Per-cell intermediate build output (the served output lives in cells/<cell>/index.html + kumo.css)
+cells/*/dist/
+
+# Logs & OS cruft
+*.log
+npm-debug.log*
+.DS_Store
+
+# Local env
+.env
+.env.*
+!.env.example

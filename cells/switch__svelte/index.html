@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="data:," />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>switch / svelte</title>
+  <link rel="stylesheet" href="./kumo.css" />
+<style id="kumo-gallery-frame-fix">
+  html{background:transparent}
+  body{margin:0;background:transparent;display:flex;align-items:center;justify-content:center;min-height:auto}
+  /* Tame the demo wrapper's large p-8 padding and center its content. */
+  main[data-part="root"]{padding:1.25rem!important;margin:0!important;width:auto!important;
+    display:flex;align-items:center;justify-content:center}
+  /* JS-mounted apps (overlays) mount here. */
+  #app{width:100%;display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+<main class="p-8" data-component="switch" data-part="root" data-state="disabled"><div class="[&amp;&gt;label]:flex-1 gap-2 grid has-[[role=switch]]:flex has-[[role=switch]]:flex-row-reverse has-[[role=switch]]:flex-wrap has-[[role=switch]]:grid-cols-[auto_1fr] has-[[role=switch]]:items-center has-[input[type=checkbox]]:flex has-[input[type=checkbox]]:flex-row-reverse has-[input[type=checkbox]]:flex-wrap has-[input[type=checkbox]]:grid-cols-[auto_1fr] has-[input[type=checkbox]]:items-center"><label class="font-medium m-0 select-none text-base text-kumo-default" for="base-ui-_R_0_" id="base-ui-_R_3_"><span class="gap-1 inline-flex items-center">Enable notifications</span></label><button class="[corner-shape:squircle] bg-neutral-200 border-none cursor-pointer dark:bg-neutral-700 dark:ring-neutral-600 disabled:cursor-not-allowed disabled:opacity-50 duration-150 ease-out focus-visible:ring-2 focus-visible:ring-kumo-brand focus:outline-none h-4.5 inline-flex items-center motion-reduce:transition-none p-0 relative ring ring-neutral-300 rounded-[5px] supports-[corner-shape:squircle]:rounded-[10px] transition-colors w-9" aria-checked="false" aria-label="Enable notifications" aria-labelledby="base-ui-_R_3_" data-disabled="" data-kumo-component="Switch" data-part="control" data-unchecked="" disabled="" id="base-ui-_R_0_" role="switch" tabindex="0" type="button"><div class="[corner-shape:squircle] absolute bg-kumo-base bottom-0 dark:bg-neutral-850 duration-150 ease-out left-0 motion-reduce:transition-none rounded-[5px] shadow-[0_0_1px_0.5px_var(--color-kumo-shadow-edge),0_1px_2px_var(--color-kumo-shadow-drop)] supports-[corner-shape:squircle]:rounded-[10px] top-0 transition-all w-4.5"></div></button><input aria-hidden="true" disabled="" style="clip-path:inset(50%);overflow:hidden;white-space:nowrap;border:0;padding:0;width:1px;height:1px;margin:-1px;position:fixed;top:0;left:0" tabindex="-1" type="checkbox"></input></div></main>
+</body>
+</html>
