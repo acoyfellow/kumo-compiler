@@ -1,1 +1,0 @@
-import solid from'vite-plugin-solid';import{defineConfig}from'vite';export default defineConfig({base:'./',plugins:[solid()],build:{outDir:'public-runtime',emptyOutDir:true,rollupOptions:{output:{entryFileNames:'assets/solid-data-presentational.js'}}}});

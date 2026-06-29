@@ -109,8 +109,6 @@ This repo contains both the compiler and the gallery site.
 | `proof/`, `benchmarks/` | Accepted evidence and receipts. |
 | `scripts/` | Operator and verification scripts. |
 
-The machine-readable version is [`repository-map.json`](repository-map.json).
-
 ### Gallery / referencer site
 
 | Path | What it is |

@@ -1,1 +1,0 @@
-import{defineConfig}from'vite';export default defineConfig({base:'./',plugins:[],build:{outDir:'public-runtime',emptyOutDir:true,rollupOptions:{output:{entryFileNames:'assets/react-date-range-picker.js'}}}});

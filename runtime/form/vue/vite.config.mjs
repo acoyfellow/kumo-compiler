@@ -1,1 +1,0 @@
-import{defineConfig}from'vite';import vue from'@vitejs/plugin-vue';export default defineConfig({base:'/form/vue/',plugins:[vue()],build:{outDir:'public-runtime',emptyOutDir:true,rollupOptions:{input:'src/main.js',output:{entryFileNames:'assets/vue-form.js',assetFileNames:'assets/[name][extname]'}}}})

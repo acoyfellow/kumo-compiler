@@ -1,1 +1,0 @@
-import{defineConfig}from'vite';export default defineConfig({base:'/form/react/',build:{outDir:'public-runtime',emptyOutDir:true,rollupOptions:{input:'src/main.js',output:{entryFileNames:'assets/react-form.js',assetFileNames:'assets/[name][extname]'}}}})

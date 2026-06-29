@@ -1,1 +1,0 @@
-import'../../../../public/form.css';import React from'react';import{hydrateRoot}from'react-dom/client';hydrateRoot(document.getElementById('app'),React.createElement(React.Fragment));const root=document.getElementById('app');root.dataset.hydration='ready';

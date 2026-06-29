@@ -1,2 +1,0 @@
-import {For,createSignal} from 'solid-js';
-const options=["Free","Pro"] as const;export default function Radio(){const [value,setValue]=createSignal('Free');return <main class="selection-shell"><h1>Radio</h1><fieldset><legend>Plan</legend><For each={options}>{option=><label><input type="radio" name="plan" value={option} checked={value()===option} onChange={()=>setValue(option)}/> {option}</label>}</For></fieldset></main>}

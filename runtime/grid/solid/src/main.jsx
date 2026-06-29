@@ -1,1 +1,0 @@
-import'./style.css';import{hydrate}from'solid-js/web';function App(){return <div innerHTML={"<main class=\"data-shell\"><h1>Grid</h1><div class=\"demo\" id=\"details\"><div class=\"grid\"><div class=\"grid-item\">Analytics</div><div class=\"grid-item\">Workers</div><div class=\"grid-item\">DNS</div></div></div></main>"}/>}hydrate(()=><App/>,document.getElementById('app'));
