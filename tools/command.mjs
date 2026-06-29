@@ -7,6 +7,7 @@ const flows={
     [process.execPath,['--test','test/observable-contracts.test.mjs','test/observable-status.test.mjs']],
   ],
   generate:[
+    [process.execPath,['scripts/build-canonical-react-runtimes.mjs']],
     [process.execPath,['scripts/build-visual-contract.mjs']],
     [process.execPath,['src/kumo/library/generate.mjs']],
     [process.execPath,['src/kumo/emitters/vue/index.mjs']],
