@@ -12,6 +12,23 @@ const root = path.resolve(here, '../../../..');
 const visualContract = JSON.parse(fs.readFileSync(path.join(root,'generated/visual-contract.json'),'utf8'));
 const esc = value => String(value).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 const directive = value => String(value).replaceAll('&','&amp;').replaceAll('"','&quot;');
+// Build a ternary chain that picks the real per-variant Kumo class string for a
+// native button, defaulting to the canonical default variant's classes.
+const nativeButtonVariantExpression = (nativeButton, accessor) => {
+  const {styleVariants, defaultVariant} = nativeButton;
+  const fallbackEntry = styleVariants.find(v => v.when.variant === defaultVariant) ?? styleVariants[0];
+  const others = styleVariants.filter(v => v.when.variant !== defaultVariant);
+  const chain = others.map(v => `${accessor} === ${JSON.stringify(v.when.variant)} ? ${JSON.stringify(v.classes.join(' '))}`).join(' : ');
+  const fallbackClasses = JSON.stringify(fallbackEntry.classes.join(' '));
+  return others.length ? `${chain} : ${fallbackClasses}` : fallbackClasses;
+};
+// Real per-variant Kumo Badge classes, copied verbatim from @cloudflare/kumo
+// badge.d.ts KUMO_BADGE_VARIANTS (filled appearance) + KUMO_BADGE_BASE_STYLES.
+// Not invented, not button's, not inline styles: the same tokens React Kumo ships.
+const KUMO_BADGE_BASE_STYLES = 'inline-flex w-fit flex-none shrink-0 items-center justify-self-start rounded-full px-2 py-0.5 text-xs font-medium whitespace-nowrap';
+const KUMO_BADGE_VARIANT_CLASSES = {primary:'bg-kumo-badge-inverted text-kumo-badge-inverted',secondary:'bg-kumo-fill text-kumo-badge-neutral-subtle',error:'bg-kumo-danger-tint/60 text-kumo-danger',warning:'bg-kumo-warning-tint/70 text-kumo-warning',success:'bg-kumo-success-tint/70 text-kumo-success',destructive:'bg-kumo-badge-red text-white',info:'bg-kumo-info-tint/70 text-kumo-info',beta:'border border-dashed border-kumo-brand bg-transparent text-kumo-link',outline:'border border-kumo-fill bg-transparent text-kumo-default',red:'bg-kumo-badge-red text-white',green:'bg-kumo-badge-green text-white',neutral:'bg-kumo-badge-neutral text-white',orange:'bg-kumo-badge-orange text-black',purple:'bg-kumo-badge-purple text-white',teal:'bg-kumo-badge-teal text-white','teal-subtle':'bg-kumo-badge-teal-subtle text-kumo-badge-teal-subtle',blue:'bg-kumo-badge-blue text-white'};
+const badgeStyleVariants = () => Object.entries(KUMO_BADGE_VARIANT_CLASSES).map(([variant, cls]) => ({when:{variant}, classes:`${KUMO_BADGE_BASE_STYLES} ${cls}`.split(/\s+/).filter(Boolean)}));
+const badgeVariantExpression = accessor => nativeButtonVariantExpression({styleVariants: badgeStyleVariants(), defaultVariant: 'primary'}, accessor);
 const id = value => value.replace(/[^A-Za-z0-9_$]/g, '_').replace(/^([0-9])/, '_$1');
 const pascal = value => value.split(/[-_ ]+/).map(x => x[0]?.toUpperCase() + x.slice(1)).join('');
 const sha = value => crypto.createHash('sha256').update(value).digest('hex');
@@ -143,7 +160,8 @@ function fieldCompositionControl(model, library) {
   if (library.fieldComposition?.support !== 'supported') return null;
   return library.fieldComposition.controls.find(control => control.component === model.component) ?? null;
 }
-function nativeInputSource({behavior,field}, composition) {
+function nativeInputSource({behavior,field}, composition, model) {
+  const ownedControlId = composition?.ownsControl ? `kumo-${sha(model.modelDigest).slice(0,12)}` : null;
   const composedTemplate = composition?.ownsControl
     ? `<div v-if="props.label !== undefined"><label :for="controlId">{{ props.label }}</label><${field.root} v-bind="nativeAttrs" :id="controlId" :aria-label="nativeAriaLabel" :value="props.${behavior.uncontrolled.prop}" :disabled="props.disabled || undefined" @input="handleNativeInput"${field.root==='input'?' />':`>{{ props.${behavior.uncontrolled.prop} }}</${field.root}>`}</div><${field.root} v-else v-bind="nativeAttrs" :aria-label="nativeAriaLabel" :value="props.${behavior.uncontrolled.prop}" :disabled="props.disabled || undefined" @input="handleNativeInput"${field.root==='input'?' />':`>{{ props.${behavior.uncontrolled.prop} }}</${field.root}>`}`
     : null;
@@ -155,7 +173,7 @@ function nativeInputSource({behavior,field}, composition) {
       {name:'label',required:false,type:'string'},
       {name:'onChange',required:false,type:'unknown'},
     ],
-    setup:`const nativeAttrs = computed(() => Object.fromEntries(Object.entries(useAttrs()).filter(([name]) => name !== 'id').map(([name, value]) => [name.replace(/[A-Z]/g, letter => '-' + letter.toLowerCase()), value])))\nconst nativeAriaLabel = computed(() => (props as any).ariaLabel ?? (props as any)['aria-label'])\n${composition?.ownsControl ? "const controlId = useId()\n" : ''}function handleNativeInput(event: Event) {\n  props.onChange?.((event.currentTarget as HTMLInputElement | HTMLTextAreaElement).value)\n}\n`,
+    setup:`const nativeAttrs = computed(() => Object.fromEntries(Object.entries(useAttrs()).filter(([name]) => name !== 'id').map(([name, value]) => [name.replace(/[A-Z]/g, letter => '-' + letter.toLowerCase()), value])))\nconst nativeAriaLabel = computed(() => (props as any).ariaLabel ?? (props as any)['aria-label'])\n${composition?.ownsControl ? `const controlId = ${JSON.stringify(ownedControlId)}\n` : ''}function handleNativeInput(event: Event) {\n  props.onChange?.((event.currentTarget as HTMLInputElement | HTMLTextAreaElement).value)\n}\n`,
     template:composedTemplate ?? `<${field.root} v-bind="nativeAttrs" :aria-label="nativeAriaLabel" :value="props.${behavior.uncontrolled.prop}" :disabled="props.disabled || undefined" @input="handleNativeInput"${field.root==='input'?' />':`>{{ props.${behavior.uncontrolled.prop} }}</${field.root}>`}`
   };
 }
@@ -592,10 +610,10 @@ function inputGroupBinding(model, library) {
   if (capability?.support !== 'supported' || model.component !== capability.component) return null;
   return capability;
 }
-function inputGroupSource() {
+function inputGroupSource(model) {
   return {
     options:`defineOptions({ inheritAttrs: false })\n`,
-    imports:'computed, ref, useAttrs, useId, useSlots',
+    imports:'computed, ref, useAttrs, useSlots',
     setup:`type InputGroupFixtureNode = { export?: string; text?: string; props?: Record<string, unknown>; children?: InputGroupFixtureNode[] }
 const inputGroupFixture = computed(() => props.fixture as InputGroupFixtureNode | undefined)
 const fixtureChildren = (node?: InputGroupFixtureNode) => node?.children ?? []
@@ -603,7 +621,7 @@ const fixturePart = (name: string) => fixtureChildren(inputGroupFixture.value).f
 const partText = (node?: InputGroupFixtureNode): string => node ? String(node.text ?? '') + fixtureChildren(node).map(partText).join('') : ''
 const inputGroupProps = computed(() => inputGroupFixture.value?.props ?? {})
 const inputPart = computed(() => fixturePart('.Input'))
-const inputId = useId()
+const inputId = ${JSON.stringify(`kumo-${sha(model.modelDigest).slice(0,12)}`)}
 const inputValue = ref('')
 function trackInput(event: Event) { inputValue.value = (event.currentTarget as HTMLInputElement).value }
 `,
@@ -921,7 +939,7 @@ function emitComponent(model, library) {
   const declaredProps = new Map(model.props.items.map(p => [p.name,p]));
   const composition = fieldCompositionControl(model, library);
   const nativeInput = nativeInputBinding(model, library);
-  const loweredNativeInput = nativeInput && nativeInputSource(nativeInput, composition);
+  const loweredNativeInput = nativeInput && nativeInputSource(nativeInput, composition, model);
   const clipboardCopy = clipboardCopyBinding(model, library);
   const loweredClipboardCopy = clipboardCopy && clipboardCopySource(clipboardCopy);
   const datePicker = datePickerBinding(model, library);
@@ -947,7 +965,7 @@ function emitComponent(model, library) {
   const popoverLayer = popoverLayerBinding(model, library);
   const loweredPopoverLayer = popoverLayer && popoverLayerSource();
   const inputGroup = inputGroupBinding(model, library);
-  const loweredInputGroup = inputGroup && inputGroupSource();
+  const loweredInputGroup = inputGroup && inputGroupSource(model);
   const dropdownMenuLayer = dropdownMenuLayerBinding(model, library);
   const loweredDropdownMenuLayer = dropdownMenuLayer && dropdownMenuLayerSource();
   const combobox = comboboxBinding(model, library);
@@ -996,15 +1014,17 @@ function emitComponent(model, library) {
   const nativeButton = model.interactions?.nativeButton;
   const toggle = toggleBinding(model, library);
   const loweredToggle = toggle && toggleSource(toggle);
-  const visualSimpleFallback = visualSimple ? `<${visualSimple.root.tag} v-bind="$attrs" class="${visualSimple.root.className}"><slot /></${visualSimple.root.tag}>` : null;
+  const visualSimpleFallback = visualSimple ? (model.component === 'badge'
+    ? `<${visualSimple.root.tag} v-bind="$attrs" :class="${directive(badgeVariantExpression('props.variant'))}"><slot /></${visualSimple.root.tag}>`
+    : `<${visualSimple.root.tag} v-bind="$attrs" class="${visualSimple.root.className}"><slot /></${visualSimple.root.tag}>`) : null;
   const fallback = visualSimpleFallback ?? loweredTableOfContents?.template ?? loweredSelect?.template ?? loweredDatePicker?.template ?? loweredDateRangePicker?.template ?? loweredToastLifecycle?.template ?? loweredResponsiveSidebar?.template ?? loweredCommandPalette?.template ?? loweredAutocomplete?.template ?? loweredCombobox?.template ?? loweredSensitiveInput?.template ?? loweredInputGroup?.template ?? loweredDropdownMenuLayer?.template ?? loweredPopoverLayer?.template ?? loweredDialogLayer?.template ?? loweredMenubarNavigation?.template ?? loweredTabsNavigation?.template ?? loweredRadioGroup?.template ?? loweredPagination?.template ?? loweredClipboardCopy?.template ?? loweredToggle?.template ?? loweredNativeInput?.template ?? (nativeButton
-    ? `<button v-bind="$attrs" class="${visualContract.components.button.root.className}" :type="($attrs.type as any) ?? 'button'" :disabled="props.disabled || props.loading"><svg v-if="props.loading" aria-hidden="true"></svg><slot /></button>`
+    ? `<button v-bind="$attrs" :class="${directive(nativeButtonVariantExpression(nativeButton, 'props.variant'))}" :type="($attrs.type as any) ?? 'button'" :disabled="props.disabled || props.loading"><svg v-if="props.loading" aria-hidden="true"></svg><slot /></button>`
     : node(implementation.componentRoot));
   const composedField = composition && !composition.ownsControl
     ? `<${composition.container}><label :for="String((props as any).childId ?? $attrs['child-id'] ?? 'field-control')">{{ (props as any).label }}</label><slot /></${composition.container}>`
     : null;
   const template = composedField ?? (semantic ? `${semantic}<template v-else>${fallback}</template>` : fallback);
-  return `<!-- @generated by src/kumo/emitters/vue/index.mjs; do not edit -->\n<script lang="ts">\nexport const modelDigest = ${JSON.stringify(model.modelDigest)}\nexport const contentBindingDigest = ${JSON.stringify(contentBindingDigest)}\n</script>\n\n<script setup lang="ts">\n${loweredTableOfContents?.options ?? loweredSelect?.options ?? loweredDatePicker?.options ?? loweredDateRangePicker?.options ?? loweredToastLifecycle?.options ?? loweredResponsiveSidebar?.options ?? loweredCommandPalette?.options ?? loweredAutocomplete?.options ?? loweredCombobox?.options ?? loweredSensitiveInput?.options ?? loweredInputGroup?.options ?? loweredDropdownMenuLayer?.options ?? loweredPopoverLayer?.options ?? loweredDialogLayer?.options ?? loweredMenubarNavigation?.options ?? loweredTabsNavigation?.options ?? loweredRadioGroup?.options ?? loweredToggle?.options ?? loweredNativeInput?.options ?? (nativeButton ? 'defineOptions({ inheritAttrs: false })\n' : '')}import { ${loweredTableOfContents?.imports ?? loweredSelect?.imports ?? loweredDatePicker?.imports ?? loweredDateRangePicker?.imports ?? loweredToastLifecycle?.imports ?? loweredResponsiveSidebar?.imports ?? loweredCommandPalette?.imports ?? loweredAutocomplete?.imports ?? loweredCombobox?.imports ?? loweredSensitiveInput?.imports ?? loweredInputGroup?.imports ?? loweredDropdownMenuLayer?.imports ?? loweredPopoverLayer?.imports ?? loweredDialogLayer?.imports ?? loweredMenubarNavigation?.imports ?? loweredTabsNavigation?.imports ?? loweredRadioGroup?.imports ?? loweredPagination?.imports ?? loweredClipboardCopy?.imports ?? loweredToggle?.imports ?? (composition?.ownsControl ? 'computed, useAttrs, useId, useSlots' : 'computed, useAttrs, useSlots')} } from 'vue'\ninterface ${model.public.symbol}Props {\n${props}\n  fixture?: unknown\n  semanticContent?: unknown\n}\nconst props = withDefaults(defineProps<${model.public.symbol}Props>(), ${JSON.stringify(defaults)})\n${loweredTableOfContents?.setup ?? loweredSelect?.setup ?? loweredDatePicker?.setup ?? loweredDateRangePicker?.setup ?? loweredToastLifecycle?.setup ?? loweredResponsiveSidebar?.setup ?? loweredCommandPalette?.setup ?? loweredAutocomplete?.setup ?? loweredCombobox?.setup ?? loweredSensitiveInput?.setup ?? loweredInputGroup?.setup ?? loweredDropdownMenuLayer?.setup ?? loweredPopoverLayer?.setup ?? loweredDialogLayer?.setup ?? loweredMenubarNavigation?.setup ?? loweredTabsNavigation?.setup ?? loweredRadioGroup?.setup ?? loweredPagination?.setup ?? loweredClipboardCopy?.setup ?? loweredToggle?.setup ?? loweredNativeInput?.setup ?? ''}const slots = useSlots()\nconst styles: Record<string,string> = {}\nconst normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
+  return `<!-- @generated by src/kumo/emitters/vue/index.mjs; do not edit -->\n<script lang="ts">\nexport const modelDigest = ${JSON.stringify(model.modelDigest)}\nexport const contentBindingDigest = ${JSON.stringify(contentBindingDigest)}\n</script>\n\n<script setup lang="ts">\n${loweredTableOfContents?.options ?? loweredSelect?.options ?? loweredDatePicker?.options ?? loweredDateRangePicker?.options ?? loweredToastLifecycle?.options ?? loweredResponsiveSidebar?.options ?? loweredCommandPalette?.options ?? loweredAutocomplete?.options ?? loweredCombobox?.options ?? loweredSensitiveInput?.options ?? loweredInputGroup?.options ?? loweredDropdownMenuLayer?.options ?? loweredPopoverLayer?.options ?? loweredDialogLayer?.options ?? loweredMenubarNavigation?.options ?? loweredTabsNavigation?.options ?? loweredRadioGroup?.options ?? loweredToggle?.options ?? loweredNativeInput?.options ?? (nativeButton ? 'defineOptions({ inheritAttrs: false })\n' : '')}import { ${loweredTableOfContents?.imports ?? loweredSelect?.imports ?? loweredDatePicker?.imports ?? loweredDateRangePicker?.imports ?? loweredToastLifecycle?.imports ?? loweredResponsiveSidebar?.imports ?? loweredCommandPalette?.imports ?? loweredAutocomplete?.imports ?? loweredCombobox?.imports ?? loweredSensitiveInput?.imports ?? loweredInputGroup?.imports ?? loweredDropdownMenuLayer?.imports ?? loweredPopoverLayer?.imports ?? loweredDialogLayer?.imports ?? loweredMenubarNavigation?.imports ?? loweredTabsNavigation?.imports ?? loweredRadioGroup?.imports ?? loweredPagination?.imports ?? loweredClipboardCopy?.imports ?? loweredToggle?.imports ?? 'computed, useAttrs, useSlots'} } from 'vue'\ninterface ${model.public.symbol}Props {\n${props}\n  fixture?: unknown\n  semanticContent?: unknown\n}\nconst props = withDefaults(defineProps<${model.public.symbol}Props>(), ${JSON.stringify(defaults)})\n${loweredTableOfContents?.setup ?? loweredSelect?.setup ?? loweredDatePicker?.setup ?? loweredDateRangePicker?.setup ?? loweredToastLifecycle?.setup ?? loweredResponsiveSidebar?.setup ?? loweredCommandPalette?.setup ?? loweredAutocomplete?.setup ?? loweredCombobox?.setup ?? loweredSensitiveInput?.setup ?? loweredInputGroup?.setup ?? loweredDropdownMenuLayer?.setup ?? loweredPopoverLayer?.setup ?? loweredDialogLayer?.setup ?? loweredMenubarNavigation?.setup ?? loweredTabsNavigation?.setup ?? loweredRadioGroup?.setup ?? loweredPagination?.setup ?? loweredClipboardCopy?.setup ?? loweredToggle?.setup ?? loweredNativeInput?.setup ?? ''}const slots = useSlots()\nconst styles: Record<string,string> = {}\nconst normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
 const renderContent = () => props.semanticContent ?? normalizeSlotContent(slots.default?.())\nconst fixture = computed(() => props.fixture)\nconst semanticValues = Object.assign({}, useAttrs(), props) as Record<string, unknown>\nconst semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right)\nconst fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : ''\n</script>\n\n<template>\n  ${template}\n</template>\n`;
 }
 export function generateVueLibrary(output = path.join(root, 'generated/libraries/vue')) {

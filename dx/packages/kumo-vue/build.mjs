@@ -26,6 +26,7 @@ for (const file of vueFiles) {
   const symbol = canonical.components.find(component => `${component.component}.vue` === file)?.symbol
   const componentName = `Kumo${symbol ?? file.replace(/\.vue$/, '').split(/[.-]/).map(part => part[0]?.toUpperCase()+part.slice(1)).join('')}`
   const script = compileScript(descriptor, { id, genDefaultAs: '__sfc__' })
+  const ssrCssVars = descriptor.cssVars ?? []
   const template = compileTemplate({
     id,
     filename: `${componentName}.vue`,
@@ -33,7 +34,19 @@ for (const file of vueFiles) {
     compilerOptions: { bindingMetadata: script.bindings, expressionPlugins: ['typescript'] },
   })
   if (template.errors.length) throw new Error(`${file}: ${template.errors.join('\n')}`)
-  const combined = `${script.content}\n${template.code.replace('export function render', 'function render')}\n__sfc__.render = render\n__sfc__.name = ${JSON.stringify(componentName)}\n__sfc__.__file = ${JSON.stringify(`components/${file}`)}\nexport default __sfc__\n`
+  // Also emit an SSR render function so the component is server-renderable
+  // (Astro/@astrojs/vue looks for ssrRender / __ssrInlineRender). We keep the
+  // client `render` for hydration; the built __sfc__ supports BOTH.
+  const ssrTemplate = compileTemplate({
+    id,
+    filename: `${componentName}.vue`,
+    source: descriptor.template?.content ?? '',
+    ssr: true,
+    ssrCssVars,
+    compilerOptions: { bindingMetadata: script.bindings, expressionPlugins: ['typescript'] },
+  })
+  if (ssrTemplate.errors.length) throw new Error(`${file} (ssr): ${ssrTemplate.errors.join('\n')}`)
+  const combined = `${script.content}\n${template.code.replace('export function render', 'function render')}\n${ssrTemplate.code.replace('export function ssrRender', 'function ssrRender')}\n__sfc__.render = render\n__sfc__.ssrRender = ssrRender\n__sfc__.name = ${JSON.stringify(componentName)}\n__sfc__.__file = ${JSON.stringify(`components/${file}`)}\nexport default __sfc__\n`
   const javascript = ts.transpileModule(combined, {
     compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext },
     fileName: file,
@@ -60,7 +73,7 @@ for (const file of (await readdir(legacy)).filter(file => file.endsWith('.js')).
   await cp(resolve(output,'components',`${component}.js`),resolve(output,'components',`${component}.semantic.js`))
   await cp(resolve(legacy,file),resolve(output,'components',`${component}.legacy.js`))
   await cp(resolve(legacy,`${component}.d.ts`),resolve(output,'components',`${component}.d.ts`))
-  const bridge = `import{defineComponent,h}from'vue';import Semantic from'./${component}.semantic.js';import Legacy from'./${component}.legacy.js';\nconst variants=${JSON.stringify(variants)};const equal=(a,b)=>JSON.stringify(a)===JSON.stringify(b);const text=v=>Array.isArray(v)?v.map(text).join(''):v==null||typeof v==='boolean'?'':typeof v==='string'||typeof v==='number'?String(v):text(v.children);const matches=(when,values,fixture)=>when.every(p=>p.kind==='prop-equals'?equal(p.name==='children'?values.children:values[p.name],p.value):p.kind==='fixture-equals'?equal(fixture,p.value):false);const Bridge=defineComponent({name:${JSON.stringify(`Kumo${entry.symbol}Bridge`)},inheritAttrs:false,setup(_,{attrs,slots}){return()=>{const content=text(slots.default?.()),values={...attrs,children:content},semantic=variants.some(v=>matches(v.when,values,attrs.fixture));return h(semantic?Semantic:Legacy,semantic?{...attrs,semanticContent:content}:attrs,slots)}}});export{Bridge as ${entry.symbol}};export default Bridge;\n`
+  const bridge = `import{defineComponent,h}from'vue';import{ssrRenderComponent as _ssrRenderComponent}from'vue/server-renderer';import Semantic from'./${component}.semantic.js';import Legacy from'./${component}.legacy.js';\nconst variants=${JSON.stringify(variants)};const equal=(a,b)=>JSON.stringify(a)===JSON.stringify(b);const text=v=>Array.isArray(v)?v.map(text).join(''):v==null||typeof v==='boolean'?'':typeof v==='string'||typeof v==='number'?String(v):text(v.children);const matches=(when,values,fixture)=>when.every(p=>p.kind==='prop-equals'?equal(p.name==='children'?values.children:values[p.name],p.value):p.kind==='fixture-equals'?equal(fixture,p.value):false);const pick=(attrs,slots)=>{const content=text(slots.default?.()),values={...attrs,children:content},semantic=variants.some(v=>matches(v.when,values,attrs.fixture));return{target:semantic?Semantic:Legacy,props:semantic?{...attrs,semanticContent:content}:attrs}};const Bridge=defineComponent({name:${JSON.stringify(`Kumo${entry.symbol}Bridge`)},inheritAttrs:false,setup(_,{attrs,slots}){return()=>{const{target,props}=pick(attrs,slots);return h(target,props,slots)}}});\n// SSR render so Astro/@astrojs/vue can server-render the bridge (it checks for ssrRender); delegates to the chosen child's SSR path.\nBridge.ssrRender=(_ctx,_push,_parent)=>{const{target,props}=pick(_ctx.$attrs,_ctx.$slots);_push(_ssrRenderComponent(target,props,_ctx.$slots,_parent))};\nexport{Bridge as ${entry.symbol}};export default Bridge;\n`
   await writeFile(resolve(output,'components',`${component}.js`),bridge)
 }
 
@@ -108,7 +121,7 @@ const manifest = {
   semanticDigest: sha256(canonical.components.flatMap(x => x.semanticVariants ?? []).map(JSON.stringify).join('\n')),
   components: canonical.components.map(({ component, symbol, modelDigest, contentBindingDigest, semanticVariants = [] }) => ({ component, symbol, modelDigest, contentBindingDigest, semanticVariantCount: semanticVariants.length, sourceSha256: sourceDigests[`${component}.vue`] })),
   compoundExports: { count: compounds.length, paths: canonical.compoundPaths.map(part => ({...part,file:`package/${part.file.replace(/\.vue$/,'.js')}`,types:`package/${part.types}`})) },
-  build: { compiler: '@vue/compiler-sfc', mode: 'client-render', sourceCount: vueFiles.length },
+  build: { compiler: '@vue/compiler-sfc', mode: 'client+ssr-render', sourceCount: vueFiles.length },
 }
 await writeFile(resolve(here, 'kumo.manifest.json'), json(manifest))
 console.log(`built ${vueFiles.length} Vue SFCs (${canonical.components.length} roots + ${compounds.length} compounds)`)

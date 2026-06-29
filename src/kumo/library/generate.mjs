@@ -164,7 +164,7 @@ for (const file of contractFiles) {
   if (semantic) model.semanticRender = {schemaVersion:semanticRender.schemaVersion, capabilityDigest:semanticRender.capabilityDigest, vectorIds:semantic.vectors.map(vector => vector.id)};
   else delete model.semanticRender;
   model.contentBindings = {schemaVersion:contentBindings.schemaVersion, capabilityDigest:contentBindings.capabilityDigest};
-  if(name==='button')model.interactions={...(model.interactions??{}),nativeButton:{schemaVersion:nativeButton.schemaVersion,capabilityDigest:nativeButton.capabilityDigest}};
+  if(name==='button')model.interactions={...(model.interactions??{}),nativeButton:{schemaVersion:nativeButton.schemaVersion,capabilityDigest:nativeButton.capabilityDigest,styleVariants:nativeButton.styleVariants,styleVariantProp:nativeButton.styleVariantProp,defaultVariant:nativeButton.defaultVariant}};
   else if(model.interactions)delete model.interactions.nativeButton;
   model.componentRoot = {frameworkNeutral:true, implementationReady:false, candidateDefinition:true, draft:true};
   model.draftImplementation = JSON.parse(JSON.stringify(implementation(model, contract)));

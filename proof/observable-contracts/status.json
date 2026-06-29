@@ -18,36 +18,16 @@
     "contracted": 41,
     "pending": 0
   },
-  "vectorCount": 121,
-  "interactiveVectorCount": 72,
+  "vectorCount": 124,
+  "interactiveVectorCount": 75,
   "components": [
     {
       "id": "select",
       "status": "contracted",
       "contract": "contracts/kumo.observable/v1/components/select.json",
-      "vectors": 5,
-      "interactiveVectors": 4,
+      "vectors": 7,
+      "interactiveVectors": 6,
       "unknowns": [
-        {
-          "field": "vectors.pointer-open-select-disabled",
-          "status": "blocked",
-          "reason": "Required pointer, disabled-option, callback-order, dismissal, and focus vector is pending shared browser execution; no pass is claimed."
-        },
-        {
-          "field": "vectors.keyboard-navigation-typeahead",
-          "status": "blocked",
-          "reason": "Full Arrow/Home/End/Page/Escape/typeahead/scroll behavior is required but pending shared browser execution."
-        },
-        {
-          "field": "vectors.controlled-value-open-order",
-          "status": "blocked",
-          "reason": "Controlled ownership, Tab closure, and exact callback ordering are pending shared browser execution."
-        },
-        {
-          "field": "vectors.multiple-object-selection",
-          "status": "blocked",
-          "reason": "Object identity and multiple selection require executable browser fixtures and are not inferred from declarations."
-        },
         {
           "field": "existingSelectPilot.react-vue",
           "status": "blocked",
@@ -64,11 +44,6 @@
           "reason": "Existing receipt records failed pointer open/select, typeahead, controlled state, callback ordering, hydration, and focus/scroll. These failures remain visible and unresolved."
         },
         {
-          "field": "canonicalBrowserEvidence",
-          "status": "unknown",
-          "reason": "No focused canonical @cloudflare/kumo@2.5.2 browser execution establishes exact event order, focus/scroll, outside dismissal, typeahead timeout/normalization, or object comparator behavior."
-        },
-        {
           "field": "portalPositioningHydration",
           "status": "unknown",
           "reason": "Anchor-width minimum, available-height scrolling, collision behavior, provider/custom/body portal precedence, open SSR, portal relocation, generated IDs, warning-free hydration, and node preservation require direct evidence."
@@ -77,6 +52,11 @@
           "field": "crossBrowserStylesAssets",
           "status": "unknown",
           "reason": "Required Chromium, Firefox, WebKit, RTL, zoom, reduced motion, mobile/coarse pointer, stylesheet presence, icon loading, error/loading/Field variants, and animation reversal vectors have not run."
+        },
+        {
+          "field": "diacriticTypeahead",
+          "status": "unknown",
+          "reason": "Locale and diacritic normalization are inherited from Base UI; the executable vector uses deterministic ASCII typeahead."
         }
       ]
     },
@@ -149,6 +129,11 @@
           "field": "portalHydration",
           "status": "unknown",
           "reason": "Custom/provider/body container precedence is declared; SSR open markup, portal relocation, generated ID stability, warnings, and node preservation remain unexecuted."
+        },
+        {
+          "field": "collisionPlacement",
+          "status": "unknown",
+          "reason": "Base UI may flip the requested side at viewport boundaries; this Chrome fixture observes bottom when top collides."
         }
       ]
     },
@@ -579,6 +564,11 @@
           "field": "ssr.popup",
           "status": "unknown",
           "reason": "Closed action-free SSR is supported; open portal markup and generated ids depend on Base UI and were not frozen as exact strings."
+        },
+        {
+          "field": "defaultFiltering",
+          "status": "unknown",
+          "reason": "Canonical composition with explicit items does not filter automatically in this fixture; ArrowDown selects Apple after typing Ban."
         }
       ]
     },
@@ -691,8 +681,8 @@
       "id": "toasty",
       "status": "contracted",
       "contract": "contracts/kumo.observable/v1/components/toasty.json",
-      "vectors": 3,
-      "interactiveVectors": 2,
+      "vectors": 4,
+      "interactiveVectors": 3,
       "unknowns": [
         {
           "field": "announcementTimingAndRemovalDelay",
@@ -716,5 +706,5 @@
       ]
     }
   ],
-  "digest": "41acd6da5c365d95511c0dc5a38e6aaccdf65dc6468c23f88076f7f6a4fa80a2"
+  "digest": "719c0a9b688e00b2a9156d624bb6fe4303ea82038f33921af9e91f00a502d8cf"
 }

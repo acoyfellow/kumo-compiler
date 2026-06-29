@@ -6,7 +6,7 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 
 <script setup lang="ts">
 defineOptions({ inheritAttrs: false })
-import { computed, useAttrs, useId, useSlots } from 'vue'
+import { computed, useAttrs, useSlots } from 'vue'
 interface InputProps {
   "observable"?: unknown
   "defaultValue"?: string
@@ -21,7 +21,7 @@ interface InputProps {
 const props = withDefaults(defineProps<InputProps>(), {})
 const nativeAttrs = computed(() => Object.fromEntries(Object.entries(useAttrs()).filter(([name]) => name !== 'id').map(([name, value]) => [name.replace(/[A-Z]/g, letter => '-' + letter.toLowerCase()), value])))
 const nativeAriaLabel = computed(() => (props as any).ariaLabel ?? (props as any)['aria-label'])
-const controlId = useId()
+const controlId = "kumo-8eb97ee93afe"
 function handleNativeInput(event: Event) {
   props.onChange?.((event.currentTarget as HTMLInputElement | HTMLTextAreaElement).value)
 }

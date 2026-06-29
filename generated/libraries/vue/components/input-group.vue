@@ -6,7 +6,7 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 
 <script setup lang="ts">
 defineOptions({ inheritAttrs: false })
-import { computed, ref, useAttrs, useId, useSlots } from 'vue'
+import { computed, ref, useAttrs, useSlots } from 'vue'
 interface InputGroupProps {
   "observable"?: unknown
   fixture?: unknown
@@ -20,7 +20,7 @@ const fixturePart = (name: string) => fixtureChildren(inputGroupFixture.value).f
 const partText = (node?: InputGroupFixtureNode): string => node ? String(node.text ?? '') + fixtureChildren(node).map(partText).join('') : ''
 const inputGroupProps = computed(() => inputGroupFixture.value?.props ?? {})
 const inputPart = computed(() => fixturePart('.Input'))
-const inputId = useId()
+const inputId = "kumo-e828cc80d749"
 const inputValue = ref('')
 function trackInput(event: Event) { inputValue.value = (event.currentTarget as HTMLInputElement).value }
 const slots = useSlots()

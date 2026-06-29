@@ -5,6 +5,18 @@ proof/artifacts/
 .wrangler
 .workflow/receipts/
 
+# Secrets and local env
+.env
+.env.*
+*.log
+
+# Experimental scratch / disposable spike output (not part of the shipped compiler)
+experiments/visual-compiler/lowering/
+experiments/visual-compiler/tracer/
+experiments/visual-compiler/baseline/
+experiments/o3/
+.tmp/
+
 dist/
 astro/dist/
 astro/.astro/
