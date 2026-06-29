@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="data:," />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>table / solid</title>
+  <link rel="stylesheet" href="./kumo.css" />
+<style id="kumo-gallery-frame-fix">
+  html{background:transparent}
+  body{margin:0;background:transparent;display:flex;align-items:center;justify-content:center;min-height:auto}
+  /* Tame the demo wrapper's large p-8 padding and center its content. */
+  main[data-part="root"]{padding:1.25rem!important;margin:0!important;width:auto!important;
+    display:flex;align-items:center;justify-content:center}
+  /* JS-mounted apps (overlays) mount here. */
+  #app{width:100%;display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+<main class="p-8" data-component="table" data-part="root" data-state="default"><table class="[&amp;_td]:border-b [&amp;_td]:border-kumo-fill [&amp;_td]:p-3 [&amp;_th]:bg-kumo-base [&amp;_th]:border-b [&amp;_th]:border-kumo-fill [&amp;_th]:font-semibold [&amp;_th]:p-3 [&amp;_th]:text-base [&amp;_tr:last-child_td]:border-b-0 isolate text-base text-kumo-default text-left w-full" data-part="control"><thead class="group/header"><tr><th class="group relative">Name</th><th class="group relative">Status</th></tr></thead><tbody><tr><td>Worker</td><td>Active</td></tr><tr><td>Bucket</td><td>Ready</td></tr></tbody></table></main>
+</body>
+</html>

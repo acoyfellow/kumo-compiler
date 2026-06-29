@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="data:," />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>empty / solid</title>
+  <link rel="stylesheet" href="./kumo.css" />
+<style id="kumo-gallery-frame-fix">
+  html{background:transparent}
+  body{margin:0;background:transparent;display:flex;align-items:center;justify-content:center;min-height:auto}
+  /* Tame the demo wrapper's large p-8 padding and center its content. */
+  main[data-part="root"]{padding:1.25rem!important;margin:0!important;width:auto!important;
+    display:flex;align-items:center;justify-content:center}
+  /* JS-mounted apps (overlays) mount here. */
+  #app{width:100%;display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+<main class="p-8" data-component="empty" data-part="root" data-state="base"><div class="bg-kumo-control border border-kumo-fill flex flex-col gap-6 items-center px-10 py-16 rounded-xl text-kumo-default w-full"><h2 class="font-semibold text-2xl">No results</h2><p class="max-w-140 text-center text-kumo-subtle">Try a different search.</p></div></main>
+</body>
+</html>

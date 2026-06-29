@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="data:," />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>layer-card / solid</title>
+  <link rel="stylesheet" href="./kumo.css" />
+<style id="kumo-gallery-frame-fix">
+  html{background:transparent}
+  body{margin:0;background:transparent;display:flex;align-items:center;justify-content:center;min-height:auto}
+  /* Tame the demo wrapper's large p-8 padding and center its content. */
+  main[data-part="root"]{padding:1.25rem!important;margin:0!important;width:auto!important;
+    display:flex;align-items:center;justify-content:center}
+  /* JS-mounted apps (overlays) mount here. */
+  #app{width:100%;display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+<main class="p-8" data-component="layer-card" data-part="root" data-state="compact"><div class="bg-kumo-elevated flex flex-col overflow-hidden ring ring-kumo-hairline rounded-lg text-base w-full" data-part="control"><div class="-my-2 bg-kumo-elevated flex font-medium gap-2 items-center p-4 text-base text-kumo-subtle">Step</div><div class="bg-kumo-base flex flex-col gap-2 no-underline overflow-hidden p-4 pr-3 relative ring ring-kumo-fill rounded-lg text-inherit">Go</div></div></main>
+</body>
+</html>

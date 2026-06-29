@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="data:," />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>table-of-contents / vue</title>
+  <link rel="stylesheet" href="./kumo.css" />
+<style id="kumo-gallery-frame-fix">
+  html{background:transparent}
+  body{margin:0;background:transparent;display:flex;align-items:center;justify-content:center;min-height:auto}
+  /* Tame the demo wrapper's large p-8 padding and center its content. */
+  main[data-part="root"]{padding:1.25rem!important;margin:0!important;width:auto!important;
+    display:flex;align-items:center;justify-content:center}
+  /* JS-mounted apps (overlays) mount here. */
+  #app{width:100%;display:flex;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+<main class="p-8" data-component="table-of-contents" data-part="root" data-state="intro"><nav aria-label="Table of contents" data-part="control"><p class="font-semibold mb-3 text-kumo-subtle text-xs tracking-wide uppercase">On this page</p><ul class="border-kumo-hairline border-l-2 flex flex-col gap-2"><li class="-ml-0.5"><a class="block border-kumo-brand border-l-2 font-medium no-underline pl-4 py-0.5 text-kumo-default text-left text-sm truncate w-full" aria-current="true" data-kumo-component="TableOfContents" data-kumo-part="item" href="#intro"><span class="block leading-5 min-w-0">Introduction</span></a></li><li class="-ml-0.5"><a class="block border-l-2 border-transparent hover:border-kumo-line hover:font-medium hover:text-kumo-default no-underline pl-4 py-0.5 text-kumo-subtle text-left text-sm truncate w-full" data-kumo-component="TableOfContents" data-kumo-part="item" href="#usage"><span class="block leading-5 min-w-0">Usage</span></a></li></ul></nav></main>
+</body>
+</html>
