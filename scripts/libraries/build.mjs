@@ -27,7 +27,7 @@ for (const framework of frameworks) {
   const receipt = JSON.parse(await readFile(receiptPath, 'utf8'));
   const pkg = JSON.parse(await readFile(resolve(source, 'package.json'), 'utf8'));
   const expectedName = `@acoyfellow/kumo-${framework}`;
-  if (pkg.name !== expectedName || pkg.version !== '0.0.1' || receipt.package !== `${expectedName}@0.0.1`)
+  if (pkg.name !== expectedName || pkg.version !== '0.0.2' || receipt.package !== `${expectedName}@0.0.2`)
     fail(`${framework}: unexpected package identity`);
   if (canonicalReceiptDigest(receipt) !== receipt.receiptHash)
     fail(`${framework}: receipt digest is invalid; rerun/update the individual library runner`);
@@ -60,7 +60,7 @@ for (const framework of frameworks) {
     fail(`${framework}: package hash ${hashes[0]} differs from receipt ${receipt.packageSha256}; rerun/update the individual library runner if source changed`);
   const bytes = await readFile(packed);
   const contentName = `${hashes[0]}.tgz`;
-  const friendlyName = `kumo-${framework}-0.0.1.tgz`;
+  const friendlyName = `kumo-${framework}-0.0.2.tgz`;
   if (seen.has(contentName) || seen.has(friendlyName)) fail(`artifact filename collision: ${friendlyName}`);
   seen.add(contentName); seen.add(friendlyName);
   await copyFile(packed, resolve(output, contentName));
