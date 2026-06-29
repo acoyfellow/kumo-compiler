@@ -1,7 +1,7 @@
 {
   "name": "kumo-compiler",
   "version": "0.0.1",
-  "description": "Private Kumo compiler and proof application.",
+  "description": "An independent compiler that takes Cloudflare Kumo canonical React components and emits native Vue, Svelte, and Solid packages.",
   "scripts": {
     "compile:kumo": "tsc -p tsconfig.kumo.json && node dist/kumo/compiler.js",
     "matrix:kumo": "node scripts/run-kumo-matrix.mjs",
@@ -9,8 +9,6 @@
     "protocol:conformance": "node scripts/compiler-protocol/conformance.mjs",
     "upstream:check": "node scripts/upstream-check.mjs",
     "upstream:rollback": "node scripts/upstream-rollback.mjs",
-    "upstream:rehearse": "node rehearsals/upstream/rehearse.mjs all",
-    "upstream:rehearse:validate": "node rehearsals/upstream/validate.mjs",
     "protocol:benchmark": "node scripts/compiler-protocol/benchmark.mjs",
     "protocol:benchmark:validate": "node scripts/compiler-protocol/validate-benchmark.mjs",
     "matrix:kumo:shard": "node scripts/run-kumo-shard.mjs",
@@ -94,7 +92,6 @@
     "vite-plugin-solid": "2.11.12",
     "vue": "3.5.38"
   },
-  "private": true,
   "engines": {
     "node": "22.x"
   },

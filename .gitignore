@@ -10,16 +10,14 @@ proof/artifacts/
 .env.*
 *.log
 
-# Experimental scratch / disposable spike output (not part of the shipped compiler)
-experiments/visual-compiler/lowering/
-experiments/visual-compiler/tracer/
-experiments/visual-compiler/baseline/
-experiments/o3/
 .tmp/
 
 dist/
 astro/dist/
 astro/.astro/
+
+# Derived example download bundles (rebuilt by `npm run examples:build`).
+example-artifacts/
 
 proof/*-artifacts/
 
@@ -27,13 +25,6 @@ runtime/**/.public-runtime.tmp-*/
 runtime/**/.public-runtime.backup-*/
 runtime-canonical/**/.public-runtime.tmp-*/
 runtime-canonical/**/.public-runtime.backup-*/
-
-# Candidate-local ephemeral verification output
-candidates/mitosis/.browser/
-candidates/mitosis/.evidence/
-candidates/mitosis/.ssr/
-candidates/mitosis/build/
-candidates/shared-core/proof/.build/
 
 # Disposable framework package staging; generated/libraries is authoritative.
 dx/packages/kumo-vue/package/
