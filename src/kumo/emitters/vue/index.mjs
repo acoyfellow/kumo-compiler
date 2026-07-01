@@ -148,13 +148,18 @@ function toggleSource({state,native}) {
   const rootAttrs = native.root === 'button' ? ` type="button"` : ` :tabindex="props.disabled ? undefined : 0"`;
   const keyHandler = native.root === 'button' ? '' : ` @keydown="activateOnSpace"`;
   const aria = indeterminate ? `(currentIndeterminate ? 'mixed' : currentChecked)` : 'currentChecked';
-  const styleExpression = `[${native.styleVariants.map(variant=>`(${Object.entries(variant.when).map(([name,value])=>`props.${vuePropName(name)} === ${JSON.stringify(value)}`).join(' && ')||'true'}) ? ${JSON.stringify(variant.classes.join(' '))} : ''`).join(', ')}]`;
-  const styleClass = native.styleVariants.length ? ` :class="${directive(styleExpression)}"` : '';
+  const rootClassConst = native.root === 'span' ? KUMO_CHECKBOX_CLASS : KUMO_SWITCH_TRACK_CLASS;
+  const variantExpressions = native.styleVariants.map(variant=>`(${Object.entries(variant.when).map(([name,value])=>`props.${vuePropName(name)} === ${JSON.stringify(value)}`).join(' && ')||'true'}) ? ${JSON.stringify(variant.classes.join(' '))} : ''`);
+  const styleExpression = `[${[JSON.stringify(rootClassConst), ...variantExpressions].join(', ')}]`;
+  const styleClass = ` :class="${directive(styleExpression)}"`;
+  const dataState = indeterminate ? `(currentIndeterminate ? 'indeterminate' : (currentChecked ? 'checked' : 'unchecked'))` : `(currentChecked ? 'checked' : 'unchecked')`;
+  const dataAttrs = ` :data-state="${directive(dataState)}" :data-checked="currentChecked ? '' : undefined" :data-unchecked="currentChecked ? undefined : ''"${indeterminate?` :data-indeterminate="currentIndeterminate ? '' : undefined"`:''}`;
+  const thumb = native.root === 'button' ? `<span aria-hidden="true" class="${esc(KUMO_SWITCH_THUMB_CLASS)}"></span>` : '';
   return {
     options:`defineOptions({ inheritAttrs: false })\n`,
     imports:'computed, getCurrentInstance, ref, useAttrs, useSlots',
     setup:`const instance = getCurrentInstance()\nconst controlled = Object.prototype.hasOwnProperty.call(instance?.vnode.props ?? {}, ${JSON.stringify(state.controlledProp)})\nconst internalChecked = ref(props.${state.defaultProp} ?? ${JSON.stringify(state.initial)})\nconst currentChecked = computed(() => controlled ? props.${state.controlledProp} : internalChecked.value)\n${indeterminate?`const currentIndeterminate = ref(Boolean(props.${indeterminate.prop}))\n`:''}function activate(event: Event) {\n  if (props.${state.disabled.prop}) return\n  const next = ${indeterminate ? `currentIndeterminate.value ? ${JSON.stringify(indeterminate.activationResult)} : ` : ''}!currentChecked.value\n  ${indeterminate?'currentIndeterminate.value = false\n  ':''}if (!controlled) internalChecked.value = next\n  props.onCheckedChange?.(next)\n}\n${native.root==='span'?`function activateOnSpace(event: KeyboardEvent) {\n  if (event.code === 'Space' || event.key === ' ') { event.preventDefault(); activate(event) }\n}\n`:''}`,
-    template:`<${native.root} v-bind="$attrs"${rootAttrs} role="${role}"${styleClass} :aria-label="((props as any).ariaLabel ?? $attrs['aria-label'])" :aria-checked="${aria}" :aria-disabled="props.${state.disabled.prop} || undefined" :disabled="props.${state.disabled.prop} || undefined" @click="activate"${keyHandler}><slot />{{ props.label }}</${native.root}>`
+    template:`<${native.root} v-bind="$attrs"${rootAttrs} role="${role}"${styleClass}${dataAttrs} :aria-label="((props as any).ariaLabel ?? $attrs['aria-label'])" :aria-checked="${aria}" :aria-disabled="props.${state.disabled.prop} || undefined" :disabled="props.${state.disabled.prop} || undefined" @click="activate"${keyHandler}>${thumb}<slot />{{ props.label }}</${native.root}>`
   };
 }
 function nativeInputBinding(model, library) {
