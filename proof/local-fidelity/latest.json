@@ -1,6 +1,6 @@
 {
   "schemaVersion": "kumo.local-fidelity/v1",
-  "observedAt": "2026-07-01T12:59:36.704Z",
+  "observedAt": "2026-07-01T13:06:59.785Z",
   "canonical": "@cloudflare/kumo (installed) rendered vs built native packages dx/packages/kumo-{svelte,vue,solid}",
   "note": "Renders the shipped native package artifacts (the @acoyfellow/kumo-* the vite configs alias to). No publish, no deploy.",
   "components": [
@@ -163,16 +163,26 @@
           ]
         },
         "solid": {
-          "fidelity": "missing-classes",
+          "fidelity": "match",
           "lookalikes": [],
-          "missing": [
-            "text-kumo-badge-inverted"
-          ],
+          "missing": [],
           "reactKumoCount": 2,
-          "nativeKumoCount": 1,
+          "nativeKumoCount": 2,
           "nativeClassSample": [
             "inline-flex",
-            "bg-kumo-badge-inverted"
+            "w-fit",
+            "flex-none",
+            "shrink-0",
+            "items-center",
+            "justify-self-start",
+            "rounded-full",
+            "px-2",
+            "py-0.5",
+            "text-xs",
+            "font-medium",
+            "whitespace-nowrap",
+            "bg-kumo-badge-inverted",
+            "text-kumo-badge-inverted"
           ]
         }
       },
@@ -747,25 +757,9 @@
       "screenshot": "/tmp/fidelity/tabs.png"
     }
   ],
-  "mismatchCount": 1,
-  "mismatches": [
-    {
-      "component": "badge",
-      "framework": "solid",
-      "fidelity": "missing-classes",
-      "lookalikes": [],
-      "missing": [
-        "text-kumo-badge-inverted"
-      ],
-      "reactKumoCount": 2,
-      "nativeKumoCount": 1,
-      "nativeClassSample": [
-        "inline-flex",
-        "bg-kumo-badge-inverted"
-      ]
-    }
-  ],
-  "status": "failed",
+  "mismatchCount": 0,
+  "mismatches": [],
+  "status": "passed",
   "screenshots": {
     "button": "/tmp/fidelity/button.png",
     "badge": "/tmp/fidelity/badge.png",
