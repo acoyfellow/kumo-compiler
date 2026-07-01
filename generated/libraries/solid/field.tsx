@@ -41,7 +41,7 @@ export function Field(incoming: FieldProps): JSX.Element {
   const [, native] = splitProps(props as FieldProps & Record<string, unknown>, ["observable"]);
   void native; void state; void refs;
   if (semanticEqual(normalizedFixture, {"export":"root","props":{"label":"Name","description":"Help","required":false},"children":[{"export":".NativeInput","props":{"id":"field-control"},"children":[]}]})) return (<div></div>);
-  return (<div><label for={props.controlId as string ?? "field-control"}>{props.label as JSX.Element}</label>{props.children}</div>);
+  return (<div><label for={props.controlId as string ?? "field-control"} class="m-0 select-none text-base font-medium text-kumo-default">{props.label as JSX.Element}</label>{props.children}{(props as Record<string, unknown>).description !== undefined ? <p class="text-sm leading-snug text-kumo-subtle">{(props as Record<string, unknown>).description as JSX.Element}</p> : null}</div>);
 }
 
 export function FieldNativeInput(props: CompoundPartProps): JSX.Element {

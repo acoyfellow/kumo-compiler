@@ -35,9 +35,9 @@ for(const compound of generated.compoundExports){
   await writeFile(target,wrapper)
   await writeFile(target.replace(/\.js$/,'.d.ts'),wrapper)
 }
-// Preserve the two browser-proven migration components until behavior algebra replaces them.
-for(const file of ['field.js','field.d.ts']) await cp(resolve(legacy,file),resolve(output,file))
-for(const file of ['field.svelte','field.svelte.d.ts']) await cp(resolve(legacy,'components',file),resolve(output,'components',file))
+// Field now ships the compiler-generated component (real Kumo classes, no invented BEM);
+// the legacy hand-authored field is retired. `legacy` is retained only for provenance.
+void legacy
 
 const packageJson=JSON.parse(await readFile(resolve(here,'package.json'),'utf8'))
 const manifest={schemaVersion:3,name:packageJson.name,version:packageJson.version,framework:'svelte',algebraVersion:generated.algebraVersion,components:generated.components.map(component=>({component:component.component,symbol:component.exports[0],subpath:`./${component.component}`,modelDigest:component.modelDigest,contentBindingDigest:component.contentBindingDigest,semanticVariants:component.semanticVariants,unresolvedSemanticOperations:component.unresolvedSemanticOperations,sha256:component.sha256,exports:component.exports})),compoundExports:generated.compoundExports,exports:packageJson.exports}

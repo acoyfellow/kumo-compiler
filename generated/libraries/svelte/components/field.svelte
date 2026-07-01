@@ -9,6 +9,7 @@
   observable?: unknown;
   children?: Snippet;
   label?: unknown;
+  description?: unknown;
   controlId?: string;
   styles?: Record<string, string>;
   fixture?: unknown;
@@ -18,6 +19,7 @@
   let {
     observable = undefined,
     label = undefined,
+    description = undefined,
     controlId = "field-control",
     children,
     fixture = undefined,
@@ -50,5 +52,5 @@
 {#if semanticEqual(fixture, {"export":"root","props":{"label":"Name","description":"Help","required":false},"children":[{"export":".NativeInput","props":{"id":"field-control"},"children":[]}]})}
   <div></div>
 {:else}
-<div {...rest}><label for={controlId}>{label}</label>{#if children}{@render children()}{/if}</div>
+<div {...rest}><label for={controlId} class="m-0 select-none text-base font-medium text-kumo-default">{label}</label>{#if children}{@render children()}{/if}{#if description !== undefined}<p class="text-sm leading-snug text-kumo-subtle">{description}</p>{/if}</div>
 {/if}

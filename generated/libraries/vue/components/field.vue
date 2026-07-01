@@ -23,5 +23,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <div><label :for="String((props as any).childId ?? $attrs['child-id'] ?? 'field-control')">{{ (props as any).label }}</label><slot /></div>
+  <div><label :for="String((props as any).childId ?? $attrs['child-id'] ?? 'field-control')" class="m-0 select-none text-base font-medium text-kumo-default">{{ (props as any).label ?? $attrs.label }}</label><slot /><p v-if="(((props as any).description ?? $attrs.description) !== undefined)" class="text-sm leading-snug text-kumo-subtle">{{ (props as any).description ?? $attrs.description }}</p></div>
 </template>
