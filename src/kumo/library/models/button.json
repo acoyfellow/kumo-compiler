@@ -349,7 +349,12 @@
             "kind": "literal",
             "value": "button"
           },
-          "attributes": {},
+          "attributes": {
+            "style": {
+              "kind": "literal",
+              "value": "--kumo-button-emphasis-ring: color-mix(in oklch, var(--color-kumo-brand), black 10%); --kumo-button-emphasis-bg: color-mix(in oklch, var(--color-kumo-brand), white 30%); --kumo-button-emphasis-gradient-start: color-mix(in oklch, var(--color-kumo-brand), white 15%); --kumo-button-emphasis-gradient-end: var(--color-kumo-brand)"
+            }
+          },
           "classes": [
             {
               "kind": "literal",
@@ -374,16 +379,52 @@
           ],
           "children": [
             {
-              "kind": "text",
-              "value": {
-                "kind": "consumer-children",
-                "contentRole": "consumer-content",
-                "predicateSource": {
-                  "kind": "prop-equals",
-                  "name": "children",
-                  "value": "Create"
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "span"
+              },
+              "attributes": {
+                "aria-hidden": {
+                  "kind": "literal",
+                  "value": "true"
                 }
-              }
+              },
+              "classes": [
+                {
+                  "kind": "literal",
+                  "value": "absolute inset-0 rounded-[inherit] bg-linear-to-b from-(--kumo-button-emphasis-gradient-start) to-(--kumo-button-emphasis-gradient-end) translate-y-px group-hover:from-(--kumo-button-emphasis-bg)"
+                }
+              ],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "span"
+              },
+              "attributes": {},
+              "classes": [
+                {
+                  "kind": "literal",
+                  "value": "relative flex items-center gap-1.5"
+                }
+              ],
+              "children": [
+                {
+                  "kind": "text",
+                  "value": {
+                    "kind": "consumer-children",
+                    "contentRole": "consumer-content",
+                    "predicateSource": {
+                      "kind": "prop-equals",
+                      "name": "children",
+                      "value": "Create"
+                    }
+                  }
+                }
+              ]
             }
           ]
         },
@@ -419,7 +460,12 @@
             "kind": "literal",
             "value": "button"
           },
-          "attributes": {},
+          "attributes": {
+            "style": {
+              "kind": "literal",
+              "value": "--kumo-button-emphasis-ring: color-mix(in oklch, var(--color-kumo-danger), black 10%); --kumo-button-emphasis-bg: color-mix(in oklch, var(--color-kumo-danger), white 30%); --kumo-button-emphasis-gradient-start: color-mix(in oklch, var(--color-kumo-danger), white 15%); --kumo-button-emphasis-gradient-end: var(--color-kumo-danger)"
+            }
+          },
           "classes": [
             {
               "kind": "literal",
@@ -444,16 +490,52 @@
           ],
           "children": [
             {
-              "kind": "text",
-              "value": {
-                "kind": "consumer-children",
-                "contentRole": "consumer-content",
-                "predicateSource": {
-                  "kind": "prop-equals",
-                  "name": "children",
-                  "value": "Delete"
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "span"
+              },
+              "attributes": {
+                "aria-hidden": {
+                  "kind": "literal",
+                  "value": "true"
                 }
-              }
+              },
+              "classes": [
+                {
+                  "kind": "literal",
+                  "value": "absolute inset-0 rounded-[inherit] bg-linear-to-b from-(--kumo-button-emphasis-gradient-start) to-(--kumo-button-emphasis-gradient-end) translate-y-px group-hover:from-(--kumo-button-emphasis-bg)"
+                }
+              ],
+              "children": []
+            },
+            {
+              "kind": "semantic-element",
+              "tag": {
+                "kind": "literal",
+                "value": "span"
+              },
+              "attributes": {},
+              "classes": [
+                {
+                  "kind": "literal",
+                  "value": "relative flex items-center gap-1.5"
+                }
+              ],
+              "children": [
+                {
+                  "kind": "text",
+                  "value": {
+                    "kind": "consumer-children",
+                    "contentRole": "consumer-content",
+                    "predicateSource": {
+                      "kind": "prop-equals",
+                      "name": "children",
+                      "value": "Delete"
+                    }
+                  }
+                }
+              ]
             }
           ]
         },
@@ -534,7 +616,7 @@
   "interactions": {
     "nativeButton": {
       "schemaVersion": "kumo.native-button/v1",
-      "capabilityDigest": "07922b198e13c3c4dbb5ba824f4ce9ff24c090a9859971e49f4584a14eea8606",
+      "capabilityDigest": "98085b2f1fbdf3fe7703da591dddef15c133f4ec154e223d7335094bff2c286b",
       "styleVariants": [
         {
           "when": {
@@ -782,8 +864,33 @@
         }
       ],
       "styleVariantProp": "variant",
-      "defaultVariant": "secondary"
+      "defaultVariant": "secondary",
+      "emphasis": {
+        "prop": "variant",
+        "overlayClass": "absolute inset-0 rounded-[inherit] bg-linear-to-b from-(--kumo-button-emphasis-gradient-start) to-(--kumo-button-emphasis-gradient-end) translate-y-px group-hover:from-(--kumo-button-emphasis-bg)",
+        "wrapperClass": "relative flex items-center gap-1.5",
+        "variants": {
+          "primary": {
+            "--kumo-button-emphasis-ring": "color-mix(in oklch, var(--color-kumo-brand), black 10%)",
+            "--kumo-button-emphasis-bg": "color-mix(in oklch, var(--color-kumo-brand), white 30%)",
+            "--kumo-button-emphasis-gradient-start": "color-mix(in oklch, var(--color-kumo-brand), white 15%)",
+            "--kumo-button-emphasis-gradient-end": "var(--color-kumo-brand)"
+          },
+          "destructive": {
+            "--kumo-button-emphasis-ring": "color-mix(in oklch, var(--color-kumo-danger), black 10%)",
+            "--kumo-button-emphasis-bg": "color-mix(in oklch, var(--color-kumo-danger), white 30%)",
+            "--kumo-button-emphasis-gradient-start": "color-mix(in oklch, var(--color-kumo-danger), white 15%)",
+            "--kumo-button-emphasis-gradient-end": "var(--color-kumo-danger)"
+          },
+          "danger": {
+            "--kumo-button-emphasis-ring": "color-mix(in oklch, var(--color-kumo-danger), black 10%)",
+            "--kumo-button-emphasis-bg": "color-mix(in oklch, var(--color-kumo-danger), white 30%)",
+            "--kumo-button-emphasis-gradient-start": "color-mix(in oklch, var(--color-kumo-danger), white 15%)",
+            "--kumo-button-emphasis-gradient-end": "var(--color-kumo-danger)"
+          }
+        }
+      }
     }
   },
-  "modelDigest": "ff5fa385c7e3a39e7fa8b97bcd54b028b565782936fb3452b332ac17f39ba37a"
+  "modelDigest": "7417a78be65b6386dc823accb864395cf9d80809806fada6090e1dd0c4162108"
 }

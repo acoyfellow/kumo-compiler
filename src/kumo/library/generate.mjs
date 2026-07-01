@@ -113,6 +113,30 @@ function proofGaps(model) {
   ];
 }
 
+// Give the compiled Button emphasis semantic vectors (primary-*, destructive-*,
+// danger-*) the same colored treatment the fallback branch emits: the four inline
+// `--kumo-button-emphasis-*` CSS vars (so the emphasis background/ring utilities
+// resolve to a color) plus the canonical gradient overlay span and relative label
+// wrapper. Non-emphasis vectors (e.g. the secondary default-native span) are left
+// untouched. Values come from the nativeButton capability's emphasis descriptor,
+// so the semantic branch matches canonical React 2.6.0 exactly like the fallback.
+function applyButtonEmphasis(model, emphasis) {
+  const variants = model.draftImplementation?.semanticVariants;
+  if (!Array.isArray(variants)) return;
+  const styleString = obj => Object.entries(obj).map(([k, v]) => `${k}: ${v}`).join('; ');
+  for (const variant of variants) {
+    const name = variant.when.find(p => p.kind === 'prop-equals' && p.name === 'variant')?.value;
+    const style = name && emphasis.variants[name];
+    if (!style) continue;
+    const tree = variant.tree;
+    if (tree?.kind !== 'semantic-element') continue;
+    tree.attributes = {...tree.attributes, style: lit(styleString(style))};
+    const overlay = {kind: 'semantic-element', tag: lit('span'), attributes: {'aria-hidden': lit('true')}, classes: [lit(emphasis.overlayClass)], children: []};
+    const wrapper = {kind: 'semantic-element', tag: lit('span'), attributes: {}, classes: [lit(emphasis.wrapperClass)], children: tree.children ?? []};
+    tree.children = [overlay, wrapper];
+  }
+}
+
 fs.mkdirSync(models, {recursive:true});
 const compoundExports = deriveCompoundExports();
 const semanticRender = deriveSemanticRender(contracts);
@@ -170,12 +194,13 @@ for (const file of contractFiles) {
   if (semantic) model.semanticRender = {schemaVersion:semanticRender.schemaVersion, capabilityDigest:semanticRender.capabilityDigest, vectorIds:semantic.vectors.map(vector => vector.id)};
   else delete model.semanticRender;
   model.contentBindings = {schemaVersion:contentBindings.schemaVersion, capabilityDigest:contentBindings.capabilityDigest};
-  if(name==='button')model.interactions={...(model.interactions??{}),nativeButton:{schemaVersion:nativeButton.schemaVersion,capabilityDigest:nativeButton.capabilityDigest,styleVariants:nativeButton.styleVariants,styleVariantProp:nativeButton.styleVariantProp,defaultVariant:nativeButton.defaultVariant}};
+  if(name==='button')model.interactions={...(model.interactions??{}),nativeButton:{schemaVersion:nativeButton.schemaVersion,capabilityDigest:nativeButton.capabilityDigest,styleVariants:nativeButton.styleVariants,styleVariantProp:nativeButton.styleVariantProp,defaultVariant:nativeButton.defaultVariant,emphasis:nativeButton.emphasis}};
   else if(model.interactions)delete model.interactions.nativeButton;
   model.componentRoot = {frameworkNeutral:true, implementationReady:false, candidateDefinition:true, draft:true};
   model.draftImplementation = JSON.parse(JSON.stringify(implementation(model, contract)));
   const compiledSemantic = compileSemanticVariants(semantic ?? {vectors:[]});
   if (compiledSemantic.semanticVariants.length) model.draftImplementation.semanticVariants = compiledSemantic.semanticVariants;
+  if (name === 'button') applyButtonEmphasis(model, nativeButton.emphasis);
   model.unresolvedSemanticOperations = compiledSemantic.unresolvedSemanticOperations;
   model.missingOperations = proofGaps(model);
   model.modelDigest = digest(model);
