@@ -44,6 +44,7 @@
     "docs:links": "node scripts/validate-astro-routes.mjs",
     "browser:smoke": "node scripts/browser-smoke.mjs",
     "native-demo:fidelity": "node scripts/native-demo-fidelity.mjs",
+    "fidelity": "node scripts/local-fidelity.mjs",
     "component-pages:audit": "node scripts/component-page-audit.mjs",
     "visual-parity:audit": "node scripts/visual-parity.mjs",
     "release:install": "npm --prefix astro ci",

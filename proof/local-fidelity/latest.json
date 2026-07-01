@@ -1,0 +1,263 @@
+{
+  "schemaVersion": "kumo.local-fidelity/v1",
+  "observedAt": "2026-07-01T11:54:21.301Z",
+  "canonical": "@cloudflare/kumo (installed) rendered vs built native packages dx/packages/kumo-{svelte,vue,solid}",
+  "note": "Renders the shipped native package artifacts (the @acoyfellow/kumo-* the vite configs alias to). No publish, no deploy.",
+  "components": [
+    {
+      "component": "button",
+      "reactRendered": true,
+      "reactBuildError": null,
+      "frameworks": {
+        "svelte": {
+          "fidelity": "match",
+          "lookalikes": [],
+          "missing": [],
+          "reactKumoCount": 10,
+          "nativeKumoCount": 10,
+          "nativeClassSample": [
+            "group",
+            "flex",
+            "w-max",
+            "shrink-0",
+            "items-center",
+            "font-medium",
+            "select-none",
+            "border-0",
+            "shadow-xs",
+            "focus:outline-none",
+            "focus:ring-kumo-focus/50",
+            "focus-visible:ring-2",
+            "focus-visible:ring-kumo-brand",
+            "cursor-pointer",
+            "disabled:cursor-not-allowed",
+            "disabled:text-kumo-subtle",
+            "h-9",
+            "gap-1.5",
+            "rounded-lg",
+            "px-3",
+            "text-base",
+            "bg-kumo-base",
+            "!text-kumo-default",
+            "ring"
+          ]
+        },
+        "vue": {
+          "fidelity": "match",
+          "lookalikes": [],
+          "missing": [],
+          "reactKumoCount": 10,
+          "nativeKumoCount": 10,
+          "nativeClassSample": [
+            "group",
+            "flex",
+            "w-max",
+            "shrink-0",
+            "items-center",
+            "font-medium",
+            "select-none",
+            "border-0",
+            "shadow-xs",
+            "focus:outline-none",
+            "focus:ring-kumo-focus/50",
+            "focus-visible:ring-2",
+            "focus-visible:ring-kumo-brand",
+            "cursor-pointer",
+            "disabled:cursor-not-allowed",
+            "disabled:text-kumo-subtle",
+            "h-9",
+            "gap-1.5",
+            "rounded-lg",
+            "px-3",
+            "text-base",
+            "bg-kumo-base",
+            "!text-kumo-default",
+            "ring"
+          ]
+        },
+        "solid": {
+          "fidelity": "match",
+          "lookalikes": [],
+          "missing": [],
+          "reactKumoCount": 10,
+          "nativeKumoCount": 10,
+          "nativeClassSample": [
+            "group",
+            "flex",
+            "w-max",
+            "shrink-0",
+            "items-center",
+            "font-medium",
+            "select-none",
+            "border-0",
+            "shadow-xs",
+            "focus:outline-none",
+            "focus:ring-kumo-focus/50",
+            "focus-visible:ring-2",
+            "focus-visible:ring-kumo-brand",
+            "cursor-pointer",
+            "disabled:cursor-not-allowed",
+            "disabled:text-kumo-subtle",
+            "h-9",
+            "gap-1.5",
+            "rounded-lg",
+            "px-3",
+            "text-base",
+            "bg-kumo-base",
+            "!text-kumo-default",
+            "ring"
+          ]
+        }
+      },
+      "screenshot": "/tmp/fidelity/button.png"
+    },
+    {
+      "component": "field",
+      "reactRendered": true,
+      "reactBuildError": null,
+      "frameworks": {
+        "svelte": {
+          "fidelity": "lookalike",
+          "lookalikes": [
+            "kumo-field",
+            "kumo-field__description",
+            "kumo-field__input",
+            "kumo-field__label"
+          ],
+          "missing": [
+            "text-kumo-default",
+            "text-kumo-subtle"
+          ],
+          "reactKumoCount": 2,
+          "nativeKumoCount": 4,
+          "nativeClassSample": [
+            "kumo-field",
+            "kumo-field__label",
+            "kumo-field__description",
+            "kumo-field__input"
+          ]
+        },
+        "vue": {
+          "fidelity": "lookalike",
+          "lookalikes": [
+            "kumo-field",
+            "kumo-field__description",
+            "kumo-field__input",
+            "kumo-field__label"
+          ],
+          "missing": [
+            "text-kumo-default",
+            "text-kumo-subtle"
+          ],
+          "reactKumoCount": 2,
+          "nativeKumoCount": 4,
+          "nativeClassSample": [
+            "kumo-field",
+            "kumo-field__label",
+            "kumo-field__description",
+            "kumo-field__input"
+          ]
+        },
+        "solid": {
+          "fidelity": "lookalike",
+          "lookalikes": [
+            "kumo-field",
+            "kumo-field__description",
+            "kumo-field__input",
+            "kumo-field__label"
+          ],
+          "missing": [
+            "text-kumo-default",
+            "text-kumo-subtle"
+          ],
+          "reactKumoCount": 2,
+          "nativeKumoCount": 4,
+          "nativeClassSample": [
+            "kumo-field",
+            "kumo-field__label",
+            "kumo-field__description",
+            "kumo-field__input"
+          ]
+        }
+      },
+      "screenshot": "/tmp/fidelity/field.png"
+    }
+  ],
+  "mismatchCount": 3,
+  "mismatches": [
+    {
+      "component": "field",
+      "framework": "svelte",
+      "fidelity": "lookalike",
+      "lookalikes": [
+        "kumo-field",
+        "kumo-field__description",
+        "kumo-field__input",
+        "kumo-field__label"
+      ],
+      "missing": [
+        "text-kumo-default",
+        "text-kumo-subtle"
+      ],
+      "reactKumoCount": 2,
+      "nativeKumoCount": 4,
+      "nativeClassSample": [
+        "kumo-field",
+        "kumo-field__label",
+        "kumo-field__description",
+        "kumo-field__input"
+      ]
+    },
+    {
+      "component": "field",
+      "framework": "vue",
+      "fidelity": "lookalike",
+      "lookalikes": [
+        "kumo-field",
+        "kumo-field__description",
+        "kumo-field__input",
+        "kumo-field__label"
+      ],
+      "missing": [
+        "text-kumo-default",
+        "text-kumo-subtle"
+      ],
+      "reactKumoCount": 2,
+      "nativeKumoCount": 4,
+      "nativeClassSample": [
+        "kumo-field",
+        "kumo-field__label",
+        "kumo-field__description",
+        "kumo-field__input"
+      ]
+    },
+    {
+      "component": "field",
+      "framework": "solid",
+      "fidelity": "lookalike",
+      "lookalikes": [
+        "kumo-field",
+        "kumo-field__description",
+        "kumo-field__input",
+        "kumo-field__label"
+      ],
+      "missing": [
+        "text-kumo-default",
+        "text-kumo-subtle"
+      ],
+      "reactKumoCount": 2,
+      "nativeKumoCount": 4,
+      "nativeClassSample": [
+        "kumo-field",
+        "kumo-field__label",
+        "kumo-field__description",
+        "kumo-field__input"
+      ]
+    }
+  ],
+  "status": "failed",
+  "screenshots": {
+    "button": "/tmp/fidelity/button.png",
+    "field": "/tmp/fidelity/field.png"
+  }
+}
