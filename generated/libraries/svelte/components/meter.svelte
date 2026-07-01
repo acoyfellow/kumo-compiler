@@ -57,32 +57,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if Object.prototype.hasOwnProperty.call(semanticValues, "label") && semanticEqual(semanticValues.label, "Hidden") && Object.prototype.hasOwnProperty.call(semanticValues, "max") && semanticEqual(semanticValues.max, 200) && Object.prototype.hasOwnProperty.call(semanticValues, "min") && semanticEqual(semanticValues.min, 0) && Object.prototype.hasOwnProperty.call(semanticValues, "showValue") && semanticEqual(semanticValues.showValue, false) && Object.prototype.hasOwnProperty.call(semanticValues, "value") && semanticEqual(semanticValues.value, 20)}
-  <div role={"meter"} aria-valuemax={"200"} aria-valuenow={"20"}>
-    <span></span>
-    <span></span>
-    {"Hiddenx"}
-  </div>
-{:else if Object.prototype.hasOwnProperty.call(semanticValues, "customValue") && semanticEqual(semanticValues.customValue, "750 / 1,000") && Object.prototype.hasOwnProperty.call(semanticValues, "label") && semanticEqual(semanticValues.label, "Requests") && Object.prototype.hasOwnProperty.call(semanticValues, "value") && semanticEqual(semanticValues.value, 75)}
-  <div role={"meter"} aria-valuenow={"75"}>
-    <span></span>
-    <span></span>
-    <span></span>
-    {"Requests750 / 1,000x"}
-  </div>
-{:else if Object.prototype.hasOwnProperty.call(semanticValues, "label") && semanticEqual(semanticValues.label, "Storage") && Object.prototype.hasOwnProperty.call(semanticValues, "value") && semanticEqual(semanticValues.value, 65)}
-  <div role={"meter"} aria-valuemin={"0"} aria-valuemax={"100"} aria-valuenow={"65"} aria-valuetext={"65%"}>
-    <span></span>
-    <span></span>
-    <span></span>
-    {"Storage65%x"}
-  </div>
-{:else}
-<div class={cx(styles["root"])}>
-  {semanticValues["label"]}
-  <meter class={cx(styles["root"])}></meter>
-  {#if semanticValues["showValue"]}
-    {(semanticValues["customValue"] ?? semanticValues["value"])}
-  {/if}
-</div>
-{/if}
+<div class="flex w-full flex-col gap-2" role="meter" aria-valuenow={value} aria-valuemin={min ?? 0} aria-valuemax={max ?? 100}><div class="flex items-center justify-between gap-4"><span class="text-xs text-kumo-subtle">{label}</span>{#if showValue !== false}<span class="text-sm font-medium text-kumo-default tabular-nums">{customValue ?? (value + "%")}</span>{/if}</div><div class="relative h-2 w-full overflow-hidden rounded-full bg-kumo-fill"><div class="absolute inset-y-0 left-0 rounded-full bg-linear-to-r from-kumo-brand via-kumo-brand to-kumo-brand transition-[width] duration-300 ease-out" style="width: {value}%"></div></div></div>
