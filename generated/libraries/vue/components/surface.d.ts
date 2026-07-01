@@ -3,4 +3,4 @@ import type { DefineComponent } from 'vue';
 export interface SurfaceProps { [key: string]: unknown }
 declare const component: DefineComponent<SurfaceProps>;
 export default component;
-export declare const modelDigest: "bcb4aa3e592b9584d7e18fe498c9d2cfaad66ee570e649a81bfcf73eeccac950";
+export declare const modelDigest: "a99b43a05015aed1b5f99239d8e125c152c7de069f07ad9d3f7a931f66212057";

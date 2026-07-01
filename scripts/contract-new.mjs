@@ -5,7 +5,7 @@ import {fileURLToPath} from 'node:url';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const catalogPath=path.join(root,'benchmarks/catalog.json');
-const provenancePath=path.join(root,'audit/kumo-react-2.5.2.provenance.json');
+const provenancePath=path.join(root,'audit/kumo-react-2.6.0.provenance.json');
 const componentsDir=path.join(root,'contracts/kumo.observable/v1/components');
 
 function readJson(file,label){
@@ -30,7 +30,7 @@ export function buildSkeleton(id){
   const ids=catalogIds();
   if(!ids.includes(id))throw new Error(`unknown component ID ${JSON.stringify(id)}; expected one of the exact 41 catalog IDs`);
   const provenance=readJson(provenancePath,'canonical provenance');
-  if(provenance.schemaVersion!=='kumo.canonical-react-provenance/v1'||provenance.package?.name!=='@cloudflare/kumo'||provenance.package?.version!=='2.5.2')throw new Error('canonical provenance package binding must be @cloudflare/kumo@2.5.2');
+  if(provenance.schemaVersion!=='kumo.canonical-react-provenance/v1'||provenance.package?.name!=='@cloudflare/kumo'||provenance.package?.version!=='2.6.0')throw new Error('canonical provenance package binding must be @cloudflare/kumo@2.6.0');
   const component=provenance.components?.[id];
   const typesPath=component?.export?.types;
   const runtimePath=component?.export?.import;
@@ -42,7 +42,7 @@ export function buildSkeleton(id){
   if(!/\bexport\b/.test(declarationText))throw new Error(`package declarations expose no inspectable exports for ${id}`);
   return {
     schemaVersion:'kumo.observable/v1',component:id,
-    canonical:{package:'@cloudflare/kumo',version:'2.5.2',exportPath:component.exportPath,typesPath,runtimePath,typesSha256:shaFor(component,typesPath,'types'),runtimeSha256:shaFor(component,runtimePath,'runtime'),irSchemaVersion:'kumo.ir/v1'},
+    canonical:{package:'@cloudflare/kumo',version:'2.6.0',exportPath:component.exportPath,typesPath,runtimePath,typesSha256:shaFor(component,typesPath,'types'),runtimeSha256:shaFor(component,runtimePath,'runtime'),irSchemaVersion:'kumo.ir/v1'},
     publicApi:{exports:['UNRESOLVED: inspect package declarations; replace before validation'],props:{},defaults:{}},
     semantics:{root:'unknown',aria:[]},initialState:{},transitions:[],keyboardFocus:{focusable:false,keys:[]},
     ssrHydration:{ssr:'unknown',hydration:'unknown'},stylingAssets:{classes:[],assets:[]},

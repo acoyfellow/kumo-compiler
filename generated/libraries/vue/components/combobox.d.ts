@@ -3,4 +3,4 @@ import type { DefineComponent } from 'vue';
 export interface ComboboxProps { [key: string]: unknown }
 declare const component: DefineComponent<ComboboxProps>;
 export default component;
-export declare const modelDigest: "99992dbcf413455a2229fb3d1cda459e1b2723adfeb2204db400829a901edf36";
+export declare const modelDigest: "87e32915ebbd07b300ba0f9ea11293bed3a0e1d43b56400838cf3b0b3064be90";

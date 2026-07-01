@@ -4,7 +4,7 @@ import type { JSX } from "solid-js";
 
 export interface InputAreaProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "3f2ca47762723bd72e47c5da8490058c226bbee67e5518d548fc19ba2c467f14";
+export const modelDigest = "e1dc1bf751aaa7b6e3de69ce1b8a6870a6512d40db1fc175431f5c242ebf827e";
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"bare":"ebf5bf8b27301ff66eaf323b56e6a9ac48972ee15edb2d88ae114e04d29c04cd"} as const;
 const styles: Record<string, string> = {"root":"root"};
@@ -43,7 +43,7 @@ export function InputArea(incoming: InputAreaProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as InputAreaProps & Record<string, unknown>, ["class","defaultValue","disabled","onInput","children","fixture","styles"]);
   void native; void state; void refs;
-  return (props.label != null ? <div><label for="kumo-614bcb3608f3">{props.label as JSX.Element}</label><textarea {...native} id="kumo-614bcb3608f3" class={mergeStyles(styles.root, props.class)} value={props.defaultValue as string | number | string[] | undefined} disabled={Boolean(props.disabled)} onInput={nativeInputHandler}></textarea></div> : <textarea {...native} class={mergeStyles(styles.root, props.class)} value={props.defaultValue as string | number | string[] | undefined} disabled={Boolean(props.disabled)} onInput={nativeInputHandler}></textarea>);
+  return (props.label != null ? <div><label for="kumo-b7ff621d139b">{props.label as JSX.Element}</label><textarea {...native} id="kumo-b7ff621d139b" class={mergeStyles(styles.root, props.class)} value={props.defaultValue as string | number | string[] | undefined} disabled={Boolean(props.disabled)} onInput={nativeInputHandler}></textarea></div> : <textarea {...native} class={mergeStyles(styles.root, props.class)} value={props.defaultValue as string | number | string[] | undefined} disabled={Boolean(props.disabled)} onInput={nativeInputHandler}></textarea>);
 }
 
 export default InputArea;

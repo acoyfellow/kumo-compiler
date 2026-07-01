@@ -3,4 +3,4 @@ import type { Component } from 'svelte';
 import type { Props } from './banner.svelte';
 declare const component: Component<Props>;
 export default component;
-export const modelDigest: "e57b4fc419d2b1310d0ea4963a5181380a89060415280931c0e7698f1cd2ede2";
+export const modelDigest: "44dc46ac844b7494abe7a6e6e3064c36cab57694efac43aa59738f3e75745a65";

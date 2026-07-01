@@ -1,6 +1,6 @@
 {
   "schemaVersion":"kumo.observable/v1","component":"date-range-picker",
-  "canonical":{"package":"@cloudflare/kumo","version":"2.5.2","exportPath":"./components/date-range-picker","typesPath":"dist/src/components/date-range-picker/index.d.ts","runtimePath":"dist/components/date-range-picker.js","typesSha256":"ecadf4888736c886ec7aaa4e665a9d1d681e3b1efa1b65a946fdb48b18ac08dd","runtimeSha256":"7e7668e28b93553f8d09364940e60c085e6d503d5255c4f8ec29b155a7b0a662","irSchemaVersion":"kumo.ir/v1"},
+  "canonical":{"package":"@cloudflare/kumo","version":"2.6.0","exportPath":"./components/date-range-picker","typesPath":"dist/src/components/date-range-picker/index.d.ts","runtimePath":"dist/components/date-range-picker.js","typesSha256":"ecadf4888736c886ec7aaa4e665a9d1d681e3b1efa1b65a946fdb48b18ac08dd","runtimeSha256":"7e7668e28b93553f8d09364940e60c085e6d503d5255c4f8ec29b155a7b0a662","irSchemaVersion":"kumo.ir/v1"},
   "publicApi":{"exports":["DateRangePicker"],"props":{"onStartDateChange":"callback","onEndDateChange":"callback","timezone":"string","size":"sm|base|lg","variant":"default|subtle","className":"string"},"defaults":{"timezone":"New York, NY, USA (GMT-4)","size":"base","variant":"default"}},
   "semantics":{"root":"div","aria":["Previous month and Next month buttons","day buttons have generated accessible labels"]},
   "initialState":{"startDate":null,"endDate":null,"months":"current and next month"},

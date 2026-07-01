@@ -1,6 +1,6 @@
 {
   "schemaVersion":"kumo.observable/v1","component":"switch",
-  "canonical":{"package":"@cloudflare/kumo","version":"2.5.2","exportPath":"./components/switch","typesPath":"dist/src/components/switch/index.d.ts","runtimePath":"dist/components/switch.js","typesSha256":"bf21c4b9a6d2c6ce48f2cce327eccad83fb5e66ea5e1e5fac06687703aab515e","runtimeSha256":"736abdb6fe71c107d44483cb5355f6f4117f52b6936a20e446a2df4c2ed77852","irSchemaVersion":"kumo.ir/v1"},
+  "canonical":{"package":"@cloudflare/kumo","version":"2.6.0","exportPath":"./components/switch","typesPath":"dist/src/components/switch/index.d.ts","runtimePath":"dist/components/switch.js","typesSha256":"bf21c4b9a6d2c6ce48f2cce327eccad83fb5e66ea5e1e5fac06687703aab515e","runtimeSha256":"810f037606525703926b71e4ed6c542c2b3805a571c355d97682c602f244df49","irSchemaVersion":"kumo.ir/v1"},
   "publicApi":{"exports":["Switch"],"props":{"checked":"boolean","disabled":"boolean","size":"sm|base|lg","label":"ReactNode","onCheckedChange":"callback","group":"Switch.Group/Item"},"defaults":{"checked":false,"disabled":false,"size":"base","variant":"default","controlFirst":true}},
   "semantics":{"root":"button","aria":["role=switch","aria-checked=false|true"]},"initialState":{"controlled":"checked","uncontrolled":"absence of checked"},
   "transitions":[{"action":"click|Space","effect":"toggle and invoke callback unless disabled"}],"keyboardFocus":{"focusable":true,"keys":["Space"]},

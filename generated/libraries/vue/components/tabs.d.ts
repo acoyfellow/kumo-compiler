@@ -3,4 +3,4 @@ import type { DefineComponent } from 'vue';
 export interface TabsProps { [key: string]: unknown }
 declare const component: DefineComponent<TabsProps>;
 export default component;
-export declare const modelDigest: "79ef8064a09f0913da0ed4e2cceaee0c9227ca5a0bfd2311b29c281595691791";
+export declare const modelDigest: "4fe5a01dc4ecdc8eee495f156b879d0413165d27a10f61496537d06c6a4524ca";

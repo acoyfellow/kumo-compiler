@@ -3,4 +3,4 @@ import type { DefineComponent } from 'vue';
 export interface ButtonProps { [key: string]: unknown }
 declare const component: DefineComponent<ButtonProps>;
 export default component;
-export declare const modelDigest: "1f0d364d4ac22b2a6071a1180f81ea5d71793eaf4d14d6718ec31a00b6381b22";
+export declare const modelDigest: "ff5fa385c7e3a39e7fa8b97bcd54b028b565782936fb3452b332ac17f39ba37a";

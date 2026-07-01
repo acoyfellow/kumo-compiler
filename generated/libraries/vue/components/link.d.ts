@@ -3,4 +3,4 @@ import type { DefineComponent } from 'vue';
 export interface LinkProps { [key: string]: unknown }
 declare const component: DefineComponent<LinkProps>;
 export default component;
-export declare const modelDigest: "66e89c0778455462b2e0f570cd8e93d03c70b2080ad1568935860a9da97e5065";
+export declare const modelDigest: "129db969391cbcb5c5437c1a10d6e22a2bd3677fdebcd6c9f366f4ad9206a76b";

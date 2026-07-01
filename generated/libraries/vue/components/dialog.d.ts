@@ -3,4 +3,4 @@ import type { DefineComponent } from 'vue';
 export interface DialogProps { [key: string]: unknown }
 declare const component: DefineComponent<DialogProps>;
 export default component;
-export declare const modelDigest: "bbb9a5923924fd49391fbcee50197c821eda77610c050fb355e378e852397b0d";
+export declare const modelDigest: "9d859aa9ef31faf6c5c78803e543a74a234ad027bc2f6557fc7aab5477498168";

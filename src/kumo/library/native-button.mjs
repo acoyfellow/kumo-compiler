@@ -20,8 +20,15 @@ function deriveStyleVariants(contract){
   const styleVariants=CANONICAL_VARIANTS.map(variant=>({when:{variant},classes:buttonVariants({variant}).split(/\s+/).filter(Boolean)}));
   for(const [alias,target] of Object.entries(VARIANT_ALIASES))styleVariants.push({when:{variant:alias},classes:buttonVariants({variant:target}).split(/\s+/).filter(Boolean)});
   // Prove the emitted classes are the real Kumo tokens the contract asserts.
+  // The variant-distinguishing background class is version-defined: 2.5.2 used
+  // literal `bg-kumo-*` utilities, 2.6.0 uses the `bg-(--kumo-button-emphasis-*)`
+  // CSS-variable tokens. Bind to whatever background class the (regenerated)
+  // contract vector declares rather than a hardcoded token pattern, so the guard
+  // keeps proving emitted==contract across upstream bumps instead of silently
+  // going no-op when the token shape changes.
   const expected=new Map();
-  for(const vector of contract.vectors){const v=vector.props?.variant;const inc=vector.expected?.root?.classes?.includes;if(v&&Array.isArray(inc))for(const cls of inc)if(cls.startsWith('bg-kumo-'))expected.set(v,cls);}
+  for(const vector of contract.vectors){const v=vector.props?.variant;const inc=vector.expected?.root?.classes?.includes;if(v&&Array.isArray(inc))for(const cls of inc)if(cls.startsWith('bg-'))expected.set(v,cls);}
+  if(!expected.size)throw new Error('native button styleVariants drift: contract declares no variant background class to verify');
   for(const [variant,cls] of expected){const entry=styleVariants.find(item=>item.when.variant===variant);if(!entry||!entry.classes.includes(cls))throw new Error(`native button styleVariants drift: variant ${variant} must include real Kumo class ${cls}`);}
   return styleVariants;
 }

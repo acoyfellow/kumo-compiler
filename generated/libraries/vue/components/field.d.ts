@@ -3,4 +3,4 @@ import type { DefineComponent } from 'vue';
 export interface FieldProps { [key: string]: unknown }
 declare const component: DefineComponent<FieldProps>;
 export default component;
-export declare const modelDigest: "6680d3b6e5ef5e85c4340fd8369a05f55c9a388c2bfb7ada7da9eeb0eccd29f3";
+export declare const modelDigest: "ca68f4bf8cd1bbd8e6b4e29c5aca729e7d73c8993a945bcfef02603708fab28b";

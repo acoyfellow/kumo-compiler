@@ -155,7 +155,13 @@ for (const file of contractFiles) {
   const name = file.slice(0,-5); const contractPath = `contracts/kumo.observable/v1/components/${file}`;
   const contract = JSON.parse(fs.readFileSync(path.join(root, contractPath), 'utf8'));
   const previous = JSON.parse(fs.readFileSync(path.join(models, file), 'utf8'));
-  const model = {...previous, provenance:{...previous.provenance, contractPath, contractDigest:digest(contract)}};
+   // Bind the library IR's canonical provenance to the contract's canonical
+   // block so an upstream bump (e.g. 2.5.2 -> 2.6.0) flows through instead of
+   // being frozen from the previously generated model. `canonical` mirrors the
+   // contract's package/version and the byte hashes the contract already
+   // verified against the regenerated provenance.
+   const {package:canonicalPackage,version:canonicalVersion,typesSha256,runtimeSha256}=contract.canonical;
+   const model = {...previous, provenance:{...previous.provenance, contractPath, canonical:{package:canonicalPackage,version:canonicalVersion,typesSha256,runtimeSha256}, contractDigest:digest(contract)}};
   delete model.modelDigest; delete model.readinessProof;
   const compoundExport = compoundByComponent.get(name);
   if (compoundExport) model.composition = {...model.composition, compoundExports:{canonicalRoot:compoundExport.canonicalRoot, tree:compoundExport.tree, paths:compoundExport.paths}};

@@ -3,7 +3,7 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "5095f41d10b4171b26a76054676cdd46240c352d0283a678dedfe13047e9ca2f";
+  export const modelDigest = "19094050eb771fdfac0bed3e0fa56f1b4fc207fb607ed9cb9ed44dd7ed3b7015";
   export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   asContent?: boolean;

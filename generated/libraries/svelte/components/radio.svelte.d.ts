@@ -3,4 +3,4 @@ import type { Component } from 'svelte';
 import type { Props } from './radio.svelte';
 declare const component: Component<Props>;
 export default component;
-export const modelDigest: "851f6bb506c384c8d6d8ec9583d3ec05a0cf060d5d9192464a29ba55e1185844";
+export const modelDigest: "0fb1bd718d40fbc0aecffd04f5e7e67ffb54bd77534c52ac02ff74e9f52dedc1";

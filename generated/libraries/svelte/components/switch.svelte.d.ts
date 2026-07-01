@@ -3,4 +3,4 @@ import type { Component } from 'svelte';
 import type { Props } from './switch.svelte';
 declare const component: Component<Props>;
 export default component;
-export const modelDigest: "70db6933357de8ee3d47759cd14f5ca8cab2cc88427a19740a54a5f4d65377b3";
+export const modelDigest: "2c459cb1c2a2e882e76c632b9fcf8083330fbdbb619b69b0437fc8e2c4777618";

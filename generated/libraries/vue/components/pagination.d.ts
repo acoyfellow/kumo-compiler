@@ -3,4 +3,4 @@ import type { DefineComponent } from 'vue';
 export interface PaginationProps { [key: string]: unknown }
 declare const component: DefineComponent<PaginationProps>;
 export default component;
-export declare const modelDigest: "e429308d31e783f621359d7f7497bbae2ce32cc82be5a9a21f42a3664d712efb";
+export declare const modelDigest: "6e1a7c3c7b64ddff207a8064f0ac567ceb7d90b72a3b433ed0fa4cb262d016b7";

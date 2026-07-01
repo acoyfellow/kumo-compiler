@@ -3,4 +3,4 @@ import type { DefineComponent } from 'vue';
 export interface PopoverProps { [key: string]: unknown }
 declare const component: DefineComponent<PopoverProps>;
 export default component;
-export declare const modelDigest: "cc912e264b579e2ed770a09131e4874ada9d948fefc9f1dc9be0b0a9d038de4d";
+export declare const modelDigest: "883fa187b12990fc0b616bac194262c47ef6e368749d2e25eaad0199ccb67f62";

@@ -4,7 +4,7 @@ import type { JSX } from "solid-js";
 
 export interface InputProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "ccce2fdcca8c5218c94732f83446c137e03d4b7dd9548ffde312605374734e2f";
+export const modelDigest = "8b86b2118311f82c53dcde374d23ad8165142d5510420f75a20dd08881af279c";
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"bare-disabled":"9f4857a73ca347a341683ae3f56fb85d5f056ec4d0bac47c5b8c71f722f25d48"} as const;
 const styles: Record<string, string> = {"root":"root"};
@@ -43,7 +43,7 @@ export function Input(incoming: InputProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as InputProps & Record<string, unknown>, ["class","defaultValue","disabled","onInput","children","fixture","styles"]);
   void native; void state; void refs;
-  return (props.label != null ? <div><label for="kumo-8eb97ee93afe">{props.label as JSX.Element}</label><input {...native} id="kumo-8eb97ee93afe" class={mergeStyles(styles.root, props.class)} value={props.defaultValue as string | number | string[] | undefined} disabled={Boolean(props.disabled)} onInput={nativeInputHandler}></input></div> : <input {...native} class={mergeStyles(styles.root, props.class)} value={props.defaultValue as string | number | string[] | undefined} disabled={Boolean(props.disabled)} onInput={nativeInputHandler}></input>);
+  return (props.label != null ? <div><label for="kumo-5974a06b3b90">{props.label as JSX.Element}</label><input {...native} id="kumo-5974a06b3b90" class={mergeStyles(styles.root, props.class)} value={props.defaultValue as string | number | string[] | undefined} disabled={Boolean(props.disabled)} onInput={nativeInputHandler}></input></div> : <input {...native} class={mergeStyles(styles.root, props.class)} value={props.defaultValue as string | number | string[] | undefined} disabled={Boolean(props.disabled)} onInput={nativeInputHandler}></input>);
 }
 
 export default Input;

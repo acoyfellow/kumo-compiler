@@ -1,6 +1,6 @@
 {
   "schemaVersion":"kumo.observable/v1","component":"radio",
-  "canonical":{"package":"@cloudflare/kumo","version":"2.5.2","exportPath":"./components/radio","typesPath":"dist/src/components/radio/index.d.ts","runtimePath":"dist/components/radio.js","typesSha256":"0b4aef7c280bb0bc7cddb2dab650ad9a869b0fd3747a6f0e52faf7c729d07757","runtimeSha256":"68007ac0ed0ef955d588f459c2e8a9e5833198680c352931977a98aa0209494f","irSchemaVersion":"kumo.ir/v1"},
+  "canonical":{"package":"@cloudflare/kumo","version":"2.6.0","exportPath":"./components/radio","typesPath":"dist/src/components/radio/index.d.ts","runtimePath":"dist/components/radio.js","typesSha256":"079151087eb36ca28b507f6691f3ebebc40953c1ec29458e934fe8143258a3ef","runtimeSha256":"fbab863ec576dadd7b36e01445fcc7dd14d44123bebee99d30a687d6ad21b67c","irSchemaVersion":"kumo.ir/v1"},
   "publicApi":{"exports":["Radio"],"props":{"defaultValue":"string","value":"string","disabled":"boolean","orientation":"vertical|horizontal","onValueChange":"callback","items":"Radio.Item[]"},"defaults":{"orientation":"vertical","appearance":"default","controlPosition":"start"}},
   "semantics":{"root":"div","aria":["role=radiogroup","items role=radio","aria-checked=false|true"]},"initialState":{"uncontrolled":"defaultValue","controlled":"value"},
   "transitions":[{"action":"click|ArrowDown|ArrowUp|ArrowLeft|ArrowRight","effect":"select enabled item and invoke onValueChange"}],"keyboardFocus":{"focusable":true,"keys":["ArrowDown","ArrowUp","ArrowLeft","ArrowRight"]},

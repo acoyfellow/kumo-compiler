@@ -5,7 +5,7 @@ import type { JSX } from "solid-js";
 
 export interface DropdownMenuProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "b7a7a7552e372c2e1ea240ec06c7dce7aef9118128e29322f995167f2f63016d";
+export const modelDigest = "3e6c8ea8ec001de4a46d730f7438828c90bcd87db3a503cf0dd39f64a905af84";
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"closed-trigger-ssr":"96a51ef90c52bda16064391fbaddcdd8221a7f254583a75aa51732efd36fee89"} as const;
 const styles: Record<string, string> = {"root":"root","data-highlighted":"data-highlighted","data-disabled":"data-disabled","data-popup-open":"data-popup-open","data-starting-style":"data-starting-style","data-ending-style":"data-ending-style","text-kumo-danger":"text-kumo-danger"};

@@ -3,4 +3,4 @@ import type { DefineComponent } from 'vue';
 export interface SidebarProps { [key: string]: unknown }
 declare const component: DefineComponent<SidebarProps>;
 export default component;
-export declare const modelDigest: "25a19cbe99e84a9f4daf06d56a4f43a039827812a3623bc39919eb4683550b77";
+export declare const modelDigest: "2e22373d5291c1d07396d9c3c4776318ff6a4449a8ba4af5384d3cd5b234f760";

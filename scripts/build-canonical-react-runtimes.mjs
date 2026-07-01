@@ -22,7 +22,7 @@ export async function validateCanonicalPublicRuntime(output,{component,root=defa
  if(/<style\b[^>]*\bhref=/.test(html))throw Error(`${component}: preflight inline style contains URL-like href`);
  if(!links.length)throw Error(`${component}: preflight linked assets missing`);
  for(const link of links){const p=link.startsWith('/')?resolve(output,'assets',link.split('/').pop()):resolve(output,link);if(!existsSync(p))throw Error(`${component}: preflight linked asset missing: ${link}`)}
- const provenance=JSON.parse(await readFile(resolve(root,'audit/kumo-react-2.5.2.provenance.json'),'utf8'));
+ const provenance=JSON.parse(await readFile(resolve(root,'audit/kumo-react-2.6.0.provenance.json'),'utf8'));
  if(provenance.package?.name!=='@cloudflare/kumo')throw Error(`${component}: preflight canonical package provenance invalid`);
  return true;
 }

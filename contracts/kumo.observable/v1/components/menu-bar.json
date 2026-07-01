@@ -1,6 +1,6 @@
 {
   "schemaVersion":"kumo.observable/v1","component":"menu-bar",
-  "canonical":{"package":"@cloudflare/kumo","version":"2.5.2","exportPath":"./components/menubar","typesPath":"dist/src/components/menubar/index.d.ts","runtimePath":"dist/components/menubar.js","typesSha256":"2fe039e9c38dd9661ecc713c29ec060086022324f73643abf1ab5fdd84a44d8f","runtimeSha256":"2ed2a1a6312eb34937413bd402037d4c2bcdae722bda3ad94e20ffd0fb43cf8f","irSchemaVersion":"kumo.ir/v1"},
+  "canonical":{"package":"@cloudflare/kumo","version":"2.6.0","exportPath":"./components/menubar","typesPath":"dist/src/components/menubar/index.d.ts","runtimePath":"dist/components/menubar.js","typesSha256":"2fe039e9c38dd9661ecc713c29ec060086022324f73643abf1ab5fdd84a44d8f","runtimeSha256":"2d535f8cc723fff98e7a2519584a07f62cb3f0577b34ba4d732a8d2d920234f0","irSchemaVersion":"kumo.ir/v1"},
   "publicApi":{"exports":["MenuBar","useMenuNavigation"],"props":{"isActive":"number|boolean|string|undefined; required controlled active value","options":"array of {icon,id?,isActive?,onClick,tooltip}","optionIds":"boolean","className":"string"},"defaults":{"optionIds":false,"variants":"none","iconSize":18}},
   "semantics":{"root":"nav","aria":["root is nav, not role=menubar","each option is a native button named by aria-label=tooltip","active state is visual only; no aria-current, aria-pressed, or aria-selected"]},
   "initialState":{"active":"isActive prop compared to index, or option id when optionIds=true","focus":"native tab order; every option button is tabbable"},

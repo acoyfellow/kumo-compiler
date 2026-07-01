@@ -1,6 +1,6 @@
 {
   "schemaVersion":"kumo.observable/v1","component":"checkbox",
-  "canonical":{"package":"@cloudflare/kumo","version":"2.5.2","exportPath":"./components/checkbox","typesPath":"dist/src/components/checkbox/index.d.ts","runtimePath":"dist/components/checkbox.js","typesSha256":"b5d863b87e52d04e85f5d704359fa724fa7bbe99847e3f866fcf8e258eb1be1d","runtimeSha256":"990c3b30fcadac24cbcf9624332d3fa43ea65264a649e8e8a8a897c071227f33","irSchemaVersion":"kumo.ir/v1"},
+  "canonical":{"package":"@cloudflare/kumo","version":"2.6.0","exportPath":"./components/checkbox","typesPath":"dist/src/components/checkbox/index.d.ts","runtimePath":"dist/components/checkbox.js","typesSha256":"b5d863b87e52d04e85f5d704359fa724fa7bbe99847e3f866fcf8e258eb1be1d","runtimeSha256":"93455d5db1bb38ef12a80fdcffd4d4dcd72490a5451df9350eed1b4d066a9d7d","irSchemaVersion":"kumo.ir/v1"},
   "publicApi":{"exports":["Checkbox"],"props":{"checked":"boolean","indeterminate":"boolean","disabled":"boolean","label":"ReactNode","onCheckedChange":"callback","group":"Checkbox.Group/Item"},"defaults":{"checked":false,"indeterminate":false,"disabled":false,"controlFirst":true}},
   "semantics":{"root":"span","aria":["role=checkbox","aria-checked=false|true|mixed","accessible name required"]},
   "initialState":{"controlled":"checked","uncontrolled":"absence of checked","group":"defaultValue/value"},

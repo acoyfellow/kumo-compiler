@@ -3,4 +3,4 @@ import type { Component } from 'svelte';
 import type { Props } from './checkbox.svelte';
 declare const component: Component<Props>;
 export default component;
-export const modelDigest: "9bed87c38c3dc76bca19c327b60bc4264efc797aacdce1a4e06e08b722ca4c65";
+export const modelDigest: "d9617fd05509e055a82540aec66516f53dc6bd6a3761ab62cda5c32bdac39119";

@@ -4,7 +4,7 @@ import type { JSX } from "solid-js";
 
 export interface CloudflareLogoProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "b2674fc7e38cace5a90134bb36e79807b0f150548237eb9c09d8398b0c1fa228";
+export const modelDigest = "b911b40e153af91cfae77921271c1336b8800d9b199c661489f03531ec727096";
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"full-color":"4a470d188456a2895090a43ed1e98eff1f416323faeac90bb20d43ae581efacd","glyph-white":"caa69a7a338fc00c81a3c2c314bda2998c251b21ddc80f0f0bdb8edc6b54acbd"} as const;
 const styles: Record<string, string> = {"root":"root"};

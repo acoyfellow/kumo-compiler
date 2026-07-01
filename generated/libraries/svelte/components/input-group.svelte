@@ -3,7 +3,7 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "aec5871cdfdf97c938fb06aeb6a15dedd413550ce59bca231f5fe2e61f6d347c";
+  export const modelDigest = "6fe3c258c7b23c525441c42e3f981c41f5efd822cc7239b5d8fc28ba519b12a7";
   export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   observable?: unknown;
@@ -26,7 +26,7 @@
   type InputGroupFixtureNode = { export?: string; text?: string; props?: Record<string, unknown>; children?: InputGroupFixtureNode[] };
   type InputGroupFixture = { props?: { label?: unknown; description?: unknown; required?: boolean }; children?: InputGroupFixtureNode[] };
   const inputGroupFixture = $derived.by(() => { const root = fixture as InputGroupFixture | undefined; return { label: root?.props?.label, description: root?.props?.description, required: root?.props?.required, children: root?.children ?? [] }; });
-  const inputGroupId = "kumo-e828cc80d749";
+  const inputGroupId = "kumo-32ed572874d2";
   let inputGroupValue = $state('');
   function inputGroupText(node: InputGroupFixtureNode | undefined): string { return node ? String(node.text ?? '') + (node.children ?? []).map(inputGroupText).join('') : ''; }
   function handleInputGroupInput(event: Event) { inputGroupValue = (event.currentTarget as HTMLInputElement).value; }

@@ -4,7 +4,7 @@ import type { JSX } from "solid-js";
 
 export interface BadgeProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "d61594f3236e8d7e4602671f3db5548b0873d563cfc52c9d9249597042a2cf31";
+export const modelDigest = "29a1fa46a73938d9b8f10d69cacff45a1a4bc1f4bf94016c8e5cb517ac467bd4";
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"default":"48bd51a011b414273bbd831d961d8036cf9784ebdc9fe8c8262cc5d849ee78b0","success-dot":"bb8522ff40566aaf102005beefd81fefdf1d361b4ffc6d1116e8b3094bfeb576"} as const;
 const styles: Record<string, string> = {"root":"root","inline-flex":"inline-flex","rounded-full":"rounded-full","px-2":"px-2","py-0.5":"py-0.5","text-xs":"text-xs","font-medium":"font-medium"};

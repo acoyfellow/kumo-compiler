@@ -3,4 +3,4 @@ import type { DefineComponent } from 'vue';
 export interface BannerProps { [key: string]: unknown }
 declare const component: DefineComponent<BannerProps>;
 export default component;
-export declare const modelDigest: "e57b4fc419d2b1310d0ea4963a5181380a89060415280931c0e7698f1cd2ede2";
+export declare const modelDigest: "44dc46ac844b7494abe7a6e6e3064c36cab57694efac43aa59738f3e75745a65";

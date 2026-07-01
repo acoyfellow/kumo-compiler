@@ -3,4 +3,4 @@ import type { DefineComponent } from 'vue';
 export interface CommandPaletteProps { [key: string]: unknown }
 declare const component: DefineComponent<CommandPaletteProps>;
 export default component;
-export declare const modelDigest: "4aabec222bec5b00f25388a2bb017b36c91349e55fa3ba6cb97fdc3d0afee0c0";
+export declare const modelDigest: "2672fb3450a789e3a7035eb2076aac03fbe9e6e27a3f2df5f37d1b4a9e708c05";

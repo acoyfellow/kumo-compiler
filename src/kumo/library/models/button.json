@@ -6,11 +6,11 @@
     "contractSchema": "kumo.observable/v1",
     "canonical": {
       "package": "@cloudflare/kumo",
-      "version": "2.5.2",
+      "version": "2.6.0",
       "typesSha256": "8a4c08f67034b803e08fd44a77ece11ff3b437ff788f67d3ba1a96688d9b81f1",
-      "runtimeSha256": "683d37c04b76b38a2bfc1546e959f72b840b989165c81e2e2b23519dac41c25f"
+      "runtimeSha256": "46cd342b60f0c10a558af2c24c97642463df066efb979077d6112ce92f5e9f77"
     },
-    "contractDigest": "b0a24e6a0b736fb73b4d6da386c0410be1d2ca0264ea6edc2adc32785110909d"
+    "contractDigest": "34e49eb6043468caf93064c9955d412980076445cb7871665b6951a50015741f"
   },
   "public": {
     "symbol": "Button",
@@ -320,7 +320,7 @@
         "provenance": {
           "contractPath": "contracts/kumo.observable/v1/components/button.json",
           "vectorId": "default-native",
-          "contractDigest": "b0a24e6a0b736fb73b4d6da386c0410be1d2ca0264ea6edc2adc32785110909d"
+          "contractDigest": "34e49eb6043468caf93064c9955d412980076445cb7871665b6951a50015741f"
         },
         "expectationDigest": "89e5a990e2451bf44e0420d88f6e76f062098202f08342f53285ad643e01457d"
       },
@@ -353,7 +353,15 @@
           "classes": [
             {
               "kind": "literal",
-              "value": "bg-kumo-brand"
+              "value": "bg-(--kumo-button-emphasis-bg)"
+            },
+            {
+              "kind": "literal",
+              "value": "!text-white"
+            },
+            {
+              "kind": "literal",
+              "value": "ring-(--kumo-button-emphasis-ring)"
             },
             {
               "kind": "literal",
@@ -382,9 +390,9 @@
         "provenance": {
           "contractPath": "contracts/kumo.observable/v1/components/button.json",
           "vectorId": "primary-xs",
-          "contractDigest": "b0a24e6a0b736fb73b4d6da386c0410be1d2ca0264ea6edc2adc32785110909d"
+          "contractDigest": "34e49eb6043468caf93064c9955d412980076445cb7871665b6951a50015741f"
         },
-        "expectationDigest": "ea3fa92bf02ca819bfc1f0b1446ff5b5c341ee657a3fa65d338d6c02019a3a82"
+        "expectationDigest": "2db7af4a158c05279d6d9f2b3a9ba17e3d87f38963a7e1f46a4179a1a207bd54"
       },
       {
         "id": "destructive-lg",
@@ -415,7 +423,15 @@
           "classes": [
             {
               "kind": "literal",
-              "value": "bg-kumo-danger"
+              "value": "bg-(--kumo-button-emphasis-bg)"
+            },
+            {
+              "kind": "literal",
+              "value": "!text-white"
+            },
+            {
+              "kind": "literal",
+              "value": "ring-(--kumo-button-emphasis-ring)"
             },
             {
               "kind": "literal",
@@ -444,9 +460,9 @@
         "provenance": {
           "contractPath": "contracts/kumo.observable/v1/components/button.json",
           "vectorId": "destructive-lg",
-          "contractDigest": "b0a24e6a0b736fb73b4d6da386c0410be1d2ca0264ea6edc2adc32785110909d"
+          "contractDigest": "34e49eb6043468caf93064c9955d412980076445cb7871665b6951a50015741f"
         },
-        "expectationDigest": "15b0195a8eb219af4f9e17f2bcaf9c423b9ebee692056c1964a025ed5275ac51"
+        "expectationDigest": "87b8ff00fcabc497b2d3924d1bfdbcc124c8d8ee944b4da2ddce12208cb2bdfb"
       },
       {
         "id": "circle-label",
@@ -494,7 +510,7 @@
         "provenance": {
           "contractPath": "contracts/kumo.observable/v1/components/button.json",
           "vectorId": "circle-label",
-          "contractDigest": "b0a24e6a0b736fb73b4d6da386c0410be1d2ca0264ea6edc2adc32785110909d"
+          "contractDigest": "34e49eb6043468caf93064c9955d412980076445cb7871665b6951a50015741f"
         },
         "expectationDigest": "eec5ae2310b6553ab713fe5aa9d5722c0d36f00714e790b1e42778ccc353dc50"
       }
@@ -502,7 +518,7 @@
   },
   "semanticRender": {
     "schemaVersion": "kumo.semantic-render/v1",
-    "capabilityDigest": "73c0b560f0044223b0d38e8784c248012889a753ccf4e76caed824e4ea0fea72",
+    "capabilityDigest": "4872253932af3c8ed3e0446fde5ab2b23ed5e1f6a6e9bd23eaab27cc8cd2110e",
     "vectorIds": [
       "default-native",
       "primary-xs",
@@ -518,7 +534,7 @@
   "interactions": {
     "nativeButton": {
       "schemaVersion": "kumo.native-button/v1",
-      "capabilityDigest": "601b8c54b13d4067cd45c6eeb97877a527d1f636916c5a8e9aef8016f48398b9",
+      "capabilityDigest": "07922b198e13c3c4dbb5ba824f4ce9ff24c090a9859971e49f4584a14eea8606",
       "styleVariants": [
         {
           "when": {
@@ -541,15 +557,18 @@
             "cursor-pointer",
             "disabled:cursor-not-allowed",
             "disabled:text-kumo-subtle",
-            "bg-kumo-brand",
-            "!text-white",
-            "hover:bg-kumo-brand-hover",
-            "disabled:bg-kumo-brand/50",
             "h-9",
             "gap-1.5",
             "rounded-lg",
             "px-3",
-            "text-base"
+            "text-base",
+            "relative",
+            "overflow-hidden",
+            "bg-(--kumo-button-emphasis-bg)",
+            "!text-white",
+            "ring",
+            "ring-(--kumo-button-emphasis-ring)",
+            "disabled:opacity-50"
           ]
         },
         {
@@ -573,6 +592,11 @@
             "cursor-pointer",
             "disabled:cursor-not-allowed",
             "disabled:text-kumo-subtle",
+            "h-9",
+            "gap-1.5",
+            "rounded-lg",
+            "px-3",
+            "text-base",
             "bg-kumo-base",
             "!text-kumo-default",
             "ring",
@@ -580,12 +604,7 @@
             "disabled:bg-kumo-base/50",
             "disabled:!text-kumo-default/70",
             "ring-kumo-line",
-            "data-[state=open]:bg-kumo-base",
-            "h-9",
-            "gap-1.5",
-            "rounded-lg",
-            "px-3",
-            "text-base"
+            "data-[state=open]:bg-kumo-base"
           ]
         },
         {
@@ -608,15 +627,15 @@
             "cursor-pointer",
             "disabled:cursor-not-allowed",
             "disabled:text-kumo-subtle",
-            "text-kumo-default",
-            "hover:bg-kumo-tint",
-            "shadow-none",
-            "bg-inherit",
             "h-9",
             "gap-1.5",
             "rounded-lg",
             "px-3",
-            "text-base"
+            "text-base",
+            "text-kumo-default",
+            "hover:bg-kumo-tint",
+            "shadow-none",
+            "bg-inherit"
           ]
         },
         {
@@ -640,14 +659,18 @@
             "cursor-pointer",
             "disabled:cursor-not-allowed",
             "disabled:text-kumo-subtle",
-            "bg-kumo-danger",
-            "!text-white",
-            "hover:bg-kumo-danger/70",
             "h-9",
             "gap-1.5",
             "rounded-lg",
             "px-3",
-            "text-base"
+            "text-base",
+            "relative",
+            "overflow-hidden",
+            "bg-(--kumo-button-emphasis-bg)",
+            "!text-white",
+            "ring",
+            "ring-(--kumo-button-emphasis-ring)",
+            "disabled:opacity-50"
           ]
         },
         {
@@ -671,6 +694,11 @@
             "cursor-pointer",
             "disabled:cursor-not-allowed",
             "disabled:text-kumo-subtle",
+            "h-9",
+            "gap-1.5",
+            "rounded-lg",
+            "px-3",
+            "text-base",
             "bg-kumo-base",
             "!text-kumo-danger",
             "ring",
@@ -679,12 +707,7 @@
             "disabled:bg-kumo-base/50",
             "disabled:!text-kumo-danger/70",
             "ring-kumo-line",
-            "data-[state=open]:bg-kumo-base",
-            "h-9",
-            "gap-1.5",
-            "rounded-lg",
-            "px-3",
-            "text-base"
+            "data-[state=open]:bg-kumo-base"
           ]
         },
         {
@@ -708,18 +731,18 @@
             "cursor-pointer",
             "disabled:cursor-not-allowed",
             "disabled:text-kumo-subtle",
+            "h-9",
+            "gap-1.5",
+            "rounded-lg",
+            "px-3",
+            "text-base",
             "bg-transparent",
             "text-kumo-default",
             "ring",
             "ring-kumo-line",
             "transition-colors",
             "not-disabled:hover:text-kumo-strong",
-            "not-disabled:hover:ring-kumo-focus/25",
-            "h-9",
-            "gap-1.5",
-            "rounded-lg",
-            "px-3",
-            "text-base"
+            "not-disabled:hover:ring-kumo-focus/25"
           ]
         },
         {
@@ -743,14 +766,18 @@
             "cursor-pointer",
             "disabled:cursor-not-allowed",
             "disabled:text-kumo-subtle",
-            "bg-kumo-danger",
-            "!text-white",
-            "hover:bg-kumo-danger/70",
             "h-9",
             "gap-1.5",
             "rounded-lg",
             "px-3",
-            "text-base"
+            "text-base",
+            "relative",
+            "overflow-hidden",
+            "bg-(--kumo-button-emphasis-bg)",
+            "!text-white",
+            "ring",
+            "ring-(--kumo-button-emphasis-ring)",
+            "disabled:opacity-50"
           ]
         }
       ],
@@ -758,5 +785,5 @@
       "defaultVariant": "secondary"
     }
   },
-  "modelDigest": "1f0d364d4ac22b2a6071a1180f81ea5d71793eaf4d14d6718ec31a00b6381b22"
+  "modelDigest": "ff5fa385c7e3a39e7fa8b97bcd54b028b565782936fb3452b332ac17f39ba37a"
 }

@@ -3,4 +3,4 @@ import type { DefineComponent } from 'vue';
 export interface BadgeProps { [key: string]: unknown }
 declare const component: DefineComponent<BadgeProps>;
 export default component;
-export declare const modelDigest: "d61594f3236e8d7e4602671f3db5548b0873d563cfc52c9d9249597042a2cf31";
+export declare const modelDigest: "29a1fa46a73938d9b8f10d69cacff45a1a4bc1f4bf94016c8e5cb517ac467bd4";

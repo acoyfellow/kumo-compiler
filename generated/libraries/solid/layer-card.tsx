@@ -4,7 +4,7 @@ import type { JSX } from "solid-js";
 
 export interface LayerCardProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "18db983088868d26659f87134e6b676f4803d0cdb1e56652f53a7b3203005d2e";
+export const modelDigest = "2ebdc27ab69f5fc3c3bc011c6a6cb19010b761c234ad792c28a8127c98acbfd1";
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"simple":"a499a4590b2889a399fb37ec1aea23b834bd37a9decc081349d87104441126a5","layered":"bdf1e0064642e5030741e7e6b3cfbefc3cb01d9355b221061e54ad98f1d48d10"} as const;
 const styles: Record<string, string> = {"root":"root","overflow-hidden":"overflow-hidden","rounded-lg":"rounded-lg"};

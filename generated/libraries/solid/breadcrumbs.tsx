@@ -4,7 +4,7 @@ import type { JSX } from "solid-js";
 
 export interface BreadcrumbsProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "eba5829a500fbcf08243716c059636b3da146dba33d31b0340db71d035587a01";
+export const modelDigest = "55904d9ce0240002aa580c695246c137febcb02f33b88df3617fae5da3469735";
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"trail":"988fbe9b9467e3a7ec328520e34a5ea0ee2fd2c84014465d6304c4b2bc2b5427","small-current":"9362e5bf743e1dcf8b15a2ba2db9cc9664b02f59456f37291fcab081ce99c5fe"} as const;
 const styles: Record<string, string> = {"root":"root","group":"group","mr-4":"mr-4","flex":"flex","items-center":"items-center"};

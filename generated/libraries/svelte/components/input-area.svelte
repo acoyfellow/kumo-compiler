@@ -3,7 +3,7 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "3f2ca47762723bd72e47c5da8490058c226bbee67e5518d548fc19ba2c467f14";
+  export const modelDigest = "e1dc1bf751aaa7b6e3de69ce1b8a6870a6512d40db1fc175431f5c242ebf827e";
   export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   observable?: unknown;
@@ -33,7 +33,7 @@
   }: Props = $props();
   let state_source = $state("props/native state");
 
-  const controlId = "kumo-614bcb3608f3";
+  const controlId = "kumo-b7ff621d139b";
   function handleNativeInput(event: Event) { onInput?.((event.currentTarget as HTMLInputElement | HTMLTextAreaElement).value); }
   function handleNativeFocus(event: FocusEvent) { onFocus?.(event); }
   const renderContent = __consumerContent;

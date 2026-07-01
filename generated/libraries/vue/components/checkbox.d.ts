@@ -3,4 +3,4 @@ import type { DefineComponent } from 'vue';
 export interface CheckboxProps { [key: string]: unknown }
 declare const component: DefineComponent<CheckboxProps>;
 export default component;
-export declare const modelDigest: "9bed87c38c3dc76bca19c327b60bc4264efc797aacdce1a4e06e08b722ca4c65";
+export declare const modelDigest: "d9617fd05509e055a82540aec66516f53dc6bd6a3761ab62cda5c32bdac39119";

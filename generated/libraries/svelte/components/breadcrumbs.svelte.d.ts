@@ -3,4 +3,4 @@ import type { Component } from 'svelte';
 import type { Props } from './breadcrumbs.svelte';
 declare const component: Component<Props>;
 export default component;
-export const modelDigest: "eba5829a500fbcf08243716c059636b3da146dba33d31b0340db71d035587a01";
+export const modelDigest: "55904d9ce0240002aa580c695246c137febcb02f33b88df3617fae5da3469735";

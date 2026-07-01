@@ -4,7 +4,7 @@ import type { JSX } from "solid-js";
 
 export interface TabsProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "79ef8064a09f0913da0ed4e2cceaee0c9227ca5a0bfd2311b29c281595691791";
+export const modelDigest = "4fe5a01dc4ecdc8eee495f156b879d0413165d27a10f61496537d06c6a4524ca";
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"segmented-uncontrolled-first":"a86aa236d704763777e7377f6cc01a6d44a1272e07ce21bfd87fb1e61f5bec84","underline-selected-value":"a86aa236d704763777e7377f6cc01a6d44a1272e07ce21bfd87fb1e61f5bec84"} as const;
 const styles: Record<string, string> = {"root":"root","relative isolate min-w-0 font-medium":"relative isolate min-w-0 font-medium","kumo-tabs-list overflow-x-auto rounded-lg bg-kumo-recessed":"kumo-tabs-list overflow-x-auto rounded-lg bg-kumo-recessed","focus-visible:ring-2 focus-visible:ring-kumo-brand":"focus-visible:ring-2 focus-visible:ring-kumo-brand"};

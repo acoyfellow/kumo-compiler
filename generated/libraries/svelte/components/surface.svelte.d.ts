@@ -3,4 +3,4 @@ import type { Component } from 'svelte';
 import type { Props } from './surface.svelte';
 declare const component: Component<Props>;
 export default component;
-export const modelDigest: "bcb4aa3e592b9584d7e18fe498c9d2cfaad66ee570e649a81bfcf73eeccac950";
+export const modelDigest: "a99b43a05015aed1b5f99239d8e125c152c7de069f07ad9d3f7a931f66212057";

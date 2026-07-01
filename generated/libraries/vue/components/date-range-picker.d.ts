@@ -3,4 +3,4 @@ import type { DefineComponent } from 'vue';
 export interface DateRangePickerProps { [key: string]: unknown }
 declare const component: DefineComponent<DateRangePickerProps>;
 export default component;
-export declare const modelDigest: "3cfb56490eb493fd3a522a1fdf7ba0b041d91576a3c454046059939ae2aae977";
+export declare const modelDigest: "f4e0896242a95cf4362bf04ce04ba8f7adcfd1185fdefae81085cb0518b80528";

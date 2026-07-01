@@ -3,4 +3,4 @@ import type { Component } from 'svelte';
 import type { Props } from './pagination.svelte';
 declare const component: Component<Props>;
 export default component;
-export const modelDigest: "e429308d31e783f621359d7f7497bbae2ce32cc82be5a9a21f42a3664d712efb";
+export const modelDigest: "6e1a7c3c7b64ddff207a8064f0ac567ceb7d90b72a3b433ed0fa4cb262d016b7";

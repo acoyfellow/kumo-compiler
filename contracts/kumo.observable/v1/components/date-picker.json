@@ -1,6 +1,6 @@
 {
   "schemaVersion":"kumo.observable/v1","component":"date-picker",
-  "canonical":{"package":"@cloudflare/kumo","version":"2.5.2","exportPath":"./components/date-picker","typesPath":"dist/src/components/date-picker/index.d.ts","runtimePath":"dist/components/date-picker.js","typesSha256":"22c18052a57ef37754806d78e64e725fd1565b1d5cd28790be90dbbecd511e80","runtimeSha256":"ae0c108a22932ef83b2ce4812659673367ca401dc21cbc9d69a54a40d156a8bf","irSchemaVersion":"kumo.ir/v1"},
+  "canonical":{"package":"@cloudflare/kumo","version":"2.6.0","exportPath":"./components/date-picker","typesPath":"dist/src/components/date-picker/index.d.ts","runtimePath":"dist/components/date-picker.js","typesSha256":"22c18052a57ef37754806d78e64e725fd1565b1d5cd28790be90dbbecd511e80","runtimeSha256":"ae0c108a22932ef83b2ce4812659673367ca401dc21cbc9d69a54a40d156a8bf","irSchemaVersion":"kumo.ir/v1"},
   "publicApi":{"exports":["DatePicker"],"props":{"mode":"single|multiple|range","selected":"Date|Date[]|DateRange","onChange":"callback","fromDate":"Date","toDate":"Date","aria-label":"string","reactDayPickerProps":"PropsBase and mode props"},"defaults":{"selection":"uncontrolled","locale":"react-day-picker/browser default"}},
   "semantics":{"root":"div","aria":["calendar grid","day buttons expose labels and selected/disabled state","navigation buttons expose labels"]},
   "initialState":{"selected":"from selected prop","displayMonth":"from selected/defaultMonth/current date"},

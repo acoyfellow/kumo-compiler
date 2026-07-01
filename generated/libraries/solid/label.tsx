@@ -4,7 +4,7 @@ import type { JSX } from "solid-js";
 
 export interface LabelProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "5095f41d10b4171b26a76054676cdd46240c352d0283a678dedfe13047e9ca2f";
+export const modelDigest = "19094050eb771fdfac0bed3e0fa56f1b4fc207fb607ed9cb9ed44dd7ed3b7015";
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"default":"c524128c24125acceb5de81fecf2ea71a750dfde1b4bbe4e95d2b7b7400d07ba","optional":"d87059331137a9a04142c68aceaccabe92317b4092692a0ca1448f5e96db52dd","as-content":"9b3e9b27098c001394df18c124e9969711d7417464cb9725396ad912311eef3d"} as const;
 const styles: Record<string, string> = {"root":"root","m-0":"m-0","text-base":"text-base","font-medium":"font-medium","text-kumo-default":"text-kumo-default","inline-flex":"inline-flex","items-center":"items-center","gap-1":"gap-1"};

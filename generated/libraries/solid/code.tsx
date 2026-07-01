@@ -4,7 +4,7 @@ import type { JSX } from "solid-js";
 
 export interface CodeProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "abe340a97570aaf2d55b46c6015819101f40daa70452db116f62bad2a5ff7ced";
+export const modelDigest = "ac14652686b665216bfd9c5a8f1e41e73d994928f91ac7072f115606a5079eb3";
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"default":"face9c8e09407353487403fbf216b21820327f561a4753c60c526ffb7d00fc25","bash":"685437b93a0078d4bd57f63886449874af8d7f6e5197dc93d063954e9bc6f2cf"} as const;
 const styles: Record<string, string> = {"root":"root","font-mono":"font-mono","text-sm":"text-sm","text-kumo-subtle":"text-kumo-subtle"};

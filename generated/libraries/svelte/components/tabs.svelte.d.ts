@@ -3,4 +3,4 @@ import type { Component } from 'svelte';
 import type { Props } from './tabs.svelte';
 declare const component: Component<Props>;
 export default component;
-export const modelDigest: "79ef8064a09f0913da0ed4e2cceaee0c9227ca5a0bfd2311b29c281595691791";
+export const modelDigest: "4fe5a01dc4ecdc8eee495f156b879d0413165d27a10f61496537d06c6a4524ca";
