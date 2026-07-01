@@ -1,9 +1,316 @@
 {
   "schemaVersion": "kumo.local-fidelity/v1",
-  "observedAt": "2026-07-01T12:36:18.621Z",
+  "observedAt": "2026-07-01T12:39:14.473Z",
   "canonical": "@cloudflare/kumo (installed) rendered vs built native packages dx/packages/kumo-{svelte,vue,solid}",
   "note": "Renders the shipped native package artifacts (the @acoyfellow/kumo-* the vite configs alias to). No publish, no deploy.",
   "components": [
+    {
+      "component": "button",
+      "reactRendered": true,
+      "reactBuildError": null,
+      "frameworks": {
+        "svelte": {
+          "fidelity": "match",
+          "lookalikes": [],
+          "missing": [],
+          "reactKumoCount": 10,
+          "nativeKumoCount": 10,
+          "nativeClassSample": [
+            "group",
+            "flex",
+            "w-max",
+            "shrink-0",
+            "items-center",
+            "font-medium",
+            "select-none",
+            "border-0",
+            "shadow-xs",
+            "focus:outline-none",
+            "focus:ring-kumo-focus/50",
+            "focus-visible:ring-2",
+            "focus-visible:ring-kumo-brand",
+            "cursor-pointer",
+            "disabled:cursor-not-allowed",
+            "disabled:text-kumo-subtle",
+            "h-9",
+            "gap-1.5",
+            "rounded-lg",
+            "px-3",
+            "text-base",
+            "bg-kumo-base",
+            "!text-kumo-default",
+            "ring"
+          ]
+        },
+        "vue": {
+          "fidelity": "match",
+          "lookalikes": [],
+          "missing": [],
+          "reactKumoCount": 10,
+          "nativeKumoCount": 10,
+          "nativeClassSample": [
+            "group",
+            "flex",
+            "w-max",
+            "shrink-0",
+            "items-center",
+            "font-medium",
+            "select-none",
+            "border-0",
+            "shadow-xs",
+            "focus:outline-none",
+            "focus:ring-kumo-focus/50",
+            "focus-visible:ring-2",
+            "focus-visible:ring-kumo-brand",
+            "cursor-pointer",
+            "disabled:cursor-not-allowed",
+            "disabled:text-kumo-subtle",
+            "h-9",
+            "gap-1.5",
+            "rounded-lg",
+            "px-3",
+            "text-base",
+            "bg-kumo-base",
+            "!text-kumo-default",
+            "ring"
+          ]
+        },
+        "solid": {
+          "fidelity": "match",
+          "lookalikes": [],
+          "missing": [],
+          "reactKumoCount": 10,
+          "nativeKumoCount": 10,
+          "nativeClassSample": [
+            "group",
+            "flex",
+            "w-max",
+            "shrink-0",
+            "items-center",
+            "font-medium",
+            "select-none",
+            "border-0",
+            "shadow-xs",
+            "focus:outline-none",
+            "focus:ring-kumo-focus/50",
+            "focus-visible:ring-2",
+            "focus-visible:ring-kumo-brand",
+            "cursor-pointer",
+            "disabled:cursor-not-allowed",
+            "disabled:text-kumo-subtle",
+            "h-9",
+            "gap-1.5",
+            "rounded-lg",
+            "px-3",
+            "text-base",
+            "bg-kumo-base",
+            "!text-kumo-default",
+            "ring"
+          ]
+        }
+      },
+      "screenshot": "/tmp/fidelity/button.png"
+    },
+    {
+      "component": "badge",
+      "reactRendered": true,
+      "reactBuildError": null,
+      "frameworks": {
+        "svelte": {
+          "fidelity": "match",
+          "lookalikes": [],
+          "missing": [],
+          "reactKumoCount": 2,
+          "nativeKumoCount": 2,
+          "nativeClassSample": [
+            "inline-flex",
+            "w-fit",
+            "flex-none",
+            "shrink-0",
+            "items-center",
+            "justify-self-start",
+            "rounded-full",
+            "px-2",
+            "py-0.5",
+            "text-xs",
+            "font-medium",
+            "whitespace-nowrap",
+            "bg-kumo-badge-inverted",
+            "text-kumo-badge-inverted"
+          ]
+        },
+        "vue": {
+          "fidelity": "missing-classes",
+          "lookalikes": [],
+          "missing": [
+            "text-kumo-badge-inverted"
+          ],
+          "reactKumoCount": 2,
+          "nativeKumoCount": 1,
+          "nativeClassSample": [
+            "inline-flex",
+            "bg-kumo-badge-inverted"
+          ]
+        },
+        "solid": {
+          "fidelity": "missing-classes",
+          "lookalikes": [],
+          "missing": [
+            "text-kumo-badge-inverted"
+          ],
+          "reactKumoCount": 2,
+          "nativeKumoCount": 1,
+          "nativeClassSample": [
+            "inline-flex",
+            "bg-kumo-badge-inverted"
+          ]
+        }
+      },
+      "screenshot": "/tmp/fidelity/badge.png"
+    },
+    {
+      "component": "input",
+      "reactRendered": true,
+      "reactBuildError": null,
+      "frameworks": {
+        "svelte": {
+          "fidelity": "match",
+          "lookalikes": [],
+          "missing": [],
+          "reactKumoCount": 6,
+          "nativeKumoCount": 6,
+          "nativeClassSample": [
+            "border-0",
+            "bg-kumo-control",
+            "text-kumo-default",
+            "ring",
+            "ring-kumo-line",
+            "outline-none",
+            "focus:outline-none",
+            "kumo-input-placeholder",
+            "disabled:text-kumo-disabled",
+            "focus:ring-kumo-focus/50",
+            "focus:ring-[1.5px]",
+            "h-9",
+            "gap-1.5",
+            "rounded-lg",
+            "px-3",
+            "text-base"
+          ]
+        },
+        "vue": {
+          "fidelity": "match",
+          "lookalikes": [],
+          "missing": [],
+          "reactKumoCount": 6,
+          "nativeKumoCount": 6,
+          "nativeClassSample": [
+            "border-0",
+            "bg-kumo-control",
+            "text-kumo-default",
+            "ring",
+            "ring-kumo-line",
+            "outline-none",
+            "focus:outline-none",
+            "kumo-input-placeholder",
+            "disabled:text-kumo-disabled",
+            "focus:ring-kumo-focus/50",
+            "focus:ring-[1.5px]",
+            "h-9",
+            "gap-1.5",
+            "rounded-lg",
+            "px-3",
+            "text-base"
+          ]
+        },
+        "solid": {
+          "fidelity": "match",
+          "lookalikes": [],
+          "missing": [],
+          "reactKumoCount": 6,
+          "nativeKumoCount": 6,
+          "nativeClassSample": [
+            "border-0",
+            "bg-kumo-control",
+            "text-kumo-default",
+            "ring",
+            "ring-kumo-line",
+            "outline-none",
+            "focus:outline-none",
+            "kumo-input-placeholder",
+            "disabled:text-kumo-disabled",
+            "focus:ring-kumo-focus/50",
+            "focus:ring-[1.5px]",
+            "h-9",
+            "gap-1.5",
+            "rounded-lg",
+            "px-3",
+            "text-base",
+            "root"
+          ]
+        }
+      },
+      "screenshot": "/tmp/fidelity/input.png"
+    },
+    {
+      "component": "field",
+      "reactRendered": true,
+      "reactBuildError": null,
+      "frameworks": {
+        "svelte": {
+          "fidelity": "match",
+          "lookalikes": [],
+          "missing": [],
+          "reactKumoCount": 2,
+          "nativeKumoCount": 2,
+          "nativeClassSample": [
+            "m-0",
+            "select-none",
+            "text-base",
+            "font-medium",
+            "text-kumo-default",
+            "text-sm",
+            "leading-snug",
+            "text-kumo-subtle"
+          ]
+        },
+        "vue": {
+          "fidelity": "match",
+          "lookalikes": [],
+          "missing": [],
+          "reactKumoCount": 2,
+          "nativeKumoCount": 2,
+          "nativeClassSample": [
+            "m-0",
+            "select-none",
+            "text-base",
+            "font-medium",
+            "text-kumo-default",
+            "text-sm",
+            "leading-snug",
+            "text-kumo-subtle"
+          ]
+        },
+        "solid": {
+          "fidelity": "match",
+          "lookalikes": [],
+          "missing": [],
+          "reactKumoCount": 2,
+          "nativeKumoCount": 2,
+          "nativeClassSample": [
+            "m-0",
+            "select-none",
+            "text-base",
+            "font-medium",
+            "text-kumo-default",
+            "text-sm",
+            "leading-snug",
+            "text-kumo-subtle"
+          ]
+        }
+      },
+      "screenshot": "/tmp/fidelity/field.png"
+    },
     {
       "component": "meter",
       "reactRendered": true,
@@ -110,12 +417,368 @@
         }
       },
       "screenshot": "/tmp/fidelity/meter.png"
+    },
+    {
+      "component": "checkbox",
+      "reactRendered": true,
+      "reactBuildError": null,
+      "frameworks": {
+        "svelte": {
+          "fidelity": "match",
+          "lookalikes": [],
+          "missing": [],
+          "reactKumoCount": 10,
+          "nativeKumoCount": 10,
+          "nativeClassSample": [
+            "relative",
+            "flex",
+            "h-4",
+            "w-4",
+            "shrink-0",
+            "items-center",
+            "justify-center",
+            "rounded-sm",
+            "border-0",
+            "bg-kumo-base",
+            "ring",
+            "ring-kumo-hairline",
+            "hover:ring-kumo-hairline",
+            "focus:outline-none",
+            "focus:ring-kumo-focus",
+            "focus:ring-2",
+            "focus-visible:ring-2",
+            "focus-visible:ring-kumo-brand",
+            "data-[checked]:bg-kumo-contrast",
+            "data-[checked]:ring-kumo-contrast",
+            "data-[indeterminate]:bg-kumo-contrast",
+            "data-[indeterminate]:ring-kumo-contrast",
+            "text-kumo-inverse"
+          ]
+        },
+        "vue": {
+          "fidelity": "match",
+          "lookalikes": [],
+          "missing": [],
+          "reactKumoCount": 10,
+          "nativeKumoCount": 10,
+          "nativeClassSample": [
+            "relative",
+            "flex",
+            "h-4",
+            "w-4",
+            "shrink-0",
+            "items-center",
+            "justify-center",
+            "rounded-sm",
+            "border-0",
+            "bg-kumo-base",
+            "ring",
+            "ring-kumo-hairline",
+            "hover:ring-kumo-hairline",
+            "focus:outline-none",
+            "focus:ring-kumo-focus",
+            "focus:ring-2",
+            "focus-visible:ring-2",
+            "focus-visible:ring-kumo-brand",
+            "data-[checked]:bg-kumo-contrast",
+            "data-[checked]:ring-kumo-contrast",
+            "data-[indeterminate]:bg-kumo-contrast",
+            "data-[indeterminate]:ring-kumo-contrast",
+            "text-kumo-inverse"
+          ]
+        },
+        "solid": {
+          "fidelity": "match",
+          "lookalikes": [],
+          "missing": [],
+          "reactKumoCount": 10,
+          "nativeKumoCount": 10,
+          "nativeClassSample": [
+            "relative",
+            "flex",
+            "h-4",
+            "w-4",
+            "shrink-0",
+            "items-center",
+            "justify-center",
+            "rounded-sm",
+            "border-0",
+            "bg-kumo-base",
+            "ring",
+            "ring-kumo-hairline",
+            "hover:ring-kumo-hairline",
+            "focus:outline-none",
+            "focus:ring-kumo-focus",
+            "focus:ring-2",
+            "focus-visible:ring-2",
+            "focus-visible:ring-kumo-brand",
+            "data-[checked]:bg-kumo-contrast",
+            "data-[checked]:ring-kumo-contrast",
+            "data-[indeterminate]:bg-kumo-contrast",
+            "data-[indeterminate]:ring-kumo-contrast",
+            "text-kumo-inverse"
+          ]
+        }
+      },
+      "screenshot": "/tmp/fidelity/checkbox.png"
+    },
+    {
+      "component": "switch",
+      "reactRendered": true,
+      "reactBuildError": null,
+      "frameworks": {
+        "svelte": {
+          "fidelity": "match",
+          "lookalikes": [],
+          "missing": [],
+          "reactKumoCount": 3,
+          "nativeKumoCount": 5,
+          "nativeClassSample": [
+            "relative",
+            "inline-flex",
+            "items-center",
+            "h-4",
+            "w-8",
+            "rounded-[5px]",
+            "ring",
+            "ring-kumo-hairline",
+            "cursor-pointer",
+            "border-none",
+            "p-0",
+            "focus:outline-none",
+            "focus:ring-kumo-focus/50",
+            "focus-visible:ring-2",
+            "focus-visible:ring-kumo-brand",
+            "transition-colors",
+            "duration-150",
+            "ease-out",
+            "h-5",
+            "w-10",
+            "absolute",
+            "top-0.5",
+            "left-0.5",
+            "h-3"
+          ]
+        },
+        "vue": {
+          "fidelity": "match",
+          "lookalikes": [],
+          "missing": [],
+          "reactKumoCount": 3,
+          "nativeKumoCount": 5,
+          "nativeClassSample": [
+            "relative",
+            "inline-flex",
+            "items-center",
+            "h-4",
+            "w-8",
+            "rounded-[5px]",
+            "ring",
+            "ring-kumo-hairline",
+            "cursor-pointer",
+            "border-none",
+            "p-0",
+            "focus:outline-none",
+            "focus:ring-kumo-focus/50",
+            "focus-visible:ring-2",
+            "focus-visible:ring-kumo-brand",
+            "transition-colors",
+            "duration-150",
+            "ease-out",
+            "absolute",
+            "top-0.5",
+            "left-0.5",
+            "h-3",
+            "w-3",
+            "rounded-[4px]"
+          ]
+        },
+        "solid": {
+          "fidelity": "match",
+          "lookalikes": [],
+          "missing": [],
+          "reactKumoCount": 3,
+          "nativeKumoCount": 5,
+          "nativeClassSample": [
+            "relative",
+            "inline-flex",
+            "items-center",
+            "h-4",
+            "w-8",
+            "rounded-[5px]",
+            "ring",
+            "ring-kumo-hairline",
+            "cursor-pointer",
+            "border-none",
+            "p-0",
+            "focus:outline-none",
+            "focus:ring-kumo-focus/50",
+            "focus-visible:ring-2",
+            "focus-visible:ring-kumo-brand",
+            "transition-colors",
+            "duration-150",
+            "ease-out",
+            "absolute",
+            "top-0.5",
+            "left-0.5",
+            "h-3",
+            "w-3",
+            "rounded-[4px]"
+          ]
+        }
+      },
+      "screenshot": "/tmp/fidelity/switch.png"
+    },
+    {
+      "component": "tabs",
+      "reactRendered": true,
+      "reactBuildError": null,
+      "frameworks": {
+        "svelte": {
+          "fidelity": "match",
+          "lookalikes": [],
+          "missing": [],
+          "reactKumoCount": 10,
+          "nativeKumoCount": 10,
+          "nativeClassSample": [
+            "kumo-tabs-list",
+            "relative",
+            "inline-flex",
+            "items-center",
+            "gap-0.5",
+            "rounded-lg",
+            "p-0.5",
+            "ring",
+            "ring-kumo-hairline/70",
+            "bg-kumo-recessed",
+            "isolate",
+            "my-0.5",
+            "rounded-md",
+            "px-2.5",
+            "py-1",
+            "text-base",
+            "text-kumo-subtle",
+            "hover:text-kumo-default",
+            "aria-selected:text-kumo-default",
+            "aria-selected:font-medium",
+            "focus:outline-none",
+            "focus:ring-kumo-focus/50",
+            "focus-visible:ring-2",
+            "focus-visible:ring-kumo-brand"
+          ]
+        },
+        "vue": {
+          "fidelity": "match",
+          "lookalikes": [],
+          "missing": [],
+          "reactKumoCount": 10,
+          "nativeKumoCount": 10,
+          "nativeClassSample": [
+            "kumo-tabs-list",
+            "relative",
+            "inline-flex",
+            "items-center",
+            "gap-0.5",
+            "rounded-lg",
+            "p-0.5",
+            "ring",
+            "ring-kumo-hairline/70",
+            "bg-kumo-recessed",
+            "isolate",
+            "my-0.5",
+            "rounded-md",
+            "px-2.5",
+            "py-1",
+            "text-base",
+            "text-kumo-subtle",
+            "hover:text-kumo-default",
+            "aria-selected:text-kumo-default",
+            "aria-selected:font-medium",
+            "focus:outline-none",
+            "focus:ring-kumo-focus/50",
+            "focus-visible:ring-2",
+            "focus-visible:ring-kumo-brand"
+          ]
+        },
+        "solid": {
+          "fidelity": "match",
+          "lookalikes": [],
+          "missing": [],
+          "reactKumoCount": 10,
+          "nativeKumoCount": 10,
+          "nativeClassSample": [
+            "kumo-tabs-list",
+            "relative",
+            "inline-flex",
+            "items-center",
+            "gap-0.5",
+            "rounded-lg",
+            "p-0.5",
+            "ring",
+            "ring-kumo-hairline/70",
+            "bg-kumo-recessed",
+            "isolate",
+            "my-0.5",
+            "rounded-md",
+            "px-2.5",
+            "py-1",
+            "text-base",
+            "text-kumo-subtle",
+            "hover:text-kumo-default",
+            "aria-selected:text-kumo-default",
+            "aria-selected:font-medium",
+            "focus:outline-none",
+            "focus:ring-kumo-focus/50",
+            "focus-visible:ring-2",
+            "focus-visible:ring-kumo-brand"
+          ]
+        }
+      },
+      "screenshot": "/tmp/fidelity/tabs.png"
     }
   ],
-  "mismatchCount": 0,
-  "mismatches": [],
-  "status": "passed",
+  "mismatchCount": 2,
+  "mismatches": [
+    {
+      "component": "badge",
+      "framework": "vue",
+      "fidelity": "missing-classes",
+      "lookalikes": [],
+      "missing": [
+        "text-kumo-badge-inverted"
+      ],
+      "reactKumoCount": 2,
+      "nativeKumoCount": 1,
+      "nativeClassSample": [
+        "inline-flex",
+        "bg-kumo-badge-inverted"
+      ]
+    },
+    {
+      "component": "badge",
+      "framework": "solid",
+      "fidelity": "missing-classes",
+      "lookalikes": [],
+      "missing": [
+        "text-kumo-badge-inverted"
+      ],
+      "reactKumoCount": 2,
+      "nativeKumoCount": 1,
+      "nativeClassSample": [
+        "inline-flex",
+        "bg-kumo-badge-inverted"
+      ]
+    }
+  ],
+  "status": "failed",
   "screenshots": {
-    "meter": "/tmp/fidelity/meter.png"
+    "button": "/tmp/fidelity/button.png",
+    "badge": "/tmp/fidelity/badge.png",
+    "input": "/tmp/fidelity/input.png",
+    "field": "/tmp/fidelity/field.png",
+    "meter": "/tmp/fidelity/meter.png",
+    "checkbox": "/tmp/fidelity/checkbox.png",
+    "switch": "/tmp/fidelity/switch.png",
+    "tabs": "/tmp/fidelity/tabs.png"
   }
 }

@@ -6,7 +6,7 @@ import {loadLibrary, canonicalJSON} from '../../library/index.mjs';
 import {validateImplementation, NODE_KINDS, EXPRESSION_KINDS, OPERATION_KINDS} from '../../library/algebra.mjs';
 import {requireContentBindings, semanticExpression, semanticPredicate} from '../shared/content-adapter.mjs';
 import {clampPage, maxPage, nextPage, previousPage, commitPageInput} from '../../library/pagination-state.mjs';
-import {KUMO_INPUT_CLASS, KUMO_FIELD_LABEL_CLASS, KUMO_FIELD_DESCRIPTION_CLASS, KUMO_CHECKBOX_CLASS, KUMO_SWITCH_TRACK_CLASS, KUMO_SWITCH_THUMB_CLASS, KUMO_TABS_LIST_CLASS, KUMO_TABS_TRIGGER_CLASS, KUMO_METER_ROOT_CLASS, KUMO_METER_HEADER_CLASS, KUMO_METER_LABEL_CLASS, KUMO_METER_VALUE_CLASS, KUMO_METER_TRACK_CLASS, KUMO_METER_FILL_CLASS} from '../shared/native-classes.mjs';
+import {KUMO_INPUT_CLASS, KUMO_FIELD_LABEL_CLASS, KUMO_FIELD_DESCRIPTION_CLASS, KUMO_CHECKBOX_CLASS, KUMO_SWITCH_TRACK_CLASS, KUMO_SWITCH_THUMB_CLASS, KUMO_TABS_LIST_CLASS, KUMO_TABS_TRIGGER_CLASS, KUMO_TABS_INDICATOR_CLASS, KUMO_METER_ROOT_CLASS, KUMO_METER_HEADER_CLASS, KUMO_METER_LABEL_CLASS, KUMO_METER_VALUE_CLASS, KUMO_METER_TRACK_CLASS, KUMO_METER_FILL_CLASS} from '../shared/native-classes.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '../../../..');
@@ -280,7 +280,7 @@ function activate(tab: TabItem, event: KeyboardEvent) {
   commit(tab.value)
 }
 `,
-    template:`<div><div role="tablist"><button v-for="(tab, index) in props.tabs" :key="tab.value" :ref="element => { if (element) tabButtons[index] = element as HTMLButtonElement }" type="button" role="tab" :tabindex="index === focusedIndex ? 0 : -1" :aria-selected="tab.value === committedValue" @click="commit(tab.value)" @keydown="moveNext(index, $event); activate(tab, $event)">{{ tab.label }}</button></div></div>`
+    template:`<div><div role="tablist" class="${esc(KUMO_TABS_LIST_CLASS)}"><button v-for="(tab, index) in props.tabs" :key="tab.value" :ref="element => { if (element) tabButtons[index] = element as HTMLButtonElement }" type="button" role="tab" class="${esc(KUMO_TABS_TRIGGER_CLASS)}" :tabindex="index === focusedIndex ? 0 : -1" :aria-selected="tab.value === committedValue" @click="commit(tab.value)" @keydown="moveNext(index, $event); activate(tab, $event)"><span v-if="tab.value === committedValue" aria-hidden="true" class="${esc(KUMO_TABS_INDICATOR_CLASS)}"></span>{{ tab.label }}</button></div></div>`
   };
 }
 function menubarNavigationBinding(model, library) {

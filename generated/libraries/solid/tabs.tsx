@@ -53,7 +53,7 @@ export function Tabs(incoming: TabsProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as TabsProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  return (<div><For each={props.tabs as TabItem[]} children={(item, index) => <button ref={element => { tabElements[index()] = element; }} type="button" role="tab" aria-selected={selectedValue() === item.value} tabindex={focusedIndex() === index() ? 0 : -1} onClick={() => commitTab(item.value)} onFocus={() => setFocusedIndex(index())} onKeyDown={event => tabKeyDown(event, index())}>{item.label}</button>} /></div>);
+  return (<div role="tablist" class="kumo-tabs-list relative inline-flex items-center gap-0.5 rounded-lg p-0.5 ring ring-kumo-hairline/70 bg-kumo-recessed"><For each={props.tabs as TabItem[]} children={(item, index) => <button ref={element => { tabElements[index()] = element; }} type="button" role="tab" class="relative isolate my-0.5 rounded-md px-2.5 py-1 text-base text-kumo-subtle hover:text-kumo-default aria-selected:text-kumo-default aria-selected:font-medium focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand" aria-selected={selectedValue() === item.value} tabindex={focusedIndex() === index() ? 0 : -1} onClick={() => commitTab(item.value)} onFocus={() => setFocusedIndex(index())} onKeyDown={event => tabKeyDown(event, index())}>{selectedValue() === item.value ? <span aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10 rounded-md bg-kumo-base ring ring-kumo-line" /> : null}{item.label}</button>} /></div>);
 }
 
 export default Tabs;

@@ -31,7 +31,9 @@ export const KUMO_SWITCH_THUMB_CLASS = 'absolute top-0.5 left-0.5 h-3 w-3 rounde
 // text-kumo-subtle, hover:text-kumo-default, aria-selected:text-kumo-default, bg-kumo-base,
 // ring-kumo-line, focus:ring-kumo-focus/50, focus-visible:ring-kumo-brand (trigger).
 export const KUMO_TABS_LIST_CLASS = 'kumo-tabs-list relative inline-flex items-center gap-0.5 rounded-lg p-0.5 ring ring-kumo-hairline/70 bg-kumo-recessed';
-export const KUMO_TABS_TRIGGER_CLASS = 'relative my-0.5 rounded-md px-2.5 py-1 text-base text-kumo-subtle hover:text-kumo-default aria-selected:text-kumo-default aria-selected:bg-kumo-base aria-selected:ring aria-selected:ring-kumo-line aria-selected:font-medium focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand';
+export const KUMO_TABS_TRIGGER_CLASS = 'relative isolate my-0.5 rounded-md px-2.5 py-1 text-base text-kumo-subtle hover:text-kumo-default aria-selected:text-kumo-default aria-selected:font-medium focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand';
+// Selected-tab pill indicator (React renders bg-kumo-base + ring-kumo-line on the active segment).
+export const KUMO_TABS_INDICATOR_CLASS = 'pointer-events-none absolute inset-0 -z-10 rounded-md bg-kumo-base ring ring-kumo-line';
 
 // Meter (chunks/meter-*.js).
 // React kumo: text-kumo-subtle (label), text-kumo-default (value), bg-kumo-fill (track),
