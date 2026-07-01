@@ -40,8 +40,8 @@ export function GridItem(incoming: GridItemProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as GridItemProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  if (semanticEqual(renderContent, "Cell") && Object.prototype.hasOwnProperty.call(props, "className") && semanticEqual(props.className, "p-4")) return (<div class="p-4">{props.children}</div>);
-  if (semanticEqual(renderContent, "Cell")) return (<div>{props.children}</div>);
+  if (semanticEqual(props.semanticContent, "Cell") && Object.prototype.hasOwnProperty.call(props, "className") && semanticEqual(props.className, "p-4")) return (<div class="p-4">{props.children}</div>);
+  if (semanticEqual(props.semanticContent, "Cell")) return (<div>{props.children}</div>);
   return (<div class={mergeStyles(styles.root)}>{props.children}</div>);
 }
 

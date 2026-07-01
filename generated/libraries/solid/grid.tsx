@@ -40,8 +40,8 @@ export function Grid(incoming: GridProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as GridProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  if (semanticEqual(renderContent, "Two") && Object.prototype.hasOwnProperty.call(props, "gap") && semanticEqual(props.gap, "none") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "side-by-side")) return (<div class="grid-cols-2 gap-0">{props.children}</div>);
-  if (semanticEqual(renderContent, "Cells") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "3up")) return (<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">{props.children}</div>);
+  if (semanticEqual(props.semanticContent, "Two") && Object.prototype.hasOwnProperty.call(props, "gap") && semanticEqual(props.gap, "none") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "side-by-side")) return (<div class="grid-cols-2 gap-0">{props.children}</div>);
+  if (semanticEqual(props.semanticContent, "Cells") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "3up")) return (<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">{props.children}</div>);
   return (<div class={mergeStyles(styles.root)}>{props.children}</div>);
 }
 

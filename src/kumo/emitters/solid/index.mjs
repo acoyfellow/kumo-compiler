@@ -89,7 +89,14 @@ function node(value, context = {}) {
     default: throw new Error(`unsupported Solid node: ${value.kind}`);
   }
 }
-const predicate = value => semanticPredicate(value, {fixture:'normalizedFixture'});
+// Content-keyed semantic-variant snapshots are gated behind the explicit
+// `semanticContent` escape hatch (undefined for realistic consumer mounts), mirroring
+// the svelte emitter's `__consumerContent`. Keying these predicates off the live child
+// content (renderContent) made vue/solid short-circuit into a lossy captured snapshot —
+// e.g. <Badge>PRO</Badge> hit an incomplete "PRO" sample and dropped the real
+// `text-kumo-badge-inverted` variant class — while svelte fell through to the faithful
+// variant expression. Gating on the escape hatch restores parity with svelte.
+const predicate = value => semanticPredicate(value, {fixture:'normalizedFixture', content:'props.semanticContent'});
 const safeType = type => type.replace(/ReactNode|Icon/g, 'JSX.Element').replace(/ReactElement/g, 'JSX.Element').replace(/ButtonHTMLAttributes/g, '__BUTTON_ATTRIBUTES__').replace(/HTMLAttributes/g, 'JSX.HTMLAttributes<HTMLDivElement>').replace(/__BUTTON_ATTRIBUTES__/g, 'JSX.ButtonHTMLAttributes<HTMLButtonElement>');
 function declaration(model, toggle, nativeInput, clipboardCopy, paginationControls, menubarNavigation, dialogLayer, inputGroupComposition, sensitiveInput, comboboxCollection, autocompleteCollection, commandPalette, toastLifecycle, datePicker, dateRangePicker, popoverLayer, dropdownMenuLayer, selectCollection) {
   const nativeButton=Boolean(model.interactions?.nativeButton);

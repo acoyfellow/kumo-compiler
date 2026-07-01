@@ -40,9 +40,9 @@ export function Text(incoming: TextProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as TextProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  if (Object.prototype.hasOwnProperty.call(props, "as") && semanticEqual(props.as, "h1") && semanticEqual(renderContent, "Title") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "heading1")) return (<h1 class="text-3xl font-semibold">{props.children}</h1>);
-  if (semanticEqual(renderContent, "code") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "mono")) return (<span class="font-mono text-sm">{props.children}</span>);
-  if (semanticEqual(renderContent, "Body")) return (<p class="text-kumo-default text-base">{props.children}</p>);
+  if (Object.prototype.hasOwnProperty.call(props, "as") && semanticEqual(props.as, "h1") && semanticEqual(props.semanticContent, "Title") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "heading1")) return (<h1 class="text-3xl font-semibold">{props.children}</h1>);
+  if (semanticEqual(props.semanticContent, "code") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "mono")) return (<span class="font-mono text-sm">{props.children}</span>);
+  if (semanticEqual(props.semanticContent, "Body")) return (<p class="text-kumo-default text-base">{props.children}</p>);
   return (<p class="text-kumo-default text-base">{props.children}</p>);
 }
 

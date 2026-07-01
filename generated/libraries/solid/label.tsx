@@ -40,9 +40,9 @@ export function Label(incoming: LabelProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as LabelProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  if (semanticEqual(renderContent, "Middle Name") && Object.prototype.hasOwnProperty.call(props, "showOptional") && semanticEqual(props.showOptional, true)) return (<label><span class="font-normal text-kumo-subtle"></span>{"Middle Name(optional)"}</label>);
-  if (Object.prototype.hasOwnProperty.call(props, "asContent") && semanticEqual(props.asContent, true) && semanticEqual(renderContent, "Email")) return (<span>{props.children}</span>);
-  if (semanticEqual(renderContent, "Email")) return (<label>{props.children}</label>);
+  if (semanticEqual(props.semanticContent, "Middle Name") && Object.prototype.hasOwnProperty.call(props, "showOptional") && semanticEqual(props.showOptional, true)) return (<label><span class="font-normal text-kumo-subtle"></span>{"Middle Name(optional)"}</label>);
+  if (Object.prototype.hasOwnProperty.call(props, "asContent") && semanticEqual(props.asContent, true) && semanticEqual(props.semanticContent, "Email")) return (<span>{props.children}</span>);
+  if (semanticEqual(props.semanticContent, "Email")) return (<label>{props.children}</label>);
   return (<label for={props.for as string} class="m-0 text-base font-medium text-kumo-default inline-flex items-center gap-1">{props.children}</label>);
 }
 

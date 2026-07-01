@@ -41,7 +41,7 @@ export function Banner(incoming: BannerProps): JSX.Element {
   const [, native] = splitProps(props as BannerProps & Record<string, unknown>, []);
   void native; void state; void refs;
   if (Object.prototype.hasOwnProperty.call(props, "description") && semanticEqual(props.description, "Details") && Object.prototype.hasOwnProperty.call(props, "title") && semanticEqual(props.title, "Notice")) return (<div class="bg-kumo-banner-info"><p></p><p></p>{"NoticeDetails"}</div>);
-  if (semanticEqual(renderContent, "Careful") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "alert")) return (<div class="bg-kumo-banner-warning text-kumo-warning"><p>{props.children}</p></div>);
+  if (semanticEqual(props.semanticContent, "Careful") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "alert")) return (<div class="bg-kumo-banner-warning text-kumo-warning"><p>{props.children}</p></div>);
   return (<section class={mergeStyles(styles.root)}>{(props.icon as JSX.Element) ?? undefined}{(props.title as any)}{(props.description as JSX.Element) ?? undefined}{(props.action as JSX.Element) ?? undefined}{props.children}</section>);
 }
 

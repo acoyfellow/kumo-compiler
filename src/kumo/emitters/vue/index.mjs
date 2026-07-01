@@ -1023,7 +1023,15 @@ function emitComponent(model, library) {
   for (const variant of variants) for (const predicate of variant.when) if (predicate.kind === 'prop-equals' && predicate.name !== 'children' && !declaredProps.has(predicate.name)) declaredProps.set(predicate.name,{name:predicate.name,required:false,type:'unknown'});
   if (nativeInput) for (const variant of variants) for (const predicate of variant.when) if (predicate.kind === 'prop-equals' && predicate.name !== 'children' && !declaredProps.has(vuePropName(predicate.name))) declaredProps.set(vuePropName(predicate.name),{name:vuePropName(predicate.name),required:false,type:'unknown'});
   const props = [...declaredProps.values()].map(p => `  ${JSON.stringify(p.name)}${p.required && p.name !== 'children' ? '' : '?'}: ${vueType(p.type)}`).join('\n');
-  const predicates = variants.map(v => v.when.map(x => semanticPredicate(x.kind === 'prop-equals' && x.name !== 'children' ? {...x,name:vuePropName(x.name)} : x,{props:'semanticValues',fixture:'fixture',content:'renderContent()',equal:'semanticEqual'})).join(' && ') || 'true');
+  // Content-keyed semantic-variant snapshots are gated behind the explicit
+  // `semanticContent` escape hatch (undefined for realistic consumer mounts), mirroring
+  // the svelte emitter's `__consumerContent`. Keying these predicates off the live slot
+  // content (renderContent()) made vue/solid short-circuit into a lossy captured snapshot
+  // — e.g. <Badge>PRO</Badge> hit an incomplete "PRO" sample and dropped the real
+  // `text-kumo-badge-inverted` variant class — while svelte fell through to the faithful
+  // variant expression. Gating on the escape hatch restores parity with svelte and lets
+  // realistic mounts emit the real Kumo variant classes React does.
+  const predicates = variants.map(v => v.when.map(x => semanticPredicate(x.kind === 'prop-equals' && x.name !== 'children' ? {...x,name:vuePropName(x.name)} : x,{props:'semanticValues',fixture:'fixture',content:'props.semanticContent',equal:'semanticEqual'})).join(' && ') || 'true');
    const meter = model.component === 'meter';
    const meterFallback = meter ? `<div class="${esc(KUMO_METER_ROOT_CLASS)}" role="meter" :aria-valuenow="props.value" :aria-valuemin="props.min ?? 0" :aria-valuemax="props.max ?? 100"><div class="${esc(KUMO_METER_HEADER_CLASS)}"><span class="${esc(KUMO_METER_LABEL_CLASS)}">{{ props.label }}</span><span v-if="props.showValue !== false" class="${esc(KUMO_METER_VALUE_CLASS)}">{{ props.customValue ?? (props.value + '%') }}</span></div><div class="${esc(KUMO_METER_TRACK_CLASS)}"><div class="${esc(KUMO_METER_FILL_CLASS)}" :style="{ width: props.value + '%' }"></div></div></div>` : null;
    const semantic = (select || datePicker || dateRangePicker || toastLifecycle || responsiveSidebar || nativeInput || clipboardCopy || pagination || radioGroup || tabsNavigation || menubarNavigation || dialogLayer || popoverLayer || dropdownMenuLayer || inputGroup || sensitiveInput || combobox || autocomplete || commandPalette || tableOfContents || meter) ? '' : variants.map((v,i) => `<template ${i?'v-else-if':'v-if'}="${directive(predicates[i])}">${semanticNode(v.tree)}</template>`).join('');

@@ -40,8 +40,8 @@ export function Surface(incoming: SurfaceProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as SurfaceProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  if (Object.prototype.hasOwnProperty.call(props, "as") && semanticEqual(props.as, "section") && semanticEqual(renderContent, "Card") && Object.prototype.hasOwnProperty.call(props, "color") && semanticEqual(props.color, "secondary")) return (<section data-surface-color={"secondary"} data-deprecated={"surface"}>{props.children}</section>);
-  if (semanticEqual(renderContent, "Card")) return (<div data-surface-color={"primary"} data-deprecated={"surface"}>{props.children}</div>);
+  if (Object.prototype.hasOwnProperty.call(props, "as") && semanticEqual(props.as, "section") && semanticEqual(props.semanticContent, "Card") && Object.prototype.hasOwnProperty.call(props, "color") && semanticEqual(props.color, "secondary")) return (<section data-surface-color={"secondary"} data-deprecated={"surface"}>{props.children}</section>);
+  if (semanticEqual(props.semanticContent, "Card")) return (<div data-surface-color={"primary"} data-deprecated={"surface"}>{props.children}</div>);
   return (<div class={mergeStyles(styles.root)}>{props.children}</div>);
 }
 
