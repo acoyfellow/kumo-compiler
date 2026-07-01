@@ -50,7 +50,7 @@ for (const framework of frameworks) {
   const hashes = [];
   let packed;
   for (let run = 0; run < 2; run++) {
-    const result = spawnSync('npm', ['pack', '--ignore-scripts', '--json', '--pack-destination', temp], { cwd: source, encoding: 'utf8' });
+    const result = spawnSync('npm', ['pack', '--ignore-scripts', '--json', '--pack-destination', temp], { cwd: source, encoding: 'utf8', env: { ...process.env, SOURCE_DATE_EPOCH: '0' } });
     if (result.status !== 0) fail(`${framework}: npm pack failed: ${result.stderr}`);
     packed = resolve(temp, JSON.parse(result.stdout)[0].filename);
     hashes.push(sha256(await readFile(packed)));

@@ -1,0 +1,1 @@
+import {createSignal} from 'solid-js';export default function Toasty(){const [message,setMessage]=createSignal('Ready to save');return <main class="selection-shell"><h1>Toasty</h1><button class="toast-button" onClick={()=>setMessage('Changes saved')}>Save changes</button><output class="toast" role="status" aria-live="polite">{message()}</output></main>}
