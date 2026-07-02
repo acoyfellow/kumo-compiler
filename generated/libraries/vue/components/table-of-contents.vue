@@ -34,5 +34,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <nav :aria-label="String((tocRoot?.props as any)?.['aria-label'] ?? 'Table of contents')"><p v-if="tocTitle">{{ tocTitle }}</p><ul><template v-for="item in tocItems" :key="item.href"><a v-if="item.group" :href="item.href" :aria-current="item.active ? 'location' : undefined">{{ item.label }}</a><li v-else><a :href="item.href" :aria-current="item.active ? 'location' : undefined">{{ item.label }}</a></li></template></ul></nav>
+  <nav :aria-label="String((tocRoot?.props as any)?.['aria-label'] ?? 'Table of contents')"><p v-if="tocTitle">{{ tocTitle }}</p><ul v-if="tocItems.length"><template v-for="item in tocItems" :key="item.href"><a v-if="item.group" :href="item.href" :aria-current="item.active ? 'location' : undefined">{{ item.label }}</a><li v-else><a :href="item.href" :aria-current="item.active ? 'location' : undefined">{{ item.label }}</a></li></template></ul></nav>
 </template>

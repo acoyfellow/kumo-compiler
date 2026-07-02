@@ -20,7 +20,8 @@ interface RadioProps {
 }
 const props = withDefaults(defineProps<RadioProps>(), {"orientation":"vertical"})
 type RadioFixture = { kind: 'radio-group'; legend: string; items: Array<{ label: string; value: unknown; disabled?: boolean }>; defaultValue?: unknown; value?: unknown; disabled?: boolean }
-const radioFixture = computed(() => props.fixture as RadioFixture)
+const radioFixture = computed(() => props.fixture as RadioFixture | undefined)
+const radioItems = computed(() => radioFixture.value?.items ?? [])
 const controlled = computed(() => Object.prototype.hasOwnProperty.call(radioFixture.value ?? {}, 'value'))
 const internalValue = ref(radioFixture.value?.defaultValue)
 const selectedValue = computed(() => controlled.value ? radioFixture.value?.value : internalValue.value)
@@ -51,5 +52,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <div ref="groupRef" v-bind="$attrs" role="radiogroup" :aria-label="radioFixture.legend"><div v-for="(item, index) in radioFixture.items" :key="String(item.value)" role="radio" :tabindex="(radioFixture.disabled || item.disabled) ? undefined : 0" :aria-checked="item.value === selectedValue" :aria-label="item.label" :aria-disabled="radioFixture.disabled || item.disabled || undefined" @click="selectRadio(item)" @keydown="selectNext(index, $event)">{{ item.label }}</div></div>
+  <div ref="groupRef" v-bind="$attrs" role="radiogroup" :aria-label="radioFixture?.legend"><fieldset class="flex flex-col gap-4"><div class="flex flex-col gap-2"><div v-for="(item, index) in radioItems" :key="String(item.value)" role="radio" :tabindex="(radioFixture?.disabled || item.disabled) ? undefined : 0" :aria-checked="item.value === selectedValue" :aria-label="item.label" :aria-disabled="radioFixture?.disabled || item.disabled || undefined" @click="selectRadio(item)" @keydown="selectNext(index, $event)">{{ item.label }}</div></div></fieldset></div>
 </template>

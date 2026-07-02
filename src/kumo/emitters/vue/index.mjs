@@ -6,7 +6,7 @@ import {loadLibrary, canonicalJSON} from '../../library/index.mjs';
 import {validateImplementation, NODE_KINDS, EXPRESSION_KINDS, OPERATION_KINDS} from '../../library/algebra.mjs';
 import {requireContentBindings, semanticExpression, semanticPredicate} from '../shared/content-adapter.mjs';
 import {clampPage, maxPage, nextPage, previousPage, commitPageInput} from '../../library/pagination-state.mjs';
-import {KUMO_INPUT_CLASS, KUMO_FIELD_LABEL_CLASS, KUMO_FIELD_DESCRIPTION_CLASS, KUMO_CHECKBOX_CLASS, KUMO_SWITCH_TRACK_CLASS, KUMO_SWITCH_THUMB_CLASS, KUMO_TABS_LIST_CLASS, KUMO_TABS_TRIGGER_CLASS, KUMO_TABS_INDICATOR_CLASS, KUMO_METER_ROOT_CLASS, KUMO_METER_HEADER_CLASS, KUMO_METER_LABEL_CLASS, KUMO_METER_VALUE_CLASS, KUMO_METER_TRACK_CLASS, KUMO_METER_FILL_CLASS} from '../shared/native-classes.mjs';
+import {KUMO_INPUT_CLASS, KUMO_FIELD_LABEL_CLASS, KUMO_FIELD_DESCRIPTION_CLASS, KUMO_CHECKBOX_CLASS, KUMO_CHECKBOX_BOX_CLASS, KUMO_CHECKBOX_INDICATOR_CLASS, KUMO_CHECKBOX_CHECK_SVG, KUMO_CHECKBOX_MINUS_SVG, KUMO_CHECKBOX_HIDDEN_INPUT_STYLE, KUMO_CHECKBOX_LABEL_WRAPPER_CLASS, KUMO_CHECKBOX_LABEL_CLASS, KUMO_CHECKBOX_LABEL_TEXT_CLASS, KUMO_CLIPBOARD_ROOT_CLASS, KUMO_CLIPBOARD_TEXT_CLASS, KUMO_CLIPBOARD_BUTTON_CLASS, KUMO_CLIPBOARD_CHECK_SPAN_CLASS, KUMO_CLIPBOARD_COPY_SPAN_CLASS, KUMO_CLIPBOARD_CHECK_SVG, KUMO_CLIPBOARD_COPY_SVG, KUMO_SWITCH_TRACK_CLASS, KUMO_SWITCH_THUMB_CLASS, KUMO_TABS_LIST_CLASS, KUMO_TABS_TRIGGER_CLASS, KUMO_TABS_INDICATOR_CLASS, KUMO_METER_ROOT_CLASS, KUMO_METER_HEADER_CLASS, KUMO_METER_LABEL_CLASS, KUMO_METER_VALUE_CLASS, KUMO_METER_TRACK_CLASS, KUMO_METER_FILL_CLASS} from '../shared/native-classes.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '../../../..');
@@ -142,6 +142,15 @@ function toggleBinding(model, library) {
   if (!state || !native || native.events.join('\0') !== state.event || !['span','button'].includes(native.root)) return null;
   return {behavior,state,native};
 }
+// Real Kumo Switch track/thumb classes copied VERBATIM from @cloudflare/kumo 2.6.0
+// switch chunk (checked=on vs unchecked=off states). The shared native-classes
+// KUMO_SWITCH_* constants encode an older simplified geometry (h-4 w-8, no state
+// colors) that does NOT match React canonical (h-4.5 w-9, blue-on / neutral-off);
+// this lane owns only the vue emitter, so the faithful classes live here.
+const VUE_SWITCH_TRACK_BASE = 'relative inline-flex items-center ring cursor-pointer border-none p-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-kumo-brand transition-colors duration-150 ease-out motion-reduce:transition-none disabled:cursor-not-allowed disabled:opacity-50 h-4.5 w-9 rounded-[5px] supports-[corner-shape:squircle]:rounded-[10px] [corner-shape:squircle]';
+const VUE_SWITCH_TRACK_ON = 'bg-blue-500 dark:bg-blue-600 ring-blue-600 dark:ring-blue-500';
+const VUE_SWITCH_TRACK_OFF = 'bg-neutral-200 dark:bg-neutral-700 ring-neutral-300 dark:ring-neutral-600';
+const VUE_SWITCH_THUMB_BASE = 'absolute top-0 bottom-0 shadow-[0_0_1px_0.5px_var(--color-kumo-shadow-edge),0_1px_2px_var(--color-kumo-shadow-drop)] w-4.5 rounded-[5px] supports-[corner-shape:squircle]:rounded-[10px] [corner-shape:squircle] bg-kumo-base dark:bg-blue-300 transition-all duration-150 ease-out motion-reduce:transition-none';
 function toggleSource({state,native}) {
   const role = native.root === 'span' ? 'checkbox' : 'switch';
   const indeterminate = state.indeterminate;
@@ -155,11 +164,38 @@ function toggleSource({state,native}) {
   const dataState = indeterminate ? `(currentIndeterminate ? 'indeterminate' : (currentChecked ? 'checked' : 'unchecked'))` : `(currentChecked ? 'checked' : 'unchecked')`;
   const dataAttrs = ` :data-state="${directive(dataState)}" :data-checked="currentChecked ? '' : undefined" :data-unchecked="currentChecked ? undefined : ''"${indeterminate?` :data-indeterminate="currentIndeterminate ? '' : undefined"`:''}`;
   const thumb = native.root === 'button' ? `<span aria-hidden="true" class="${esc(KUMO_SWITCH_THUMB_CLASS)}"></span>` : '';
+  // Checkbox renders the SAME control-subtree React canonical does: box span carrying
+  // the real Kumo checkmark <svg> indicator, plus the visually-hidden native <input>,
+  // wrapped (when a label is present) in React's Field.Root div + label + text span.
+  const isCheckbox = native.root === 'span';
+  const iconSetup = isCheckbox
+    ? `const kumoCheckboxCheckSvg = ${JSON.stringify(KUMO_CHECKBOX_CHECK_SVG)}\nconst kumoCheckboxMinusSvg = ${JSON.stringify(KUMO_CHECKBOX_MINUS_SVG)}\nconst checkboxIcon = computed(() => (${indeterminate ? 'currentIndeterminate.value' : 'false'}) ? kumoCheckboxMinusSvg : kumoCheckboxCheckSvg)\n`
+    : '';
+  const setup = `const instance = getCurrentInstance()\nconst controlled = Object.prototype.hasOwnProperty.call(instance?.vnode.props ?? {}, ${JSON.stringify(state.controlledProp)})\nconst internalChecked = ref(props.${state.defaultProp} ?? ${JSON.stringify(state.initial)})\nconst currentChecked = computed(() => controlled ? props.${state.controlledProp} : internalChecked.value)\n${indeterminate?`const currentIndeterminate = ref(Boolean(props.${indeterminate.prop}))\n`:''}function activate(event: Event) {\n  if (props.${state.disabled.prop}) return\n  const next = ${indeterminate ? `currentIndeterminate.value ? ${JSON.stringify(indeterminate.activationResult)} : ` : ''}!currentChecked.value\n  ${indeterminate?'currentIndeterminate.value = false\n  ':''}if (!controlled) internalChecked.value = next\n  props.onCheckedChange?.(next)\n}\n${native.root==='span'?`function activateOnSpace(event: KeyboardEvent) {\n  if (event.code === 'Space' || event.key === ' ') { event.preventDefault(); activate(event) }\n}\n`:''}${iconSetup}`;
+  let template;
+  if (isCheckbox) {
+    const indicatorSpan = `<span class="${esc(KUMO_CHECKBOX_INDICATOR_CLASS)}" :data-checked="currentChecked ? '' : undefined" :data-unchecked="currentChecked ? undefined : ''"${indeterminate?` :data-indeterminate="currentIndeterminate ? '' : undefined"`:''} v-html="checkboxIcon"></span>`;
+    const hiddenInput = `<input style="${esc(KUMO_CHECKBOX_HIDDEN_INPUT_STYLE)}" tabindex="-1" type="checkbox" aria-hidden="true" :checked="currentChecked" :disabled="props.${state.disabled.prop} || undefined" />`;
+    const boxClassExpr = withMt => `[${[JSON.stringify(KUMO_CHECKBOX_BOX_CLASS), ...variantExpressions, ...(withMt ? [JSON.stringify('mt-0.5')] : [])].join(', ')}]`;
+    const box = withMt => `<span data-kumo-component="Checkbox" v-bind="$attrs" role="checkbox" :class="${directive(boxClassExpr(withMt))}"${dataAttrs} :aria-label="((props as any).ariaLabel ?? $attrs['aria-label'])" :aria-checked="${aria}" :aria-disabled="props.${state.disabled.prop} || undefined" :tabindex="props.${state.disabled.prop} ? undefined : 0" @click="activate"${keyHandler}>${indicatorSpan}</span>`;
+    const labelClassExpr = `[${JSON.stringify(KUMO_CHECKBOX_LABEL_CLASS)}, props.${state.disabled.prop} ? 'cursor-not-allowed' : 'cursor-pointer']`;
+    template = `<div v-if="props.label !== undefined" class="${esc(KUMO_CHECKBOX_LABEL_WRAPPER_CLASS)}"><label :class="${directive(labelClassExpr)}">${box(true)}${hiddenInput}<span class="${esc(KUMO_CHECKBOX_LABEL_TEXT_CLASS)}">{{ props.label }}</span></label></div><template v-else>${box(false)}${hiddenInput}</template>`;
+  } else {
+    // Switch renders React canonical's control subtree: a <button role="switch">
+    // carrying a <div> thumb (NOT a span), plus the visually-hidden native <input>.
+    // Track colors switch blue(on)/neutral(off); thumb slides left-0 -> left-4.5.
+    const trackClassExpr = `[${JSON.stringify(VUE_SWITCH_TRACK_BASE)}, currentChecked ? ${JSON.stringify(VUE_SWITCH_TRACK_ON)} : ${JSON.stringify(VUE_SWITCH_TRACK_OFF)}]`;
+    const thumbClassExpr = `[${JSON.stringify(VUE_SWITCH_THUMB_BASE)}, currentChecked ? 'left-4.5' : 'left-0']`;
+    const thumbDiv = `<div :class="${directive(thumbClassExpr)}"></div>`;
+    const switchInput = `<input style="${esc(KUMO_CHECKBOX_HIDDEN_INPUT_STYLE)}" tabindex="-1" type="checkbox" aria-hidden="true" :checked="currentChecked" :disabled="props.${state.disabled.prop} || undefined" />`;
+    const switchButton = `<button data-kumo-component="Switch" v-bind="$attrs" type="button" role="switch" :class="${directive(trackClassExpr)}"${dataAttrs} :aria-label="((props as any).ariaLabel ?? $attrs['aria-label'])" :aria-checked="${aria}" :aria-disabled="props.${state.disabled.prop} || undefined" :disabled="props.${state.disabled.prop} || undefined" :tabindex="props.${state.disabled.prop} ? undefined : 0" @click="activate">${thumbDiv}</button>`;
+    template = `<label v-if="props.label !== undefined" class="inline-flex items-center gap-2 cursor-pointer select-none text-base text-kumo-default">${switchButton}${switchInput}<span>{{ props.label }}</span></label><template v-else>${switchButton}${switchInput}</template>`;
+  }
   return {
     options:`defineOptions({ inheritAttrs: false })\n`,
     imports:'computed, getCurrentInstance, ref, useAttrs, useSlots',
-    setup:`const instance = getCurrentInstance()\nconst controlled = Object.prototype.hasOwnProperty.call(instance?.vnode.props ?? {}, ${JSON.stringify(state.controlledProp)})\nconst internalChecked = ref(props.${state.defaultProp} ?? ${JSON.stringify(state.initial)})\nconst currentChecked = computed(() => controlled ? props.${state.controlledProp} : internalChecked.value)\n${indeterminate?`const currentIndeterminate = ref(Boolean(props.${indeterminate.prop}))\n`:''}function activate(event: Event) {\n  if (props.${state.disabled.prop}) return\n  const next = ${indeterminate ? `currentIndeterminate.value ? ${JSON.stringify(indeterminate.activationResult)} : ` : ''}!currentChecked.value\n  ${indeterminate?'currentIndeterminate.value = false\n  ':''}if (!controlled) internalChecked.value = next\n  props.onCheckedChange?.(next)\n}\n${native.root==='span'?`function activateOnSpace(event: KeyboardEvent) {\n  if (event.code === 'Space' || event.key === ' ') { event.preventDefault(); activate(event) }\n}\n`:''}`,
-    template:`<label v-if="props.label !== undefined" class="inline-flex items-center gap-2 cursor-pointer select-none text-base text-kumo-default"><${native.root} v-bind="$attrs"${rootAttrs} role="${role}"${styleClass}${dataAttrs} :aria-label="((props as any).ariaLabel ?? $attrs['aria-label'])" :aria-checked="${aria}" :aria-disabled="props.${state.disabled.prop} || undefined" :disabled="props.${state.disabled.prop} || undefined" @click="activate"${keyHandler}>${thumb}</${native.root}><span>{{ props.label }}</span></label><${native.root} v-else v-bind="$attrs"${rootAttrs} role="${role}"${styleClass}${dataAttrs} :aria-label="((props as any).ariaLabel ?? $attrs['aria-label'])" :aria-checked="${aria}" :aria-disabled="props.${state.disabled.prop} || undefined" :disabled="props.${state.disabled.prop} || undefined" @click="activate"${keyHandler}>${thumb}<slot /></${native.root}>`
+    setup,
+    template
   };
 }
 function nativeInputBinding(model, library) {
@@ -200,13 +236,15 @@ function clipboardCopySource(capability) {
   return {
     imports:'computed, ref, useAttrs, useSlots',
     setup:`const copyAnnouncement = ref('')
+const kumoClipboardCheckSvg = ${JSON.stringify(KUMO_CLIPBOARD_CHECK_SVG)}
+const kumoClipboardCopySvg = ${JSON.stringify(KUMO_CLIPBOARD_COPY_SVG)}
 async function copyText() {
   await navigator.clipboard.writeText(props.${vuePropName(capability.copySource.prop)} ?? props.${vuePropName(capability.copySource.fallback)})
   props.onCopy?.()
   copyAnnouncement.value = ${JSON.stringify(capability.behavior.announcesSuccess)}
 }
 `,
-    template:`<div><span>{{ props.${vuePropName(capability.copySource.fallback)} }}</span><button type="button" @click="copyText">Copy</button><span aria-live="polite">{{ copyAnnouncement }}</span></div>`
+    template:`<div class="${esc(KUMO_CLIPBOARD_ROOT_CLASS)}"><span class="${esc(KUMO_CLIPBOARD_TEXT_CLASS)}">{{ props.${vuePropName(capability.copySource.fallback)} }}</span><button data-kumo-component="Button" type="button" class="${esc(KUMO_CLIPBOARD_BUTTON_CLASS)}" aria-label="Copy to clipboard" @click="copyText"><span class="contents"><span class="${esc(KUMO_CLIPBOARD_CHECK_SPAN_CLASS)}" v-html="kumoClipboardCheckSvg"></span><span class="${esc(KUMO_CLIPBOARD_COPY_SPAN_CLASS)}" v-html="kumoClipboardCopySvg"></span></span></button><span class="sr-only" aria-live="polite">{{ copyAnnouncement }}</span></div>`
   };
 }
 function radioGroupBinding(model, library) {
@@ -219,7 +257,8 @@ function radioGroupSource() {
     options:`defineOptions({ inheritAttrs: false })\n`,
     imports:'computed, nextTick, ref, useAttrs, useSlots',
     setup:`type RadioFixture = { kind: 'radio-group'; legend: string; items: Array<{ label: string; value: unknown; disabled?: boolean }>; defaultValue?: unknown; value?: unknown; disabled?: boolean }
-const radioFixture = computed(() => props.fixture as RadioFixture)
+const radioFixture = computed(() => props.fixture as RadioFixture | undefined)
+const radioItems = computed(() => radioFixture.value?.items ?? [])
 const controlled = computed(() => Object.prototype.hasOwnProperty.call(radioFixture.value ?? {}, 'value'))
 const internalValue = ref(radioFixture.value?.defaultValue)
 const selectedValue = computed(() => controlled.value ? radioFixture.value?.value : internalValue.value)
@@ -240,7 +279,7 @@ function selectNext(index: number, event: KeyboardEvent) {
   }
 }
 `,
-    template:`<div ref="groupRef" v-bind="$attrs" role="radiogroup" :aria-label="radioFixture.legend"><div v-for="(item, index) in radioFixture.items" :key="String(item.value)" role="radio" :tabindex="(radioFixture.disabled || item.disabled) ? undefined : 0" :aria-checked="item.value === selectedValue" :aria-label="item.label" :aria-disabled="radioFixture.disabled || item.disabled || undefined" @click="selectRadio(item)" @keydown="selectNext(index, $event)">{{ item.label }}</div></div>`
+    template:`<div ref="groupRef" v-bind="$attrs" role="radiogroup" :aria-label="radioFixture?.legend"><fieldset class="flex flex-col gap-4"><div class="flex flex-col gap-2"><div v-for="(item, index) in radioItems" :key="String(item.value)" role="radio" :tabindex="(radioFixture?.disabled || item.disabled) ? undefined : 0" :aria-checked="item.value === selectedValue" :aria-label="item.label" :aria-disabled="radioFixture?.disabled || item.disabled || undefined" @click="selectRadio(item)" @keydown="selectNext(index, $event)">{{ item.label }}</div></div></fieldset></div>`
   };
 }
 function tabsNavigationBinding(model, library) {
@@ -942,7 +981,7 @@ const tocTitle = computed(() => tocText(tocChildren(tocRoot.value).find(node => 
 const tocList = computed(() => tocChildren(tocRoot.value).find(node => node.export === '.List'))
 const tocItems = computed(() => tocChildren(tocList.value).flatMap(node => node.export === '.Group' ? [node, ...tocChildren(node)] : [node]).filter(node => node.export === '.Item' || node.export === '.Group').map(node => ({href:String(node.props?.href ?? '#'),active:Boolean(node.props?.active),label:String(node.props?.label ?? tocText(node)),group:node.export === '.Group'})))
 `,
-    template:`<nav :aria-label="String((tocRoot?.props as any)?.['aria-label'] ?? 'Table of contents')"><p v-if="tocTitle">{{ tocTitle }}</p><ul><template v-for="item in tocItems" :key="item.href"><a v-if="item.group" :href="item.href" :aria-current="item.active ? 'location' : undefined">{{ item.label }}</a><li v-else><a :href="item.href" :aria-current="item.active ? 'location' : undefined">{{ item.label }}</a></li></template></ul></nav>`
+    template:`<nav :aria-label="String((tocRoot?.props as any)?.['aria-label'] ?? 'Table of contents')"><p v-if="tocTitle">{{ tocTitle }}</p><ul v-if="tocItems.length"><template v-for="item in tocItems" :key="item.href"><a v-if="item.group" :href="item.href" :aria-current="item.active ? 'location' : undefined">{{ item.label }}</a><li v-else><a :href="item.href" :aria-current="item.active ? 'location' : undefined">{{ item.label }}</a></li></template></ul></nav>`
   };
 }
 function emitComponent(model, library) {
