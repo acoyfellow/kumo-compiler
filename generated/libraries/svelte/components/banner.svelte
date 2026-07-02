@@ -67,10 +67,10 @@
   </div>
 {:else}
 <section class={cx(styles["root"])}>
-  {#if icon}{@render icon()}{/if}
+  {#if typeof icon === 'function'}{@render icon()}{:else if icon != null && icon !== false}{icon}{/if}
   {semanticValues["title"]}
-  {#if description}{@render description()}{/if}
-  {#if action}{@render action()}{/if}
+  {#if typeof description === 'function'}{@render description()}{:else if description != null && description !== false}{description}{/if}
+  {#if typeof action === 'function'}{@render action()}{:else if action != null && action !== false}{action}{/if}
   {#if children}{@render children()}{/if}
 </section>
 {/if}
