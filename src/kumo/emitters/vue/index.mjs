@@ -41,6 +41,12 @@ const nativeButtonEmphasisCondition = (emphasis, accessor) => Object.keys(emphas
 const id = value => value.replace(/[^A-Za-z0-9_$]/g, '_').replace(/^([0-9])/, '_$1');
 const pascal = value => value.split(/[-_ ]+/).map(x => x[0]?.toUpperCase() + x.slice(1)).join('');
 const sha = value => crypto.createHash('sha256').update(value).digest('hex');
+// Inline a static Kumo icon SVG string as REAL Vue template <svg>/<path> nodes
+// (no v-html / innerHTML bandaid). Optionally inject a Vue directive (e.g. v-if)
+// into the opening <svg> tag so caller can toggle between icons declaratively.
+const svgTemplate = (svgString, directiveAttr = '') => directiveAttr
+  ? svgString.replace(/^<svg/, `<svg ${directiveAttr}`)
+  : svgString;
 
 function expression(value, scope = 'props') {
   switch (value.kind) {
@@ -168,13 +174,18 @@ function toggleSource({state,native}) {
   // the real Kumo checkmark <svg> indicator, plus the visually-hidden native <input>,
   // wrapped (when a label is present) in React's Field.Root div + label + text span.
   const isCheckbox = native.root === 'span';
-  const iconSetup = isCheckbox
-    ? `const kumoCheckboxCheckSvg = ${JSON.stringify(KUMO_CHECKBOX_CHECK_SVG)}\nconst kumoCheckboxMinusSvg = ${JSON.stringify(KUMO_CHECKBOX_MINUS_SVG)}\nconst checkboxIcon = computed(() => (${indeterminate ? 'currentIndeterminate.value' : 'false'}) ? kumoCheckboxMinusSvg : kumoCheckboxCheckSvg)\n`
-    : '';
+  const iconSetup = '';
   const setup = `const instance = getCurrentInstance()\nconst controlled = Object.prototype.hasOwnProperty.call(instance?.vnode.props ?? {}, ${JSON.stringify(state.controlledProp)})\nconst internalChecked = ref(props.${state.defaultProp} ?? ${JSON.stringify(state.initial)})\nconst currentChecked = computed(() => controlled ? props.${state.controlledProp} : internalChecked.value)\n${indeterminate?`const currentIndeterminate = ref(Boolean(props.${indeterminate.prop}))\n`:''}function activate(event: Event) {\n  if (props.${state.disabled.prop}) return\n  const next = ${indeterminate ? `currentIndeterminate.value ? ${JSON.stringify(indeterminate.activationResult)} : ` : ''}!currentChecked.value\n  ${indeterminate?'currentIndeterminate.value = false\n  ':''}if (!controlled) internalChecked.value = next\n  props.onCheckedChange?.(next)\n}\n${native.root==='span'?`function activateOnSpace(event: KeyboardEvent) {\n  if (event.code === 'Space' || event.key === ' ') { event.preventDefault(); activate(event) }\n}\n`:''}${iconSetup}`;
   let template;
   if (isCheckbox) {
-    const indicatorSpan = `<span class="${esc(KUMO_CHECKBOX_INDICATOR_CLASS)}" :data-checked="currentChecked ? '' : undefined" :data-unchecked="currentChecked ? undefined : ''"${indeterminate?` :data-indeterminate="currentIndeterminate ? '' : undefined"`:''} v-html="checkboxIcon"></span>`;
+    // Emit the real Kumo checkmark as an actual <svg>/<path> template subtree (like
+    // vue cloudflare-logo) — NO v-html. With indeterminate support we toggle between
+    // the minus and check SVGs declaratively via v-if/v-else; the box span's
+    // data-[unchecked]:invisible class hides the icon when unchecked, matching React.
+    const iconMarkup = indeterminate
+      ? `${svgTemplate(KUMO_CHECKBOX_MINUS_SVG, 'v-if="currentIndeterminate"')}${svgTemplate(KUMO_CHECKBOX_CHECK_SVG, 'v-else')}`
+      : svgTemplate(KUMO_CHECKBOX_CHECK_SVG);
+    const indicatorSpan = `<span class="${esc(KUMO_CHECKBOX_INDICATOR_CLASS)}" :data-checked="currentChecked ? '' : undefined" :data-unchecked="currentChecked ? undefined : ''"${indeterminate?` :data-indeterminate="currentIndeterminate ? '' : undefined"`:''}>${iconMarkup}</span>`;
     const hiddenInput = `<input style="${esc(KUMO_CHECKBOX_HIDDEN_INPUT_STYLE)}" tabindex="-1" type="checkbox" aria-hidden="true" :checked="currentChecked" :disabled="props.${state.disabled.prop} || undefined" />`;
     const boxClassExpr = withMt => `[${[JSON.stringify(KUMO_CHECKBOX_BOX_CLASS), ...variantExpressions, ...(withMt ? [JSON.stringify('mt-0.5')] : [])].join(', ')}]`;
     const box = withMt => `<span data-kumo-component="Checkbox" v-bind="$attrs" role="checkbox" :class="${directive(boxClassExpr(withMt))}"${dataAttrs} :aria-label="((props as any).ariaLabel ?? $attrs['aria-label'])" :aria-checked="${aria}" :aria-disabled="props.${state.disabled.prop} || undefined" :tabindex="props.${state.disabled.prop} ? undefined : 0" @click="activate"${keyHandler}>${indicatorSpan}</span>`;
@@ -236,15 +247,13 @@ function clipboardCopySource(capability) {
   return {
     imports:'computed, ref, useAttrs, useSlots',
     setup:`const copyAnnouncement = ref('')
-const kumoClipboardCheckSvg = ${JSON.stringify(KUMO_CLIPBOARD_CHECK_SVG)}
-const kumoClipboardCopySvg = ${JSON.stringify(KUMO_CLIPBOARD_COPY_SVG)}
 async function copyText() {
   await navigator.clipboard.writeText(props.${vuePropName(capability.copySource.prop)} ?? props.${vuePropName(capability.copySource.fallback)})
   props.onCopy?.()
   copyAnnouncement.value = ${JSON.stringify(capability.behavior.announcesSuccess)}
 }
 `,
-    template:`<div class="${esc(KUMO_CLIPBOARD_ROOT_CLASS)}"><span class="${esc(KUMO_CLIPBOARD_TEXT_CLASS)}">{{ props.${vuePropName(capability.copySource.fallback)} }}</span><button data-kumo-component="Button" type="button" class="${esc(KUMO_CLIPBOARD_BUTTON_CLASS)}" aria-label="Copy to clipboard" @click="copyText"><span class="contents"><span class="${esc(KUMO_CLIPBOARD_CHECK_SPAN_CLASS)}" v-html="kumoClipboardCheckSvg"></span><span class="${esc(KUMO_CLIPBOARD_COPY_SPAN_CLASS)}" v-html="kumoClipboardCopySvg"></span></span></button><span class="sr-only" aria-live="polite">{{ copyAnnouncement }}</span></div>`
+    template:`<div class="${esc(KUMO_CLIPBOARD_ROOT_CLASS)}"><span class="${esc(KUMO_CLIPBOARD_TEXT_CLASS)}">{{ props.${vuePropName(capability.copySource.fallback)} }}</span><button data-kumo-component="Button" type="button" class="${esc(KUMO_CLIPBOARD_BUTTON_CLASS)}" aria-label="Copy to clipboard" @click="copyText"><span class="contents"><span class="${esc(KUMO_CLIPBOARD_CHECK_SPAN_CLASS)}">${svgTemplate(KUMO_CLIPBOARD_CHECK_SVG)}</span><span class="${esc(KUMO_CLIPBOARD_COPY_SPAN_CLASS)}">${svgTemplate(KUMO_CLIPBOARD_COPY_SVG)}</span></span></button><span class="sr-only" aria-live="polite">{{ copyAnnouncement }}</span></div>`
   };
 }
 function radioGroupBinding(model, library) {
