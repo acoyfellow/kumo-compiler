@@ -39,7 +39,7 @@ export function Radio(incoming: RadioProps): JSX.Element {
   const state: Record<string, () => unknown> = {};
   type RadioItem = {label: string; value: string; disabled?: boolean};
   type RadioFixture = {kind: "radio-group"; legend: string; items: RadioItem[]; defaultValue?: string; value?: string; disabled?: boolean};
-  const radioFixture = () => props.fixture as RadioFixture;
+  const radioFixture = () => (props.fixture as RadioFixture | undefined) ?? ({legend: "", items: []} as RadioFixture);
   const radioControlled = () => radioFixture().value !== undefined;
   const [radioValue, setRadioValue] = createSignal(radioFixture().defaultValue);
   const selectedValue = () => radioControlled() ? radioFixture().value : radioValue();
@@ -59,7 +59,7 @@ export function Radio(incoming: RadioProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as RadioProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  return (<div ref={radioRoot} role="radiogroup" aria-label={radioFixture().legend}><For each={radioFixture().items} children={(item, index) => <div role="radio" aria-checked={selectedValue() === item.value} aria-label={item.label} aria-disabled={Boolean(radioFixture().disabled || item.disabled) || undefined} tabindex={radioFixture().disabled || item.disabled ? undefined : 0} onClick={() => selectRadio(item)} onKeyDown={event => radioKeyDown(event, index())}>{item.label}</div>} /></div>);
+  return (<div ref={radioRoot} role="radiogroup"><fieldset class="flex flex-col gap-4"><div class="flex flex-col gap-2"><For each={radioFixture().items} children={(item, index) => <div role="radio" aria-checked={selectedValue() === item.value} aria-label={item.label} aria-disabled={Boolean(radioFixture().disabled || item.disabled) || undefined} tabindex={radioFixture().disabled || item.disabled ? undefined : 0} onClick={() => selectRadio(item)} onKeyDown={event => radioKeyDown(event, index())}>{item.label}</div>} /></div></fieldset></div>);
 }
 
 export default Radio;

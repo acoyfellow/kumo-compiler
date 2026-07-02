@@ -39,7 +39,7 @@ export function Combobox(incoming: ComboboxProps): JSX.Element {
   const state: Record<string, () => unknown> = {};
   type ComboboxFixtureNode = {export?: string; props: Record<string, unknown>; text?: string; children?: ComboboxFixtureNode[]};
   const comboboxFixture = () => props.fixture as ComboboxFixtureNode;
-  const findComboboxPart = (exported: string, value: ComboboxFixtureNode = comboboxFixture()): ComboboxFixtureNode | undefined => value.export === exported ? value : value.children?.map(child => findComboboxPart(exported, child)).find(Boolean);
+  const findComboboxPart = (exported: string, value: ComboboxFixtureNode | undefined = comboboxFixture()): ComboboxFixtureNode | undefined => value?.export === exported ? value : value?.children?.map(child => findComboboxPart(exported, child)).find(Boolean);
   const comboboxTrigger = () => findComboboxPart(".TriggerInput") ?? {props:{}};
   const comboboxItems = () => {
     const list = findComboboxPart(".List");
@@ -59,7 +59,7 @@ export function Combobox(incoming: ComboboxProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as ComboboxProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  return (<><input ref={comboboxInput} placeholder={comboboxTrigger().props.placeholder as string} value={comboboxValue()} onClick={() => setComboboxOpen(true)} onKeyDown={comboboxKeyDown} /><Show when={comboboxOpen()} children={<ul role="listbox"><For each={comboboxItems()} children={(item, index) => <li role="option" data-value={item.value} aria-selected={highlightedIndex() === index()}>{fixtureText(item)}</li>} /></ul>} /></>);
+  return (<><input ref={comboboxInput} aria-hidden="true" tabindex="-1" style="clip-path:inset(50%);overflow:hidden;white-space:nowrap;border:0;padding:0;width:1px;height:1px;margin:-1px;position:fixed;top:0;left:0" value={comboboxValue()} onClick={() => setComboboxOpen(true)} onKeyDown={comboboxKeyDown} /><Show when={comboboxOpen() && comboboxItems().length > 0} children={<ul role="listbox"><For each={comboboxItems()} children={(item, index) => <li role="option" data-value={item.value} aria-selected={highlightedIndex() === index()}>{fixtureText(item)}</li>} /></ul>} /></>);
 }
 
 export function ComboboxContent(props: CompoundPartProps): JSX.Element {

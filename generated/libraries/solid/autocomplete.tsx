@@ -39,7 +39,7 @@ export function Autocomplete(incoming: AutocompleteProps): JSX.Element {
   const state: Record<string, () => unknown> = {};
   type AutocompleteFixtureNode = {export?: string; props: Record<string, unknown>; text?: string; children?: AutocompleteFixtureNode[]};
   const autocompleteFixture = () => props.fixture as AutocompleteFixtureNode;
-  const findAutocompletePart = (exported: string, value: AutocompleteFixtureNode = autocompleteFixture()): AutocompleteFixtureNode | undefined => value.export === exported ? value : value.children?.map(child => findAutocompletePart(exported, child)).find(Boolean);
+  const findAutocompletePart = (exported: string, value: AutocompleteFixtureNode | undefined = autocompleteFixture()): AutocompleteFixtureNode | undefined => value?.export === exported ? value : value?.children?.map(child => findAutocompletePart(exported, child)).find(Boolean);
   const autocompleteInputGroup = () => findAutocompletePart(".InputGroup") ?? {props:{}};
   const autocompleteItems = () => {
     const list = findAutocompletePart(".List");
@@ -65,7 +65,7 @@ export function Autocomplete(incoming: AutocompleteProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as AutocompleteProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  return (<><input ref={autocompleteInput} placeholder={autocompleteInputGroup().props.placeholder as string} value={autocompleteValue()} onInput={autocompleteOnInput} onKeyDown={autocompleteKeyDown} /><Show when={autocompleteOpen()} children={<ul role="listbox"><For each={autocompleteItems()} children={(item, index) => <li role="option" data-value={item.value} aria-selected={autocompleteHighlightedIndex() === index()}>{fixtureText(item)}</li>} /></ul>} /></>);
+  return (<><input ref={autocompleteInput} aria-hidden="true" tabindex="-1" style="clip-path:inset(50%);overflow:hidden;white-space:nowrap;border:0;padding:0;width:1px;height:1px;margin:-1px;position:fixed;top:0;left:0" value={autocompleteValue()} onInput={autocompleteOnInput} onKeyDown={autocompleteKeyDown} /><Show when={autocompleteOpen() && autocompleteItems().length > 0} children={<ul role="listbox"><For each={autocompleteItems()} children={(item, index) => <li role="option" data-value={item.value} aria-selected={autocompleteHighlightedIndex() === index()}>{fixtureText(item)}</li>} /></ul>} /></>);
 }
 
 export function AutocompleteContent(props: CompoundPartProps): JSX.Element {
