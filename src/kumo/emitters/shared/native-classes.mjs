@@ -15,16 +15,67 @@ export const KUMO_INPUT_CLASS = 'border-0 bg-kumo-control text-kumo-default ring
 export const KUMO_FIELD_LABEL_CLASS = 'm-0 select-none text-base font-medium text-kumo-default';
 export const KUMO_FIELD_DESCRIPTION_CLASS = 'text-sm leading-snug text-kumo-subtle';
 
-// Checkbox box span (chunks/checkbox-*.js).
-// React kumo: bg-kumo-base, ring-kumo-hairline, hover:ring-kumo-hairline, focus:ring-kumo-focus,
-// focus-visible:ring-kumo-brand, data-[checked]:bg-kumo-contrast, data-[checked]:ring-kumo-contrast,
-// data-[indeterminate]:bg-kumo-contrast, data-[indeterminate]:ring-kumo-contrast, text-kumo-inverse.
-export const KUMO_CHECKBOX_CLASS = 'relative flex h-4 w-4 shrink-0 items-center justify-center rounded-sm border-0 bg-kumo-base ring ring-kumo-hairline hover:ring-kumo-hairline focus:outline-none focus:ring-kumo-focus focus:ring-2 focus-visible:ring-2 focus-visible:ring-kumo-brand data-[checked]:bg-kumo-contrast data-[checked]:ring-kumo-contrast data-[indeterminate]:bg-kumo-contrast data-[indeterminate]:ring-kumo-contrast text-kumo-inverse';
+// Checkbox box span (chunks/checkbox-*.js), assembled VERBATIM as React canonical does:
+//   i("relative flex h-4 w-4 shrink-0 items-center justify-center rounded-sm border-0 bg-kumo-base
+//     ring focus:outline-none after:absolute after:-inset-x-3 after:-inset-y-2",
+//     a && "mt-0.5",                                   // label present (runtime-appended)
+//     status==="error" ? "ring-kumo-danger" : "ring-kumo-hairline",
+//     !disabled && "hover:ring-kumo-hairline focus:ring-kumo-focus focus:ring-2 focus-visible:ring-2 focus-visible:ring-kumo-brand",
+//     "data-[checked]:bg-kumo-contrast data-[checked]:ring-kumo-contrast data-[indeterminate]:bg-kumo-contrast data-[indeterminate]:ring-kumo-contrast")
+// The prior value folded text-kumo-inverse onto the box (React puts it on the INDICATOR,
+// not the box — color delta) and dropped after:* (hit-area / border delta). Corrected to
+// the exact default-state box string; identical to KUMO_CHECKBOX_BOX_CLASS below.
+export const KUMO_CHECKBOX_CLASS = 'relative flex h-4 w-4 shrink-0 items-center justify-center rounded-sm border-0 bg-kumo-base ring focus:outline-none after:absolute after:-inset-x-3 after:-inset-y-2 ring-kumo-hairline hover:ring-kumo-hairline focus:ring-kumo-focus focus:ring-2 focus-visible:ring-2 focus-visible:ring-kumo-brand data-[checked]:bg-kumo-contrast data-[checked]:ring-kumo-contrast data-[indeterminate]:bg-kumo-contrast data-[indeterminate]:ring-kumo-contrast';
 
-// Switch track button + thumb span (chunks/switch-*.js).
-// React kumo: focus-visible:ring-kumo-brand (track), bg-kumo-base (thumb), shadow-[…kumo-shadow…] (thumb).
-export const KUMO_SWITCH_TRACK_CLASS = 'relative inline-flex items-center h-4 w-8 rounded-[5px] ring ring-kumo-hairline cursor-pointer border-none p-0 focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand transition-colors duration-150 ease-out';
-export const KUMO_SWITCH_THUMB_CLASS = 'absolute top-0.5 left-0.5 h-3 w-3 rounded-[4px] bg-kumo-base shadow-[0_0_1px_0.5px_var(--color-kumo-shadow-edge),0_1px_2px_var(--color-kumo-shadow-drop)] transition-all duration-150 ease-out';
+// Checkbox box span (chunks/checkbox-*.js) rendered VERBATIM as React canonical does.
+// React puts text-kumo-inverse + the after:* hit-area utilities on the box, NOT the
+// class above (which folded text-kumo-inverse onto the box and dropped after:* and
+// mt-0.5). This constant matches the real React Checkbox box exactly so the native
+// control renders the same checkmark <svg> and the same computed box styles.
+// mt-0.5 is appended at runtime only when a label is present (React: `a && "mt-0.5"`).
+export const KUMO_CHECKBOX_BOX_CLASS = 'relative flex h-4 w-4 shrink-0 items-center justify-center rounded-sm border-0 bg-kumo-base ring focus:outline-none after:absolute after:-inset-x-3 after:-inset-y-2 ring-kumo-hairline hover:ring-kumo-hairline focus:ring-kumo-focus focus:ring-2 focus-visible:ring-2 focus-visible:ring-kumo-brand data-[checked]:bg-kumo-contrast data-[checked]:ring-kumo-contrast data-[indeterminate]:bg-kumo-contrast data-[indeterminate]:ring-kumo-contrast';
+// Indicator span wrapping the check/minus icon. React: Base UI CheckboxIndicator.
+export const KUMO_CHECKBOX_INDICATOR_CLASS = 'flex items-center justify-center text-kumo-inverse data-[unchecked]:invisible';
+// Real Kumo (phosphor) CheckIcon markup — weight="bold" size={12}. NOT a lookalike;
+// this is exactly what @cloudflare/kumo CheckboxIndicator renders when checked.
+export const KUMO_CHECKBOX_CHECK_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 256 256"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"></path></svg>';
+// Real Kumo (phosphor) MinusIcon markup — rendered by React for the indeterminate state.
+export const KUMO_CHECKBOX_MINUS_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 256 256"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128Z"></path></svg>';
+// Visually-hidden native <input type="checkbox"> React renders alongside the box span.
+export const KUMO_CHECKBOX_HIDDEN_INPUT_STYLE = 'clip-path:inset(50%);overflow:hidden;white-space:nowrap;border:0;padding:0;width:1px;height:1px;margin:-1px;position:fixed;top:0;left:0';
+// Label composition React wraps a labelled checkbox in (Field.Root div + label + text span).
+export const KUMO_CHECKBOX_LABEL_WRAPPER_CLASS = 'inline-flex';
+export const KUMO_CHECKBOX_LABEL_CLASS = '!m-0 !min-h-0 !text-base inline-flex items-start gap-2 flex-row';
+export const KUMO_CHECKBOX_LABEL_TEXT_CLASS = 'inline-flex items-center gap-1';
+
+// Clipboard text (chunks/clipboard-text-*.js) rendered VERBATIM as React canonical.
+// React composes an input-shell <div> + a truncating text <span> + a Button that
+// carries BOTH the "copied" check icon and the default copy icon (real phosphor
+// markup, width=1em), plus an sr-only aria-live announcement span. The old native
+// fallback dropped every icon and the input chrome. These are the real Kumo classes.
+export const KUMO_CLIPBOARD_ROOT_CLASS = 'border-0 text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled h-10 gap-2 rounded-lg focus:ring-kumo-focus/50 focus:ring-[1.5px] flex items-center overflow-hidden bg-kumo-base px-0 font-mono text-sm';
+export const KUMO_CLIPBOARD_TEXT_CLASS = 'grow truncate ps-4 pe-2';
+export const KUMO_CLIPBOARD_BUTTON_CLASS = 'group flex w-max shrink-0 items-center font-medium select-none border-0 focus:outline-none cursor-pointer disabled:cursor-not-allowed disabled:text-kumo-subtle h-10 gap-2 rounded-lg text-base text-kumo-default hover:bg-kumo-tint shadow-none bg-inherit rounded-l-none rounded-r-[inherit] border-l! border-kumo-line! px-3 relative isolate overflow-hidden transition-all duration-200 focus:ring-inset focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-kumo-brand';
+// "Copied" state icon span (hidden until copy) and the default copy icon span.
+export const KUMO_CLIPBOARD_CHECK_SPAN_CLASS = 'gap-1 transition-all duration-200 pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 translate-y-full';
+export const KUMO_CLIPBOARD_COPY_SPAN_CLASS = 'flex items-center justify-center transition-all duration-200 translate-y-0 opacity-100';
+// Real Kumo (phosphor) Check + Copy icon markup, width=1em (as React renders in the Button).
+export const KUMO_CLIPBOARD_CHECK_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path></svg>';
+export const KUMO_CLIPBOARD_COPY_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path></svg>';
+
+// Switch track button + thumb span (chunks/switch-*.js), default variant + size=base, unchecked.
+// React composes track K = i("relative inline-flex items-center ring cursor-pointer border-none p-0",
+//   "focus:outline-none focus-visible:ring-2 focus-visible:ring-kumo-brand",
+//   "transition-colors duration-150 ease-out motion-reduce:transition-none",
+//   "disabled:cursor-not-allowed disabled:opacity-50",
+//   m.track /*base=h-4.5 w-9*/, p /*rounded-[5px] squircle*/, D /*default+unchecked color*/)
+// and thumb M = i("absolute top-0 bottom-0 shadow-[…kumo-shadow…]", m.thumb /*base=w-4.5*/,
+//   p, G /*bg-kumo-base dark:bg-neutral-850*/, "transition-all …", checked?slide:"left-0").
+// Prior values were hand-approximated: wrong size (h-4 w-8 → h-4.5 w-9), a stray
+// focus:ring-kumo-focus/50 React never emits, no track bg (React uses bg-neutral-200 —
+// the gray pill), and a wrong thumb geometry (top-0.5 left-0.5 h-3 w-3 rounded-[4px]).
+export const KUMO_SWITCH_TRACK_CLASS = 'relative inline-flex items-center ring cursor-pointer border-none p-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-kumo-brand transition-colors duration-150 ease-out motion-reduce:transition-none disabled:cursor-not-allowed disabled:opacity-50 h-4.5 w-9 rounded-[5px] supports-[corner-shape:squircle]:rounded-[10px] [corner-shape:squircle] bg-neutral-200 dark:bg-neutral-700 ring-neutral-300 dark:ring-neutral-600';
+export const KUMO_SWITCH_THUMB_CLASS = 'absolute top-0 bottom-0 shadow-[0_0_1px_0.5px_var(--color-kumo-shadow-edge),0_1px_2px_var(--color-kumo-shadow-drop)] w-4.5 rounded-[5px] supports-[corner-shape:squircle]:rounded-[10px] [corner-shape:squircle] bg-kumo-base dark:bg-neutral-850 transition-all duration-150 ease-out motion-reduce:transition-none left-0';
 
 // Tabs list + trigger, segmented default variant (chunks/tabs-*.js).
 // React kumo: kumo-tabs-list, bg-kumo-recessed, ring-kumo-hairline/70 (list);
