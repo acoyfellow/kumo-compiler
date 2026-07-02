@@ -16,6 +16,8 @@ interface ClipboardTextProps {
 }
 const props = withDefaults(defineProps<ClipboardTextProps>(), {})
 const copyAnnouncement = ref('')
+const kumoClipboardCheckSvg = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"1em\" height=\"1em\" fill=\"currentColor\" viewBox=\"0 0 256 256\"><path d=\"M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z\"></path></svg>"
+const kumoClipboardCopySvg = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"1em\" height=\"1em\" fill=\"currentColor\" viewBox=\"0 0 256 256\"><path d=\"M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z\"></path></svg>"
 async function copyText() {
   await navigator.clipboard.writeText(props.textToCopy ?? props.text)
   props.onCopy?.()
@@ -32,5 +34,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <div><span>{{ props.text }}</span><button type="button" @click="copyText">Copy</button><span aria-live="polite">{{ copyAnnouncement }}</span></div>
+  <div class="border-0 text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled h-10 gap-2 rounded-lg focus:ring-kumo-focus/50 focus:ring-[1.5px] flex items-center overflow-hidden bg-kumo-base px-0 font-mono text-sm"><span class="grow truncate ps-4 pe-2">{{ props.text }}</span><button data-kumo-component="Button" type="button" class="group flex w-max shrink-0 items-center font-medium select-none border-0 focus:outline-none cursor-pointer disabled:cursor-not-allowed disabled:text-kumo-subtle h-10 gap-2 rounded-lg text-base text-kumo-default hover:bg-kumo-tint shadow-none bg-inherit rounded-l-none rounded-r-[inherit] border-l! border-kumo-line! px-3 relative isolate overflow-hidden transition-all duration-200 focus:ring-inset focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-kumo-brand" aria-label="Copy to clipboard" @click="copyText"><span class="contents"><span class="gap-1 transition-all duration-200 pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 translate-y-full" v-html="kumoClipboardCheckSvg"></span><span class="flex items-center justify-center transition-all duration-200 translate-y-0 opacity-100" v-html="kumoClipboardCopySvg"></span></span></button><span class="sr-only" aria-live="polite">{{ copyAnnouncement }}</span></div>
 </template>
