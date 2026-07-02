@@ -4,7 +4,7 @@ import type { JSX } from "solid-js";
 
 export interface BreadcrumbsProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "55904d9ce0240002aa580c695246c137febcb02f33b88df3617fae5da3469735";
+export const modelDigest = "ba5575453479174a7d9071f56aa3f625fd4c0c340e68b28f31b7ea6bbd55b63d";
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"trail":"988fbe9b9467e3a7ec328520e34a5ea0ee2fd2c84014465d6304c4b2bc2b5427","small-current":"9362e5bf743e1dcf8b15a2ba2db9cc9664b02f59456f37291fcab081ce99c5fe"} as const;
 const styles: Record<string, string> = {"root":"root","group":"group","mr-4":"mr-4","flex":"flex","items-center":"items-center"};
@@ -42,7 +42,7 @@ export function Breadcrumbs(incoming: BreadcrumbsProps): JSX.Element {
   void native; void state; void refs;
   if (Object.prototype.hasOwnProperty.call(props, "size") && semanticEqual(props.size, "sm") && semanticEqual(normalizedFixture, {"export":"root","props":{},"children":[{"export":".Link","props":{"href":"/home"},"children":[{"text":"Home"}]},{"export":".Separator","props":{},"children":[]},{"export":".Current","props":{},"children":[{"text":"Here"}]}]})) return (<nav class="text-sm h-10"><a></a><a></a><span></span><span></span><span></span><span></span><span></span><span></span>{"HomeHereHomeHere"}</nav>);
   if (semanticEqual(normalizedFixture, {"export":"root","props":{},"children":[{"export":".Link","props":{"href":"/home"},"children":[{"text":"Home"}]},{"export":".Separator","props":{},"children":[]},{"export":".Current","props":{},"children":[{"text":"Here"}]}]})) return (<nav aria-label={"breadcrumb"} class="text-base h-12"><a href={"/home"} data-kumo-component={"Breadcrumbs"} data-kumo-part={"link"}></a><a href={"/home"} data-kumo-component={"Breadcrumbs"} data-kumo-part={"link"}></a><span></span><span></span><span></span><span></span><span></span><span></span>{"HomeHereHomeHere"}</nav>);
-  return (<nav aria-label={"Breadcrumbs"} class={mergeStyles(styles.root)}>{props.children}</nav>);
+  return (<nav class={"group mr-4 flex min-w-0 grow items-center overflow-hidden whitespace-nowrap text-base h-12 gap-1"} aria-label={"breadcrumb"}><div class={"contents sm:hidden"}>{props.children}</div><div class={"hidden sm:contents"}>{props.children}</div></nav>);
 }
 
 export function BreadcrumbsCurrent(props: CompoundPartProps): JSX.Element {

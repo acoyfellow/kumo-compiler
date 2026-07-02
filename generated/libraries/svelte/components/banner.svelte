@@ -3,14 +3,14 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "44dc46ac844b7494abe7a6e6e3064c36cab57694efac43aa59738f3e75745a65";
+  export const modelDigest = "c6ff934daf615e57294fa44b606ded01df77262d4a854a2d82c1854e80279c71";
   export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
-  action?: Snippet;
+  action?: unknown;
   children?: Snippet;
   className?: unknown;
-  description?: Snippet;
-  icon?: Snippet;
+  description?: unknown;
+  icon?: unknown;
   text?: unknown;
   title?: unknown;
   variant?: unknown;
@@ -66,11 +66,20 @@
     </p>
   </div>
 {:else}
-<section class={cx(styles["root"])}>
-  {#if typeof icon === 'function'}{@render icon()}{:else if icon != null && icon !== false}{icon}{/if}
-  {semanticValues["title"]}
-  {#if typeof description === 'function'}{@render description()}{:else if description != null && description !== false}{description}{/if}
-  {#if typeof action === 'function'}{@render action()}{:else if action != null && action !== false}{action}{/if}
-  {#if children}{@render children()}{/if}
-</section>
+<div class={"flex w-full items-start gap-3 rounded-lg px-4 py-3 text-base bg-kumo-banner-info text-kumo-info"}>
+  <div class={"flex min-w-0 flex-1 items-center justify-between gap-3"}>
+    <div class={"flex flex-col gap-0.5"}>
+      <p class={"font-medium leading-snug"}>
+        {semanticValues["title"]}
+      </p>
+      {#if semanticValues["description"]}
+        <div class={"text-sm leading-snug"}>
+          <p>
+            {semanticValues["description"]}
+          </p>
+        </div>
+      {/if}
+    </div>
+  </div>
+</div>
 {/if}

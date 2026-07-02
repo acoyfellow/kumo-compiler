@@ -3,7 +3,7 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "55904d9ce0240002aa580c695246c137febcb02f33b88df3617fae5da3469735";
+  export const modelDigest = "ba5575453479174a7d9071f56aa3f625fd4c0c340e68b28f31b7ea6bbd55b63d";
   export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   children?: Snippet;
@@ -68,7 +68,12 @@
     {"HomeHereHomeHere"}
   </nav>
 {:else}
-<nav aria-label={"Breadcrumbs"} class={cx(styles["root"])}>
-  {#if children}{@render children()}{/if}
+<nav class={"group mr-4 flex min-w-0 grow items-center overflow-hidden whitespace-nowrap text-base h-12 gap-1"} aria-label={"breadcrumb"}>
+  <div class={"contents sm:hidden"}>
+    {#if children}{@render children()}{/if}
+  </div>
+  <div class={"hidden sm:contents"}>
+    {#if children}{@render children()}{/if}
+  </div>
 </nav>
 {/if}

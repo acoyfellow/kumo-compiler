@@ -4,7 +4,7 @@ import type { JSX } from "solid-js";
 
 export interface LayerCardProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "2ebdc27ab69f5fc3c3bc011c6a6cb19010b761c234ad792c28a8127c98acbfd1";
+export const modelDigest = "0b84bec02cf4341331445f4685c1a538821772e6804d69e328a7c3e8d7cfa822";
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"simple":"a499a4590b2889a399fb37ec1aea23b834bd37a9decc081349d87104441126a5","layered":"bdf1e0064642e5030741e7e6b3cfbefc3cb01d9355b221061e54ad98f1d48d10"} as const;
 const styles: Record<string, string> = {"root":"root","overflow-hidden":"overflow-hidden","rounded-lg":"rounded-lg"};
@@ -42,7 +42,7 @@ export function LayerCard(incoming: LayerCardProps): JSX.Element {
   void native; void state; void refs;
   if (semanticEqual(props.semanticContent, "Card")) return (<div class="bg-kumo-base shadow-xs ring-kumo-line">{props.children}</div>);
   if (semanticEqual(normalizedFixture, {"export":"root","props":{},"children":[{"export":".Secondary","props":{},"children":[{"text":"Top"}]},{"export":".Primary","props":{},"children":[{"text":"Main"}]}]})) return (<div class="bg-kumo-elevated ring-kumo-hairline"><div></div><div></div>{"TopMain"}</div>);
-  return (<div class={mergeStyles(styles.root)}>{props.children}</div>);
+  return (<div class={"overflow-hidden rounded-lg bg-kumo-base shadow-xs ring ring-kumo-line"}>{props.children}</div>);
 }
 
 export function LayerCardPrimary(props: CompoundPartProps): JSX.Element {

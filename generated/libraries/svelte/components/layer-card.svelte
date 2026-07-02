@@ -3,7 +3,7 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "2ebdc27ab69f5fc3c3bc011c6a6cb19010b761c234ad792c28a8127c98acbfd1";
+  export const modelDigest = "0b84bec02cf4341331445f4685c1a538821772e6804d69e328a7c3e8d7cfa822";
   export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   children?: Snippet;
@@ -54,7 +54,7 @@
     {"TopMain"}
   </div>
 {:else}
-<div class={cx(styles["root"])}>
+<div class={"overflow-hidden rounded-lg bg-kumo-base shadow-xs ring ring-kumo-line"}>
   {#if children}{@render children()}{/if}
 </div>
 {/if}

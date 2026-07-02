@@ -4,7 +4,7 @@ import type { JSX } from "solid-js";
 
 export interface SurfaceProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "a99b43a05015aed1b5f99239d8e125c152c7de069f07ad9d3f7a931f66212057";
+export const modelDigest = "b32ae4c4c167db5e11ff97832a162818c4efc303689df5c868a821d2642afc74";
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"default":"4441c41c07410c7e20f820d8180d29bc4fa68fb41f9ec635bcc641391f687b4b","as-section":"308e0794f759650df3841b6d3e8260c5277c3b302bc9c17b2cac90eb36457489"} as const;
 const styles: Record<string, string> = {"root":"root","overflow-visible":"overflow-visible","rounded-none":"rounded-none"};
@@ -42,7 +42,7 @@ export function Surface(incoming: SurfaceProps): JSX.Element {
   void native; void state; void refs;
   if (Object.prototype.hasOwnProperty.call(props, "as") && semanticEqual(props.as, "section") && semanticEqual(props.semanticContent, "Card") && Object.prototype.hasOwnProperty.call(props, "color") && semanticEqual(props.color, "secondary")) return (<section data-surface-color={"secondary"} data-deprecated={"surface"}>{props.children}</section>);
   if (semanticEqual(props.semanticContent, "Card")) return (<div data-surface-color={"primary"} data-deprecated={"surface"}>{props.children}</div>);
-  return (<div class={mergeStyles(styles.root)}>{props.children}</div>);
+  return (<div class={"bg-kumo-base shadow-xs ring ring-kumo-line overflow-visible rounded-none"}>{props.children}</div>);
 }
 
 export default Surface;

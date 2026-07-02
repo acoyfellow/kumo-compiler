@@ -3,7 +3,7 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "a99b43a05015aed1b5f99239d8e125c152c7de069f07ad9d3f7a931f66212057";
+  export const modelDigest = "b32ae4c4c167db5e11ff97832a162818c4efc303689df5c868a821d2642afc74";
   export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   as?: unknown;
@@ -56,7 +56,7 @@
     {renderContent}
   </div>
 {:else}
-<div class={cx(styles["root"])}>
+<div class={"bg-kumo-base shadow-xs ring ring-kumo-line overflow-visible rounded-none"}>
   {#if children}{@render children()}{/if}
 </div>
 {/if}

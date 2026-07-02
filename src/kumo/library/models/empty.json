@@ -174,33 +174,58 @@
     "algebraVersion": "kumo.component-algebra/v1",
     "componentRoot": {
       "kind": "element",
-      "tag": "section",
-      "attributes": {},
-      "styles": [
-        {
-          "kind": "style-ref",
-          "name": "root"
+      "tag": "div",
+      "attributes": {
+        "class": {
+          "kind": "literal",
+          "value": "flex w-full flex-col items-center rounded-xl border border-kumo-fill bg-kumo-control text-kumo-default px-10 py-16 gap-6"
         }
-      ],
+      },
       "children": [
         {
-          "kind": "slot",
-          "name": "icon"
+          "kind": "element",
+          "tag": "h2",
+          "attributes": {
+            "class": {
+              "kind": "literal",
+              "value": "text-2xl font-semibold"
+            }
+          },
+          "children": [
+            {
+              "kind": "text",
+              "value": {
+                "kind": "prop",
+                "name": "title"
+              }
+            }
+          ]
         },
         {
-          "kind": "text",
-          "value": {
+          "kind": "condition",
+          "when": {
             "kind": "prop",
-            "name": "title"
+            "name": "description"
+          },
+          "then": {
+            "kind": "element",
+            "tag": "p",
+            "attributes": {
+              "class": {
+                "kind": "literal",
+                "value": "max-w-140 text-center text-kumo-subtle"
+              }
+            },
+            "children": [
+              {
+                "kind": "text",
+                "value": {
+                  "kind": "prop",
+                  "name": "description"
+                }
+              }
+            ]
           }
-        },
-        {
-          "kind": "slot",
-          "name": "description"
-        },
-        {
-          "kind": "slot",
-          "name": "contents"
         }
       ]
     },
@@ -380,5 +405,5 @@
     "schemaVersion": "kumo.content-bindings/v1",
     "capabilityDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
   },
-  "modelDigest": "45f3a9e4e2b90d55e64fc2c66a7e3a3467d7cff0b6493b1f130788a838242fc7"
+  "modelDigest": "98d4d41c8c0a92ccf243f294a846ea935d0303d21fe0e4702c7c08ac09039f05"
 }

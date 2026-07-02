@@ -185,36 +185,89 @@
     "algebraVersion": "kumo.component-algebra/v1",
     "componentRoot": {
       "kind": "element",
-      "tag": "section",
-      "attributes": {},
-      "styles": [
-        {
-          "kind": "style-ref",
-          "name": "root"
+      "tag": "div",
+      "attributes": {
+        "class": {
+          "kind": "literal",
+          "value": "flex w-full items-start gap-3 rounded-lg px-4 py-3 text-base bg-kumo-banner-info text-kumo-info"
         }
-      ],
+      },
       "children": [
         {
-          "kind": "slot",
-          "name": "icon"
-        },
-        {
-          "kind": "text",
-          "value": {
-            "kind": "prop",
-            "name": "title"
-          }
-        },
-        {
-          "kind": "slot",
-          "name": "description"
-        },
-        {
-          "kind": "slot",
-          "name": "action"
-        },
-        {
-          "kind": "children"
+          "kind": "element",
+          "tag": "div",
+          "attributes": {
+            "class": {
+              "kind": "literal",
+              "value": "flex min-w-0 flex-1 items-center justify-between gap-3"
+            }
+          },
+          "children": [
+            {
+              "kind": "element",
+              "tag": "div",
+              "attributes": {
+                "class": {
+                  "kind": "literal",
+                  "value": "flex flex-col gap-0.5"
+                }
+              },
+              "children": [
+                {
+                  "kind": "element",
+                  "tag": "p",
+                  "attributes": {
+                    "class": {
+                      "kind": "literal",
+                      "value": "font-medium leading-snug"
+                    }
+                  },
+                  "children": [
+                    {
+                      "kind": "text",
+                      "value": {
+                        "kind": "prop",
+                        "name": "title"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "kind": "condition",
+                  "when": {
+                    "kind": "prop",
+                    "name": "description"
+                  },
+                  "then": {
+                    "kind": "element",
+                    "tag": "div",
+                    "attributes": {
+                      "class": {
+                        "kind": "literal",
+                        "value": "text-sm leading-snug"
+                      }
+                    },
+                    "children": [
+                      {
+                        "kind": "element",
+                        "tag": "p",
+                        "attributes": {},
+                        "children": [
+                          {
+                            "kind": "text",
+                            "value": {
+                              "kind": "prop",
+                              "name": "description"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -378,5 +431,5 @@
     "schemaVersion": "kumo.content-bindings/v1",
     "capabilityDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
   },
-  "modelDigest": "44dc46ac844b7494abe7a6e6e3064c36cab57694efac43aa59738f3e75745a65"
+  "modelDigest": "c6ff934daf615e57294fa44b606ded01df77262d4a854a2d82c1854e80279c71"
 }

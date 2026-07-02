@@ -168,20 +168,45 @@
       "kind": "element",
       "tag": "nav",
       "attributes": {
+        "class": {
+          "kind": "literal",
+          "value": "group mr-4 flex min-w-0 grow items-center overflow-hidden whitespace-nowrap text-base h-12 gap-1"
+        },
         "aria-label": {
           "kind": "literal",
-          "value": "Breadcrumbs"
+          "value": "breadcrumb"
         }
       },
-      "styles": [
-        {
-          "kind": "style-ref",
-          "name": "root"
-        }
-      ],
       "children": [
         {
-          "kind": "children"
+          "kind": "element",
+          "tag": "div",
+          "attributes": {
+            "class": {
+              "kind": "literal",
+              "value": "contents sm:hidden"
+            }
+          },
+          "children": [
+            {
+              "kind": "children"
+            }
+          ]
+        },
+        {
+          "kind": "element",
+          "tag": "div",
+          "attributes": {
+            "class": {
+              "kind": "literal",
+              "value": "hidden sm:contents"
+            }
+          },
+          "children": [
+            {
+              "kind": "children"
+            }
+          ]
         }
       ]
     },
@@ -557,5 +582,5 @@
     "schemaVersion": "kumo.content-bindings/v1",
     "capabilityDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
   },
-  "modelDigest": "55904d9ce0240002aa580c695246c137febcb02f33b88df3617fae5da3469735"
+  "modelDigest": "ba5575453479174a7d9071f56aa3f625fd4c0c340e68b28f31b7ea6bbd55b63d"
 }

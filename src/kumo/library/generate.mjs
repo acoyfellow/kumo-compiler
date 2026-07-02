@@ -46,19 +46,54 @@ const style = name => ({kind: 'style-ref', name});
 const children = {kind: 'children'};
 const text = value => ({kind: 'text', value});
 const element = (tag, childNodes = [children], attributes = {}) => ({kind: 'element', tag, attributes, styles: [style('root')], children: childNodes});
+// `el` renders canonical Tailwind classes as a literal `class` attribute on a plain
+// element node (NO style-ref). The style-ref 'root' resolution is a known gap
+// (proofGaps: 'style-resolution'): the svelte/vue emitters build an empty `styles`
+// map and solid an identity map, so `styles.root` never resolves to real classes.
+// A literal `class` attribute renders uniformly through every emitter's generic
+// `element` handler, so a single foundation edit fixes svelte+vue+solid at once.
+// Classes/structure are derived from the React canonical (@cloudflare/kumo) render.
+const el = (tag, className, childNodes = [children], attributes = {}) => ({kind: 'element', tag, attributes: className ? {class: lit(className), ...attributes} : {...attributes}, children: childNodes});
+const when = (name, node) => ({kind: 'condition', when: prop(name), then: node});
 const slot = name => ({kind: 'slot', name});
 const collection = source => ({kind: 'collection', source: prop(source), item: 'item', key: {kind: 'item', name: 'key'}, template: slot('item')});
 const compound = (name, names) => ({kind: 'compound', name, parts: Object.fromEntries(names.map(part => [part, slot(part)]))});
 const portal = (layer, parts) => ({kind: 'portal', target: lit('document-body'), layer, children: [compound(layer, parts)]});
 
 const foundation = {
-  badge: element('span'), banner: element('section', [slot('icon'), text(prop('title')), slot('description'), slot('action'), children]),
-  breadcrumbs: element('nav', [children], {'aria-label': lit('Breadcrumbs')}),
-  'cloudflare-logo': element('svg', [], {role: lit('img'), 'aria-label': lit('Cloudflare')}), code: element('code', [text(prop('code'))]),
-  empty: element('section', [slot('icon'), text(prop('title')), slot('description'), slot('contents')]), grid: element('div'), 'grid-item': element('div'),
-  label: element('label'), 'layer-card': element('div'), link: element('a', [children], {href: prop('href')}), loader: element('span', [], {role: lit('status'), 'aria-label': prop('aria-label')}),
+  badge: element('span'),
+  // banner: React canonical is div > div > div > (p[title] + div > p[description]).
+  // 4 divs + 2 p, bg-kumo-banner-info/text-kumo-info for the default (info) variant.
+  banner: el('div', 'flex w-full items-start gap-3 rounded-lg px-4 py-3 text-base bg-kumo-banner-info text-kumo-info', [
+    el('div', 'flex min-w-0 flex-1 items-center justify-between gap-3', [
+      el('div', 'flex flex-col gap-0.5', [
+        el('p', 'font-medium leading-snug', [text(prop('title'))]),
+        when('description', el('div', 'text-sm leading-snug', [el('p', null, [text(prop('description'))])]))
+      ])
+    ])
+  ]),
+  // breadcrumbs: React wraps children in mobile/desktop responsive contents wrappers
+  // and the nav itself is a flex row (h-12). Derived from React canonical render.
+  breadcrumbs: el('nav', 'group mr-4 flex min-w-0 grow items-center overflow-hidden whitespace-nowrap text-base h-12 gap-1', [
+    el('div', 'contents sm:hidden', [children]),
+    el('div', 'hidden sm:contents', [children])
+  ], {'aria-label': lit('breadcrumb')}),
+  'cloudflare-logo': element('svg', [], {role: lit('img'), 'aria-label': lit('Cloudflare')}),
+  // code: React canonical root is <pre> (native emitted <code>), reset + mono styling.
+  code: el('pre', 'm-0 w-auto rounded-none border-none bg-transparent p-0 font-mono text-sm leading-[20px] text-kumo-subtle', [text(prop('code'))]),
+  // empty: React canonical is div > h2[title] + p[description] (native emitted <section>).
+  empty: el('div', 'flex w-full flex-col items-center rounded-xl border border-kumo-fill bg-kumo-control text-kumo-default px-10 py-16 gap-6', [
+    el('h2', 'text-2xl font-semibold', [text(prop('title'))]),
+    when('description', el('p', 'max-w-140 text-center text-kumo-subtle', [text(prop('description'))]))
+  ]),
+  grid: el('div', 'grid gap-2 md:gap-6 lg:gap-8'), 'grid-item': element('div'),
+  label: element('label'),
+  'layer-card': el('div', 'overflow-hidden rounded-lg bg-kumo-base shadow-xs ring ring-kumo-line'),
+  link: element('a', [children], {href: prop('href')}), loader: element('span', [], {role: lit('status'), 'aria-label': prop('aria-label')}),
   meter: element('div', [text(prop('label')), element('meter', [], {}), {kind: 'condition', when: prop('showValue'), then: text({kind: 'coalesce', values: [prop('customValue'), prop('value')]})}]),
-  surface: element('div'), table: element('table'), text: element('span')
+  surface: el('div', 'bg-kumo-base shadow-xs ring ring-kumo-line overflow-visible rounded-none'),
+  table: el('table', 'isolate w-full [&_td]:border-b [&_td]:border-kumo-fill [&_tr:last-child_td]:border-b-0 [&_td]:p-3 [&_th]:border-b [&_th]:border-kumo-fill [&_th]:p-3 [&_th]:font-semibold [&_th]:text-base [&_th]:bg-kumo-base text-base text-left text-kumo-default'),
+  text: element('span')
 };
 const interactive = new Set(['autocomplete','combobox','command-palette','date-picker','date-range-picker','dialog','dropdown-menu','menu-bar','pagination','popover','select','sidebar','tabs','toasty']);
 const collectionComponents = new Set(['autocomplete','combobox','command-palette','dropdown-menu','menu-bar','pagination','radio','select','sidebar','table-of-contents','tabs','toasty']);

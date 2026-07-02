@@ -3,4 +3,4 @@ import type { DefineComponent } from 'vue';
 export interface TableProps { [key: string]: unknown }
 declare const component: DefineComponent<TableProps>;
 export default component;
-export declare const modelDigest: "48166ccb036c8793830792cf7561ebdd2b085687276dc8a6fff29df644307d79";
+export declare const modelDigest: "cc4215a8de06bd0df9b20cbd68c551c9f4058a9bdcc065708c3daf2a57e1872a";

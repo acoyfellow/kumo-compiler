@@ -3,4 +3,4 @@ import type { DefineComponent } from 'vue';
 export interface BreadcrumbsProps { [key: string]: unknown }
 declare const component: DefineComponent<BreadcrumbsProps>;
 export default component;
-export declare const modelDigest: "55904d9ce0240002aa580c695246c137febcb02f33b88df3617fae5da3469735";
+export declare const modelDigest: "ba5575453479174a7d9071f56aa3f625fd4c0c340e68b28f31b7ea6bbd55b63d";

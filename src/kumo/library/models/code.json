@@ -156,14 +156,13 @@
     "algebraVersion": "kumo.component-algebra/v1",
     "componentRoot": {
       "kind": "element",
-      "tag": "code",
-      "attributes": {},
-      "styles": [
-        {
-          "kind": "style-ref",
-          "name": "root"
+      "tag": "pre",
+      "attributes": {
+        "class": {
+          "kind": "literal",
+          "value": "m-0 w-auto rounded-none border-none bg-transparent p-0 font-mono text-sm leading-[20px] text-kumo-subtle"
         }
-      ],
+      },
       "children": [
         {
           "kind": "text",
@@ -306,5 +305,5 @@
     "schemaVersion": "kumo.content-bindings/v1",
     "capabilityDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
   },
-  "modelDigest": "ac14652686b665216bfd9c5a8f1e41e73d994928f91ac7072f115606a5079eb3"
+  "modelDigest": "4cac8d73dcb138c80ed2791d573a1cd7d0f900e0877bbc30ce696bd4883a6ed9"
 }

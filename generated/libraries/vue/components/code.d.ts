@@ -3,4 +3,4 @@ import type { DefineComponent } from 'vue';
 export interface CodeProps { [key: string]: unknown }
 declare const component: DefineComponent<CodeProps>;
 export default component;
-export declare const modelDigest: "ac14652686b665216bfd9c5a8f1e41e73d994928f91ac7072f115606a5079eb3";
+export declare const modelDigest: "4cac8d73dcb138c80ed2791d573a1cd7d0f900e0877bbc30ce696bd4883a6ed9";

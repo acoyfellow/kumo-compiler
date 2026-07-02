@@ -3,7 +3,7 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "ac14652686b665216bfd9c5a8f1e41e73d994928f91ac7072f115606a5079eb3";
+  export const modelDigest = "4cac8d73dcb138c80ed2791d573a1cd7d0f900e0877bbc30ce696bd4883a6ed9";
   export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   className?: unknown;
@@ -58,7 +58,7 @@
     {semanticValues["code"]}
   </pre>
 {:else}
-<code class={cx(styles["root"])}>
+<pre class={"m-0 w-auto rounded-none border-none bg-transparent p-0 font-mono text-sm leading-[20px] text-kumo-subtle"}>
   {semanticValues["code"]}
-</code>
+</pre>
 {/if}

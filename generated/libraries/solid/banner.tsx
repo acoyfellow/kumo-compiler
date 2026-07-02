@@ -4,7 +4,7 @@ import type { JSX } from "solid-js";
 
 export interface BannerProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "44dc46ac844b7494abe7a6e6e3064c36cab57694efac43aa59738f3e75745a65";
+export const modelDigest = "c6ff934daf615e57294fa44b606ded01df77262d4a854a2d82c1854e80279c71";
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"structured":"72afbfbc62b222448d476f2fe1a729495d6c4b4c8da3a915add21e95acf328a7","alert-simple":"b905eb0b86c579c36dd4cff9c50b555e66a8547f3deb1456ffeadbedb20a441b"} as const;
 const styles: Record<string, string> = {"root":"root","flex":"flex","w-full":"w-full","items-start":"items-start","gap-3":"gap-3","rounded-lg":"rounded-lg"};
@@ -42,7 +42,7 @@ export function Banner(incoming: BannerProps): JSX.Element {
   void native; void state; void refs;
   if (Object.prototype.hasOwnProperty.call(props, "description") && semanticEqual(props.description, "Details") && Object.prototype.hasOwnProperty.call(props, "title") && semanticEqual(props.title, "Notice")) return (<div class="bg-kumo-banner-info"><p></p><p></p>{"NoticeDetails"}</div>);
   if (semanticEqual(props.semanticContent, "Careful") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "alert")) return (<div class="bg-kumo-banner-warning text-kumo-warning"><p>{props.children}</p></div>);
-  return (<section class={mergeStyles(styles.root)}>{(props.icon as JSX.Element) ?? undefined}{(props.title as any)}{(props.description as JSX.Element) ?? undefined}{(props.action as JSX.Element) ?? undefined}{props.children}</section>);
+  return (<div class={"flex w-full items-start gap-3 rounded-lg px-4 py-3 text-base bg-kumo-banner-info text-kumo-info"}><div class={"flex min-w-0 flex-1 items-center justify-between gap-3"}><div class={"flex flex-col gap-0.5"}><p class={"font-medium leading-snug"}>{(props.title as any)}</p>{(props.description as any) ? (<div class={"text-sm leading-snug"}><p>{(props.description as any)}</p></div>) : undefined}</div></div></div>);
 }
 
 export default Banner;

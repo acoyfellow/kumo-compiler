@@ -3,4 +3,4 @@ import type { DefineComponent } from 'vue';
 export interface EmptyProps { [key: string]: unknown }
 declare const component: DefineComponent<EmptyProps>;
 export default component;
-export declare const modelDigest: "45f3a9e4e2b90d55e64fc2c66a7e3a3467d7cff0b6493b1f130788a838242fc7";
+export declare const modelDigest: "98d4d41c8c0a92ccf243f294a846ea935d0303d21fe0e4702c7c08ac09039f05";

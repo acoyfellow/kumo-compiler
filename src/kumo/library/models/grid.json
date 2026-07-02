@@ -164,13 +164,12 @@
     "componentRoot": {
       "kind": "element",
       "tag": "div",
-      "attributes": {},
-      "styles": [
-        {
-          "kind": "style-ref",
-          "name": "root"
+      "attributes": {
+        "class": {
+          "kind": "literal",
+          "value": "grid gap-2 md:gap-6 lg:gap-8"
         }
-      ],
+      },
       "children": [
         {
           "kind": "children"
@@ -332,5 +331,5 @@
     "schemaVersion": "kumo.content-bindings/v1",
     "capabilityDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
   },
-  "modelDigest": "96d41159e342c1dff51f3ce7f9546d9d40d1c97e6f035046b3985e0a34984959"
+  "modelDigest": "5a38222d250c38782aa9a716f93964aee7aad10d7bb641e11f015ea4183279d4"
 }

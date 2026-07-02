@@ -156,13 +156,12 @@
     "componentRoot": {
       "kind": "element",
       "tag": "div",
-      "attributes": {},
-      "styles": [
-        {
-          "kind": "style-ref",
-          "name": "root"
+      "attributes": {
+        "class": {
+          "kind": "literal",
+          "value": "bg-kumo-base shadow-xs ring ring-kumo-line overflow-visible rounded-none"
         }
-      ],
+      },
       "children": [
         {
           "kind": "children"
@@ -307,5 +306,5 @@
     "schemaVersion": "kumo.content-bindings/v1",
     "capabilityDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
   },
-  "modelDigest": "a99b43a05015aed1b5f99239d8e125c152c7de069f07ad9d3f7a931f66212057"
+  "modelDigest": "b32ae4c4c167db5e11ff97832a162818c4efc303689df5c868a821d2642afc74"
 }

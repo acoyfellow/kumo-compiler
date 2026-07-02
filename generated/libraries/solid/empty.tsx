@@ -4,7 +4,7 @@ import type { JSX } from "solid-js";
 
 export interface EmptyProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "45f3a9e4e2b90d55e64fc2c66a7e3a3467d7cff0b6493b1f130788a838242fc7";
+export const modelDigest = "98d4d41c8c0a92ccf243f294a846ea935d0303d21fe0e4702c7c08ac09039f05";
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"minimal":"fac6cc210e864da2dd8e1aefab71c1261c24df86ace2fe3bc85a3cac59f2cce4","small-description":"92b78bc5b2f43a8a6d864b961e5d72647a9c82691e3a4fdd71fed52cb41be36a"} as const;
 const styles: Record<string, string> = {"root":"root","flex":"flex","w-full":"w-full","flex-col":"flex-col","items-center":"items-center"};
@@ -42,7 +42,7 @@ export function Empty(incoming: EmptyProps): JSX.Element {
   void native; void state; void refs;
   if (Object.prototype.hasOwnProperty.call(props, "description") && semanticEqual(props.description, "Try again") && Object.prototype.hasOwnProperty.call(props, "size") && semanticEqual(props.size, "sm") && Object.prototype.hasOwnProperty.call(props, "title") && semanticEqual(props.title, "Empty")) return (<div class="px-6 py-8 gap-4"><h2>{(props.title as any)}</h2><p>{(props.description as any)}</p></div>);
   if (Object.prototype.hasOwnProperty.call(props, "title") && semanticEqual(props.title, "No results")) return (<div class="px-10 py-16 gap-6"><h2>{(props.title as any)}</h2></div>);
-  return (<section class={mergeStyles(styles.root)}>{(props.icon as JSX.Element) ?? undefined}{(props.title as any)}{(props.description as JSX.Element) ?? undefined}{(props.contents as JSX.Element) ?? undefined}</section>);
+  return (<div class={"flex w-full flex-col items-center rounded-xl border border-kumo-fill bg-kumo-control text-kumo-default px-10 py-16 gap-6"}><h2 class={"text-2xl font-semibold"}>{(props.title as any)}</h2>{(props.description as any) ? (<p class={"max-w-140 text-center text-kumo-subtle"}>{(props.description as any)}</p>) : undefined}</div>);
 }
 
 export default Empty;

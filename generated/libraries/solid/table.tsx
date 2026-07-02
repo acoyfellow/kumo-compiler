@@ -4,7 +4,7 @@ import type { JSX } from "solid-js";
 
 export interface TableProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "48166ccb036c8793830792cf7561ebdd2b085687276dc8a6fff29df644307d79";
+export const modelDigest = "cc4215a8de06bd0df9b20cbd68c551c9f4058a9bdcc065708c3daf2a57e1872a";
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"semantic-selected":"a5423a58dc392191b6c0c0da8031335754cb3d76eb3efc82177110cdc5164676","fixed-sticky":"50d6d26f603776ca0d4c4fc424d863d90e1313e15b6ac7f16822fbcea63d8f52"} as const;
 const styles: Record<string, string> = {"root":"root","isolate":"isolate","w-full":"w-full","text-left":"text-left"};
@@ -42,7 +42,7 @@ export function Table(incoming: TableProps): JSX.Element {
   void native; void state; void refs;
   if (Object.prototype.hasOwnProperty.call(props, "layout") && semanticEqual(props.layout, "fixed") && semanticEqual(normalizedFixture, {"export":"root","props":{},"children":[{"export":".Body","props":{},"children":[{"export":".Row","props":{},"children":[{"export":".Cell","props":{"sticky":"left"},"children":[{"text":"Pinned"}]}]}]}]})) return (<table class="table-fixed"><tbody></tbody><td class="sticky left-0 z-1">{"Pinned"}</td></table>);
   if (semanticEqual(normalizedFixture, {"export":"root","props":{},"children":[{"export":".Header","props":{},"children":[{"export":".Row","props":{},"children":[{"export":".Head","props":{},"children":[{"text":"Name"}]}]}]},{"export":".Body","props":{},"children":[{"export":".Row","props":{},"children":[{"export":".Cell","props":{"className":"bg-kumo-tint"},"children":[{"text":"Kumo"}]}]}]}]})) return (<table class="isolate w-full"><thead></thead><tbody></tbody><tr></tr><tr></tr><th>{"Name"}</th><td class="bg-kumo-tint">{"Kumo"}</td></table>);
-  return (<table class={mergeStyles(styles.root)}>{props.children}</table>);
+  return (<table class={"isolate w-full [&_td]:border-b [&_td]:border-kumo-fill [&_tr:last-child_td]:border-b-0 [&_td]:p-3 [&_th]:border-b [&_th]:border-kumo-fill [&_th]:p-3 [&_th]:font-semibold [&_th]:text-base [&_th]:bg-kumo-base text-base text-left text-kumo-default"}>{props.children}</table>);
 }
 
 export function TableBody(props: CompoundPartProps): JSX.Element {

@@ -3,7 +3,7 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "48166ccb036c8793830792cf7561ebdd2b085687276dc8a6fff29df644307d79";
+  export const modelDigest = "cc4215a8de06bd0df9b20cbd68c551c9f4058a9bdcc065708c3daf2a57e1872a";
   export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   children?: Snippet;
@@ -70,7 +70,7 @@
     </tbody>
   </table>
 {:else}
-<table class={cx(styles["root"])}>
+<table class={"isolate w-full [&_td]:border-b [&_td]:border-kumo-fill [&_tr:last-child_td]:border-b-0 [&_td]:p-3 [&_th]:border-b [&_th]:border-kumo-fill [&_th]:p-3 [&_th]:font-semibold [&_th]:text-base [&_th]:bg-kumo-base text-base text-left text-kumo-default"}>
   {#if children}{@render children()}{/if}
 </table>
 {/if}

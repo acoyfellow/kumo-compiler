@@ -3,14 +3,14 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "45f3a9e4e2b90d55e64fc2c66a7e3a3467d7cff0b6493b1f130788a838242fc7";
+  export const modelDigest = "98d4d41c8c0a92ccf243f294a846ea935d0303d21fe0e4702c7c08ac09039f05";
   export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   className?: unknown;
   commandLine?: unknown;
-  contents?: Snippet;
-  description?: Snippet;
-  icon?: Snippet;
+  contents?: unknown;
+  description?: unknown;
+  icon?: unknown;
   size?: unknown;
   title: unknown;
   children?: Snippet;
@@ -69,10 +69,14 @@
     </h2>
   </div>
 {:else}
-<section class={cx(styles["root"])}>
-  {#if typeof icon === 'function'}{@render icon()}{:else if icon != null && icon !== false}{icon}{/if}
-  {semanticValues["title"]}
-  {#if typeof description === 'function'}{@render description()}{:else if description != null && description !== false}{description}{/if}
-  {#if typeof contents === 'function'}{@render contents()}{:else if contents != null && contents !== false}{contents}{/if}
-</section>
+<div class={"flex w-full flex-col items-center rounded-xl border border-kumo-fill bg-kumo-control text-kumo-default px-10 py-16 gap-6"}>
+  <h2 class={"text-2xl font-semibold"}>
+    {semanticValues["title"]}
+  </h2>
+  {#if semanticValues["description"]}
+    <p class={"max-w-140 text-center text-kumo-subtle"}>
+      {semanticValues["description"]}
+    </p>
+  {/if}
+</div>
 {/if}

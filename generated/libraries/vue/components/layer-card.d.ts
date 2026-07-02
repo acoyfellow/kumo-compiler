@@ -3,4 +3,4 @@ import type { DefineComponent } from 'vue';
 export interface LayerCardProps { [key: string]: unknown }
 declare const component: DefineComponent<LayerCardProps>;
 export default component;
-export declare const modelDigest: "2ebdc27ab69f5fc3c3bc011c6a6cb19010b761c234ad792c28a8127c98acbfd1";
+export declare const modelDigest: "0b84bec02cf4341331445f4685c1a538821772e6804d69e328a7c3e8d7cfa822";
