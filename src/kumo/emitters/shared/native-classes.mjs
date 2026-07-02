@@ -25,7 +25,7 @@ export const KUMO_FIELD_DESCRIPTION_CLASS = 'text-sm leading-snug text-kumo-subt
 // The prior value folded text-kumo-inverse onto the box (React puts it on the INDICATOR,
 // not the box — color delta) and dropped after:* (hit-area / border delta). Corrected to
 // the exact default-state box string; identical to KUMO_CHECKBOX_BOX_CLASS below.
-export const KUMO_CHECKBOX_CLASS = 'relative flex h-4 w-4 shrink-0 items-center justify-center rounded-sm border-0 bg-kumo-base ring focus:outline-none after:absolute after:-inset-x-3 after:-inset-y-2 ring-kumo-hairline hover:ring-kumo-hairline focus:ring-kumo-focus focus:ring-2 focus-visible:ring-2 focus-visible:ring-kumo-brand data-[checked]:bg-kumo-contrast data-[checked]:ring-kumo-contrast data-[indeterminate]:bg-kumo-contrast data-[indeterminate]:ring-kumo-contrast';
+export const KUMO_CHECKBOX_CLASS = 'relative flex h-4 w-4 shrink-0 items-center justify-center rounded-sm border-0 bg-kumo-base ring focus:outline-none after:absolute after:-inset-x-3 after:-inset-y-2 ring-kumo-hairline hover:ring-kumo-hairline focus:ring-kumo-focus focus:ring-2 focus-visible:ring-2 focus-visible:ring-kumo-brand data-[checked]:bg-kumo-contrast data-[checked]:ring-kumo-contrast data-[indeterminate]:bg-kumo-contrast data-[indeterminate]:ring-kumo-contrast text-kumo-inverse';
 
 // Checkbox box span (chunks/checkbox-*.js) rendered VERBATIM as React canonical does.
 // React puts text-kumo-inverse + the after:* hit-area utilities on the box, NOT the
