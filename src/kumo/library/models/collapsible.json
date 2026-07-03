@@ -10,7 +10,7 @@
       "typesSha256": "8e2f11b9a1cfa9c2ae6a2a856b3b249fc6bfc35ca447d105d61a51c85efc0b02",
       "runtimeSha256": "d8c8a83242e3966ce2f17ef2b46989a5174594d7d6300bdd073e740216153680"
     },
-    "contractDigest": "1136e3edaf70c7b02870d30ee203a88028b7af461f64ba7c97de67704d345caf"
+    "contractDigest": "11ef34e2f3fccff9620ace148c80480eb02a26965467be587095aa68d47a211d"
   },
   "public": {
     "symbol": "Collapsible",
@@ -23,6 +23,16 @@
     "items": [
       {
         "name": "title",
+        "type": "string",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "label",
         "type": "string",
         "required": false,
         "default": null,
@@ -135,22 +145,15 @@
     "algebraVersion": "kumo.component-algebra/v1",
     "componentRoot": {
       "kind": "element",
-      "tag": "div",
-      "attributes": {
-        "data-open": {
-          "kind": "literal",
-          "value": ""
-        },
-        "title": {
-          "kind": "prop",
-          "name": "title"
-        }
-      },
-      "children": [
+      "tag": "collapsible",
+      "attributes": {},
+      "styles": [
         {
-          "kind": "children"
+          "kind": "style-ref",
+          "name": "root"
         }
-      ]
+      ],
+      "children": []
     },
     "operations": [
       {
@@ -170,5 +173,5 @@
     ]
   },
   "unresolvedSemanticOperations": [],
-  "modelDigest": "0cd3d97b2d0b8dc26d2e8ab6547c2c65527cdf1ec2f6881c29109981b1bd2c4a"
+  "modelDigest": "aa164e7b971526bb16fd210edcb8341a31eed42f9afd2924f793cbb79dfe84fd"
 }

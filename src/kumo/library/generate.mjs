@@ -132,10 +132,6 @@ const foundation = {
   // Plain children still use Base UI's defensive reset button wrapper.
   tooltip: mergeTrigger(prop('asChild'), {'data-base-ui-tooltip-trigger': lit('')}, [children],
     el('button', 'inline-flex items-center bg-transparent border-none shadow-none p-0 m-0 h-auto min-h-0 leading-[0] cursor-default', [children], {type: lit('button'), 'data-base-ui-tooltip-trigger': lit('')})),
-  // collapsible: React canonical root is a disclosure wrapper <div data-open title>
-  // whose children are the collapsible body (the header/trigger is client-rendered).
-  // Derived verbatim from the @cloudflare/kumo Collapsible render.
-  collapsible: el('div', null, [children], {'data-open': lit(''), title: prop('title')}),
   surface: el('div', 'bg-kumo-base shadow-xs ring ring-kumo-line overflow-visible rounded-none'),
   table: el('table', 'isolate w-full [&_td]:border-b [&_td]:border-kumo-fill [&_tr:last-child_td]:border-b-0 [&_td]:p-3 [&_th]:border-b [&_th]:border-kumo-fill [&_th]:p-3 [&_th]:font-semibold [&_th]:text-base [&_th]:bg-kumo-base text-base text-left text-kumo-default'),
   text: element('span')

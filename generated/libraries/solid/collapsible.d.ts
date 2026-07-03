@@ -2,6 +2,7 @@
 import type { JSX } from "solid-js";
 export interface CollapsibleProps extends Record<string, unknown> {
   "title"?: unknown;
+  "label"?: unknown;
   "open"?: boolean;
   "defaultOpen"?: boolean;
   "children"?: unknown;

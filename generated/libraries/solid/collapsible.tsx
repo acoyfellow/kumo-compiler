@@ -4,7 +4,7 @@ import type { JSX } from "solid-js";
 
 export interface CollapsibleProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
-export const modelDigest = "0cd3d97b2d0b8dc26d2e8ab6547c2c65527cdf1ec2f6881c29109981b1bd2c4a";
+export const modelDigest = "aa164e7b971526bb16fd210edcb8341a31eed42f9afd2924f793cbb79dfe84fd";
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {} as const;
 const styles: Record<string, string> = {"root":"root"};
@@ -40,7 +40,7 @@ export function Collapsible(incoming: CollapsibleProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as CollapsibleProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  return (<div data-open={""} title={(props.title as any)}>{props.children}</div>);
+  return (<div data-open={props.open || props.defaultOpen ? "" : undefined} data-closed={props.open || props.defaultOpen ? undefined : ""} title={props.title as string} label={props.label as string}>{props.children}</div>);
 }
 
 export default Collapsible;

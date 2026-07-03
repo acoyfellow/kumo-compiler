@@ -3,10 +3,11 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "0cd3d97b2d0b8dc26d2e8ab6547c2c65527cdf1ec2f6881c29109981b1bd2c4a";
+  export const modelDigest = "aa164e7b971526bb16fd210edcb8341a31eed42f9afd2924f793cbb79dfe84fd";
   export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   title?: unknown;
+  label?: unknown;
   open?: boolean;
   defaultOpen?: boolean;
   children?: Snippet;
@@ -17,6 +18,7 @@
 
   let {
     title = undefined,
+    label = undefined,
     open = undefined,
     defaultOpen = undefined,
     children,
@@ -28,7 +30,7 @@
   
 
   const renderContent = __consumerContent;
-  const semanticProps: Record<string, unknown> = { "title": title, "open": open, "defaultOpen": defaultOpen, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
+  const semanticProps: Record<string, unknown> = { "title": title, "label": label, "open": open, "defaultOpen": defaultOpen, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;
   const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
   const fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : '';
@@ -45,6 +47,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<div data-open={""} title={semanticValues["title"]}>
-  {#if children}{@render children()}{/if}
-</div>
+<div data-open={(open || defaultOpen) ? "" : undefined} data-closed={(open || defaultOpen) ? undefined : ""} {title} {label}>{#if children}{@render children()}{/if}</div>
