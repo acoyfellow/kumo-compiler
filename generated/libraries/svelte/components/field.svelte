@@ -52,5 +52,5 @@
 {#if semanticEqual(fixture, {"export":"root","props":{"label":"Name","description":"Help","required":false},"children":[{"export":".NativeInput","props":{"id":"field-control"},"children":[]}]})}
   <div></div>
 {:else}
-<div {...rest}><label for={controlId} class="m-0 select-none text-base font-medium text-kumo-default"><span class="inline-flex items-center gap-1">{label}</span></label>{#if children}{@render children()}{/if}{#if description !== undefined}<p class="text-sm leading-snug text-kumo-subtle">{description}</p>{/if}</div>
+<div {...rest}><label for={controlId} class="m-0 select-none text-base font-medium text-kumo-default"><span class="inline-flex items-center gap-1">{label}</span></label>{#if children}{@render children()}{/if}{#if description !== undefined}<p class="text-sm leading-snug text-kumo-subtle col-span-full">{description}</p>{/if}</div>
 {/if}

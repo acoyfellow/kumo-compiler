@@ -75,4 +75,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<div data-kumo-component="Combobox"><input bind:this={comboboxInput} role="combobox" aria-expanded={comboboxOpen} placeholder={comboboxFixture.placeholder} value={comboboxValue} onclick={openCombobox} onkeydown={handleComboboxKey}>{#if comboboxOpen}<ul role="listbox">{#each comboboxFixture.items as item, index (item.value)}<li role="option" data-value={item.value} aria-selected={highlightedIndex === index}>{item.label}</li>{/each}</ul>{/if}</div>
+<input bind:this={comboboxInput} role="combobox" aria-expanded={comboboxOpen} placeholder={comboboxFixture.placeholder} value={comboboxValue} onclick={openCombobox} onkeydown={handleComboboxKey}>{#if comboboxOpen}<ul role="listbox">{#each comboboxFixture.items as item, index (item.value)}<li role="option" data-value={item.value} aria-selected={highlightedIndex === index}>{item.label}</li>{/each}</ul>{/if}
