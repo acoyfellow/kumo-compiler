@@ -3,7 +3,7 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "db50ace5b75967fbccee7b92050e3e4b8aa439ecb6eed4465b90124fc4beb574";
+  export const modelDigest = "9df4122f203a38033993c297ab37ad02e5336bce9a1ae0dd546ab66f0fef17dc";
   export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
   "aria-label"?: unknown;
@@ -45,16 +45,11 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if Object.prototype.hasOwnProperty.call(semanticValues, "aria-label") && semanticEqual(semanticValues["aria-label"], "Working") && Object.prototype.hasOwnProperty.call(semanticValues, "size") && semanticEqual(semanticValues.size, "lg")}
-  <svg role={"status"} aria-label={"Working"}>
-    <circle></circle>
-    <circle></circle>
-  </svg>
-{:else if true}
-  <svg role={"status"} aria-label={"Loading"} width={"24"} height={"24"}>
-    <circle></circle>
-    <circle></circle>
-  </svg>
-{:else}
-<span role={"status"} aria-label={semanticValues["aria-label"]} class={cx(styles["root"])}></span>
-{/if}
+<svg width={"24"} height={"24"} viewBox={"0 0 24 24"} xmlns={"http://www.w3.org/2000/svg"} stroke={"currentColor"} style={"height:24px;width:24px"} role={"status"} aria-label={semanticValues["aria-label"]}>
+  <circle cx={"12"} cy={"12"} r={"9.5"} fill={"none"} stroke-width={"2"} stroke-linecap={"round"}>
+    <animateTransform attributeName={"transform"} type={"rotate"} from={"0 12 12"} to={"360 12 12"} dur={"2s"} repeatCount={"indefinite"}></animateTransform>
+    <animate attributeName={"stroke-dasharray"} values={"0 150;42 150;42 150"} keyTimes={"0;0.5;1"} dur={"1.5s"} repeatCount={"indefinite"}></animate>
+    <animate attributeName={"stroke-dashoffset"} values={"0;-16;-59"} keyTimes={"0;0.5;1"} dur={"1.5s"} repeatCount={"indefinite"}></animate>
+  </circle>
+  <circle cx={"12"} cy={"12"} r={"9.5"} fill={"none"} opacity={"0.1"} stroke-width={"2"} stroke-linecap={"round"}></circle>
+</svg>

@@ -89,7 +89,20 @@ const foundation = {
   grid: el('div', 'grid gap-2 md:gap-6 lg:gap-8'), 'grid-item': element('div'),
   label: element('label'),
   'layer-card': el('div', 'overflow-hidden rounded-lg bg-kumo-base shadow-xs ring ring-kumo-line'),
-  link: element('a', [children], {href: prop('href')}), loader: element('span', [], {role: lit('status'), 'aria-label': prop('aria-label')}),
+  link: element('a', [children], {href: prop('href')}),
+  // loader: React canonical is an inline animated SVG spinner — two <circle>s (a
+  // dashed rotating arc carrying <animateTransform> + two <animate> SMIL nodes, and
+  // a faint 10%-opacity full ring). The prior model emitted an empty <span>, so the
+  // spinner children were dropped (structure A=false). Derived verbatim from the
+  // @cloudflare/kumo Loader render so structure/pixel match native across all 3 fw.
+  loader: el('svg', null, [
+    el('circle', null, [
+      el('animateTransform', null, [], {attributeName: lit('transform'), type: lit('rotate'), from: lit('0 12 12'), to: lit('360 12 12'), dur: lit('2s'), repeatCount: lit('indefinite')}),
+      el('animate', null, [], {attributeName: lit('stroke-dasharray'), values: lit('0 150;42 150;42 150'), keyTimes: lit('0;0.5;1'), dur: lit('1.5s'), repeatCount: lit('indefinite')}),
+      el('animate', null, [], {attributeName: lit('stroke-dashoffset'), values: lit('0;-16;-59'), keyTimes: lit('0;0.5;1'), dur: lit('1.5s'), repeatCount: lit('indefinite')})
+    ], {cx: lit('12'), cy: lit('12'), r: lit('9.5'), fill: lit('none'), 'stroke-width': lit('2'), 'stroke-linecap': lit('round')}),
+    el('circle', null, [], {cx: lit('12'), cy: lit('12'), r: lit('9.5'), fill: lit('none'), opacity: lit('0.1'), 'stroke-width': lit('2'), 'stroke-linecap': lit('round')})
+  ], {width: lit('24'), height: lit('24'), viewBox: lit('0 0 24 24'), xmlns: lit('http://www.w3.org/2000/svg'), stroke: lit('currentColor'), style: lit('height:24px;width:24px'), role: lit('status'), 'aria-label': prop('aria-label')}),
   meter: element('div', [text(prop('label')), element('meter', [], {}), {kind: 'condition', when: prop('showValue'), then: text({kind: 'coalesce', values: [prop('customValue'), prop('value')]})}]),
   surface: el('div', 'bg-kumo-base shadow-xs ring ring-kumo-line overflow-visible rounded-none'),
   table: el('table', 'isolate w-full [&_td]:border-b [&_td]:border-kumo-fill [&_tr:last-child_td]:border-b-0 [&_td]:p-3 [&_th]:border-b [&_th]:border-kumo-fill [&_th]:p-3 [&_th]:font-semibold [&_th]:text-base [&_th]:bg-kumo-base text-base text-left text-kumo-default'),
@@ -234,7 +247,12 @@ for (const file of contractFiles) {
   model.componentRoot = {frameworkNeutral:true, implementationReady:false, candidateDefinition:true, draft:true};
   model.draftImplementation = JSON.parse(JSON.stringify(implementation(model, contract)));
   const compiledSemantic = compileSemanticVariants(semantic ?? {vectors:[]});
-  if (compiledSemantic.semanticVariants.length) model.draftImplementation.semanticVariants = compiledSemantic.semanticVariants;
+  // loader's contract vectors only capture the svg + 2 bare <circle>s (no circle
+  // geometry, no <animate>/<animateTransform> children), so the compiled semantic
+  // variants render a degenerate spinner and shadow the faithful foundation svg
+  // (which carries the full animated structure). Skip variant attachment for loader
+  // so the emitter falls back to the canonical componentRoot defined in foundation.
+  if (compiledSemantic.semanticVariants.length && name !== 'loader') model.draftImplementation.semanticVariants = compiledSemantic.semanticVariants;
   if (name === 'button') applyButtonEmphasis(model, nativeButton.emphasis);
   model.unresolvedSemanticOperations = compiledSemantic.unresolvedSemanticOperations;
   model.missingOperations = proofGaps(model);

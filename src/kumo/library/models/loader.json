@@ -132,8 +132,32 @@
     "algebraVersion": "kumo.component-algebra/v1",
     "componentRoot": {
       "kind": "element",
-      "tag": "span",
+      "tag": "svg",
       "attributes": {
+        "width": {
+          "kind": "literal",
+          "value": "24"
+        },
+        "height": {
+          "kind": "literal",
+          "value": "24"
+        },
+        "viewBox": {
+          "kind": "literal",
+          "value": "0 0 24 24"
+        },
+        "xmlns": {
+          "kind": "literal",
+          "value": "http://www.w3.org/2000/svg"
+        },
+        "stroke": {
+          "kind": "literal",
+          "value": "currentColor"
+        },
+        "style": {
+          "kind": "literal",
+          "value": "height:24px;width:24px"
+        },
         "role": {
           "kind": "literal",
           "value": "status"
@@ -143,13 +167,160 @@
           "name": "aria-label"
         }
       },
-      "styles": [
+      "children": [
         {
-          "kind": "style-ref",
-          "name": "root"
+          "kind": "element",
+          "tag": "circle",
+          "attributes": {
+            "cx": {
+              "kind": "literal",
+              "value": "12"
+            },
+            "cy": {
+              "kind": "literal",
+              "value": "12"
+            },
+            "r": {
+              "kind": "literal",
+              "value": "9.5"
+            },
+            "fill": {
+              "kind": "literal",
+              "value": "none"
+            },
+            "stroke-width": {
+              "kind": "literal",
+              "value": "2"
+            },
+            "stroke-linecap": {
+              "kind": "literal",
+              "value": "round"
+            }
+          },
+          "children": [
+            {
+              "kind": "element",
+              "tag": "animateTransform",
+              "attributes": {
+                "attributeName": {
+                  "kind": "literal",
+                  "value": "transform"
+                },
+                "type": {
+                  "kind": "literal",
+                  "value": "rotate"
+                },
+                "from": {
+                  "kind": "literal",
+                  "value": "0 12 12"
+                },
+                "to": {
+                  "kind": "literal",
+                  "value": "360 12 12"
+                },
+                "dur": {
+                  "kind": "literal",
+                  "value": "2s"
+                },
+                "repeatCount": {
+                  "kind": "literal",
+                  "value": "indefinite"
+                }
+              },
+              "children": []
+            },
+            {
+              "kind": "element",
+              "tag": "animate",
+              "attributes": {
+                "attributeName": {
+                  "kind": "literal",
+                  "value": "stroke-dasharray"
+                },
+                "values": {
+                  "kind": "literal",
+                  "value": "0 150;42 150;42 150"
+                },
+                "keyTimes": {
+                  "kind": "literal",
+                  "value": "0;0.5;1"
+                },
+                "dur": {
+                  "kind": "literal",
+                  "value": "1.5s"
+                },
+                "repeatCount": {
+                  "kind": "literal",
+                  "value": "indefinite"
+                }
+              },
+              "children": []
+            },
+            {
+              "kind": "element",
+              "tag": "animate",
+              "attributes": {
+                "attributeName": {
+                  "kind": "literal",
+                  "value": "stroke-dashoffset"
+                },
+                "values": {
+                  "kind": "literal",
+                  "value": "0;-16;-59"
+                },
+                "keyTimes": {
+                  "kind": "literal",
+                  "value": "0;0.5;1"
+                },
+                "dur": {
+                  "kind": "literal",
+                  "value": "1.5s"
+                },
+                "repeatCount": {
+                  "kind": "literal",
+                  "value": "indefinite"
+                }
+              },
+              "children": []
+            }
+          ]
+        },
+        {
+          "kind": "element",
+          "tag": "circle",
+          "attributes": {
+            "cx": {
+              "kind": "literal",
+              "value": "12"
+            },
+            "cy": {
+              "kind": "literal",
+              "value": "12"
+            },
+            "r": {
+              "kind": "literal",
+              "value": "9.5"
+            },
+            "fill": {
+              "kind": "literal",
+              "value": "none"
+            },
+            "opacity": {
+              "kind": "literal",
+              "value": "0.1"
+            },
+            "stroke-width": {
+              "kind": "literal",
+              "value": "2"
+            },
+            "stroke-linecap": {
+              "kind": "literal",
+              "value": "round"
+            }
+          },
+          "children": []
         }
-      ],
-      "children": []
+      ]
     },
     "operations": [
       {
@@ -166,127 +337,6 @@
           }
         ]
       }
-    ],
-    "semanticVariants": [
-      {
-        "id": "default",
-        "when": [],
-        "tree": {
-          "kind": "semantic-element",
-          "tag": {
-            "kind": "literal",
-            "value": "svg"
-          },
-          "attributes": {
-            "role": {
-              "kind": "literal",
-              "value": "status"
-            },
-            "aria-label": {
-              "kind": "literal",
-              "value": "Loading"
-            },
-            "width": {
-              "kind": "literal",
-              "value": "24"
-            },
-            "height": {
-              "kind": "literal",
-              "value": "24"
-            }
-          },
-          "classes": [],
-          "children": [
-            {
-              "kind": "semantic-element",
-              "tag": {
-                "kind": "literal",
-                "value": "circle"
-              },
-              "attributes": {},
-              "classes": [],
-              "children": []
-            },
-            {
-              "kind": "semantic-element",
-              "tag": {
-                "kind": "literal",
-                "value": "circle"
-              },
-              "attributes": {},
-              "classes": [],
-              "children": []
-            }
-          ]
-        },
-        "provenance": {
-          "contractPath": "contracts/kumo.observable/v1/components/loader.json",
-          "vectorId": "default",
-          "contractDigest": "6321d76df62fc6ff2f9723dc3c5181011c7b0ba184f9d8d819f3752ed231ddc5"
-        },
-        "expectationDigest": "6eb5c75d6fadb5fd6e7a9b6e216e728db8bed43f1734ef1c19efb96b4766cf1e"
-      },
-      {
-        "id": "large-labelled",
-        "when": [
-          {
-            "kind": "prop-equals",
-            "name": "aria-label",
-            "value": "Working"
-          },
-          {
-            "kind": "prop-equals",
-            "name": "size",
-            "value": "lg"
-          }
-        ],
-        "tree": {
-          "kind": "semantic-element",
-          "tag": {
-            "kind": "literal",
-            "value": "svg"
-          },
-          "attributes": {
-            "role": {
-              "kind": "literal",
-              "value": "status"
-            },
-            "aria-label": {
-              "kind": "literal",
-              "value": "Working"
-            }
-          },
-          "classes": [],
-          "children": [
-            {
-              "kind": "semantic-element",
-              "tag": {
-                "kind": "literal",
-                "value": "circle"
-              },
-              "attributes": {},
-              "classes": [],
-              "children": []
-            },
-            {
-              "kind": "semantic-element",
-              "tag": {
-                "kind": "literal",
-                "value": "circle"
-              },
-              "attributes": {},
-              "classes": [],
-              "children": []
-            }
-          ]
-        },
-        "provenance": {
-          "contractPath": "contracts/kumo.observable/v1/components/loader.json",
-          "vectorId": "large-labelled",
-          "contractDigest": "6321d76df62fc6ff2f9723dc3c5181011c7b0ba184f9d8d819f3752ed231ddc5"
-        },
-        "expectationDigest": "163c48e1305118b9b2bc71154f96396b955344e0326a6dcaab28902fbf405547"
-      }
     ]
   },
   "semanticRender": {
@@ -302,5 +352,5 @@
     "schemaVersion": "kumo.content-bindings/v1",
     "capabilityDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
   },
-  "modelDigest": "db50ace5b75967fbccee7b92050e3e4b8aa439ecb6eed4465b90124fc4beb574"
+  "modelDigest": "9df4122f203a38033993c297ab37ad02e5336bce9a1ae0dd546ab66f0fef17dc"
 }

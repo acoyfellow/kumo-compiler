@@ -3,4 +3,4 @@ import type { DefineComponent } from 'vue';
 export interface LoaderProps { [key: string]: unknown }
 declare const component: DefineComponent<LoaderProps>;
 export default component;
-export declare const modelDigest: "db50ace5b75967fbccee7b92050e3e4b8aa439ecb6eed4465b90124fc4beb574";
+export declare const modelDigest: "9df4122f203a38033993c297ab37ad02e5336bce9a1ae0dd546ab66f0fef17dc";
