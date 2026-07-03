@@ -50,7 +50,7 @@ export function MenuBar(incoming: MenuBarProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as MenuBarProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  return (<nav class="isolate flex rounded-lg ring-kumo-line bg-kumo-recessed"><For each={props.options as MenuBarOption[]} children={(item, index) => <button ref={element => { menuButtons[index()] = element; }} type="button" aria-label={item.tooltip} title={item.tooltip} onClick={() => item.onClick?.()} onKeyDown={event => menuKeyDown(event, index())}><span aria-hidden="true">{item.icon}</span></button>} /></nav>);
+  return (<nav class="isolate flex rounded-lg ring ring-kumo-line bg-kumo-recessed pl-px shadow-xs transition-colors"><For each={props.options as MenuBarOption[]} children={(item, index) => <button ref={element => { menuButtons[index()] = element; }} type="button" data-kumo-component="MenuBar" data-kumo-part="option" aria-label={item.tooltip} title={item.tooltip} class={"relative -ml-px flex h-full w-11 cursor-pointer items-center justify-center rounded-md border-none bg-kumo-recessed first:rounded-l-lg last:rounded-r-lg transition-colors focus:z-3 focus:outline-none focus:ring-kumo-focus/50 focus-visible:z-3 focus-visible:ring-2 focus-visible:ring-kumo-brand" + (props.isActive === index() ? " z-2 bg-kumo-base shadow-xs transition-colors" : "")} onClick={() => item.onClick?.()} onKeyDown={event => menuKeyDown(event, index())}><span aria-hidden="true">{item.icon}</span></button>} /></nav>);
 }
 
 export default MenuBar;
