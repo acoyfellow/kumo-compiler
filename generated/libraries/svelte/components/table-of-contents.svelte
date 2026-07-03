@@ -60,4 +60,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<nav aria-label={String(tocFixture?.props?.['aria-label'] ?? 'Table of contents')}>{#if tocTitle}<p>{tocTitle}</p>{/if}<ul>{#each tocItems as item (item.href)}{#if item.group}<a href={item.href} aria-current={item.active ? 'location' : undefined}>{item.label}</a>{:else}<li><a href={item.href} aria-current={item.active ? 'location' : undefined}>{item.label}</a></li>{/if}{/each}</ul></nav>
+<nav aria-label={String(tocFixture?.props?.['aria-label'] ?? 'Table of contents')}>{#if tocTitle}<p>{tocTitle}</p>{/if}{#if tocItems.length}<ul>{#each tocItems as item (item.href)}{#if item.group}<a href={item.href} aria-current={item.active ? 'location' : undefined}>{item.label}</a>{:else}<li><a href={item.href} aria-current={item.active ? 'location' : undefined}>{item.label}</a></li>{/if}{/each}</ul>{/if}</nav>
