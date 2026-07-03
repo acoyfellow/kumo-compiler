@@ -111,6 +111,10 @@ function attributes(node,scope){
  return output.length?' '+output.join(' '):'';
 }
 const voidTags=new Set(['area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr']);
+// Whitespace-sensitive tags must NOT be pretty-printed: <pre>/<textarea> render
+// interior newlines+indentation literally, which the B/C gate flags (React emits
+// `<pre>{code}</pre>` with zero interior whitespace). Emit their children inline.
+const whitespaceSensitiveTags=new Set(['pre','textarea']);
 function node(value,scope={},depth=0){
  const pad='  '.repeat(depth);
  switch(value.kind){
@@ -129,10 +133,11 @@ function node(value,scope={},depth=0){
     const rows=direct.map(x=>x.tag.value==='tr'?x:{kind:'semantic-element',tag:{kind:'literal',value:'tr'},attributes:{},classes:[],children:[x]});
     if(tbody)tbody.children=[...(tbody.children??[]),...rows];else kept.push({kind:'semantic-element',tag:{kind:'literal',value:'tbody'},attributes:{},classes:[],children:rows});children=kept;
    }
-   const body=children.map(x=>node(x,scope,depth+1)).join('\n');
-   return `${pad}${open}${body?`\n${body}\n${pad}`:''}</${value.tag.value}>`;
-  }
-  case'element':{const open=`<${value.tag}${attributes(value,scope)}>`;if(voidTags.has(value.tag))return `${pad}${open}`;const body=(value.children??[]).map(x=>node(x,scope,depth+1)).join('\n');return `${pad}${open}${body?`\n${body}\n${pad}`:''}</${value.tag}>`;}
+    if(whitespaceSensitiveTags.has(value.tag.value)){const body=children.map(x=>node(x,scope,0)).join('');return `${pad}${open}${body}</${value.tag.value}>`;}
+    const body=children.map(x=>node(x,scope,depth+1)).join('\n');
+    return `${pad}${open}${body?`\n${body}\n${pad}`:''}</${value.tag.value}>`;
+   }
+   case'element':{const open=`<${value.tag}${attributes(value,scope)}>`;if(voidTags.has(value.tag))return `${pad}${open}`;if(whitespaceSensitiveTags.has(value.tag)){const body=(value.children??[]).map(x=>node(x,scope,0)).join('');return `${pad}${open}${body}</${value.tag}>`;}const body=(value.children??[]).map(x=>node(x,scope,depth+1)).join('\n');return `${pad}${open}${body?`\n${body}\n${pad}`:''}</${value.tag}>`;}
   case'text':return value.value.kind==='consumer-children'?`${pad}{renderContent}`:`${pad}{${expression(value.value,scope)}}`;
   case'children':return `${pad}{#if children}{@render children()}{/if}`;
   case'fixture-children':return `${pad}{fixtureText(${expression(value.value,scope)})}`;
