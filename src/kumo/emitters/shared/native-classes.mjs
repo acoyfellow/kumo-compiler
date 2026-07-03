@@ -109,6 +109,16 @@ export const KUMO_CHECKBOX_LABEL_WRAPPER_CLASS = 'inline-flex';
 export const KUMO_CHECKBOX_LABEL_CLASS = '!m-0 !min-h-0 !text-base inline-flex items-start gap-2 flex-row';
 export const KUMO_CHECKBOX_LABEL_TEXT_CLASS = 'inline-flex items-center gap-1';
 
+// Radio group composition (chunks/radio-*.js), verified against both canonical SSR
+// and the hydrated homepage. Base UI adds the id-reference links during hydration;
+// native emitters render those links eagerly because their deterministic ids are stable.
+export const KUMO_RADIO_LEGEND_CLASS = 'text-base font-medium text-kumo-default';
+export const KUMO_RADIO_LABEL_CLASS = 'm-0 group relative inline-flex items-start gap-2 cursor-pointer';
+export const KUMO_RADIO_ITEM_CLASS = 'relative mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-0 bg-kumo-base ring focus:outline-none after:absolute after:-inset-x-3 after:-inset-y-2 ring-kumo-line group-hover:ring-kumo-hairline focus:ring-kumo-focus focus:ring-2 focus-visible:ring-2 focus-visible:ring-kumo-brand focus-visible:outline-offset-3 data-[checked]:bg-kumo-contrast';
+export const KUMO_RADIO_INDICATOR_CLASS = 'flex items-center justify-center';
+export const KUMO_RADIO_DOT_CLASS = 'h-2 w-2 rounded-full bg-kumo-base';
+export const KUMO_RADIO_LABEL_TEXT_CLASS = 'text-base text-kumo-default';
+
 // DropdownMenu canonical compound trigger icon. The homepage renders
 // <DropdownMenu.Trigger render={<Button icon={PlusIcon}>Add</Button>} />, so this is
 // the exact @phosphor-icons/react PlusIcon markup emitted by Kumo's Button icon slot.

@@ -6,7 +6,7 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 
 <script setup lang="ts">
 defineOptions({ inheritAttrs: false })
-import { computed, nextTick, ref, useAttrs, useSlots } from 'vue'
+import { computed, nextTick, ref, useAttrs, useId, useSlots } from 'vue'
 interface RadioProps {
   "defaultValue"?: string
   "disabled"?: boolean
@@ -26,6 +26,11 @@ const controlled = computed(() => Object.prototype.hasOwnProperty.call(radioFixt
 const internalValue = ref(radioFixture.value?.defaultValue)
 const selectedValue = computed(() => controlled.value ? radioFixture.value?.value : internalValue.value)
 const groupRef = ref<HTMLElement | null>(null)
+const radioIdBase = useId()
+const legendId = radioIdBase + '-legend'
+const itemId = (index: number) => radioIdBase + '-item-' + index
+const inputId = (index: number) => radioIdBase + '-input-' + index
+const labelId = (index: number) => inputId(index) + '-label'
 function selectRadio(item: RadioFixture['items'][number]) {
   if (radioFixture.value?.disabled || item.disabled) return
   if (!controlled.value) internalValue.value = item.value
@@ -52,5 +57,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <div ref="groupRef" v-bind="$attrs" role="radiogroup" :aria-label="radioFixture?.legend"><fieldset class="flex flex-col gap-4"><div class="flex flex-col gap-2"><div v-for="(item, index) in radioItems" :key="String(item.value)" role="radio" :tabindex="(radioFixture?.disabled || item.disabled) ? undefined : 0" :aria-checked="item.value === selectedValue" :aria-label="item.label" :aria-disabled="radioFixture?.disabled || item.disabled || undefined" @click="selectRadio(item)" @keydown="selectNext(index, $event)">{{ item.label }}</div></div></fieldset></div>
+  <div ref="groupRef" v-bind="$attrs" role="radiogroup"><fieldset class="flex flex-col gap-4" :aria-labelledby="radioFixture?.legend ? legendId : undefined"><div v-if="radioFixture?.legend" :id="legendId" class="text-base font-medium text-kumo-default">{{ radioFixture.legend }}</div><div class="flex flex-col gap-2"><label v-for="(item, index) in radioItems" :key="String(item.value)" :id="labelId(index)" data-kumo-component="Radio" data-kumo-part="item-label" class="m-0 group relative inline-flex items-start gap-2 cursor-pointer"><span :id="itemId(index)" data-kumo-component="Radio" data-kumo-part="item" class="relative mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-0 bg-kumo-base ring focus:outline-none after:absolute after:-inset-x-3 after:-inset-y-2 ring-kumo-line group-hover:ring-kumo-hairline focus:ring-kumo-focus focus:ring-2 focus-visible:ring-2 focus-visible:ring-kumo-brand focus-visible:outline-offset-3 data-[checked]:bg-kumo-contrast" role="radio" :tabindex="item.value === selectedValue && !(radioFixture?.disabled || item.disabled) ? 0 : -1" :aria-checked="item.value === selectedValue" :aria-labelledby="labelId(index)" :aria-disabled="radioFixture?.disabled || item.disabled || undefined" :data-composite-item-active="item.value === selectedValue ? '' : undefined" :data-checked="item.value === selectedValue ? '' : undefined" :data-unchecked="item.value === selectedValue ? undefined : ''" @click="selectRadio(item)" @keydown="selectNext(index, $event)"><span class="flex items-center justify-center" :data-checked="item.value === selectedValue ? '' : undefined" :data-unchecked="item.value === selectedValue ? undefined : ''"><span class="h-2 w-2 rounded-full bg-kumo-base"></span></span></span><input :id="inputId(index)" type="radio" tabindex="-1" aria-hidden="true" :value="String(item.value)" :checked="item.value === selectedValue" :disabled="radioFixture?.disabled || item.disabled || undefined" style="clip-path:inset(50%);overflow:hidden;white-space:nowrap;border:0;padding:0;width:1px;height:1px;margin:-1px;position:fixed;top:0;left:0" @change="selectRadio(item)" /><span class="text-base text-kumo-default">{{ item.label }}</span></label></div></fieldset></div>
 </template>

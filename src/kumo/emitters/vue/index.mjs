@@ -6,7 +6,7 @@ import {loadLibrary, canonicalJSON} from '../../library/index.mjs';
 import {validateImplementation, NODE_KINDS, EXPRESSION_KINDS, OPERATION_KINDS} from '../../library/algebra.mjs';
 import {requireContentBindings, semanticExpression, semanticPredicate} from '../shared/content-adapter.mjs';
 import {clampPage, maxPage, nextPage, previousPage, commitPageInput} from '../../library/pagination-state.mjs';
-import {KUMO_INPUT_CLASS, KUMO_INPUT_ERROR_CLASS, KUMO_INPUTAREA_CLASS, KUMO_INPUTAREA_ERROR_CLASS, KUMO_FIELD_LABEL_CLASS, KUMO_FIELD_DESCRIPTION_CLASS, KUMO_CHECKBOX_CLASS, KUMO_CHECKBOX_BOX_CLASS, KUMO_CHECKBOX_INDICATOR_CLASS, KUMO_CHECKBOX_CHECK_SVG, KUMO_CHECKBOX_MINUS_SVG, KUMO_CHECKBOX_HIDDEN_INPUT_STYLE, KUMO_CHECKBOX_LABEL_WRAPPER_CLASS, KUMO_CHECKBOX_LABEL_CLASS, KUMO_CHECKBOX_LABEL_TEXT_CLASS, KUMO_CLIPBOARD_ROOT_CLASS, KUMO_CLIPBOARD_TEXT_CLASS, KUMO_CLIPBOARD_BUTTON_CLASS, KUMO_CLIPBOARD_CHECK_SPAN_CLASS, KUMO_CLIPBOARD_COPY_SPAN_CLASS, KUMO_CLIPBOARD_CHECK_SVG, KUMO_CLIPBOARD_COPY_SVG, KUMO_SWITCH_TRACK_CLASS, KUMO_SWITCH_THUMB_CLASS, KUMO_TABS_LIST_CLASS, KUMO_TABS_TRIGGER_CLASS, KUMO_TABS_INDICATOR_CLASS, KUMO_METER_ROOT_CLASS, KUMO_METER_HEADER_CLASS, KUMO_METER_LABEL_CLASS, KUMO_METER_VALUE_CLASS, KUMO_METER_TRACK_CLASS, KUMO_METER_FILL_CLASS, KUMO_PLUS_ICON_SVG, KUMO_BANNER_VARIANT_CLASSES, KUMO_BANNER_SIMPLE_ICON_CLASS, KUMO_BANNER_STRUCTURED_ICON_CLASS, compoundPartOverride, expandNamedExportModels} from '../shared/native-classes.mjs';
+import {KUMO_INPUT_CLASS, KUMO_INPUT_ERROR_CLASS, KUMO_INPUTAREA_CLASS, KUMO_INPUTAREA_ERROR_CLASS, KUMO_FIELD_LABEL_CLASS, KUMO_FIELD_DESCRIPTION_CLASS, KUMO_CHECKBOX_CLASS, KUMO_CHECKBOX_BOX_CLASS, KUMO_CHECKBOX_INDICATOR_CLASS, KUMO_CHECKBOX_CHECK_SVG, KUMO_CHECKBOX_MINUS_SVG, KUMO_CHECKBOX_HIDDEN_INPUT_STYLE, KUMO_CHECKBOX_LABEL_WRAPPER_CLASS, KUMO_CHECKBOX_LABEL_CLASS, KUMO_CHECKBOX_LABEL_TEXT_CLASS, KUMO_RADIO_LEGEND_CLASS, KUMO_RADIO_LABEL_CLASS, KUMO_RADIO_ITEM_CLASS, KUMO_RADIO_INDICATOR_CLASS, KUMO_RADIO_DOT_CLASS, KUMO_RADIO_LABEL_TEXT_CLASS, KUMO_CLIPBOARD_ROOT_CLASS, KUMO_CLIPBOARD_TEXT_CLASS, KUMO_CLIPBOARD_BUTTON_CLASS, KUMO_CLIPBOARD_CHECK_SPAN_CLASS, KUMO_CLIPBOARD_COPY_SPAN_CLASS, KUMO_CLIPBOARD_CHECK_SVG, KUMO_CLIPBOARD_COPY_SVG, KUMO_SWITCH_TRACK_CLASS, KUMO_SWITCH_THUMB_CLASS, KUMO_TABS_LIST_CLASS, KUMO_TABS_TRIGGER_CLASS, KUMO_TABS_INDICATOR_CLASS, KUMO_METER_ROOT_CLASS, KUMO_METER_HEADER_CLASS, KUMO_METER_LABEL_CLASS, KUMO_METER_VALUE_CLASS, KUMO_METER_TRACK_CLASS, KUMO_METER_FILL_CLASS, KUMO_PLUS_ICON_SVG, KUMO_BANNER_VARIANT_CLASSES, KUMO_BANNER_SIMPLE_ICON_CLASS, KUMO_BANNER_STRUCTURED_ICON_CLASS, compoundPartOverride, expandNamedExportModels} from '../shared/native-classes.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '../../../..');
@@ -303,7 +303,7 @@ function radioGroupBinding(model, library) {
 function radioGroupSource() {
   return {
     options:`defineOptions({ inheritAttrs: false })\n`,
-    imports:'computed, nextTick, ref, useAttrs, useSlots',
+    imports:'computed, nextTick, ref, useAttrs, useId, useSlots',
     setup:`type RadioFixture = { kind: 'radio-group'; legend: string; items: Array<{ label: string; value: unknown; disabled?: boolean }>; defaultValue?: unknown; value?: unknown; disabled?: boolean }
 const radioFixture = computed(() => props.fixture as RadioFixture | undefined)
 const radioItems = computed(() => radioFixture.value?.items ?? [])
@@ -311,6 +311,11 @@ const controlled = computed(() => Object.prototype.hasOwnProperty.call(radioFixt
 const internalValue = ref(radioFixture.value?.defaultValue)
 const selectedValue = computed(() => controlled.value ? radioFixture.value?.value : internalValue.value)
 const groupRef = ref<HTMLElement | null>(null)
+const radioIdBase = useId()
+const legendId = radioIdBase + '-legend'
+const itemId = (index: number) => radioIdBase + '-item-' + index
+const inputId = (index: number) => radioIdBase + '-input-' + index
+const labelId = (index: number) => inputId(index) + '-label'
 function selectRadio(item: RadioFixture['items'][number]) {
   if (radioFixture.value?.disabled || item.disabled) return
   if (!controlled.value) internalValue.value = item.value
@@ -327,7 +332,7 @@ function selectNext(index: number, event: KeyboardEvent) {
   }
 }
 `,
-    template:`<div ref="groupRef" v-bind="$attrs" role="radiogroup" :aria-label="radioFixture?.legend"><fieldset class="flex flex-col gap-4"><div class="flex flex-col gap-2"><div v-for="(item, index) in radioItems" :key="String(item.value)" role="radio" :tabindex="(radioFixture?.disabled || item.disabled) ? undefined : 0" :aria-checked="item.value === selectedValue" :aria-label="item.label" :aria-disabled="radioFixture?.disabled || item.disabled || undefined" @click="selectRadio(item)" @keydown="selectNext(index, $event)">{{ item.label }}</div></div></fieldset></div>`
+    template:`<div ref="groupRef" v-bind="$attrs" role="radiogroup"><fieldset class="flex flex-col gap-4" :aria-labelledby="radioFixture?.legend ? legendId : undefined"><div v-if="radioFixture?.legend" :id="legendId" class="${esc(KUMO_RADIO_LEGEND_CLASS)}">{{ radioFixture.legend }}</div><div class="flex flex-col gap-2"><label v-for="(item, index) in radioItems" :key="String(item.value)" :id="labelId(index)" data-kumo-component="Radio" data-kumo-part="item-label" class="${esc(KUMO_RADIO_LABEL_CLASS)}"><span :id="itemId(index)" data-kumo-component="Radio" data-kumo-part="item" class="${esc(KUMO_RADIO_ITEM_CLASS)}" role="radio" :tabindex="item.value === selectedValue && !(radioFixture?.disabled || item.disabled) ? 0 : -1" :aria-checked="item.value === selectedValue" :aria-labelledby="labelId(index)" :aria-disabled="radioFixture?.disabled || item.disabled || undefined" :data-composite-item-active="item.value === selectedValue ? '' : undefined" :data-checked="item.value === selectedValue ? '' : undefined" :data-unchecked="item.value === selectedValue ? undefined : ''" @click="selectRadio(item)" @keydown="selectNext(index, $event)"><span class="${esc(KUMO_RADIO_INDICATOR_CLASS)}" :data-checked="item.value === selectedValue ? '' : undefined" :data-unchecked="item.value === selectedValue ? undefined : ''"><span class="${esc(KUMO_RADIO_DOT_CLASS)}"></span></span></span><input :id="inputId(index)" type="radio" tabindex="-1" aria-hidden="true" :value="String(item.value)" :checked="item.value === selectedValue" :disabled="radioFixture?.disabled || item.disabled || undefined" style="${esc(KUMO_CHECKBOX_HIDDEN_INPUT_STYLE)}" @change="selectRadio(item)" /><span class="${esc(KUMO_RADIO_LABEL_TEXT_CLASS)}">{{ item.label }}</span></label></div></fieldset></div>`
   };
 }
 function tabsNavigationBinding(model, library) {

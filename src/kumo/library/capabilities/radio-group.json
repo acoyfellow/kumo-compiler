@@ -30,16 +30,22 @@
     "item": "disabled item blocks selection, emits nothing, focus none",
     "group": "disabled group blocks all selection, emits nothing, focus none"
   },
+  "structure": {
+    "group": "div[role=radiogroup] > fieldset[aria-labelledby=legend-id]",
+    "legend": "div[id].text-base.font-medium.text-kumo-default",
+    "item": "label[id] > span[role=radio][id][aria-labelledby=label-id] + input[type=radio][aria-hidden=true] + span",
+    "stateAttributes": [
+      "data-checked",
+      "data-unchecked"
+    ],
+    "tabindex": "selected enabled item 0; every other item -1",
+    "nativeInput": "visually hidden; value mirrors item; checked mirrors selection"
+  },
   "unknowns": [
     {
-      "field": "rovingTabindexOrder",
+      "field": "keyboardWraparound",
       "status": "unknown",
-      "reason": "Canonical vectors assert ArrowDown selecting the next item and click selection, not the full roving-tabindex order, Home/End, or wraparound semantics."
-    },
-    {
-      "field": "itemAccessibleStructure",
-      "status": "unknown",
-      "reason": "Canonical vectors assert role=radiogroup and single selection, not the exact per-item DOM structure, label association, or aria-checked element identity beyond observed checked state."
+      "reason": "Canonical vectors assert ArrowDown selecting the next item, not Home/End or full wraparound semantics."
     }
   ],
   "vectorIds": [
@@ -61,5 +67,5 @@
       "disabled-group"
     ]
   },
-  "capabilityDigest": "257cd75d8f2452b3f071d174962cade4978f51833821cbe038dceb6fe41cf276"
+  "capabilityDigest": "de3df288d6b0d25e042c441a04ac376b93e8d99980d9b9c3410f1a2669a7abb3"
 }
