@@ -54,6 +54,10 @@ const element = (tag, childNodes = [children], attributes = {}) => ({kind: 'elem
 // `element` handler, so a single foundation edit fixes svelte+vue+solid at once.
 // Classes/structure are derived from the React canonical (@cloudflare/kumo) render.
 const el = (tag, className, childNodes = [children], attributes = {}) => ({kind: 'element', tag, attributes: className ? {class: lit(className), ...attributes} : {...attributes}, children: childNodes});
+// A render/asChild trigger is not a wrapper: its trigger attributes belong on the
+// single child component's root. Emitters lower this node through framework context
+// so the child root receives the attributes during SSR as well as in the browser.
+const mergeTrigger = (when, attributes, childNodes, fallback) => ({kind: 'element', tag: 'merge-trigger', attributes, properties: {when}, children: [{...fallback, children: childNodes}]});
 const when = (name, node) => ({kind: 'condition', when: prop(name), then: node});
 const slot = name => ({kind: 'slot', name});
 const collection = source => ({kind: 'collection', source: prop(source), item: 'item', key: {kind: 'item', name: 'key'}, template: slot('item')});
@@ -115,10 +119,10 @@ const foundation = {
     {kind: 'coalesce', values: [prop('minDuration'), lit(1.5)]}, lit('s;--shimmer-delay:'),
     {kind: 'coalesce', values: [prop('minDelay'), lit(0)]}, lit('s')
   ]}}),
-  // tooltip: React canonical SSR renders only the base-ui trigger <button> (the
-  // tooltip content is portalled and appears on hover, so it is absent from static
-  // SSR). Trigger classes copied verbatim from @cloudflare/kumo Tooltip render.
-  tooltip: el('button', 'inline-flex items-center bg-transparent border-none shadow-none p-0 m-0 h-auto min-h-0 leading-[0] cursor-default', [children], {type: lit('button'), 'data-base-ui-tooltip-trigger': lit('')}),
+  // TooltipBase.Trigger merges its trigger attributes onto the render/asChild root.
+  // Plain children still use Base UI's defensive reset button wrapper.
+  tooltip: mergeTrigger(prop('asChild'), {'data-base-ui-tooltip-trigger': lit('')}, [children],
+    el('button', 'inline-flex items-center bg-transparent border-none shadow-none p-0 m-0 h-auto min-h-0 leading-[0] cursor-default', [children], {type: lit('button'), 'data-base-ui-tooltip-trigger': lit('')})),
   // collapsible: React canonical root is a disclosure wrapper <div data-open title>
   // whose children are the collapsible body (the header/trigger is client-rendered).
   // Derived verbatim from the @cloudflare/kumo Collapsible render.
@@ -253,6 +257,9 @@ for (const file of contractFiles) {
    // verified against the regenerated provenance.
    const {package:canonicalPackage,version:canonicalVersion,typesSha256,runtimeSha256}=contract.canonical;
    const model = {...previous, provenance:{...previous.provenance, contractPath, canonical:{package:canonicalPackage,version:canonicalVersion,typesSha256,runtimeSha256}, contractDigest:digest(contract)}};
+  // The observable contract predates Tooltip's deprecated-but-supported asChild prop;
+  // canonical 2.6.0 still exposes it and uses it to select trigger merging.
+  if (name === 'tooltip' && !model.props.items.some(item => item.name === 'asChild')) model.props.items.push({name:'asChild',type:'boolean',required:false,default:null,nativeForwarding:false,evidence:{type:'canonical-tooltip.d.ts'}});
   delete model.modelDigest; delete model.readinessProof;
   const compoundExport = compoundByComponent.get(name);
   if (compoundExport) model.composition = {...model.composition, compoundExports:{canonicalRoot:compoundExport.canonicalRoot, tree:compoundExport.tree, paths:compoundExport.paths}};
