@@ -583,7 +583,8 @@ function component(model,capabilities){
   function closePopover() { setPopoverOpen(false); queueMicrotask(() => popoverTrigger?.focus()); }
   function dismissPopover(event: KeyboardEvent) { if (event.key !== 'Escape') return; event.preventDefault(); closePopover(); }
   void popoverContent;
-`:''}${dropdown?`  type DropdownFixtureNode = { export?: string; text?: string; props?: Record<string, unknown>; children?: DropdownFixtureNode[] };
+`:''}${dropdown?`  function portal(node: HTMLElement) { document.body.appendChild(node); return { destroy() { node.remove(); } }; }
+  type DropdownFixtureNode = { export?: string; text?: string; props?: Record<string, unknown>; children?: DropdownFixtureNode[] };
   type DropdownItem = { label: string; disabled: boolean; submenu?: DropdownItem[] };
   function dropdownText(node: DropdownFixtureNode | undefined): string { return node ? String(node.text ?? '') + (node.children ?? []).map(dropdownText).join('') : ''; }
   function dropdownItem(node: DropdownFixtureNode): DropdownItem { const sub = node.children?.find(child => child.export === '.SubContent'); return { label: dropdownText(node.children?.find(child => child.export === '.SubTrigger') ?? node), disabled: Boolean(node.props?.disabled), submenu: sub?.children?.filter(child => child.export === '.Item').map(dropdownItem) }; }

@@ -54,6 +54,7 @@
   let state_open = $state("controlled/uncontrolled Base UI root state");
   let state_submenuOpen = $state("controlled/uncontrolled Base UI state");
 
+  function portal(node: HTMLElement) { document.body.appendChild(node); return { destroy() { node.remove(); } }; }
   type DropdownFixtureNode = { export?: string; text?: string; props?: Record<string, unknown>; children?: DropdownFixtureNode[] };
   type DropdownItem = { label: string; disabled: boolean; submenu?: DropdownItem[] };
   function dropdownText(node: DropdownFixtureNode | undefined): string { return node ? String(node.text ?? '') + (node.children ?? []).map(dropdownText).join('') : ''; }
