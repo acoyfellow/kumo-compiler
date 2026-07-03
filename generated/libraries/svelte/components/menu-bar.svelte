@@ -63,4 +63,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<nav class="isolate flex rounded-lg ring-kumo-line bg-kumo-recessed">{#each menuOptions as option, index (option.id ?? index)}<button bind:this={menuButtons[index]} type="button" aria-label={option.tooltip} title={option.tooltip} onclickcapture={() => activateMenuOption(index)} onkeydowncapture={(event) => handleMenuKey(event, index)}><span aria-hidden="true">{option.icon}</span></button>{/each}</nav>
+<nav class="isolate flex rounded-lg ring ring-kumo-line bg-kumo-recessed pl-px shadow-xs transition-colors">{#each menuOptions as option, index (option.id ?? index)}<button bind:this={menuButtons[index]} type="button" aria-label={option.tooltip} title={option.tooltip} onclickcapture={() => activateMenuOption(index)} onkeydowncapture={(event) => handleMenuKey(event, index)}><span aria-hidden="true">{option.icon}</span></button>{/each}</nav>
