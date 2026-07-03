@@ -114,6 +114,18 @@ export const KUMO_CHECKBOX_LABEL_TEXT_CLASS = 'inline-flex items-center gap-1';
 // the exact @phosphor-icons/react PlusIcon markup emitted by Kumo's Button icon slot.
 export const KUMO_PLUS_ICON_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path></svg>';
 
+// Banner classes copied verbatim from @cloudflare/kumo 2.6.0 SSR. Both the root
+// and icon wrapper use the variant's text token; structured icon wrappers add
+// vertical centering while the deprecated text/children shape stays flat.
+export const KUMO_BANNER_VARIANT_CLASSES = Object.freeze({
+  default: Object.freeze({root:'flex w-full items-start gap-3 rounded-lg px-4 py-3 text-base bg-kumo-banner-info text-kumo-info', text:'text-kumo-info'}),
+  alert: Object.freeze({root:'flex w-full items-start gap-3 rounded-lg px-4 py-3 text-base bg-kumo-banner-warning text-kumo-warning', text:'text-kumo-warning'}),
+  error: Object.freeze({root:'flex w-full items-start gap-3 rounded-lg px-4 py-3 text-base bg-kumo-danger-tint/60 text-kumo-danger', text:'text-kumo-danger'}),
+  secondary: Object.freeze({root:'flex w-full items-start gap-3 rounded-lg px-4 py-3 text-base bg-kumo-contrast/5 text-kumo-subtle', text:'text-kumo-subtle'}),
+});
+export const KUMO_BANNER_SIMPLE_ICON_CLASS = 'shrink-0';
+export const KUMO_BANNER_STRUCTURED_ICON_CLASS = 'shrink-0 flex items-center h-[1.375em]';
+
 // Clipboard text (chunks/clipboard-text-*.js) rendered VERBATIM as React canonical.
 // React composes an input-shell <div> + a truncating text <span> + a Button that
 // carries BOTH the "copied" check icon and the default copy icon (real phosphor

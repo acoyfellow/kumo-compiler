@@ -66,15 +66,23 @@ const portal = (layer, parts) => ({kind: 'portal', target: lit('document-body'),
 
 const foundation = {
   badge: element('span'),
-  // banner: React canonical is div > div > div > (p[title] + div > p[description]).
-  // 4 divs + 2 p, bg-kumo-banner-info/text-kumo-info for the default (info) variant.
+  // Banner has two real canonical shapes. The deprecated text/children API is a
+  // flat div > [icon span] + p. Supplying structured content (title, description,
+  // or action) instead renders the richer nested layout. Emitters lower Banner
+  // specially to select variant classes and preserve arbitrary framework content;
+  // this neutral tree records the default variant and both structural branches.
   banner: el('div', 'flex w-full items-start gap-3 rounded-lg px-4 py-3 text-base bg-kumo-banner-info text-kumo-info', [
-    el('div', 'flex min-w-0 flex-1 items-center justify-between gap-3', [
-      el('div', 'flex flex-col gap-0.5', [
-        el('p', 'font-medium leading-snug', [text(prop('title'))]),
-        when('description', el('div', 'text-sm leading-snug', [el('p', null, [text(prop('description'))])]))
-      ])
-    ])
+    when('icon', el('span', 'shrink-0 text-kumo-info', [slot('icon')])),
+    {kind: 'condition', when: {kind: 'coalesce', values: [prop('title'), prop('description'), prop('action')]}, then:
+      el('div', 'flex min-w-0 flex-1 items-center justify-between gap-3', [
+        el('div', 'flex flex-col gap-0.5', [
+          when('title', el('p', 'font-medium leading-snug', [text(prop('title'))])),
+          when('description', el('div', 'text-sm leading-snug', [el('p', null, [slot('description')])]))
+        ]),
+        when('action', el('div', 'flex shrink-0 items-center gap-2', [slot('action')]))
+      ]),
+      else: el('p', null, [{kind: 'condition', when: prop('children'), then: children, else: text(prop('text'))}])
+    }
   ]),
   // breadcrumbs: React wraps children in mobile/desktop responsive contents wrappers
   // and the nav itself is a flex row (h-12). Derived from React canonical render.

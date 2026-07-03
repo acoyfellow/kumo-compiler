@@ -194,80 +194,174 @@
       },
       "children": [
         {
-          "kind": "element",
-          "tag": "div",
-          "attributes": {
-            "class": {
-              "kind": "literal",
-              "value": "flex min-w-0 flex-1 items-center justify-between gap-3"
-            }
+          "kind": "condition",
+          "when": {
+            "kind": "prop",
+            "name": "icon"
           },
-          "children": [
-            {
-              "kind": "element",
-              "tag": "div",
-              "attributes": {
-                "class": {
-                  "kind": "literal",
-                  "value": "flex flex-col gap-0.5"
-                }
+          "then": {
+            "kind": "element",
+            "tag": "span",
+            "attributes": {
+              "class": {
+                "kind": "literal",
+                "value": "shrink-0 text-kumo-info"
+              }
+            },
+            "children": [
+              {
+                "kind": "slot",
+                "name": "icon"
+              }
+            ]
+          }
+        },
+        {
+          "kind": "condition",
+          "when": {
+            "kind": "coalesce",
+            "values": [
+              {
+                "kind": "prop",
+                "name": "title"
               },
-              "children": [
-                {
+              {
+                "kind": "prop",
+                "name": "description"
+              },
+              {
+                "kind": "prop",
+                "name": "action"
+              }
+            ]
+          },
+          "then": {
+            "kind": "element",
+            "tag": "div",
+            "attributes": {
+              "class": {
+                "kind": "literal",
+                "value": "flex min-w-0 flex-1 items-center justify-between gap-3"
+              }
+            },
+            "children": [
+              {
+                "kind": "element",
+                "tag": "div",
+                "attributes": {
+                  "class": {
+                    "kind": "literal",
+                    "value": "flex flex-col gap-0.5"
+                  }
+                },
+                "children": [
+                  {
+                    "kind": "condition",
+                    "when": {
+                      "kind": "prop",
+                      "name": "title"
+                    },
+                    "then": {
+                      "kind": "element",
+                      "tag": "p",
+                      "attributes": {
+                        "class": {
+                          "kind": "literal",
+                          "value": "font-medium leading-snug"
+                        }
+                      },
+                      "children": [
+                        {
+                          "kind": "text",
+                          "value": {
+                            "kind": "prop",
+                            "name": "title"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "kind": "condition",
+                    "when": {
+                      "kind": "prop",
+                      "name": "description"
+                    },
+                    "then": {
+                      "kind": "element",
+                      "tag": "div",
+                      "attributes": {
+                        "class": {
+                          "kind": "literal",
+                          "value": "text-sm leading-snug"
+                        }
+                      },
+                      "children": [
+                        {
+                          "kind": "element",
+                          "tag": "p",
+                          "attributes": {},
+                          "children": [
+                            {
+                              "kind": "slot",
+                              "name": "description"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "kind": "condition",
+                "when": {
+                  "kind": "prop",
+                  "name": "action"
+                },
+                "then": {
                   "kind": "element",
-                  "tag": "p",
+                  "tag": "div",
                   "attributes": {
                     "class": {
                       "kind": "literal",
-                      "value": "font-medium leading-snug"
+                      "value": "flex shrink-0 items-center gap-2"
                     }
                   },
                   "children": [
                     {
-                      "kind": "text",
-                      "value": {
-                        "kind": "prop",
-                        "name": "title"
-                      }
+                      "kind": "slot",
+                      "name": "action"
                     }
                   ]
+                }
+              }
+            ]
+          },
+          "else": {
+            "kind": "element",
+            "tag": "p",
+            "attributes": {},
+            "children": [
+              {
+                "kind": "condition",
+                "when": {
+                  "kind": "prop",
+                  "name": "children"
                 },
-                {
-                  "kind": "condition",
-                  "when": {
+                "then": {
+                  "kind": "children"
+                },
+                "else": {
+                  "kind": "text",
+                  "value": {
                     "kind": "prop",
-                    "name": "description"
-                  },
-                  "then": {
-                    "kind": "element",
-                    "tag": "div",
-                    "attributes": {
-                      "class": {
-                        "kind": "literal",
-                        "value": "text-sm leading-snug"
-                      }
-                    },
-                    "children": [
-                      {
-                        "kind": "element",
-                        "tag": "p",
-                        "attributes": {},
-                        "children": [
-                          {
-                            "kind": "text",
-                            "value": {
-                              "kind": "prop",
-                              "name": "description"
-                            }
-                          }
-                        ]
-                      }
-                    ]
+                    "name": "text"
                   }
                 }
-              ]
-            }
-          ]
+              }
+            ]
+          }
         }
       ]
     },
@@ -431,5 +525,5 @@
     "schemaVersion": "kumo.content-bindings/v1",
     "capabilityDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
   },
-  "modelDigest": "c6ff934daf615e57294fa44b606ded01df77262d4a854a2d82c1854e80279c71"
+  "modelDigest": "529d8c444d292e859cb2a237862f7c545eb867da5e7a3afcbabe3cd7625b1dfb"
 }

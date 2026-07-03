@@ -3,14 +3,14 @@
   import type { Snippet } from 'svelte';
    const browser = typeof document !== 'undefined';
 
-  export const modelDigest = "c6ff934daf615e57294fa44b606ded01df77262d4a854a2d82c1854e80279c71";
+  export const modelDigest = "529d8c444d292e859cb2a237862f7c545eb867da5e7a3afcbabe3cd7625b1dfb";
   export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
   export type Props = {
-  action?: unknown;
+  action?: Snippet;
   children?: Snippet;
   className?: unknown;
-  description?: unknown;
-  icon?: unknown;
+  description?: Snippet;
+  icon?: Snippet;
   text?: unknown;
   title?: unknown;
   variant?: unknown;
@@ -53,33 +53,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if Object.prototype.hasOwnProperty.call(semanticValues, "description") && semanticEqual(semanticValues.description, "Details") && Object.prototype.hasOwnProperty.call(semanticValues, "title") && semanticEqual(semanticValues.title, "Notice")}
-  <div class="bg-kumo-banner-info">
-    <p></p>
-    <p></p>
-    {"NoticeDetails"}
-  </div>
-{:else if semanticEqual(renderContent, "Careful") && Object.prototype.hasOwnProperty.call(semanticValues, "variant") && semanticEqual(semanticValues.variant, "alert")}
-  <div class="bg-kumo-banner-warning text-kumo-warning">
-    <p>
-      {renderContent}
-    </p>
-  </div>
-{:else}
-<div class={"flex w-full items-start gap-3 rounded-lg px-4 py-3 text-base bg-kumo-banner-info text-kumo-info"}>
-  <div class={"flex min-w-0 flex-1 items-center justify-between gap-3"}>
-    <div class={"flex flex-col gap-0.5"}>
-      <p class={"font-medium leading-snug"}>
-        {semanticValues["title"]}
-      </p>
-      {#if semanticValues["description"]}
-        <div class={"text-sm leading-snug"}>
-          <p>
-            {semanticValues["description"]}
-          </p>
-        </div>
-      {/if}
-    </div>
-  </div>
-</div>
-{/if}
+<div class={variant === "alert" ? "flex w-full items-start gap-3 rounded-lg px-4 py-3 text-base bg-kumo-banner-warning text-kumo-warning" : variant === "error" ? "flex w-full items-start gap-3 rounded-lg px-4 py-3 text-base bg-kumo-danger-tint/60 text-kumo-danger" : variant === "secondary" ? "flex w-full items-start gap-3 rounded-lg px-4 py-3 text-base bg-kumo-contrast/5 text-kumo-subtle" : "flex w-full items-start gap-3 rounded-lg px-4 py-3 text-base bg-kumo-banner-info text-kumo-info"}>{#if title !== undefined || description !== undefined || action !== undefined}{#if icon}<span class={"shrink-0 flex items-center h-[1.375em]" + " " + (variant === "alert" ? "text-kumo-warning" : variant === "error" ? "text-kumo-danger" : variant === "secondary" ? "text-kumo-subtle" : "text-kumo-info")}>{#if typeof icon === "function"}{@render icon()}{:else}{icon}{/if}</span>{/if}<div class={"flex min-w-0 flex-1 items-center justify-between gap-3" + (title === undefined ? " pt-px" : "")}><div class="flex flex-col gap-0.5">{#if title !== undefined}<p class="font-medium leading-snug">{title}</p>{/if}{#if description !== undefined}<div class="text-sm leading-snug"><p>{#if typeof description === "function"}{@render description()}{:else}{description}{/if}</p></div>{/if}</div>{#if action !== undefined}<div class="flex shrink-0 items-center gap-2">{#if typeof action === "function"}{@render action()}{:else}{action}{/if}</div>{/if}</div>{:else}{#if icon}<span class={"shrink-0" + " " + (variant === "alert" ? "text-kumo-warning" : variant === "error" ? "text-kumo-danger" : variant === "secondary" ? "text-kumo-subtle" : "text-kumo-info")}>{#if typeof icon === "function"}{@render icon()}{:else}{icon}{/if}</span>{/if}<p>{#if children}{@render children()}{:else}{text}{/if}</p>{/if}</div>
