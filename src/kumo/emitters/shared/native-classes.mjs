@@ -5,6 +5,17 @@
 // Vue/Svelte/Solid the same class fidelity the local-fidelity harness checks against
 // canonical React. Each constant lists the real `*kumo-*` tokens React emits for it.
 
+// Component-specific compound parts that diverge from the generic emitter fallback.
+// Values are canonical @cloudflare/kumo 2.6.0 SSR markup. Unlisted parts must retain
+// each framework's existing generic tag and data-kumo-part attribute.
+export const COMPOUND_PART_OVERRIDES = Object.freeze({
+  'layer-card': Object.freeze({
+    Secondary: Object.freeze({tag:'div', className:'-my-2 flex items-center gap-2 bg-kumo-elevated p-4 text-base font-medium text-kumo-subtle'}),
+    Primary: Object.freeze({tag:'div', className:'relative flex flex-col gap-2 overflow-hidden rounded-lg bg-kumo-base p-4 pr-3 text-inherit no-underline ring ring-kumo-fill'}),
+  }),
+});
+export const compoundPartOverride = (component, partPath) => COMPOUND_PART_OVERRIDES[component]?.[partPath];
+
 // Input — inputVariants base + focus ring + size=base (chunks/input-*.js).
 // React kumo: bg-kumo-control, text-kumo-default, ring-kumo-line, kumo-input-placeholder,
 // disabled:text-kumo-disabled, focus:ring-kumo-focus/50.

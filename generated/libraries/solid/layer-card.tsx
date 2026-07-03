@@ -47,12 +47,12 @@ export function LayerCard(incoming: LayerCardProps): JSX.Element {
 
 export function LayerCardPrimary(props: CompoundPartProps): JSX.Element {
   const [local, native] = splitProps(props, ["children"]);
-  return <div {...native} data-kumo-part="Primary">{local.children}</div>;
+  return <div {...native} class="relative flex flex-col gap-2 overflow-hidden rounded-lg bg-kumo-base p-4 pr-3 text-inherit no-underline ring ring-kumo-fill">{local.children}</div>;
 }
 
 export function LayerCardSecondary(props: CompoundPartProps): JSX.Element {
   const [local, native] = splitProps(props, ["children"]);
-  return <div {...native} data-kumo-part="Secondary">{local.children}</div>;
+  return <div {...native} class="-my-2 flex items-center gap-2 bg-kumo-elevated p-4 text-base font-medium text-kumo-subtle">{local.children}</div>;
 }
 
 Object.defineProperty(LayerCard, "Primary", {value:LayerCardPrimary, enumerable:true});

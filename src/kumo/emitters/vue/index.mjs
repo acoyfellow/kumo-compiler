@@ -6,7 +6,7 @@ import {loadLibrary, canonicalJSON} from '../../library/index.mjs';
 import {validateImplementation, NODE_KINDS, EXPRESSION_KINDS, OPERATION_KINDS} from '../../library/algebra.mjs';
 import {requireContentBindings, semanticExpression, semanticPredicate} from '../shared/content-adapter.mjs';
 import {clampPage, maxPage, nextPage, previousPage, commitPageInput} from '../../library/pagination-state.mjs';
-import {KUMO_INPUT_CLASS, KUMO_INPUT_ERROR_CLASS, KUMO_INPUTAREA_CLASS, KUMO_INPUTAREA_ERROR_CLASS, KUMO_FIELD_LABEL_CLASS, KUMO_FIELD_DESCRIPTION_CLASS, KUMO_CHECKBOX_CLASS, KUMO_CHECKBOX_BOX_CLASS, KUMO_CHECKBOX_INDICATOR_CLASS, KUMO_CHECKBOX_CHECK_SVG, KUMO_CHECKBOX_MINUS_SVG, KUMO_CHECKBOX_HIDDEN_INPUT_STYLE, KUMO_CHECKBOX_LABEL_WRAPPER_CLASS, KUMO_CHECKBOX_LABEL_CLASS, KUMO_CHECKBOX_LABEL_TEXT_CLASS, KUMO_CLIPBOARD_ROOT_CLASS, KUMO_CLIPBOARD_TEXT_CLASS, KUMO_CLIPBOARD_BUTTON_CLASS, KUMO_CLIPBOARD_CHECK_SPAN_CLASS, KUMO_CLIPBOARD_COPY_SPAN_CLASS, KUMO_CLIPBOARD_CHECK_SVG, KUMO_CLIPBOARD_COPY_SVG, KUMO_SWITCH_TRACK_CLASS, KUMO_SWITCH_THUMB_CLASS, KUMO_TABS_LIST_CLASS, KUMO_TABS_TRIGGER_CLASS, KUMO_TABS_INDICATOR_CLASS, KUMO_METER_ROOT_CLASS, KUMO_METER_HEADER_CLASS, KUMO_METER_LABEL_CLASS, KUMO_METER_VALUE_CLASS, KUMO_METER_TRACK_CLASS, KUMO_METER_FILL_CLASS, KUMO_PLUS_ICON_SVG} from '../shared/native-classes.mjs';
+import {KUMO_INPUT_CLASS, KUMO_INPUT_ERROR_CLASS, KUMO_INPUTAREA_CLASS, KUMO_INPUTAREA_ERROR_CLASS, KUMO_FIELD_LABEL_CLASS, KUMO_FIELD_DESCRIPTION_CLASS, KUMO_CHECKBOX_CLASS, KUMO_CHECKBOX_BOX_CLASS, KUMO_CHECKBOX_INDICATOR_CLASS, KUMO_CHECKBOX_CHECK_SVG, KUMO_CHECKBOX_MINUS_SVG, KUMO_CHECKBOX_HIDDEN_INPUT_STYLE, KUMO_CHECKBOX_LABEL_WRAPPER_CLASS, KUMO_CHECKBOX_LABEL_CLASS, KUMO_CHECKBOX_LABEL_TEXT_CLASS, KUMO_CLIPBOARD_ROOT_CLASS, KUMO_CLIPBOARD_TEXT_CLASS, KUMO_CLIPBOARD_BUTTON_CLASS, KUMO_CLIPBOARD_CHECK_SPAN_CLASS, KUMO_CLIPBOARD_COPY_SPAN_CLASS, KUMO_CLIPBOARD_CHECK_SVG, KUMO_CLIPBOARD_COPY_SVG, KUMO_SWITCH_TRACK_CLASS, KUMO_SWITCH_THUMB_CLASS, KUMO_TABS_LIST_CLASS, KUMO_TABS_TRIGGER_CLASS, KUMO_TABS_INDICATOR_CLASS, KUMO_METER_ROOT_CLASS, KUMO_METER_HEADER_CLASS, KUMO_METER_LABEL_CLASS, KUMO_METER_VALUE_CLASS, KUMO_METER_TRACK_CLASS, KUMO_METER_FILL_CLASS, KUMO_PLUS_ICON_SVG, compoundPartOverride} from '../shared/native-classes.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '../../../..');
@@ -39,6 +39,7 @@ const styleObjectLiteral = obj => `{${Object.entries(obj).map(([k,v]) => `${JSON
 const nativeButtonEmphasisStyleExpression = (emphasis, accessor) => `${Object.entries(emphasis.variants).map(([variant, styleObj]) => `${accessor} === ${JSON.stringify(variant)} ? ${styleObjectLiteral(styleObj)}`).join(' : ')} : undefined`;
 const nativeButtonEmphasisCondition = (emphasis, accessor) => Object.keys(emphasis.variants).map(v => `${accessor} === ${JSON.stringify(v)}`).join(' || ');
 const id = value => value.replace(/[^A-Za-z0-9_$]/g, '_').replace(/^([0-9])/, '_$1');
+const member = (base, name) => /^[A-Za-z_$][\w$]*$/.test(name) ? `${base}.${name}` : `${base}[${JSON.stringify(name)}]`;
 const pascal = value => value.split(/[-_ ]+/).map(x => x[0]?.toUpperCase() + x.slice(1)).join('');
 const sha = value => crypto.createHash('sha256').update(value).digest('hex');
 // Inline a static Kumo icon SVG string as REAL Vue template <svg>/<path> nodes
@@ -51,7 +52,7 @@ const svgTemplate = (svgString, directiveAttr = '') => directiveAttr
 function expression(value, scope = 'props') {
   switch (value.kind) {
     case 'literal': return JSON.stringify(value.value);
-    case 'prop': return `${scope}.${id(value.name)}`;
+    case 'prop': return member(scope, value.name);
     case 'state': return `${id(value.name)}.value`;
     case 'item': return id(value.name);
     case 'coalesce': return `(${value.values.map(v => expression(v, scope)).join(' ?? ')})`;
@@ -70,7 +71,7 @@ function node(value, context = {}) {
     case 'slot': return `<slot name="${esc(value.name)}">${value.fallback ? child(value.fallback) : ''}</slot>`;
     case 'condition': return `<template v-if="${esc(expression(value.when))}">${child(value.then)}</template>${value.else ? `<template v-else>${child(value.else)}</template>` : ''}`;
     case 'collection': return `<template v-for="${id(value.item)} in ${esc(expression(value.source))}" :key="${esc(expression(value.key))}">${node(value.template, {...context, item:value.item})}</template>`;
-    case 'compound': return `<div data-kumo-compound="${esc(value.name)}" :class="styles.root">${Object.entries(value.parts).map(([name, part]) => `<section data-kumo-part="${esc(name)}">${child(part)}</section>`).join('')}</div>`;
+    case 'compound': return `<div data-kumo-compound="${esc(value.name)}" :class="styles.root">${Object.entries(value.parts).map(([name, part]) => { const override = compoundPartOverride(context.component, name); return override ? `<${override.tag} class="${esc(override.className)}">${child(part)}</${override.tag}>` : `<section data-kumo-part="${esc(name)}">${child(part)}</section>`; }).join('')}</div>`;
     case 'portal': return `<Teleport :to="${esc(expression(value.target))}"><div data-kumo-layer="${esc(value.layer)}">${value.children.map(child).join('')}</div></Teleport>`;
     case 'element': {
       if (value.tag === 'merge-trigger') { const fallback = value.children?.[0]; return `<template v-if="${esc(expression(value.properties.when))}">${(fallback.children ?? []).map(child).join('')}</template><template v-else>${child(fallback)}</template>`; }
@@ -93,13 +94,16 @@ function vueType(type) {
   if (string) return 'string';
   return 'unknown';
 }
-function compoundPartSource(partPath) {
+function compoundPartSource(component, partPath) {
+  const override = compoundPartOverride(component, partPath);
+  const tag = override?.tag ?? 'span';
+  const attributes = override ? `class="${esc(override.className)}"` : `data-kumo-part="${esc(partPath)}"`;
   return `<!-- @generated by src/kumo/emitters/vue/index.mjs; do not edit -->\n<script setup lang="ts">
 defineOptions({ inheritAttrs: false })
 </script>
 
 <template>
-  <span v-bind="$attrs" data-kumo-part="${esc(partPath)}"><slot /></span>
+  <${tag} v-bind="$attrs" ${attributes}><slot /></${tag}>
 </template>
 `;
 }
@@ -455,7 +459,7 @@ function setOpen(next: boolean) {
   nextTick(() => next ? dialogRef.value?.focus() : triggerRef.value?.focus())
 }
 `,
-    template:`<button ref="triggerRef" type="button" data-kumo-component="Dialog" data-kumo-part="trigger" aria-haspopup="dialog" :class="currentOpen ? '${esc(VUE_OVERLAY_BUTTON_CLASS)}' : undefined" @click="setOpen(true)">{{ triggerText }}</button><Teleport v-if="currentOpen" to="body"><div data-base-ui-portal><div role="presentation" style="position:fixed;inset:0;user-select:none"></div><div role="presentation" class="${esc(VUE_DIALOG_BACKDROP_CLASS)}"></div><span aria-hidden="true" tabindex="0" style="${esc(VUE_OVERLAY_GUARD_STYLE)}"></span><div ref="dialogRef" role="dialog" tabindex="-1" class="${esc(VUE_DIALOG_CONTENT_CLASS)}" style="transition-property:scale,opacity;transition-timing-function:var(--default-transition-timing-function);--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.03),0 8px 10px -6px rgb(0 0 0 / 0.03)"><h2>{{ titleText }}</h2><p>{{ descriptionText }}</p><button type="button" data-kumo-component="Dialog" data-kumo-part="close" class="${esc(VUE_OVERLAY_BUTTON_CLASS)}" @click="setOpen(false)">{{ closeText }}</button></div><span aria-hidden="true" tabindex="0" style="${esc(VUE_OVERLAY_GUARD_STYLE)}"></span></div></Teleport>`
+    template:`<button ref="triggerRef" type="button" data-kumo-component="Dialog" data-kumo-part="trigger" aria-haspopup="dialog" :aria-expanded="currentOpen" :class="currentOpen ? '${esc(VUE_OVERLAY_BUTTON_CLASS)}' : undefined" @click="setOpen(true)">{{ triggerText }}</button><Teleport v-if="currentOpen" to="body"><div data-base-ui-portal><div role="presentation" style="position:fixed;inset:0;user-select:none"></div><div role="presentation" class="${esc(VUE_DIALOG_BACKDROP_CLASS)}"></div><span aria-hidden="true" tabindex="0" style="${esc(VUE_OVERLAY_GUARD_STYLE)}"></span><div ref="dialogRef" role="dialog" tabindex="-1" class="${esc(VUE_DIALOG_CONTENT_CLASS)}" style="transition-property:scale,opacity;transition-timing-function:var(--default-transition-timing-function);--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.03),0 8px 10px -6px rgb(0 0 0 / 0.03)"><h2>{{ titleText }}</h2><p>{{ descriptionText }}</p><button type="button" data-kumo-component="Dialog" data-kumo-part="close" class="${esc(VUE_OVERLAY_BUTTON_CLASS)}" @click="setOpen(false)">{{ closeText }}</button></div><span aria-hidden="true" tabindex="0" style="${esc(VUE_OVERLAY_GUARD_STYLE)}"></span></div></Teleport>`
   };
 }
 function popoverLayerBinding(model, library) {
@@ -1287,7 +1291,7 @@ function emitComponent(model, library) {
     : `<${visualSimple.root.tag} v-bind="$attrs" class="${visualSimple.root.className}"><slot /></${visualSimple.root.tag}>`) : null;
   const fallback = visualSimpleFallback ?? loweredTableOfContents?.template ?? loweredSelect?.template ?? loweredDatePicker?.template ?? loweredDateRangePicker?.template ?? loweredToastLifecycle?.template ?? loweredResponsiveSidebar?.template ?? loweredCommandPalette?.template ?? loweredAutocomplete?.template ?? loweredCombobox?.template ?? loweredSensitiveInput?.template ?? loweredInputGroup?.template ?? loweredDropdownMenuLayer?.template ?? loweredPopoverLayer?.template ?? loweredDialogLayer?.template ?? loweredMenubarNavigation?.template ?? loweredTabsNavigation?.template ?? loweredRadioGroup?.template ?? loweredPagination?.template ?? loweredClipboardCopy?.template ?? loweredToggle?.template ?? loweredNativeInput?.template ?? meterFallback ?? (nativeButton
     ? `<button v-bind="Object.assign({}, $attrs, mergeTriggerAttributes)" :class="${directive(nativeButtonVariantExpression(nativeButton, 'props.variant'))}" :style="${directive(nativeButtonEmphasisStyleExpression(nativeButton.emphasis, 'props.variant'))}" :type="($attrs.type as any) ?? 'button'" :disabled="props.disabled || props.loading"><template v-if="${directive(nativeButtonEmphasisCondition(nativeButton.emphasis, 'props.variant'))}"><span aria-hidden="true" class="${esc(nativeButton.emphasis.overlayClass)}"></span><span class="${esc(nativeButton.emphasis.wrapperClass)}"><template v-if="props.loading">${vueButtonSpinner("props.size === 'lg' ? 16 : 14")}</template><slot v-else-if="$slots.icon" name="icon" /><slot /></span></template><template v-else><template v-if="props.loading">${vueButtonSpinner("props.size === 'lg' ? 16 : 14")}</template><slot v-else-if="$slots.icon" name="icon" /><slot /></template></button>`
-    : node(implementation.componentRoot));
+    : node(implementation.componentRoot, {component:model.component}));
   const composedField = composition && !composition.ownsControl
     ? `<${composition.container} class="grid gap-2 has-[input[type=checkbox]]:grid-cols-[auto_1fr] has-[input[type=checkbox]]:items-center has-[[role=switch]]:grid-cols-[auto_1fr] has-[[role=switch]]:items-center"><label :for="String((props as any).childId ?? $attrs['child-id'] ?? 'field-control')" class="${esc(KUMO_FIELD_LABEL_CLASS)}"><span class="inline-flex items-center gap-1">{{ (props as any).label ?? $attrs.label }}</span></label><slot /><p v-if="(((props as any).description ?? $attrs.description) !== undefined)" class="${esc(KUMO_FIELD_DESCRIPTION_CLASS)}">{{ (props as any).description ?? $attrs.description }}</p></${composition.container}>`
     : null;
@@ -1312,7 +1316,7 @@ export function generateVueLibrary(output = path.join(root, 'generated/libraries
       const partFile = `components/${partName}.vue`;
       const partDeclaration = `components/${partName}.d.ts`;
       const symbol = `${id(graph.canonicalRoot)}${item.path.split('.').map(pascal).join('')}`;
-      const partSource = compoundPartSource(item.path);
+      const partSource = compoundPartSource(model.component, item.path);
       fs.writeFileSync(path.join(output,partFile), partSource);
       fs.writeFileSync(path.join(output,partDeclaration), `// @generated by src/kumo/emitters/vue/index.mjs; do not edit\nimport type { DefineComponent } from 'vue';\ndeclare const component: DefineComponent<Record<string, unknown>>;\nexport default component;\n`);
       partImports.set(item.path, symbol);

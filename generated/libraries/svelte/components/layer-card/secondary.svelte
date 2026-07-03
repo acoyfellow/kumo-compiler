@@ -7,6 +7,6 @@
   let { children, ...rest }: Props = $props();
 </script>
 
-<section data-kumo-part="Secondary" {...rest}>
+<div class="-my-2 flex items-center gap-2 bg-kumo-elevated p-4 text-base font-medium text-kumo-subtle" {...rest}>
   {#if children}{@render children()}{/if}
-</section>
+</div>
