@@ -73,6 +73,11 @@ export const KUMO_CHECKBOX_LABEL_WRAPPER_CLASS = 'inline-flex';
 export const KUMO_CHECKBOX_LABEL_CLASS = '!m-0 !min-h-0 !text-base inline-flex items-start gap-2 flex-row';
 export const KUMO_CHECKBOX_LABEL_TEXT_CLASS = 'inline-flex items-center gap-1';
 
+// DropdownMenu canonical compound trigger icon. The homepage renders
+// <DropdownMenu.Trigger render={<Button icon={PlusIcon}>Add</Button>} />, so this is
+// the exact @phosphor-icons/react PlusIcon markup emitted by Kumo's Button icon slot.
+export const KUMO_PLUS_ICON_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path></svg>';
+
 // Clipboard text (chunks/clipboard-text-*.js) rendered VERBATIM as React canonical.
 // React composes an input-shell <div> + a truncating text <span> + a Button that
 // carries BOTH the "copied" check icon and the default copy icon (real phosphor

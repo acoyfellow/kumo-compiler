@@ -1,10 +1,15 @@
 {
-  "schemaVersion": "kumo.dropdown-menu-layer/v1",
+  "schemaVersion": "kumo.dropdown-menu-layer/v2",
   "component": "dropdown-menu",
   "support": "supported",
   "trigger": {
     "tag": "button",
     "text": "Actions",
+    "icon": {
+      "fixtureProp": "icon",
+      "export": "PlusIcon",
+      "placement": "before-text"
+    },
     "attributes": {
       "type": "button",
       "tabindex": "0",
@@ -57,5 +62,5 @@
       "keyboard-typeahead-submenu-dismissal"
     ]
   },
-  "capabilityDigest": "82ec86f3436c933cffd1e7d7f2acfc1c8773d22f210ebab09e0665e57dd7d1fd"
+  "capabilityDigest": "2fa70877c5c0bab38c22d0736b45113ceef5a40720128f1bd84dc6f6944ae57f"
 }
