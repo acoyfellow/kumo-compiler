@@ -349,8 +349,15 @@ function source(model, toggle, nativeInput, fieldControl, clipboardCopy, paginat
   // carrying a <div> thumb (React uses div, not span), followed by the visually-hidden
   // native <input type=checkbox>. Track+thumb classes are the real Kumo tokens, keyed to
   // the checked state (bg-blue-500 / bg-neutral-200 track; left-4.5 / left-0 thumb).
-  const toggleControl=toggle?`<><button class={mergeStyles(${JSON.stringify(KUMO_SWITCH_TRACK_BASE)}, checked() ? ${JSON.stringify(KUMO_SWITCH_TRACK_ON)} : ${JSON.stringify(KUMO_SWITCH_TRACK_OFF)})}${toggleData} aria-label={props["aria-label"] as string} type="button" role=${JSON.stringify(toggleRole)} aria-checked={checked()} disabled={Boolean(props.${toggle.disabled.prop})} onClick={toggleChecked}><div class={mergeStyles(${JSON.stringify(KUMO_SWITCH_THUMB_BASE)}, checked() ? ${JSON.stringify(KUMO_SWITCH_THUMB_ON)} : ${JSON.stringify(KUMO_SWITCH_THUMB_OFF)})} /></button><input style=${JSON.stringify(KUMO_CHECKBOX_HIDDEN_INPUT_STYLE)} tabindex="-1" type="checkbox" aria-hidden="true" checked={checked()} /></>`:null;
-    const toggleFallback=toggle?`props.label !== undefined ? (<label class="inline-flex items-center gap-2 cursor-pointer select-none text-base text-kumo-default">${toggleControl}<span>{props.label as string}</span></label>) : (${toggleControl})`:null;
+  // Bare (no-Fragment) sequence for embedding as siblings inside an existing element
+  // (e.g. <label>...</label>, which natively accepts multiple children). Solid's JSX
+  // transform rejects a Fragment nested directly under another element unless it is
+  // that element's SOLE child, so the <label> branch below must NOT reuse the
+  // Fragment-wrapped `toggleControl` — only the standalone (no-label) branch needs the
+  // Fragment, because there it is the single top-level expression.
+  const toggleControlInner=toggle?`<button class={mergeStyles(${JSON.stringify(KUMO_SWITCH_TRACK_BASE)}, checked() ? ${JSON.stringify(KUMO_SWITCH_TRACK_ON)} : ${JSON.stringify(KUMO_SWITCH_TRACK_OFF)})}${toggleData} aria-label={props["aria-label"] as string} type="button" role=${JSON.stringify(toggleRole)} aria-checked={checked()} disabled={Boolean(props.${toggle.disabled.prop})} onClick={toggleChecked}><div class={mergeStyles(${JSON.stringify(KUMO_SWITCH_THUMB_BASE)}, checked() ? ${JSON.stringify(KUMO_SWITCH_THUMB_ON)} : ${JSON.stringify(KUMO_SWITCH_THUMB_OFF)})} /></button><input style=${JSON.stringify(KUMO_CHECKBOX_HIDDEN_INPUT_STYLE)} tabindex="-1" type="checkbox" aria-hidden="true" checked={checked()} />`:null;
+  const toggleControl=toggle?`<>${toggleControlInner}</>`:null;
+    const toggleFallback=toggle?`props.label !== undefined ? (<label class="inline-flex items-center gap-2 cursor-pointer select-none text-base text-kumo-default">${toggleControlInner}<span>{props.label as string}</span></label>) : (${toggleControl})`:null;
   // Checkbox renders the SAME control-subtree React canonical does: box span carrying
   // the real Kumo checkmark <svg> indicator, plus the visually-hidden native <input>,
   // wrapped (when a label is present) in React's Field.Root div + label + text span.
