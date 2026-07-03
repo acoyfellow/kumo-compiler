@@ -167,8 +167,12 @@ function toggleSource({state,native}) {
   const variantExpressions = native.styleVariants.map(variant=>`(${Object.entries(variant.when).map(([name,value])=>`props.${vuePropName(name)} === ${JSON.stringify(value)}`).join(' && ')||'true'}) ? ${JSON.stringify(variant.classes.join(' '))} : ''`);
   const styleExpression = `[${[JSON.stringify(rootClassConst), ...variantExpressions].join(', ')}]`;
   const styleClass = ` :class="${directive(styleExpression)}"`;
-  const dataState = indeterminate ? `(currentIndeterminate ? 'indeterminate' : (currentChecked ? 'checked' : 'unchecked'))` : `(currentChecked ? 'checked' : 'unchecked')`;
-  const dataAttrs = ` :data-state="${directive(dataState)}" :data-checked="currentChecked ? '' : undefined" :data-unchecked="currentChecked ? undefined : ''"${indeterminate?` :data-indeterminate="currentIndeterminate ? '' : undefined"`:''}`;
+  // Canonical @cloudflare/kumo 2.6.0 Switch/Checkbox emit ONLY data-checked/
+  // data-unchecked(/data-indeterminate) -- verified via renderToStaticMarkup across
+  // checked/unchecked/defaultChecked combinations. There is no data-state attribute
+  // on either; it was an emitter invention that the route-cascade's real-DOM
+  // comparison caught (the component sweep's SSR-only measurement did not).
+  const dataAttrs = ` :data-checked="currentChecked ? '' : undefined" :data-unchecked="currentChecked ? undefined : ''"${indeterminate?` :data-indeterminate="currentIndeterminate ? '' : undefined"`:''}`;
   const thumb = native.root === 'button' ? `<span aria-hidden="true" class="${esc(KUMO_SWITCH_THUMB_CLASS)}"></span>` : '';
   // Checkbox renders the SAME control-subtree React canonical does: box span carrying
   // the real Kumo checkmark <svg> indicator, plus the visually-hidden native <input>,
@@ -199,7 +203,7 @@ function toggleSource({state,native}) {
     const thumbClassExpr = `[${JSON.stringify(VUE_SWITCH_THUMB_BASE)}, currentChecked ? 'left-4.5' : 'left-0']`;
     const thumbDiv = `<div :class="${directive(thumbClassExpr)}"></div>`;
     const switchInput = `<input style="${esc(KUMO_CHECKBOX_HIDDEN_INPUT_STYLE)}" tabindex="-1" type="checkbox" aria-hidden="true" :checked="currentChecked" :disabled="props.${state.disabled.prop} || undefined" />`;
-    const switchButton = `<button data-kumo-component="Switch" v-bind="$attrs" type="button" role="switch" :class="${directive(trackClassExpr)}"${dataAttrs} :aria-label="((props as any).ariaLabel ?? $attrs['aria-label'])" :aria-checked="${aria}" :aria-disabled="props.${state.disabled.prop} || undefined" :disabled="props.${state.disabled.prop} || undefined" :tabindex="props.${state.disabled.prop} ? undefined : 0" @click="activate">${thumbDiv}</button>`;
+    const switchButton = `<button data-kumo-component="Switch" v-bind="$attrs" type="button" role="switch" :class="${directive(trackClassExpr)}"${dataAttrs} :aria-label="((props as any).ariaLabel ?? $attrs['aria-label'] ?? 'Switch')" :aria-checked="${aria}" :aria-disabled="props.${state.disabled.prop} || undefined" :disabled="props.${state.disabled.prop} || undefined" :tabindex="props.${state.disabled.prop} ? undefined : 0" @click="activate">${thumbDiv}</button>`;
     template = `<label v-if="props.label !== undefined" class="inline-flex items-center gap-2 cursor-pointer select-none text-base text-kumo-default">${switchButton}${switchInput}<span>{{ props.label }}</span></label><template v-else>${switchButton}${switchInput}</template>`;
   }
   return {
