@@ -1007,6 +1007,22 @@ function paginationBinding(model, library) {
   clampPage(2, maximum); nextPage(2, maximum); previousPage(2, maximum); commitPageInput(2, '3', maximum);
   return capability;
 }
+// Real Kumo Pagination classes + chevron icons copied VERBATIM from @cloudflare/kumo
+// 2.6.0 (React canonical). React renders a flex row: an aria-live pagination-info block
+// ("Showing N-M of T" with tabular-nums spans) + a pagination-controls column whose <nav>
+// wraps an InputGroup (data-focus-mode="individual") of four segmented Button controls
+// (First/Prev/Next/Last, each a span.contents > svg > path) around the page-number <input>.
+// The prior vue fallback emitted a class-less <nav> with empty buttons + no info block,
+// which the cascade flagged on A (missing spans/divs/svg/path) and B/pixel (no geometry).
+// This lane owns only the vue emitter, so the faithful structure + class strings live here.
+const VUE_PAGINATION_GROUP_CLASS = 'relative w-full cursor-text border-0 bg-kumo-control text-kumo-default ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled h-9 rounded-lg text-base focus:ring-kumo-focus/50 focus:ring-[1.5px] data-[disabled]:pointer-events-none data-[disabled]:opacity-50 isolate overflow-visible ring-0 shadow-none has-[input[aria-invalid=true]]:ring-kumo-danger px-0 flex items-center gap-0 has-[[data-slot=input-group-suffix]]:[&_input]:[field-sizing:content] has-[[data-slot=input-group-suffix]]:[&_input]:max-w-full has-[[data-slot=input-group-suffix]]:[&_input]:grow-0 has-[[data-slot=input-group-suffix]]:[&_input]:pr-0 has-[[data-slot=input-group-addon-start]]:[&_input]:pl-2 has-[[data-slot=input-group-addon-end]]:[&_input]:pr-2 !mb-0';
+const VUE_PAGINATION_BUTTON_CLASS = 'group flex w-max shrink-0 items-center font-medium select-none shadow-xs focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-kumo-brand cursor-pointer disabled:cursor-not-allowed disabled:text-kumo-subtle h-9 gap-1.5 px-3 text-base bg-kumo-base !text-kumo-default not-disabled:hover:bg-kumo-tint ring-kumo-line data-[state=open]:bg-kumo-base pointer-events-auto focus:ring-0 relative h-full! rounded-none ring-0 focus-visible:ring-0 border border-kumo-line first:rounded-l-[inherit] last:rounded-r-[inherit] not-first:-ml-px hover:z-1 focus:z-2 focus-visible:border-kumo-focus/50 disabled:bg-kumo-overlay disabled:text-kumo-inactive!';
+const VUE_PAGINATION_INPUT_CLASS = 'text-kumo-default ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled gap-1.5 text-base focus:ring-kumo-focus/50 flex h-full min-w-0 grow items-center rounded-none bg-transparent font-sans px-3 text-ellipsis relative ring-0 focus:ring-0 border border-kumo-line first:rounded-l-[inherit] last:rounded-r-[inherit] not-first:-ml-px hover:z-1 hover:border-kumo-line focus:z-2 focus:border-kumo-focus/50 text-center';
+const VUE_PAGINATION_ICON = d => `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="${d}"></path></svg>`;
+const VUE_PAGINATION_FIRST_SVG = VUE_PAGINATION_ICON('M205.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L131.31,128ZM51.31,128l74.35-74.34a8,8,0,0,0-11.32-11.32l-80,80a8,8,0,0,0,0,11.32l80,80a8,8,0,0,0,11.32-11.32Z');
+const VUE_PAGINATION_PREV_SVG = VUE_PAGINATION_ICON('M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z');
+const VUE_PAGINATION_NEXT_SVG = VUE_PAGINATION_ICON('M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z');
+const VUE_PAGINATION_LAST_SVG = VUE_PAGINATION_ICON('M141.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L124.69,128,50.34,53.66A8,8,0,0,1,61.66,42.34l80,80A8,8,0,0,1,141.66,133.66Zm80-11.32-80-80a8,8,0,0,0-11.32,11.32L204.69,128l-74.35,74.34a8,8,0,0,0,11.32,11.32l80-80A8,8,0,0,0,221.66,122.34Z');
 function paginationSource() {
   return {
     imports:'computed, onMounted, ref, useAttrs, useSlots, watch',
@@ -1014,6 +1030,10 @@ function paginationSource() {
 const currentPage = ref(1)
 const editingPage = ref('1')
 const navRef = ref<HTMLElement | null>(null)
+const disabledPage = computed(() => Math.min(maximumPage.value, Math.max(1, props.page)))
+const infoStart = computed(() => (Math.max(1, props.page) - 1) * props.perPage + 1)
+const infoEnd = computed(() => Math.min(Math.max(1, props.page) * props.perPage, props.totalCount))
+const infoTotal = computed(() => props.totalCount)
 onMounted(() => { currentPage.value = Math.min(maximumPage.value, Math.max(1, props.page)); editingPage.value = String(currentPage.value) })
 watch(() => props.page, value => { currentPage.value = Math.min(maximumPage.value, Math.max(1, value)); editingPage.value = String(currentPage.value) })
 function proposePage(target: number) {
@@ -1034,7 +1054,7 @@ function commitInput(trigger: 'Enter' | 'blur') {
 }
 function enterInput(event: KeyboardEvent) { if (event.key === 'Enter') commitInput('Enter') }
 `,
-    template:`<div data-slot="pagination"><nav ref="navRef" :aria-label="props.labels?.navigation ?? 'Pagination'"><template v-if="props.fixtureMode !== 'simple'"><button type="button" aria-label="First page" :disabled="currentPage === 1" @click="proposePage(1)"></button><button type="button" aria-label="Previous page" :disabled="currentPage === 1" @click="proposePage(currentPage - 1)"></button><input aria-label="Page number" :value="editingPage" @input="editingPage = ($event.currentTarget as HTMLInputElement).value" @keydown="enterInput" @blur="commitInput('blur')" /><button type="button" aria-label="Next page" :disabled="currentPage === maximumPage" @click="proposePage(currentPage + 1)"></button><button type="button" aria-label="Last page" :disabled="currentPage === maximumPage" @click="proposePage(maximumPage)"></button><template v-if="props.fixtureMode === 'dropdown'"><button type="button" aria-label="Page size"></button><button type="button" aria-label="Open page size options"></button></template></template><template v-else><button type="button" :aria-label="props.labels?.previousPage ?? 'Previous page'" :disabled="currentPage === 1" @click="proposePage(currentPage - 1)"></button><button type="button" :aria-label="props.labels?.nextPage ?? 'Next page'" :disabled="currentPage === maximumPage" @click="proposePage(currentPage + 1)"></button></template></nav></div>`
+    template:`<div data-slot="pagination" class="flex items-center gap-2 w-full"><div aria-live="polite" aria-atomic="true" data-slot="pagination-info" class="grow text-sm text-kumo-subtle">Showing <span class="tabular-nums">{{ infoStart }}-{{ infoEnd }}</span> of <span class="tabular-nums">{{ infoTotal }}</span></div><div data-slot="pagination-controls" class="grow flex flex-col items-end"><nav ref="navRef" :aria-label="props.labels?.navigation ?? 'Pagination'"><div data-slot="input-group" data-focus-mode="individual" class="${esc(VUE_PAGINATION_GROUP_CLASS)}"><button data-kumo-component="Button" class="${esc(VUE_PAGINATION_BUTTON_CLASS)}" type="button" aria-label="First page" :disabled="disabledPage === 1 || undefined" @click="proposePage(1)"><span class="contents">${VUE_PAGINATION_FIRST_SVG}</span></button><button data-kumo-component="Button" class="${esc(VUE_PAGINATION_BUTTON_CLASS)}" type="button" aria-label="Previous page" :disabled="disabledPage === 1 || undefined" @click="proposePage(currentPage - 1)"><span class="contents">${VUE_PAGINATION_PREV_SVG}</span></button><input aria-label="Page number" autocomplete="off" class="${esc(VUE_PAGINATION_INPUT_CLASS)}" style="width:50px" :value="editingPage" @input="editingPage = ($event.currentTarget as HTMLInputElement).value" @keydown="enterInput" @blur="commitInput('blur')" /><button data-kumo-component="Button" class="${esc(VUE_PAGINATION_BUTTON_CLASS)}" type="button" aria-label="Next page" :disabled="disabledPage === maximumPage || undefined" @click="proposePage(currentPage + 1)"><span class="contents">${VUE_PAGINATION_NEXT_SVG}</span></button><button data-kumo-component="Button" class="${esc(VUE_PAGINATION_BUTTON_CLASS)}" type="button" aria-label="Last page" :disabled="disabledPage === maximumPage || undefined" @click="proposePage(maximumPage)"><span class="contents">${VUE_PAGINATION_LAST_SVG}</span></button></div></nav></div></div>`
   };
 }
 function tableOfContentsSource() {
