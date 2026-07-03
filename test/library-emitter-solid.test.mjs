@@ -11,6 +11,8 @@ import {compareMarkup} from '../scripts/observable-runner.mjs';
 
 const sha = value => crypto.createHash('sha256').update(value).digest('hex');
 const digestTree = directory => sha(Buffer.from(fs.readdirSync(directory).sort().map(file => `${file}\0${sha(fs.readFileSync(path.join(directory, file)))}\n`).join('')));
+const expectedComponentIds = loadLibrary().models.map(model => model.component);
+const expectedSemanticVariantCount = loadLibrary().models.flatMap(model => model.draftImplementation.semanticVariants ?? []).length;
 
 test('Solid candidate emitter is generic, complete, deterministic, and consumable', t => {
   const first = fs.mkdtempSync(path.join(os.tmpdir(), 'kumo-solid-a-'));
@@ -19,7 +21,8 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
 
   const a = emitSolidLibrary({outputPath:first});
   const b = emitSolidLibrary({outputPath:second});
-  assert.equal(a.components.length, 41);
+  assert.equal(a.components.length, expectedComponentIds.length);
+  assert.deepEqual(a.components.map(x => x.component), expectedComponentIds);
   assert.deepEqual(a.components.map(x => x.component), a.components.map(x => x.component).toSorted());
   assert.deepEqual(a.components, b.components);
   assert.equal(digestTree(first), digestTree(second));
@@ -27,7 +30,7 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   const manifest = JSON.parse(fs.readFileSync(path.join(first, 'manifest.json')));
   const pkg = JSON.parse(fs.readFileSync(path.join(first, 'package.json')));
   const library = loadLibrary();
-  assert.deepEqual({candidate:manifest.candidate, count:manifest.count}, {candidate:true, count:41});
+  assert.deepEqual({candidate:manifest.candidate, count:manifest.count}, {candidate:true, count:expectedComponentIds.length});
   assert.equal('readinessProof' in manifest, false);
   assert.deepEqual([pkg.name, pkg.version], ['@acoyfellow/kumo-solid', '0.0.1']);
   assert.deepEqual(Object.keys(pkg.exports), ['.', ...new Set(a.components.map(x => x.subpath))]);
@@ -37,7 +40,7 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   assert.deepEqual(manifest.components.map(x => x.compoundPaths), library.models.map(model => model.composition.compoundExports?.paths.map(x => x.path) ?? []));
   assert.deepEqual(manifest.components.map(x => x.semanticVariants), library.models.map(model => (model.draftImplementation.semanticVariants ?? []).map(({id, expectationDigest}) => ({id, expectationDigest}))));
   assert.deepEqual(manifest.components.map(x => x.unresolvedSemanticOperations), library.models.map(model => model.unresolvedSemanticOperations ?? []));
-  assert.equal(manifest.components.flatMap(x => x.semanticVariants).length, 66);
+  assert.equal(manifest.components.flatMap(x => x.semanticVariants).length, expectedSemanticVariantCount);
   assert.equal(manifest.components.flatMap(x => x.unresolvedSemanticOperations).length, 0);
 
   for (const item of manifest.components) {
@@ -208,22 +211,6 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   assert.match(sensitiveSource, /props\.onCopy/);
   assert.doesNotMatch(sensitiveSource, /semanticEqual\(normalizedFixture/);
 
-  const toastySource = fs.readFileSync(path.join(first, 'toasty.tsx'), 'utf8');
-  const toastyDeclaration = fs.readFileSync(path.join(first, 'toasty.d.ts'), 'utf8');
-  assert.match(toastySource, /const props = mergeProps/);
-  assert.match(toastySource, /data-kumo-component="Toasty"/);
-  assert.match(toastySource, /data-notify aria-label="Notify" onClick=\{notifyToast\}><\/button>/);
-  assert.match(toastySource, /role="status" aria-live="polite"/);
-  assert.match(toastySource, /<strong>Saved<\/strong><span>Changes saved<\/span>/);
-  assert.match(toastySource, /data-toast-action onClick=\{toastAction\}/);
-  assert.match(toastySource, /aria-label="Close" onClick=\{closeToast\}/);
-  assert.match(toastySource, /setTimeout\(\(\) => \{ if \(document\.activeElement === close\) close\.blur\(\); setToastVisible\(false\); \}, 300\)/);
-  assert.match(toastySource, /props\.onNotify/);
-  assert.match(toastySource, /props\.onAction/);
-  assert.doesNotMatch(toastySource, /innerHTML/);
-  assert.match(toastyDeclaration, /"onNotify"\?: \(\) => void;/);
-  assert.match(toastyDeclaration, /"onAction"\?: \(\) => void;/);
-
   const clipboardSource = fs.readFileSync(path.join(first, 'clipboard-text.tsx'), 'utf8');
   const clipboardDeclaration = fs.readFileSync(path.join(first, 'clipboard-text.d.ts'), 'utf8');
   assert.match(clipboardSource, /return \(<div>\{props\.text as JSX\.Element\}<button type="button" onClick=\{copyText\}>Copy<\/button><span aria-live="polite">\{copyStatus\(\)\}<\/span><\/div>\)/);
@@ -342,6 +329,61 @@ test('Solid candidate emitter is generic, complete, deterministic, and consumabl
   assert.match(buttonDeclaration, /JSX\.ButtonHTMLAttributes<HTMLButtonElement>/);
 });
 
+test('Solid Toasty exposes a transparent public manager lifecycle', async t => {
+  const output = fs.mkdtempSync(path.join(os.tmpdir(), 'kumo-solid-toasty-'));
+  t.after(() => fs.rmSync(output, {recursive:true, force:true}));
+  const result = emitSolidLibrary({outputPath:output});
+  const toastyItem = result.components.find(item => item.component === 'toasty');
+  const toastySource = fs.readFileSync(path.join(output, toastyItem.source), 'utf8');
+  const toastyDeclaration = fs.readFileSync(path.join(output, toastyItem.declaration), 'utf8');
+  const solidIndex = fs.readFileSync(path.join(output, 'index.ts'), 'utf8');
+  assert.match(toastySource, /export function createKumoToastManager/);
+  assert.match(toastySource, /export function useKumoToastManager/);
+  assert.match(toastySource, /export function Toast\(props: ToastProps\)/);
+  assert.match(toastySource, /export const ToastProvider = Toasty/);
+  assert.match(toastySource, /data-kumo-component="Toasty"/);
+  assert.match(toastySource, /role="status"/);
+  assert.match(toastySource, /manager\.close\(id\)/);
+  assert.doesNotMatch(toastySource, /data-notify|notifyToast|synthetic-trigger|toastVisible|innerHTML/);
+  for (const publicType of ['KumoToastVariant','KumoToastAction','KumoToastOptions','KumoToast','KumoToastManager','ToastyProps','ToastProps']) assert.match(toastyDeclaration,new RegExp(`export (?:type|interface) ${publicType}\\b`));
+  assert.match(toastyDeclaration, /export declare function createKumoToastManager/);
+  assert.match(toastyDeclaration, /export declare const ToastProvider: typeof Toasty/);
+  assert.match(solidIndex, /Toasty, ToastProvider, Toast, createKumoToastManager, useKumoToastManager/);
+  assert.match(solidIndex, /KumoToast, KumoToastOptions, KumoToastAction, KumoToastManager, KumoToastVariant/);
+
+  fs.symlinkSync(path.resolve('node_modules'), path.join(output, 'node_modules'), 'dir');
+  const typed = path.join(output, 'typed'); fs.mkdirSync(typed);
+  execFileSync(path.resolve('node_modules/.bin/tsc'), [
+    '--outDir', typed, '--skipLibCheck', '--target', 'ES2022', '--module', 'ESNext', '--moduleResolution', 'Bundler', '--jsx', 'preserve', '--jsxImportSource', 'solid-js', path.join(output, toastyItem.source)
+  ], {stdio:'pipe'});
+  const {transformFileAsync} = await import('@babel/core');
+  const transformed = await transformFileAsync(path.join(typed, toastyItem.source.replace(/tsx$/, 'jsx')), {presets:[['babel-preset-solid',{generate:'ssr'}]]});
+  const target = path.join(output, 'toasty.js'); fs.writeFileSync(target, transformed.code);
+  const toastyModule = await import(target + `?toasty=${Date.now()}`);
+  const {renderToString} = await import('solid-js/web');
+  assert.equal(toastyModule.ToastProvider,toastyModule.Toasty);
+  const normalizeToastyHtml = html => html.replace(/<!--[\s\S]*?-->/g,'');
+  const initialToastyHtml = normalizeToastyHtml(renderToString(() => toastyModule.Toasty({children:'Application'})));
+  assert.equal(initialToastyHtml,'Application');
+  assert.doesNotMatch(initialToastyHtml, /button|data-notify|role="status"/);
+  const snapshots=[];let closed=0,removed=0;
+  const toastManager=toastyModule.createKumoToastManager();
+  const unsubscribe=toastManager.subscribe(toasts=>snapshots.push(toasts.map(toast=>({...toast}))));
+  assert.deepEqual(snapshots,[[]]);
+  const toastId=toastManager.add({title:'Saved',description:'Changes saved',timeout:0,onClose:()=>closed++,onRemove:()=>removed++});
+  assert.match(toastId,/^kumo-toast-\d+$/);
+  assert.deepEqual(toastManager.toasts.map(({id,title,description})=>({id,title,description})),[{id:toastId,title:'Saved',description:'Changes saved'}]);
+  const populatedToastyHtml=normalizeToastyHtml(renderToString(() => toastyModule.Toasty({children:'Application',toastManager})));
+  assert.match(populatedToastyHtml,/^Application<div data-kumo-component="Toasty"><div role="status"/);
+  assert.match(populatedToastyHtml,/Saved<\/strong><span data-toast-description(?:="")?>Changes saved<\/span>/);
+  toastManager.close(toastId);
+  assert.deepEqual(toastManager.toasts,[]);
+  assert.equal(closed,1);
+  assert.equal(removed,1);
+  assert.deepEqual(snapshots.map(toasts=>toasts.length),[0,1,0]);
+  unsubscribe();
+});
+
 test('Solid SSR renders every compiled semantic predicate through canonical markup comparison', async t => {
   const output = fs.mkdtempSync(path.join(os.tmpdir(), 'kumo-solid-ssr-'));
   const build = path.join(output, 'build');
@@ -436,12 +478,6 @@ test('Solid SSR renders every compiled semantic predicate through canonical mark
   const openPopover = renderToString(() => popoverModule.Popover({open:true, fixture:popoverContract.vectors[1].fixture}));
   assert.match(openPopover, /aria-expanded="true"/);
   assert.match(openPopover, /<div role="dialog" data-side="top" data-align="start" data-position-method="fixed">NotificationsAll caught upClose<\/div>/);
-
-  const toastyItem = result.components.find(item => item.component === 'toasty');
-  const toastyModule = await import(path.join(build, toastyItem.source.replace(/tsx$/, 'js')) + `?toasty=${Date.now()}`);
-  const toastyHtml = renderToString(() => toastyModule.Toasty({children:'Application'}));
-  assert.match(toastyHtml, /^<div data-kumo-component="Toasty">Application<button type="button" data-notify aria-label="Notify"><\/button><\/div>$/);
-  assert.doesNotMatch(toastyHtml, /role="status"/);
 
   const interactive = [
     [{children:'Enabled', id:'enabled', onClick:() => {}}, /<button[^>]*id="enabled"[^>]*type="button"[^>]*>Enabled<\/button>/],

@@ -15,13 +15,16 @@ import {generateVueLibrary} from '../src/kumo/emitters/vue/index.mjs';
 
 const output = path.resolve('generated/libraries/vue');
 const hash = value => crypto.createHash('sha256').update(value).digest('hex');
+const expectedComponentIds = loadLibrary().models.map(model => model.component);
+const expectedSemanticVariantCount = loadLibrary().models.flatMap(model => model.draftImplementation.semanticVariants ?? []).length;
 const toastObservableSupported = (model, library) => model.component === library.toastLifecycle?.component && library.toastLifecycle?.observableImplementation?.support === 'supported';
 
 test('generic Vue emitter creates deterministic, native, tree-shakeable candidate output', () => {
   const first = generateVueLibrary(output);
-  assert.equal(first.count, 41);
+  assert.equal(first.count, expectedComponentIds.length);
+  assert.deepEqual(first.components.map(x => x.component), expectedComponentIds);
   assert.deepEqual(first.components.map(x => x.component), first.components.map(x => x.component).toSorted());
-  assert.equal(new Set(first.components.map(x => x.file)).size, 41);
+  assert.equal(new Set(first.components.map(x => x.file)).size, expectedComponentIds.length);
   const bytes = new Map(first.components.map(entry => [entry.file, fs.readFileSync(path.join(output,entry.file))]));
   const second = generateVueLibrary(output);
   assert.deepEqual(second, first);
@@ -74,7 +77,7 @@ async function compileSSRComponent(entry, build) {
   return (await import(pathToFileURL(target)+`?${Date.now()}`)).default;
 }
 
-test('Vue SSR renders all 66 semantic variants through canonical root and descendant comparison', async t => {
+test('Vue SSR renders all current semantic variants through canonical root and descendant comparison', async t => {
   const build=fs.mkdtempSync(path.resolve('.kumo-vue-ssr-')); t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
   const manifest=generateVueLibrary(output), library=loadLibrary(); let rendered=0;
   for(const [entry,model] of manifest.components.map((entry,index)=>[entry,library.models[index]])){
@@ -93,7 +96,7 @@ test('Vue SSR renders all 66 semantic variants through canonical root and descen
       rendered++;
     }
   }
-  assert.equal(rendered,66); assert.equal(manifest.components.flatMap(x=>x.unresolvedSemanticOperations).length,0);
+  assert.equal(rendered,expectedSemanticVariantCount); assert.equal(manifest.components.flatMap(x=>x.unresolvedSemanticOperations).length,0);
 });
 
 test('Vue date-picker capability lowers a complete-week January grid with canonical bounds', async t => {
@@ -119,7 +122,7 @@ test('Vue date-picker capability lowers a complete-week January grid with canoni
   assert.match(html,/data-day="2025-01-15" aria-selected="true"/);
   assert.match(html,/data-day="2025-01-21" disabled/);
   assert.match(html,/data-day="2025-02-01" disabled/);
-  assert.equal(manifest.components.flatMap(x=>x.semanticVariants).length,66);
+  assert.equal(manifest.components.flatMap(x=>x.semanticVariants).length,expectedSemanticVariantCount);
 });
 
 test('Vue date-range-picker capability lowers exactly 87 deterministic buttons and contract classes', async t => {
@@ -142,7 +145,7 @@ test('Vue date-range-picker capability lowers exactly 87 deterministic buttons a
   assert.equal((defaultHtml.match(/data-navigation=/g)??[]).length,2);
   assert.equal((defaultHtml.match(/data-reset/g)??[]).length,1);
   assert.match(await render({size:'sm',variant:'subtle'}),/^<div class="kumo-date-range p-3 bg-kumo-base">/);
-  assert.equal(manifest.components.flatMap(x=>x.semanticVariants).length,66);
+  assert.equal(manifest.components.flatMap(x=>x.semanticVariants).length,expectedSemanticVariantCount);
 });
 
 test('Vue sensitive-input capability lowers deterministic masked, editable, and copy markup', async t => {
@@ -171,7 +174,7 @@ test('Vue sensitive-input capability lowers deterministic masked, editable, and 
     assert.match(html,/<input type="password" value="alpha">/);
     assert.equal((html.match(/<button/g)??[]).length,2);
     assert.match(html,/<div aria-live="polite"><\/div><\/div>$/);
-    assert.equal(manifest.components.flatMap(x=>x.semanticVariants).length,66);
+    assert.equal(manifest.components.flatMap(x=>x.semanticVariants).length,expectedSemanticVariantCount);
     emissions.push({source,html});
   }
   assert.deepEqual(emissions[1],emissions[0]);
@@ -198,7 +201,7 @@ test('Vue combobox capability lowers canonical compound fixture with input root 
     assert.equal((html.match(/role="option"/g)??[]).length,2);
     assert.match(html,/role="option" data-value="Apple" aria-selected="false">Apple<\/li>/);
     assert.match(html,/role="option" data-value="Banana" aria-selected="false">Banana<\/li>/);
-    assert.equal(manifest.components.flatMap(x=>x.semanticVariants).length,66);
+    assert.equal(manifest.components.flatMap(x=>x.semanticVariants).length,expectedSemanticVariantCount);
     emissions.push({source,html});
   }
   assert.deepEqual(emissions[1],emissions[0]);
@@ -227,7 +230,7 @@ test('Vue autocomplete capability lowers canonical input root and option items d
     assert.equal((html.match(/role="option"/g)??[]).length,2);
     assert.match(html,/role="option" data-value="Apple" aria-selected="false">Apple<\/li>/);
     assert.match(html,/role="option" data-value="Banana" aria-selected="false">Banana<\/li>/);
-    assert.equal(manifest.components.flatMap(x=>x.semanticVariants).length,66);
+    assert.equal(manifest.components.flatMap(x=>x.semanticVariants).length,expectedSemanticVariantCount);
     emissions.push({source,html});
   }
   assert.deepEqual(emissions[1],emissions[0]);
@@ -256,7 +259,7 @@ test('Vue command-palette capability lowers canonical highlighted text and palet
     const palette=await renderToString(createSSRApp({setup:()=>()=>h(Component,{fixture:fixtures[1]})}));
     assert.match(palette,/^<div data-kumo-component="CommandPalette">/); assert.match(palette,/<input placeholder="Search"/);
     assert.equal((palette.match(/<li/g)??[]).length,2); assert.match(palette,/>Workers<\/li>/); assert.match(palette,/>Pages<\/li>/);
-    assert.equal(manifest.components.flatMap(x=>x.semanticVariants).length,66);
+    assert.equal(manifest.components.flatMap(x=>x.semanticVariants).length,expectedSemanticVariantCount);
     emissions.push({source,highlighted,palette});
   }
   assert.deepEqual(emissions[1],emissions[0]);
@@ -283,7 +286,7 @@ test('Vue input-group capability lowers canonical compound fixture deterministic
     const ids=html.match(/<label for="([^"]+)">Search<\/label>.*<input id="([^"]+)"/);
     assert.ok(ids,html); assert.equal(ids[1],ids[2]);
     assert.match(html,/\$<\/span>.*<input/); assert.match(html,/>Go<\/button>.*<span[^>]*>USD<\/span>/);
-    assert.equal(manifest.components.flatMap(x=>x.semanticVariants).length,66);
+    assert.equal(manifest.components.flatMap(x=>x.semanticVariants).length,expectedSemanticVariantCount);
     emissions.push({source,html});
   }
   assert.deepEqual(emissions[1],emissions[0]);

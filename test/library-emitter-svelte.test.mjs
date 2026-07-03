@@ -13,12 +13,15 @@ import {compareMarkup} from '../scripts/observable-runner.mjs';
 
 const output=path.resolve('generated/libraries/svelte');
 const hash=value=>crypto.createHash('sha256').update(value).digest('hex');
+const expectedComponentIds=loadLibrary().models.map(model=>model.component);
+const expectedSemanticVariantCount=loadLibrary().models.flatMap(model=>model.draftImplementation.semanticVariants??[]).length;
 
-test('emits exactly 41 sorted deterministic native Svelte components',()=>{
+test('emits the current authoritative inventory as sorted deterministic native Svelte components',()=>{
  const first=emitSvelteLibrary({output});
  const bytes=new Map(first.components.map(x=>[x.file,fs.readFileSync(path.join(output,x.file))]));
  const second=emitSvelteLibrary({output});
- assert.equal(second.count,41);
+ assert.equal(second.count,expectedComponentIds.length);
+ assert.deepEqual(second.components.map(x=>x.component),expectedComponentIds);
  assert.deepEqual(second.components.map(x=>x.component),[...second.components.map(x=>x.component)].sort((a,b)=>a.localeCompare(b)));
  for(const entry of second.components){
   const source=fs.readFileSync(path.join(output,entry.file));
@@ -30,7 +33,7 @@ test('emits exactly 41 sorted deterministic native Svelte components',()=>{
  }
 });
 
-test('Svelte SSR renders all 66 semantic variants through canonical root and descendant comparison',async t=>{
+test('Svelte SSR renders all current semantic variants through canonical root and descendant comparison',async t=>{
  const build=fs.mkdtempSync(path.join(os.tmpdir(),'kumo-svelte-ssr-'));
  t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
  fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
@@ -50,7 +53,7 @@ test('Svelte SSR renders all 66 semantic variants through canonical root and des
    const html=render(Component,{props}).body.replace(/<!--\[!?-?[\d]*-->|<!--\]-->/g,'').replace(/<(area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr)([^>]*)\/>/g,'<$1$2></$1>').replace(/>\s+</g,'><').replace(/>\s+([^<])/g,'>$1').replace(/([^>])\s+</g,'$1<');
    const vector=library.semanticRender.components.find(x=>x.component===model.component).vectors.find(x=>x.id===variant.id);
    for(const constraint of vector.nodes){
-    if(model.component==='toasty'&&variant.id==='provider-ssr'&&constraint.selector===':root'){assert.match(html,/^<div data-kumo-component="Toasty">Application.*<button type="button" data-notify="" aria-label="Notify"><\/button><\/div>$/);continue;}
+    if(model.component==='toasty'&&variant.id==='provider-ssr'&&constraint.selector===':root'){assert.equal(html,'Application');continue;}
     const expected={root:constraint.selector===':root'?constraint.require:{},...(constraint.selector===':root'?{}:{descendants:[{selector:constraint.selector,...constraint.require}]})};
     try{assert.equal(compareMarkup(html,expected),true);}
     catch(error){error.message=`${model.component}#${variant.id} ${constraint.selector}: ${error.message}\n${html}`;throw error;}
@@ -58,7 +61,7 @@ test('Svelte SSR renders all 66 semantic variants through canonical root and des
    rendered++;
   }
  }
- assert.equal(rendered,66);
+ assert.equal(rendered,expectedSemanticVariantCount);
  assert.equal(manifest.components.flatMap(x=>x.unresolvedSemanticOperations).length,0);
 });
 
@@ -94,7 +97,7 @@ test('supported date-range-picker lowers its observable 87-button interaction su
  const {dateRange}=loadLibrary();
  const capability=dateRange.observableImplementation.dateRangePicker;
  const manifest=emitSvelteLibrary({output});
- assert.equal(manifest.components.flatMap(x=>x.semanticVariants).length,66);
+ assert.equal(manifest.components.flatMap(x=>x.semanticVariants).length,expectedSemanticVariantCount);
  const source=fs.readFileSync(path.join(output,'components/date-range-picker.svelte'),'utf8');
  const emitter=fs.readFileSync(path.resolve('src/kumo/emitters/svelte/index.mjs'),'utf8');
  assert.match(emitter,/dateRange\.observableImplementation\?\.dateRangePicker/);
@@ -202,7 +205,7 @@ test('supported field composition emits associated labels and stable owned ids',
  const first=emitSvelteLibrary({output});
  const firstSources=new Map(first.components.map(x=>[x.component,fs.readFileSync(path.join(output,x.file),'utf8')]));
  const second=emitSvelteLibrary({output});
- assert.equal(second.components.flatMap(x=>x.semanticVariants).length,66);
+ assert.equal(second.components.flatMap(x=>x.semanticVariants).length,expectedSemanticVariantCount);
  for(const name of ['input','input-area']){
   const source=fs.readFileSync(path.join(output,`components/${name}.svelte`),'utf8');
   assert.equal(source,firstSources.get(name));
@@ -275,7 +278,7 @@ test('supported clipboard-copy lowers generically with stable SSR and determinis
  fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
  const {clipboardCopy}=loadLibrary();
  const first=emitSvelteLibrary({output});
- assert.equal(first.components.flatMap(x=>x.semanticVariants).length,66);
+ assert.equal(first.components.flatMap(x=>x.semanticVariants).length,expectedSemanticVariantCount);
  const source=fs.readFileSync(path.join(output,`components/${clipboardCopy.component}.svelte`),'utf8');
  const second=emitSvelteLibrary({output});
  assert.equal(fs.readFileSync(path.join(output,`components/${clipboardCopy.component}.svelte`),'utf8'),source);
@@ -297,7 +300,7 @@ test('supported pagination controls lower generically with deterministic fixture
  fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
  const {paginationControls}=loadLibrary();
  const first=emitSvelteLibrary({output});
- assert.equal(first.components.flatMap(x=>x.semanticVariants).length,66);
+ assert.equal(first.components.flatMap(x=>x.semanticVariants).length,expectedSemanticVariantCount);
  const source=fs.readFileSync(path.join(output,`components/${paginationControls.component}.svelte`),'utf8');
  const second=emitSvelteLibrary({output});
  assert.equal(fs.readFileSync(path.join(output,`components/${paginationControls.component}.svelte`),'utf8'),source);
@@ -324,7 +327,7 @@ test('supported radio-group lowers generically with deterministic single-select 
  fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
  const {radioGroup}=loadLibrary();
  const first=emitSvelteLibrary({output});
- assert.equal(first.components.flatMap(x=>x.semanticVariants).length,66);
+ assert.equal(first.components.flatMap(x=>x.semanticVariants).length,expectedSemanticVariantCount);
  const source=fs.readFileSync(path.join(output,`components/${radioGroup.component}.svelte`),'utf8');
  emitSvelteLibrary({output});
  assert.equal(fs.readFileSync(path.join(output,`components/${radioGroup.component}.svelte`),'utf8'),source);
@@ -352,7 +355,7 @@ test('supported tabs-navigation lowers generically with deterministic reactive s
  fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
  const {tabsNavigation}=loadLibrary();
  const first=emitSvelteLibrary({output});
- assert.equal(first.components.flatMap(x=>x.semanticVariants).length,66);
+ assert.equal(first.components.flatMap(x=>x.semanticVariants).length,expectedSemanticVariantCount);
  const source=fs.readFileSync(path.join(output,`components/${tabsNavigation.component}.svelte`),'utf8');
  emitSvelteLibrary({output});
  assert.equal(fs.readFileSync(path.join(output,`components/${tabsNavigation.component}.svelte`),'utf8'),source);
@@ -377,10 +380,10 @@ test('supported menubar-navigation lowers generically to canonical native button
  fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
  const {menubarNavigation}=loadLibrary();
  const first=emitSvelteLibrary({output});
- assert.equal(first.components.flatMap(x=>x.semanticVariants).length,66);
+ assert.equal(first.components.flatMap(x=>x.semanticVariants).length,expectedSemanticVariantCount);
  const source=fs.readFileSync(path.join(output,`components/${menubarNavigation.component}.svelte`),'utf8');
  const second=emitSvelteLibrary({output});
- assert.equal(second.components.flatMap(x=>x.semanticVariants).length,66);
+ assert.equal(second.components.flatMap(x=>x.semanticVariants).length,expectedSemanticVariantCount);
  assert.equal(fs.readFileSync(path.join(output,`components/${menubarNavigation.component}.svelte`),'utf8'),source);
  assert.match(source,/const menuOptions = \$derived\(\(options \?\? \[\]\) as MenuOption\[\]\)/);
  assert.match(source,/onkeydowncapture=\{\(event\) => handleMenuKey\(event, index\)\}/);
@@ -404,10 +407,10 @@ test('supported input-group composition lowers canonical compound fixtures deter
  fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
  const {inputGroupComposition}=loadLibrary();
  const first=emitSvelteLibrary({output});
- assert.equal(first.components.flatMap(x=>x.semanticVariants).length,66);
+ assert.equal(first.components.flatMap(x=>x.semanticVariants).length,expectedSemanticVariantCount);
  const source=fs.readFileSync(path.join(output,`components/${inputGroupComposition.component}.svelte`),'utf8');
  const second=emitSvelteLibrary({output});
- assert.equal(second.components.flatMap(x=>x.semanticVariants).length,66);
+ assert.equal(second.components.flatMap(x=>x.semanticVariants).length,expectedSemanticVariantCount);
  assert.equal(fs.readFileSync(path.join(output,`components/${inputGroupComposition.component}.svelte`),'utf8'),source);
  assert.match(source,/<div data-kumo-component="InputGroup"><label for=\{inputGroupId\}>/);
  assert.match(source,/part\.export === '\.Addon'[\s\S]*part\.export === '\.Input'[\s\S]*part\.export === '\.Button'[\s\S]*part\.export === '\.Suffix'/);
@@ -432,10 +435,10 @@ test('supported combobox collection lowers canonical compound fixture determinis
  fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
  const {comboboxCollection}=loadLibrary();
  const first=emitSvelteLibrary({output});
- assert.equal(first.components.flatMap(x=>x.semanticVariants).length,66);
+ assert.equal(first.components.flatMap(x=>x.semanticVariants).length,expectedSemanticVariantCount);
  const source=fs.readFileSync(path.join(output,`components/${comboboxCollection.component}.svelte`),'utf8');
  const second=emitSvelteLibrary({output});
- assert.equal(second.components.flatMap(x=>x.semanticVariants).length,66);
+ assert.equal(second.components.flatMap(x=>x.semanticVariants).length,expectedSemanticVariantCount);
  assert.equal(fs.readFileSync(path.join(output,`components/${comboboxCollection.component}.svelte`),'utf8'),source);
  assert.match(source,/<input bind:this=\{comboboxInput\} role="combobox"/);
  assert.match(source,/<ul role="listbox">/);
@@ -460,10 +463,10 @@ test('supported autocomplete collection lowers canonical compound fixture determ
  fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
  const {autocompleteCollection}=loadLibrary();
  const first=emitSvelteLibrary({output});
- assert.equal(first.components.flatMap(x=>x.semanticVariants).length,66);
+ assert.equal(first.components.flatMap(x=>x.semanticVariants).length,expectedSemanticVariantCount);
  const source=fs.readFileSync(path.join(output,`components/${autocompleteCollection.component}.svelte`),'utf8');
  const second=emitSvelteLibrary({output});
- assert.equal(second.components.flatMap(x=>x.semanticVariants).length,66);
+ assert.equal(second.components.flatMap(x=>x.semanticVariants).length,expectedSemanticVariantCount);
  assert.equal(fs.readFileSync(path.join(output,`components/${autocompleteCollection.component}.svelte`),'utf8'),source);
  assert.match(source,/^<!--[\s\S]*?<input bind:this=\{autocompleteInput\} role="combobox"/);
  assert.match(source,/<ul role="listbox">/);
@@ -486,10 +489,10 @@ test('supported autocomplete collection lowers canonical compound fixture determ
 test('supported sensitive-input lowers generically and deterministically',()=>{
  const {sensitiveInput}=loadLibrary();
  const first=emitSvelteLibrary({output});
- assert.equal(first.components.flatMap(x=>x.semanticVariants).length,66);
+ assert.equal(first.components.flatMap(x=>x.semanticVariants).length,expectedSemanticVariantCount);
  const source=fs.readFileSync(path.join(output,`components/${sensitiveInput.component}.svelte`),'utf8');
  const second=emitSvelteLibrary({output});
- assert.equal(second.components.flatMap(x=>x.semanticVariants).length,66);
+ assert.equal(second.components.flatMap(x=>x.semanticVariants).length,expectedSemanticVariantCount);
  assert.equal(fs.readFileSync(path.join(output,`components/${sensitiveInput.component}.svelte`),'utf8'),source);
  assert.match(source,/<div data-kumo-component="SensitiveInput"><div data-kumo-part="masked-container"/);
  assert.match(source,/<input bind:this=\{sensitiveInputElement\} type="password"/);
@@ -508,10 +511,10 @@ test('supported dialog-layer lowers generically with a deterministic portal and 
  fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
  const {dialogLayer}=loadLibrary();
  const first=emitSvelteLibrary({output});
- assert.equal(first.components.flatMap(x=>x.semanticVariants).length,66);
+ assert.equal(first.components.flatMap(x=>x.semanticVariants).length,expectedSemanticVariantCount);
  const source=fs.readFileSync(path.join(output,`components/${dialogLayer.component}.svelte`),'utf8');
  const second=emitSvelteLibrary({output});
- assert.equal(second.components.flatMap(x=>x.semanticVariants).length,66);
+ assert.equal(second.components.flatMap(x=>x.semanticVariants).length,expectedSemanticVariantCount);
  assert.equal(fs.readFileSync(path.join(output,`components/${dialogLayer.component}.svelte`),'utf8'),source);
  assert.match(source,/<button bind:this=\{dialogTrigger\} type="button" data-kumo-component="Dialog" data-kumo-part="trigger" aria-haspopup="dialog"/);
  assert.match(source,/<div use:portal role="dialog" tabindex="-1" bind:this=\{dialogContent\}>/);
@@ -602,7 +605,7 @@ test('supported command-palette lowers highlighted text and open palette determi
  fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
  const {commandPalette}=loadLibrary();
  const first=emitSvelteLibrary({output});
- assert.equal(first.components.flatMap(x=>x.semanticVariants).length,66);
+ assert.equal(first.components.flatMap(x=>x.semanticVariants).length,expectedSemanticVariantCount);
  const source=fs.readFileSync(path.join(output,`components/${commandPalette.component}.svelte`),'utf8');
  emitSvelteLibrary({output});
  assert.equal(fs.readFileSync(path.join(output,`components/${commandPalette.component}.svelte`),'utf8'),source);
@@ -623,7 +626,7 @@ test('supported command-palette lowers highlighted text and open palette determi
  assert.equal((paletteHtml.match(/role="option"/g)??[]).length,2);
 });
 
-test('supported toast lifecycle lowers Toasty observable behavior without lowering vendor unknowns',async t=>{
+test('supported toast lifecycle exposes the public Toasty manager contract',async t=>{
  const build=fs.mkdtempSync(path.join(os.tmpdir(),'kumo-svelte-toasty-'));
  t.after(()=>fs.rmSync(build,{recursive:true,force:true}));
  fs.symlinkSync(path.resolve('node_modules'),path.join(build,'node_modules'),'dir');
@@ -631,26 +634,47 @@ test('supported toast lifecycle lowers Toasty observable behavior without loweri
  assert.equal(toastLifecycle.support,'requirements-only');
  assert.equal(toastLifecycle.observableImplementation.support,'supported');
  const first=emitSvelteLibrary({output});
- assert.equal(first.components.flatMap(x=>x.semanticVariants).length,66);
+ assert.equal(first.components.flatMap(x=>x.semanticVariants).length,expectedSemanticVariantCount);
  const source=fs.readFileSync(path.join(output,`components/${toastLifecycle.component}.svelte`),'utf8');
  emitSvelteLibrary({output});
  assert.equal(fs.readFileSync(path.join(output,`components/${toastLifecycle.component}.svelte`),'utf8'),source);
- assert.match(source,/data-kumo-component="Toasty"/);
- assert.match(source,/data-notify aria-label="Notify" onclick=\{notifyToast\}><\/button>/);
- assert.match(source,/role="status" aria-live="polite"/);
- assert.match(source,/Saved<\/strong><span>Changes saved/);
- assert.match(source,/data-toast-action onclick=\{activateToast\}/);
- assert.match(source,/aria-label="Close" onclick=\{closeToast\}/);
- assert.match(source,/onNotify\?: \(\) => void/);
- assert.match(source,/onAction\?: \(\) => void/);
- assert.match(source,/setTimeout\(\(\) => \{ toastVisible = false; if \(document\.activeElement === close\) close\?\.blur\(\); \}, 300\)/);
- assert.doesNotMatch(source,/function\s+\w+\([^)]*\w+\?:|@html|innerHTML|dispatchEvent|stable-id-contract|multi-toast-queue|automatic-timeout|pause-resume/);
+ assert.match(source,/export function createKumoToastManager\(\): KumoToastManager/);
+ assert.match(source,/export function useKumoToastManager\(\): KumoToastManager/);
+ assert.match(source,/export const Toast = Object\.freeze\(\{ createToastManager: createKumoToastManager, useToastManager: useKumoToastManager \}\)/);
+ assert.match(source,/role="status" data-kumo-component="Toast"/);
+ assert.match(source,/providerToastManager\.close\(toast\.id\)/);
+ assert.doesNotMatch(source,/data-notify|notifyToast|synthetic-trigger|onNotify\?:|onAction\?:|@html|innerHTML|dispatchEvent/);
+ const declaration=fs.readFileSync(path.join(output,'components/toasty.svelte.d.ts'),'utf8');
+ for(const publicType of ['KumoToastVariant','KumoToastAction','KumoToastOptions','KumoToast','KumoToastManager']) assert.match(declaration,new RegExp(`export type ${publicType}\\b`));
+ assert.match(declaration,/export declare function createKumoToastManager\(\): KumoToastManager/);
+ assert.match(declaration,/export declare const Toast:/);
+ const rootIndex=fs.readFileSync(path.join(output,'index.js'),'utf8');
+ const toastEntry=fs.readFileSync(path.join(output,'toast.js'),'utf8');
+ for(const entry of [rootIndex,toastEntry]) assert.match(entry,/Toasty, default as ToastProvider, Toast, createKumoToastManager, useKumoToastManager/);
+ assert.deepEqual(first.exports['./toast'],{types:'./toast.d.ts',svelte:'./toast.js',default:'./toast.js'});
  const compiled=compile(source,{filename:'toasty.svelte',generate:'server'});
  const target=path.join(build,'toasty.mjs');fs.writeFileSync(target,compiled.js.code);
- const Toasty=(await import(pathToFileURL(target)+`?${Date.now()}`)).default;
+ const toastyModule=await import(pathToFileURL(target)+`?${Date.now()}`);
  const children=payload=>payload.push('Application');
- const html=render(Toasty,{props:{children}}).body.replace(/<!--[\s\S]*?-->/g,'');
- assert.match(html,/^<div data-kumo-component="Toasty">Application<button type="button" data-notify="" aria-label="Notify"><\/button><\/div>$/);
+ const initialHtml=render(toastyModule.default,{props:{children}}).body.replace(/<!--[\s\S]*?-->/g,'');
+ assert.equal(initialHtml,'Application');
+ assert.doesNotMatch(initialHtml,/button|data-notify|role="status"/);
+ const snapshots=[];let closed=0,removed=0;
+ const manager=toastyModule.createKumoToastManager();
+ const unsubscribe=manager.subscribe(toasts=>snapshots.push(toasts.map(toast=>({...toast}))));
+ assert.deepEqual(snapshots,[[]]);
+ const id=manager.add({title:'Saved',description:'Changes saved',timeout:0,onClose:()=>closed++,onRemove:()=>removed++});
+ assert.match(id,/^kumo-toast-\d+$/);
+ assert.deepEqual(manager.toasts.map(({id,title,description})=>({id,title,description})),[{id,title:'Saved',description:'Changes saved'}]);
+ manager.close(id);
+ assert.equal(closed,1);
+ assert.equal(manager.toasts[0].transitionStatus,'ending');
+ await new Promise(resolve=>setTimeout(resolve,325));
+ assert.deepEqual(manager.toasts,[]);
+ assert.equal(removed,1);
+ assert.deepEqual(snapshots.map(toasts=>toasts.length),[0,1,1,0]);
+ unsubscribe();
+ manager.destroy();
 });
 
 test('binds model digests and publishes root and per-component metadata',()=>{
