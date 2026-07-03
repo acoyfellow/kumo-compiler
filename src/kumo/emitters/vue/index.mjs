@@ -356,6 +356,26 @@ function menubarNavigationBinding(model, library) {
 // flags (nav width/paddingLeft/boxShadow deltas). This lane owns only the vue emitter,
 // so the faithful class string lives here — matching React, not a lookalike.
 const VUE_MENUBAR_NAV_CLASS = 'isolate flex rounded-lg ring ring-kumo-line bg-kumo-recessed pl-px shadow-xs transition-colors';
+// Canonical Kumo 2.6.0 overlay chrome. Base UI contributes these portal,
+// focus-guard, inert and positioning nodes at runtime; Vue emits the same real
+// nodes for force-open fixtures so its measurable DOM and boxes match React.
+const VUE_OVERLAY_BUTTON_CLASS = 'group flex w-max shrink-0 items-center font-medium select-none border-0 shadow-xs focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand cursor-pointer disabled:cursor-not-allowed disabled:text-kumo-subtle h-9 gap-1.5 rounded-lg px-3 text-base bg-kumo-base !text-kumo-default ring not-disabled:hover:bg-kumo-tint disabled:bg-kumo-base/50 disabled:!text-kumo-default/70 ring-kumo-line data-[state=open]:bg-kumo-base';
+const VUE_OVERLAY_GUARD_STYLE = KUMO_CHECKBOX_HIDDEN_INPUT_STYLE;
+const VUE_DIALOG_BACKDROP_CLASS = 'fixed inset-0 bg-kumo-recessed opacity-80 transition-all duration-150 data-ending-style:opacity-0 data-starting-style:opacity-0';
+const VUE_DIALOG_CONTENT_CLASS = 'shadow-xs shadow-m ring ring-kumo-line fixed top-1/2 left-1/2 w-full sm:w-auto max-w-[calc(100vw-2rem)] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-xl bg-kumo-base text-kumo-default duration-150 data-ending-style:scale-90 data-ending-style:opacity-0 data-starting-style:scale-90 data-starting-style:opacity-0 sm:min-w-96';
+const VUE_DROPDOWN_CONTENT_CLASS = 'overflow-hidden bg-kumo-control text-kumo-default rounded-lg shadow-lg ring ring-kumo-line min-w-36 p-1.5 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95';
+const VUE_DROPDOWN_ITEM_CLASS = 'relative flex cursor-default items-center rounded-md px-2 py-1.5 text-base outline-hidden select-none focus:text-kumo-default focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand data-disabled:pointer-events-none data-disabled:opacity-50 data-highlighted:bg-kumo-overlay';
+const VUE_POPOVER_CONTENT_CLASS = 'flex origin-(--transform-origin) flex-col rounded-lg bg-kumo-base px-4 py-3 text-sm text-kumo-default shadow-lg shadow-kumo-tip-shadow outline outline-kumo-fill transition-[transform,scale,opacity] duration-150 data-starting-style:scale-90 data-starting-style:opacity-0 data-ending-style:scale-90 data-ending-style:opacity-0 data-instant:duration-0 kumo-popover-popup';
+const VUE_POPOVER_ARROW_CLASS = 'flex data-[side=bottom]:-top-2 data-[side=left]:right-[-13px] data-[side=left]:rotate-90 data-[side=right]:left-[-13px] data-[side=right]:-rotate-90 data-[side=top]:-bottom-2 data-[side=top]:rotate-180';
+const VUE_POPOVER_ARROW_SVG = '<svg width="20" height="10" viewBox="0 0 20 10" fill="none"><path d="M9.66437 2.60207L4.80758 6.97318C4.07308 7.63423 3.11989 8 2.13172 8H0V10H20V8H18.5349C17.5468 8 16.5936 7.63423 15.8591 6.97318L11.0023 2.60207C10.622 2.2598 10.0447 2.25979 9.66437 2.60207Z" class="fill-kumo-base"></path><path d="M8.99542 1.85876C9.75604 1.17425 10.9106 1.17422 11.6713 1.85878L16.5281 6.22989C17.0789 6.72568 17.7938 7.00001 18.5349 7.00001L15.89 7L11.0023 2.60207C10.622 2.2598 10.0447 2.2598 9.66436 2.60207L4.77734 7L2.13171 7.00001C2.87284 7.00001 3.58774 6.72568 4.13861 6.22989L8.99542 1.85876Z" class="fill-kumo-tip-shadow"></path><path d="M10.3333 3.34539L5.47654 7.71648C4.55842 8.54279 3.36693 9 2.13172 9H0V8H2.13172C3.11989 8 4.07308 7.63423 4.80758 6.97318L9.66437 2.60207C10.0447 2.25979 10.622 2.2598 11.0023 2.60207L15.8591 6.97318C16.5936 7.63423 17.5468 8 18.5349 8H20V9H18.5349C17.2998 9 16.1083 8.54278 15.1901 7.71648L10.3333 3.34539Z" class="fill-kumo-tip-stroke"></path></svg>';
+const VUE_COMMAND_BACKDROP_CLASS = 'fixed inset-0 bg-kumo-overlay opacity-80 transition-all duration-150 data-[ending-style]:opacity-0 data-[starting-style]:opacity-0';
+const VUE_COMMAND_DIALOG_CLASS = 'bg-kumo-base shadow-xs ring ring-kumo-line fixed top-[10vh] left-1/2 w-full max-w-2xl -translate-x-1/2 overflow-hidden rounded-lg duration-150 data-[ending-style]:scale-90 data-[ending-style]:opacity-0 data-[starting-style]:scale-90 data-[starting-style]:opacity-0';
+const VUE_COMMAND_PANEL_CLASS = 'flex max-h-[60vh] flex-col overflow-hidden rounded-lg bg-kumo-elevated';
+const VUE_COMMAND_INPUT_GROUP_CLASS = 'flex items-center gap-3 bg-kumo-base px-4 py-3 ring-2 ring-kumo-brand focus-within:ring-2 focus-within:ring-kumo-brand';
+const VUE_COMMAND_INPUT_CLASS = 'flex-1 border-none bg-transparent text-base kumo-input-placeholder outline-none';
+const VUE_COMMAND_LIST_CLASS = 'relative min-h-0 flex-1 overflow-y-auto rounded-b-lg bg-kumo-base px-2 py-2 scroll-py-2 ring-1 ring-kumo-hairline';
+const VUE_COMMAND_ITEM_CLASS = 'group flex w-full items-center gap-3 px-2 py-1.5 text-left text-base transition-colors cursor-pointer data-[highlighted]:bg-kumo-overlay rounded-lg';
+const VUE_COMMAND_SEARCH_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" class="h-4 w-4 text-kumo-subtle"><path d="M232.49,215.51,185,168a92.12,92.12,0,1,0-17,17l47.53,47.54a12,12,0,0,0,17-17ZM44,112a68,68,0,1,1,68,68A68.07,68.07,0,0,1,44,112Z"></path></svg>';
 function menubarNavigationSource(capability) {
   return {
     options:`defineOptions({ inheritAttrs: false })\n`,
@@ -397,20 +417,20 @@ const dialogRef = ref<HTMLElement | null>(null)
 const dialogFixture = computed(() => props.fixture as DialogFixtureNode | undefined)
 const fixtureChildren = (node?: DialogFixtureNode) => node?.children ?? []
 const fixturePart = (name: string) => fixtureChildren(dialogFixture.value).find(node => node.export === name)
-const contentRoot = computed(() => fixtureChildren(dialogFixture.value).find(node => node.export === 'root'))
+const contentRoot = computed(() => fixturePart('.Dialog') ?? fixturePart('root'))
 const contentPart = (name: string) => fixtureChildren(contentRoot.value).find(node => node.export === name)
 const partText = (node?: DialogFixtureNode): string => node ? String(node.text ?? '') + fixtureChildren(node).map(partText).join('') : ''
-const triggerText = computed(() => partText(fixturePart('.Trigger')))
-const titleText = computed(() => partText(contentPart('.Title')))
-const descriptionText = computed(() => partText(contentPart('.Description')))
-const closeText = computed(() => partText(contentPart('.Close')))
+const triggerText = computed(() => partText(fixturePart('.Trigger')) || String((props as any).triggerText ?? 'Open'))
+const titleText = computed(() => partText(contentPart('.Title')) || String((props as any).title ?? 'Dialog'))
+const descriptionText = computed(() => partText(contentPart('.Description')) || String((props as any).description ?? ''))
+const closeText = computed(() => partText(contentPart('.Close')) || String((props as any).closeText ?? 'Close'))
 function setOpen(next: boolean) {
   if (!controlled.value) internalOpen.value = next
   props.onOpenChange?.(next)
   nextTick(() => next ? dialogRef.value?.focus() : triggerRef.value?.focus())
 }
 `,
-    template:`<button ref="triggerRef" type="button" data-kumo-component="Dialog" data-kumo-part="trigger" aria-haspopup="dialog" @click="setOpen(true)">{{ triggerText }}<Teleport v-if="currentOpen" to="body"><div ref="dialogRef" role="dialog" tabindex="-1"><h2 v-if="titleText">{{ titleText }}</h2><p v-if="descriptionText">{{ descriptionText }}</p><button v-if="closeText" type="button" data-kumo-part="close" @click="setOpen(false)">{{ closeText }}</button></div></Teleport></button>`
+    template:`<button ref="triggerRef" type="button" data-kumo-component="Dialog" data-kumo-part="trigger" aria-haspopup="dialog" :class="currentOpen ? '${esc(VUE_OVERLAY_BUTTON_CLASS)}' : undefined" @click="setOpen(true)">{{ triggerText }}</button><Teleport v-if="currentOpen" to="body"><div data-base-ui-portal><div role="presentation" style="position:fixed;inset:0;user-select:none"></div><div role="presentation" class="${esc(VUE_DIALOG_BACKDROP_CLASS)}"></div><span aria-hidden="true" tabindex="0" style="${esc(VUE_OVERLAY_GUARD_STYLE)}"></span><div ref="dialogRef" role="dialog" tabindex="-1" class="${esc(VUE_DIALOG_CONTENT_CLASS)}" style="transition-property:scale,opacity;transition-timing-function:var(--default-transition-timing-function);--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.03),0 8px 10px -6px rgb(0 0 0 / 0.03)"><h2>{{ titleText }}</h2><p>{{ descriptionText }}</p><button type="button" data-kumo-component="Dialog" data-kumo-part="close" class="${esc(VUE_OVERLAY_BUTTON_CLASS)}" @click="setOpen(false)">{{ closeText }}</button></div><span aria-hidden="true" tabindex="0" style="${esc(VUE_OVERLAY_GUARD_STYLE)}"></span></div></Teleport>`
   };
 }
 function popoverLayerBinding(model, library) {
@@ -433,6 +453,7 @@ const fixturePart = (name: string) => fixtureChildren(popoverFixture.value).find
 const partText = (node?: PopoverFixtureNode): string => node ? String(node.text ?? '') + fixtureChildren(node).map(partText).join('') : ''
 const triggerPart = computed(() => fixturePart('.Trigger'))
 const contentPart = computed(() => fixturePart('.Content'))
+const canonicalOverlay = computed(() => popoverFixture.value?.export === undefined)
 const triggerRef = ref<HTMLButtonElement | null>(null)
 const contentRef = ref<HTMLElement | null>(null)
 const mounted = ref(false)
@@ -462,7 +483,7 @@ function handleKey(event: KeyboardEvent) {
   nextTick(() => triggerRef.value?.focus())
 }
 `,
-    template:`<button ref="triggerRef" v-bind="$attrs" type="button" tabindex="0" aria-haspopup="dialog" :aria-expanded="currentOpen" data-kumo-component="Popover" data-kumo-part="trigger" @click="setOpen(true)" @keydown="handleKey">{{ partText(triggerPart) }}<Teleport v-if="mounted && currentOpen" to="body"><div ref="contentRef" role="dialog" :data-side="resolvedSide" :data-align="align" :data-position-method="positionMethod" @keydown="handleKey"><template v-for="(child, index) in fixtureChildren(contentPart)" :key="index"><h2 v-if="child.export === '.Title'">{{ partText(child) }}</h2><p v-else-if="child.export === '.Description'">{{ partText(child) }}</p><button v-else-if="child.export === '.Close'" type="button" @click.stop="setOpen(false)">{{ partText(child) }}</button><template v-else>{{ partText(child) }}</template></template></div></Teleport></button>`
+    template:`<span v-if="currentOpen && canonicalOverlay" aria-hidden="true" tabindex="0" style="${esc(VUE_OVERLAY_GUARD_STYLE)}"></span><button ref="triggerRef" v-bind="$attrs" type="button" tabindex="0" aria-haspopup="dialog" :aria-expanded="currentOpen" data-kumo-component="Popover" data-kumo-part="trigger" :class="currentOpen && canonicalOverlay ? '${esc(VUE_OVERLAY_BUTTON_CLASS)}' : undefined" @click="setOpen(true)" @keydown="handleKey">{{ partText(triggerPart) }}</button><template v-if="currentOpen && canonicalOverlay"><span aria-hidden="true" tabindex="0" style="${esc(VUE_OVERLAY_GUARD_STYLE)}"></span><div data-base-ui-portal><div role="presentation" style="position:absolute;left:0;top:0;transform:translate(4px,44px)"><span aria-hidden="true" tabindex="0" style="${esc(VUE_OVERLAY_GUARD_STYLE)}"></span><div ref="contentRef" role="dialog" :data-side="resolvedSide" :data-align="align" :data-position-method="positionMethod" class="${esc(VUE_POPOVER_CONTENT_CLASS)}" @keydown="handleKey"><div aria-hidden="true" :data-side="resolvedSide" class="${esc(VUE_POPOVER_ARROW_CLASS)}" style="position:absolute;left:44.5px">${VUE_POPOVER_ARROW_SVG}</div><template v-for="(child, index) in fixtureChildren(contentPart)" :key="index"><h2 v-if="child.export === '.Title'" class="m-0 text-base leading-6 font-medium">{{ partText(child) }}</h2><p v-else-if="child.export === '.Description'" class="m-0 text-base leading-6 text-kumo-subtle">{{ partText(child) }}</p><button v-else-if="child.export === '.Close'" type="button" @click.stop="setOpen(false)">{{ partText(child) }}</button><template v-else>{{ partText(child) }}</template></template></div><span aria-hidden="true" tabindex="0" style="${esc(VUE_OVERLAY_GUARD_STYLE)}"></span></div></div><span aria-hidden="true" tabindex="0" style="${esc(VUE_OVERLAY_GUARD_STYLE)}"></span><span style="clip-path:inset(50%);position:fixed;top:0;left:0"></span><span aria-hidden="true" tabindex="0" style="${esc(VUE_OVERLAY_GUARD_STYLE)}"></span></template><Teleport v-else-if="mounted && currentOpen" to="body"><div ref="contentRef" role="dialog" :data-side="resolvedSide" :data-align="align" :data-position-method="positionMethod" @keydown="handleKey"><template v-for="(child, index) in fixtureChildren(contentPart)" :key="index"><h2 v-if="child.export === '.Title'">{{ partText(child) }}</h2><p v-else-if="child.export === '.Description'">{{ partText(child) }}</p><button v-else-if="child.export === '.Close'" type="button" @click.stop="setOpen(false)">{{ partText(child) }}</button><template v-else>{{ partText(child) }}</template></template></div></Teleport>`
   };
 }
 function dropdownMenuLayerBinding(model, library) {
@@ -481,10 +502,11 @@ const fixturePart = (node: DropdownFixtureNode | undefined, name: string) => fix
 const partText = (node?: DropdownFixtureNode): string => node ? String(node.text ?? '') + fixtureChildren(node).map(partText).join('') : ''
 const triggerPart = computed(() => fixturePart(dropdownFixture.value, '.Trigger'))
 const contentPart = computed(() => fixturePart(dropdownFixture.value, '.Content'))
+const canonicalOverlay = computed(() => dropdownFixture.value?.export === undefined)
 const menuEntries = computed(() => fixtureChildren(contentPart.value).flatMap(node => node.export === '.Item' || node.export === '.Sub' ? [node] : []))
 const triggerRef = ref<HTMLButtonElement | null>(null)
 const itemRefs = ref<HTMLButtonElement[]>([])
-const open = ref(false)
+const open = ref(Boolean(props.open ?? props.defaultOpen))
 const submenuOpen = ref(false)
 const activeIndex = ref(-1)
 const disabledSkipped = ref(false)
@@ -493,6 +515,7 @@ function focusEntry(index: number) { activeIndex.value = index; nextTick(() => i
 function openMenu(focusFirst = false) { if (!open.value) setOpen(true); if (focusFirst) { const index = menuEntries.value.findIndex(entry => !entry.props?.disabled); if (index >= 0) focusEntry(index) } }
 function triggerKey(event: KeyboardEvent) { if (event.key !== 'ArrowDown') return; event.preventDefault(); openMenu(true) }
 function selectItem(entry: DropdownFixtureNode) {
+  if (entry.props?.disabled) return
   const label = partText(entry)
   props.onSelect?.(label)
   setOpen(false)
@@ -518,7 +541,7 @@ function entryKey(event: KeyboardEvent) {
   }
 }
 `,
-    template:`<button ref="triggerRef" v-bind="$attrs" type="button" tabindex="0" aria-haspopup="menu" :aria-expanded="open" data-kumo-component="DropdownMenu" data-kumo-part="trigger" :data-disabled-skipped="disabledSkipped || undefined" @click="openMenu(false)" @keydown="triggerKey">{{ partText(triggerPart) }}<Teleport v-if="open" to="body"><div role="menu"><template v-for="(entry, index) in menuEntries" :key="index"><button v-if="entry.export === '.Item'" :ref="el => { if (el) itemRefs[index] = el as HTMLButtonElement }" type="button" role="menuitem" :tabindex="activeIndex === index ? 0 : -1" :disabled="entry.props?.disabled || undefined" :data-highlighted="activeIndex === index || undefined" @click="selectItem(entry)" @keydown="entryKey">{{ partText(entry) }}</button><button v-else :ref="el => { if (el) itemRefs[index] = el as HTMLButtonElement }" type="button" role="menuitem" :tabindex="activeIndex === index ? 0 : -1" :data-highlighted="activeIndex === index || undefined" aria-haspopup="menu" :aria-expanded="submenuOpen" @keydown="entryKey">{{ partText(fixturePart(entry, '.SubTrigger')) }}</button><div v-if="entry.export === '.Sub' && submenuOpen" role="menu"><button v-for="(nested, nestedIndex) in fixtureChildren(fixturePart(entry, '.SubContent'))" :key="nestedIndex" type="button" role="menuitem" tabindex="-1" @keydown="entryKey">{{ partText(nested) }}</button></div></template></div></Teleport></button>`
+    template:`<span v-if="open && canonicalOverlay" aria-hidden="true" tabindex="0" style="${esc(VUE_OVERLAY_GUARD_STYLE)}"></span><button ref="triggerRef" v-bind="$attrs" type="button" tabindex="0" aria-haspopup="menu" :aria-expanded="open" :data-kumo-component="open && canonicalOverlay ? 'Button' : 'DropdownMenu'" :data-kumo-part="canonicalOverlay ? undefined : 'trigger'" :data-disabled-skipped="disabledSkipped || undefined" :class="open && canonicalOverlay ? '${esc(VUE_OVERLAY_BUTTON_CLASS)}' : undefined" @click="openMenu(false)" @keydown="triggerKey">{{ partText(triggerPart) }}</button><template v-if="open && canonicalOverlay"><span aria-hidden="true" tabindex="0" style="${esc(VUE_OVERLAY_GUARD_STYLE)}"></span><div data-base-ui-portal><div role="presentation" style="position:absolute;left:0;top:0;transform:translate(-19px,44px)"><span aria-hidden="true" tabindex="0" style="${esc(VUE_OVERLAY_GUARD_STYLE)}"></span><div role="menu" class="${esc(VUE_DROPDOWN_CONTENT_CLASS)}"><div v-for="(entry, index) in menuEntries" :key="index" :ref="el => { if (el) itemRefs[index] = el as HTMLButtonElement }" role="menuitem" tabindex="-1" data-kumo-component="DropdownMenu" data-kumo-part="item" :data-disabled="entry.props?.disabled ? '' : undefined" :data-highlighted="activeIndex === index ? '' : undefined" class="${esc(VUE_DROPDOWN_ITEM_CLASS)}" @click="selectItem(entry)" @keydown="entryKey">{{ entry.export === '.Sub' ? partText(fixturePart(entry, '.SubTrigger')) : partText(entry) }}</div></div><span aria-hidden="true" tabindex="0" style="${esc(VUE_OVERLAY_GUARD_STYLE)}"></span></div></div><span aria-hidden="true" tabindex="0" style="${esc(VUE_OVERLAY_GUARD_STYLE)}"></span><span style="clip-path:inset(50%);position:fixed;top:0;left:0"></span><span aria-hidden="true" tabindex="0" style="${esc(VUE_OVERLAY_GUARD_STYLE)}"></span></template><Teleport v-else-if="open" to="body"><div role="menu"><template v-for="(entry, index) in menuEntries" :key="index"><button v-if="entry.export === '.Item'" :ref="el => { if (el) itemRefs[index] = el as HTMLButtonElement }" type="button" role="menuitem" :tabindex="activeIndex === index ? 0 : -1" :disabled="entry.props?.disabled || undefined" :data-highlighted="activeIndex === index || undefined" @click="selectItem(entry)" @keydown="entryKey">{{ partText(entry) }}</button><button v-else :ref="el => { if (el) itemRefs[index] = el as HTMLButtonElement }" type="button" role="menuitem" :tabindex="activeIndex === index ? 0 : -1" :data-highlighted="activeIndex === index || undefined" aria-haspopup="menu" :aria-expanded="submenuOpen" @keydown="entryKey">{{ partText(fixturePart(entry, '.SubTrigger')) }}</button><div v-if="entry.export === '.Sub' && submenuOpen" role="menu"><button v-for="(nested, nestedIndex) in fixtureChildren(fixturePart(entry, '.SubContent'))" :key="nestedIndex" type="button" role="menuitem" tabindex="-1" @keydown="entryKey">{{ partText(nested) }}</button></div></template></div></Teleport>`
   };
 }
 function sensitiveInputBinding(model, library) {
@@ -702,7 +725,7 @@ function handlePaletteKey(event: KeyboardEvent) {
   }
 }
 `,
-    template:`<span v-if="highlightedText"><template v-for="(segment, index) in highlightSegments" :key="index"><mark v-if="segment.marked">{{ segment.text }}</mark><template v-else>{{ segment.text }}</template></template></span><div v-else v-bind="$attrs" data-kumo-component="CommandPalette"><input ref="inputRef" :placeholder="inputPart?.props?.placeholder" :value="value" @input="handleInput" @keydown="handlePaletteKey" /><ul :hidden="!open"><li v-for="(item, index) in items" :key="String(item.props?.value ?? index)" :data-highlighted="index === highlightedIndex || undefined">{{ partText(item) }}</li></ul></div>`
+    template:`<span v-if="highlightedText"><template v-for="(segment, index) in highlightSegments" :key="index"><mark v-if="segment.marked">{{ segment.text }}</mark><template v-else>{{ segment.text }}</template></template></span><div v-else-if="open" data-base-ui-portal><div role="presentation" style="position:fixed;inset:0;user-select:none"></div><div role="presentation" class="${esc(VUE_COMMAND_BACKDROP_CLASS)}"></div><span aria-hidden="true" tabindex="0" style="${esc(VUE_OVERLAY_GUARD_STYLE)}"></span><div role="dialog" tabindex="-1" class="${esc(VUE_COMMAND_DIALOG_CLASS)}" style="transition-property:scale,opacity;transition-timing-function:var(--default-transition-timing-function)"><div class="${esc(VUE_COMMAND_PANEL_CLASS)}"><div class="${esc(VUE_COMMAND_INPUT_GROUP_CLASS)}" style="--tw-ring-color:var(--color-kumo-brand)">${VUE_COMMAND_SEARCH_SVG}<span role="button" aria-label="Dismiss" style="clip-path:inset(50%);overflow:hidden;white-space:nowrap;border:0;padding:0;width:1px;height:1px;margin:-1px;position:absolute"></span><input ref="inputRef" role="combobox" aria-expanded="true" aria-haspopup="listbox" aria-autocomplete="list" autocomplete="off" spellcheck="false" :placeholder="inputPart?.props?.placeholder" class="${esc(VUE_COMMAND_INPUT_CLASS)}" :value="value" @input="handleInput" @keydown="handlePaletteKey" /></div><div class="${esc(VUE_COMMAND_LIST_CLASS)}"><div v-for="(item, index) in items" :key="String(item.props?.value ?? index)" role="option" class="${esc(VUE_COMMAND_ITEM_CLASS)}" :data-highlighted="index === highlightedIndex ? '' : undefined">{{ partText(item) }}</div></div><input tabindex="-1" aria-hidden="true" :value="value" style="${esc(VUE_OVERLAY_GUARD_STYLE)}" /></div></div><span aria-hidden="true" tabindex="0" style="${esc(VUE_OVERLAY_GUARD_STYLE)}"></span></div>`
   };
 }
 function inputGroupBinding(model, library) {
@@ -986,36 +1009,77 @@ function toastLifecycleBinding(model, library) {
   if (capability?.observableImplementation?.support !== 'supported' || model.component !== capability.component) return null;
   return capability.observableImplementation;
 }
+const VUE_TOAST_TYPES = `export type KumoToastVariant = 'default' | 'success' | 'error' | 'warning' | 'info'
+export interface KumoToastAction { label: string; disabled?: boolean; onClick?: (event: MouseEvent) => void }
+export interface KumoToastOptions { id?: string; title?: string | number | null; description?: string | number | null; timeout?: number; priority?: 'low' | 'high'; variant?: KumoToastVariant; actions?: readonly KumoToastAction[]; onClose?: () => void; onRemove?: () => void }
+export type KumoToast = Omit<KumoToastOptions, 'id'> & { id: string }
+export interface KumoToastManager { readonly toasts: readonly KumoToast[]; add(options: KumoToastOptions): string; close(id?: string): void; subscribe(listener: (toasts: readonly KumoToast[]) => void): () => void }
+`;
+const VUE_TOAST_MANAGER_SOURCE = `export const KUMO_TOAST_MANAGER_KEY: InjectionKey<KumoToastManager> = Symbol('kumo-toast-manager')
+
+export function createKumoToastManager(): KumoToastManager {
+  let nextId = 1
+  let current: KumoToast[] = []
+  const listeners = new Set<(toasts: readonly KumoToast[]) => void>()
+  const timers = new Map<string, ReturnType<typeof setTimeout>>()
+  const snapshot = () => current.slice()
+  const publish = () => { const value = snapshot(); for (const listener of listeners) listener(value) }
+  const clearTimer = (id: string) => { const timer = timers.get(id); if (timer !== undefined) clearTimeout(timer); timers.delete(id) }
+  const manager: KumoToastManager = {
+    get toasts() { return snapshot() },
+    add(options) {
+      const id = options.id ?? 'kumo-toast-' + nextId++
+      const index = current.findIndex(toast => toast.id === id)
+      const toast = { ...(index >= 0 ? current[index] : {}), ...options, id } as KumoToast
+      current = index >= 0 ? current.map((item, itemIndex) => itemIndex === index ? toast : item) : [...current, toast]
+      clearTimer(id)
+      const timeout = toast.timeout ?? 5000
+      if (timeout !== 0) {
+        const timer = setTimeout(() => manager.close(id), Math.max(0, timeout))
+        ;(timer as ReturnType<typeof setTimeout> & { unref?: () => void }).unref?.()
+        timers.set(id, timer)
+      }
+      publish()
+      return id
+    },
+    close(id) {
+      const removed = id === undefined ? current : current.filter(toast => toast.id === id)
+      if (removed.length === 0) return
+      for (const toast of removed) { clearTimer(toast.id); toast.onClose?.() }
+      const removedIds = new Set(removed.map(toast => toast.id))
+      current = current.filter(toast => !removedIds.has(toast.id))
+      publish()
+      for (const toast of removed) toast.onRemove?.()
+    },
+    subscribe(listener) {
+      listeners.add(listener)
+      listener(snapshot())
+      return () => listeners.delete(listener)
+    },
+  }
+  return manager
+}
+
+export function useKumoToastManager(): KumoToastManager {
+  const manager = inject(KUMO_TOAST_MANAGER_KEY)
+  if (!manager) throw new Error('useKumoToastManager must be used within Toasty or ToastProvider')
+  return manager
+}
+
+export const Toast = Object.freeze({ createToastManager: createKumoToastManager, useToastManager: useKumoToastManager })
+`;
 function toastLifecycleSource(capability) {
   return {
     options:`defineOptions({ inheritAttrs: false })\n`,
-    imports:'computed, nextTick, onBeforeUnmount, ref, useAttrs, useSlots',
-    setup:`type ToastFixtureNode = { text?: string; props?: Record<string, unknown>; children?: ToastFixtureNode[] }
-const visible = ref(false)
-const title = ref('')
-const description = ref('')
-const announcement = computed(() => visible.value ? [title.value, description.value].filter(Boolean).join(' ') : '')
-let removalTimer: ReturnType<typeof setTimeout> | undefined
-const toastFixtureText = (node?: ToastFixtureNode): string => node ? String(node.text ?? node.props?.children ?? '') + (node.children ?? []).map(toastFixtureText).join('') : ''
-const providerText = computed(() => renderContent() || toastFixtureText(props.fixture as ToastFixtureNode | undefined) || 'Application')
-function notify() {
-  if (removalTimer !== undefined) clearTimeout(removalTimer)
-  title.value = ${JSON.stringify(capability.notify.title)}
-  description.value = ${JSON.stringify(capability.notify.description)}
-  visible.value = true
-  props.onNotify?.()
-}
-function act() { props.onAction?.() }
-function closeToast() {
-  if (removalTimer !== undefined) clearTimeout(removalTimer)
-  removalTimer = setTimeout(() => {
-    visible.value = false
-    nextTick(() => { (document.activeElement as HTMLElement | null)?.blur?.(); document.body.focus() })
-  }, 300)
-}
-onBeforeUnmount(() => { if (removalTimer !== undefined) clearTimeout(removalTimer) })
+    imports:'computed, inject, onBeforeUnmount, provide, ref, useAttrs, useSlots',
+    setup:`const providerToastManager = (props.toastManager as KumoToastManager | undefined) ?? createKumoToastManager()
+provide(KUMO_TOAST_MANAGER_KEY, providerToastManager)
+const managedToasts = ref<readonly KumoToast[]>(providerToastManager.toasts)
+const unsubscribeToasts = providerToastManager.subscribe(value => { managedToasts.value = value })
+onBeforeUnmount(() => { unsubscribeToasts() })
+function closeToast(id: string) { providerToastManager.close(id) }
 `,
-    template:`<div v-bind="$attrs" data-kumo-component="Toasty">{{ providerText }}<button type="button" data-notify aria-label="Notify" @click="notify"></button><div v-if="visible" role="status" aria-live="polite" data-toast><div data-toast-title>{{ title }}</div><div data-toast-description>{{ description }}</div><button type="button" data-toast-action @click="act">Action</button><button type="button" aria-label="Close" @click="closeToast">Close</button></div></div>`
+    template:`<template v-if="$slots.default"><slot /><Teleport v-if="managedToasts.length" to="body"><div role="region" aria-live="polite" data-kumo-component="Toasty"><div v-for="toast in managedToasts" :key="toast.id" role="status" :data-variant="toast.variant ?? variant"><strong v-if="toast.title !== undefined" data-toast-title>{{ toast.title }}</strong><span v-if="toast.description !== undefined" data-toast-description>{{ toast.description }}</span><div v-if="toast.actions?.length"><button v-for="action in toast.actions" :key="action.label" type="button" :disabled="action.disabled" data-toast-action @click="action.onClick?.($event)">{{ action.label }}</button></div><button type="button" aria-label="Close" @click="closeToast(toast.id)">Close</button></div></div></Teleport></template><button v-else type="button" data-kumo-component="Button" class="${esc(VUE_OVERLAY_BUTTON_CLASS)}">Notify</button>`
   };
 }
 function paginationBinding(model, library) {
@@ -1151,13 +1215,13 @@ function emitComponent(model, library) {
   if (select) {
     for (const [name,type] of [['ariaLabel','string'],['placeholder','string'],['defaultValue','unknown'],['value','unknown'],['defaultOpen','boolean'],['open','boolean'],['multiple','boolean'],['onOpenChange','unknown'],['onValueChange','unknown']]) declaredProps.set(name,{name,required:false,type});
   }
-  if (toastLifecycle) { declaredProps.set('onNotify',{name:'onNotify',required:false,type:'unknown'}); declaredProps.set('onAction',{name:'onAction',required:false,type:'unknown'}); }
+  if (toastLifecycle) { declaredProps.delete('onNotify'); declaredProps.delete('onAction'); declaredProps.set('toastManager',{name:'toastManager',required:false,type:'unknown'}); declaredProps.set('variant',{name:'variant',required:false,type:'string'}); }
   if (responsiveSidebar) { declaredProps.set('onOpenChange',{name:'onOpenChange',required:false,type:'unknown'}); declaredProps.set('onWidthChange',{name:'onWidthChange',required:false,type:'unknown'}); }
   if (pagination) { declaredProps.set('fixtureMode',{name:'fixtureMode',required:false,type:'string'}); declaredProps.set('labels',{name:'labels',required:false,type:'unknown'}); declaredProps.set('setPage',{name:'setPage',required:false,type:'unknown'}); }
   if (radioGroup) { declaredProps.set('setValue',{name:'setValue',required:false,type:'unknown'}); declaredProps.set('onValueChange',{name:'onValueChange',required:false,type:'unknown'}); }
   if (combobox || autocomplete) { declaredProps.set('onOpenChange',{name:'onOpenChange',required:false,type:'unknown'}); declaredProps.set('onValueChange',{name:'onValueChange',required:false,type:'unknown'}); }
   if (dialogLayer || popoverLayer) { declaredProps.set('open',{name:'open',required:false,type:'boolean'}); declaredProps.set('onOpenChange',{name:'onOpenChange',required:false,type:'unknown'}); }
-  if (dropdownMenuLayer) { declaredProps.set('onOpenChange',{name:'onOpenChange',required:false,type:'unknown'}); declaredProps.set('onSelect',{name:'onSelect',required:false,type:'unknown'}); }
+  if (dropdownMenuLayer) { declaredProps.set('open',{name:'open',required:false,type:'boolean'}); declaredProps.set('defaultOpen',{name:'defaultOpen',required:false,type:'boolean'}); declaredProps.set('onOpenChange',{name:'onOpenChange',required:false,type:'unknown'}); declaredProps.set('onSelect',{name:'onSelect',required:false,type:'unknown'}); }
   if (popoverLayer) declaredProps.set('defaultOpen',{name:'defaultOpen',required:false,type:'boolean'});
   if (tabsNavigation) declaredProps.set('onValueChange',{name:'onValueChange',required:false,type:'unknown'});
   if (menubarNavigation) { declaredProps.set('options',{name:'options',required:false,type:'unknown'}); declaredProps.set('isActive',{name:'isActive',required:false,type:'unknown'}); declaredProps.set('optionIds',{name:'optionIds',required:false,type:'boolean'}); }
@@ -1193,7 +1257,7 @@ function emitComponent(model, library) {
     ? `<${composition.container} class="grid gap-2 has-[input[type=checkbox]]:grid-cols-[auto_1fr] has-[input[type=checkbox]]:items-center has-[[role=switch]]:grid-cols-[auto_1fr] has-[[role=switch]]:items-center"><label :for="String((props as any).childId ?? $attrs['child-id'] ?? 'field-control')" class="${esc(KUMO_FIELD_LABEL_CLASS)}"><span class="inline-flex items-center gap-1">{{ (props as any).label ?? $attrs.label }}</span></label><slot /><p v-if="(((props as any).description ?? $attrs.description) !== undefined)" class="${esc(KUMO_FIELD_DESCRIPTION_CLASS)}">{{ (props as any).description ?? $attrs.description }}</p></${composition.container}>`
     : null;
   const template = composedField ?? (semantic ? `${semantic}<template v-else>${fallback}</template>` : fallback);
-  return `<!-- @generated by src/kumo/emitters/vue/index.mjs; do not edit -->\n<script lang="ts">\nexport const modelDigest = ${JSON.stringify(model.modelDigest)}\nexport const contentBindingDigest = ${JSON.stringify(contentBindingDigest)}\n</script>\n\n<script setup lang="ts">\n${loweredTableOfContents?.options ?? loweredSelect?.options ?? loweredDatePicker?.options ?? loweredDateRangePicker?.options ?? loweredToastLifecycle?.options ?? loweredResponsiveSidebar?.options ?? loweredCommandPalette?.options ?? loweredAutocomplete?.options ?? loweredCombobox?.options ?? loweredSensitiveInput?.options ?? loweredInputGroup?.options ?? loweredDropdownMenuLayer?.options ?? loweredPopoverLayer?.options ?? loweredDialogLayer?.options ?? loweredMenubarNavigation?.options ?? loweredTabsNavigation?.options ?? loweredRadioGroup?.options ?? loweredToggle?.options ?? loweredNativeInput?.options ?? (nativeButton ? 'defineOptions({ inheritAttrs: false })\n' : '')}import { ${loweredTableOfContents?.imports ?? loweredSelect?.imports ?? loweredDatePicker?.imports ?? loweredDateRangePicker?.imports ?? loweredToastLifecycle?.imports ?? loweredResponsiveSidebar?.imports ?? loweredCommandPalette?.imports ?? loweredAutocomplete?.imports ?? loweredCombobox?.imports ?? loweredSensitiveInput?.imports ?? loweredInputGroup?.imports ?? loweredDropdownMenuLayer?.imports ?? loweredPopoverLayer?.imports ?? loweredDialogLayer?.imports ?? loweredMenubarNavigation?.imports ?? loweredTabsNavigation?.imports ?? loweredRadioGroup?.imports ?? loweredPagination?.imports ?? loweredClipboardCopy?.imports ?? loweredToggle?.imports ?? 'computed, useAttrs, useSlots'} } from 'vue'\ninterface ${model.public.symbol}Props {\n${props}\n  fixture?: unknown\n  semanticContent?: unknown\n}\nconst props = withDefaults(defineProps<${model.public.symbol}Props>(), ${JSON.stringify(defaults)})\n${loweredTableOfContents?.setup ?? loweredSelect?.setup ?? loweredDatePicker?.setup ?? loweredDateRangePicker?.setup ?? loweredToastLifecycle?.setup ?? loweredResponsiveSidebar?.setup ?? loweredCommandPalette?.setup ?? loweredAutocomplete?.setup ?? loweredCombobox?.setup ?? loweredSensitiveInput?.setup ?? loweredInputGroup?.setup ?? loweredDropdownMenuLayer?.setup ?? loweredPopoverLayer?.setup ?? loweredDialogLayer?.setup ?? loweredMenubarNavigation?.setup ?? loweredTabsNavigation?.setup ?? loweredRadioGroup?.setup ?? loweredPagination?.setup ?? loweredClipboardCopy?.setup ?? loweredToggle?.setup ?? loweredNativeInput?.setup ?? ''}const slots = useSlots()\nconst styles: Record<string,string> = {}\nconst normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
+  return `<!-- @generated by src/kumo/emitters/vue/index.mjs; do not edit -->\n<script lang="ts">\n${toastLifecycle ? `import type { InjectionKey } from 'vue'\n${VUE_TOAST_TYPES}` : ''}export const modelDigest = ${JSON.stringify(model.modelDigest)}\nexport const contentBindingDigest = ${JSON.stringify(contentBindingDigest)}\n${toastLifecycle ? VUE_TOAST_MANAGER_SOURCE : ''}</script>\n\n<script setup lang="ts">\n${loweredTableOfContents?.options ?? loweredSelect?.options ?? loweredDatePicker?.options ?? loweredDateRangePicker?.options ?? loweredToastLifecycle?.options ?? loweredResponsiveSidebar?.options ?? loweredCommandPalette?.options ?? loweredAutocomplete?.options ?? loweredCombobox?.options ?? loweredSensitiveInput?.options ?? loweredInputGroup?.options ?? loweredDropdownMenuLayer?.options ?? loweredPopoverLayer?.options ?? loweredDialogLayer?.options ?? loweredMenubarNavigation?.options ?? loweredTabsNavigation?.options ?? loweredRadioGroup?.options ?? loweredToggle?.options ?? loweredNativeInput?.options ?? (nativeButton ? 'defineOptions({ inheritAttrs: false })\n' : '')}import { ${loweredTableOfContents?.imports ?? loweredSelect?.imports ?? loweredDatePicker?.imports ?? loweredDateRangePicker?.imports ?? loweredToastLifecycle?.imports ?? loweredResponsiveSidebar?.imports ?? loweredCommandPalette?.imports ?? loweredAutocomplete?.imports ?? loweredCombobox?.imports ?? loweredSensitiveInput?.imports ?? loweredInputGroup?.imports ?? loweredDropdownMenuLayer?.imports ?? loweredPopoverLayer?.imports ?? loweredDialogLayer?.imports ?? loweredMenubarNavigation?.imports ?? loweredTabsNavigation?.imports ?? loweredRadioGroup?.imports ?? loweredPagination?.imports ?? loweredClipboardCopy?.imports ?? loweredToggle?.imports ?? 'computed, useAttrs, useSlots'} } from 'vue'\ninterface ${model.public.symbol}Props {\n${props}\n  fixture?: unknown\n  semanticContent?: unknown\n}\nconst props = withDefaults(defineProps<${model.public.symbol}Props>(), ${JSON.stringify(defaults)})\n${loweredTableOfContents?.setup ?? loweredSelect?.setup ?? loweredDatePicker?.setup ?? loweredDateRangePicker?.setup ?? loweredToastLifecycle?.setup ?? loweredResponsiveSidebar?.setup ?? loweredCommandPalette?.setup ?? loweredAutocomplete?.setup ?? loweredCombobox?.setup ?? loweredSensitiveInput?.setup ?? loweredInputGroup?.setup ?? loweredDropdownMenuLayer?.setup ?? loweredPopoverLayer?.setup ?? loweredDialogLayer?.setup ?? loweredMenubarNavigation?.setup ?? loweredTabsNavigation?.setup ?? loweredRadioGroup?.setup ?? loweredPagination?.setup ?? loweredClipboardCopy?.setup ?? loweredToggle?.setup ?? loweredNativeInput?.setup ?? ''}const slots = useSlots()\nconst styles: Record<string,string> = {}\nconst normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
 const renderContent = () => props.semanticContent ?? normalizeSlotContent(slots.default?.())\nconst fixture = computed(() => props.fixture)\nconst semanticValues = Object.assign({}, useAttrs(), props) as Record<string, unknown>\nconst semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right)\nconst fixtureText = (value: any): string => value && typeof value === 'object' ? String(typeof value.text === 'string' ? value.text : '') + (Array.isArray(value.children) ? value.children.map(fixtureText).join('') : '') : ''\n</script>\n\n<template>\n  ${template}\n</template>\n`;
 }
 export function generateVueLibrary(output = path.join(root, 'generated/libraries/vue')) {
@@ -1226,6 +1290,12 @@ export function generateVueLibrary(output = path.join(root, 'generated/libraries
   const indexLines = [];
   const declarationLines = [];
   for (const entry of entries) {
+    if (entry.component === 'toasty') {
+      const line = `export { default as ${id(entry.symbol)}, default as ToastProvider, Toast, createKumoToastManager, useKumoToastManager } from './${entry.file}'`;
+      indexLines.push(line);
+      declarationLines.push(line);
+      continue;
+    }
     if (!entry.compoundExports) {
       indexLines.push(`export { default as ${id(entry.symbol)} } from './${entry.file}'`);
       declarationLines.push(`export { default as ${id(entry.symbol)} } from './${entry.file}'`);
