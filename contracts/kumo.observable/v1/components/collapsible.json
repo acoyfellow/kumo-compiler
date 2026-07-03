@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "kumo.observable/v1",
+  "component": "collapsible",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.6.0",
+    "exportPath": "./components/collapsible",
+    "typesPath": "dist/src/components/collapsible/index.d.ts",
+    "runtimePath": "dist/components/collapsible.js",
+    "typesSha256": "8e2f11b9a1cfa9c2ae6a2a856b3b249fc6bfc35ca447d105d61a51c85efc0b02",
+    "runtimeSha256": "d8c8a83242e3966ce2f17ef2b46989a5174594d7d6300bdd073e740216153680",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "Collapsible"
+    ],
+    "props": {
+      "title": {
+        "type": "string"
+      },
+      "open": {
+        "type": "boolean"
+      },
+      "defaultOpen": {
+        "type": "boolean"
+      },
+      "children": {
+        "required": false
+      }
+    },
+    "defaults": {}
+  },
+  "semantics": {
+    "root": "div",
+    "aria": []
+  },
+  "initialState": {},
+  "transitions": [],
+  "keyboardFocus": {
+    "focusable": false,
+    "keys": []
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "identical"
+  },
+  "stylingAssets": {
+    "classes": [],
+    "assets": [
+      "disclosure wrapper div carrying data-open + title attribute"
+    ]
+  },
+  "vectors": [],
+  "unknowns": []
+}

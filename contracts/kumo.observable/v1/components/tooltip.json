@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "kumo.observable/v1",
+  "component": "tooltip",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.6.0",
+    "exportPath": "./components/tooltip",
+    "typesPath": "dist/src/components/tooltip/index.d.ts",
+    "runtimePath": "dist/components/tooltip.js",
+    "typesSha256": "f833fe96290f13da8a0cfcac30ac9c40c3bf3a0242a9d06bede991073d5c7cd5",
+    "runtimeSha256": "d8e52d4231d5e2c1a860f14922a58349625a210338f7d39d2700ce2737438127",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "Tooltip",
+      "TooltipProvider"
+    ],
+    "props": {
+      "content": {
+        "type": "unknown"
+      },
+      "children": {
+        "required": false
+      },
+      "open": {
+        "type": "boolean"
+      },
+      "defaultOpen": {
+        "type": "boolean"
+      }
+    },
+    "defaults": {}
+  },
+  "semantics": {
+    "root": "button",
+    "aria": []
+  },
+  "initialState": {},
+  "transitions": [],
+  "keyboardFocus": {
+    "focusable": true,
+    "keys": []
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "identical"
+  },
+  "stylingAssets": {
+    "classes": [
+      "inline-flex",
+      "items-center",
+      "bg-transparent",
+      "border-none",
+      "shadow-none",
+      "cursor-default"
+    ],
+    "assets": [
+      "base-ui tooltip trigger button; content is portalled on hover"
+    ]
+  },
+  "vectors": [],
+  "unknowns": []
+}

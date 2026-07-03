@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "kumo.observable/v1",
+  "component": "skeleton-line",
+  "canonical": {
+    "package": "@cloudflare/kumo",
+    "version": "2.6.0",
+    "exportPath": "./components/loader",
+    "typesPath": "dist/src/components/loader/index.d.ts",
+    "runtimePath": "dist/components/loader.js",
+    "typesSha256": "34f366c14562165b41694adb62dc5a52c6a53490366f28abdffb225490839946",
+    "runtimeSha256": "cb8b48e5d6cb53394ce93bd5aa2d7b8f3d7e4efaaeed7c2d99e02c8214e8fd33",
+    "irSchemaVersion": "kumo.ir/v1"
+  },
+  "publicApi": {
+    "exports": [
+      "SkeletonLine"
+    ],
+    "props": {
+      "minWidth": {
+        "type": "number"
+      },
+      "maxWidth": {
+        "type": "number"
+      },
+      "minDuration": {
+        "type": "number"
+      },
+      "maxDuration": {
+        "type": "number"
+      },
+      "minDelay": {
+        "type": "number"
+      },
+      "maxDelay": {
+        "type": "number"
+      },
+      "blockHeight": {
+        "type": "number|string"
+      },
+      "className": {
+        "type": "string"
+      }
+    },
+    "defaults": {}
+  },
+  "semantics": {
+    "root": "div",
+    "aria": []
+  },
+  "initialState": {},
+  "transitions": [],
+  "keyboardFocus": {
+    "focusable": false,
+    "keys": []
+  },
+  "ssrHydration": {
+    "ssr": "supported",
+    "hydration": "identical"
+  },
+  "stylingAssets": {
+    "classes": [
+      "skeleton-line"
+    ],
+    "assets": [
+      "css var driven width + shimmer overlay"
+    ]
+  },
+  "vectors": [],
+  "unknowns": []
+}

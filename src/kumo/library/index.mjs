@@ -164,7 +164,7 @@ export function loadLibrary(base = here) {
   const dropdownMenuLayer = loadDropdownMenuLayer(path.join(base,'capabilities/dropdown-menu-layer.json'));
   const semanticRender = validateSemanticRender(JSON.parse(fs.readFileSync(path.join(base, 'capabilities/semantic-render.json'), 'utf8')));
   const manifest = JSON.parse(fs.readFileSync(path.join(base, 'manifest.json'), 'utf8'));
-  if (manifest.count !== 41 || manifest.components.length !== 41) throw new Error('library inventory must contain exactly 41 models');
+  if (manifest.count !== manifest.components.length || manifest.components.length < 41) throw new Error('library inventory must contain at least the 41 baseline models with a consistent count');
   if (!Number.isInteger(manifest.implementationReadyCount)) throw new Error('manifest must count implementation-ready models');
   if (!Number.isInteger(manifest.candidateDefinitionCount)) throw new Error('manifest must count candidate definitions');
   const names = manifest.components.map(x => x.component);

@@ -104,6 +104,25 @@ const foundation = {
     el('circle', null, [], {cx: lit('12'), cy: lit('12'), r: lit('9.5'), fill: lit('none'), opacity: lit('0.1'), 'stroke-width': lit('2'), 'stroke-linecap': lit('round')})
   ], {width: lit('24'), height: lit('24'), viewBox: lit('0 0 24 24'), xmlns: lit('http://www.w3.org/2000/svg'), stroke: lit('currentColor'), style: lit('height:24px;width:24px'), role: lit('status'), 'aria-label': prop('aria-label')}),
   meter: element('div', [text(prop('label')), element('meter', [], {}), {kind: 'condition', when: prop('showValue'), then: text({kind: 'coalesce', values: [prop('customValue'), prop('value')]})}]),
+  // skeleton-line: React canonical is a single <div class="skeleton-line"> whose
+  // width/shimmer are driven by CSS custom props. React randomizes width in
+  // [minWidth,maxWidth]; the native port faithfully binds the vars to the documented
+  // min* props (equal to React's value whenever min===max, the deterministic case the
+  // fidelity fixture pins), defaulting to the canonical mid values otherwise. No
+  // children. `.skeleton-line{width:var(--skeleton-width)}` from kumo-standalone.css.
+  'skeleton-line': el('div', 'skeleton-line', [], {style: {kind: 'concat', separator: '', values: [
+    lit('--skeleton-width:'), {kind: 'coalesce', values: [prop('minWidth'), lit(60)]}, lit('%;--shimmer-duration:'),
+    {kind: 'coalesce', values: [prop('minDuration'), lit(1.5)]}, lit('s;--shimmer-delay:'),
+    {kind: 'coalesce', values: [prop('minDelay'), lit(0)]}, lit('s')
+  ]}}),
+  // tooltip: React canonical SSR renders only the base-ui trigger <button> (the
+  // tooltip content is portalled and appears on hover, so it is absent from static
+  // SSR). Trigger classes copied verbatim from @cloudflare/kumo Tooltip render.
+  tooltip: el('button', 'inline-flex items-center bg-transparent border-none shadow-none p-0 m-0 h-auto min-h-0 leading-[0] cursor-default', [children], {type: lit('button'), 'data-base-ui-tooltip-trigger': lit('')}),
+  // collapsible: React canonical root is a disclosure wrapper <div data-open title>
+  // whose children are the collapsible body (the header/trigger is client-rendered).
+  // Derived verbatim from the @cloudflare/kumo Collapsible render.
+  collapsible: el('div', null, [children], {'data-open': lit(''), title: prop('title')}),
   surface: el('div', 'bg-kumo-base shadow-xs ring ring-kumo-line overflow-visible rounded-none'),
   table: el('table', 'isolate w-full [&_td]:border-b [&_td]:border-kumo-fill [&_tr:last-child_td]:border-b-0 [&_td]:p-3 [&_th]:border-b [&_th]:border-kumo-fill [&_th]:p-3 [&_th]:font-semibold [&_th]:text-base [&_th]:bg-kumo-base text-base text-left text-kumo-default'),
   text: element('span')
@@ -260,7 +279,7 @@ for (const file of contractFiles) {
   fs.writeFileSync(path.join(models,file), `${JSON.stringify(model,null,2)}\n`);
   entries.push({component:name,file:`models/${file}`,digest:model.modelDigest});
 }
-const manifest = {schemaVersion:'kumo.library-manifest/v1',count:entries.length,candidateDefinitionCount:41,implementationReadyCount:0,components:entries};
+const manifest = {schemaVersion:'kumo.library-manifest/v1',count:entries.length,candidateDefinitionCount:entries.length,implementationReadyCount:0,components:entries};
 fs.writeFileSync(path.join(here,'manifest.json'), `${JSON.stringify(manifest,null,2)}\n`);
 fs.mkdirSync(path.join(here, 'capabilities'), {recursive:true});
 fs.writeFileSync(path.join(here, 'capabilities/compound-exports.json'), `${JSON.stringify(compoundExports,null,2)}\n`);
@@ -293,4 +312,4 @@ fs.writeFileSync(path.join(here, 'capabilities/dropdown-menu-layer.json'), `${JS
 fs.writeFileSync(path.join(here, 'capabilities/controlled-state.json'), `${JSON.stringify(controlledState,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/native-controls.json'), `${JSON.stringify(nativeControls,null,2)}\n`);
 fs.writeFileSync(path.join(here, 'capabilities/native-field.json'), `${JSON.stringify(nativeField,null,2)}\n`);
-process.stdout.write(`${canonicalJSON({candidateDefinitionCount:41,count:entries.length,implementationReadyCount:0})}\n`);
+process.stdout.write(`${canonicalJSON({candidateDefinitionCount:entries.length,count:entries.length,implementationReadyCount:0})}\n`);

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "kumo.library-manifest/v1",
-  "count": 41,
-  "candidateDefinitionCount": 41,
+  "count": 44,
+  "candidateDefinitionCount": 44,
   "implementationReadyCount": 0,
   "components": [
     {
@@ -48,6 +48,11 @@
       "component": "code",
       "file": "models/code.json",
       "digest": "4cac8d73dcb138c80ed2791d573a1cd7d0f900e0877bbc30ce696bd4883a6ed9"
+    },
+    {
+      "component": "collapsible",
+      "file": "models/collapsible.json",
+      "digest": "0cd3d97b2d0b8dc26d2e8ab6547c2c65527cdf1ec2f6881c29109981b1bd2c4a"
     },
     {
       "component": "combobox",
@@ -175,6 +180,11 @@
       "digest": "2e22373d5291c1d07396d9c3c4776318ff6a4449a8ba4af5384d3cd5b234f760"
     },
     {
+      "component": "skeleton-line",
+      "file": "models/skeleton-line.json",
+      "digest": "82f1004b43100572f1e4d30706007c8d77a8451c379cc869cd353b1c95c79f40"
+    },
+    {
       "component": "surface",
       "file": "models/surface.json",
       "digest": "b32ae4c4c167db5e11ff97832a162818c4efc303689df5c868a821d2642afc74"
@@ -208,6 +218,11 @@
       "component": "toasty",
       "file": "models/toasty.json",
       "digest": "797702648330bff65adc0be779784dff4e0de3962eb6dfdb2c9c1d0ae868862b"
+    },
+    {
+      "component": "tooltip",
+      "file": "models/tooltip.json",
+      "digest": "17984be09986cef97461b23e5c52fa81c231442ba7830ebabb667bfd3de4571f"
     }
   ]
 }

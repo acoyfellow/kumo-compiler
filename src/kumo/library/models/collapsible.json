@@ -1,0 +1,174 @@
+{
+  "schemaVersion": "kumo.library/v1",
+  "component": "collapsible",
+  "provenance": {
+    "contractPath": "contracts/kumo.observable/v1/components/collapsible.json",
+    "contractSchema": "kumo.observable/v1",
+    "canonical": {
+      "package": "@cloudflare/kumo",
+      "version": "2.6.0",
+      "typesSha256": "8e2f11b9a1cfa9c2ae6a2a856b3b249fc6bfc35ca447d105d61a51c85efc0b02",
+      "runtimeSha256": "d8c8a83242e3966ce2f17ef2b46989a5174594d7d6300bdd073e740216153680"
+    },
+    "contractDigest": "1136e3edaf70c7b02870d30ee203a88028b7af461f64ba7c97de67704d345caf"
+  },
+  "public": {
+    "symbol": "Collapsible",
+    "exports": [
+      "Collapsible"
+    ],
+    "subpath": "./components/collapsible"
+  },
+  "props": {
+    "items": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "string"
+        }
+      },
+      {
+        "name": "open",
+        "type": "boolean",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "boolean"
+        }
+      },
+      {
+        "name": "defaultOpen",
+        "type": "boolean",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "type": "boolean"
+        }
+      },
+      {
+        "name": "children",
+        "type": "unknown",
+        "required": false,
+        "default": null,
+        "nativeForwarding": false,
+        "evidence": {
+          "required": false
+        }
+      }
+    ],
+    "nativeAttributeForwarding": false
+  },
+  "composition": {
+    "children": true,
+    "slots": []
+  },
+  "emissions": {
+    "callbacks": [],
+    "models": []
+  },
+  "states": [],
+  "componentRoot": {
+    "frameworkNeutral": true,
+    "implementationReady": false,
+    "candidateDefinition": true,
+    "draft": true
+  },
+  "semanticGraph": {
+    "root": "div",
+    "aria": [],
+    "focusable": false,
+    "keys": []
+  },
+  "dependencies": {
+    "styles": [],
+    "tokens": [],
+    "icons": []
+  },
+  "capabilities": [
+    "static-element"
+  ],
+  "behavior": {
+    "transitions": [],
+    "ssrHydration": {
+      "ssr": "supported",
+      "hydration": "identical"
+    }
+  },
+  "unknowns": [],
+  "missingOperations": [
+    {
+      "kind": "render",
+      "reason": "draft render semantics require canonical browser proof"
+    },
+    {
+      "kind": "native-forwarding",
+      "reason": "native attributes, properties, and events have not been proven to forward without loss"
+    },
+    {
+      "kind": "style-resolution",
+      "reason": "style references have not been resolved to canonical dependency-backed styles"
+    },
+    {
+      "kind": "semantic-completeness",
+      "reason": "draft render tree has not been proven semantically complete"
+    },
+    {
+      "kind": "framework-output",
+      "reason": "generated Vue, Svelte, and Solid output has not been produced and immutably referenced"
+    },
+    {
+      "kind": "packed-browser-vectors",
+      "reason": "canonical packed browser vectors have not been executed and immutably identified"
+    }
+  ],
+  "contentBindings": {
+    "schemaVersion": "kumo.content-bindings/v1",
+    "capabilityDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
+  },
+  "draftImplementation": {
+    "algebraVersion": "kumo.component-algebra/v1",
+    "componentRoot": {
+      "kind": "element",
+      "tag": "div",
+      "attributes": {
+        "data-open": {
+          "kind": "literal",
+          "value": ""
+        },
+        "title": {
+          "kind": "prop",
+          "name": "title"
+        }
+      },
+      "children": [
+        {
+          "kind": "children"
+        }
+      ]
+    },
+    "operations": [
+      {
+        "id": "render-1",
+        "kind": "render"
+      },
+      {
+        "id": "apply-root-styles",
+        "kind": "style",
+        "styles": [
+          {
+            "kind": "style-ref",
+            "name": "root"
+          }
+        ]
+      }
+    ]
+  },
+  "unresolvedSemanticOperations": [],
+  "modelDigest": "0cd3d97b2d0b8dc26d2e8ab6547c2c65527cdf1ec2f6881c29109981b1bd2c4a"
+}
