@@ -19,6 +19,7 @@ interface DropdownMenuProps {
   "Trigger"?: unknown
   "open"?: boolean
   "defaultOpen"?: boolean
+  "modal"?: boolean
   "onOpenChange"?: unknown
   "onSelect"?: unknown
   fixture?: unknown
