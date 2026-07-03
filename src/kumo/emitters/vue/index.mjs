@@ -348,6 +348,13 @@ function menubarNavigationBinding(model, library) {
   if (capability?.support !== 'supported' || model.component !== capability.component) return null;
   return capability;
 }
+// Real Kumo MenuBar root <nav> classes copied VERBATIM from @cloudflare/kumo 2.6.0
+// (React canonical renders `ring ring-kumo-line ... pl-px shadow-xs transition-colors`).
+// The shared menubar-navigation capability encodes a simplified set that drops the
+// bare `ring` width utility plus `pl-px shadow-xs transition-colors`, which the B-gate
+// flags (nav width/paddingLeft/boxShadow deltas). This lane owns only the vue emitter,
+// so the faithful class string lives here — matching React, not a lookalike.
+const VUE_MENUBAR_NAV_CLASS = 'isolate flex rounded-lg ring ring-kumo-line bg-kumo-recessed pl-px shadow-xs transition-colors';
 function menubarNavigationSource(capability) {
   return {
     options:`defineOptions({ inheritAttrs: false })\n`,
@@ -367,7 +374,7 @@ function moveFocus(index: number, event: KeyboardEvent) {
 }
 function activate(option: MenuBarOption) { option.onClick?.() }
 `,
-    template:`<nav class="${esc(capability.root.classes.join(' '))}"><button v-for="(option, index) in props.options" :key="option.id" :ref="element => { if (element) menuButtons[index] = element as HTMLButtonElement }" type="button" :class="{ active: index === activeIndex }" :aria-label="option.tooltip" :title="option.tooltip" @keydown="moveFocus(index, $event)" @click="activate(option)"><span aria-hidden="true">{{ option.icon }}</span></button></nav>`
+    template:`<nav class="${esc(VUE_MENUBAR_NAV_CLASS)}"><button v-for="(option, index) in props.options" :key="option.id" :ref="element => { if (element) menuButtons[index] = element as HTMLButtonElement }" type="button" :class="{ active: index === activeIndex }" :aria-label="option.tooltip" :title="option.tooltip" @keydown="moveFocus(index, $event)" @click="activate(option)"><span aria-hidden="true">{{ option.icon }}</span></button></nav>`
   };
 }
 function dialogLayerBinding(model, library) {

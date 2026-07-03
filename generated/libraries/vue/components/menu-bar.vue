@@ -41,5 +41,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <nav class="isolate flex rounded-lg ring-kumo-line bg-kumo-recessed"><button v-for="(option, index) in props.options" :key="option.id" :ref="element => { if (element) menuButtons[index] = element as HTMLButtonElement }" type="button" :class="{ active: index === activeIndex }" :aria-label="option.tooltip" :title="option.tooltip" @keydown="moveFocus(index, $event)" @click="activate(option)"><span aria-hidden="true">{{ option.icon }}</span></button></nav>
+  <nav class="isolate flex rounded-lg ring ring-kumo-line bg-kumo-recessed pl-px shadow-xs transition-colors"><button v-for="(option, index) in props.options" :key="option.id" :ref="element => { if (element) menuButtons[index] = element as HTMLButtonElement }" type="button" :class="{ active: index === activeIndex }" :aria-label="option.tooltip" :title="option.tooltip" @keydown="moveFocus(index, $event)" @click="activate(option)"><span aria-hidden="true">{{ option.icon }}</span></button></nav>
 </template>
