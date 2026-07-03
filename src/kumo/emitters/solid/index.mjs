@@ -348,7 +348,11 @@ function source(model, toggle, nativeInput, fieldControl, clipboardCopy, paginat
   const toggleRootClass=toggle?(toggleTag==='span'?KUMO_CHECKBOX_CLASS:KUMO_SWITCH_TRACK_CLASS):'';
   const toggleVariantArgs=toggle?.native.styleVariants.length?', '+toggle.native.styleVariants.map(variant=>`(${Object.entries(variant.when).map(([name,value])=>`props.${name} === ${JSON.stringify(value)}`).join(' && ')||'true'}) ? ${JSON.stringify(variant.classes.join(' '))} : ""`).join(', '):'';
   const toggleClass=toggle?` class={mergeStyles(${JSON.stringify(toggleRootClass)}${toggleVariantArgs})}`:'';
-  const toggleData=toggle?` data-state={currentIndeterminate() ? "indeterminate" : (checked() ? "checked" : "unchecked")} data-checked={checked() ? "" : undefined} data-unchecked={checked() ? undefined : ""} data-indeterminate={currentIndeterminate() ? "" : undefined}`:'';
+  // Canonical @cloudflare/kumo 2.6.0 Switch/Checkbox emit ONLY data-checked/
+  // data-unchecked(/data-indeterminate) -- verified via renderToStaticMarkup, ported
+  // from the already-fixed Vue (11b295bb) and Svelte (2baad4a9) emitters. No
+  // data-state attribute exists on either; it was an emitter invention.
+  const toggleData=toggle?` data-checked={checked() ? "" : undefined} data-unchecked={checked() ? undefined : ""} data-indeterminate={currentIndeterminate() ? "" : undefined}`:'';
   const visualSimpleFallback=visualSimple?(model.component==='badge'?`<${visualSimple.root.tag} class={${badgeVariantExpression('props.variant')}}>{props.children}</${visualSimple.root.tag}>`:`<${visualSimple.root.tag}${model.component==='link'?' href={props.href as string}':''}${model.component==='label'?' for={props.for as string}':''} class=${JSON.stringify(visualSimple.root.className)}>{props.children}</${visualSimple.root.tag}>`):null;
   // React canonical only structures the TOC from compound children; with plain
   // title/items props it renders a bare <nav>. Match that: emit the title <p> and
@@ -365,7 +369,7 @@ function source(model, toggle, nativeInput, fieldControl, clipboardCopy, paginat
   // that element's SOLE child, so the <label> branch below must NOT reuse the
   // Fragment-wrapped `toggleControl` — only the standalone (no-label) branch needs the
   // Fragment, because there it is the single top-level expression.
-  const toggleControlInner=toggle?`<button class={mergeStyles(${JSON.stringify(KUMO_SWITCH_TRACK_BASE)}, checked() ? ${JSON.stringify(KUMO_SWITCH_TRACK_ON)} : ${JSON.stringify(KUMO_SWITCH_TRACK_OFF)})}${toggleData} aria-label={props["aria-label"] as string} type="button" role=${JSON.stringify(toggleRole)} aria-checked={checked()} disabled={Boolean(props.${toggle.disabled.prop})} onClick={toggleChecked}><div class={mergeStyles(${JSON.stringify(KUMO_SWITCH_THUMB_BASE)}, checked() ? ${JSON.stringify(KUMO_SWITCH_THUMB_ON)} : ${JSON.stringify(KUMO_SWITCH_THUMB_OFF)})} /></button><input style=${JSON.stringify(KUMO_CHECKBOX_HIDDEN_INPUT_STYLE)} tabindex="-1" type="checkbox" aria-hidden="true" checked={checked()} />`:null;
+  const toggleControlInner=toggle?`<button class={mergeStyles(${JSON.stringify(KUMO_SWITCH_TRACK_BASE)}, checked() ? ${JSON.stringify(KUMO_SWITCH_TRACK_ON)} : ${JSON.stringify(KUMO_SWITCH_TRACK_OFF)})}${toggleData} aria-label={(props["aria-label"] as string) ?? "Switch"} type="button" role=${JSON.stringify(toggleRole)} aria-checked={checked()} disabled={Boolean(props.${toggle.disabled.prop})} onClick={toggleChecked}><div class={mergeStyles(${JSON.stringify(KUMO_SWITCH_THUMB_BASE)}, checked() ? ${JSON.stringify(KUMO_SWITCH_THUMB_ON)} : ${JSON.stringify(KUMO_SWITCH_THUMB_OFF)})} /></button><input style=${JSON.stringify(KUMO_CHECKBOX_HIDDEN_INPUT_STYLE)} tabindex="-1" type="checkbox" aria-hidden="true" attr:checked={checked() ? "" : undefined} />`:null;
   const toggleControl=toggle?`<>${toggleControlInner}</>`:null;
     const toggleFallback=toggle?`props.label !== undefined ? (<label class="inline-flex items-center gap-2 cursor-pointer select-none text-base text-kumo-default">${toggleControlInner}<span>{props.label as string}</span></label>) : (${toggleControl})`:null;
   // Checkbox renders the SAME control-subtree React canonical does: box span carrying
