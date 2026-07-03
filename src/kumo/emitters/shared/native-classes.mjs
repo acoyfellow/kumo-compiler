@@ -38,6 +38,23 @@ export const COMPOUND_PART_OVERRIDES = Object.freeze({
     Secondary: Object.freeze({tag:'div', className:'-my-2 flex items-center gap-2 bg-kumo-elevated p-4 text-base font-medium text-kumo-subtle'}),
     Primary: Object.freeze({tag:'div', className:'relative flex flex-col gap-2 overflow-hidden rounded-lg bg-kumo-base p-4 pr-3 text-inherit no-underline ring ring-kumo-fill'}),
   }),
+  // Table is a REAL semantic HTML table (verified against @cloudflare/kumo
+  // 2.6.0's own type declarations: Header=HTMLTableSectionElement/<thead>,
+  // Head=HTMLTableCellElement/<th>, Row=HTMLTableRowElement/<tr>,
+  // Body=HTMLTableSectionElement/<tbody>, Cell=TdHTMLAttributes/<td>). The
+  // generic compound-part fallback (a <section data-kumo-part>) was emitting
+  // 8 extra <section> elements per homepage render instead of real table
+  // markup -- found via route-cascade's structural diff (Tier A) after
+  // dogfooding semantic-diff's rankByLeverage() on the real nested tree.
+  // Golden's live DOM confirms zero classes on any of these sub-elements
+  // (all styling lives on the outer <table> via its own Tailwind classes).
+  table: Object.freeze({
+    Header: Object.freeze({tag:'thead', className:''}),
+    Head: Object.freeze({tag:'th', className:''}),
+    Row: Object.freeze({tag:'tr', className:''}),
+    Body: Object.freeze({tag:'tbody', className:''}),
+    Cell: Object.freeze({tag:'td', className:''}),
+  }),
 });
 export const compoundPartOverride = (component, partPath) => COMPOUND_PART_OVERRIDES[component]?.[partPath];
 
