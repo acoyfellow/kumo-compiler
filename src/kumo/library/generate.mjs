@@ -83,7 +83,8 @@ const foundation = {
     el('div', 'hidden sm:contents', [children])
   ], {'aria-label': lit('breadcrumb')}),
   'cloudflare-logo': element('svg', [], {role: lit('img'), 'aria-label': lit('Cloudflare')}),
-  // code: React canonical root is <pre> (native emitted <code>), reset + mono styling.
+  // Code is the inline export: a bare <pre>. CodeBlock is modeled below as a
+  // named-export implementation because its canonical root adds a block wrapper.
   code: el('pre', 'm-0 w-auto rounded-none border-none bg-transparent p-0 font-mono text-sm leading-[20px] text-kumo-subtle', [text(prop('code'))]),
   // empty: React canonical is div > h2[title] + p[description] (native emitted <section>).
   empty: el('div', 'flex w-full flex-col items-center rounded-xl border border-kumo-fill bg-kumo-control text-kumo-default px-10 py-16 gap-6', [
@@ -272,6 +273,21 @@ for (const file of contractFiles) {
   else if(model.interactions)delete model.interactions.nativeButton;
   model.componentRoot = {frameworkNeutral:true, implementationReady:false, candidateDefinition:true, draft:true};
   model.draftImplementation = JSON.parse(JSON.stringify(implementation(model, contract)));
+  // A module can expose distinct canonical components that share a prop contract.
+  // Keep Code as the contract's primary implementation (and semantic-vector owner),
+  // while giving CodeBlock its own validated algebra root for emitter expansion.
+  if (name === 'code') {
+    const codeBlockRoot = el('div', 'min-w-0 rounded-md border border-kumo-fill bg-kumo-base [&>pre]:p-2.5!', [
+      el('pre', 'm-0 w-auto rounded-none border-none bg-transparent p-0 font-mono text-sm leading-[20px] text-kumo-subtle', [text(prop('code'))])
+    ]);
+    model.namedExportImplementations = {
+      CodeBlock: {
+        component: 'code-block',
+        subpath: './components/code-block',
+        draftImplementation: {...implementation(model, contract), componentRoot: codeBlockRoot}
+      }
+    };
+  } else delete model.namedExportImplementations;
   const compiledSemantic = compileSemanticVariants(semantic ?? {vectors:[]});
   // loader's contract vectors only capture the svg + 2 bare <circle>s (no circle
   // geometry, no <animate>/<animateTransform> children), so the compiled semantic

@@ -8,6 +8,7 @@ export { Checkbox } from "./checkbox";
 export { ClipboardText } from "./clipboard-text";
 export { CloudflareLogo } from "./cloudflare-logo";
 export { Code } from "./code";
+export { CodeBlock } from "./code-block";
 export { Collapsible } from "./collapsible";
 export { Combobox } from "./combobox";
 export { CommandPalette } from "./command-palette";

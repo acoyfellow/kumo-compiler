@@ -8,6 +8,7 @@ export { default as Checkbox } from './components/checkbox.svelte';
 export { default as ClipboardText } from './components/clipboard-text.svelte';
 export { default as CloudflareLogo } from './components/cloudflare-logo.svelte';
 export { default as Code } from './components/code.svelte';
+export { default as CodeBlock } from './components/code-block.svelte';
 export { default as Collapsible } from './components/collapsible.svelte';
 export { default as Combobox } from './components/combobox.svelte';
 export { default as CommandPalette } from './components/command-palette.svelte';

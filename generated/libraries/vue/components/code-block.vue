@@ -6,7 +6,7 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 
 <script setup lang="ts">
 import { computed, useAttrs, useSlots } from 'vue'
-interface CodeProps {
+interface CodeBlockProps {
   "className"?: string
   "code": string
   "lang"?: unknown
@@ -15,7 +15,7 @@ interface CodeProps {
   fixture?: unknown
   semanticContent?: unknown
 }
-const props = withDefaults(defineProps<CodeProps>(), {"lang":"ts"})
+const props = withDefaults(defineProps<CodeBlockProps>(), {"lang":"ts"})
 const slots = useSlots()
 const styles: Record<string,string> = {}
 const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
@@ -27,5 +27,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;className&quot;) &amp;&amp; semanticEqual(semanticValues.className, &quot;custom&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;code&quot;) &amp;&amp; semanticEqual(semanticValues.code, &quot;echo kumo&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;lang&quot;) &amp;&amp; semanticEqual(semanticValues.lang, &quot;bash&quot;)"><pre class="custom font-mono">{{ semanticValues.code }}</pre></template><template v-else-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;code&quot;) &amp;&amp; semanticEqual(semanticValues.code, &quot;const x = 1;&quot;)"><pre class="font-mono text-sm text-kumo-subtle">{{ semanticValues.code }}</pre></template><template v-else><pre :class="&quot;m-0 w-auto rounded-none border-none bg-transparent p-0 font-mono text-sm leading-[20px] text-kumo-subtle&quot;">{{ props.code }}</pre></template>
+  <div :class="&quot;min-w-0 rounded-md border border-kumo-fill bg-kumo-base [&amp;&gt;pre]:p-2.5!&quot;"><pre :class="&quot;m-0 w-auto rounded-none border-none bg-transparent p-0 font-mono text-sm leading-[20px] text-kumo-subtle&quot;">{{ props.code }}</pre></div>
 </template>

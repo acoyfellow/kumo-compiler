@@ -2,8 +2,8 @@
   "schemaVersion": "kumo.solid-emitter/v1",
   "algebraVersion": "kumo.component-algebra/v1",
   "candidate": true,
-  "count": 44,
-  "libraryManifestDigest": "2f372f1f5eae55b0ea9de6b8c3bcf75145e663516efadb0bd42cc2e8c18b5379",
+  "count": 45,
+  "libraryManifestDigest": "6aa1312c6a4d185f7fb98beed6eb8bc19828a4984086caf6957285e4f595d9ef",
   "components": [
     {
       "component": "autocomplete",
@@ -196,7 +196,7 @@
       "component": "code",
       "symbol": "Code",
       "subpath": "./components/code",
-      "modelDigest": "4cac8d73dcb138c80ed2791d573a1cd7d0f900e0877bbc30ce696bd4883a6ed9",
+      "modelDigest": "d7b65d0df86f5aa45c2c4da36366379851cd153a6595c5606ffdf4112e655210",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
       "semanticVariants": [
         {
@@ -212,9 +212,24 @@
       "compoundPaths": [],
       "source": "code.tsx",
       "declaration": "code.d.ts",
-      "sha256": "24dee823ba1cbcdd321c8212ac54e47589d9baa7502f188d43a432c0263cc2b6",
-      "sourceSha256": "24dee823ba1cbcdd321c8212ac54e47589d9baa7502f188d43a432c0263cc2b6",
+      "sha256": "779e4a1a7271d4464c11ab2d67d16e7bfb4bfb4027aff59c33d14b356fa14b8c",
+      "sourceSha256": "779e4a1a7271d4464c11ab2d67d16e7bfb4bfb4027aff59c33d14b356fa14b8c",
       "declarationSha256": "833303dd58c8811dd56a7a0abe4bea8f2fa61e9a43d45b18e8b2410707870edc"
+    },
+    {
+      "component": "code-block",
+      "symbol": "CodeBlock",
+      "subpath": "./components/code-block",
+      "modelDigest": "d7b65d0df86f5aa45c2c4da36366379851cd153a6595c5606ffdf4112e655210",
+      "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
+      "semanticVariants": [],
+      "unresolvedSemanticOperations": [],
+      "compoundPaths": [],
+      "source": "code-block.tsx",
+      "declaration": "code-block.d.ts",
+      "sha256": "095411b9043b7dfa1f4d9ba11a4443371f164279877c27f8d85b42317a961251",
+      "sourceSha256": "095411b9043b7dfa1f4d9ba11a4443371f164279877c27f8d85b42317a961251",
+      "declarationSha256": "72a3c3b9402a10f6c5b7a415c95cd3db9db27aa267754d8b9d95639617360cd4"
     },
     {
       "component": "collapsible",

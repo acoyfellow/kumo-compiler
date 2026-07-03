@@ -1,7 +1,7 @@
 {
   "schemaVersion": "kumo.svelte-library/v1",
   "algebraVersion": "kumo.component-algebra/v1",
-  "count": 44,
+  "count": 45,
   "components": [
     {
       "component": "autocomplete",
@@ -185,7 +185,7 @@
       "component": "code",
       "file": "./components/code.svelte",
       "subpath": "./components/code",
-      "modelDigest": "4cac8d73dcb138c80ed2791d573a1cd7d0f900e0877bbc30ce696bd4883a6ed9",
+      "modelDigest": "d7b65d0df86f5aa45c2c4da36366379851cd153a6595c5606ffdf4112e655210",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
       "semanticVariants": [
         {
@@ -198,9 +198,21 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "1033a143a6703bda0bf083bb2efe012a85cd7046b8f39979855c1dad7fa39910",
+      "sha256": "f91c0f43ef11ca02584d5153df58ea203451b82d422a2e90f1a35538bb20a8ae",
       "exports": [
-        "Code",
+        "Code"
+      ]
+    },
+    {
+      "component": "code-block",
+      "file": "./components/code-block.svelte",
+      "subpath": "./components/code-block",
+      "modelDigest": "d7b65d0df86f5aa45c2c4da36366379851cd153a6595c5606ffdf4112e655210",
+      "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
+      "semanticVariants": [],
+      "unresolvedSemanticOperations": [],
+      "sha256": "87af60002f1717335c8329be3e6462bdf99df420a3d90ec8a20dc37b012a89cb",
+      "exports": [
         "CodeBlock"
       ]
     },
@@ -1577,6 +1589,11 @@
       "types": "./components/code.svelte.d.ts",
       "svelte": "./components/code.svelte",
       "default": "./components/code.svelte"
+    },
+    "./code-block": {
+      "types": "./components/code-block.svelte.d.ts",
+      "svelte": "./components/code-block.svelte",
+      "default": "./components/code-block.svelte"
     },
     "./collapsible": {
       "types": "./components/collapsible.svelte.d.ts",

@@ -5,6 +5,31 @@
 // Vue/Svelte/Solid the same class fidelity the local-fidelity harness checks against
 // canonical React. Each constant lists the real `*kumo-*` tokens React emits for it.
 
+// Expand canonical named exports that share a contract but have distinct component
+// algebra. The source model remains one-to-one with its observable contract; emitters
+// receive one concrete model per independently renderable public symbol.
+export function expandNamedExportModels(models) {
+  return models.flatMap(model => {
+    const definitions = model.namedExportImplementations;
+    if (!definitions) return [model];
+    const exported = new Set(model.public.exports);
+    const primary = {...model, public:{...model.public, exports:[model.public.symbol]}};
+    const variants = Object.entries(definitions).map(([symbol, definition]) => {
+      if (!exported.has(symbol)) throw new Error(`${model.component}: named implementation ${symbol} is not public`);
+      if (!definition?.component || !definition?.subpath || !definition?.draftImplementation) throw new Error(`${model.component}: incomplete named implementation ${symbol}`);
+      return {
+        ...model,
+        component: definition.component,
+        public: {...model.public, symbol, exports:[symbol], subpath:definition.subpath},
+        draftImplementation: definition.draftImplementation,
+        semanticRender: undefined,
+        unresolvedSemanticOperations: []
+      };
+    });
+    return [primary, ...variants];
+  });
+}
+
 // Component-specific compound parts that diverge from the generic emitter fallback.
 // Values are canonical @cloudflare/kumo 2.6.0 SSR markup. Unlisted parts must retain
 // each framework's existing generic tag and data-kumo-part attribute.

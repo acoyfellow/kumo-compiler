@@ -2,11 +2,11 @@
 import { splitProps } from "solid-js";
 import type { JSX } from "solid-js";
 
-export interface CodeProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
+export interface CodeBlockProps extends Record<string, unknown> { children?: JSX.Element; fixture?: unknown; styles?: Record<string, string>; }
 export interface CompoundPartProps extends JSX.HTMLAttributes<HTMLDivElement> { children?: JSX.Element; }
 export const modelDigest = "d7b65d0df86f5aa45c2c4da36366379851cd153a6595c5606ffdf4112e655210";
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
-export const semanticVariantDigests = {"default":"face9c8e09407353487403fbf216b21820327f561a4753c60c526ffb7d00fc25","bash":"685437b93a0078d4bd57f63886449874af8d7f6e5197dc93d063954e9bc6f2cf"} as const;
+export const semanticVariantDigests = {} as const;
 const styles: Record<string, string> = {"root":"root","font-mono":"font-mono","text-sm":"text-sm","text-kumo-subtle":"text-kumo-subtle"};
 const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");
 const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
@@ -31,18 +31,16 @@ const compoundFixtureText = (value: unknown, exported: string): string => {
 };
 const resolvePortalTarget = (target: unknown) => target === "document-body" && typeof document !== "undefined" ? document.body : target as Node;
 
-export function Code(incoming: CodeProps): JSX.Element {
+export function CodeBlock(incoming: CodeBlockProps): JSX.Element {
   const props = Object.assign({"lang":"ts"}, incoming);
   const fixture = props.fixture;
   const renderContent = normalizeRenderContent(props.children, true);
   const normalizedFixture = normalizeFixture(fixture);
   const state: Record<string, () => unknown> = {};
   const refs: Record<string, HTMLElement | undefined> = {};
-  const [, native] = splitProps(props as CodeProps & Record<string, unknown>, []);
+  const [, native] = splitProps(props as CodeBlockProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  if (Object.prototype.hasOwnProperty.call(props, "className") && semanticEqual(props.className, "custom") && Object.prototype.hasOwnProperty.call(props, "code") && semanticEqual(props.code, "echo kumo") && Object.prototype.hasOwnProperty.call(props, "lang") && semanticEqual(props.lang, "bash")) return (<pre class="custom font-mono">{(props.code as any)}</pre>);
-  if (Object.prototype.hasOwnProperty.call(props, "code") && semanticEqual(props.code, "const x = 1;")) return (<pre class="font-mono text-sm text-kumo-subtle">{(props.code as any)}</pre>);
-  return (<pre class={"m-0 w-auto rounded-none border-none bg-transparent p-0 font-mono text-sm leading-[20px] text-kumo-subtle"}>{(props.code as any)}</pre>);
+  return (<div class={"min-w-0 rounded-md border border-kumo-fill bg-kumo-base [&>pre]:p-2.5!"}><pre class={"m-0 w-auto rounded-none border-none bg-transparent p-0 font-mono text-sm leading-[20px] text-kumo-subtle"}>{(props.code as any)}</pre></div>);
 }
 
-export default Code;
+export default CodeBlock;

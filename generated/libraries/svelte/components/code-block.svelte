@@ -49,10 +49,6 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if Object.prototype.hasOwnProperty.call(semanticValues, "className") && semanticEqual(semanticValues.className, "custom") && Object.prototype.hasOwnProperty.call(semanticValues, "code") && semanticEqual(semanticValues.code, "echo kumo") && Object.prototype.hasOwnProperty.call(semanticValues, "lang") && semanticEqual(semanticValues.lang, "bash")}
-  <pre class="custom font-mono">{semanticValues["code"]}</pre>
-{:else if Object.prototype.hasOwnProperty.call(semanticValues, "code") && semanticEqual(semanticValues.code, "const x = 1;")}
-  <pre class="font-mono text-sm text-kumo-subtle">{semanticValues["code"]}</pre>
-{:else}
-<pre class={"m-0 w-auto rounded-none border-none bg-transparent p-0 font-mono text-sm leading-[20px] text-kumo-subtle"}>{semanticValues["code"]}</pre>
-{/if}
+<div class={"min-w-0 rounded-md border border-kumo-fill bg-kumo-base [&>pre]:p-2.5!"}>
+  <pre class={"m-0 w-auto rounded-none border-none bg-transparent p-0 font-mono text-sm leading-[20px] text-kumo-subtle"}>{semanticValues["code"]}</pre>
+</div>

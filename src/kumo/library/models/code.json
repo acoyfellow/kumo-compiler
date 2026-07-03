@@ -305,5 +305,61 @@
     "schemaVersion": "kumo.content-bindings/v1",
     "capabilityDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd"
   },
-  "modelDigest": "4cac8d73dcb138c80ed2791d573a1cd7d0f900e0877bbc30ce696bd4883a6ed9"
+  "namedExportImplementations": {
+    "CodeBlock": {
+      "component": "code-block",
+      "subpath": "./components/code-block",
+      "draftImplementation": {
+        "algebraVersion": "kumo.component-algebra/v1",
+        "componentRoot": {
+          "kind": "element",
+          "tag": "div",
+          "attributes": {
+            "class": {
+              "kind": "literal",
+              "value": "min-w-0 rounded-md border border-kumo-fill bg-kumo-base [&>pre]:p-2.5!"
+            }
+          },
+          "children": [
+            {
+              "kind": "element",
+              "tag": "pre",
+              "attributes": {
+                "class": {
+                  "kind": "literal",
+                  "value": "m-0 w-auto rounded-none border-none bg-transparent p-0 font-mono text-sm leading-[20px] text-kumo-subtle"
+                }
+              },
+              "children": [
+                {
+                  "kind": "text",
+                  "value": {
+                    "kind": "prop",
+                    "name": "code"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "operations": [
+          {
+            "id": "render-1",
+            "kind": "render"
+          },
+          {
+            "id": "apply-root-styles",
+            "kind": "style",
+            "styles": [
+              {
+                "kind": "style-ref",
+                "name": "root"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "modelDigest": "d7b65d0df86f5aa45c2c4da36366379851cd153a6595c5606ffdf4112e655210"
 }

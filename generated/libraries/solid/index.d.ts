@@ -8,6 +8,7 @@ export { Checkbox } from "./checkbox"; export type { CheckboxProps } from "./che
 export { ClipboardText } from "./clipboard-text"; export type { ClipboardTextProps } from "./clipboard-text";
 export { CloudflareLogo } from "./cloudflare-logo"; export type { CloudflareLogoProps } from "./cloudflare-logo";
 export { Code } from "./code"; export type { CodeProps } from "./code";
+export { CodeBlock } from "./code-block"; export type { CodeBlockProps } from "./code-block";
 export { Collapsible } from "./collapsible"; export type { CollapsibleProps } from "./collapsible";
 export { Combobox } from "./combobox"; export type { ComboboxProps } from "./combobox";
 export { CommandPalette } from "./command-palette"; export type { CommandPaletteProps } from "./command-palette";

@@ -3,8 +3,8 @@
   "name": "@acoyfellow/kumo-vue",
   "version": "0.0.5",
   "framework": "vue",
-  "modelDigest": "7f1286be652f80afc158b64649b62f6d0433440cf13f1090d654274600d36c3f",
-  "contentBindingDigest": "3b80d63455cef27e83f666a926627bb993df263d960dfdda4211cf34a93e3038",
+  "modelDigest": "a7fb3f6feff3cf55ae2ae58b16183bc14d02640f71766d96166929a675830933",
+  "contentBindingDigest": "4992ca444b6711942c894aa39b06434f1c93645537366d7ca656188848eaa379",
   "semanticDigest": "94119ff6248817ff6d6b320643bb4f2f02bef7ac0d344b5cf90d5e32b8c57cc2",
   "components": [
     {
@@ -74,10 +74,18 @@
     {
       "component": "code",
       "symbol": "Code",
-      "modelDigest": "4cac8d73dcb138c80ed2791d573a1cd7d0f900e0877bbc30ce696bd4883a6ed9",
+      "modelDigest": "d7b65d0df86f5aa45c2c4da36366379851cd153a6595c5606ffdf4112e655210",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
       "semanticVariantCount": 2,
-      "sourceSha256": "9a8d8698aa09dc0c84aa7a6b95e32e3430da10d923c9da7b1a3e169425a335c4"
+      "sourceSha256": "ec9a6bce26bea72b90d595a43dacc3f1ebe98a905d35b823e546af342c79ec73"
+    },
+    {
+      "component": "code-block",
+      "symbol": "CodeBlock",
+      "modelDigest": "d7b65d0df86f5aa45c2c4da36366379851cd153a6595c5606ffdf4112e655210",
+      "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
+      "semanticVariantCount": 0,
+      "sourceSha256": "ceaffd5699a588cc620314c156d9df67d71a1ab5e24afba58e5aa0bef37afae0"
     },
     {
       "component": "collapsible",
@@ -1159,6 +1167,6 @@
   "build": {
     "compiler": "@vue/compiler-sfc",
     "mode": "client+ssr-render",
-    "sourceCount": 107
+    "sourceCount": 108
   }
 }

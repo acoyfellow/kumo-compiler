@@ -2,7 +2,7 @@
   "schemaVersion": "kumo.vue-library/v1",
   "algebraVersion": "kumo.component-algebra/v1",
   "candidate": true,
-  "count": 44,
+  "count": 45,
   "components": [
     {
       "component": "autocomplete",
@@ -223,7 +223,7 @@
       "symbol": "Code",
       "subpath": "./components/code",
       "file": "components/code.vue",
-      "modelDigest": "4cac8d73dcb138c80ed2791d573a1cd7d0f900e0877bbc30ce696bd4883a6ed9",
+      "modelDigest": "d7b65d0df86f5aa45c2c4da36366379851cd153a6595c5606ffdf4112e655210",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
       "semanticVariants": [
         {
@@ -236,9 +236,22 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "9a8d8698aa09dc0c84aa7a6b95e32e3430da10d923c9da7b1a3e169425a335c4",
+      "sha256": "ec9a6bce26bea72b90d595a43dacc3f1ebe98a905d35b823e546af342c79ec73",
       "exports": [
-        "Code",
+        "Code"
+      ]
+    },
+    {
+      "component": "code-block",
+      "symbol": "CodeBlock",
+      "subpath": "./components/code-block",
+      "file": "components/code-block.vue",
+      "modelDigest": "d7b65d0df86f5aa45c2c4da36366379851cd153a6595c5606ffdf4112e655210",
+      "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
+      "semanticVariants": [],
+      "unresolvedSemanticOperations": [],
+      "sha256": "ceaffd5699a588cc620314c156d9df67d71a1ab5e24afba58e5aa0bef37afae0",
+      "exports": [
         "CodeBlock"
       ]
     },
@@ -2069,6 +2082,11 @@
       "vue": "./components/code.vue",
       "types": "./components/code.d.ts",
       "canonicalSubpath": "./components/code"
+    },
+    "./components/code-block": {
+      "vue": "./components/code-block.vue",
+      "types": "./components/code-block.d.ts",
+      "canonicalSubpath": "./components/code-block"
     },
     "./components/collapsible": {
       "vue": "./components/collapsible.vue",
