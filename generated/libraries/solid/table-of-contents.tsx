@@ -47,7 +47,7 @@ export function TableOfContents(incoming: TableOfContentsProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as TableOfContentsProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  return (<nav aria-label={String(tocFixture()?.props?.["aria-label"] ?? "Table of contents")}><Show when={tocTitle()} children={<p>{tocTitle()}</p>} /><ul><For each={tocItems()} children={item => item.group ? <a href={item.href} aria-current={item.active ? "location" : undefined}>{item.label}</a> : <li><a href={item.href} aria-current={item.active ? "location" : undefined}>{item.label}</a></li>} /></ul></nav>);
+  return (<nav aria-label={String(tocFixture()?.props?.["aria-label"] ?? "Table of contents")}><Show when={tocTitle()} children={<p>{tocTitle()}</p>} /><Show when={tocItems().length > 0} children={<ul><For each={tocItems()} children={item => item.group ? <a href={item.href} aria-current={item.active ? "location" : undefined}>{item.label}</a> : <li><a href={item.href} aria-current={item.active ? "location" : undefined}>{item.label}</a></li>} /></ul>} /></nav>);
 }
 
 export function TableOfContentsGroup(props: CompoundPartProps): JSX.Element {
