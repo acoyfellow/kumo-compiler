@@ -41,7 +41,7 @@ export function Field(incoming: FieldProps): JSX.Element {
   const [, native] = splitProps(props as FieldProps & Record<string, unknown>, ["observable"]);
   void native; void state; void refs;
   if (semanticEqual(normalizedFixture, {"export":"root","props":{"label":"Name","description":"Help","required":false},"children":[{"export":".NativeInput","props":{"id":"field-control"},"children":[]}]})) return (<div></div>);
-  return (<div><label for={props.controlId as string ?? "field-control"} class="m-0 select-none text-base font-medium text-kumo-default">{props.label as JSX.Element}</label>{props.children}{(props as Record<string, unknown>).description !== undefined ? <p class="text-sm leading-snug text-kumo-subtle col-span-full">{(props as Record<string, unknown>).description as JSX.Element}</p> : null}</div>);
+  return (<div class="grid gap-2 has-[input[type=checkbox]]:grid-cols-[auto_1fr] has-[input[type=checkbox]]:items-center has-[[role=switch]]:grid-cols-[auto_1fr] has-[[role=switch]]:items-center"><label for={props.controlId as string ?? "field-control"} class="m-0 select-none text-base font-medium text-kumo-default"><span class="inline-flex items-center gap-1">{props.label as JSX.Element}</span></label>{props.children}{(props as Record<string, unknown>).description !== undefined ? <p class="text-sm leading-snug text-kumo-subtle col-span-full">{(props as Record<string, unknown>).description as JSX.Element}</p> : null}</div>);
 }
 
 export function FieldNativeInput(props: CompoundPartProps): JSX.Element {

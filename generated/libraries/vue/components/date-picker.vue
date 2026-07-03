@@ -24,11 +24,15 @@ interface DatePickerProps {
   semanticContent?: unknown
 }
 const props = withDefaults(defineProps<DatePickerProps>(), {})
-type CalendarDay = { iso: string; day: number }
+type CalendarDay = { iso: string; day: number; inMonth: boolean; monthStr: string; isToday: boolean; className: string; label: string }
 const instance = getCurrentInstance()
 const controlled = computed(() => Object.prototype.hasOwnProperty.call(instance?.vnode.props ?? {}, 'selectedDate'))
 const internalSelectedDate = ref(props.selectedDate)
 const selectedDate = computed(() => controlled.value ? props.selectedDate : internalSelectedDate.value)
+const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December']
+const weekdayList = [{ short: 'Su', full: 'Sunday' },{ short: 'Mo', full: 'Monday' },{ short: 'Tu', full: 'Tuesday' },{ short: 'We', full: 'Wednesday' },{ short: 'Th', full: 'Thursday' },{ short: 'Fr', full: 'Friday' },{ short: 'Sa', full: 'Saturday' }]
+const weekdays = weekdayList
+const todayIso = (() => { const t = new Date(); return t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0') })()
 const padDatePart = (value: number) => String(value).padStart(2, '0')
 const isoDate = (date: Date) => `${String(date.getUTCFullYear()).padStart(4, '0')}-${padDatePart(date.getUTCMonth() + 1)}-${padDatePart(date.getUTCDate())}`
 const parseDate = (value: unknown, fallback: string) => {
@@ -39,14 +43,21 @@ const parseDate = (value: unknown, fallback: string) => {
 }
 const initialMonth = parseDate(props.defaultMonthDate, '2025-01-01')
 const monthDate = ref(new Date(Date.UTC(initialMonth.getUTCFullYear(), initialMonth.getUTCMonth(), 1)))
+const caption = computed(() => monthNames[monthDate.value.getUTCMonth()] + ' ' + monthDate.value.getUTCFullYear())
 const calendarDays = computed<CalendarDay[]>(() => {
   const first = monthDate.value
+  const displayMonth = first.getUTCMonth()
   const start = new Date(Date.UTC(first.getUTCFullYear(), first.getUTCMonth(), 1 - first.getUTCDay()))
   const daysInMonth = new Date(Date.UTC(first.getUTCFullYear(), first.getUTCMonth() + 1, 0)).getUTCDate()
   const count = Math.ceil((first.getUTCDay() + daysInMonth) / 7) * 7
   return Array.from({ length: count }, (_, index) => {
     const date = new Date(start.getTime() + index * 86400000)
-    return { iso: isoDate(date), day: date.getUTCDate() }
+    const iso = isoDate(date)
+    const inMonth = date.getUTCMonth() === displayMonth
+    const isToday = iso === todayIso
+    const className = 'rdp-day' + (inMonth ? '' : ' rdp-outside') + (isToday ? ' rdp-today' : '')
+    const label = (isToday ? 'Today, ' : '') + weekdayList[date.getUTCDay()].full + ', ' + monthNames[date.getUTCMonth()] + ' ' + date.getUTCDate() + ', ' + date.getUTCFullYear()
+    return { iso, day: date.getUTCDate(), inMonth, monthStr: iso.slice(0, 7), isToday, className, label }
   })
 })
 const calendarRows = computed(() => Array.from({ length: calendarDays.value.length / 7 }, (_, row) => calendarDays.value.slice(row * 7, row * 7 + 7)))
@@ -68,5 +79,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <div v-bind="$attrs" :aria-label="props.ariaLabel"><button type="button" @click="changeMonth(-1)">Previous</button><button type="button" @click="changeMonth(1)">Next</button><table role="grid"><tbody><tr v-for="(row, rowIndex) in calendarRows" :key="rowIndex"><td v-for="day in row" :key="day.iso"><button type="button" :data-day="day.iso" :disabled="isDisabled(day.iso) || undefined" :aria-selected="day.iso === selectedDate || undefined" @click="selectDay(day.iso)">{{ day.day }}</button></td></tr></tbody></table></div>
+  <div class="rdp-root select-none rounded-xl bg-kumo-base"><div class="rdp-months"><nav data-animated-nav="true" class="rdp-nav" aria-label="Navigation bar"><button type="button" class="rdp-button_previous" aria-label="Go to the Previous Month" @click="changeMonth(-1)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256" class="rdp-chevron"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg></button><button type="button" class="rdp-button_next" aria-label="Go to the Next Month" @click="changeMonth(1)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256" class="rdp-chevron"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button></nav><div data-animated-month="true" class="rdp-month"><div data-animated-caption="true" class="rdp-month_caption"><span class="rdp-caption_label" role="status" aria-live="polite">{{ caption }}</span></div><table role="grid" aria-multiselectable="false" :aria-label="caption" class="rdp-month_grid"><thead aria-hidden="true"><tr data-animated-weekdays="true" class="rdp-weekdays"><th v-for="weekday in weekdays" :key="weekday.short" :aria-label="weekday.full" class="rdp-weekday" scope="col">{{ weekday.short }}</th></tr></thead><tbody data-animated-weeks="true" class="rdp-weeks"><tr v-for="(row, rowIndex) in calendarRows" :key="rowIndex" class="rdp-week"><td v-for="day in row" :key="day.iso" :class="day.className" role="gridcell" :aria-label="day.label" :data-day="day.iso" :data-month="day.inMonth ? undefined : day.monthStr" :data-outside="day.inMonth ? undefined : 'true'" :data-today="day.isToday ? 'true' : undefined" @click="selectDay(day.iso)">{{ day.day }}</td></tr></tbody></table></div></div></div>
 </template>

@@ -20,24 +20,31 @@ interface DateRangePickerProps {
   semanticContent?: unknown
 }
 const props = withDefaults(defineProps<DateRangePickerProps>(), {"size":"base","timezone":"New York, NY, USA (GMT-4)","variant":"default"})
-type RangeDay = { iso: string; day: number; inMonth: boolean }
+type RangeDay = { iso: string; day: number; inMonth: boolean; className: string; label: string; id: string }
 type RangeMonth = { key: string; label: string; days: RangeDay[] }
 const rangeRoot = ref<HTMLElement | null>(null)
 const startValue = ref<string | null>(null)
 const endValue = ref<string | null>(null)
-const monthCursor = ref(new Date(Date.UTC(2026, 5, 1)))
+const rangeToday = new Date()
+const monthCursor = ref(new Date(Date.UTC(rangeToday.getFullYear(), rangeToday.getMonth(), 1)))
 const pad = (value: number) => String(value).padStart(2, '0')
 const iso = (date: Date) => `${date.getUTCFullYear()}-${pad(date.getUTCMonth() + 1)}-${pad(date.getUTCDate())}`
 const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December']
+const monthAbbr = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+const weekdayFull = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+const weekdayAbbr = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
+const weekdayShort = ['Su','Mo','Tu','We','Th','Fr','Sa']
+const rangeTimezone = 'New York, NY, USA (GMT-4)'
+const dayInClass = 'h-[26px] w-7 text-sm cursor-pointer text-center transition-all duration-[50] leading-[26px] hover:bg-kumo-interact bg-transparent text-kumo-default'
+const dayOutClass = 'h-[26px] w-7 text-sm cursor-pointer text-center text-kumo-default transition-all duration-[50] leading-[26px] bg-transparent !text-kumo-subtle'
 function buildMonth(base: Date): RangeMonth {
   const year = base.getUTCFullYear(), month = base.getUTCMonth()
   const first = new Date(Date.UTC(year, month, 1)), start = new Date(first)
   start.setUTCDate(1 - first.getUTCDay())
-  const days = Array.from({length:42}, (_, index) => { const date = new Date(start); date.setUTCDate(start.getUTCDate() + index); return {iso:iso(date),day:date.getUTCDate(),inMonth:date.getUTCMonth() === month} })
+  const days = Array.from({length:42}, (_, index) => { const date = new Date(start); date.setUTCDate(start.getUTCDate() + index); const inMonth = date.getUTCMonth() === month; const wd = date.getUTCDay(); return {iso:iso(date),day:date.getUTCDate(),inMonth,className: inMonth ? dayInClass : dayOutClass,label: weekdayFull[wd] + ', ' + monthNames[date.getUTCMonth()] + ' ' + date.getUTCDate() + ', ' + date.getUTCFullYear(),id: weekdayAbbr[wd] + ' ' + monthAbbr[date.getUTCMonth()] + ' ' + pad(date.getUTCDate()) + ' ' + date.getUTCFullYear()} })
   return {key:`${year}-${month}`,label:`${monthNames[month]} ${year}`,days}
 }
 const monthPanels = computed(() => [0,1].map(offset => { const date = new Date(monthCursor.value); date.setUTCMonth(date.getUTCMonth() + offset); return buildMonth(date) }))
-const rootClasses = computed(() => props.size === 'sm' && props.variant === 'subtle' ? "p-3 bg-kumo-base" : "p-4 bg-kumo-overlay")
 function changeMonth(delta: number) { const date = new Date(monthCursor.value); date.setUTCMonth(date.getUTCMonth() + delta); monthCursor.value = date }
 function isInRange(value: string) { return Boolean(startValue.value && endValue.value && value >= startValue.value && value <= endValue.value) }
 function selectDay(value: string) {
@@ -72,5 +79,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <div ref="rangeRoot" v-bind="$attrs" :class="['kumo-date-range',rootClasses]"><div class="kumo-date-range__toolbar"><button type="button" data-navigation="previous" aria-label="Previous month" @click="changeMonth(-1)">Previous</button><button type="button" data-navigation="next" aria-label="Next month" @click="changeMonth(1)">Next</button></div><div class="kumo-date-range__months"><section v-for="month in monthPanels" :key="month.key" class="kumo-date-range__month"><h3>{{ month.label }}</h3><div class="kumo-date-range__weekdays" aria-hidden="true"><span v-for="day in ['Su','Mo','Tu','We','Th','Fr','Sa']" :key="day">{{ day }}</span></div><div class="kumo-date-range__grid" role="grid"><button v-for="day in month.days" :key="day.iso" type="button" :data-day="day.iso" :data-outside-month="!day.inMonth || undefined" :aria-label="day.iso" :aria-selected="day.iso === startValue || day.iso === endValue || undefined" :data-in-range="isInRange(day.iso) || undefined" @click="selectDay(day.iso)">{{ day.day }}</button></div></section></div><div class="kumo-date-range__footer"><span aria-live="polite">{{ startValue ? (endValue ? startValue + ' – ' + endValue : 'Start: ' + startValue) : 'Choose a start date' }}</span><button type="button" data-reset @click="resetRange">Reset dates</button></div></div>
+  <div ref="rangeRoot" class="flex w-fit flex-col rounded-xl select-none bg-kumo-overlay p-4 gap-2.5"><div class="flex gap-4"><div v-for="(month, monthIndex) in monthPanels" :key="month.key" class="relative w-[196px]"><button v-if="monthIndex === 0" type="button" aria-label="Previous month" class="absolute top-0 left-0 cursor-pointer rounded bg-kumo-interact/85 p-1.5 hover:bg-kumo-interact" @click="changeMonth(-1)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg></button><button v-else type="button" aria-label="Next month" class="absolute top-0 right-0 cursor-pointer rounded bg-kumo-interact/85 p-1.5 hover:bg-kumo-interact" @click="changeMonth(1)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button><div><div class="mb-3 text-center"><input aria-label="Edit month and year" class="w-full rounded-md border-none bg-transparent py-1.5 text-center font-semibold text-kumo-default transition-all duration-200 focus:outline-none focus:ring-kumo-focus/50 focus:ring-[1.5px] text-sm" :value="month.label" /></div><div class="mt-2 grid grid-cols-7 gap-1"><div v-for="weekday in weekdayShort" :key="weekday" class="h-[22px] text-center text-kumo-subtle w-7 text-sm">{{ weekday }}</div></div></div><div class="grid grid-cols-7 gap-0 gap-y-0.5"><button v-for="day in month.days" :key="day.iso" type="button" :aria-label="day.label" :id="day.id" :class="day.className" @click="selectDay(day.iso)">{{ day.day }}</button></div></div></div><div class="flex items-center gap-2 text-kumo-subtle text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm88,104a87.62,87.62,0,0,1-6.4,32.94l-44.7-27.49a15.92,15.92,0,0,0-6.24-2.23l-22.82-3.08a16.11,16.11,0,0,0-16,7.86h-8.72l-3.8-7.86a15.91,15.91,0,0,0-11-8.67l-8-1.73L96.14,104h16.71a16.06,16.06,0,0,0,7.73-2l12.25-6.76a16.62,16.62,0,0,0,3-2.14l26.91-24.34A15.93,15.93,0,0,0,166,49.1l-.36-.65A88.11,88.11,0,0,1,216,128ZM143.31,41.34,152,56.9,125.09,81.24,112.85,88H96.14a16,16,0,0,0-13.88,8l-8.73,15.23L63.38,84.19,74.32,58.32a87.87,87.87,0,0,1,69-17ZM40,128a87.53,87.53,0,0,1,8.54-37.8l11.34,30.27a16,16,0,0,0,11.62,10l21.43,4.61L96.74,143a16.09,16.09,0,0,0,14.4,9h1.48l-7.23,16.23a16,16,0,0,0,2.86,17.37l.14.14L128,205.94l-1.94,10A88.11,88.11,0,0,1,40,128Zm102.58,86.78,1.13-5.81a16.09,16.09,0,0,0-4-13.9,1.85,1.85,0,0,1-.14-.14L120,174.74,133.7,144l22.82,3.08,45.72,28.12A88.18,88.18,0,0,1,142.58,214.78Z"></path></svg><span class="flex-1">Timezone: {{ rangeTimezone }}</span><button type="button" class="cursor-pointer font-semibold text-kumo-default underline underline-offset-2" @click="resetRange">Reset Dates</button></div></div>
 </template>

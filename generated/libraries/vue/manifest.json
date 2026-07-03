@@ -2,7 +2,7 @@
   "schemaVersion": "kumo.vue-library/v1",
   "algebraVersion": "kumo.component-algebra/v1",
   "candidate": true,
-  "count": 41,
+  "count": 44,
   "components": [
     {
       "component": "autocomplete",
@@ -66,7 +66,7 @@
       "symbol": "Banner",
       "subpath": "./components/banner",
       "file": "components/banner.vue",
-      "modelDigest": "44dc46ac844b7494abe7a6e6e3064c36cab57694efac43aa59738f3e75745a65",
+      "modelDigest": "c6ff934daf615e57294fa44b606ded01df77262d4a854a2d82c1854e80279c71",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
       "semanticVariants": [
         {
@@ -79,7 +79,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "66d4a7799597d1c99d103865d625d9143a3a8713d8b28aaf0f32a28af63ed198",
+      "sha256": "bf1bf3cf04a827de1396cf7c95a09004c4c3fd0ce06ed6238ecfb040d1e4a04b",
       "exports": [
         "Banner",
         "BannerVariant"
@@ -90,7 +90,7 @@
       "symbol": "Breadcrumbs",
       "subpath": "./components/breadcrumbs",
       "file": "components/breadcrumbs.vue",
-      "modelDigest": "55904d9ce0240002aa580c695246c137febcb02f33b88df3617fae5da3469735",
+      "modelDigest": "ba5575453479174a7d9071f56aa3f625fd4c0c340e68b28f31b7ea6bbd55b63d",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
       "semanticVariants": [
         {
@@ -103,7 +103,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "1c4349ee89861792c53bac1eb8eaf9484df40ef72f362fb841cb8a6690d7a35a",
+      "sha256": "318cd2e4238bc3b77ec9ca5db7bf6a59f2393428e48801fed198e87025bd5d54",
       "exports": [
         "Breadcrumbs",
         "breadcrumbsVariants",
@@ -167,7 +167,7 @@
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
       "semanticVariants": [],
       "unresolvedSemanticOperations": [],
-      "sha256": "acd140b191041b105263f05cf5d7aa56b02884dcb0fa9d5f399d76e8de2391e8",
+      "sha256": "bc6a1e5df05a8acc001db47b4dc0d76a4f92e4c940e88d69ac98dabdd67c1bf6",
       "exports": [
         "Checkbox"
       ]
@@ -186,7 +186,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "7a393083b41a44b3076facf7fc7ea84e8ad0aec23da59fe9a33ed7e157850395",
+      "sha256": "9578eebcc9e64d1fa7766a1ec07f8a0af54cbb7e430be7da03cbae7c74def65e",
       "exports": [
         "ClipboardText"
       ]
@@ -223,7 +223,7 @@
       "symbol": "Code",
       "subpath": "./components/code",
       "file": "components/code.vue",
-      "modelDigest": "ac14652686b665216bfd9c5a8f1e41e73d994928f91ac7072f115606a5079eb3",
+      "modelDigest": "4cac8d73dcb138c80ed2791d573a1cd7d0f900e0877bbc30ce696bd4883a6ed9",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
       "semanticVariants": [
         {
@@ -236,10 +236,24 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "70c63c82390b8d04a6e9eb725de507c5d2bf00f7f82066bb05cfafbb8c3715aa",
+      "sha256": "9a8d8698aa09dc0c84aa7a6b95e32e3430da10d923c9da7b1a3e169425a335c4",
       "exports": [
         "Code",
         "CodeBlock"
+      ]
+    },
+    {
+      "component": "collapsible",
+      "symbol": "Collapsible",
+      "subpath": "./components/collapsible",
+      "file": "components/collapsible.vue",
+      "modelDigest": "0cd3d97b2d0b8dc26d2e8ab6547c2c65527cdf1ec2f6881c29109981b1bd2c4a",
+      "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
+      "semanticVariants": [],
+      "unresolvedSemanticOperations": [],
+      "sha256": "88eb5e686a4153383d0f038a147f62b516d6ac026575ccb92827ffe526cec38a",
+      "exports": [
+        "Collapsible"
       ]
     },
     {
@@ -285,7 +299,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "f5e8124381ac88e0dc15b9cc978c9a258959f65d23f95ad566b4f8eb4d323374",
+      "sha256": "da9c4709aaf6b35e59d9ed54425ca8dbb66685ae9fd2a1cb2579ab945ef7ba38",
       "exports": [
         "CommandPalette",
         "KUMO_COMMAND_PALETTE_VARIANTS",
@@ -323,7 +337,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "4978e199bebcee6f7f44f42efb126de83a2ea850aff445f947079696f90a1235",
+      "sha256": "338db5d5ee1985acc93a4fc24d38ffcf662fd20841f8ca26121b3870575f54a8",
       "exports": [
         "DatePicker"
       ]
@@ -346,7 +360,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "b99cc3fceb9057519c6c27ca2ce57112a9d16a6bf6b1b50fca9e61a7de141487",
+      "sha256": "673f21cb0bae754a1c68ceaaf2433663f913b02d3fa64a56696bb108698646fc",
       "exports": [
         "DateRangePicker"
       ]
@@ -365,7 +379,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "38581184c317b3ca2f2dd4c6f69f571e55077ebe5a3a6c9b70a768e52e846525",
+      "sha256": "3090613d704d83bda972a2a819434efc4741ad3503f355cee8897e1442806a05",
       "exports": [
         "Dialog",
         "DialogRoot",
@@ -406,7 +420,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "217dcce3bcd1eb2e80da71448c904cdbab65f96e28cbe1e3a7099966cc3ccdb3",
+      "sha256": "756c9c7118d7de2894e95bf5ceb34418ac956859853d093325df78777b8ad456",
       "exports": [
         "DropdownMenu"
       ],
@@ -435,7 +449,7 @@
       "symbol": "Empty",
       "subpath": "./components/empty",
       "file": "components/empty.vue",
-      "modelDigest": "45f3a9e4e2b90d55e64fc2c66a7e3a3467d7cff0b6493b1f130788a838242fc7",
+      "modelDigest": "98d4d41c8c0a92ccf243f294a846ea935d0303d21fe0e4702c7c08ac09039f05",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
       "semanticVariants": [
         {
@@ -448,7 +462,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "a7d9fbbcc05a4e9dbdcacf1f8cb11f7ab0c17bfd29793b38a2c2796186387513",
+      "sha256": "f0d02e5074262b06a2dd8733b2e19f277e0d90c279f4f8a0e0477a6dfd31b280",
       "exports": [
         "Empty",
         "emptyVariants",
@@ -470,7 +484,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "575415f4f85b5da40f855564548b97be9cd7b0a4eb7799311c7e2b7334f37a2f",
+      "sha256": "f8a501c600d1c8e0a46d13ee14454a92b13408cbe2531a5c9579a907ffd0e31e",
       "exports": [
         "Field"
       ],
@@ -489,7 +503,7 @@
       "symbol": "Grid",
       "subpath": "./components/grid",
       "file": "components/grid.vue",
-      "modelDigest": "96d41159e342c1dff51f3ce7f9546d9d40d1c97e6f035046b3985e0a34984959",
+      "modelDigest": "5a38222d250c38782aa9a716f93964aee7aad10d7bb641e11f015ea4183279d4",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
       "semanticVariants": [
         {
@@ -502,7 +516,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "d7056427dcf071d6f7bc4363ec1031e785ba3e5c47140a676ed38cacd02245af",
+      "sha256": "08794d2cd2ab0f3d92c95d55f8b467270a67e5b4153710b35fe8644a7af9d005",
       "exports": [
         "Grid",
         "GridItem",
@@ -568,7 +582,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "2839439aad7b28a72a0946737e0d04166f1a10789f5cb67b634c8af68ece2354",
+      "sha256": "ec72fd74f9de8ffa96aa0e08e3c04e45ff436132f3d66bd58638d8e2a0b72299",
       "exports": [
         "InputArea"
       ]
@@ -587,7 +601,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "116d071c617e8058ae9219c260aed07d9d477316590de1131c587185b4dbbadb",
+      "sha256": "f1afc9b57ef2457d28a33a5e5a4a7a5945ebf04096fa6c9c78aff252a33ad234",
       "exports": [
         "InputGroup"
       ],
@@ -644,7 +658,7 @@
       "symbol": "LayerCard",
       "subpath": "./components/layer-card",
       "file": "components/layer-card.vue",
-      "modelDigest": "2ebdc27ab69f5fc3c3bc011c6a6cb19010b761c234ad792c28a8127c98acbfd1",
+      "modelDigest": "0b84bec02cf4341331445f4685c1a538821772e6804d69e328a7c3e8d7cfa822",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
       "semanticVariants": [
         {
@@ -657,7 +671,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "d4804760245536ad54acf57c84e395a72dbf0553ada69f73abae3fad9dea2f95",
+      "sha256": "c4877d8cee1188a1809fbcb68fd6a4c17b8e7ca93bcc16cf72900a812983957a",
       "exports": [
         "LayerCard"
       ],
@@ -704,20 +718,11 @@
       "symbol": "Loader",
       "subpath": "./components/loader",
       "file": "components/loader.vue",
-      "modelDigest": "db50ace5b75967fbccee7b92050e3e4b8aa439ecb6eed4465b90124fc4beb574",
+      "modelDigest": "9df4122f203a38033993c297ab37ad02e5336bce9a1ae0dd546ab66f0fef17dc",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
-      "semanticVariants": [
-        {
-          "id": "default",
-          "expectationDigest": "6eb5c75d6fadb5fd6e7a9b6e216e728db8bed43f1734ef1c19efb96b4766cf1e"
-        },
-        {
-          "id": "large-labelled",
-          "expectationDigest": "163c48e1305118b9b2bc71154f96396b955344e0326a6dcaab28902fbf405547"
-        }
-      ],
+      "semanticVariants": [],
       "unresolvedSemanticOperations": [],
-      "sha256": "d49286071968f2eb3310e041d02d2229757f030bab60f7b8d3c81c248d1ef248",
+      "sha256": "73973c685afae9d7f3e9de9785ddc4e9ec897d6e044f314536ec31df9bf32c2d",
       "exports": [
         "Loader",
         "SkeletonLine"
@@ -737,7 +742,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "74ec6fc9ff21b944ca01d028d9d797c1e562e253acc100c87abd1dbc6a60b918",
+      "sha256": "176591bd57e2c5a4581be16ca93afc59db09b36c5e2b7ad53d7fb2a53b47fde1",
       "exports": [
         "MenuBar",
         "useMenuNavigation"
@@ -765,7 +770,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "89de8db26fe9d272838ffc34e633b88453a659dc922fc389860379058d6b808c",
+      "sha256": "b77b04e362969f4f3ece085c8d2c31cf6853c06e8af2343a135dce42b0a222f4",
       "exports": [
         "Meter"
       ]
@@ -796,7 +801,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "27e034ce116bc0c4f3c001f69d0da7a42d948c0f9e4764fe6bbf8955e087ece1",
+      "sha256": "2de0ecf087acd7663c65974cedf1f379b53da56f321fbbae9561a15a9176ee14",
       "exports": [
         "Pagination"
       ]
@@ -815,7 +820,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "1b112934fb04fa60ea33ffc5dcf6359a68a74d66d1d56e2927341a7e80025912",
+      "sha256": "91f14955f3495ea5b5f0be13176a62fd67ad461a6c83775e6f89c1302ca42d0d",
       "exports": [
         "Popover",
         "PopoverRoot",
@@ -854,7 +859,7 @@
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
       "semanticVariants": [],
       "unresolvedSemanticOperations": [],
-      "sha256": "15477e8b74fe2c321bdac09ae68cc32225fabddc5e510c36a3980e4fe65e87f5",
+      "sha256": "bd2ddf76024dd12c5f26a042658fd9244cfa197cd9de91f57c3b80ecd51224a1",
       "exports": [
         "Radio"
       ]
@@ -873,7 +878,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "4b286174eb5bd3074f90a35aeec9e1c044600fb2df0f1a71168e4a53a5b80235",
+      "sha256": "1e5cbc9e9a89a28b8efbe17d8cb5b816ae3962a3b31698bddfe718ced60c18a1",
       "exports": [
         "Select"
       ],
@@ -901,7 +906,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "3909ccdeb1ee144415de10c3040ed40808a46d8cfa5eed52e5279913a2c3d590",
+      "sha256": "1566aa371f5fbca3a01d236a6eeceae2b6eae75939189568425acbb7c0fd55e4",
       "exports": [
         "SensitiveInput"
       ]
@@ -993,11 +998,25 @@
       }
     },
     {
+      "component": "skeleton-line",
+      "symbol": "SkeletonLine",
+      "subpath": "./components/skeleton-line",
+      "file": "components/skeleton-line.vue",
+      "modelDigest": "82f1004b43100572f1e4d30706007c8d77a8451c379cc869cd353b1c95c79f40",
+      "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
+      "semanticVariants": [],
+      "unresolvedSemanticOperations": [],
+      "sha256": "aefa233a66fa2e7e7dac0483a6223b14cf5e35f56e746cf91543ec9680d3de5a",
+      "exports": [
+        "SkeletonLine"
+      ]
+    },
+    {
       "component": "surface",
       "symbol": "Surface",
       "subpath": "./components/surface",
       "file": "components/surface.vue",
-      "modelDigest": "a99b43a05015aed1b5f99239d8e125c152c7de069f07ad9d3f7a931f66212057",
+      "modelDigest": "b32ae4c4c167db5e11ff97832a162818c4efc303689df5c868a821d2642afc74",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
       "semanticVariants": [
         {
@@ -1010,7 +1029,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "b7717c07780313daefae3867fa47f0c4227cbb9d1775bff9f5d9d3087561cc8c",
+      "sha256": "d22a393b13d0e5c0ada99e1c82ef315648c7bd6a9f4a5bd7451ab5f27c490d91",
       "exports": [
         "Surface"
       ]
@@ -1029,7 +1048,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "be8985e74ed9ad5fc39e630ba07ed7076e403e8ecdc78ce6e07f96bad925eef2",
+      "sha256": "ee64cfbc4baaad5553a85fde092419673c5c6fb7ffbbe8759ebe0495b189946f",
       "exports": [
         "Switch"
       ]
@@ -1039,7 +1058,7 @@
       "symbol": "Table",
       "subpath": "./components/table",
       "file": "components/table.vue",
-      "modelDigest": "48166ccb036c8793830792cf7561ebdd2b085687276dc8a6fff29df644307d79",
+      "modelDigest": "cc4215a8de06bd0df9b20cbd68c551c9f4058a9bdcc065708c3daf2a57e1872a",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
       "semanticVariants": [
         {
@@ -1052,7 +1071,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "9f7380454810d318712adb9d2652ef27bd09977cfc8d58235d76a21589c4cddf",
+      "sha256": "94bce6c96ff2100059d81b25a7a79f550a2372498b466904cef87e90e66ba8a5",
       "exports": [
         "Table",
         "KUMO_TABLE_DEFAULT_VARIANTS",
@@ -1094,7 +1113,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "0620b15e3a99e4477b407df0e26c241fb261173027a25672977bc406ea8b09f1",
+      "sha256": "aefabb6015b6ef548057b8d7366c418e2d9400f8a56b6d2cb0b10c4ada95b58a",
       "exports": [
         "TableOfContents",
         "KUMO_TABLE_OF_CONTENTS_VARIANTS",
@@ -1134,7 +1153,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "aa4eb2a5d0bbb0f008ef8fce1033410a05f25de5f2941969010354e0c7334698",
+      "sha256": "2e51323f2e438d2e82f9cc2f2cb81f523bcb31da0881264df854f7be8cddd366",
       "exports": [
         "Tabs",
         "KUMO_TABS_VARIANTS",
@@ -1183,13 +1202,28 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "7affb0ee7d4191e09dafa9d98c0c710d48510dd428729b9713e883f8d679165a",
+      "sha256": "94efcfb1aae8b45b3d1c73cd5df04adcc77e5f3654dd6d011f98610dc31af73e",
       "exports": [
         "Toasty",
         "ToastProvider",
         "Toast",
         "createKumoToastManager",
         "useKumoToastManager"
+      ]
+    },
+    {
+      "component": "tooltip",
+      "symbol": "Tooltip",
+      "subpath": "./components/tooltip",
+      "file": "components/tooltip.vue",
+      "modelDigest": "17984be09986cef97461b23e5c52fa81c231442ba7830ebabb667bfd3de4571f",
+      "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
+      "semanticVariants": [],
+      "unresolvedSemanticOperations": [],
+      "sha256": "610b79e4444b53e6d0af64a75252b5fbad77c666c1a416a01b71a5c3ab6143b0",
+      "exports": [
+        "Tooltip",
+        "TooltipProvider"
       ]
     }
   ],
@@ -2036,6 +2070,11 @@
       "types": "./components/code.d.ts",
       "canonicalSubpath": "./components/code"
     },
+    "./components/collapsible": {
+      "vue": "./components/collapsible.vue",
+      "types": "./components/collapsible.d.ts",
+      "canonicalSubpath": "./components/collapsible"
+    },
     "./components/combobox": {
       "vue": "./components/combobox.vue",
       "types": "./components/combobox.d.ts",
@@ -2161,6 +2200,11 @@
       "types": "./components/sidebar.d.ts",
       "canonicalSubpath": "./components/sidebar"
     },
+    "./components/skeleton-line": {
+      "vue": "./components/skeleton-line.vue",
+      "types": "./components/skeleton-line.d.ts",
+      "canonicalSubpath": "./components/skeleton-line"
+    },
     "./components/surface": {
       "vue": "./components/surface.vue",
       "types": "./components/surface.d.ts",
@@ -2195,6 +2239,11 @@
       "vue": "./components/toasty.vue",
       "types": "./components/toasty.d.ts",
       "canonicalSubpath": "./components/toast"
+    },
+    "./components/tooltip": {
+      "vue": "./components/tooltip.vue",
+      "types": "./components/tooltip.d.ts",
+      "canonicalSubpath": "./components/tooltip"
     },
     "./components/autocomplete.content": {
       "vue": "./components/autocomplete.content.vue",

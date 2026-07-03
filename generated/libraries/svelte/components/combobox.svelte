@@ -50,9 +50,12 @@
   let highlightedIndex = $state(-1);
   let comboboxValue = $state('');
   let comboboxInput: HTMLInputElement | undefined = $state();
-  function setComboboxOpen(next: boolean) { comboboxOpen = next; onOpenChange?.(next); }
-  function openCombobox() { if (!comboboxOpen) setComboboxOpen(true); }
-  function handleComboboxKey(event: KeyboardEvent) { if (event.key === 'ArrowDown') { event.preventDefault(); if (!comboboxOpen) setComboboxOpen(true); highlightedIndex = Math.min(highlightedIndex + 1, comboboxFixture.items.length - 1); return; } if (event.key === 'Enter' && highlightedIndex >= 0) { event.preventDefault(); const item = comboboxFixture.items[highlightedIndex]; if (!item) return; comboboxValue = item.value; onValueChange?.(item.value); setComboboxOpen(false); comboboxInput?.focus(); } }
+  const filteredComboboxItems = $derived.by(() => { const query = comboboxValue.trim().toLocaleLowerCase(); return query ? comboboxFixture.items.filter(item => item.label.toLocaleLowerCase().includes(query)) : comboboxFixture.items; });
+  function setComboboxOpen(next: boolean) { if (comboboxOpen === next) return; comboboxOpen = next; onOpenChange?.(next); }
+  function openCombobox() { setComboboxOpen(true); }
+  function handleComboboxInput(event: Event) { comboboxValue = (event.currentTarget as HTMLInputElement).value; highlightedIndex = -1; openCombobox(); }
+  function commitComboboxItem(item: { value: string; label: string }) { comboboxValue = item.value; onValueChange?.(item.value); setComboboxOpen(false); comboboxInput?.focus(); }
+  function handleComboboxKey(event: KeyboardEvent) { if (event.key === 'ArrowDown') { event.preventDefault(); openCombobox(); highlightedIndex = Math.min(highlightedIndex + 1, filteredComboboxItems.length - 1); return; } if (event.key === 'Enter' && highlightedIndex >= 0) { event.preventDefault(); const item = filteredComboboxItems[highlightedIndex]; if (item) commitComboboxItem(item); } }
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "compound": compound, "Content": Content, "root": root, "TriggerInput": TriggerInput, "TriggerMultipleWithInput": TriggerMultipleWithInput, "variants": variants, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
   const semanticValues = semanticProps;
@@ -75,4 +78,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<input bind:this={comboboxInput} role="combobox" aria-expanded={comboboxOpen} placeholder={comboboxFixture.placeholder} value={comboboxValue} onclick={openCombobox} onkeydown={handleComboboxKey}>{#if comboboxOpen}<ul role="listbox">{#each comboboxFixture.items as item, index (item.value)}<li role="option" data-value={item.value} aria-selected={highlightedIndex === index}>{item.label}</li>{/each}</ul>{/if}
+<input bind:this={comboboxInput} role="combobox" aria-expanded={comboboxOpen} placeholder={comboboxFixture.placeholder} value={comboboxValue} onclick={openCombobox} onfocus={openCombobox} oninput={handleComboboxInput} onkeydown={handleComboboxKey}>{#if comboboxOpen}<ul role="listbox">{#each filteredComboboxItems as item, index (item.value)}<li role="option" data-value={item.value} aria-selected={highlightedIndex === index} onpointerdown={(event) => event.preventDefault()} onclick={() => commitComboboxItem(item)}>{item.label}</li>{/each}</ul>{/if}

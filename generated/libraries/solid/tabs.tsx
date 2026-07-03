@@ -39,7 +39,7 @@ export function Tabs(incoming: TabsProps): JSX.Element {
   const state: Record<string, () => unknown> = {};
   type TabItem = {value: string; label: string};
   const tabs = () => props.tabs as TabItem[];
-  const controlled = () => props.selectedValue !== undefined;
+  const controlled = () => incoming.selectedValue !== undefined;
   const [committedValue, setCommittedValue] = createSignal(tabs()[0]?.value);
   const selectedValue = () => controlled() ? props.selectedValue as string : committedValue();
   const selectedIndex = () => Math.max(0, tabs().findIndex(item => item.value === selectedValue()));

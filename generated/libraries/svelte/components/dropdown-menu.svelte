@@ -18,6 +18,8 @@
   collection?: Snippet;
   root?: Snippet;
   children?: Snippet;
+  open?: boolean;
+  defaultOpen?: boolean;
   onOpenChange?: (value: boolean) => void;
   onSelect?: (value: string) => void;
   styles?: Record<string, string>;
@@ -37,6 +39,8 @@
     Trigger = undefined,
     collection = undefined,
     root = undefined,
+    open = undefined,
+    defaultOpen = false,
     onOpenChange = undefined,
     onSelect = undefined,
     children,
@@ -54,11 +58,11 @@
   type DropdownItem = { label: string; disabled: boolean; submenu?: DropdownItem[] };
   function dropdownText(node: DropdownFixtureNode | undefined): string { return node ? String(node.text ?? '') + (node.children ?? []).map(dropdownText).join('') : ''; }
   function dropdownItem(node: DropdownFixtureNode): DropdownItem { const sub = node.children?.find(child => child.export === '.SubContent'); return { label: dropdownText(node.children?.find(child => child.export === '.SubTrigger') ?? node), disabled: Boolean(node.props?.disabled), submenu: sub?.children?.filter(child => child.export === '.Item').map(dropdownItem) }; }
-  const dropdownFixture = $derived.by(() => { const root = fixture as DropdownFixtureNode | undefined; const trigger = root?.children?.find(node => node.export === '.Trigger'); const content = root?.children?.find(node => node.export === '.Content'); return { trigger: dropdownText(trigger) || "Actions", items: (content?.children ?? []).filter(node => node.export === '.Item' || node.export === '.Sub').map(dropdownItem) }; });
-  let dropdownOpen = $state(false);
+  const dropdownFixture = $derived.by(() => { const root = fixture as DropdownFixtureNode | undefined; const trigger = root?.children?.find(node => node.export === '.Trigger'); const content = root?.children?.find(node => node.export === '.Content'); return { trigger: dropdownText(trigger) || "Actions", items: (content?.children ?? []).filter(node => node.export === '.Item' || node.export === '.Sub').map(dropdownItem), canonicalOverlay: root?.export === undefined }; });
+  let dropdownOpen = $state(Boolean(open ?? defaultOpen));
   let dropdownSubmenuOpen = $state(false);
   let dropdownTrigger: HTMLButtonElement | undefined = $state();
-  let dropdownItems: HTMLButtonElement[] = $state([]);
+  let dropdownItems: HTMLElement[] = $state([]);
   function setDropdownOpen(next: boolean) { dropdownOpen = next; onOpenChange?.(next); }
   function focusDropdownItem(index: number) { queueMicrotask(() => dropdownItems[index]?.focus()); }
   function openDropdown() { setDropdownOpen(true); const first = dropdownFixture.items.findIndex(item => !item.disabled); focusDropdownItem(first); }
@@ -90,4 +94,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<button bind:this={dropdownTrigger} type="button" tabindex="0" aria-haspopup="menu" aria-expanded={dropdownOpen} onclick={toggleDropdown} onkeydown={handleDropdownTriggerKey}>{dropdownFixture.trigger}</button>{#if dropdownOpen}<div role="menu">{#each dropdownFixture.items as item, index (item.label)}<button bind:this={dropdownItems[index]} type="button" role="menuitem" tabindex="-1" disabled={item.disabled} onclick={(event) => selectDropdownItem(event, item)} onkeydown={(event) => handleDropdownItemKey(event, index)}>{item.label}</button>{#if item.submenu && dropdownSubmenuOpen}<div role="menu">{#each item.submenu as nested (nested.label)}<button type="button" role="menuitem" tabindex="-1" disabled={nested.disabled}>{nested.label}</button>{/each}</div>{/if}{/each}</div>{/if}
+{#if dropdownOpen && dropdownFixture.canonicalOverlay}<span aria-hidden="true" tabindex="0" style="clip-path:inset(50%);overflow:hidden;white-space:nowrap;border:0;padding:0;width:1px;height:1px;margin:-1px;position:fixed;top:0;left:0"></span>{/if}<button bind:this={dropdownTrigger} type="button" tabindex="0" aria-haspopup="menu" aria-expanded={dropdownOpen} data-kumo-component={dropdownOpen && dropdownFixture.canonicalOverlay ? "Button" : undefined} class={dropdownOpen && dropdownFixture.canonicalOverlay ? "group flex w-max shrink-0 items-center font-medium select-none border-0 shadow-xs focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand cursor-pointer disabled:cursor-not-allowed disabled:text-kumo-subtle h-9 gap-1.5 rounded-lg px-3 text-base bg-kumo-base !text-kumo-default ring not-disabled:hover:bg-kumo-tint disabled:bg-kumo-base/50 disabled:!text-kumo-default/70 ring-kumo-line data-[state=open]:bg-kumo-base" : undefined} onclick={toggleDropdown} onkeydown={handleDropdownTriggerKey}>{dropdownFixture.trigger}</button>{#if dropdownOpen && dropdownFixture.canonicalOverlay}<span aria-hidden="true" tabindex="0" style="clip-path:inset(50%);overflow:hidden;white-space:nowrap;border:0;padding:0;width:1px;height:1px;margin:-1px;position:fixed;top:0;left:0"></span><div data-base-ui-portal><div role="presentation" style="position:absolute;left:0;top:0;transform:translate(-19px,44px)"><span aria-hidden="true" tabindex="0" style="clip-path:inset(50%);overflow:hidden;white-space:nowrap;border:0;padding:0;width:1px;height:1px;margin:-1px;position:fixed;top:0;left:0"></span><div role="menu" class="overflow-hidden bg-kumo-control text-kumo-default rounded-lg shadow-lg ring ring-kumo-line min-w-36 p-1.5 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95">{#each dropdownFixture.items as item, index (item.label)}<div bind:this={dropdownItems[index]} role="menuitem" tabindex="-1" data-kumo-component="DropdownMenu" data-kumo-part="item" data-disabled={item.disabled ? "" : undefined} class="relative flex cursor-default items-center rounded-md px-2 py-1.5 text-base outline-hidden select-none focus:text-kumo-default focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand data-disabled:pointer-events-none data-disabled:opacity-50 data-highlighted:bg-kumo-overlay" onclick={(event) => selectDropdownItem(event, item)} onkeydown={(event) => handleDropdownItemKey(event, index)}>{item.label}</div>{/each}</div><span aria-hidden="true" tabindex="0" style="clip-path:inset(50%);overflow:hidden;white-space:nowrap;border:0;padding:0;width:1px;height:1px;margin:-1px;position:fixed;top:0;left:0"></span></div></div><span aria-hidden="true" tabindex="0" style="clip-path:inset(50%);overflow:hidden;white-space:nowrap;border:0;padding:0;width:1px;height:1px;margin:-1px;position:fixed;top:0;left:0"></span><span style="clip-path:inset(50%);position:fixed;top:0;left:0"></span><span aria-hidden="true" tabindex="0" style="clip-path:inset(50%);overflow:hidden;white-space:nowrap;border:0;padding:0;width:1px;height:1px;margin:-1px;position:fixed;top:0;left:0"></span>{:else if dropdownOpen}<div role="menu">{#each dropdownFixture.items as item, index (item.label)}<button bind:this={dropdownItems[index]} type="button" role="menuitem" tabindex="-1" disabled={item.disabled} onclick={(event) => selectDropdownItem(event, item)} onkeydown={(event) => handleDropdownItemKey(event, index)}>{item.label}</button>{#if item.submenu && dropdownSubmenuOpen}<div role="menu">{#each item.submenu as nested (nested.label)}<button type="button" role="menuitem" tabindex="-1" disabled={nested.disabled}>{nested.label}</button>{/each}</div>{/if}{/each}</div>{/if}

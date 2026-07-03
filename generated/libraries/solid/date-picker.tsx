@@ -38,7 +38,10 @@ export function DatePicker(incoming: DatePickerProps): JSX.Element {
   const renderContent = normalizeRenderContent(props.children, true);
   const normalizedFixture = normalizeFixture(fixture);
   const state: Record<string, () => unknown> = {};
-  type DatePickerDay = {iso: string; day: number; disabled: boolean};
+  type DatePickerDay = {iso: string; day: number; disabled: boolean; inMonth: boolean; monthStr: string; isToday: boolean; className: string; label: string};
+  const DATE_PICKER_MONTH_NAMES = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  const DATE_PICKER_WEEKDAYS = [{short:"Su",full:"Sunday"},{short:"Mo",full:"Monday"},{short:"Tu",full:"Tuesday"},{short:"We",full:"Wednesday"},{short:"Th",full:"Thursday"},{short:"Fr",full:"Friday"},{short:"Sa",full:"Saturday"}];
+  const datePickerToday = (() => { const today=new Date(); return today.getFullYear()+"-"+String(today.getMonth()+1).padStart(2,"0")+"-"+String(today.getDate()).padStart(2,"0"); })();
   const toIsoDate = (date: Date): string => date.toISOString().slice(0, 10);
   const parseIsoDate = (value: string): Date => new Date(value + "T00:00:00.000Z");
   const monthDate = parseIsoDate(String(props.defaultMonthDate ?? props.selectedDate ?? "2025-01-01"));
@@ -46,7 +49,8 @@ export function DatePicker(incoming: DatePickerProps): JSX.Element {
   const gridStart = new Date(firstOfMonth); gridStart.setUTCDate(1 - firstOfMonth.getUTCDay());
   const monthEnd = new Date(Date.UTC(monthDate.getUTCFullYear(), monthDate.getUTCMonth() + 1, 0));
   const cellCount = Math.ceil((firstOfMonth.getUTCDay() + monthEnd.getUTCDate()) / 7) * 7;
-  const datePickerDays: DatePickerDay[] = Array.from({length:cellCount}, (_, index) => { const date = new Date(gridStart); date.setUTCDate(gridStart.getUTCDate() + index); const iso = toIsoDate(date); return {iso, day:date.getUTCDate(), disabled:Boolean((props.disabledBeforeDate && iso < props.disabledBeforeDate) || (props.disabledAfterDate && iso > props.disabledAfterDate))}; });
+  const datePickerCaption = () => DATE_PICKER_MONTH_NAMES[monthDate.getUTCMonth()]+" "+monthDate.getUTCFullYear();
+  const datePickerDays: DatePickerDay[] = Array.from({length:cellCount}, (_, index) => { const date = new Date(gridStart); date.setUTCDate(gridStart.getUTCDate() + index); const iso = toIsoDate(date), inMonth=date.getUTCMonth()===monthDate.getUTCMonth(), isToday=iso===datePickerToday; return {iso, day:date.getUTCDate(), disabled:Boolean((props.disabledBeforeDate && iso < props.disabledBeforeDate) || (props.disabledAfterDate && iso > props.disabledAfterDate)), inMonth, monthStr:iso.slice(0,7), isToday, className:"rdp-day"+(inMonth?"":" rdp-outside")+(isToday?" rdp-today":""), label:(isToday?"Today, ":"")+DATE_PICKER_WEEKDAYS[date.getUTCDay()].full+", "+DATE_PICKER_MONTH_NAMES[date.getUTCMonth()]+" "+date.getUTCDate()+", "+date.getUTCFullYear()}; });
   const datePickerWeeks = (): DatePickerDay[][] => Array.from({length:datePickerDays.length / 7}, (_, index) => datePickerDays.slice(index * 7, index * 7 + 7));
   const [uncontrolledSelectedDate, setUncontrolledSelectedDate] = createSignal<string | undefined>(incoming.selectedDate as string | undefined);
   const selectedDate = () => incoming.selectedDate !== undefined ? String(props.selectedDate) : uncontrolledSelectedDate();
@@ -54,7 +58,7 @@ export function DatePicker(incoming: DatePickerProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as DatePickerProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  return (<div aria-label={props["aria-label"] as string}><button type="button" aria-label="Previous month">Previous</button><button type="button" aria-label="Next month">Next</button><table role="grid"><tbody><For each={datePickerWeeks()} children={week => <tr><For each={week} children={day => <td><button type="button" data-day={day.iso} disabled={day.disabled} aria-selected={selectedDate() === day.iso || undefined} onClick={event => selectDate(day, event)}>{day.day}</button></td>} /></tr>} /></tbody></table></div>);
+  return (<div class="rdp-root select-none rounded-xl bg-kumo-base"><div class="rdp-months"><nav data-animated-nav="true" class="rdp-nav" aria-label="Navigation bar"><button type="button" class="rdp-button_previous" aria-label="Go to the Previous Month"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256" class="rdp-chevron"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg></button><button type="button" class="rdp-button_next" aria-label="Go to the Next Month"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256" class="rdp-chevron"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button></nav><div data-animated-month="true" class="rdp-month"><div data-animated-caption="true" class="rdp-month_caption"><span class="rdp-caption_label" role="status" aria-live="polite">{datePickerCaption()}</span></div><table role="grid" aria-multiselectable="false" aria-label={datePickerCaption()} class="rdp-month_grid"><thead aria-hidden="true"><tr data-animated-weekdays="true" class="rdp-weekdays"><For each={DATE_PICKER_WEEKDAYS} children={weekday => <th aria-label={weekday.full} class="rdp-weekday" scope="col">{weekday.short}</th>} /></tr></thead><tbody data-animated-weeks="true" class="rdp-weeks"><For each={datePickerWeeks()} children={week => <tr class="rdp-week"><For each={week} children={day => <td class={day.className} role="gridcell" aria-label={day.label} data-day={day.iso} data-month={day.inMonth ? undefined : day.monthStr} data-outside={day.inMonth ? undefined : "true"} data-today={day.isToday ? "true" : undefined} onClick={event => selectDate(day, event)}>{day.day}</td>} /></tr>} /></tbody></table></div></div></div>);
 }
 
 export default DatePicker;

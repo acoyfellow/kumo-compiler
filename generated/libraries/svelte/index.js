@@ -41,7 +41,7 @@ export { default as Table } from './components/table.svelte';
 export { default as TableOfContents } from './components/table-of-contents.svelte';
 export { default as Tabs } from './components/tabs.svelte';
 export { default as Text } from './components/text.svelte';
-export { default as Toasty } from './components/toasty.svelte';
+export { default as Toasty, default as ToastProvider, Toast, createKumoToastManager, useKumoToastManager } from './components/toasty.svelte';
 export { default as Tooltip } from './components/tooltip.svelte';
 export { default as AutocompleteContent } from './components/autocomplete/content.svelte';
 export { default as AutocompleteInputGroup } from './components/autocomplete/input-group.svelte';

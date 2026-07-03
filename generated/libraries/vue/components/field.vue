@@ -23,5 +23,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <div><label :for="String((props as any).childId ?? $attrs['child-id'] ?? 'field-control')" class="m-0 select-none text-base font-medium text-kumo-default">{{ (props as any).label ?? $attrs.label }}</label><slot /><p v-if="(((props as any).description ?? $attrs.description) !== undefined)" class="text-sm leading-snug text-kumo-subtle">{{ (props as any).description ?? $attrs.description }}</p></div>
+  <div class="grid gap-2 has-[input[type=checkbox]]:grid-cols-[auto_1fr] has-[input[type=checkbox]]:items-center has-[[role=switch]]:grid-cols-[auto_1fr] has-[[role=switch]]:items-center"><label :for="String((props as any).childId ?? $attrs['child-id'] ?? 'field-control')" class="m-0 select-none text-base font-medium text-kumo-default"><span class="inline-flex items-center gap-1">{{ (props as any).label ?? $attrs.label }}</span></label><slot /><p v-if="(((props as any).description ?? $attrs.description) !== undefined)" class="text-sm leading-snug text-kumo-subtle col-span-full">{{ (props as any).description ?? $attrs.description }}</p></div>
 </template>

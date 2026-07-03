@@ -49,17 +49,24 @@ export function Combobox(incoming: ComboboxProps): JSX.Element {
   const comboboxOpen = () => incoming.open !== undefined ? Boolean(props.open) : uncontrolledComboboxOpen();
   const [uncontrolledComboboxValue, setUncontrolledComboboxValue] = createSignal(String(incoming.defaultValue ?? ""));
   const comboboxValue = () => incoming.value !== undefined ? String(props.value) : uncontrolledComboboxValue();
+  const [comboboxQuery, setComboboxQuery] = createSignal(comboboxValue());
+  const filteredComboboxItems = () => { const query = comboboxQuery().trim().toLocaleLowerCase(); return query ? comboboxItems().filter(item => fixtureText(item).toLocaleLowerCase().includes(query)) : comboboxItems(); };
   const [highlightedIndex, setHighlightedIndex] = createSignal(-1);
   let comboboxInput: HTMLInputElement | undefined;
   const setComboboxOpen = (next: boolean) => { if (incoming.open === undefined) setUncontrolledComboboxOpen(next); (props.onOpenChange as ((open: boolean) => void) | undefined)?.(next); };
+  const openCombobox = () => { setComboboxOpen(true); comboboxInput?.focus(); };
+  const selectComboboxItem = (item: ComboboxFixtureNode & {value: string}, event?: PointerEvent) => { if (item.props.disabled) { event?.preventDefault(); return; } event?.preventDefault(); if (incoming.value === undefined) setUncontrolledComboboxValue(item.value); setComboboxQuery(item.value); (props.onValueChange as ((value: string) => void) | undefined)?.(item.value); setComboboxOpen(false); queueMicrotask(() => comboboxInput?.focus()); };
+  const comboboxOnInput: JSX.EventHandlerUnion<HTMLInputElement, InputEvent> = event => { setComboboxQuery(event.currentTarget.value); setHighlightedIndex(-1); if (!comboboxOpen()) setComboboxOpen(true); };
   const comboboxKeyDown: JSX.EventHandlerUnion<HTMLInputElement, KeyboardEvent> = event => {
-    if (event.key === "ArrowDown") { event.preventDefault(); setHighlightedIndex(index => Math.min(index + 1, comboboxItems().length - 1)); }
-    else if (event.key === "Enter" && highlightedIndex() >= 0) { event.preventDefault(); const value = comboboxItems()[highlightedIndex()]?.value; if (value === undefined) return; if (incoming.value === undefined) setUncontrolledComboboxValue(value); (props.onValueChange as ((value: string) => void) | undefined)?.(value); setComboboxOpen(false); comboboxInput?.focus(); }
+    if (event.key === "ArrowDown") { event.preventDefault(); if (!comboboxOpen()) setComboboxOpen(true); setHighlightedIndex(index => Math.min(index + 1, filteredComboboxItems().length - 1)); }
+    else if (event.key === "ArrowUp") { event.preventDefault(); setHighlightedIndex(index => Math.max(index - 1, 0)); }
+    else if (event.key === "Enter" && highlightedIndex() >= 0) { event.preventDefault(); const item = filteredComboboxItems()[highlightedIndex()]; if (item) selectComboboxItem(item); }
+    else if (event.key === "Escape" && comboboxOpen()) { event.preventDefault(); setComboboxOpen(false); comboboxInput?.focus(); }
   };
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as ComboboxProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  return (<><input ref={comboboxInput} aria-hidden="true" tabindex="-1" style="clip-path:inset(50%);overflow:hidden;white-space:nowrap;border:0;padding:0;width:1px;height:1px;margin:-1px;position:fixed;top:0;left:0" value={comboboxValue()} onClick={() => setComboboxOpen(true)} onKeyDown={comboboxKeyDown} /><Show when={comboboxOpen() && comboboxItems().length > 0} children={<ul role="listbox"><For each={comboboxItems()} children={(item, index) => <li role="option" data-value={item.value} aria-selected={highlightedIndex() === index()}>{fixtureText(item)}</li>} /></ul>} /></>);
+  return (<><input ref={comboboxInput} role="combobox" aria-expanded={comboboxOpen()} aria-haspopup="listbox" aria-autocomplete="list" placeholder={comboboxTrigger().props.placeholder as string} style="overflow:hidden;white-space:nowrap;border:0;padding:0;width:1px;height:1px;margin:0;position:fixed;top:0;left:0" value={comboboxQuery()} onClick={openCombobox} onInput={comboboxOnInput} onKeyDown={comboboxKeyDown} /><Show when={comboboxOpen() && filteredComboboxItems().length > 0} children={<ul role="listbox"><For each={filteredComboboxItems()} children={(item, index) => <li role="option" tabindex="-1" data-value={item.value} aria-selected={highlightedIndex() === index()} aria-disabled={Boolean(item.props.disabled) || undefined} onPointerDown={event => selectComboboxItem(item, event)}>{fixtureText(item)}</li>} /></ul>} /></>);
 }
 
 export function ComboboxContent(props: CompoundPartProps): JSX.Element {

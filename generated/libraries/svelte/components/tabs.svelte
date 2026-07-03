@@ -25,13 +25,14 @@
   [key: string]: unknown;
 };
 
+  const TAB_SELECTED_VALUE_OMITTED = Symbol();
   let {
     activateOnFocus = false,
     className = undefined,
     indicatorClassName = undefined,
     listClassName = undefined,
     onValueChange = undefined,
-    selectedValue = "first tab value when uncontrolled and selectedValue omitted",
+    selectedValue: selectedValueProp = TAB_SELECTED_VALUE_OMITTED,
     size = "base",
     tabs = [],
     value = undefined,
@@ -51,7 +52,8 @@
 
   type TabItem = { label: unknown; value: unknown };
   const tabItems = $derived((tabs ?? []) as TabItem[]);
-  const controlledTab = $derived(selectedValue !== undefined);
+  const selectedValue = $derived(selectedValueProp === TAB_SELECTED_VALUE_OMITTED ? undefined : selectedValueProp);
+  const controlledTab = $derived(selectedValueProp !== TAB_SELECTED_VALUE_OMITTED);
   let uncontrolledTabValue = $state(tabItems[0]?.value);
   const selectedTabValue = $derived(controlledTab ? selectedValue : uncontrolledTabValue);
   let focusedIndex = $state(0);
