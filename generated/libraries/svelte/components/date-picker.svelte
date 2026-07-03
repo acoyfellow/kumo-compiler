@@ -46,22 +46,35 @@
   }: Props = $props();
   let state_displayMonth = $state("from selected/defaultMonth/current date");
   let state_selected = $state("from selected prop");
-  type DatePickerDay = { iso: string; day: number; disabled: boolean };
+  type DatePickerDay = { iso: string; day: number; disabled: boolean; inMonth: boolean; monthStr: string; isToday: boolean; className: string; label: string };
+  const DATE_PICKER_MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const DATE_PICKER_WEEKDAYS = [{ short: 'Su', full: 'Sunday' },{ short: 'Mo', full: 'Monday' },{ short: 'Tu', full: 'Tuesday' },{ short: 'We', full: 'Wednesday' },{ short: 'Th', full: 'Thursday' },{ short: 'Fr', full: 'Friday' },{ short: 'Sa', full: 'Saturday' }];
+  const datePickerToday = (() => { const t = new Date(); return t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0'); })();
   const initialDatePickerMonth = String(defaultMonthDate ?? selectedDate ?? '1970-01-01').slice(0, 7) + '-01';
   let datePickerMonth = $state(initialDatePickerMonth);
   let uncontrolledDatePickerValue = $state(selectedDate);
   const currentDatePickerValue = $derived(selectedDate !== undefined ? selectedDate : uncontrolledDatePickerValue);
-  let datePickerButtons: Record<string, HTMLButtonElement> = $state({});
+  const datePickerWeekdays = DATE_PICKER_WEEKDAYS;
+  const datePickerCaption = $derived.by(() => { const month = new Date(datePickerMonth + 'T00:00:00.000Z'); return DATE_PICKER_MONTH_NAMES[month.getUTCMonth()] + ' ' + month.getUTCFullYear(); });
   const datePickerDays = $derived.by(() => {
     const month = new Date(datePickerMonth + 'T00:00:00.000Z');
+    const displayMonth = month.getUTCMonth();
     const start = new Date(month); start.setUTCDate(1 - start.getUTCDay());
     const end = new Date(Date.UTC(month.getUTCFullYear(), month.getUTCMonth() + 1, 0));
     const count = Math.ceil((start.getUTCDay() + end.getUTCDate()) / 7) * 7;
-    return Array.from({ length: count }, (_, index): DatePickerDay => { const date = new Date(start); date.setUTCDate(start.getUTCDate() + index); const iso = date.toISOString().slice(0, 10); return { iso, day: date.getUTCDate(), disabled: Boolean((disabledBeforeDate !== undefined && iso < disabledBeforeDate) || (disabledAfterDate !== undefined && iso > disabledAfterDate)) }; });
+    return Array.from({ length: count }, (_, index): DatePickerDay => {
+      const date = new Date(start); date.setUTCDate(start.getUTCDate() + index);
+      const iso = date.toISOString().slice(0, 10);
+      const inMonth = date.getUTCMonth() === displayMonth;
+      const isToday = iso === datePickerToday;
+      const className = 'rdp-day' + (inMonth ? '' : ' rdp-outside') + (isToday ? ' rdp-today' : '');
+      const label = (isToday ? 'Today, ' : '') + DATE_PICKER_WEEKDAYS[date.getUTCDay()].full + ', ' + DATE_PICKER_MONTH_NAMES[date.getUTCMonth()] + ' ' + date.getUTCDate() + ', ' + date.getUTCFullYear();
+      return { iso, day: date.getUTCDate(), disabled: Boolean((disabledBeforeDate !== undefined && iso < disabledBeforeDate) || (disabledAfterDate !== undefined && iso > disabledAfterDate)), inMonth, monthStr: iso.slice(0, 7), isToday, className, label };
+    });
   });
   const datePickerWeeks = $derived(Array.from({ length: datePickerDays.length / 7 }, (_, index) => datePickerDays.slice(index * 7, index * 7 + 7)));
   function moveDatePickerMonth(delta: number) { const date = new Date(datePickerMonth + 'T00:00:00.000Z'); date.setUTCMonth(date.getUTCMonth() + delta); datePickerMonth = date.toISOString().slice(0, 7) + '-01'; }
-  function selectDatePickerDay(day: DatePickerDay) { if (day.disabled) return; if (selectedDate === undefined) uncontrolledDatePickerValue = day.iso; onChange?.(day.iso); datePickerButtons[day.iso]?.focus(); }
+  function selectDatePickerDay(day: DatePickerDay) { if (day.disabled) return; if (selectedDate === undefined) uncontrolledDatePickerValue = day.iso; onChange?.(day.iso); }
 
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "aria-label": aria_label, "fromDate": fromDate, "mode": mode, "onChange": onChange, "reactDayPickerProps": reactDayPickerProps, "selected": selected, "toDate": toDate, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };
@@ -83,4 +96,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-<div {...rest} aria-label={rest["aria-label"] as string}><button type="button" onclick={() => moveDatePickerMonth(-1)}>Previous</button><button type="button" onclick={() => moveDatePickerMonth(1)}>Next</button><table role="grid"><tbody>{#each datePickerWeeks as week (week[0].iso)}<tr>{#each week as day (day.iso)}<td><button bind:this={datePickerButtons[day.iso]} type="button" data-day={day.iso} disabled={day.disabled} aria-selected={currentDatePickerValue === day.iso} onclick={() => selectDatePickerDay(day)}>{day.day}</button></td>{/each}</tr>{/each}</tbody></table></div>
+<div class="rdp-root select-none rounded-xl bg-kumo-base"><div class="rdp-months"><nav data-animated-nav="true" class="rdp-nav" aria-label="Navigation bar"><button type="button" class="rdp-button_previous" aria-label="Go to the Previous Month" onclick={() => moveDatePickerMonth(-1)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256" class="rdp-chevron"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg></button><button type="button" class="rdp-button_next" aria-label="Go to the Next Month" onclick={() => moveDatePickerMonth(1)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256" class="rdp-chevron"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button></nav><div data-animated-month="true" class="rdp-month"><div data-animated-caption="true" class="rdp-month_caption"><span class="rdp-caption_label" role="status" aria-live="polite">{datePickerCaption}</span></div><table role="grid" aria-multiselectable="false" aria-label={datePickerCaption} class="rdp-month_grid"><thead aria-hidden="true"><tr data-animated-weekdays="true" class="rdp-weekdays">{#each datePickerWeekdays as weekday}<th aria-label={weekday.full} class="rdp-weekday" scope="col">{weekday.short}</th>{/each}</tr></thead><tbody data-animated-weeks="true" class="rdp-weeks">{#each datePickerWeeks as week (week[0].iso)}<tr class="rdp-week">{#each week as day (day.iso)}<td class={day.className} role="gridcell" aria-label={day.label} data-day={day.iso} data-month={day.inMonth ? undefined : day.monthStr} data-outside={day.inMonth ? undefined : "true"} data-today={day.isToday ? "true" : undefined} onclick={() => selectDatePickerDay(day)}>{day.day}</td>{/each}</tr>{/each}</tbody></table></div></div></div>

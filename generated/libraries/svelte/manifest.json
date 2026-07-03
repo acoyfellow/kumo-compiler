@@ -1,7 +1,7 @@
 {
   "schemaVersion": "kumo.svelte-library/v1",
   "algebraVersion": "kumo.component-algebra/v1",
-  "count": 41,
+  "count": 44,
   "components": [
     {
       "component": "autocomplete",
@@ -198,10 +198,23 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "d218152a0776bb4dfc8d4661df8d00a3da1279ada82f63a542e986b9bc635e33",
+      "sha256": "1033a143a6703bda0bf083bb2efe012a85cd7046b8f39979855c1dad7fa39910",
       "exports": [
         "Code",
         "CodeBlock"
+      ]
+    },
+    {
+      "component": "collapsible",
+      "file": "./components/collapsible.svelte",
+      "subpath": "./components/collapsible",
+      "modelDigest": "0cd3d97b2d0b8dc26d2e8ab6547c2c65527cdf1ec2f6881c29109981b1bd2c4a",
+      "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
+      "semanticVariants": [],
+      "unresolvedSemanticOperations": [],
+      "sha256": "38f21da0aeed916d4bc011d172edfea68207575cacaf0c9f8db21aac63519b3b",
+      "exports": [
+        "Collapsible"
       ]
     },
     {
@@ -250,7 +263,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "2f818f74cda6331e6a4cc3179f8ca0e438eff3028e4fe2b6438cbe638703c848",
+      "sha256": "0dc43a5e196180b3a30ce3431a49ff32f045221a0106b1695b1d77eeb1871f6e",
       "exports": [
         "DatePicker"
       ]
@@ -272,7 +285,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "a99f2fdfca1f91770e04bf92aa5e46cb8ffd3759a623ebabd7f72ae7b2d5b7fc",
+      "sha256": "09c659e63072a8c0c3f55cb9c21f4cc325eb707b861dae55038d5a4c5ba7e59f",
       "exports": [
         "DateRangePicker"
       ]
@@ -356,7 +369,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "6ef0dd30e99972355a715661752c86ca77c1d724eba9c652d83719ee424f904e",
+      "sha256": "ce88780baac5cd9e656b70275020799da8435c058e9e5d67740964fc522dc6d8",
       "exports": [
         "Field"
       ]
@@ -441,7 +454,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "e062c586b9b5f3c2ad216477615dad7235e27f9266d8236ad7f856934031249a",
+      "sha256": "82c67e1e663c27c6d3ca7c6dd3a6e35af152fc90786717287cc5357d781a42f2",
       "exports": [
         "InputArea"
       ]
@@ -459,7 +472,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "9c34b88f461271153d398295e0661aaa82c7dddb4f4d36d2cfa46a849f0b67a7",
+      "sha256": "dc0aeb402d35bc38e1cb60f496edcee636ccf092290fab917e2be09a47c9a652",
       "exports": [
         "InputGroup"
       ]
@@ -546,20 +559,11 @@
       "component": "loader",
       "file": "./components/loader.svelte",
       "subpath": "./components/loader",
-      "modelDigest": "db50ace5b75967fbccee7b92050e3e4b8aa439ecb6eed4465b90124fc4beb574",
+      "modelDigest": "9df4122f203a38033993c297ab37ad02e5336bce9a1ae0dd546ab66f0fef17dc",
       "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
-      "semanticVariants": [
-        {
-          "id": "default",
-          "expectationDigest": "6eb5c75d6fadb5fd6e7a9b6e216e728db8bed43f1734ef1c19efb96b4766cf1e"
-        },
-        {
-          "id": "large-labelled",
-          "expectationDigest": "163c48e1305118b9b2bc71154f96396b955344e0326a6dcaab28902fbf405547"
-        }
-      ],
+      "semanticVariants": [],
       "unresolvedSemanticOperations": [],
-      "sha256": "ff3707739a979075b23a6580c51533f86b4e30c9263cfeba95baec4e0efef681",
+      "sha256": "60e80209c5688873e820f24e5ce33b9c932024fbcdaa54e22bc2d226b1bd9936",
       "exports": [
         "Loader",
         "SkeletonLine"
@@ -578,7 +582,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "ef2aa45043a66fecf0f65bfc63d1d85ce5f79c028fc44f48cac84fb48c50c7af",
+      "sha256": "ad21ad60f1ba0688a8603ae387360e3f21d88cf80e65a35331d86c9587bc0d2b",
       "exports": [
         "MenuBar",
         "useMenuNavigation"
@@ -605,7 +609,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "1cd8da80dcfd46e8b592dbf5737de00c40170835f8878a5b47deb1c95ddf26d7",
+      "sha256": "26f902b11bb9867136e0bd92a65f76faee7ef40ae6e27e52c2cda59fba13e266",
       "exports": [
         "Meter"
       ]
@@ -635,7 +639,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "0a439e628c558bd2db467fb858c9e6c13153675cee9f1d6eaae29b8421c9f7bd",
+      "sha256": "05e4bad5d79feeb3ce522bb5ab4bf92c5bf449b007128173cc627b6d69a90f5c",
       "exports": [
         "Pagination"
       ]
@@ -692,7 +696,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "354461005f3b32146c2319afafde0078842e708fa00970c1814573da64aae45e",
+      "sha256": "22f53f3bbc21700c59435dacfccbda43437c1b238e5df0a2b67c9d019b3c5f01",
       "exports": [
         "Select"
       ]
@@ -710,7 +714,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "1d149ed13149d975fd9a948d87b3821e3e1446b19752806f930fc8ac4ce8d6f5",
+      "sha256": "dd979b73bc7e7697b3afc096e69c6e4ea9e8cceaddad620ae8b287e868871f2e",
       "exports": [
         "SensitiveInput"
       ]
@@ -766,6 +770,19 @@
       ]
     },
     {
+      "component": "skeleton-line",
+      "file": "./components/skeleton-line.svelte",
+      "subpath": "./components/skeleton-line",
+      "modelDigest": "82f1004b43100572f1e4d30706007c8d77a8451c379cc869cd353b1c95c79f40",
+      "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
+      "semanticVariants": [],
+      "unresolvedSemanticOperations": [],
+      "sha256": "aa3448cc65031ed4af3dc3606418396a14b517254c4a4bc67cd51bf4e9a3de7b",
+      "exports": [
+        "SkeletonLine"
+      ]
+    },
+    {
       "component": "surface",
       "file": "./components/surface.svelte",
       "subpath": "./components/surface",
@@ -800,7 +817,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "aca34c4d1c42a93c0d903bac4da802ea1ac74662ef1ef4590cb313986e822785",
+      "sha256": "d6a7d8dd9bff58a01488e6514e0b831ffbda6384ee76e8198d86108a266ff94f",
       "exports": [
         "Switch"
       ]
@@ -846,7 +863,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "0fb9401a9f98f8727881f02c167a4e8499a5766cd056eb45cca61ca5004bd05c",
+      "sha256": "a8b02b6a1253d35f664c3cc476394725beb618b3a31547caf434b5d3dfe91b81",
       "exports": [
         "TableOfContents",
         "KUMO_TABLE_OF_CONTENTS_VARIANTS",
@@ -870,7 +887,7 @@
         }
       ],
       "unresolvedSemanticOperations": [],
-      "sha256": "9c2afbc9b5d89754870ce4faeb0bdc9c2a6ec187272f4d3f3d06dc78f6daec20",
+      "sha256": "af7400119023b888c8f8ff3b99245fec7e72f3f19f471709c8ec538d324734a9",
       "exports": [
         "Tabs",
         "KUMO_TABS_VARIANTS",
@@ -924,6 +941,20 @@
         "Toast",
         "createKumoToastManager",
         "useKumoToastManager"
+      ]
+    },
+    {
+      "component": "tooltip",
+      "file": "./components/tooltip.svelte",
+      "subpath": "./components/tooltip",
+      "modelDigest": "17984be09986cef97461b23e5c52fa81c231442ba7830ebabb667bfd3de4571f",
+      "contentBindingDigest": "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd",
+      "semanticVariants": [],
+      "unresolvedSemanticOperations": [],
+      "sha256": "243fa6907e2602f6cdfbd51c957f7163246fff057ba28c757eddc1389f667994",
+      "exports": [
+        "Tooltip",
+        "TooltipProvider"
       ]
     }
   ],
@@ -1547,6 +1578,11 @@
       "svelte": "./components/code.svelte",
       "default": "./components/code.svelte"
     },
+    "./collapsible": {
+      "types": "./components/collapsible.svelte.d.ts",
+      "svelte": "./components/collapsible.svelte",
+      "default": "./components/collapsible.svelte"
+    },
     "./combobox": {
       "types": "./components/combobox.svelte.d.ts",
       "svelte": "./components/combobox.svelte",
@@ -1662,6 +1698,11 @@
       "svelte": "./components/sidebar.svelte",
       "default": "./components/sidebar.svelte"
     },
+    "./skeleton-line": {
+      "types": "./components/skeleton-line.svelte.d.ts",
+      "svelte": "./components/skeleton-line.svelte",
+      "default": "./components/skeleton-line.svelte"
+    },
     "./surface": {
       "types": "./components/surface.svelte.d.ts",
       "svelte": "./components/surface.svelte",
@@ -1696,6 +1737,11 @@
       "types": "./components/toasty.svelte.d.ts",
       "svelte": "./components/toasty.svelte",
       "default": "./components/toasty.svelte"
+    },
+    "./tooltip": {
+      "types": "./components/tooltip.svelte.d.ts",
+      "svelte": "./components/tooltip.svelte",
+      "default": "./components/tooltip.svelte"
     },
     "./autocomplete/Content": {
       "types": "./components/autocomplete/content.svelte.d.ts",
