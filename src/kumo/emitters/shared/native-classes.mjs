@@ -9,6 +9,10 @@
 // React kumo: bg-kumo-control, text-kumo-default, ring-kumo-line, kumo-input-placeholder,
 // disabled:text-kumo-disabled, focus:ring-kumo-focus/50.
 export const KUMO_INPUT_CLASS = 'border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled focus:ring-kumo-focus/50 focus:ring-[1.5px] h-9 gap-1.5 rounded-lg px-3 text-base';
+// error=true (or deprecated variant="error", still supported by canonical) swaps the
+// ring-line/focus-ring classes for the danger ring, verified via
+// renderToStaticMarkup(<Input variant="error" .../>) against @cloudflare/kumo 2.6.0.
+export const KUMO_INPUT_ERROR_CLASS = 'border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled h-9 gap-1.5 rounded-lg px-3 text-base !ring-kumo-danger focus:ring-kumo-danger/50 focus:ring-[1.5px]';
 
 // Field label + description (chunks/field-*.js).
 // React kumo: text-kumo-default (label), text-kumo-subtle (description).
@@ -32,6 +36,9 @@ export const KUMO_FIELD_DESCRIPTION_CLASS = 'text-sm leading-snug text-kumo-subt
 // KUMO_INPUT_CLASS for both input+textarea; the E-{svelte,vue,solid} lanes must switch the
 // textarea (non-`input` field.root) branch to KUMO_INPUTAREA_CLASS to clear input-area B-gate.
 export const KUMO_INPUTAREA_CLASS = 'border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled gap-1.5 rounded-lg px-3 text-base focus:ring-kumo-focus/50 focus:ring-[1.5px] h-auto py-2';
+// error=true (or deprecated variant="error") equivalent for InputArea, verified via
+// renderToStaticMarkup(<InputArea variant="error" .../>) against @cloudflare/kumo 2.6.0.
+export const KUMO_INPUTAREA_ERROR_CLASS = 'border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled gap-1.5 rounded-lg px-3 text-base !ring-kumo-danger focus:ring-kumo-danger/50 focus:ring-[1.5px] h-auto py-2';
 
 // Checkbox box span (chunks/checkbox-*.js), assembled VERBATIM as React canonical does:
 //   i("relative flex h-4 w-4 shrink-0 items-center justify-center rounded-sm border-0 bg-kumo-base

@@ -8,8 +8,11 @@
   export type Props = {
   observable?: unknown;
   children?: Snippet;
+  value?: string;
   defaultValue?: string;
   disabled?: boolean;
+  error?: unknown;
+  variant?: string;
   onInput?: (value: string) => void;
   onFocus?: (event: FocusEvent) => void;
   label?: unknown;
@@ -20,8 +23,11 @@
 
   let {
     observable = undefined,
+    value = undefined,
     defaultValue = undefined,
     disabled = false,
+    error = undefined,
+    variant = undefined,
     onInput = undefined,
     onFocus = undefined,
     label = undefined,
@@ -56,4 +62,4 @@
   styleOperations.push([styles["root"]]);
 </script>
 
-{#if label !== undefined}<div><label for={controlId}>{label}</label><input class="border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled focus:ring-kumo-focus/50 focus:ring-[1.5px] h-9 gap-1.5 rounded-lg px-3 text-base" {...rest} id={controlId} value={defaultValue} disabled={Boolean(disabled)} oninput={handleNativeInput} onfocus={handleNativeFocus}></div>{:else}<input class="border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled focus:ring-kumo-focus/50 focus:ring-[1.5px] h-9 gap-1.5 rounded-lg px-3 text-base" {...rest} value={defaultValue} disabled={Boolean(disabled)} oninput={handleNativeInput} onfocus={handleNativeFocus}>{/if}
+{#if label !== undefined}<div><label for={controlId}>{label}</label><input class={(error || variant === "error") ? "border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled h-9 gap-1.5 rounded-lg px-3 text-base !ring-kumo-danger focus:ring-kumo-danger/50 focus:ring-[1.5px]" : "border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled focus:ring-kumo-focus/50 focus:ring-[1.5px] h-9 gap-1.5 rounded-lg px-3 text-base"} {...rest} id={controlId} value={value !== undefined ? value : defaultValue} disabled={Boolean(disabled)} oninput={handleNativeInput} onfocus={handleNativeFocus}></div>{:else}<input class={(error || variant === "error") ? "border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled h-9 gap-1.5 rounded-lg px-3 text-base !ring-kumo-danger focus:ring-kumo-danger/50 focus:ring-[1.5px]" : "border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled focus:ring-kumo-focus/50 focus:ring-[1.5px] h-9 gap-1.5 rounded-lg px-3 text-base"} {...rest} value={value !== undefined ? value : defaultValue} disabled={Boolean(disabled)} oninput={handleNativeInput} onfocus={handleNativeFocus}>{/if}
