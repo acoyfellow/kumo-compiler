@@ -121,7 +121,7 @@ export function Toasty(incoming: ToastyProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as ToastyProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  return (<ToastManagerContext.Provider value={manager}><>{props.children}{toasts().length > 0 ? <div data-kumo-component="Toasty"><For each={toasts()} children={toast => <Toast toast={toast} defaultVariant={props.variant as KumoToastVariant} onClose={id => manager.close(id)} onAction={props.onAction as (() => void) | undefined} />} /></div> : undefined}</></ToastManagerContext.Provider>);
+  return (<ToastManagerContext.Provider value={manager}>{props.children}{toasts().length > 0 ? <div data-kumo-component="Toasty"><For each={toasts()} children={toast => <Toast toast={toast} defaultVariant={props.variant as KumoToastVariant} onClose={id => manager.close(id)} onAction={props.onAction as (() => void) | undefined} />} /></div> : undefined}</ToastManagerContext.Provider>);
 }
 
 export const ToastProvider = Toasty;
