@@ -163,7 +163,7 @@ const VUE_SWITCH_TRACK_BASE = 'relative inline-flex items-center ring cursor-poi
 const VUE_SWITCH_TRACK_ON = 'bg-blue-500 dark:bg-blue-600 ring-blue-600 dark:ring-blue-500';
 const VUE_SWITCH_TRACK_OFF = 'bg-neutral-200 dark:bg-neutral-700 ring-neutral-300 dark:ring-neutral-600';
 const VUE_SWITCH_THUMB_BASE = 'absolute top-0 bottom-0 shadow-[0_0_1px_0.5px_var(--color-kumo-shadow-edge),0_1px_2px_var(--color-kumo-shadow-drop)] w-4.5 rounded-[5px] supports-[corner-shape:squircle]:rounded-[10px] [corner-shape:squircle] bg-kumo-base dark:bg-blue-300 transition-all duration-150 ease-out motion-reduce:transition-none';
-function toggleSource({state,native}) {
+function toggleSource({state,native}, model) {
   const role = native.root === 'span' ? 'checkbox' : 'switch';
   const indeterminate = state.indeterminate;
   const rootAttrs = native.root === 'button' ? ` type="button"` : ` :tabindex="props.disabled ? undefined : 0"`;
@@ -196,11 +196,22 @@ function toggleSource({state,native}) {
       ? `${svgTemplate(KUMO_CHECKBOX_MINUS_SVG, 'v-if="currentIndeterminate"')}${svgTemplate(KUMO_CHECKBOX_CHECK_SVG, 'v-else')}`
       : svgTemplate(KUMO_CHECKBOX_CHECK_SVG);
     const indicatorSpan = `<span class="${esc(KUMO_CHECKBOX_INDICATOR_CLASS)}" :data-checked="currentChecked ? '' : undefined" :data-unchecked="currentChecked ? undefined : ''"${indeterminate?` :data-indeterminate="currentIndeterminate ? '' : undefined"`:''}>${iconMarkup}</span>`;
-    const hiddenInput = `<input style="${esc(KUMO_CHECKBOX_HIDDEN_INPUT_STYLE)}" tabindex="-1" type="checkbox" aria-hidden="true" :checked="currentChecked" :disabled="props.${state.disabled.prop} || undefined" />`;
+    // Checkbox's real label<->control linkage: golden's LIVE HYDRATED DOM (Base
+    // UI, verified via Playwright against the actual homepage route -- NOT
+    // renderToStaticMarkup, which genuinely differs here since this linkage is
+    // added client-side post-hydration) has BOTH:
+    //   <label id=X for=Y> <span role=checkbox aria-labelledby=X> <input id=Y>
+    // A prior attempt at this was reverted based on the SSR-only signal;
+    // re-verified here against the correct live-DOM ground truth, caught by
+    // dogfooding @acoyfellow/semantic-diff's Tier R (id-reference-graph shape)
+    // in fidelity-observatory's route-cascade.
+    const checkboxLabelId = `kumo-${sha(model.modelDigest).slice(0,12)}-checkbox-label`;
+    const checkboxInputId = `kumo-${sha(model.modelDigest).slice(0,12)}-checkbox-input`;
+    const hiddenInput = withId => `<input${withId ? ` id="${esc(checkboxInputId)}"` : ''} style="${esc(KUMO_CHECKBOX_HIDDEN_INPUT_STYLE)}" tabindex="-1" type="checkbox" aria-hidden="true" :checked="currentChecked" :disabled="props.${state.disabled.prop} || undefined" />`;
     const boxClassExpr = withMt => `[${[JSON.stringify(KUMO_CHECKBOX_BOX_CLASS), ...variantExpressions, ...(withMt ? [JSON.stringify('mt-0.5')] : [])].join(', ')}]`;
-    const box = withMt => `<span data-kumo-component="Checkbox" v-bind="$attrs" role="checkbox" :class="${directive(boxClassExpr(withMt))}"${dataAttrs} :aria-label="((props as any).ariaLabel ?? $attrs['aria-label'])" :aria-checked="${aria}" :aria-disabled="props.${state.disabled.prop} || undefined" :tabindex="props.${state.disabled.prop} ? undefined : 0" @click="activate"${keyHandler}>${indicatorSpan}</span>`;
+    const box = (withMt, withLabelledby) => `<span data-kumo-component="Checkbox" v-bind="$attrs" role="checkbox" :class="${directive(boxClassExpr(withMt))}"${dataAttrs} :aria-label="${withLabelledby ? 'undefined' : `((props as any).ariaLabel ?? $attrs['aria-label'])`}"${withLabelledby ? ` aria-labelledby="${esc(checkboxLabelId)}"` : ''} :aria-checked="${aria}" :aria-disabled="props.${state.disabled.prop} || undefined" :tabindex="props.${state.disabled.prop} ? undefined : 0" @click="activate"${keyHandler}>${indicatorSpan}</span>`;
     const labelClassExpr = `[${JSON.stringify(KUMO_CHECKBOX_LABEL_CLASS)}, props.${state.disabled.prop} ? 'cursor-not-allowed' : 'cursor-pointer']`;
-    template = `<div v-if="props.label !== undefined" class="${esc(KUMO_CHECKBOX_LABEL_WRAPPER_CLASS)}"><label :class="${directive(labelClassExpr)}">${box(true)}${hiddenInput}<span class="${esc(KUMO_CHECKBOX_LABEL_TEXT_CLASS)}">{{ props.label }}</span></label></div><template v-else>${box(false)}${hiddenInput}</template>`;
+    template = `<div v-if="props.label !== undefined" class="${esc(KUMO_CHECKBOX_LABEL_WRAPPER_CLASS)}"><label id="${esc(checkboxLabelId)}" for="${esc(checkboxInputId)}" :class="${directive(labelClassExpr)}">${box(true, true)}${hiddenInput(true)}<span class="${esc(KUMO_CHECKBOX_LABEL_TEXT_CLASS)}">{{ props.label }}</span></label></div><template v-else>${box(false, false)}${hiddenInput(false)}</template>`;
   } else {
     // Switch renders React canonical's control subtree: a <button role="switch">
     // carrying a <div> thumb (NOT a span), plus the visually-hidden native <input>.
@@ -1288,7 +1299,7 @@ function emitComponent(model, library) {
    const semantic = (select || datePicker || dateRangePicker || toastLifecycle || responsiveSidebar || nativeInput || clipboardCopy || pagination || radioGroup || tabsNavigation || menubarNavigation || dialogLayer || popoverLayer || dropdownMenuLayer || inputGroup || sensitiveInput || combobox || autocomplete || commandPalette || tableOfContents || meter || banner || collapsible) ? '' : variants.map((v,i) => `<template ${i?'v-else-if':'v-if'}="${directive(predicates[i])}">${semanticNode(v.tree)}</template>`).join('');
   const nativeButton = model.interactions?.nativeButton;
   const toggle = toggleBinding(model, library);
-  const loweredToggle = toggle && toggleSource(toggle);
+  const loweredToggle = toggle && toggleSource(toggle, model);
   const visualSimpleFallback = visualSimple ? (model.component === 'badge'
     ? `<${visualSimple.root.tag} v-bind="$attrs" :class="${directive(badgeVariantExpression('props.variant'))}"><slot /></${visualSimple.root.tag}>`
     : `<${visualSimple.root.tag} v-bind="$attrs" class="${visualSimple.root.className}"><slot /></${visualSimple.root.tag}>`) : null;
