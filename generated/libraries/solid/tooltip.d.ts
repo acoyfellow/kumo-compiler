@@ -5,6 +5,7 @@ export interface TooltipProps extends Record<string, unknown> {
   "children"?: unknown;
   "open"?: boolean;
   "defaultOpen"?: boolean;
+  "asChild"?: boolean;
   children?: JSX.Element;
   fixture?: unknown;
   styles?: Record<string, string>;
