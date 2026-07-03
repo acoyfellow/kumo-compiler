@@ -245,7 +245,7 @@ export function Toast(props: ToastProps): JSX.Element {
     props.onAction?.();
     event.currentTarget.focus();
   };
-  return <div role="status" aria-live={toast().priority === "high" ? "assertive" : "polite"} data-variant={toast().variant ?? props.defaultVariant ?? "default"}>{toast().content ?? <><strong data-toast-title>{toast().title}</strong><span data-toast-description>{toast().description}</span><For each={toast().actions ?? []} children={action => <button {...action} type={(action.type as JSX.ButtonHTMLAttributes<HTMLButtonElement>["type"]) ?? "button"} data-toast-action onClick={activateAction(action)}>{action.children}</button>} /></>}<button type="button" aria-label="Close" onClick={closeToast}>Close</button></div>;
+  return <div role="status" data-kumo-component="Toast" aria-live={toast().priority === "high" ? "assertive" : "polite"} data-variant={toast().variant ?? props.defaultVariant ?? "default"}>{toast().content ?? <><strong data-toast-title>{toast().title}</strong><span data-toast-description>{toast().description}</span><For each={toast().actions ?? []} children={action => <button {...action} type={(action.type as JSX.ButtonHTMLAttributes<HTMLButtonElement>["type"]) ?? "button"} data-toast-action onClick={activateAction(action)}>{action.children}</button>} /></>}<button type="button" aria-label="Close" onClick={closeToast}>Close</button></div>;
 }
 
 `;
