@@ -275,6 +275,8 @@ for (const file of contractFiles) {
   model.contentBindings = {schemaVersion:contentBindings.schemaVersion, capabilityDigest:contentBindings.capabilityDigest};
   if(name==='button')model.interactions={...(model.interactions??{}),nativeButton:{schemaVersion:nativeButton.schemaVersion,capabilityDigest:nativeButton.capabilityDigest,styleVariants:nativeButton.styleVariants,styleVariantProp:nativeButton.styleVariantProp,defaultVariant:nativeButton.defaultVariant,emphasis:nativeButton.emphasis}};
   else if(model.interactions)delete model.interactions.nativeButton;
+  if(name==='tooltip')model.interactions={...(model.interactions??{}),tooltipPopup:{schemaVersion:'kumo.tooltip-popup/v1',openProps:['open','defaultOpen'],contentProp:'content',portalTarget:'document-body'}};
+  else if(model.interactions)delete model.interactions.tooltipPopup;
   model.componentRoot = {frameworkNeutral:true, implementationReady:false, candidateDefinition:true, draft:true};
   model.draftImplementation = JSON.parse(JSON.stringify(implementation(model, contract)));
   // A module can expose distinct canonical components that share a prop contract.

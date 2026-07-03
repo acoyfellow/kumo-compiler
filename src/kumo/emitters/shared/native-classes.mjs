@@ -124,6 +124,14 @@ export const KUMO_RADIO_LABEL_TEXT_CLASS = 'text-base text-kumo-default';
 // the exact @phosphor-icons/react PlusIcon markup emitted by Kumo's Button icon slot.
 export const KUMO_PLUS_ICON_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path></svg>';
 
+// Tooltip popup chrome and arrow, copied verbatim from @cloudflare/kumo 2.6.0.
+// The three paths are Base UI's visual arrow (base, shadow, and tip stroke), not
+// the icon rendered by the trigger Button.
+export const KUMO_TOOLTIP_POSITIONER_CLASS = 'max-w-[var(--available-width)]';
+export const KUMO_TOOLTIP_POPUP_CLASS = 'flex origin-[var(--transform-origin)] flex-col rounded-md bg-kumo-base px-2.5 py-1.5 text-sm text-kumo-default shadow-lg shadow-kumo-tip-shadow outline outline-kumo-fill transition-[transform,scale,opacity] duration-150 data-[starting-style]:scale-90 data-[starting-style]:opacity-0 data-[ending-style]:scale-90 data-[ending-style]:opacity-0 data-[instant]:duration-0 kumo-tooltip-popup';
+export const KUMO_TOOLTIP_ARROW_CLASS = 'flex data-[side=bottom]:top-[-8px] data-[side=left]:right-[-13px] data-[side=left]:rotate-90 data-[side=right]:left-[-13px] data-[side=right]:-rotate-90 data-[side=top]:bottom-[-8px] data-[side=top]:rotate-180';
+export const KUMO_TOOLTIP_ARROW_SVG = '<svg width="20" height="10" viewBox="0 0 20 10" fill="none"><path d="M9.66437 2.60207L4.80758 6.97318C4.07308 7.63423 3.11989 8 2.13172 8H0V10H20V8H18.5349C17.5468 8 16.5936 7.63423 15.8591 6.97318L11.0023 2.60207C10.622 2.2598 10.0447 2.25979 9.66437 2.60207Z" class="fill-kumo-base"></path><path d="M8.99542 1.85876C9.75604 1.17425 10.9106 1.17422 11.6713 1.85878L16.5281 6.22989C17.0789 6.72568 17.7938 7.00001 18.5349 7.00001L15.89 7L11.0023 2.60207C10.622 2.2598 10.0447 2.2598 9.66436 2.60207L4.77734 7L2.13171 7.00001C2.87284 7.00001 3.58774 6.72568 4.13861 6.22989L8.99542 1.85876Z" class="fill-kumo-tip-shadow"></path><path d="M10.3333 3.34539L5.47654 7.71648C4.55842 8.54279 3.36693 9 2.13172 9H0V8H2.13172C3.11989 8 4.07308 7.63423 4.80758 6.97318L9.66437 2.60207C10.0447 2.25979 10.622 2.2598 11.0023 2.60207L15.8591 6.97318C16.5936 7.63423 17.5468 8 18.5349 8H20V9H18.5349C17.2998 9 16.1083 8.54278 15.1901 7.71648L10.3333 3.34539Z" class="fill-kumo-tip-stroke"></path></svg>';
+
 // Banner classes copied verbatim from @cloudflare/kumo 2.6.0 SSR. Both the root
 // and icon wrapper use the variant's text token; structured icon wrappers add
 // vertical centering while the deprecated text/children shape stays flat.

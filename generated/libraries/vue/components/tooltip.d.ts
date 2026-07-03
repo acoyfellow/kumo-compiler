@@ -3,4 +3,4 @@ import type { DefineComponent } from 'vue';
 export interface TooltipProps { [key: string]: unknown }
 declare const component: DefineComponent<TooltipProps>;
 export default component;
-export declare const modelDigest: "ca9f67362def815ff5775a2ada1048f276effd763f210317709ab52bd6b207c8";
+export declare const modelDigest: "df0f1bd6e7c3df82a5312f35a777e1939a90560a9ea2664670f0bcdfbbe85d2d";

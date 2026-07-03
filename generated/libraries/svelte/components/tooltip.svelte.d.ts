@@ -3,4 +3,4 @@ import type { Component } from 'svelte';
 import type { Props } from './tooltip.svelte';
 declare const component: Component<Props>;
 export default component;
-export const modelDigest: "ca9f67362def815ff5775a2ada1048f276effd763f210317709ab52bd6b207c8";
+export const modelDigest: "df0f1bd6e7c3df82a5312f35a777e1939a90560a9ea2664670f0bcdfbbe85d2d";
