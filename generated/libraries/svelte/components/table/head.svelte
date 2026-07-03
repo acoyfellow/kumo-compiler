@@ -7,6 +7,6 @@
   let { children, ...rest }: Props = $props();
 </script>
 
-<section data-kumo-part="Head" {...rest}>
+<th  {...rest}>
   {#if children}{@render children()}{/if}
-</section>
+</th>

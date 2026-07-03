@@ -4,5 +4,5 @@ defineOptions({ inheritAttrs: false })
 </script>
 
 <template>
-  <span v-bind="$attrs" data-kumo-part="Row"><slot /></span>
+  <tr v-bind="$attrs" ><slot /></tr>
 </template>

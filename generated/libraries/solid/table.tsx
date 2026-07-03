@@ -47,27 +47,27 @@ export function Table(incoming: TableProps): JSX.Element {
 
 export function TableBody(props: CompoundPartProps): JSX.Element {
   const [local, native] = splitProps(props, ["children"]);
-  return <div {...native} data-kumo-part="Body">{local.children}</div>;
+  return <tbody {...native} >{local.children}</tbody>;
 }
 
 export function TableCell(props: CompoundPartProps): JSX.Element {
   const [local, native] = splitProps(props, ["children"]);
-  return <div {...native} data-kumo-part="Cell">{local.children}</div>;
+  return <td {...native} >{local.children}</td>;
 }
 
 export function TableHead(props: CompoundPartProps): JSX.Element {
   const [local, native] = splitProps(props, ["children"]);
-  return <div {...native} data-kumo-part="Head">{local.children}</div>;
+  return <th {...native} >{local.children}</th>;
 }
 
 export function TableHeader(props: CompoundPartProps): JSX.Element {
   const [local, native] = splitProps(props, ["children"]);
-  return <div {...native} data-kumo-part="Header">{local.children}</div>;
+  return <thead {...native} >{local.children}</thead>;
 }
 
 export function TableRow(props: CompoundPartProps): JSX.Element {
   const [local, native] = splitProps(props, ["children"]);
-  return <div {...native} data-kumo-part="Row">{local.children}</div>;
+  return <tr {...native} >{local.children}</tr>;
 }
 
 Object.defineProperty(Table, "Body", {value:TableBody, enumerable:true});
