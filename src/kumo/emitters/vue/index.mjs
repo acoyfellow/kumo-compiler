@@ -6,7 +6,7 @@ import {loadLibrary, canonicalJSON} from '../../library/index.mjs';
 import {validateImplementation, NODE_KINDS, EXPRESSION_KINDS, OPERATION_KINDS} from '../../library/algebra.mjs';
 import {requireContentBindings, semanticExpression, semanticPredicate} from '../shared/content-adapter.mjs';
 import {clampPage, maxPage, nextPage, previousPage, commitPageInput} from '../../library/pagination-state.mjs';
-import {KUMO_INPUT_CLASS, KUMO_FIELD_LABEL_CLASS, KUMO_FIELD_DESCRIPTION_CLASS, KUMO_CHECKBOX_CLASS, KUMO_CHECKBOX_BOX_CLASS, KUMO_CHECKBOX_INDICATOR_CLASS, KUMO_CHECKBOX_CHECK_SVG, KUMO_CHECKBOX_MINUS_SVG, KUMO_CHECKBOX_HIDDEN_INPUT_STYLE, KUMO_CHECKBOX_LABEL_WRAPPER_CLASS, KUMO_CHECKBOX_LABEL_CLASS, KUMO_CHECKBOX_LABEL_TEXT_CLASS, KUMO_CLIPBOARD_ROOT_CLASS, KUMO_CLIPBOARD_TEXT_CLASS, KUMO_CLIPBOARD_BUTTON_CLASS, KUMO_CLIPBOARD_CHECK_SPAN_CLASS, KUMO_CLIPBOARD_COPY_SPAN_CLASS, KUMO_CLIPBOARD_CHECK_SVG, KUMO_CLIPBOARD_COPY_SVG, KUMO_SWITCH_TRACK_CLASS, KUMO_SWITCH_THUMB_CLASS, KUMO_TABS_LIST_CLASS, KUMO_TABS_TRIGGER_CLASS, KUMO_TABS_INDICATOR_CLASS, KUMO_METER_ROOT_CLASS, KUMO_METER_HEADER_CLASS, KUMO_METER_LABEL_CLASS, KUMO_METER_VALUE_CLASS, KUMO_METER_TRACK_CLASS, KUMO_METER_FILL_CLASS} from '../shared/native-classes.mjs';
+import {KUMO_INPUT_CLASS, KUMO_INPUTAREA_CLASS, KUMO_FIELD_LABEL_CLASS, KUMO_FIELD_DESCRIPTION_CLASS, KUMO_CHECKBOX_CLASS, KUMO_CHECKBOX_BOX_CLASS, KUMO_CHECKBOX_INDICATOR_CLASS, KUMO_CHECKBOX_CHECK_SVG, KUMO_CHECKBOX_MINUS_SVG, KUMO_CHECKBOX_HIDDEN_INPUT_STYLE, KUMO_CHECKBOX_LABEL_WRAPPER_CLASS, KUMO_CHECKBOX_LABEL_CLASS, KUMO_CHECKBOX_LABEL_TEXT_CLASS, KUMO_CLIPBOARD_ROOT_CLASS, KUMO_CLIPBOARD_TEXT_CLASS, KUMO_CLIPBOARD_BUTTON_CLASS, KUMO_CLIPBOARD_CHECK_SPAN_CLASS, KUMO_CLIPBOARD_COPY_SPAN_CLASS, KUMO_CLIPBOARD_CHECK_SVG, KUMO_CLIPBOARD_COPY_SVG, KUMO_SWITCH_TRACK_CLASS, KUMO_SWITCH_THUMB_CLASS, KUMO_TABS_LIST_CLASS, KUMO_TABS_TRIGGER_CLASS, KUMO_TABS_INDICATOR_CLASS, KUMO_METER_ROOT_CLASS, KUMO_METER_HEADER_CLASS, KUMO_METER_LABEL_CLASS, KUMO_METER_VALUE_CLASS, KUMO_METER_TRACK_CLASS, KUMO_METER_FILL_CLASS} from '../shared/native-classes.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '../../../..');
@@ -221,11 +221,12 @@ function fieldCompositionControl(model, library) {
   if (library.fieldComposition?.support !== 'supported') return null;
   return library.fieldComposition.controls.find(control => control.component === model.component) ?? null;
 }
-function nativeInputSource({behavior,field}, composition, model) {
-  const ownedControlId = composition?.ownsControl ? `kumo-${sha(model.modelDigest).slice(0,12)}` : null;
-  const composedTemplate = composition?.ownsControl
-    ? `<div v-if="props.label !== undefined"><label :for="controlId">{{ props.label }}</label><${field.root} class="${esc(KUMO_INPUT_CLASS)}" v-bind="nativeAttrs" :id="controlId" :aria-label="nativeAriaLabel" :value="props.${behavior.uncontrolled.prop}" :disabled="props.disabled || undefined" @input="handleNativeInput"${field.root==='input'?' />':`>{{ props.${behavior.uncontrolled.prop} }}</${field.root}>`}</div><${field.root} v-else class="${esc(KUMO_INPUT_CLASS)}" v-bind="nativeAttrs" :aria-label="nativeAriaLabel" :value="props.${behavior.uncontrolled.prop}" :disabled="props.disabled || undefined" @input="handleNativeInput"${field.root==='input'?' />':`>{{ props.${behavior.uncontrolled.prop} }}</${field.root}>`}`
-    : null;
+ function nativeInputSource({behavior,field}, composition, model) {
+   const ownedControlId = composition?.ownsControl ? `kumo-${sha(model.modelDigest).slice(0,12)}` : null;
+   const inputClass = field.root==='textarea' ? KUMO_INPUTAREA_CLASS : KUMO_INPUT_CLASS;
+   const composedTemplate = composition?.ownsControl
+     ? `<div v-if="props.label !== undefined"><label :for="controlId">{{ props.label }}</label><${field.root} class="${esc(inputClass)}" v-bind="nativeAttrs" :id="controlId" :aria-label="nativeAriaLabel" :value="props.${behavior.uncontrolled.prop}" :disabled="props.disabled || undefined" @input="handleNativeInput"${field.root==='input'?' />':`>{{ props.${behavior.uncontrolled.prop} }}</${field.root}>`}</div><${field.root} v-else class="${esc(inputClass)}" v-bind="nativeAttrs" :aria-label="nativeAriaLabel" :value="props.${behavior.uncontrolled.prop}" :disabled="props.disabled || undefined" @input="handleNativeInput"${field.root==='input'?' />':`>{{ props.${behavior.uncontrolled.prop} }}</${field.root}>`}`
+     : null;
   return {
     options:`defineOptions({ inheritAttrs: false })\n`,
     props:[
@@ -235,7 +236,7 @@ function nativeInputSource({behavior,field}, composition, model) {
       {name:'onChange',required:false,type:'unknown'},
     ],
     setup:`const nativeAttrs = computed(() => Object.fromEntries(Object.entries(useAttrs()).filter(([name]) => name !== 'id').map(([name, value]) => [name.replace(/[A-Z]/g, letter => '-' + letter.toLowerCase()), value])))\nconst nativeAriaLabel = computed(() => (props as any).ariaLabel ?? (props as any)['aria-label'])\n${composition?.ownsControl ? `const controlId = ${JSON.stringify(ownedControlId)}\n` : ''}function handleNativeInput(event: Event) {\n  props.onChange?.((event.currentTarget as HTMLInputElement | HTMLTextAreaElement).value)\n}\n`,
-    template:composedTemplate ?? `<${field.root} class="${esc(KUMO_INPUT_CLASS)}" v-bind="nativeAttrs" :aria-label="nativeAriaLabel" :value="props.${behavior.uncontrolled.prop}" :disabled="props.disabled || undefined" @input="handleNativeInput"${field.root==='input'?' />':`>{{ props.${behavior.uncontrolled.prop} }}</${field.root}>`}`
+     template:composedTemplate ?? `<${field.root} class="${esc(inputClass)}" v-bind="nativeAttrs" :aria-label="nativeAriaLabel" :value="props.${behavior.uncontrolled.prop}" :disabled="props.disabled || undefined" @input="handleNativeInput"${field.root==='input'?' />':`>{{ props.${behavior.uncontrolled.prop} }}</${field.root}>`}`
   };
 }
 function clipboardCopyBinding(model, library) {
@@ -739,15 +740,19 @@ function datePickerBinding(model, library) {
   if (capability?.support !== 'supported' || model.component !== 'date-picker') return null;
   return capability;
 }
-function datePickerSource() {
-  return {
-    options:`defineOptions({ inheritAttrs: false })\n`,
-    imports:'computed, getCurrentInstance, ref, useAttrs, useSlots',
-    setup:`type CalendarDay = { iso: string; day: number }
+ function datePickerSource() {
+   return {
+     options:`defineOptions({ inheritAttrs: false })\n`,
+     imports:'computed, getCurrentInstance, ref, useAttrs, useSlots',
+     setup:`type CalendarDay = { iso: string; day: number; inMonth: boolean; monthStr: string; isToday: boolean; className: string; label: string }
 const instance = getCurrentInstance()
 const controlled = computed(() => Object.prototype.hasOwnProperty.call(instance?.vnode.props ?? {}, 'selectedDate'))
 const internalSelectedDate = ref(props.selectedDate)
 const selectedDate = computed(() => controlled.value ? props.selectedDate : internalSelectedDate.value)
+const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December']
+const weekdayList = [{ short: 'Su', full: 'Sunday' },{ short: 'Mo', full: 'Monday' },{ short: 'Tu', full: 'Tuesday' },{ short: 'We', full: 'Wednesday' },{ short: 'Th', full: 'Thursday' },{ short: 'Fr', full: 'Friday' },{ short: 'Sa', full: 'Saturday' }]
+const weekdays = weekdayList
+const todayIso = (() => { const t = new Date(); return t.getFullYear() + '-' + String(t.getMonth() + 1).padStart(2, '0') + '-' + String(t.getDate()).padStart(2, '0') })()
 const padDatePart = (value: number) => String(value).padStart(2, '0')
 const isoDate = (date: Date) => \`${'${String(date.getUTCFullYear()).padStart(4, \'0\')}-${padDatePart(date.getUTCMonth() + 1)}-${padDatePart(date.getUTCDate())}'}\`
 const parseDate = (value: unknown, fallback: string) => {
@@ -758,14 +763,21 @@ const parseDate = (value: unknown, fallback: string) => {
 }
 const initialMonth = parseDate(props.defaultMonthDate, '2025-01-01')
 const monthDate = ref(new Date(Date.UTC(initialMonth.getUTCFullYear(), initialMonth.getUTCMonth(), 1)))
+const caption = computed(() => monthNames[monthDate.value.getUTCMonth()] + ' ' + monthDate.value.getUTCFullYear())
 const calendarDays = computed<CalendarDay[]>(() => {
   const first = monthDate.value
+  const displayMonth = first.getUTCMonth()
   const start = new Date(Date.UTC(first.getUTCFullYear(), first.getUTCMonth(), 1 - first.getUTCDay()))
   const daysInMonth = new Date(Date.UTC(first.getUTCFullYear(), first.getUTCMonth() + 1, 0)).getUTCDate()
   const count = Math.ceil((first.getUTCDay() + daysInMonth) / 7) * 7
   return Array.from({ length: count }, (_, index) => {
     const date = new Date(start.getTime() + index * 86400000)
-    return { iso: isoDate(date), day: date.getUTCDate() }
+    const iso = isoDate(date)
+    const inMonth = date.getUTCMonth() === displayMonth
+    const isToday = iso === todayIso
+    const className = 'rdp-day' + (inMonth ? '' : ' rdp-outside') + (isToday ? ' rdp-today' : '')
+    const label = (isToday ? 'Today, ' : '') + weekdayList[date.getUTCDay()].full + ', ' + monthNames[date.getUTCMonth()] + ' ' + date.getUTCDate() + ', ' + date.getUTCFullYear()
+    return { iso, day: date.getUTCDate(), inMonth, monthStr: iso.slice(0, 7), isToday, className, label }
   })
 })
 const calendarRows = computed(() => Array.from({ length: calendarDays.value.length / 7 }, (_, row) => calendarDays.value.slice(row * 7, row * 7 + 7)))
@@ -777,9 +789,9 @@ function selectDay(iso: string) {
   props.onChange?.(iso)
 }
 `,
-    template:`<div v-bind="$attrs" :aria-label="props.ariaLabel"><button type="button" @click="changeMonth(-1)">Previous</button><button type="button" @click="changeMonth(1)">Next</button><table role="grid"><tbody><tr v-for="(row, rowIndex) in calendarRows" :key="rowIndex"><td v-for="day in row" :key="day.iso"><button type="button" :data-day="day.iso" :disabled="isDisabled(day.iso) || undefined" :aria-selected="day.iso === selectedDate || undefined" @click="selectDay(day.iso)">{{ day.day }}</button></td></tr></tbody></table></div>`
-  };
-}
+     template:`<div class="rdp-root select-none rounded-xl bg-kumo-base"><div class="rdp-months"><nav data-animated-nav="true" class="rdp-nav" aria-label="Navigation bar"><button type="button" class="rdp-button_previous" aria-label="Go to the Previous Month" @click="changeMonth(-1)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256" class="rdp-chevron"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg></button><button type="button" class="rdp-button_next" aria-label="Go to the Next Month" @click="changeMonth(1)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256" class="rdp-chevron"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button></nav><div data-animated-month="true" class="rdp-month"><div data-animated-caption="true" class="rdp-month_caption"><span class="rdp-caption_label" role="status" aria-live="polite">{{ caption }}</span></div><table role="grid" aria-multiselectable="false" :aria-label="caption" class="rdp-month_grid"><thead aria-hidden="true"><tr data-animated-weekdays="true" class="rdp-weekdays"><th v-for="weekday in weekdays" :key="weekday.short" :aria-label="weekday.full" class="rdp-weekday" scope="col">{{ weekday.short }}</th></tr></thead><tbody data-animated-weeks="true" class="rdp-weeks"><tr v-for="(row, rowIndex) in calendarRows" :key="rowIndex" class="rdp-week"><td v-for="day in row" :key="day.iso" :class="day.className" role="gridcell" :aria-label="day.label" :data-day="day.iso" :data-month="day.inMonth ? undefined : day.monthStr" :data-outside="day.inMonth ? undefined : 'true'" :data-today="day.isToday ? 'true' : undefined" @click="selectDay(day.iso)">{{ day.day }}</td></tr></tbody></table></div></div></div>`
+   };
+ }
 function dateRangePickerBinding(model, library) {
   const capability = library.dateRange?.observableImplementation?.dateRangePicker;
   if (capability?.support !== 'supported' || model.component !== 'date-range-picker') return null;
@@ -790,24 +802,31 @@ function dateRangePickerSource(capability) {
   return {
     options:`defineOptions({ inheritAttrs: false })\n`,
     imports:'computed, nextTick, ref, useAttrs, useSlots',
-    setup:`type RangeDay = { iso: string; day: number; inMonth: boolean }
+     setup:`type RangeDay = { iso: string; day: number; inMonth: boolean; className: string; label: string; id: string }
 type RangeMonth = { key: string; label: string; days: RangeDay[] }
 const rangeRoot = ref<HTMLElement | null>(null)
 const startValue = ref<string | null>(null)
 const endValue = ref<string | null>(null)
-const monthCursor = ref(new Date(Date.UTC(2026, 5, 1)))
+const rangeToday = new Date()
+const monthCursor = ref(new Date(Date.UTC(rangeToday.getFullYear(), rangeToday.getMonth(), 1)))
 const pad = (value: number) => String(value).padStart(2, '0')
 const iso = (date: Date) => \`\${date.getUTCFullYear()}-\${pad(date.getUTCMonth() + 1)}-\${pad(date.getUTCDate())}\`
 const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December']
+const monthAbbr = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+const weekdayFull = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+const weekdayAbbr = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
+const weekdayShort = ['Su','Mo','Tu','We','Th','Fr','Sa']
+const rangeTimezone = 'New York, NY, USA (GMT-4)'
+const dayInClass = 'h-[26px] w-7 text-sm cursor-pointer text-center transition-all duration-[50] leading-[26px] hover:bg-kumo-interact bg-transparent text-kumo-default'
+const dayOutClass = 'h-[26px] w-7 text-sm cursor-pointer text-center text-kumo-default transition-all duration-[50] leading-[26px] bg-transparent !text-kumo-subtle'
 function buildMonth(base: Date): RangeMonth {
   const year = base.getUTCFullYear(), month = base.getUTCMonth()
   const first = new Date(Date.UTC(year, month, 1)), start = new Date(first)
   start.setUTCDate(1 - first.getUTCDay())
-  const days = Array.from({length:42}, (_, index) => { const date = new Date(start); date.setUTCDate(start.getUTCDate() + index); return {iso:iso(date),day:date.getUTCDate(),inMonth:date.getUTCMonth() === month} })
+  const days = Array.from({length:42}, (_, index) => { const date = new Date(start); date.setUTCDate(start.getUTCDate() + index); const inMonth = date.getUTCMonth() === month; const wd = date.getUTCDay(); return {iso:iso(date),day:date.getUTCDate(),inMonth,className: inMonth ? dayInClass : dayOutClass,label: weekdayFull[wd] + ', ' + monthNames[date.getUTCMonth()] + ' ' + date.getUTCDate() + ', ' + date.getUTCFullYear(),id: weekdayAbbr[wd] + ' ' + monthAbbr[date.getUTCMonth()] + ' ' + pad(date.getUTCDate()) + ' ' + date.getUTCFullYear()} })
   return {key:\`\${year}-\${month}\`,label:\`\${monthNames[month]} \${year}\`,days}
 }
 const monthPanels = computed(() => [0,1].map(offset => { const date = new Date(monthCursor.value); date.setUTCMonth(date.getUTCMonth() + offset); return buildMonth(date) }))
-const rootClasses = computed(() => props.size === 'sm' && props.variant === 'subtle' ? ${JSON.stringify(capability.classes.smallSubtle.join(' '))} : ${JSON.stringify(capability.classes.default.join(' '))})
 function changeMonth(delta: number) { const date = new Date(monthCursor.value); date.setUTCMonth(date.getUTCMonth() + delta); monthCursor.value = date }
 function isInRange(value: string) { return Boolean(startValue.value && endValue.value && value >= startValue.value && value <= endValue.value) }
 function selectDay(value: string) {
@@ -832,7 +851,7 @@ function resetRange() {
   nextTick(() => { if (rangeRoot.value) { rangeRoot.value.setAttribute('tabindex', '-1'); rangeRoot.value.focus() } })
 }
 `,
-    template:`<div ref="rangeRoot" v-bind="$attrs" :class="['kumo-date-range',rootClasses]"><div class="kumo-date-range__toolbar"><button type="button" data-navigation="previous" aria-label="Previous month" @click="changeMonth(-1)">Previous</button><button type="button" data-navigation="next" aria-label="Next month" @click="changeMonth(1)">Next</button></div><div class="kumo-date-range__months"><section v-for="month in monthPanels" :key="month.key" class="kumo-date-range__month"><h3>{{ month.label }}</h3><div class="kumo-date-range__weekdays" aria-hidden="true"><span v-for="day in ['Su','Mo','Tu','We','Th','Fr','Sa']" :key="day">{{ day }}</span></div><div class="kumo-date-range__grid" role="grid"><button v-for="day in month.days" :key="day.iso" type="button" :data-day="day.iso" :data-outside-month="!day.inMonth || undefined" :aria-label="day.iso" :aria-selected="day.iso === startValue || day.iso === endValue || undefined" :data-in-range="isInRange(day.iso) || undefined" @click="selectDay(day.iso)">{{ day.day }}</button></div></section></div><div class="kumo-date-range__footer"><span aria-live="polite">{{ startValue ? (endValue ? startValue + ' – ' + endValue : 'Start: ' + startValue) : 'Choose a start date' }}</span><button type="button" data-reset @click="resetRange">Reset dates</button></div></div>`
+     template:`<div ref="rangeRoot" class="flex w-fit flex-col rounded-xl select-none bg-kumo-overlay p-4 gap-2.5"><div class="flex gap-4"><div v-for="(month, monthIndex) in monthPanels" :key="month.key" class="relative w-[196px]"><button v-if="monthIndex === 0" type="button" aria-label="Previous month" class="absolute top-0 left-0 cursor-pointer rounded bg-kumo-interact/85 p-1.5 hover:bg-kumo-interact" @click="changeMonth(-1)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg></button><button v-else type="button" aria-label="Next month" class="absolute top-0 right-0 cursor-pointer rounded bg-kumo-interact/85 p-1.5 hover:bg-kumo-interact" @click="changeMonth(1)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button><div><div class="mb-3 text-center"><input aria-label="Edit month and year" class="w-full rounded-md border-none bg-transparent py-1.5 text-center font-semibold text-kumo-default transition-all duration-200 focus:outline-none focus:ring-kumo-focus/50 focus:ring-[1.5px] text-sm" :value="month.label" /></div><div class="mt-2 grid grid-cols-7 gap-1"><div v-for="weekday in weekdayShort" :key="weekday" class="h-[22px] text-center text-kumo-subtle w-7 text-sm">{{ weekday }}</div></div></div><div class="grid grid-cols-7 gap-0 gap-y-0.5"><button v-for="day in month.days" :key="day.iso" type="button" :aria-label="day.label" :id="day.id" :class="day.className" @click="selectDay(day.iso)">{{ day.day }}</button></div></div></div><div class="flex items-center gap-2 text-kumo-subtle text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm88,104a87.62,87.62,0,0,1-6.4,32.94l-44.7-27.49a15.92,15.92,0,0,0-6.24-2.23l-22.82-3.08a16.11,16.11,0,0,0-16,7.86h-8.72l-3.8-7.86a15.91,15.91,0,0,0-11-8.67l-8-1.73L96.14,104h16.71a16.06,16.06,0,0,0,7.73-2l12.25-6.76a16.62,16.62,0,0,0,3-2.14l26.91-24.34A15.93,15.93,0,0,0,166,49.1l-.36-.65A88.11,88.11,0,0,1,216,128ZM143.31,41.34,152,56.9,125.09,81.24,112.85,88H96.14a16,16,0,0,0-13.88,8l-8.73,15.23L63.38,84.19,74.32,58.32a87.87,87.87,0,0,1,69-17ZM40,128a87.53,87.53,0,0,1,8.54-37.8l11.34,30.27a16,16,0,0,0,11.62,10l21.43,4.61L96.74,143a16.09,16.09,0,0,0,14.4,9h1.48l-7.23,16.23a16,16,0,0,0,2.86,17.37l.14.14L128,205.94l-1.94,10A88.11,88.11,0,0,1,40,128Zm102.58,86.78,1.13-5.81a16.09,16.09,0,0,0-4-13.9,1.85,1.85,0,0,1-.14-.14L120,174.74,133.7,144l22.82,3.08,45.72,28.12A88.18,88.18,0,0,1,142.58,214.78Z"></path></svg><span class="flex-1">Timezone: {{ rangeTimezone }}</span><button type="button" class="cursor-pointer font-semibold text-kumo-default underline underline-offset-2" @click="resetRange">Reset Dates</button></div></div>`
   };
 }
 function responsiveSidebarBinding(model, library) {
@@ -1159,7 +1178,7 @@ function emitComponent(model, library) {
   // realistic mounts emit the real Kumo variant classes React does.
   const predicates = variants.map(v => v.when.map(x => semanticPredicate(x.kind === 'prop-equals' && x.name !== 'children' ? {...x,name:vuePropName(x.name)} : x,{props:'semanticValues',fixture:'fixture',content:'props.semanticContent',equal:'semanticEqual'})).join(' && ') || 'true');
    const meter = model.component === 'meter';
-   const meterFallback = meter ? `<div class="${esc(KUMO_METER_ROOT_CLASS)}" role="meter" :aria-valuenow="props.value" :aria-valuemin="props.min ?? 0" :aria-valuemax="props.max ?? 100" :aria-valuetext="Math.round(((props.value ?? 0) - (props.min ?? 0)) / (((props.max ?? 100) - (props.min ?? 0)) || 1) * 100) + '%'"><div class="${esc(KUMO_METER_HEADER_CLASS)}"><span class="${esc(KUMO_METER_LABEL_CLASS)}">{{ props.label }}</span><span v-if="props.showValue !== false" class="${esc(KUMO_METER_VALUE_CLASS)}">{{ props.customValue ?? (props.value + '%') }}</span></div><div class="${esc(KUMO_METER_TRACK_CLASS)}"><div class="${esc(KUMO_METER_FILL_CLASS)}" :style="{ width: props.value + '%' }"></div></div><span role="presentation" style="clip-path:inset(50%);overflow:hidden;white-space:nowrap;border:0;padding:0;width:1px;height:1px;margin:-1px;position:fixed;top:0;left:0">x</span></div>` : null;
+   const meterFallback = meter ? `<div class="${esc(KUMO_METER_ROOT_CLASS)}" role="meter" :aria-valuenow="props.value" :aria-valuemin="props.min ?? 0" :aria-valuemax="props.max ?? 100" :aria-valuetext="Math.round(((props.value ?? 0) - (props.min ?? 0)) / (((props.max ?? 100) - (props.min ?? 0)) || 1) * 100) + '%'"><div class="${esc(KUMO_METER_HEADER_CLASS)}"><span role="presentation" class="${esc(KUMO_METER_LABEL_CLASS)}">{{ props.label }}</span><span v-if="props.showValue !== false" aria-hidden="true" class="${esc(KUMO_METER_VALUE_CLASS)}">{{ props.customValue ?? (props.value + '%') }}</span></div><div class="${esc(KUMO_METER_TRACK_CLASS)}"><div class="${esc(KUMO_METER_FILL_CLASS)}" :style="{ 'inset-inline-start': '0', height: 'inherit', width: props.value + '%' }"></div></div><span role="presentation" style="clip-path:inset(50%);overflow:hidden;white-space:nowrap;border:0;padding:0;width:1px;height:1px;margin:-1px;position:fixed;top:0;left:0">x</span></div>` : null;
    const semantic = (select || datePicker || dateRangePicker || toastLifecycle || responsiveSidebar || nativeInput || clipboardCopy || pagination || radioGroup || tabsNavigation || menubarNavigation || dialogLayer || popoverLayer || dropdownMenuLayer || inputGroup || sensitiveInput || combobox || autocomplete || commandPalette || tableOfContents || meter) ? '' : variants.map((v,i) => `<template ${i?'v-else-if':'v-if'}="${directive(predicates[i])}">${semanticNode(v.tree)}</template>`).join('');
   const nativeButton = model.interactions?.nativeButton;
   const toggle = toggleBinding(model, library);
@@ -1171,7 +1190,7 @@ function emitComponent(model, library) {
     ? `<button v-bind="$attrs" :class="${directive(nativeButtonVariantExpression(nativeButton, 'props.variant'))}" :style="${directive(nativeButtonEmphasisStyleExpression(nativeButton.emphasis, 'props.variant'))}" :type="($attrs.type as any) ?? 'button'" :disabled="props.disabled || props.loading"><template v-if="${directive(nativeButtonEmphasisCondition(nativeButton.emphasis, 'props.variant'))}"><span aria-hidden="true" class="${esc(nativeButton.emphasis.overlayClass)}"></span><span class="${esc(nativeButton.emphasis.wrapperClass)}"><svg v-if="props.loading" aria-hidden="true"></svg><slot /></span></template><template v-else><svg v-if="props.loading" aria-hidden="true"></svg><slot /></template></button>`
     : node(implementation.componentRoot));
   const composedField = composition && !composition.ownsControl
-    ? `<${composition.container}><label :for="String((props as any).childId ?? $attrs['child-id'] ?? 'field-control')" class="${esc(KUMO_FIELD_LABEL_CLASS)}">{{ (props as any).label ?? $attrs.label }}</label><slot /><p v-if="(((props as any).description ?? $attrs.description) !== undefined)" class="${esc(KUMO_FIELD_DESCRIPTION_CLASS)}">{{ (props as any).description ?? $attrs.description }}</p></${composition.container}>`
+    ? `<${composition.container} class="grid gap-2 has-[input[type=checkbox]]:grid-cols-[auto_1fr] has-[input[type=checkbox]]:items-center has-[[role=switch]]:grid-cols-[auto_1fr] has-[[role=switch]]:items-center"><label :for="String((props as any).childId ?? $attrs['child-id'] ?? 'field-control')" class="${esc(KUMO_FIELD_LABEL_CLASS)}"><span class="inline-flex items-center gap-1">{{ (props as any).label ?? $attrs.label }}</span></label><slot /><p v-if="(((props as any).description ?? $attrs.description) !== undefined)" class="${esc(KUMO_FIELD_DESCRIPTION_CLASS)}">{{ (props as any).description ?? $attrs.description }}</p></${composition.container}>`
     : null;
   const template = composedField ?? (semantic ? `${semantic}<template v-else>${fallback}</template>` : fallback);
   return `<!-- @generated by src/kumo/emitters/vue/index.mjs; do not edit -->\n<script lang="ts">\nexport const modelDigest = ${JSON.stringify(model.modelDigest)}\nexport const contentBindingDigest = ${JSON.stringify(contentBindingDigest)}\n</script>\n\n<script setup lang="ts">\n${loweredTableOfContents?.options ?? loweredSelect?.options ?? loweredDatePicker?.options ?? loweredDateRangePicker?.options ?? loweredToastLifecycle?.options ?? loweredResponsiveSidebar?.options ?? loweredCommandPalette?.options ?? loweredAutocomplete?.options ?? loweredCombobox?.options ?? loweredSensitiveInput?.options ?? loweredInputGroup?.options ?? loweredDropdownMenuLayer?.options ?? loweredPopoverLayer?.options ?? loweredDialogLayer?.options ?? loweredMenubarNavigation?.options ?? loweredTabsNavigation?.options ?? loweredRadioGroup?.options ?? loweredToggle?.options ?? loweredNativeInput?.options ?? (nativeButton ? 'defineOptions({ inheritAttrs: false })\n' : '')}import { ${loweredTableOfContents?.imports ?? loweredSelect?.imports ?? loweredDatePicker?.imports ?? loweredDateRangePicker?.imports ?? loweredToastLifecycle?.imports ?? loweredResponsiveSidebar?.imports ?? loweredCommandPalette?.imports ?? loweredAutocomplete?.imports ?? loweredCombobox?.imports ?? loweredSensitiveInput?.imports ?? loweredInputGroup?.imports ?? loweredDropdownMenuLayer?.imports ?? loweredPopoverLayer?.imports ?? loweredDialogLayer?.imports ?? loweredMenubarNavigation?.imports ?? loweredTabsNavigation?.imports ?? loweredRadioGroup?.imports ?? loweredPagination?.imports ?? loweredClipboardCopy?.imports ?? loweredToggle?.imports ?? 'computed, useAttrs, useSlots'} } from 'vue'\ninterface ${model.public.symbol}Props {\n${props}\n  fixture?: unknown\n  semanticContent?: unknown\n}\nconst props = withDefaults(defineProps<${model.public.symbol}Props>(), ${JSON.stringify(defaults)})\n${loweredTableOfContents?.setup ?? loweredSelect?.setup ?? loweredDatePicker?.setup ?? loweredDateRangePicker?.setup ?? loweredToastLifecycle?.setup ?? loweredResponsiveSidebar?.setup ?? loweredCommandPalette?.setup ?? loweredAutocomplete?.setup ?? loweredCombobox?.setup ?? loweredSensitiveInput?.setup ?? loweredInputGroup?.setup ?? loweredDropdownMenuLayer?.setup ?? loweredPopoverLayer?.setup ?? loweredDialogLayer?.setup ?? loweredMenubarNavigation?.setup ?? loweredTabsNavigation?.setup ?? loweredRadioGroup?.setup ?? loweredPagination?.setup ?? loweredClipboardCopy?.setup ?? loweredToggle?.setup ?? loweredNativeInput?.setup ?? ''}const slots = useSlots()\nconst styles: Record<string,string> = {}\nconst normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
