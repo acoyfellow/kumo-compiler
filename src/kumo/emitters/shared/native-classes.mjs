@@ -149,6 +149,15 @@ export const KUMO_TOOLTIP_POPUP_CLASS = 'flex origin-[var(--transform-origin)] f
 export const KUMO_TOOLTIP_ARROW_CLASS = 'flex data-[side=bottom]:top-[-8px] data-[side=left]:right-[-13px] data-[side=left]:rotate-90 data-[side=right]:left-[-13px] data-[side=right]:-rotate-90 data-[side=top]:bottom-[-8px] data-[side=top]:rotate-180';
 export const KUMO_TOOLTIP_ARROW_SVG = '<svg width="20" height="10" viewBox="0 0 20 10" fill="none"><path d="M9.66437 2.60207L4.80758 6.97318C4.07308 7.63423 3.11989 8 2.13172 8H0V10H20V8H18.5349C17.5468 8 16.5936 7.63423 15.8591 6.97318L11.0023 2.60207C10.622 2.2598 10.0447 2.25979 9.66437 2.60207Z" class="fill-kumo-base"></path><path d="M8.99542 1.85876C9.75604 1.17425 10.9106 1.17422 11.6713 1.85878L16.5281 6.22989C17.0789 6.72568 17.7938 7.00001 18.5349 7.00001L15.89 7L11.0023 2.60207C10.622 2.2598 10.0447 2.2598 9.66436 2.60207L4.77734 7L2.13171 7.00001C2.87284 7.00001 3.58774 6.72568 4.13861 6.22989L8.99542 1.85876Z" class="fill-kumo-tip-shadow"></path><path d="M10.3333 3.34539L5.47654 7.71648C4.55842 8.54279 3.36693 9 2.13172 9H0V8H2.13172C3.11989 8 4.07308 7.63423 4.80758 6.97318L9.66437 2.60207C10.0447 2.25979 10.622 2.2598 11.0023 2.60207L15.8591 6.97318C16.5936 7.63423 17.5468 8 18.5349 8H20V9H18.5349C17.2998 9 16.1083 8.54278 15.1901 7.71648L10.3333 3.34539Z" class="fill-kumo-tip-stroke"></path></svg>';
 
+// Label root/tooltip-icon classes and the Phosphor Info icon (regular weight,
+// the default @cloudflare/kumo uses for the Label.tooltip "more information"
+// affordance), copied verbatim from @cloudflare/kumo 2.6.0's real chunk output
+// (not approximated) -- verified against golden's live homepage DOM.
+export const KUMO_LABEL_ROOT_CLASS = 'm-0 text-base font-medium text-kumo-default inline-flex items-center gap-1';
+export const KUMO_LABEL_OPTIONAL_CLASS = 'font-normal text-kumo-subtle';
+export const KUMO_LABEL_INFO_BUTTON_CLASS = 'group flex shrink-0 font-medium select-none border-0 focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand disabled:cursor-not-allowed disabled:text-kumo-subtle gap-1 rounded-sm text-xs items-center justify-center p-0 size-3.5 text-kumo-default hover:bg-kumo-tint shadow-none bg-inherit cursor-default';
+export const KUMO_LABEL_INFO_ICON_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" class="size-4"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z"></path></svg>';
+
 // Banner classes copied verbatim from @cloudflare/kumo 2.6.0 SSR. Both the root
 // and icon wrapper use the variant's text token; structured icon wrappers add
 // vertical centering while the deprecated text/children shape stays flat.

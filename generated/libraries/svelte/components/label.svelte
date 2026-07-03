@@ -64,5 +64,5 @@
     {renderContent}
   </label>
 {:else}
-<label {...rest} class="m-0 text-base font-medium text-kumo-default inline-flex items-center gap-1">{#if children}{@render children()}{/if}</label>
+<label class="m-0 text-base font-medium text-kumo-default inline-flex items-center gap-1">{#if children}{@render children()}{/if}{#if showOptional}<span class="font-normal text-kumo-subtle">(optional)</span>{/if}{#if tooltip !== undefined}<button data-kumo-component="Button" class="group flex shrink-0 font-medium select-none border-0 focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand disabled:cursor-not-allowed disabled:text-kumo-subtle gap-1 rounded-sm text-xs items-center justify-center p-0 size-3.5 text-kumo-default hover:bg-kumo-tint shadow-none bg-inherit cursor-default" type="button" aria-label="More information" data-base-ui-tooltip-trigger><span class="contents"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" class="size-4"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z"></path></svg></span></button>{/if}</label>
 {/if}
