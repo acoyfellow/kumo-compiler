@@ -882,6 +882,18 @@ function selectBinding(model, library) {
   if (capability?.support !== 'supported' || model.component !== 'select') return null;
   return capability;
 }
+// Real Kumo Select trigger classes + chevron icon copied VERBATIM from @cloudflare/kumo
+// 2.6.0 (React canonical). React renders a `grid gap-2` root wrapping a role=combobox
+// trigger <button> that carries a truncating value <span> + an aria-hidden chevron
+// <span><svg><path>, followed by a visually-hidden native <input> mirroring the value.
+// The prior vue fallback emitted a bare, class-less empty <button>, which the cascade
+// flagged on A (missing spans/svg/input) and B/pixel (no geometry). This lane owns only
+// the vue emitter, so the faithful trigger structure + class strings live here.
+const VUE_SELECT_ROOT_CLASS = 'grid gap-2';
+const VUE_SELECT_TRIGGER_CLASS = 'group flex w-max shrink-0 items-center select-none border-0 shadow-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-kumo-brand cursor-pointer disabled:cursor-not-allowed disabled:text-kumo-subtle h-9 gap-1.5 rounded-lg px-3 text-base bg-kumo-base !text-kumo-default ring not-disabled:hover:bg-kumo-tint disabled:bg-kumo-base/50 disabled:!text-kumo-default/70 ring-kumo-line data-[state=open]:bg-kumo-base justify-between font-normal focus:opacity-100 focus:ring-kumo-focus/50 focus-visible:ring-inset *:in-focus:opacity-100';
+const VUE_SELECT_VALUE_CLASS = 'min-w-0 truncate data-[placeholder]:text-kumo-placeholder';
+const VUE_SELECT_CHEVRON_SPAN_CLASS = 'flex shrink-0 items-center text-kumo-subtle';
+const VUE_SELECT_CHEVRON_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256" class="fill-current"><path d="M181.66,170.34a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-48-48a8,8,0,0,1,11.32-11.32L128,212.69l42.34-42.35A8,8,0,0,1,181.66,170.34Zm-96-84.68L128,43.31l42.34,42.35a8,8,0,0,0,11.32-11.32l-48-48a8,8,0,0,0-11.32,0l-48,48A8,8,0,0,0,85.66,85.66Z"></path></svg>';
 function selectSource() {
   return {
     options:`defineOptions({ inheritAttrs: false })\n`,
@@ -907,6 +919,8 @@ const optionRefs = ref<HTMLElement[]>([])
 const activeIndex = ref(-1)
 const highlightScrolled = ref(false)
 const selectLabel = computed(() => (props as any).ariaLabel ?? (props as any)['aria-label'])
+const selectHasValue = computed(() => multiple.value ? (Array.isArray(selectedValue.value) && selectedValue.value.length > 0) : (selectedValue.value != null && selectedValue.value !== ''))
+const selectDisplay = computed(() => { const found = selectOptions.value.find(item => isSelected(item.value)); if (found) return found.label; if (!multiple.value && selectedValue.value != null && selectedValue.value !== '') return String(selectedValue.value); return (props as any).placeholder ?? '' })
 const equalValue = (a: any, b: any) => a === b || JSON.stringify(a) === JSON.stringify(b)
 const isSelected = (value: any) => multiple.value ? (Array.isArray(selectedValue.value) && selectedValue.value.some(item => equalValue(item, value))) : equalValue(selectedValue.value, value)
 function emitOpen(next: boolean) { if (!openControlled) internalOpen.value = next; (props as any).onOpenChange?.(next) }
@@ -945,7 +959,7 @@ function optionKey(event: KeyboardEvent) {
   if (index >= 0) { event.preventDefault(); focusOption(index) }
 }
 `,
-    template:`<div v-bind="$attrs"><button ref="triggerRef" type="button" tabindex="0" role="combobox" :aria-expanded="String(selectOpen)" aria-haspopup="listbox" :aria-label="selectLabel" data-kumo-component="Select" data-kumo-part="trigger" :data-placeholder="selectedValue == null || (multiple && selectedValue.length === 0) ? '' : undefined" @click="openSelect" @keydown="triggerKey"></button><Teleport v-if="mounted && selectOpen" to="body"><div role="listbox" :aria-multiselectable="multiple || undefined" :data-highlight-scrolled="highlightScrolled || undefined"><div v-for="(item, index) in selectOptions" :key="index" :ref="element => { if (element) optionRefs[index] = element as HTMLElement }" role="option" tabindex="-1" :aria-selected="isSelected(item.value)" :aria-disabled="item.disabled || undefined" :data-value="typeof item.value === 'object' ? item.value?.id : item.value" :data-highlighted="activeIndex === index || undefined" :data-selected="isSelected(item.value) || undefined" @click="selectItem(item, index)" @keydown="optionKey">{{ item.label }}</div></div></Teleport></div>`
+    template:`<div class="${esc(VUE_SELECT_ROOT_CLASS)}"><button ref="triggerRef" type="button" tabindex="0" role="combobox" :aria-expanded="String(selectOpen)" aria-haspopup="listbox" :aria-label="selectLabel ?? (props as any).placeholder" data-kumo-component="Select" data-kumo-part="trigger" class="${esc(VUE_SELECT_TRIGGER_CLASS)}" :data-state="selectOpen ? 'open' : undefined" @click="openSelect" @keydown="triggerKey"><span class="${esc(VUE_SELECT_VALUE_CLASS)}" :data-placeholder="selectHasValue ? undefined : ''">{{ selectDisplay }}</span><span aria-hidden="true" class="${esc(VUE_SELECT_CHEVRON_SPAN_CLASS)}">${VUE_SELECT_CHEVRON_SVG}</span></button><input style="${esc(KUMO_CHECKBOX_HIDDEN_INPUT_STYLE)}" tabindex="-1" aria-hidden="true" :value="selectHasValue ? (typeof selectedValue === 'object' ? JSON.stringify(selectedValue) : String(selectedValue)) : ''" /><Teleport v-if="mounted && selectOpen" to="body"><div role="listbox" :aria-multiselectable="multiple || undefined" :data-highlight-scrolled="highlightScrolled || undefined"><div v-for="(item, index) in selectOptions" :key="index" :ref="element => { if (element) optionRefs[index] = element as HTMLElement }" role="option" tabindex="-1" :aria-selected="isSelected(item.value)" :aria-disabled="item.disabled || undefined" :data-value="typeof item.value === 'object' ? item.value?.id : item.value" :data-highlighted="activeIndex === index || undefined" :data-selected="isSelected(item.value) || undefined" @click="selectItem(item, index)" @keydown="optionKey">{{ item.label }}</div></div></Teleport></div>`
   };
 }
 function toastLifecycleBinding(model, library) {
