@@ -15,6 +15,7 @@ interface InputProps {
   "error"?: unknown
   "variant"?: string
   "label"?: string
+  "description"?: unknown
   "onChange"?: unknown
   "aria-label"?: unknown
   "ariaLabel"?: unknown
@@ -25,6 +26,7 @@ const props = withDefaults(defineProps<InputProps>(), {})
 const nativeAttrs = computed(() => Object.fromEntries(Object.entries(useAttrs()).filter(([name]) => name !== 'id').map(([name, value]) => [name.replace(/[A-Z]/g, letter => '-' + letter.toLowerCase()), value])))
 const nativeAriaLabel = computed(() => (props as any).ariaLabel ?? (props as any)['aria-label'])
 const controlId = "kumo-5974a06b3b90"
+const labelId = "kumo-5974a06b3b90-label"
 function handleNativeInput(event: Event) {
   props.onChange?.((event.currentTarget as HTMLInputElement | HTMLTextAreaElement).value)
 }
@@ -39,5 +41,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <div v-if="props.label !== undefined"><label :for="controlId">{{ props.label }}</label><input :class="(props.error || props.variant === 'error') ? &quot;border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled h-9 gap-1.5 rounded-lg px-3 text-base !ring-kumo-danger focus:ring-kumo-danger/50 focus:ring-[1.5px]&quot; : &quot;border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled focus:ring-kumo-focus/50 focus:ring-[1.5px] h-9 gap-1.5 rounded-lg px-3 text-base&quot;" v-bind="nativeAttrs" :id="controlId" :aria-label="nativeAriaLabel" :value="props.value !== undefined ? props.value : props.defaultValue" :disabled="props.disabled || undefined" @input="handleNativeInput" /></div><input v-else :class="(props.error || props.variant === 'error') ? &quot;border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled h-9 gap-1.5 rounded-lg px-3 text-base !ring-kumo-danger focus:ring-kumo-danger/50 focus:ring-[1.5px]&quot; : &quot;border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled focus:ring-kumo-focus/50 focus:ring-[1.5px] h-9 gap-1.5 rounded-lg px-3 text-base&quot;" v-bind="nativeAttrs" :aria-label="nativeAriaLabel" :value="props.value !== undefined ? props.value : props.defaultValue" :disabled="props.disabled || undefined" @input="handleNativeInput" />
+  <div v-if="props.label !== undefined" class="grid gap-2 has-[input[type=checkbox]]:grid-cols-[auto_1fr] has-[input[type=checkbox]]:items-center has-[[role=switch]]:grid-cols-[auto_1fr] has-[[role=switch]]:items-center"><label :id="labelId" :for="controlId" class="m-0 select-none text-base font-medium text-kumo-default"><span class="inline-flex items-center gap-1">{{ props.label }}</span></label><input :class="(props.error || props.variant === 'error') ? &quot;border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled h-9 gap-1.5 rounded-lg px-3 text-base !ring-kumo-danger focus:ring-kumo-danger/50 focus:ring-[1.5px]&quot; : &quot;border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled focus:ring-kumo-focus/50 focus:ring-[1.5px] h-9 gap-1.5 rounded-lg px-3 text-base&quot;" v-bind="nativeAttrs" :id="controlId" :aria-labelledby="labelId" :value="props.value !== undefined ? props.value : props.defaultValue" :disabled="props.disabled || undefined" @input="handleNativeInput" /></div><input v-else :class="(props.error || props.variant === 'error') ? &quot;border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled h-9 gap-1.5 rounded-lg px-3 text-base !ring-kumo-danger focus:ring-kumo-danger/50 focus:ring-[1.5px]&quot; : &quot;border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled focus:ring-kumo-focus/50 focus:ring-[1.5px] h-9 gap-1.5 rounded-lg px-3 text-base&quot;" v-bind="nativeAttrs" :aria-label="nativeAriaLabel" :value="props.value !== undefined ? props.value : props.defaultValue" :disabled="props.disabled || undefined" @input="handleNativeInput" />
 </template>

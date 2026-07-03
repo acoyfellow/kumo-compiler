@@ -227,12 +227,22 @@ function fieldCompositionControl(model, library) {
 }
  function nativeInputSource({behavior,field}, composition, model) {
    const ownedControlId = composition?.ownsControl ? `kumo-${sha(model.modelDigest).slice(0,12)}` : null;
+   const ownedLabelId = composition?.ownsControl ? `kumo-${sha(model.modelDigest).slice(0,12)}-label` : null;
    const baseClass = field.root==='textarea' ? KUMO_INPUTAREA_CLASS : KUMO_INPUT_CLASS;
    const errorClass = field.root==='textarea' ? KUMO_INPUTAREA_ERROR_CLASS : KUMO_INPUT_ERROR_CLASS;
    const inputClassExpr = `(props.error || props.variant === 'error') ? ${JSON.stringify(errorClass)} : ${JSON.stringify(baseClass)}`;
    const valueExpr = `props.value !== undefined ? props.value : props.${behavior.uncontrolled.prop}`;
+   // Composed (label-owning) branch copied verbatim from canonical @cloudflare/kumo
+   // 2.6.0's real Field composition (renderToStaticMarkup(<Input label=... variant=
+   // "error" error={...} description={...} />)): a div.grid.gap-2 wrapper (also
+   // carrying the has-[input[type=checkbox]]/has-[[role=switch]] variants used by
+   // Checkbox/Switch field composition elsewhere), a <label id for> containing a
+   // <span> around the label text (NOT bare label text), and the input using
+   // aria-labelledby (pointing at the label's id) instead of aria-label. Canonical
+   // does NOT render description/error text for this minimal prop shape -- verified
+   // directly, not assumed.
    const composedTemplate = composition?.ownsControl
-     ? `<div v-if="props.label !== undefined"><label :for="controlId">{{ props.label }}</label><${field.root} :class="${directive(inputClassExpr)}" v-bind="nativeAttrs" :id="controlId" :aria-label="nativeAriaLabel" :value="${directive(valueExpr)}" :disabled="props.disabled || undefined" @input="handleNativeInput"${field.root==='input'?' />':`>{{ ${valueExpr} }}</${field.root}>`}</div><${field.root} v-else :class="${directive(inputClassExpr)}" v-bind="nativeAttrs" :aria-label="nativeAriaLabel" :value="${directive(valueExpr)}" :disabled="props.disabled || undefined" @input="handleNativeInput"${field.root==='input'?' />':`>{{ ${valueExpr} }}</${field.root}>`}`
+     ? `<div v-if="props.label !== undefined" class="grid gap-2 has-[input[type=checkbox]]:grid-cols-[auto_1fr] has-[input[type=checkbox]]:items-center has-[[role=switch]]:grid-cols-[auto_1fr] has-[[role=switch]]:items-center"><label :id="labelId" :for="controlId" class="m-0 select-none text-base font-medium text-kumo-default"><span class="inline-flex items-center gap-1">{{ props.label }}</span></label><${field.root} :class="${directive(inputClassExpr)}" v-bind="nativeAttrs" :id="controlId" :aria-labelledby="labelId" :value="${directive(valueExpr)}" :disabled="props.disabled || undefined" @input="handleNativeInput"${field.root==='input'?' />':`>{{ ${valueExpr} }}</${field.root}>`}</div><${field.root} v-else :class="${directive(inputClassExpr)}" v-bind="nativeAttrs" :aria-label="nativeAriaLabel" :value="${directive(valueExpr)}" :disabled="props.disabled || undefined" @input="handleNativeInput"${field.root==='input'?' />':`>{{ ${valueExpr} }}</${field.root}>`}`
      : null;
   return {
     options:`defineOptions({ inheritAttrs: false })\n`,
@@ -243,9 +253,10 @@ function fieldCompositionControl(model, library) {
       {name:'error',required:false,type:'unknown'},
       {name:'variant',required:false,type:'string'},
       {name:'label',required:false,type:'string'},
+      {name:'description',required:false,type:'unknown'},
       {name:'onChange',required:false,type:'unknown'},
     ],
-    setup:`const nativeAttrs = computed(() => Object.fromEntries(Object.entries(useAttrs()).filter(([name]) => name !== 'id').map(([name, value]) => [name.replace(/[A-Z]/g, letter => '-' + letter.toLowerCase()), value])))\nconst nativeAriaLabel = computed(() => (props as any).ariaLabel ?? (props as any)['aria-label'])\n${composition?.ownsControl ? `const controlId = ${JSON.stringify(ownedControlId)}\n` : ''}function handleNativeInput(event: Event) {\n  props.onChange?.((event.currentTarget as HTMLInputElement | HTMLTextAreaElement).value)\n}\n`,
+    setup:`const nativeAttrs = computed(() => Object.fromEntries(Object.entries(useAttrs()).filter(([name]) => name !== 'id').map(([name, value]) => [name.replace(/[A-Z]/g, letter => '-' + letter.toLowerCase()), value])))\nconst nativeAriaLabel = computed(() => (props as any).ariaLabel ?? (props as any)['aria-label'])\n${composition?.ownsControl ? `const controlId = ${JSON.stringify(ownedControlId)}\nconst labelId = ${JSON.stringify(ownedLabelId)}\n` : ''}function handleNativeInput(event: Event) {\n  props.onChange?.((event.currentTarget as HTMLInputElement | HTMLTextAreaElement).value)\n}\n`,
      template:composedTemplate ?? `<${field.root} :class="${directive(inputClassExpr)}" v-bind="nativeAttrs" :aria-label="nativeAriaLabel" :value="${directive(valueExpr)}" :disabled="props.disabled || undefined" @input="handleNativeInput"${field.root==='input'?' />':`>{{ ${valueExpr} }}</${field.root}>`}`
   };
 }
