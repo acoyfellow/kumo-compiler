@@ -66,5 +66,5 @@
     {renderContent}
   </p>
 {:else}
-<p {...rest} class="text-kumo-default text-base">{#if children}{@render children()}{/if}</p>
+<p {...rest} class={cx("text-kumo-default", ({xs:"text-xs",sm:"text-sm",base:"text-base",lg:"text-lg"} as Record<string,string>)[(size as string | undefined) ?? "base"] ?? "text-base", bold ? "font-medium" : "")}>{#if children}{@render children()}{/if}</p>
 {/if}
