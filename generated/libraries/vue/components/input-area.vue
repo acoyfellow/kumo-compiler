@@ -10,7 +10,10 @@ import { computed, useAttrs, useSlots } from 'vue'
 interface InputAreaProps {
   "observable"?: unknown
   "defaultValue"?: string
+  "value"?: string
   "disabled"?: boolean
+  "error"?: unknown
+  "variant"?: string
   "label"?: string
   "onChange"?: unknown
   "aria-label"?: unknown
@@ -36,5 +39,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <div v-if="props.label !== undefined"><label :for="controlId">{{ props.label }}</label><textarea class="border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled gap-1.5 rounded-lg px-3 text-base focus:ring-kumo-focus/50 focus:ring-[1.5px] h-auto py-2" v-bind="nativeAttrs" :id="controlId" :aria-label="nativeAriaLabel" :value="props.defaultValue" :disabled="props.disabled || undefined" @input="handleNativeInput">{{ props.defaultValue }}</textarea></div><textarea v-else class="border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled gap-1.5 rounded-lg px-3 text-base focus:ring-kumo-focus/50 focus:ring-[1.5px] h-auto py-2" v-bind="nativeAttrs" :aria-label="nativeAriaLabel" :value="props.defaultValue" :disabled="props.disabled || undefined" @input="handleNativeInput">{{ props.defaultValue }}</textarea>
+  <div v-if="props.label !== undefined"><label :for="controlId">{{ props.label }}</label><textarea :class="(props.error || props.variant === 'error') ? &quot;border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled gap-1.5 rounded-lg px-3 text-base !ring-kumo-danger focus:ring-kumo-danger/50 focus:ring-[1.5px] h-auto py-2&quot; : &quot;border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled gap-1.5 rounded-lg px-3 text-base focus:ring-kumo-focus/50 focus:ring-[1.5px] h-auto py-2&quot;" v-bind="nativeAttrs" :id="controlId" :aria-label="nativeAriaLabel" :value="props.value !== undefined ? props.value : props.defaultValue" :disabled="props.disabled || undefined" @input="handleNativeInput">{{ props.value !== undefined ? props.value : props.defaultValue }}</textarea></div><textarea v-else :class="(props.error || props.variant === 'error') ? &quot;border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled gap-1.5 rounded-lg px-3 text-base !ring-kumo-danger focus:ring-kumo-danger/50 focus:ring-[1.5px] h-auto py-2&quot; : &quot;border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled gap-1.5 rounded-lg px-3 text-base focus:ring-kumo-focus/50 focus:ring-[1.5px] h-auto py-2&quot;" v-bind="nativeAttrs" :aria-label="nativeAriaLabel" :value="props.value !== undefined ? props.value : props.defaultValue" :disabled="props.disabled || undefined" @input="handleNativeInput">{{ props.value !== undefined ? props.value : props.defaultValue }}</textarea>
 </template>

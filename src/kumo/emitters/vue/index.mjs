@@ -6,7 +6,7 @@ import {loadLibrary, canonicalJSON} from '../../library/index.mjs';
 import {validateImplementation, NODE_KINDS, EXPRESSION_KINDS, OPERATION_KINDS} from '../../library/algebra.mjs';
 import {requireContentBindings, semanticExpression, semanticPredicate} from '../shared/content-adapter.mjs';
 import {clampPage, maxPage, nextPage, previousPage, commitPageInput} from '../../library/pagination-state.mjs';
-import {KUMO_INPUT_CLASS, KUMO_INPUTAREA_CLASS, KUMO_FIELD_LABEL_CLASS, KUMO_FIELD_DESCRIPTION_CLASS, KUMO_CHECKBOX_CLASS, KUMO_CHECKBOX_BOX_CLASS, KUMO_CHECKBOX_INDICATOR_CLASS, KUMO_CHECKBOX_CHECK_SVG, KUMO_CHECKBOX_MINUS_SVG, KUMO_CHECKBOX_HIDDEN_INPUT_STYLE, KUMO_CHECKBOX_LABEL_WRAPPER_CLASS, KUMO_CHECKBOX_LABEL_CLASS, KUMO_CHECKBOX_LABEL_TEXT_CLASS, KUMO_CLIPBOARD_ROOT_CLASS, KUMO_CLIPBOARD_TEXT_CLASS, KUMO_CLIPBOARD_BUTTON_CLASS, KUMO_CLIPBOARD_CHECK_SPAN_CLASS, KUMO_CLIPBOARD_COPY_SPAN_CLASS, KUMO_CLIPBOARD_CHECK_SVG, KUMO_CLIPBOARD_COPY_SVG, KUMO_SWITCH_TRACK_CLASS, KUMO_SWITCH_THUMB_CLASS, KUMO_TABS_LIST_CLASS, KUMO_TABS_TRIGGER_CLASS, KUMO_TABS_INDICATOR_CLASS, KUMO_METER_ROOT_CLASS, KUMO_METER_HEADER_CLASS, KUMO_METER_LABEL_CLASS, KUMO_METER_VALUE_CLASS, KUMO_METER_TRACK_CLASS, KUMO_METER_FILL_CLASS} from '../shared/native-classes.mjs';
+import {KUMO_INPUT_CLASS, KUMO_INPUT_ERROR_CLASS, KUMO_INPUTAREA_CLASS, KUMO_INPUTAREA_ERROR_CLASS, KUMO_FIELD_LABEL_CLASS, KUMO_FIELD_DESCRIPTION_CLASS, KUMO_CHECKBOX_CLASS, KUMO_CHECKBOX_BOX_CLASS, KUMO_CHECKBOX_INDICATOR_CLASS, KUMO_CHECKBOX_CHECK_SVG, KUMO_CHECKBOX_MINUS_SVG, KUMO_CHECKBOX_HIDDEN_INPUT_STYLE, KUMO_CHECKBOX_LABEL_WRAPPER_CLASS, KUMO_CHECKBOX_LABEL_CLASS, KUMO_CHECKBOX_LABEL_TEXT_CLASS, KUMO_CLIPBOARD_ROOT_CLASS, KUMO_CLIPBOARD_TEXT_CLASS, KUMO_CLIPBOARD_BUTTON_CLASS, KUMO_CLIPBOARD_CHECK_SPAN_CLASS, KUMO_CLIPBOARD_COPY_SPAN_CLASS, KUMO_CLIPBOARD_CHECK_SVG, KUMO_CLIPBOARD_COPY_SVG, KUMO_SWITCH_TRACK_CLASS, KUMO_SWITCH_THUMB_CLASS, KUMO_TABS_LIST_CLASS, KUMO_TABS_TRIGGER_CLASS, KUMO_TABS_INDICATOR_CLASS, KUMO_METER_ROOT_CLASS, KUMO_METER_HEADER_CLASS, KUMO_METER_LABEL_CLASS, KUMO_METER_VALUE_CLASS, KUMO_METER_TRACK_CLASS, KUMO_METER_FILL_CLASS} from '../shared/native-classes.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '../../../..');
@@ -223,20 +223,26 @@ function fieldCompositionControl(model, library) {
 }
  function nativeInputSource({behavior,field}, composition, model) {
    const ownedControlId = composition?.ownsControl ? `kumo-${sha(model.modelDigest).slice(0,12)}` : null;
-   const inputClass = field.root==='textarea' ? KUMO_INPUTAREA_CLASS : KUMO_INPUT_CLASS;
+   const baseClass = field.root==='textarea' ? KUMO_INPUTAREA_CLASS : KUMO_INPUT_CLASS;
+   const errorClass = field.root==='textarea' ? KUMO_INPUTAREA_ERROR_CLASS : KUMO_INPUT_ERROR_CLASS;
+   const inputClassExpr = `(props.error || props.variant === 'error') ? ${JSON.stringify(errorClass)} : ${JSON.stringify(baseClass)}`;
+   const valueExpr = `props.value !== undefined ? props.value : props.${behavior.uncontrolled.prop}`;
    const composedTemplate = composition?.ownsControl
-     ? `<div v-if="props.label !== undefined"><label :for="controlId">{{ props.label }}</label><${field.root} class="${esc(inputClass)}" v-bind="nativeAttrs" :id="controlId" :aria-label="nativeAriaLabel" :value="props.${behavior.uncontrolled.prop}" :disabled="props.disabled || undefined" @input="handleNativeInput"${field.root==='input'?' />':`>{{ props.${behavior.uncontrolled.prop} }}</${field.root}>`}</div><${field.root} v-else class="${esc(inputClass)}" v-bind="nativeAttrs" :aria-label="nativeAriaLabel" :value="props.${behavior.uncontrolled.prop}" :disabled="props.disabled || undefined" @input="handleNativeInput"${field.root==='input'?' />':`>{{ props.${behavior.uncontrolled.prop} }}</${field.root}>`}`
+     ? `<div v-if="props.label !== undefined"><label :for="controlId">{{ props.label }}</label><${field.root} :class="${directive(inputClassExpr)}" v-bind="nativeAttrs" :id="controlId" :aria-label="nativeAriaLabel" :value="${directive(valueExpr)}" :disabled="props.disabled || undefined" @input="handleNativeInput"${field.root==='input'?' />':`>{{ ${valueExpr} }}</${field.root}>`}</div><${field.root} v-else :class="${directive(inputClassExpr)}" v-bind="nativeAttrs" :aria-label="nativeAriaLabel" :value="${directive(valueExpr)}" :disabled="props.disabled || undefined" @input="handleNativeInput"${field.root==='input'?' />':`>{{ ${valueExpr} }}</${field.root}>`}`
      : null;
   return {
     options:`defineOptions({ inheritAttrs: false })\n`,
     props:[
       {name:behavior.uncontrolled.prop,required:false,type:'string'},
+      {name:'value',required:false,type:'string'},
       {name:'disabled',required:false,type:'boolean'},
+      {name:'error',required:false,type:'unknown'},
+      {name:'variant',required:false,type:'string'},
       {name:'label',required:false,type:'string'},
       {name:'onChange',required:false,type:'unknown'},
     ],
     setup:`const nativeAttrs = computed(() => Object.fromEntries(Object.entries(useAttrs()).filter(([name]) => name !== 'id').map(([name, value]) => [name.replace(/[A-Z]/g, letter => '-' + letter.toLowerCase()), value])))\nconst nativeAriaLabel = computed(() => (props as any).ariaLabel ?? (props as any)['aria-label'])\n${composition?.ownsControl ? `const controlId = ${JSON.stringify(ownedControlId)}\n` : ''}function handleNativeInput(event: Event) {\n  props.onChange?.((event.currentTarget as HTMLInputElement | HTMLTextAreaElement).value)\n}\n`,
-     template:composedTemplate ?? `<${field.root} class="${esc(inputClass)}" v-bind="nativeAttrs" :aria-label="nativeAriaLabel" :value="props.${behavior.uncontrolled.prop}" :disabled="props.disabled || undefined" @input="handleNativeInput"${field.root==='input'?' />':`>{{ props.${behavior.uncontrolled.prop} }}</${field.root}>`}`
+     template:composedTemplate ?? `<${field.root} :class="${directive(inputClassExpr)}" v-bind="nativeAttrs" :aria-label="nativeAriaLabel" :value="${directive(valueExpr)}" :disabled="props.disabled || undefined" @input="handleNativeInput"${field.root==='input'?' />':`>{{ ${valueExpr} }}</${field.root}>`}`
   };
 }
 function clipboardCopyBinding(model, library) {
