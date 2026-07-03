@@ -691,6 +691,13 @@ function inputGroupBinding(model, library) {
   if (capability?.support !== 'supported' || model.component !== capability.component) return null;
   return capability;
 }
+// Real Kumo InputGroup root <label> classes copied VERBATIM from @cloudflare/kumo 2.6.0.
+// React canonical's InputGroup IS a <label data-slot="input-group"> (cursor-text control
+// shell), not a wrapper <div>; a plain children mount renders those children directly
+// inside it. The prior vue fallback emitted a bare <div> and dropped the slot content,
+// which the cascade flagged on A (label vs div) and pixel (missing text). This lane owns
+// only the vue emitter, so the faithful root element + class string live here.
+const VUE_INPUT_GROUP_ROOT_CLASS = 'relative w-full cursor-text border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled h-9 rounded-lg text-base focus:ring-kumo-focus/50 focus:ring-[1.5px] shadow-xs data-[disabled]:pointer-events-none data-[disabled]:opacity-50 overflow-hidden focus-within:ring-kumo-focus/50 focus-within:ring-[1.5px] has-[input[aria-invalid=true]]:ring-kumo-danger px-0 flex items-center gap-0 has-[[data-slot=input-group-suffix]]:[&_input]:[field-sizing:content] has-[[data-slot=input-group-suffix]]:[&_input]:max-w-full has-[[data-slot=input-group-suffix]]:[&_input]:grow-0 has-[[data-slot=input-group-suffix]]:[&_input]:pr-0 has-[[data-slot=input-group-addon-start]]:[&_input]:pl-2 has-[[data-slot=input-group-addon-end]]:[&_input]:pr-2 mb-0!';
 function inputGroupSource(model) {
   return {
     options:`defineOptions({ inheritAttrs: false })\n`,
@@ -706,7 +713,7 @@ const inputId = ${JSON.stringify(`kumo-${sha(model.modelDigest).slice(0,12)}`)}
 const inputValue = ref('')
 function trackInput(event: Event) { inputValue.value = (event.currentTarget as HTMLInputElement).value }
 `,
-    template:`<div v-bind="$attrs" data-kumo-component="InputGroup"><label v-if="inputGroupProps.label !== undefined" :for="inputId">{{ inputGroupProps.label }}</label><p v-if="inputGroupProps.description !== undefined">{{ inputGroupProps.description }}</p><template v-for="(part, index) in fixtureChildren(inputGroupFixture)" :key="part.export ?? index"><span v-if="part.export === '.Addon'" data-kumo-part="Addon">{{ partText(part) }}</span><input v-else-if="part.export === '.Input'" :id="inputId" :aria-label="inputPart?.props?.['aria-label'] as string | undefined" :disabled="props.disabled || undefined" :required="inputGroupProps.required as boolean | undefined" :value="inputValue" @input="trackInput" /><button v-else-if="part.export === '.Button'" type="button" :data-variant="part.props?.variant">{{ partText(part) }}</button><span v-else-if="part.export === '.Suffix'" data-kumo-part="Suffix">{{ partText(part) }}</span></template></div>`
+    template:`<label v-bind="$attrs" data-slot="input-group" data-focus-mode="container" class="${esc(VUE_INPUT_GROUP_ROOT_CLASS)}"><template v-if="fixtureChildren(inputGroupFixture).length"><span v-if="inputGroupProps.label !== undefined" :data-for="inputId">{{ inputGroupProps.label }}</span><span v-if="inputGroupProps.description !== undefined">{{ inputGroupProps.description }}</span><template v-for="(part, index) in fixtureChildren(inputGroupFixture)" :key="part.export ?? index"><span v-if="part.export === '.Addon'" data-slot="input-group-addon-start">{{ partText(part) }}</span><input v-else-if="part.export === '.Input'" :id="inputId" :aria-label="inputPart?.props?.['aria-label'] as string | undefined" :disabled="props.disabled || undefined" :required="inputGroupProps.required as boolean | undefined" :value="inputValue" @input="trackInput" /><button v-else-if="part.export === '.Button'" type="button" :data-variant="part.props?.variant">{{ partText(part) }}</button><span v-else-if="part.export === '.Suffix'" data-slot="input-group-suffix">{{ partText(part) }}</span></template></template><slot v-else /></label>`
   };
 }
 function datePickerBinding(model, library) {
