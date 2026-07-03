@@ -606,6 +606,12 @@ function comboboxBinding(model, library) {
   if (capability?.support !== 'supported' || model.component !== capability.component) return null;
   return capability;
 }
+// Closed Combobox chrome copied verbatim from @cloudflare/kumo 2.6.0. The
+// currently-open branch below intentionally retains the observable collection DOM.
+const VUE_COMBOBOX_ROOT_CLASS = 'relative inline-block w-full max-w-xs has-[:disabled]:opacity-50 has-[:disabled]:cursor-not-allowed';
+const VUE_COMBOBOX_INPUT_CLASS = 'border-0 bg-kumo-control text-kumo-default ring ring-kumo-line outline-none focus:outline-none kumo-input-placeholder disabled:text-kumo-disabled h-9 gap-1.5 rounded-lg px-3 text-base focus:ring-kumo-focus/50 focus:ring-[1.5px] w-full pr-12 disabled:cursor-not-allowed';
+const VUE_COMBOBOX_TRIGGER_CLASS = 'absolute top-1/2 -translate-y-1/2 flex items-center justify-center cursor-pointer text-kumo-subtle m-0 bg-transparent p-0 right-2';
+const VUE_COMBOBOX_CHEVRON_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256" class="fill-current"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg>';
 function comboboxSource() {
   return {
     options:`defineOptions({ inheritAttrs: false })\n`,
@@ -620,7 +626,8 @@ const list = computed(() => fixturePart(content.value, '.List'))
 const options = computed(() => fixtureChildren(list.value).filter(item => item.export === '.Item'))
 const partText = (node?: ComboboxFixtureNode): string => node ? String(node.text ?? '') + fixtureChildren(node).map(partText).join('') : ''
 const inputRef = ref<HTMLInputElement | null>(null)
-const open = ref(false)
+const comboboxAttrs = useAttrs()
+const open = ref(Boolean(comboboxAttrs.open ?? comboboxAttrs.defaultOpen ?? comboboxFixture.value?.props?.open ?? comboboxFixture.value?.props?.defaultOpen))
 const highlightedIndex = ref(-1)
 const value = ref('')
 function setOpen(next: boolean) { open.value = next; if (!next) highlightedIndex.value = -1; props.onOpenChange?.(next) }
@@ -637,7 +644,7 @@ function handleKey(event: KeyboardEvent) {
   }
 }
 `,
-    template:`<input ref="inputRef" v-bind="$attrs" role="combobox" :placeholder="triggerInput?.props?.placeholder as string | undefined" :value="value" :aria-expanded="open" @click="openList" @keydown="handleKey" /><ul role="listbox" :hidden="!open"><li v-for="(item, index) in options" :key="String(item.props?.value ?? index)" role="option" :data-value="item.props?.value" :aria-selected="index === highlightedIndex">{{ partText(item) }}</li></ul>`
+    template:`<template v-if="!open"><div class="${esc(VUE_COMBOBOX_ROOT_CLASS)}"><input ref="inputRef" v-bind="$attrs" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="none" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-autocomplete="list" type="text" :placeholder="triggerInput?.props?.placeholder as string | undefined" class="${esc(VUE_COMBOBOX_INPUT_CLASS)}" :value="value" @click="openList" @keydown="handleKey" /><button type="button" data-placeholder="" tabindex="0" role="combobox" aria-expanded="false" aria-haspopup="dialog" data-kumo-component="Combobox" data-kumo-part="trigger" aria-label="Show options" class="${esc(VUE_COMBOBOX_TRIGGER_CLASS)}" @click="openList" @keydown="handleKey"><span aria-hidden="true" class="flex items-center">${VUE_COMBOBOX_CHEVRON_SVG}</span></button></div><input style="${esc(KUMO_CHECKBOX_HIDDEN_INPUT_STYLE)}" tabindex="-1" aria-hidden="true" :value="value" /></template><template v-else><input ref="inputRef" v-bind="$attrs" role="combobox" :placeholder="triggerInput?.props?.placeholder as string | undefined" :value="value" :aria-expanded="open" @click="openList" @keydown="handleKey" /><ul role="listbox"><li v-for="(item, index) in options" :key="String(item.props?.value ?? index)" role="option" :data-value="item.props?.value" :aria-selected="index === highlightedIndex">{{ partText(item) }}</li></ul></template>`
   };
 }
 function autocompleteBinding(model, library) {
