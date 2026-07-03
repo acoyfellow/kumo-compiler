@@ -296,6 +296,18 @@ function tabsNavigationBinding(model, library) {
   if (capability?.support !== 'supported' || model.component !== capability.component) return null;
   return capability;
 }
+// Real Kumo Tabs classes copied VERBATIM from @cloudflare/kumo 2.6.0 (React canonical).
+// React renders a THREE-div structure — a classed root wrapper (ring), an absolutely
+// positioned background track, then the role=tablist carrying the trigger buttons plus a
+// hidden moving indicator div. The shared KUMO_TABS_* constants encode a simpler
+// single-list + per-button span geometry that the cascade flags on A (extra span /
+// missing divs) and B (button display/height/padding, tablist display/height). This lane
+// owns only the vue emitter, so the faithful class strings + structure live here.
+const VUE_TABS_ROOT_CLASS = 'relative isolate min-w-0 font-medium rounded-lg ring ring-kumo-hairline/70';
+const VUE_TABS_TRACK_CLASS = 'absolute inset-x-0 top-1/2 z-0 -translate-y-1/2 rounded-lg bg-kumo-recessed h-9';
+const VUE_TABS_LIST_CLASS = 'relative flex min-w-0 shrink items-stretch kumo-tabs-list overflow-x-auto rounded-lg bg-kumo-recessed px-0.5 [--scroll-fade-width:3rem] scroll-px-(--scroll-fade-width) h-9';
+const VUE_TABS_TRIGGER_CLASS = 'relative z-2 flex items-center bg-transparent whitespace-nowrap focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand cursor-pointer text-base my-0.5 text-kumo-subtle hover:text-kumo-default aria-selected:text-kumo-default focus-visible:ring-inset px-2.5 rounded-md';
+const VUE_TABS_INDICATOR_CLASS = 'absolute z-1 left-0 w-(--active-tab-width) translate-x-(--active-tab-left) transition-all duration-200 data-[rendered=false]:scale-90 data-[rendered=false]:opacity-0 top-(--active-tab-top) h-(--active-tab-height) bg-kumo-base shadow-sm ring ring-kumo-line rounded-md';
 function tabsNavigationSource(capability) {
   return {
     options:`defineOptions({ inheritAttrs: false })\n`,
@@ -328,7 +340,7 @@ function activate(tab: TabItem, event: KeyboardEvent) {
   commit(tab.value)
 }
 `,
-    template:`<div><div role="tablist" class="${esc(KUMO_TABS_LIST_CLASS)}"><button v-for="(tab, index) in props.tabs" :key="tab.value" :ref="element => { if (element) tabButtons[index] = element as HTMLButtonElement }" type="button" role="tab" class="${esc(KUMO_TABS_TRIGGER_CLASS)}" :tabindex="index === focusedIndex ? 0 : -1" :aria-selected="tab.value === committedValue" @click="commit(tab.value)" @keydown="moveNext(index, $event); activate(tab, $event)"><span v-if="tab.value === committedValue" aria-hidden="true" class="${esc(KUMO_TABS_INDICATOR_CLASS)}"></span>{{ tab.label }}</button></div></div>`
+    template:`<div data-orientation="horizontal" data-activation-direction="none" class="${esc(VUE_TABS_ROOT_CLASS)}"><div class="${esc(VUE_TABS_TRACK_CLASS)}"></div><div data-orientation="horizontal" data-activation-direction="none" role="tablist" class="${esc(VUE_TABS_LIST_CLASS)}"><button v-for="(tab, index) in props.tabs" :key="tab.value" :ref="element => { if (element) tabButtons[index] = element as HTMLButtonElement }" type="button" data-orientation="horizontal" aria-disabled="false" data-kumo-component="Tabs" data-kumo-part="tab" role="tab" class="${esc(VUE_TABS_TRIGGER_CLASS)}" :data-active="tab.value === committedValue ? '' : undefined" :tabindex="index === focusedIndex ? 0 : -1" :aria-selected="tab.value === committedValue" @click="commit(tab.value)" @keydown="moveNext(index, $event); activate(tab, $event)">{{ tab.label }}</button><div data-orientation="horizontal" data-activation-direction="none" role="presentation" hidden class="${esc(VUE_TABS_INDICATOR_CLASS)}"></div></div></div>`
   };
 }
 function menubarNavigationBinding(model, library) {
