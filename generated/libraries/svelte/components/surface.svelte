@@ -56,7 +56,5 @@
     {renderContent}
   </div>
 {:else}
-<div class={"bg-kumo-base shadow-xs ring ring-kumo-line overflow-visible rounded-none"}>
-  {#if children}{@render children()}{/if}
-</div>
+<div data-surface-color={(color as string | undefined) ?? "primary"} data-deprecated="surface" {...rest} class={cx("bg-kumo-base shadow-xs ring ring-kumo-line", className ? undefined : "overflow-visible rounded-none", className as string | undefined)}>{#if children}{@render children()}{/if}</div>
 {/if}

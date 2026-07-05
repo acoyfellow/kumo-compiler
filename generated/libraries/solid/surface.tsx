@@ -42,7 +42,7 @@ export function Surface(incoming: SurfaceProps): JSX.Element {
   void native; void state; void refs;
   if (Object.prototype.hasOwnProperty.call(props, "as") && semanticEqual(props.as, "section") && semanticEqual(props.semanticContent, "Card") && Object.prototype.hasOwnProperty.call(props, "color") && semanticEqual(props.color, "secondary")) return (<section data-surface-color={"secondary"} data-deprecated={"surface"}>{props.children}</section>);
   if (semanticEqual(props.semanticContent, "Card")) return (<div data-surface-color={"primary"} data-deprecated={"surface"}>{props.children}</div>);
-  return (<div class={"bg-kumo-base shadow-xs ring ring-kumo-line overflow-visible rounded-none"}>{props.children}</div>);
+  return (<div data-surface-color={(props.color as string | undefined) ?? "primary"} data-deprecated="surface" class={mergeStyles("bg-kumo-base", "shadow-xs", "ring", "ring-kumo-line", (props.className as string | undefined) ? undefined : "overflow-visible", (props.className as string | undefined) ? undefined : "rounded-none", props.className as string | undefined)}>{props.children}</div>);
 }
 
 export default Surface;
