@@ -113,7 +113,7 @@
   let managedToasts = $state<readonly KumoToast[]>(providerToastManager.toasts);
   const unsubscribeToasts = providerToastManager.subscribe(value => { managedToasts = value; });
   onDestroy(() => { unsubscribeToasts(); if (ownsToastManager) providerToastManager.destroy(); });
-  function toastPortal(node: HTMLElement) { const target = container instanceof HTMLElement ? container : document.body; target.appendChild(node); return { destroy() { node.remove(); } }; }
+  function toastPortal(node: HTMLElement) { const target = container instanceof HTMLElement ? container : document.body; const wrapper = document.createElement('div'); target.appendChild(wrapper); wrapper.appendChild(node); return { destroy() { wrapper.remove(); } }; }
 
   const renderContent = __consumerContent;
   const semanticProps: Record<string, unknown> = { "container": container, "toastManager": toastManager, "variant": variant, ...rest, ...(__consumerContent !== undefined ? {children: renderContent} : {}) };

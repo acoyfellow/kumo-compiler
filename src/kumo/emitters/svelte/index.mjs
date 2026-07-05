@@ -525,7 +525,7 @@ function component(model,capabilities){
   let managedToasts = $state<readonly KumoToast[]>(providerToastManager.toasts);
   const unsubscribeToasts = providerToastManager.subscribe(value => { managedToasts = value; });
   onDestroy(() => { unsubscribeToasts(); if (ownsToastManager) providerToastManager.destroy(); });
-  function toastPortal(node: HTMLElement) { const target = container instanceof HTMLElement ? container : document.body; target.appendChild(node); return { destroy() { node.remove(); } }; }
+  function toastPortal(node: HTMLElement) { const target = container instanceof HTMLElement ? container : document.body; const wrapper = document.createElement('div'); target.appendChild(wrapper); wrapper.appendChild(node); return { destroy() { wrapper.remove(); } }; }
 `:''}${datePicker?`  type DatePickerDay = { iso: string; day: number; disabled: boolean; inMonth: boolean; monthStr: string; isToday: boolean; className: string; label: string };
   const DATE_PICKER_MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
   const DATE_PICKER_WEEKDAYS = [{ short: 'Su', full: 'Sunday' },{ short: 'Mo', full: 'Monday' },{ short: 'Tu', full: 'Tuesday' },{ short: 'We', full: 'Wednesday' },{ short: 'Th', full: 'Thursday' },{ short: 'Fr', full: 'Friday' },{ short: 'Sa', full: 'Saturday' }];
