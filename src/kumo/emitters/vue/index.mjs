@@ -1132,15 +1132,17 @@ export const Toast = Object.freeze({ createToastManager: createKumoToastManager,
 function toastLifecycleSource(capability) {
   return {
     options:`defineOptions({ inheritAttrs: false })\n`,
-    imports:'computed, inject, onBeforeUnmount, provide, ref, useAttrs, useSlots',
+    imports:'computed, inject, onBeforeUnmount, onMounted, provide, ref, useAttrs, useSlots',
     setup:`const providerToastManager = (props.toastManager as KumoToastManager | undefined) ?? createKumoToastManager()
 provide(KUMO_TOAST_MANAGER_KEY, providerToastManager)
 const managedToasts = ref<readonly KumoToast[]>(providerToastManager.toasts)
 const unsubscribeToasts = providerToastManager.subscribe(value => { managedToasts.value = value })
 onBeforeUnmount(() => { unsubscribeToasts() })
+const toastMounted = ref(false)
+onMounted(() => { toastMounted.value = true })
 function closeToast(id: string) { providerToastManager.close(id) }
 `,
-    template:`<template v-if="$slots.default"><slot /><Teleport v-if="managedToasts.length" to="body"><div role="region" aria-live="polite" data-kumo-component="Toasty"><div v-for="toast in managedToasts" :key="toast.id" role="status" data-kumo-component="Toast" :data-variant="toast.variant ?? variant"><strong v-if="toast.title !== undefined" data-toast-title>{{ toast.title }}</strong><span v-if="toast.description !== undefined" data-toast-description>{{ toast.description }}</span><div v-if="toast.actions?.length"><button v-for="action in toast.actions" :key="action.label" type="button" :disabled="action.disabled" data-toast-action @click="action.onClick?.($event)">{{ action.label }}</button></div><button type="button" aria-label="Close" @click="closeToast(toast.id)">Close</button></div></div></Teleport></template><button v-else type="button" data-kumo-component="Button" class="${esc(VUE_OVERLAY_BUTTON_CLASS)}">Notify</button>`
+    template:`<template v-if="$slots.default"><slot /><Teleport v-if="toastMounted" to="body"><div tabindex="-1" role="region" aria-live="polite" aria-atomic="false" aria-relevant="additions text" aria-label="Notifications" data-kumo-component="Toasty" class="fixed top-auto right-4 bottom-4 z-1 mx-auto flex w-[calc(100%-2rem)] sm:right-8 sm:bottom-8 sm:w-[340px]"><div v-for="toast in managedToasts" :key="toast.id" role="status" data-kumo-component="Toast" :data-variant="toast.variant ?? variant"><strong v-if="toast.title !== undefined" data-toast-title>{{ toast.title }}</strong><span v-if="toast.description !== undefined" data-toast-description>{{ toast.description }}</span><div v-if="toast.actions?.length"><button v-for="action in toast.actions" :key="action.label" type="button" :disabled="action.disabled" data-toast-action @click="action.onClick?.($event)">{{ action.label }}</button></div><button type="button" aria-label="Close" @click="closeToast(toast.id)">Close</button></div></div></Teleport></template><button v-else type="button" data-kumo-component="Button" class="${esc(VUE_OVERLAY_BUTTON_CLASS)}">Notify</button>`
   };
 }
 function paginationBinding(model, library) {
