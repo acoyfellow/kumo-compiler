@@ -13,7 +13,9 @@ interface LoaderProps {
   fixture?: unknown
   semanticContent?: unknown
 }
-const props = withDefaults(defineProps<LoaderProps>(), {"aria-label":"Loading","size":"base"})
+const __declaredProps = withDefaults(defineProps<LoaderProps>(), {"aria-label":"Loading","size":"base"})
+const __hyphenatedDefaults: Record<string, unknown> = {"aria-label":"Loading"}
+const props = new Proxy(__declaredProps as Record<string, unknown>, { get(target, key: string) { const value = Reflect.get(target, key); return value === undefined && key in __hyphenatedDefaults ? __hyphenatedDefaults[key] : value } }) as typeof __declaredProps
 const slots = useSlots()
 const styles: Record<string,string> = {}
 const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
