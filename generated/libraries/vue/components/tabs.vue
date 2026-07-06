@@ -21,7 +21,7 @@ interface TabsProps {
   fixture?: unknown
   semanticContent?: unknown
 }
-const props = withDefaults(defineProps<TabsProps>(), {"activateOnFocus":false,"selectedValue":"first tab value when uncontrolled and selectedValue omitted","size":"base","tabs":[],"variant":"segmented"})
+const props = withDefaults(defineProps<TabsProps>(), {"activateOnFocus":false,"size":"base","tabs":[],"variant":"segmented"})
 type TabItem = { value: string; label: string }
 const instance = getCurrentInstance()
 const controlled = computed(() => Object.prototype.hasOwnProperty.call(instance?.vnode.props ?? {}, "selectedValue"))

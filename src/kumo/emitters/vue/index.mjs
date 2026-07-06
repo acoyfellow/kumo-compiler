@@ -1229,7 +1229,15 @@ function emitComponent(model, library) {
   const implementation = validateImplementation(model.draftImplementation);
   const hasMergeTrigger = implementation.componentRoot?.tag === 'merge-trigger';
   const contentBindingDigest = requireContentBindings(model);
-  const defaults = Object.fromEntries(model.props.items.filter(p => p.default != null && !(p.name === 'checked' && toggleBinding(model, library))).map(p => [p.name,p.default]));
+  // The tabs model records selectedValue's default as a PROSE description
+  // ("first tab value when uncontrolled and selectedValue omitted"), not a
+  // runtime value. The tabs setup already resolves the true default via
+  // `?? props.tabs?.[0]?.value`; feeding the prose string into withDefaults
+  // made props.selectedValue that sentence, so no tab matched and none showed
+  // aria-selected=true. Drop that pseudo-default here (Svelte/Solid never
+  // applied it, which is why only Vue was wrong).
+  const isTabsSelectionDefault = p => tabsNavigationBinding(model, library) && p.name === 'selectedValue';
+  const defaults = Object.fromEntries(model.props.items.filter(p => p.default != null && !(p.name === 'checked' && toggleBinding(model, library)) && !isTabsSelectionDefault(p)).map(p => [p.name,p.default]));
   // Vue's withDefaults() applies a default only to a CAMELCASE prop key; a
   // hyphenated key like "aria-label" never receives its declared default, so
   // props["aria-label"] is undefined even with default:"Loading" (verified
