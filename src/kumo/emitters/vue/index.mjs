@@ -83,13 +83,13 @@ function node(value, context = {}) {
         // Component ROOT: merge the consumer class ($attrs.class, which Vue
         // routes the parent's class/className to) through kumoCx() so a passed
         // w-*/text-* overrides the component default, matching golden's cn().
-        if (isRoot && name === 'class') { attrs.push(`:class="${directive(`kumoCx(${expression(exp)}, kumoRootAttrs.class)`)}"`); continue; }
+        if (isRoot && name === 'class') { attrs.push(`:class="${directive(`kumoCx(${expression(exp)}, (props as any).className, kumoRootAttrs.class)`)}"`); continue; }
         attrs.push(`:${name}="${esc(expression(exp))}"`);
       }
       for (const [name, exp] of Object.entries(value.properties ?? {})) attrs.push(`:${name}="${esc(expression(exp))}"`);
       for (const [name, exp] of Object.entries(value.events ?? {})) attrs.push(`@${name}="${esc(expression(exp))}"`);
       if (value.ref) attrs.push(`ref="${esc(value.ref)}"`);
-      if (value.styles?.length) attrs.push(isRoot ? `:class="${directive(`kumoCx([${value.styles.map(v => expression(v)).join(', ')}].join(' '), kumoRootAttrs.class)`)}"` : `:class="[${directive(value.styles.map(v => expression(v)).join(', '))}]"`);
+      if (value.styles?.length) attrs.push(isRoot ? `:class="${directive(`kumoCx([${value.styles.map(v => expression(v)).join(', ')}].join(' '), (props as any).className, kumoRootAttrs.class)`)}"` : `:class="[${directive(value.styles.map(v => expression(v)).join(', '))}]"`);
       return `<${value.tag}${attrs.length ? ' '+attrs.join(' ') : ''}>${(value.children ?? []).map(x => node(x, childCtx)).join('')}</${value.tag}>`;
     }
     default: throw new Error(`unsupported Vue node: ${value.kind}`);

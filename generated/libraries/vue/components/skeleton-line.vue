@@ -33,5 +33,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <div :class="kumoCx(&quot;skeleton-line&quot;, kumoRootAttrs.class)" :style="[&quot;--skeleton-width:&quot;, (props.minWidth ?? 60), &quot;%;--shimmer-duration:&quot;, (props.minDuration ?? 1.5), &quot;s;--shimmer-delay:&quot;, (props.minDelay ?? 0), &quot;s&quot;].join(&quot;&quot;)"></div>
+  <div :class="kumoCx(&quot;skeleton-line&quot;, (props as any).className, kumoRootAttrs.class)" :style="[&quot;--skeleton-width:&quot;, (props.minWidth ?? 60), &quot;%;--shimmer-duration:&quot;, (props.minDuration ?? 1.5), &quot;s;--shimmer-delay:&quot;, (props.minDelay ?? 0), &quot;s&quot;].join(&quot;&quot;)"></div>
 </template>

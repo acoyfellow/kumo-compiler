@@ -27,5 +27,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template v-if="semanticEqual(props.semanticContent, &quot;Cell&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;className&quot;) &amp;&amp; semanticEqual(semanticValues.className, &quot;p-4&quot;)"><div class="p-4">{{ renderContent() }}</div></template><template v-else-if="semanticEqual(props.semanticContent, &quot;Cell&quot;)"><div>{{ renderContent() }}</div></template><template v-else><div :class="kumoCx([styles[&quot;root&quot;]].join(' '), kumoRootAttrs.class)"><slot /></div></template>
+  <template v-if="semanticEqual(props.semanticContent, &quot;Cell&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;className&quot;) &amp;&amp; semanticEqual(semanticValues.className, &quot;p-4&quot;)"><div class="p-4">{{ renderContent() }}</div></template><template v-else-if="semanticEqual(props.semanticContent, &quot;Cell&quot;)"><div>{{ renderContent() }}</div></template><template v-else><div :class="kumoCx([styles[&quot;root&quot;]].join(' '), (props as any).className, kumoRootAttrs.class)"><slot /></div></template>
 </template>
