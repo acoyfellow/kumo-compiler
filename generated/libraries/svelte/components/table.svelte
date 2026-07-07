@@ -38,7 +38,7 @@
   const services = new Set<string>();
   const layers = new Set<string>();
   const styleOperations: unknown[][] = [];
-  const cx = (...values: unknown[]) => values.filter(Boolean).join(' ');
+  const cx = (...values: unknown[]) => { const tokens = values.filter(Boolean).join(' ').split(/\s+/).filter(Boolean); const groupOf = (t: string) => /^w-/.test(t) ? 'w' : /^text-(xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl|9xl)$/.test(t) ? 'text-size' : null; const last: Record<string, number> = {}; tokens.forEach((t, i) => { const g = groupOf(t); if (g) last[g] = i; }); return tokens.filter((t, i) => { const g = groupOf(t); return !g || last[g] === i; }).join(' '); };
   void "render-1";
   styleOperations.push([styles["root"]]);
 </script>
@@ -70,7 +70,7 @@
     </tbody>
   </table>
 {:else}
-<table class={"isolate w-full [&_td]:border-b [&_td]:border-kumo-fill [&_tr:last-child_td]:border-b-0 [&_td]:p-3 [&_th]:border-b [&_th]:border-kumo-fill [&_th]:p-3 [&_th]:font-semibold [&_th]:text-base [&_th]:bg-kumo-base text-base text-left text-kumo-default"}>
+<table class={cx("isolate w-full [&_td]:border-b [&_td]:border-kumo-fill [&_tr:last-child_td]:border-b-0 [&_td]:p-3 [&_th]:border-b [&_th]:border-kumo-fill [&_th]:p-3 [&_th]:font-semibold [&_th]:text-base [&_th]:bg-kumo-base text-base text-left text-kumo-default", className as string | undefined, rest.class as string | undefined)}>
   {#if children}{@render children()}{/if}
 </table>
 {/if}

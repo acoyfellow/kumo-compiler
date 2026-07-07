@@ -9,7 +9,7 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 const KumoMergeTriggerContext = ((globalThis as any)[Symbol.for("kumo.merge-trigger.context")] ??= createContext<Record<string, string> | undefined>());
 export const semanticVariantDigests = {"default-native":"89e5a990e2451bf44e0420d88f6e76f062098202f08342f53285ad643e01457d","primary-xs":"2db7af4a158c05279d6d9f2b3a9ba17e3d87f38963a7e1f46a4179a1a207bd54","destructive-lg":"87b8ff00fcabc497b2d3924d1bfdbcc124c8d8ee944b4da2ddce12208cb2bdfb","circle-label":"eec5ae2310b6553ab713fe5aa9d5722c0d36f00714e790b1e42778ccc353dc50"} as const;
 const styles: Record<string, string> = {"root":"root","group":"group","flex":"flex","w-max":"w-max","h-5":"h-5","h-6.5":"h-6.5","h-9":"h-9","h-10":"h-10","bg-kumo-brand":"bg-kumo-brand","bg-kumo-base":"bg-kumo-base","bg-transparent":"bg-transparent","rounded-full":"rounded-full"};
-const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");
+const mergeStyles = (...values: unknown[]) => { const tokens = values.filter(Boolean).join(" ").split(/\s+/).filter(Boolean); const groupOf = (t: string) => /^w-/.test(t) ? "w" : /^text-(xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl|9xl)$/.test(t) ? "text-size" : null; const last: Record<string, number> = {}; tokens.forEach((t, i) => { const g = groupOf(t); if (g) last[g] = i; }); return tokens.filter((t, i) => { const g = groupOf(t); return !g || last[g] === i; }).join(" "); };
 const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
 const normalizeRenderContent = (value: unknown, accessors = false): string => {
   if (value == null || value === false || value === true) return "";

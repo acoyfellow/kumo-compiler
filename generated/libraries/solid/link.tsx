@@ -8,7 +8,7 @@ export const modelDigest = "129db969391cbcb5c5437c1a10d6e22a2bd3677fdebcd6c9f366
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"internal":"29e7ed1c47e2e5846d73164683b615e304a7c4b479fa40d162ff644a54fe0a42","plain-external":"55849ea241349409983a1f64b0567fc60bcfddac212cbfbd2a2b0d73ca8bd710"} as const;
 const styles: Record<string, string> = {"root":"root","group/link":"group/link","inline-flex":"inline-flex","items-center":"items-center"};
-const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");
+const mergeStyles = (...values: unknown[]) => { const tokens = values.filter(Boolean).join(" ").split(/\s+/).filter(Boolean); const groupOf = (t: string) => /^w-/.test(t) ? "w" : /^text-(xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl|9xl)$/.test(t) ? "text-size" : null; const last: Record<string, number> = {}; tokens.forEach((t, i) => { const g = groupOf(t); if (g) last[g] = i; }); return tokens.filter((t, i) => { const g = groupOf(t); return !g || last[g] === i; }).join(" "); };
 const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
 const normalizeRenderContent = (value: unknown, accessors = false): string => {
   if (value == null || value === false || value === true) return "";

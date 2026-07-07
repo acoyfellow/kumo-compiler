@@ -8,7 +8,7 @@ export const modelDigest = "906b717318da0b98eea281427373852074445d3bbb65dc8bc105
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"closed-placeholder-ssr":"9bd3fd944ad73a4601805dcb9ff2f6f4b8d3550ecb383bd6acd65d8d973939f6"} as const;
 const styles: Record<string, string> = {"root":"root","data-kumo-component=Select":"data-kumo-component=Select","data-kumo-part=trigger":"data-kumo-part=trigger","data-placeholder":"data-placeholder","data-highlighted":"data-highlighted","data-selected":"data-selected","h-9":"h-9","rounded-lg":"rounded-lg","ring-kumo-line":"ring-kumo-line"};
-const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");
+const mergeStyles = (...values: unknown[]) => { const tokens = values.filter(Boolean).join(" ").split(/\s+/).filter(Boolean); const groupOf = (t: string) => /^w-/.test(t) ? "w" : /^text-(xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl|9xl)$/.test(t) ? "text-size" : null; const last: Record<string, number> = {}; tokens.forEach((t, i) => { const g = groupOf(t); if (g) last[g] = i; }); return tokens.filter((t, i) => { const g = groupOf(t); return !g || last[g] === i; }).join(" "); };
 const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
 const normalizeRenderContent = (value: unknown, accessors = false): string => {
   if (value == null || value === false || value === true) return "";

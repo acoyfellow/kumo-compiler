@@ -8,7 +8,7 @@ export const modelDigest = "cf07a03fc83a22bde9bad8c35a4afa31d247437bde13481e84f5
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"static-title-items":"2c340de436cabfd4624765e93ce8d80d91469a0f0c64e8492aacf42165197f08","nested-linked-group":"d46be6fd1882b7d21df1e064de09325ce1bd8b535fe3d2b069a9dc356d2c4625"} as const;
 const styles: Record<string, string> = {"root":"root","flex flex-col gap-2 border-l-2 border-kumo-hairline":"flex flex-col gap-2 border-l-2 border-kumo-hairline","block w-full truncate border-l-2 border-transparent py-0.5 pl-4 text-sm text-left no-underline":"block w-full truncate border-l-2 border-transparent py-0.5 pl-4 text-sm text-left no-underline","border-kumo-brand font-medium text-kumo-default":"border-kumo-brand font-medium text-kumo-default"};
-const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");
+const mergeStyles = (...values: unknown[]) => { const tokens = values.filter(Boolean).join(" ").split(/\s+/).filter(Boolean); const groupOf = (t: string) => /^w-/.test(t) ? "w" : /^text-(xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl|9xl)$/.test(t) ? "text-size" : null; const last: Record<string, number> = {}; tokens.forEach((t, i) => { const g = groupOf(t); if (g) last[g] = i; }); return tokens.filter((t, i) => { const g = groupOf(t); return !g || last[g] === i; }).join(" "); };
 const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
 const normalizeRenderContent = (value: unknown, accessors = false): string => {
   if (value == null || value === false || value === true) return "";

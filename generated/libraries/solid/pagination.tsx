@@ -8,7 +8,7 @@ export const modelDigest = "6e1a7c3c7b64ddff207a8064f0ac567ceb7d90b72a3b433ed0fa
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"legacy-page-one":"4d6dd46730d1f2856dfdac1e96022778e8b2456051a5d05fbe77595eff741249","legacy-page-three-ssr":"6d7f54862c4c6a6d144229dca911fa8549b1c6208ff6df953d02ab43e529e8b2","compound-simple-labels":"42d50c63392b2969506d8ffafe38f9c16851bed43a72b2fbe9c96e8fbbb66790","compound-dropdown-size":"1d4187fdd0f607bc169db30f8e32f7f287d9e0d031711e185cc8f5ec1822a34e"} as const;
 const styles: Record<string, string> = {"root":"root","flex":"flex","items-center":"items-center","gap-2":"gap-2","w-full":"w-full"};
-const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");
+const mergeStyles = (...values: unknown[]) => { const tokens = values.filter(Boolean).join(" ").split(/\s+/).filter(Boolean); const groupOf = (t: string) => /^w-/.test(t) ? "w" : /^text-(xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl|9xl)$/.test(t) ? "text-size" : null; const last: Record<string, number> = {}; tokens.forEach((t, i) => { const g = groupOf(t); if (g) last[g] = i; }); return tokens.filter((t, i) => { const g = groupOf(t); return !g || last[g] === i; }).join(" "); };
 const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
 const normalizeRenderContent = (value: unknown, accessors = false): string => {
   if (value == null || value === false || value === true) return "";

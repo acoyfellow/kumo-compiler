@@ -38,7 +38,7 @@
   const services = new Set<string>();
   const layers = new Set<string>();
   const styleOperations: unknown[][] = [];
-  const cx = (...values: unknown[]) => values.filter(Boolean).join(' ');
+  const cx = (...values: unknown[]) => { const tokens = values.filter(Boolean).join(' ').split(/\s+/).filter(Boolean); const groupOf = (t: string) => /^w-/.test(t) ? 'w' : /^text-(xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl|9xl)$/.test(t) ? 'text-size' : null; const last: Record<string, number> = {}; tokens.forEach((t, i) => { const g = groupOf(t); if (g) last[g] = i; }); return tokens.filter((t, i) => { const g = groupOf(t); return !g || last[g] === i; }).join(' '); };
   void "render-1";
   styleOperations.push([styles["root"]]);
 </script>
@@ -68,7 +68,7 @@
     {"HomeHereHomeHere"}
   </nav>
 {:else}
-<nav class={"group mr-4 flex min-w-0 grow items-center overflow-hidden whitespace-nowrap text-base h-12 gap-1"} aria-label={"breadcrumb"}>
+<nav class={cx("group mr-4 flex min-w-0 grow items-center overflow-hidden whitespace-nowrap text-base h-12 gap-1", className as string | undefined, rest.class as string | undefined)} aria-label={"breadcrumb"}>
   <div class={"contents sm:hidden"}>
     {#if children}{@render children()}{/if}
   </div>

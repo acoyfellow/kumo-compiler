@@ -44,7 +44,7 @@
   const services = new Set<string>();
   const layers = new Set<string>();
   const styleOperations: unknown[][] = [];
-  const cx = (...values: unknown[]) => values.filter(Boolean).join(' ');
+  const cx = (...values: unknown[]) => { const tokens = values.filter(Boolean).join(' ').split(/\s+/).filter(Boolean); const groupOf = (t: string) => /^w-/.test(t) ? 'w' : /^text-(xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl|9xl)$/.test(t) ? 'text-size' : null; const last: Record<string, number> = {}; tokens.forEach((t, i) => { const g = groupOf(t); if (g) last[g] = i; }); return tokens.filter((t, i) => { const g = groupOf(t); return !g || last[g] === i; }).join(' '); };
   void "render-1";
   styleOperations.push([styles["root"]]);
 </script>
@@ -54,5 +54,5 @@
 {:else if Object.prototype.hasOwnProperty.call(semanticValues, "code") && semanticEqual(semanticValues.code, "const x = 1;")}
   <pre class="font-mono text-sm text-kumo-subtle">{semanticValues["code"]}</pre>
 {:else}
-<pre class={"m-0 w-auto rounded-none border-none bg-transparent p-0 font-mono text-sm leading-[20px] text-kumo-subtle"}>{semanticValues["code"]}</pre>
+<pre class={cx("m-0 w-auto rounded-none border-none bg-transparent p-0 font-mono text-sm leading-[20px] text-kumo-subtle", className as string | undefined, rest.class as string | undefined)}>{semanticValues["code"]}</pre>
 {/if}

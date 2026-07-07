@@ -40,7 +40,7 @@
   const services = new Set<string>();
   const layers = new Set<string>();
   const styleOperations: unknown[][] = [];
-  const cx = (...values: unknown[]) => values.filter(Boolean).join(' ');
+  const cx = (...values: unknown[]) => { const tokens = values.filter(Boolean).join(' ').split(/\s+/).filter(Boolean); const groupOf = (t: string) => /^w-/.test(t) ? 'w' : /^text-(xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl|9xl)$/.test(t) ? 'text-size' : null; const last: Record<string, number> = {}; tokens.forEach((t, i) => { const g = groupOf(t); if (g) last[g] = i; }); return tokens.filter((t, i) => { const g = groupOf(t); return !g || last[g] === i; }).join(' '); };
   void "render-1";
   styleOperations.push([styles["root"]]);
 </script>
@@ -66,5 +66,5 @@
     <path></path>
   </svg>
 {:else}
-<svg role={"img"} aria-label={"Cloudflare"} class={cx(styles["root"])}></svg>
+<svg role={"img"} aria-label={"Cloudflare"} class={cx(styles["root"], className as string | undefined, rest.class as string | undefined)}></svg>
 {/if}

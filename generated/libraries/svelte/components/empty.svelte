@@ -48,7 +48,7 @@
   const services = new Set<string>();
   const layers = new Set<string>();
   const styleOperations: unknown[][] = [];
-  const cx = (...values: unknown[]) => values.filter(Boolean).join(' ');
+  const cx = (...values: unknown[]) => { const tokens = values.filter(Boolean).join(' ').split(/\s+/).filter(Boolean); const groupOf = (t: string) => /^w-/.test(t) ? 'w' : /^text-(xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl|9xl)$/.test(t) ? 'text-size' : null; const last: Record<string, number> = {}; tokens.forEach((t, i) => { const g = groupOf(t); if (g) last[g] = i; }); return tokens.filter((t, i) => { const g = groupOf(t); return !g || last[g] === i; }).join(' '); };
   void "render-1";
   styleOperations.push([styles["root"]]);
 </script>
@@ -69,7 +69,7 @@
     </h2>
   </div>
 {:else}
-<div class={"flex w-full flex-col items-center rounded-xl border border-kumo-fill bg-kumo-control text-kumo-default px-10 py-16 gap-6"}>
+<div class={cx("flex w-full flex-col items-center rounded-xl border border-kumo-fill bg-kumo-control text-kumo-default px-10 py-16 gap-6", className as string | undefined, rest.class as string | undefined)}>
   <h2 class={"text-2xl font-semibold"}>
     {semanticValues["title"]}
   </h2>

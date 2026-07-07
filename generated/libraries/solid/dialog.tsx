@@ -9,7 +9,7 @@ export const modelDigest = "9d859aa9ef31faf6c5c78803e543a74a234ad027bc2f6557fc7a
 export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3c5fbf41726fd8666277cd";
 export const semanticVariantDigests = {"closed-trigger":"b96e3604ff637e62f8a623de4b4a5d2be662c130f4a195f5e33636566b2126e2"} as const;
 const styles: Record<string, string> = {"root":"root","fixed inset-0 bg-kumo-recessed opacity-80":"fixed inset-0 bg-kumo-recessed opacity-80","fixed top-1/2 left-1/2":"fixed top-1/2 left-1/2","max-w-[calc(100vw-2rem)]":"max-w-[calc(100vw-2rem)]","rounded-xl bg-kumo-base text-kumo-default":"rounded-xl bg-kumo-base text-kumo-default","shadow-m ring ring-kumo-line":"shadow-m ring ring-kumo-line","sm:min-w-96":"sm:min-w-96","min-w-72":"min-w-72","min-w-[32rem]":"min-w-[32rem]","min-w-[48rem]":"min-w-[48rem]"};
-const mergeStyles = (...values: unknown[]) => values.filter(Boolean).join(" ");
+const mergeStyles = (...values: unknown[]) => { const tokens = values.filter(Boolean).join(" ").split(/\s+/).filter(Boolean); const groupOf = (t: string) => /^w-/.test(t) ? "w" : /^text-(xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl|9xl)$/.test(t) ? "text-size" : null; const last: Record<string, number> = {}; tokens.forEach((t, i) => { const g = groupOf(t); if (g) last[g] = i; }); return tokens.filter((t, i) => { const g = groupOf(t); return !g || last[g] === i; }).join(" "); };
 const semanticEqual = (left: unknown, right: unknown) => JSON.stringify(left) === JSON.stringify(right);
 const normalizeRenderContent = (value: unknown, accessors = false): string => {
   if (value == null || value === false || value === true) return "";
