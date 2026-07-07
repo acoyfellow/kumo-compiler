@@ -42,7 +42,7 @@ export function Grid(incoming: GridProps): JSX.Element {
   void native; void state; void refs;
   if (semanticEqual(props.semanticContent, "Two") && Object.prototype.hasOwnProperty.call(props, "gap") && semanticEqual(props.gap, "none") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "side-by-side")) return (<div class="grid-cols-2 gap-0">{props.children}</div>);
   if (semanticEqual(props.semanticContent, "Cells") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "3up")) return (<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">{props.children}</div>);
-  return (<div class={"grid gap-2 md:gap-6 lg:gap-8"}>{props.children}</div>);
+  return (<div class={mergeStyles("grid gap-2 md:gap-6 lg:gap-8", props.className as string | undefined, props.class as string | undefined)}>{props.children}</div>);
 }
 
 export default Grid;

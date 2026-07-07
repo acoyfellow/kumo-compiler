@@ -40,7 +40,7 @@ export function CodeBlock(incoming: CodeBlockProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as CodeBlockProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  return (<div class={"min-w-0 rounded-md border border-kumo-fill bg-kumo-base [&>pre]:p-2.5!"}><pre class={"m-0 w-auto rounded-none border-none bg-transparent p-0 font-mono text-sm leading-[20px] text-kumo-subtle"}>{(props.code as any)}</pre></div>);
+  return (<div class={mergeStyles("min-w-0 rounded-md border border-kumo-fill bg-kumo-base [&>pre]:p-2.5!", props.className as string | undefined, props.class as string | undefined)}><pre class={"m-0 w-auto rounded-none border-none bg-transparent p-0 font-mono text-sm leading-[20px] text-kumo-subtle"}>{(props.code as any)}</pre></div>);
 }
 
 export default CodeBlock;

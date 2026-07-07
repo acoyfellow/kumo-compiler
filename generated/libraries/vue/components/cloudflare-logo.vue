@@ -5,7 +5,8 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 </script>
 
 <script setup lang="ts">
-import { computed, useAttrs, useSlots } from 'vue'
+defineOptions({ inheritAttrs: false })
+import { computed, useAttrs, useSlots, useAttrs as __useAttrs } from 'vue'
 interface CloudflareLogoProps {
   "className"?: string
   "color"?: unknown
@@ -15,6 +16,8 @@ interface CloudflareLogoProps {
 }
 const props = withDefaults(defineProps<CloudflareLogoProps>(), {"color":"color","variant":"full"})
 const slots = useSlots()
+const kumoRootAttrs = __useAttrs()
+const kumoCx = (...values: unknown[]) => { const tokens = values.filter(Boolean).join(' ').split(/\s+/).filter(Boolean); const groupOf = (t: string) => /^w-/.test(t) ? 'w' : /^text-(xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl|9xl)$/.test(t) ? 'text-size' : null; const last: Record<string, number> = {}; tokens.forEach((t, i) => { const g = groupOf(t); if (g) last[g] = i; }); return tokens.filter((t, i) => { const g = groupOf(t); return !g || last[g] === i; }).join(' '); }
 const styles: Record<string,string> = {}
 const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
 const renderContent = () => props.semanticContent ?? normalizeSlotContent(slots.default?.())
@@ -25,5 +28,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;color&quot;) &amp;&amp; semanticEqual(semanticValues.color, &quot;white&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;variant&quot;) &amp;&amp; semanticEqual(semanticValues.variant, &quot;glyph&quot;)"><component :is="'svg'" v-bind="{ &quot;role&quot;: &quot;img&quot;, &quot;aria-label&quot;: &quot;Cloudflare logo&quot;, &quot;viewBox&quot;: &quot;0 0 49 22&quot; }" class="text-white"><path></path><path></path></component></template><template v-else-if="true"><component :is="'svg'" v-bind="{ &quot;role&quot;: &quot;img&quot;, &quot;aria-label&quot;: &quot;Cloudflare logo&quot;, &quot;viewBox&quot;: &quot;0 0 425.6 143.63&quot; }" class="text-kumo-default"><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path></component></template><template v-else><svg :role="&quot;img&quot;" :aria-label="&quot;Cloudflare&quot;" :class="[styles[&quot;root&quot;]]"></svg></template>
+  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;color&quot;) &amp;&amp; semanticEqual(semanticValues.color, &quot;white&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;variant&quot;) &amp;&amp; semanticEqual(semanticValues.variant, &quot;glyph&quot;)"><component :is="'svg'" v-bind="{ &quot;role&quot;: &quot;img&quot;, &quot;aria-label&quot;: &quot;Cloudflare logo&quot;, &quot;viewBox&quot;: &quot;0 0 49 22&quot; }" class="text-white"><path></path><path></path></component></template><template v-else-if="true"><component :is="'svg'" v-bind="{ &quot;role&quot;: &quot;img&quot;, &quot;aria-label&quot;: &quot;Cloudflare logo&quot;, &quot;viewBox&quot;: &quot;0 0 425.6 143.63&quot; }" class="text-kumo-default"><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path></component></template><template v-else><svg :role="&quot;img&quot;" :aria-label="&quot;Cloudflare&quot;" :class="kumoCx([styles[&quot;root&quot;]].join(' '), kumoRootAttrs.class)"></svg></template>
 </template>

@@ -42,7 +42,7 @@ export function LayerCard(incoming: LayerCardProps): JSX.Element {
   void native; void state; void refs;
   if (semanticEqual(props.semanticContent, "Card")) return (<div class="bg-kumo-base shadow-xs ring-kumo-line">{props.children}</div>);
   if (semanticEqual(normalizedFixture, {"export":"root","props":{},"children":[{"export":".Secondary","props":{},"children":[{"text":"Top"}]},{"export":".Primary","props":{},"children":[{"text":"Main"}]}]})) return (<div class="bg-kumo-elevated ring-kumo-hairline"><div></div><div></div>{"TopMain"}</div>);
-  return (<div class={"overflow-hidden rounded-lg bg-kumo-base shadow-xs ring ring-kumo-line"}>{props.children}</div>);
+  return (<div class={mergeStyles("overflow-hidden rounded-lg bg-kumo-base shadow-xs ring ring-kumo-line", props.className as string | undefined, props.class as string | undefined)}>{props.children}</div>);
 }
 
 export function LayerCardPrimary(props: CompoundPartProps): JSX.Element {

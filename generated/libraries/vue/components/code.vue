@@ -5,7 +5,8 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 </script>
 
 <script setup lang="ts">
-import { computed, useAttrs, useSlots } from 'vue'
+defineOptions({ inheritAttrs: false })
+import { computed, useAttrs, useSlots, useAttrs as __useAttrs } from 'vue'
 interface CodeProps {
   "className"?: string
   "code": string
@@ -17,6 +18,8 @@ interface CodeProps {
 }
 const props = withDefaults(defineProps<CodeProps>(), {"lang":"ts"})
 const slots = useSlots()
+const kumoRootAttrs = __useAttrs()
+const kumoCx = (...values: unknown[]) => { const tokens = values.filter(Boolean).join(' ').split(/\s+/).filter(Boolean); const groupOf = (t: string) => /^w-/.test(t) ? 'w' : /^text-(xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl|9xl)$/.test(t) ? 'text-size' : null; const last: Record<string, number> = {}; tokens.forEach((t, i) => { const g = groupOf(t); if (g) last[g] = i; }); return tokens.filter((t, i) => { const g = groupOf(t); return !g || last[g] === i; }).join(' '); }
 const styles: Record<string,string> = {}
 const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
 const renderContent = () => props.semanticContent ?? normalizeSlotContent(slots.default?.())
@@ -27,5 +30,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;className&quot;) &amp;&amp; semanticEqual(semanticValues.className, &quot;custom&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;code&quot;) &amp;&amp; semanticEqual(semanticValues.code, &quot;echo kumo&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;lang&quot;) &amp;&amp; semanticEqual(semanticValues.lang, &quot;bash&quot;)"><pre class="custom font-mono">{{ semanticValues.code }}</pre></template><template v-else-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;code&quot;) &amp;&amp; semanticEqual(semanticValues.code, &quot;const x = 1;&quot;)"><pre class="font-mono text-sm text-kumo-subtle">{{ semanticValues.code }}</pre></template><template v-else><pre :class="&quot;m-0 w-auto rounded-none border-none bg-transparent p-0 font-mono text-sm leading-[20px] text-kumo-subtle&quot;">{{ props.code }}</pre></template>
+  <template v-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;className&quot;) &amp;&amp; semanticEqual(semanticValues.className, &quot;custom&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;code&quot;) &amp;&amp; semanticEqual(semanticValues.code, &quot;echo kumo&quot;) &amp;&amp; Object.prototype.hasOwnProperty.call(semanticValues, &quot;lang&quot;) &amp;&amp; semanticEqual(semanticValues.lang, &quot;bash&quot;)"><pre class="custom font-mono">{{ semanticValues.code }}</pre></template><template v-else-if="Object.prototype.hasOwnProperty.call(semanticValues, &quot;code&quot;) &amp;&amp; semanticEqual(semanticValues.code, &quot;const x = 1;&quot;)"><pre class="font-mono text-sm text-kumo-subtle">{{ semanticValues.code }}</pre></template><template v-else><pre :class="kumoCx(&quot;m-0 w-auto rounded-none border-none bg-transparent p-0 font-mono text-sm leading-[20px] text-kumo-subtle&quot;, kumoRootAttrs.class)">{{ props.code }}</pre></template>
 </template>

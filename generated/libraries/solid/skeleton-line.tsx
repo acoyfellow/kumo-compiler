@@ -40,7 +40,7 @@ export function SkeletonLine(incoming: SkeletonLineProps): JSX.Element {
   const refs: Record<string, HTMLElement | undefined> = {};
   const [, native] = splitProps(props as SkeletonLineProps & Record<string, unknown>, []);
   void native; void state; void refs;
-  return (<div class={"skeleton-line"} style={["--skeleton-width:", ((props.minWidth as any) ?? 60), "%;--shimmer-duration:", ((props.minDuration as any) ?? 1.5), "s;--shimmer-delay:", ((props.minDelay as any) ?? 0), "s"].join("")}></div>);
+  return (<div class={mergeStyles("skeleton-line", props.className as string | undefined, props.class as string | undefined)} style={["--skeleton-width:", ((props.minWidth as any) ?? 60), "%;--shimmer-duration:", ((props.minDuration as any) ?? 1.5), "s;--shimmer-delay:", ((props.minDelay as any) ?? 0), "s"].join("")}></div>);
 }
 
 export default SkeletonLine;

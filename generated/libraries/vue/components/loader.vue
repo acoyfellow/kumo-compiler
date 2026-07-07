@@ -5,7 +5,8 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 </script>
 
 <script setup lang="ts">
-import { computed, useAttrs, useSlots } from 'vue'
+defineOptions({ inheritAttrs: false })
+import { computed, useAttrs, useSlots, useAttrs as __useAttrs } from 'vue'
 interface LoaderProps {
   "aria-label"?: string
   "className"?: string
@@ -17,6 +18,8 @@ const __declaredProps = withDefaults(defineProps<LoaderProps>(), {"aria-label":"
 const __hyphenatedDefaults: Record<string, unknown> = {"aria-label":"Loading"}
 const props = new Proxy(__declaredProps as Record<string, unknown>, { get(target, key: string) { const value = Reflect.get(target, key); return value === undefined && key in __hyphenatedDefaults ? __hyphenatedDefaults[key] : value } }) as typeof __declaredProps
 const slots = useSlots()
+const kumoRootAttrs = __useAttrs()
+const kumoCx = (...values: unknown[]) => { const tokens = values.filter(Boolean).join(' ').split(/\s+/).filter(Boolean); const groupOf = (t: string) => /^w-/.test(t) ? 'w' : /^text-(xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl|9xl)$/.test(t) ? 'text-size' : null; const last: Record<string, number> = {}; tokens.forEach((t, i) => { const g = groupOf(t); if (g) last[g] = i; }); return tokens.filter((t, i) => { const g = groupOf(t); return !g || last[g] === i; }).join(' '); }
 const styles: Record<string,string> = {}
 const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
 const renderContent = () => props.semanticContent ?? normalizeSlotContent(slots.default?.())

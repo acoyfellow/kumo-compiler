@@ -42,7 +42,7 @@ export function Empty(incoming: EmptyProps): JSX.Element {
   void native; void state; void refs;
   if (Object.prototype.hasOwnProperty.call(props, "description") && semanticEqual(props.description, "Try again") && Object.prototype.hasOwnProperty.call(props, "size") && semanticEqual(props.size, "sm") && Object.prototype.hasOwnProperty.call(props, "title") && semanticEqual(props.title, "Empty")) return (<div class="px-6 py-8 gap-4"><h2>{(props.title as any)}</h2><p>{(props.description as any)}</p></div>);
   if (Object.prototype.hasOwnProperty.call(props, "title") && semanticEqual(props.title, "No results")) return (<div class="px-10 py-16 gap-6"><h2>{(props.title as any)}</h2></div>);
-  return (<div class={"flex w-full flex-col items-center rounded-xl border border-kumo-fill bg-kumo-control text-kumo-default px-10 py-16 gap-6"}><h2 class={"text-2xl font-semibold"}>{(props.title as any)}</h2>{(props.description as any) ? (<p class={"max-w-140 text-center text-kumo-subtle"}>{(props.description as any)}</p>) : undefined}</div>);
+  return (<div class={mergeStyles("flex w-full flex-col items-center rounded-xl border border-kumo-fill bg-kumo-control text-kumo-default px-10 py-16 gap-6", props.className as string | undefined, props.class as string | undefined)}><h2 class={"text-2xl font-semibold"}>{(props.title as any)}</h2>{(props.description as any) ? (<p class={"max-w-140 text-center text-kumo-subtle"}>{(props.description as any)}</p>) : undefined}</div>);
 }
 
 export default Empty;

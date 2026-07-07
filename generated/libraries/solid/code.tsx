@@ -42,7 +42,7 @@ export function Code(incoming: CodeProps): JSX.Element {
   void native; void state; void refs;
   if (Object.prototype.hasOwnProperty.call(props, "className") && semanticEqual(props.className, "custom") && Object.prototype.hasOwnProperty.call(props, "code") && semanticEqual(props.code, "echo kumo") && Object.prototype.hasOwnProperty.call(props, "lang") && semanticEqual(props.lang, "bash")) return (<pre class="custom font-mono">{(props.code as any)}</pre>);
   if (Object.prototype.hasOwnProperty.call(props, "code") && semanticEqual(props.code, "const x = 1;")) return (<pre class="font-mono text-sm text-kumo-subtle">{(props.code as any)}</pre>);
-  return (<pre class={"m-0 w-auto rounded-none border-none bg-transparent p-0 font-mono text-sm leading-[20px] text-kumo-subtle"}>{(props.code as any)}</pre>);
+  return (<pre class={mergeStyles("m-0 w-auto rounded-none border-none bg-transparent p-0 font-mono text-sm leading-[20px] text-kumo-subtle", props.className as string | undefined, props.class as string | undefined)}>{(props.code as any)}</pre>);
 }
 
 export default Code;

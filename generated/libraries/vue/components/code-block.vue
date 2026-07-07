@@ -5,7 +5,8 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 </script>
 
 <script setup lang="ts">
-import { computed, useAttrs, useSlots } from 'vue'
+defineOptions({ inheritAttrs: false })
+import { computed, useAttrs, useSlots, useAttrs as __useAttrs } from 'vue'
 interface CodeBlockProps {
   "className"?: string
   "code": string
@@ -17,6 +18,8 @@ interface CodeBlockProps {
 }
 const props = withDefaults(defineProps<CodeBlockProps>(), {"lang":"ts"})
 const slots = useSlots()
+const kumoRootAttrs = __useAttrs()
+const kumoCx = (...values: unknown[]) => { const tokens = values.filter(Boolean).join(' ').split(/\s+/).filter(Boolean); const groupOf = (t: string) => /^w-/.test(t) ? 'w' : /^text-(xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl|9xl)$/.test(t) ? 'text-size' : null; const last: Record<string, number> = {}; tokens.forEach((t, i) => { const g = groupOf(t); if (g) last[g] = i; }); return tokens.filter((t, i) => { const g = groupOf(t); return !g || last[g] === i; }).join(' '); }
 const styles: Record<string,string> = {}
 const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
 const renderContent = () => props.semanticContent ?? normalizeSlotContent(slots.default?.())
@@ -27,5 +30,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <div :class="&quot;min-w-0 rounded-md border border-kumo-fill bg-kumo-base [&amp;&gt;pre]:p-2.5!&quot;"><pre :class="&quot;m-0 w-auto rounded-none border-none bg-transparent p-0 font-mono text-sm leading-[20px] text-kumo-subtle&quot;">{{ props.code }}</pre></div>
+  <div :class="kumoCx(&quot;min-w-0 rounded-md border border-kumo-fill bg-kumo-base [&amp;>pre]:p-2.5!&quot;, kumoRootAttrs.class)"><pre :class="&quot;m-0 w-auto rounded-none border-none bg-transparent p-0 font-mono text-sm leading-[20px] text-kumo-subtle&quot;">{{ props.code }}</pre></div>
 </template>

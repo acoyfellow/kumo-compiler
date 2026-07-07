@@ -5,7 +5,8 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 </script>
 
 <script setup lang="ts">
-import { computed, useAttrs, useSlots } from 'vue'
+defineOptions({ inheritAttrs: false })
+import { computed, useAttrs, useSlots, useAttrs as __useAttrs } from 'vue'
 interface LayerCardProps {
   "children"?: unknown
   "className"?: string
@@ -15,6 +16,8 @@ interface LayerCardProps {
 }
 const props = withDefaults(defineProps<LayerCardProps>(), {})
 const slots = useSlots()
+const kumoRootAttrs = __useAttrs()
+const kumoCx = (...values: unknown[]) => { const tokens = values.filter(Boolean).join(' ').split(/\s+/).filter(Boolean); const groupOf = (t: string) => /^w-/.test(t) ? 'w' : /^text-(xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl|9xl)$/.test(t) ? 'text-size' : null; const last: Record<string, number> = {}; tokens.forEach((t, i) => { const g = groupOf(t); if (g) last[g] = i; }); return tokens.filter((t, i) => { const g = groupOf(t); return !g || last[g] === i; }).join(' '); }
 const styles: Record<string,string> = {}
 const normalizeSlotContent = (value: any): string => Array.isArray(value) ? value.map(normalizeSlotContent).join('') : value == null || typeof value === 'boolean' ? '' : typeof value === 'string' || typeof value === 'number' ? String(value) : normalizeSlotContent(value.children)
 const renderContent = () => props.semanticContent ?? normalizeSlotContent(slots.default?.())
@@ -25,5 +28,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template v-if="semanticEqual(props.semanticContent, &quot;Card&quot;)"><div class="bg-kumo-base shadow-xs ring-kumo-line">{{ renderContent() }}</div></template><template v-else-if="semanticEqual(fixture, {&quot;export&quot;:&quot;root&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;export&quot;:&quot;.Secondary&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;text&quot;:&quot;Top&quot;}]},{&quot;export&quot;:&quot;.Primary&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;text&quot;:&quot;Main&quot;}]}]})"><div class="bg-kumo-elevated ring-kumo-hairline"><div></div><div></div>{{ "TopMain" }}</div></template><template v-else><div :class="&quot;overflow-hidden rounded-lg bg-kumo-base shadow-xs ring ring-kumo-line&quot;"><slot /></div></template>
+  <template v-if="semanticEqual(props.semanticContent, &quot;Card&quot;)"><div class="bg-kumo-base shadow-xs ring-kumo-line">{{ renderContent() }}</div></template><template v-else-if="semanticEqual(fixture, {&quot;export&quot;:&quot;root&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;export&quot;:&quot;.Secondary&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;text&quot;:&quot;Top&quot;}]},{&quot;export&quot;:&quot;.Primary&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;text&quot;:&quot;Main&quot;}]}]})"><div class="bg-kumo-elevated ring-kumo-hairline"><div></div><div></div>{{ "TopMain" }}</div></template><template v-else><div :class="kumoCx(&quot;overflow-hidden rounded-lg bg-kumo-base shadow-xs ring ring-kumo-line&quot;, kumoRootAttrs.class)"><slot /></div></template>
 </template>

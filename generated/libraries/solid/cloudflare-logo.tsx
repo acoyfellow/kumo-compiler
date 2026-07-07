@@ -42,7 +42,7 @@ export function CloudflareLogo(incoming: CloudflareLogoProps): JSX.Element {
   void native; void state; void refs;
   if (Object.prototype.hasOwnProperty.call(props, "color") && semanticEqual(props.color, "white") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "glyph")) return (<svg role={"img"} aria-label={"Cloudflare logo"} viewBox={"0 0 49 22"} class="text-white"><path></path><path></path></svg>);
   if (true) return (<svg role={"img"} aria-label={"Cloudflare logo"} viewBox={"0 0 425.6 143.63"} class="text-kumo-default"><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path><path></path></svg>);
-  return (<svg role={"img"} aria-label={"Cloudflare"} class={mergeStyles(styles.root)}></svg>);
+  return (<svg role={"img"} aria-label={"Cloudflare"} class={mergeStyles(styles.root, props.className as string | undefined, props.class as string | undefined)}></svg>);
 }
 
 export default CloudflareLogo;

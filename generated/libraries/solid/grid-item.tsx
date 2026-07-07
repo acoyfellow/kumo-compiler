@@ -42,7 +42,7 @@ export function GridItem(incoming: GridItemProps): JSX.Element {
   void native; void state; void refs;
   if (semanticEqual(props.semanticContent, "Cell") && Object.prototype.hasOwnProperty.call(props, "className") && semanticEqual(props.className, "p-4")) return (<div class="p-4">{props.children}</div>);
   if (semanticEqual(props.semanticContent, "Cell")) return (<div>{props.children}</div>);
-  return (<div class={mergeStyles(styles.root)}>{props.children}</div>);
+  return (<div class={mergeStyles(styles.root, props.className as string | undefined, props.class as string | undefined)}>{props.children}</div>);
 }
 
 export default GridItem;

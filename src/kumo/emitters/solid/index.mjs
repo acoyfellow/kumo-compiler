@@ -166,14 +166,22 @@ function node(value, context = {}) {
     case 'element': {
       if (value.tag === 'merge-trigger') { const fallback = value.children?.[0]; return `(${expr(value.properties.when, context)} ? (<KumoMergeTriggerContext.Provider value={{"data-base-ui-tooltip-trigger": ""}}>${(fallback.children ?? []).map(x => node(x, context)).join('')}</KumoMergeTriggerContext.Provider>) : (${node(fallback, context)}))`; }
       const attributes = [];
-      for (const [name, val] of Object.entries(value.attributes ?? {})) attributes.push(`${name === 'className' ? 'class' : name}={${expr(val, context)}}`);
+      const isRoot = context.root;
+      const childContext = { ...context, root: false };
+      for (const [name, val] of Object.entries(value.attributes ?? {})) {
+        // Component ROOT: merge the consumer className through mergeStyles
+        // (tailwind-conflict-aware) so a passed w-*/text-* overrides the
+        // component default, matching golden's Base UI cn().
+        if (isRoot && (name === 'class' || name === 'className')) { attributes.push(`class={mergeStyles(${expr(val, context)}, props.className as string | undefined, props.class as string | undefined)}`); continue; }
+        attributes.push(`${name === 'className' ? 'class' : name}={${expr(val, context)}}`);
+      }
       for (const [name, val] of Object.entries(value.properties ?? {})) attributes.push(`${name}={${expr(val, context)}}`);
       for (const [name, val] of Object.entries(value.events ?? {})) attributes.push(`${name}={${expr(val, context)}}`);
       if (value.ref) attributes.push(`ref={refs.${value.ref}}`);
-      if (value.styles?.length) attributes.push(`class={mergeStyles(${value.styles.map(x => expr(x, context)).join(', ')})}`);
+      if (value.styles?.length) attributes.push(isRoot ? `class={mergeStyles(${value.styles.map(x => expr(x, context)).join(', ')}, props.className as string | undefined, props.class as string | undefined)}` : `class={mergeStyles(${value.styles.map(x => expr(x, context)).join(', ')})}`);
       const tag = value.tag === 'field' || value.tag.includes('-') ? 'div' : value.tag;
       if (tag !== value.tag) attributes.push(`data-kumo-element={${JSON.stringify(value.tag)}}`);
-      return `<${tag}${attributes.length ? ' ' + attributes.join(' ') : ''}>${(value.children ?? []).map(x => node(x, context)).join('')}</${tag}>`;
+      return `<${tag}${attributes.length ? ' ' + attributes.join(' ') : ''}>${(value.children ?? []).map(x => node(x, childContext)).join('')}</${tag}>`;
     }
     default: throw new Error(`unsupported Solid node: ${value.kind}`);
   }
@@ -487,7 +495,7 @@ function source(model, toggle, nativeInput, fieldControl, clipboardCopy, paginat
    const meterFallback = model.component === 'meter' ? `<div class=${JSON.stringify(KUMO_METER_ROOT_CLASS)} role="meter" aria-valuenow={props.value as number} aria-valuemin={(props.min as number) ?? 0} aria-valuemax={(props.max as number) ?? 100} aria-valuetext={Math.round((((props.value as number) ?? 0) - ((props.min as number) ?? 0)) / (((((props.max as number) ?? 100) - ((props.min as number) ?? 0)) as number) || 1) * 100) + "%"} aria-labelledby=${JSON.stringify(meterLabelId)}><div class=${JSON.stringify(KUMO_METER_HEADER_CLASS)}><span id=${JSON.stringify(meterLabelId)} role="presentation" class=${JSON.stringify(KUMO_METER_LABEL_CLASS)}>{props.label as JSX.Element}</span>{(props.showValue as boolean) !== false ? <span class=${JSON.stringify(KUMO_METER_VALUE_CLASS)}>{(props.customValue as JSX.Element) ?? ((props.value as number) + "%")}</span> : null}</div><div class=${JSON.stringify(KUMO_METER_TRACK_CLASS)}><div class=${JSON.stringify(KUMO_METER_FILL_CLASS)} style={{ "inset-inline-start": "0", height: "inherit", width: (props.value as number) + "%" }} /></div><span role="presentation" style="clip-path:inset(50%);overflow:hidden;white-space:nowrap;border:0;padding:0;width:1px;height:1px;margin:-1px;position:fixed;top:0;left:0">x</span></div>` : null;
   const fallback = tooltipFallback ?? labelFallback ?? surfaceFallback ?? visualSimpleFallback ?? bannerFallback ?? collapsibleFallback ?? tableOfContentsFallback ?? selectFallback ?? dropdownFallback ?? popoverFallback ?? sidebarFallback ?? dateRangePickerFallback ?? datePickerFallback ?? toastFallback ?? commandPaletteFallback ?? autocompleteFallback ?? comboboxFallback ?? sensitiveInputFallback ?? inputGroupFallback ?? dialogFallback ?? menubarFallback ?? tabsFallback ?? radioFallback ?? paginationFallback ?? clipboardFallback ?? meterFallback ?? (nativeButton
     ? `<button {...mergeTriggerAttributes} id={props.id as string} class={mergeStyles(${nativeButtonVariantExpression(nativeButton, 'props.variant')}, props.class)} style={${nativeButtonEmphasisStyleExpression(nativeButton.emphasis, 'props.variant')}} name={props.name as string} attr:value={props.value as string | undefined} data-probe={props["data-probe"] as string} aria-label={props["aria-label"] as string} type={(props.type as JSX.ButtonHTMLAttributes<HTMLButtonElement>["type"]) ?? "button"} disabled={Boolean(props.disabled || props.loading)} onClick={props.onClick as JSX.EventHandlerUnion<HTMLButtonElement, MouseEvent>}>{(${nativeButtonEmphasisCondition(nativeButton.emphasis, 'props.variant')}) ? <><span aria-hidden="true" class=${JSON.stringify(nativeButton.emphasis.overlayClass)} /><span class=${JSON.stringify(nativeButton.emphasis.wrapperClass)}>{props.loading ? ${solidButtonSpinner('props.size === "lg" ? 16 : 14')} : (props.icon as JSX.Element | undefined)}{props.children}</span></> : <>{props.loading ? ${solidButtonSpinner('props.size === "lg" ? 16 : 14')} : (props.icon as JSX.Element | undefined)}{props.children != null ? <span class="contents">{props.children}</span> : undefined}</>}</button>`
-    : nativeInputFallback ?? providedFieldFallback ?? checkboxFallback ?? toggleFallback ?? node(root, {component:model.component}));
+    : nativeInputFallback ?? providedFieldFallback ?? checkboxFallback ?? toggleFallback ?? node(root, {component:model.component, root:true}));
   for (const op of model.draftImplementation.operations) if (!['render','emit','state','ref','focus','lifecycle','browser-service','portal','style'].includes(op.kind)) throw new Error(`${model.component}: unsupported operation ${op.kind}`);
   const parts = compoundParts(model);
   const partSources = parts.map(part => { const override = compoundPartOverride(model.component, part.path); const tag = override?.tag ?? 'div'; const attributes = override ? (override.className ? `class=${JSON.stringify(override.className)}` : '') : `data-kumo-part=${JSON.stringify(part.path)}`; return `export function ${part.symbol}(props: CompoundPartProps): JSX.Element {\n  const [local, native] = splitProps(props, ["children"]);\n  return <${tag} {...native} ${attributes}>{local.children}</${tag}>;\n}`; }).join('\n\n');
