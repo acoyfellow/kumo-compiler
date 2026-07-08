@@ -42,7 +42,7 @@ export function Grid(incoming: GridProps): JSX.Element {
   void native; void state; void refs;
   if (semanticEqual(props.semanticContent, "Two") && Object.prototype.hasOwnProperty.call(props, "gap") && semanticEqual(props.gap, "none") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "side-by-side")) return (<div class="grid-cols-2 gap-0">{props.children}</div>);
   if (semanticEqual(props.semanticContent, "Cells") && Object.prototype.hasOwnProperty.call(props, "variant") && semanticEqual(props.variant, "3up")) return (<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">{props.children}</div>);
-  return (<div class={mergeStyles("grid gap-2 md:gap-6 lg:gap-8", props.className as string | undefined, props.class as string | undefined)}>{props.children}</div>);
+  return (<div class={mergeStyles("grid", ({"2up":"grid-cols-1 md:grid-cols-2","side-by-side":"grid-cols-2","2-1":"grid-cols-1 md:grid-cols-[2fr_1fr]","1-2":"grid-cols-1 md:grid-cols-[1fr_2fr]","1-3up":"grid-cols-1 lg:grid-cols-3","3up":"grid-cols-1 md:grid-cols-2 lg:grid-cols-3","4up":"grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4","6up":"grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6","1-2-4up":"grid-cols-1 md:grid-cols-2 lg:grid-cols-4"} as Record<string,string>)[props.variant as string], ({"none":"gap-0","sm":"gap-3","base":"gap-2 md:gap-6 lg:gap-8","lg":"gap-8"} as Record<string,string>)[(props.gap as string) ?? "base"] ?? "gap-2 md:gap-6 lg:gap-8", props.className as string | undefined, props.class as string | undefined)}>{props.children}</div>);
 }
 
 export default Grid;

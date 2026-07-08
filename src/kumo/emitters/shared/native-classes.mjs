@@ -154,6 +154,11 @@ export const KUMO_TOOLTIP_ARROW_SVG = '<svg width="20" height="10" viewBox="0 0 
 // affordance), copied verbatim from @cloudflare/kumo 2.6.0's real chunk output
 // (not approximated) -- verified against golden's live homepage DOM.
 export const KUMO_LABEL_ROOT_CLASS = 'm-0 text-base font-medium text-kumo-default inline-flex items-center gap-1';
+// Grid variant/gap -> Tailwind class maps, transcribed verbatim from
+// @cloudflare/kumo 2.6.0's grid.d.ts KUMO_GRID_VARIANTS. Grid has no default
+// variant (plain grid emits no grid-cols-* class); gap defaults to 'base'.
+export const KUMO_GRID_VARIANT_CLASSES = Object.freeze({'2up':'grid-cols-1 md:grid-cols-2','side-by-side':'grid-cols-2','2-1':'grid-cols-1 md:grid-cols-[2fr_1fr]','1-2':'grid-cols-1 md:grid-cols-[1fr_2fr]','1-3up':'grid-cols-1 lg:grid-cols-3','3up':'grid-cols-1 md:grid-cols-2 lg:grid-cols-3','4up':'grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4','6up':'grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6','1-2-4up':'grid-cols-1 md:grid-cols-2 lg:grid-cols-4'});
+export const KUMO_GRID_GAP_CLASSES = Object.freeze({none:'gap-0',sm:'gap-3',base:'gap-2 md:gap-6 lg:gap-8',lg:'gap-8'});
 export const KUMO_LABEL_OPTIONAL_CLASS = 'font-normal text-kumo-subtle';
 export const KUMO_LABEL_INFO_BUTTON_CLASS = 'group flex shrink-0 font-medium select-none border-0 focus:outline-none focus:ring-kumo-focus/50 focus-visible:ring-2 focus-visible:ring-kumo-brand disabled:cursor-not-allowed disabled:text-kumo-subtle gap-1 rounded-sm text-xs items-center justify-center p-0 size-3.5 text-kumo-default hover:bg-kumo-tint shadow-none bg-inherit cursor-default';
 export const KUMO_LABEL_INFO_ICON_SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" class="size-4"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z"></path></svg>';
