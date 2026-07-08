@@ -49,8 +49,8 @@ export const COMPOUND_PART_OVERRIDES = Object.freeze({
   // Golden's live DOM confirms zero classes on any of these sub-elements
   // (all styling lives on the outer <table> via its own Tailwind classes).
   table: Object.freeze({
-    Header: Object.freeze({tag:'thead', className:''}),
-    Head: Object.freeze({tag:'th', className:''}),
+    Header: Object.freeze({tag:'thead', className:'group/header'}),
+    Head: Object.freeze({tag:'th', className:'group relative'}),
     Row: Object.freeze({tag:'tr', className:''}),
     Body: Object.freeze({tag:'tbody', className:''}),
     Cell: Object.freeze({tag:'td', className:''}),

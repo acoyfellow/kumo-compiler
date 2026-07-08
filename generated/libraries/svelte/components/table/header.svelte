@@ -7,6 +7,6 @@
   let { children, ...rest }: Props = $props();
 </script>
 
-<thead  {...rest}>
+<thead class="group/header" {...rest}>
   {#if children}{@render children()}{/if}
 </thead>

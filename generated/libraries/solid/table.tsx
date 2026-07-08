@@ -57,12 +57,12 @@ export function TableCell(props: CompoundPartProps): JSX.Element {
 
 export function TableHead(props: CompoundPartProps): JSX.Element {
   const [local, native] = splitProps(props, ["children"]);
-  return <th {...native} >{local.children}</th>;
+  return <th {...native} class="group relative">{local.children}</th>;
 }
 
 export function TableHeader(props: CompoundPartProps): JSX.Element {
   const [local, native] = splitProps(props, ["children"]);
-  return <thead {...native} >{local.children}</thead>;
+  return <thead {...native} class="group/header">{local.children}</thead>;
 }
 
 export function TableRow(props: CompoundPartProps): JSX.Element {

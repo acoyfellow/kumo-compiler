@@ -7,6 +7,6 @@
   let { children, ...rest }: Props = $props();
 </script>
 
-<th  {...rest}>
+<th class="group relative" {...rest}>
   {#if children}{@render children()}{/if}
 </th>

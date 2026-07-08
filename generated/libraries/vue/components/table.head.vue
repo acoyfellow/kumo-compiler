@@ -4,5 +4,5 @@ defineOptions({ inheritAttrs: false })
 </script>
 
 <template>
-  <th v-bind="$attrs" ><slot /></th>
+  <th v-bind="$attrs" class="group relative"><slot /></th>
 </template>
