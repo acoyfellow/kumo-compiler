@@ -33,5 +33,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <div ref="layerCardRoot" :class="['overflow-hidden', 'rounded-lg', 'ring', ...(layerCardMode === 'layered' ? ['flex','w-full','flex-col','bg-kumo-elevated','text-base','ring-kumo-hairline'] : ['bg-kumo-base','shadow-xs','ring-kumo-line']), (props as any).className]"><slot /></div>
+  <div ref="layerCardRoot" :class="kumoCx('overflow-hidden rounded-lg ring ' + (layerCardMode === 'layered' ? 'flex w-full flex-col bg-kumo-elevated text-base ring-kumo-hairline' : 'bg-kumo-base shadow-xs ring-kumo-line'), (props as any).className)"><slot /></div>
 </template>

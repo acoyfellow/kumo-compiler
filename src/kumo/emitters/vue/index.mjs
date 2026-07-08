@@ -1372,7 +1372,7 @@ function emitComponent(model, library) {
    // post-mount and swap between the plain and layered literal class strings
    // (both already in the prebuilt CSS). onMounted+onUpdated so it re-evaluates
    // if children change; SSR-safe because refs are only read in the browser.
-   const layerCardFallback = layerCard ? `<div ref="layerCardRoot" :class="['overflow-hidden', 'rounded-lg', 'ring', ...(layerCardMode === 'layered' ? ['flex','w-full','flex-col','bg-kumo-elevated','text-base','ring-kumo-hairline'] : ['bg-kumo-base','shadow-xs','ring-kumo-line']), (props as any).className]"><slot /></div>` : null;
+   const layerCardFallback = layerCard ? `<div ref="layerCardRoot" :class="kumoCx('overflow-hidden rounded-lg ring ' + (layerCardMode === 'layered' ? 'flex w-full flex-col bg-kumo-elevated text-base ring-kumo-hairline' : 'bg-kumo-base shadow-xs ring-kumo-line'), (props as any).className)"><slot /></div>` : null;
    // Ternary chains (not inline object literals) so the class expression carries
    // no double-quotes that would break Vue's :class="..." attribute parser.
    const gridVariantExpr = Object.entries(KUMO_GRID_VARIANT_CLASSES).map(([k,v]) => `props.variant === '${k}' ? '${v}'`).join(' : ') + " : ''";
