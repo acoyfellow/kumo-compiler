@@ -371,7 +371,7 @@ const VUE_TABS_INDICATOR_CLASS = 'absolute z-1 left-0 w-(--active-tab-width) tra
 function tabsNavigationSource(capability) {
   return {
     options:`defineOptions({ inheritAttrs: false })\n`,
-    imports:'computed, getCurrentInstance, nextTick, ref, useAttrs, useSlots, watch',
+    imports:'computed, getCurrentInstance, nextTick, onMounted, ref, useAttrs, useSlots, watch',
     setup:`type TabItem = { value: string; label: string }
 const instance = getCurrentInstance()
 const controlled = computed(() => Object.prototype.hasOwnProperty.call(instance?.vnode.props ?? {}, ${JSON.stringify(capability.selection.controlledProp)}))
@@ -380,6 +380,11 @@ const committedValue = computed(() => controlled.value ? props.selectedValue : i
 const focusedIndex = ref(Math.max(0, props.tabs?.findIndex((tab: TabItem) => tab.value === committedValue.value) ?? 0))
 const tabButtons = ref<HTMLButtonElement[]>([])
 watch(committedValue, value => { const index = props.tabs?.findIndex((tab: TabItem) => tab.value === value) ?? -1; if (index >= 0) focusedIndex.value = index })
+const tabList = ref<HTMLElement | null>(null)
+const tabIndicator = ref<HTMLElement | null>(null)
+const syncTabIndicator = () => { const list = tabList.value, ind = tabIndicator.value; if (!list || !ind) return; const activeIndex = props.tabs?.findIndex((tab: TabItem) => tab.value === committedValue.value) ?? -1; const btn = tabButtons.value[activeIndex]; if (!btn) return; const left = btn.offsetLeft, top = btn.offsetTop, width = btn.offsetWidth, height = btn.offsetHeight; ind.style.setProperty('--active-tab-left', left + 'px'); ind.style.setProperty('--active-tab-top', top + 'px'); ind.style.setProperty('--active-tab-width', width + 'px'); ind.style.setProperty('--active-tab-height', height + 'px'); ind.style.setProperty('--active-tab-right', (list.clientWidth - left - width) + 'px'); ind.style.setProperty('--active-tab-bottom', (list.clientHeight - top - height) + 'px'); ind.setAttribute('data-rendered', 'true'); ind.removeAttribute('hidden') }
+onMounted(() => nextTick(syncTabIndicator))
+watch(committedValue, () => nextTick(syncTabIndicator))
 function commit(value: string) {
   if (!controlled.value) internalValue.value = value
   props.onValueChange?.(value)
@@ -400,7 +405,7 @@ function activate(tab: TabItem, event: KeyboardEvent) {
   commit(tab.value)
 }
 `,
-    template:`<div data-orientation="horizontal" data-activation-direction="none" class="${esc(VUE_TABS_ROOT_CLASS)}"><div class="${esc(VUE_TABS_TRACK_CLASS)}"></div><div data-orientation="horizontal" data-activation-direction="none" role="tablist" class="${esc(VUE_TABS_LIST_CLASS)}"><button v-for="(tab, index) in props.tabs" :key="tab.value" :ref="element => { if (element) tabButtons[index] = element as HTMLButtonElement }" type="button" data-orientation="horizontal" aria-disabled="false" data-kumo-component="Tabs" data-kumo-part="tab" role="tab" class="${esc(VUE_TABS_TRIGGER_CLASS)}" :data-active="tab.value === committedValue ? '' : undefined" :tabindex="index === focusedIndex ? 0 : -1" :aria-selected="tab.value === committedValue" @click="commit(tab.value)" @keydown="moveNext(index, $event); activate(tab, $event)">{{ tab.label }}</button><div data-orientation="horizontal" data-activation-direction="none" role="presentation" hidden class="${esc(VUE_TABS_INDICATOR_CLASS)}"></div></div></div>`
+    template:`<div data-orientation="horizontal" data-activation-direction="none" class="${esc(VUE_TABS_ROOT_CLASS)}"><div class="${esc(VUE_TABS_TRACK_CLASS)}"></div><div data-orientation="horizontal" data-activation-direction="none" role="tablist" ref="tabList" class="${esc(VUE_TABS_LIST_CLASS)}"><button v-for="(tab, index) in props.tabs" :key="tab.value" :ref="element => { if (element) tabButtons[index] = element as HTMLButtonElement }" type="button" data-orientation="horizontal" aria-disabled="false" data-kumo-component="Tabs" data-kumo-part="tab" role="tab" class="${esc(VUE_TABS_TRIGGER_CLASS)}" :data-active="tab.value === committedValue ? '' : undefined" :tabindex="index === focusedIndex ? 0 : -1" :aria-selected="tab.value === committedValue" @click="commit(tab.value)" @keydown="moveNext(index, $event); activate(tab, $event)">{{ tab.label }}</button><div ref="tabIndicator" data-orientation="horizontal" data-activation-direction="none" role="presentation" data-rendered="false" hidden class="${esc(VUE_TABS_INDICATOR_CLASS)}"></div></div></div>`
   };
 }
 function menubarNavigationBinding(model, library) {

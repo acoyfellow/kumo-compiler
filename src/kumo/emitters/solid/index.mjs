@@ -388,6 +388,7 @@ function source(model, toggle, nativeInput, fieldControl, clipboardCopy, paginat
   if(dropdownMenuLayer||selectCollection)imports.add('For');
   if(selectCollection)imports.add('Show');
   if(radioGroup || tabsNavigation || menubarNavigation || tableOfContents)imports.add('For');
+  if(tabsNavigation){imports.add('onMount');imports.add('createEffect');}
   const localNames = nativeButton ? [...new Set([...model.props.items.filter(x => !x.nativeForwarding).map(x => x.name), 'children', 'fixture', 'styles', 'onClick'])] : nativeNames;
   const toggleTag=toggle?.native.root;
   const toggleRole=toggleTag==='span'?'checkbox':'switch';
@@ -469,7 +470,7 @@ function source(model, toggle, nativeInput, fieldControl, clipboardCopy, paginat
   // Tabs renders the SAME tree React canonical does: an outer isolate div wrapping a
   // recessed background div + the role=tablist div; the selected pill is a floating
   // sibling div[role=presentation] (React never nests an indicator span inside a tab).
-  const tabsFallback = tabsNavigation ? `<div data-orientation="horizontal" class=${JSON.stringify(KUMO_TABS_ROOT_CLASS)}><div class=${JSON.stringify(KUMO_TABS_BG_CLASS)} /><div role="tablist" class=${JSON.stringify(KUMO_TABS_LIST_REAL_CLASS)}><For each={props.tabs as TabItem[]} children={(item, index) => <button ref={element => { tabElements[index()] = element; }} type="button" role="tab" data-kumo-component="Tabs" data-kumo-part="tab" class=${JSON.stringify(KUMO_TABS_TRIGGER_REAL_CLASS)} aria-selected={selectedValue() === item.value} aria-disabled={Boolean((item as TabItem & {disabled?: boolean}).disabled)} tabindex={focusedIndex() === index() ? 0 : -1} onClick={() => commitTab(item.value)} onFocus={() => setFocusedIndex(index())} onKeyDown={event => tabKeyDown(event, index())}>{item.label}</button>} /><div role="presentation" hidden class=${JSON.stringify(KUMO_TABS_FLOAT_CLASS)} /></div></div>` : null;
+  const tabsFallback = tabsNavigation ? `<div data-orientation="horizontal" class=${JSON.stringify(KUMO_TABS_ROOT_CLASS)}><div class=${JSON.stringify(KUMO_TABS_BG_CLASS)} /><div role="tablist" ref={el => { tabListEl = el; }} class=${JSON.stringify(KUMO_TABS_LIST_REAL_CLASS)}><For each={props.tabs as TabItem[]} children={(item, index) => <button ref={element => { tabElements[index()] = element; }} type="button" role="tab" data-kumo-component="Tabs" data-kumo-part="tab" class=${JSON.stringify(KUMO_TABS_TRIGGER_REAL_CLASS)} aria-selected={selectedValue() === item.value} aria-disabled={Boolean((item as TabItem & {disabled?: boolean}).disabled)} tabindex={focusedIndex() === index() ? 0 : -1} onClick={() => commitTab(item.value)} onFocus={() => setFocusedIndex(index())} onKeyDown={event => tabKeyDown(event, index())}>{item.label}</button>} /><div ref={el => { tabIndicatorEl = el; }} role="presentation" data-rendered="false" hidden class=${JSON.stringify(KUMO_TABS_FLOAT_CLASS)} /></div></div>` : null;
   // React canonical <nav> carries the VERBATIM class string (menubar-m12wcbbucuszspw4.js):
   // "isolate flex rounded-lg ring ring-kumo-line bg-kumo-recessed pl-px shadow-xs transition-colors".
   // The shared menubarNavigation.root.classes model drops `ring pl-px shadow-xs transition-colors`
@@ -711,6 +712,11 @@ const compoundFixtureText = (value: unknown, exported: string): string => {
   const selectedIndex = () => Math.max(0, tabs().findIndex(item => item.value === selectedValue()));
   const [focusedIndex, setFocusedIndex] = createSignal(selectedIndex());
   const tabElements: HTMLButtonElement[] = [];
+  let tabListEl: HTMLElement | undefined;
+  let tabIndicatorEl: HTMLElement | undefined;
+  const syncTabIndicator = () => { if (!tabListEl || !tabIndicatorEl) return; const btn = tabElements[selectedIndex()]; if (!btn) return; const left = btn.offsetLeft, top = btn.offsetTop, width = btn.offsetWidth, height = btn.offsetHeight, s = tabIndicatorEl.style; s.setProperty("--active-tab-left", left + "px"); s.setProperty("--active-tab-top", top + "px"); s.setProperty("--active-tab-width", width + "px"); s.setProperty("--active-tab-height", height + "px"); s.setProperty("--active-tab-right", (tabListEl.clientWidth - left - width) + "px"); s.setProperty("--active-tab-bottom", (tabListEl.clientHeight - top - height) + "px"); tabIndicatorEl.setAttribute("data-rendered", "true"); tabIndicatorEl.removeAttribute("hidden"); };
+  onMount(() => queueMicrotask(syncTabIndicator));
+  createEffect(() => { selectedValue(); queueMicrotask(syncTabIndicator); });
   const commitTab = (value: string) => { if (!controlled()) setCommittedValue(value); (props.onValueChange as ((value: string) => void) | undefined)?.(value); };
   const tabKeyDown = (event: KeyboardEvent & {currentTarget: HTMLButtonElement}, index: number) => {
     if (event.key === "ArrowRight") { event.preventDefault(); const next = Math.min(index + 1, tabs().length - 1); setFocusedIndex(next); tabElements[next]?.focus(); if (props.activateOnFocus) commitTab(tabs()[next].value); }
