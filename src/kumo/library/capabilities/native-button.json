@@ -279,6 +279,69 @@
   ],
   "styleVariantProp": "variant",
   "defaultVariant": "secondary",
+  "shapeVariants": [
+    {
+      "when": {
+        "shape": "square"
+      },
+      "classes": [
+        "justify-center",
+        "p-0",
+        "size-9"
+      ]
+    },
+    {
+      "when": {
+        "shape": "circle"
+      },
+      "classes": [
+        "justify-center",
+        "p-0",
+        "rounded-full",
+        "size-9"
+      ]
+    }
+  ],
+  "shapeProp": "shape",
+  "defaultShape": "base",
+  "sizeVariants": [
+    {
+      "when": {
+        "size": "xs"
+      },
+      "classes": [
+        "h-5",
+        "gap-1",
+        "rounded-sm",
+        "px-1.5",
+        "text-xs"
+      ]
+    },
+    {
+      "when": {
+        "size": "sm"
+      },
+      "classes": [
+        "h-6.5",
+        "gap-1",
+        "rounded-md",
+        "px-2",
+        "text-xs"
+      ]
+    },
+    {
+      "when": {
+        "size": "lg"
+      },
+      "classes": [
+        "h-10",
+        "gap-2",
+        "px-4"
+      ]
+    }
+  ],
+  "sizeProp": "size",
+  "defaultSize": "base",
   "emphasis": {
     "prop": "variant",
     "overlayClass": "absolute inset-0 rounded-[inherit] bg-linear-to-b from-(--kumo-button-emphasis-gradient-start) to-(--kumo-button-emphasis-gradient-end) translate-y-px group-hover:from-(--kumo-button-emphasis-bg)",
@@ -326,5 +389,5 @@
     "enabled-click",
     "submit-form"
   ],
-  "capabilityDigest": "98085b2f1fbdf3fe7703da591dddef15c133f4ec154e223d7335094bff2c286b"
+  "capabilityDigest": "b479304fdca6df249dd39ff588e6e9f080d0b0f7c67b44153505efed508c1564"
 }

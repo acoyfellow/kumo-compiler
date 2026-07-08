@@ -3,4 +3,4 @@ import type { Component } from 'svelte';
 import type { Props } from './button.svelte';
 declare const component: Component<Props>;
 export default component;
-export const modelDigest: "7417a78be65b6386dc823accb864395cf9d80809806fada6090e1dd0c4162108";
+export const modelDigest: "8e347c772660fd4c5c1f1e58fed47fd248710558978f70ebf55f710caaf07e32";

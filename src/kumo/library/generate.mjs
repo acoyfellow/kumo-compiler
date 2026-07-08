@@ -273,7 +273,7 @@ for (const file of contractFiles) {
   if (semantic) model.semanticRender = {schemaVersion:semanticRender.schemaVersion, capabilityDigest:semanticRender.capabilityDigest, vectorIds:semantic.vectors.map(vector => vector.id)};
   else delete model.semanticRender;
   model.contentBindings = {schemaVersion:contentBindings.schemaVersion, capabilityDigest:contentBindings.capabilityDigest};
-  if(name==='button')model.interactions={...(model.interactions??{}),nativeButton:{schemaVersion:nativeButton.schemaVersion,capabilityDigest:nativeButton.capabilityDigest,styleVariants:nativeButton.styleVariants,styleVariantProp:nativeButton.styleVariantProp,defaultVariant:nativeButton.defaultVariant,emphasis:nativeButton.emphasis}};
+  if(name==='button')model.interactions={...(model.interactions??{}),nativeButton:{schemaVersion:nativeButton.schemaVersion,capabilityDigest:nativeButton.capabilityDigest,styleVariants:nativeButton.styleVariants,styleVariantProp:nativeButton.styleVariantProp,defaultVariant:nativeButton.defaultVariant,shapeVariants:nativeButton.shapeVariants,shapeProp:nativeButton.shapeProp,defaultShape:nativeButton.defaultShape,sizeVariants:nativeButton.sizeVariants,sizeProp:nativeButton.sizeProp,defaultSize:nativeButton.defaultSize,emphasis:nativeButton.emphasis}};
   else if(model.interactions)delete model.interactions.nativeButton;
   if(name==='tooltip')model.interactions={...(model.interactions??{}),tooltipPopup:{schemaVersion:'kumo.tooltip-popup/v1',openProps:['open','defaultOpen'],contentProp:'content',portalTarget:'document-body'}};
   else if(model.interactions)delete model.interactions.tooltipPopup;

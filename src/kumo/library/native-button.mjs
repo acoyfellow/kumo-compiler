@@ -66,15 +66,39 @@ function deriveStyleVariants(contract){
   return styleVariants;
 }
 
+// Shape and size are additional CVA dimensions on the real Button. Rather than
+// enumerate a 6x3x4 matrix, derive the CLASS DELTA each non-default shape/size
+// contributes (straight from @cloudflare/kumo's buttonVariants, not invented):
+// the emitter concatenates base variant classes + the active shape/size delta
+// and the runtime cx()/tailwind-merge resolves the conflicts (size-9 beats
+// w-max/h-9, p-0 beats px-3, etc.) to the exact computed style golden renders.
+const CANONICAL_SHAPES=['base','square','circle'];
+const CANONICAL_SIZES=['xs','sm','base','lg'];
+const DEFAULT_SHAPE='base';
+const DEFAULT_SIZE='base';
+function deriveDimensionVariants(dimension,keys,defaultKey){
+  const baseClasses=new Set(buttonVariants({variant:DEFAULT_VARIANT}).split(/\s+/).filter(Boolean));
+  const out=[];
+  for(const key of keys){
+    if(key===defaultKey)continue;
+    const full=buttonVariants({variant:DEFAULT_VARIANT,[dimension]:key}).split(/\s+/).filter(Boolean);
+    const delta=full.filter(cls=>!baseClasses.has(cls));
+    if(delta.length)out.push({when:{[dimension]:key},classes:delta});
+  }
+  return out;
+}
+
 export function deriveNativeButton(contract){
   if(contract.component!=='button'||contract.schemaVersion!=='kumo.observable/v1')throw new Error('native button capability requires canonical Button contract');
   const required=['disabled-click','loading-click','enabled-click','submit-form'];
   const ids=contract.vectors.map(vector=>vector.id);
   for(const id of required)if(!ids.includes(id))throw new Error(`native button vector missing: ${id}`);
   const styleVariants=deriveStyleVariants(contract);
+  const shapeVariants=deriveDimensionVariants('shape',CANONICAL_SHAPES,DEFAULT_SHAPE);
+  const sizeVariants=deriveDimensionVariants('size',CANONICAL_SIZES,DEFAULT_SIZE);
   const emphasis=deriveEmphasis();
   assertEmphasisCoupling(styleVariants,emphasis);
-  const value={schemaVersion:NATIVE_BUTTON_VERSION,component:'button',root:'button',type:{prop:'type',default:'button'},content:{role:'consumer-content'},nativeAttributes:true,disabledWhen:[{prop:'disabled',equals:true},{prop:'loading',equals:true}],loadingIndicator:{when:{prop:'loading',equals:true},tag:'svg',attributes:{'aria-hidden':'true'},beforeContent:true},styleVariants,styleVariantProp:'variant',defaultVariant:DEFAULT_VARIANT,emphasis,events:{click:{native:true,suppressedWhen:['disabled','loading']},submit:{nativeForm:true,when:{prop:'type',equals:'submit'}}},vectorIds:required};
+  const value={schemaVersion:NATIVE_BUTTON_VERSION,component:'button',root:'button',type:{prop:'type',default:'button'},content:{role:'consumer-content'},nativeAttributes:true,disabledWhen:[{prop:'disabled',equals:true},{prop:'loading',equals:true}],loadingIndicator:{when:{prop:'loading',equals:true},tag:'svg',attributes:{'aria-hidden':'true'},beforeContent:true},styleVariants,styleVariantProp:'variant',defaultVariant:DEFAULT_VARIANT,shapeVariants,shapeProp:'shape',defaultShape:DEFAULT_SHAPE,sizeVariants,sizeProp:'size',defaultSize:DEFAULT_SIZE,emphasis,events:{click:{native:true,suppressedWhen:['disabled','loading']},submit:{nativeForm:true,when:{prop:'type',equals:'submit'}}},vectorIds:required};
   return {...value,capabilityDigest:digest(value)};
 }
 export function validateNativeButton(value){
