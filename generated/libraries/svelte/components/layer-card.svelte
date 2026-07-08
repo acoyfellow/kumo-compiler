@@ -39,6 +39,9 @@
   const layers = new Set<string>();
   const styleOperations: unknown[][] = [];
   const cx = (...values: unknown[]) => { const tokens = values.filter(Boolean).join(' ').split(/\s+/).filter(Boolean); const keysOf = (t: string): string[] => { const k: string[] = []; if (/^w-/.test(t)) k.push('w'); if (/^h-/.test(t)) k.push('h'); if (/^size-/.test(t)) k.push('w','h'); if (/^p-/.test(t)) k.push('p','px','py','pt','pb','pl','pr'); if (/^px-/.test(t)) k.push('px','pl','pr'); if (/^py-/.test(t)) k.push('py','pt','pb'); if (/^pt-/.test(t)) k.push('pt'); if (/^pb-/.test(t)) k.push('pb'); if (/^pl-/.test(t)) k.push('pl'); if (/^pr-/.test(t)) k.push('pr'); if (/^rounded(-|$)/.test(t)) k.push('rounded'); if (/^gap-/.test(t)) k.push('gap'); if (/^text-(xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl|9xl)$/.test(t)) k.push('text-size'); if (/^justify-/.test(t)) k.push('justify'); return k; }; const keys = tokens.map(keysOf); return tokens.filter((t, i) => { const ks = keys[i]; if (!ks.length) return true; for (let j = i + 1; j < tokens.length; j++) if (keys[j].some(k => ks.includes(k))) return false; return true; }).join(' '); };
+  let layerCardRoot: HTMLElement | undefined = $state();
+  let layerCardMode = $state<"plain"|"layered">("plain");
+  $effect(() => { if (layerCardRoot) layerCardMode = layerCardRoot.querySelector('[data-kumo-layer-part]') ? "layered" : "plain"; });
   void "render-1";
   styleOperations.push([styles["root"]]);
 </script>
@@ -54,7 +57,5 @@
     {"TopMain"}
   </div>
 {:else}
-<div class={cx("overflow-hidden rounded-lg bg-kumo-base shadow-xs ring ring-kumo-line", className as string | undefined, rest.class as string | undefined)}>
-  {#if children}{@render children()}{/if}
-</div>
+<div bind:this={layerCardRoot} {...rest} class={cx(layerCardMode === "layered" ? "flex w-full flex-col overflow-hidden rounded-lg bg-kumo-elevated text-base ring ring-kumo-hairline" : "overflow-hidden rounded-lg bg-kumo-base shadow-xs ring ring-kumo-line", className as string | undefined, rest.class as string | undefined)}>{#if children}{@render children()}{/if}</div>
 {/if}

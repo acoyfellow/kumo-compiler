@@ -6,7 +6,7 @@ export const contentBindingDigest = "a6655036dbbdb2cd56a9e62bf5f2f8f75bb6a7bb4d3
 
 <script setup lang="ts">
 defineOptions({ inheritAttrs: false })
-import { computed, useAttrs, useSlots, useAttrs as __useAttrs } from 'vue'
+import { computed, useAttrs, useSlots, useAttrs as __useAttrs, ref, onMounted, onUpdated } from 'vue'
 interface LayerCardProps {
   "children"?: unknown
   "className"?: string
@@ -16,6 +16,11 @@ interface LayerCardProps {
 }
 const props = withDefaults(defineProps<LayerCardProps>(), {})
 const slots = useSlots()
+const layerCardRoot = ref<HTMLElement | null>(null)
+const layerCardMode = ref<'plain'|'layered'>('plain')
+const syncLayerCardMode = () => { if (layerCardRoot.value) layerCardMode.value = layerCardRoot.value.querySelector('[data-kumo-layer-part]') ? 'layered' : 'plain' }
+onMounted(syncLayerCardMode)
+onUpdated(syncLayerCardMode)
 const kumoRootAttrs = __useAttrs()
 const kumoCx = (...values: unknown[]) => { const tokens = values.filter(Boolean).join(' ').split(/\s+/).filter(Boolean); const keysOf = (t: string): string[] => { const k: string[] = []; if (/^w-/.test(t)) k.push('w'); if (/^h-/.test(t)) k.push('h'); if (/^size-/.test(t)) k.push('w','h'); if (/^p-/.test(t)) k.push('p','px','py','pt','pb','pl','pr'); if (/^px-/.test(t)) k.push('px','pl','pr'); if (/^py-/.test(t)) k.push('py','pt','pb'); if (/^pt-/.test(t)) k.push('pt'); if (/^pb-/.test(t)) k.push('pb'); if (/^pl-/.test(t)) k.push('pl'); if (/^pr-/.test(t)) k.push('pr'); if (/^rounded(-|$)/.test(t)) k.push('rounded'); if (/^gap-/.test(t)) k.push('gap'); if (/^text-(xs|sm|base|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl|8xl|9xl)$/.test(t)) k.push('text-size'); if (/^justify-/.test(t)) k.push('justify'); return k; }; const keys = tokens.map(keysOf); return tokens.filter((t, i) => { const ks = keys[i]; if (!ks.length) return true; for (let j = i + 1; j < tokens.length; j++) if (keys[j].some(k => ks.includes(k))) return false; return true; }).join(' '); }
 const styles: Record<string,string> = {}
@@ -28,5 +33,5 @@ const fixtureText = (value: any): string => value && typeof value === 'object' ?
 </script>
 
 <template>
-  <template v-if="semanticEqual(props.semanticContent, &quot;Card&quot;)"><div class="bg-kumo-base shadow-xs ring-kumo-line">{{ renderContent() }}</div></template><template v-else-if="semanticEqual(fixture, {&quot;export&quot;:&quot;root&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;export&quot;:&quot;.Secondary&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;text&quot;:&quot;Top&quot;}]},{&quot;export&quot;:&quot;.Primary&quot;,&quot;props&quot;:{},&quot;children&quot;:[{&quot;text&quot;:&quot;Main&quot;}]}]})"><div class="bg-kumo-elevated ring-kumo-hairline"><div></div><div></div>{{ "TopMain" }}</div></template><template v-else><div :class="kumoCx(&quot;overflow-hidden rounded-lg bg-kumo-base shadow-xs ring ring-kumo-line&quot;, (props as any).className, kumoRootAttrs.class)"><slot /></div></template>
+  <div ref="layerCardRoot" :class="['overflow-hidden', 'rounded-lg', 'ring', ...(layerCardMode === 'layered' ? ['flex','w-full','flex-col','bg-kumo-elevated','text-base','ring-kumo-hairline'] : ['bg-kumo-base','shadow-xs','ring-kumo-line']), (props as any).className]"><slot /></div>
 </template>

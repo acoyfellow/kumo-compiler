@@ -4,5 +4,5 @@ defineOptions({ inheritAttrs: false })
 </script>
 
 <template>
-  <div v-bind="$attrs" class="relative flex flex-col gap-2 overflow-hidden rounded-lg bg-kumo-base p-4 pr-3 text-inherit no-underline ring ring-kumo-fill"><slot /></div>
+  <div v-bind="$attrs" class="relative flex flex-col gap-2 overflow-hidden rounded-lg bg-kumo-base p-4 pr-3 text-inherit no-underline ring ring-kumo-fill" data-kumo-layer-part=""><slot /></div>
 </template>

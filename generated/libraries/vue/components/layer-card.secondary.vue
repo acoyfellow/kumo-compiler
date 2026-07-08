@@ -4,5 +4,5 @@ defineOptions({ inheritAttrs: false })
 </script>
 
 <template>
-  <div v-bind="$attrs" class="-my-2 flex items-center gap-2 bg-kumo-elevated p-4 text-base font-medium text-kumo-subtle"><slot /></div>
+  <div v-bind="$attrs" class="-my-2 flex items-center gap-2 bg-kumo-elevated p-4 text-base font-medium text-kumo-subtle" data-kumo-layer-part=""><slot /></div>
 </template>

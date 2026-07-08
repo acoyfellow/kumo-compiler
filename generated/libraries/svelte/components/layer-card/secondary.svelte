@@ -7,6 +7,6 @@
   let { children, ...rest }: Props = $props();
 </script>
 
-<div class="-my-2 flex items-center gap-2 bg-kumo-elevated p-4 text-base font-medium text-kumo-subtle" {...rest}>
+<div class="-my-2 flex items-center gap-2 bg-kumo-elevated p-4 text-base font-medium text-kumo-subtle" data-kumo-layer-part="" {...rest}>
   {#if children}{@render children()}{/if}
 </div>

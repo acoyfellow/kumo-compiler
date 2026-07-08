@@ -34,9 +34,15 @@ export function expandNamedExportModels(models) {
 // Values are canonical @cloudflare/kumo 2.6.0 SSR markup. Unlisted parts must retain
 // each framework's existing generic tag and data-kumo-part attribute.
 export const COMPOUND_PART_OVERRIDES = Object.freeze({
+  // LayerCard sub-parts carry a data-kumo-layer-part marker so the LayerCard
+  // ROOT can detect (post-mount, via querySelector) that it is in LAYERED mode
+  // and swap its class string from plain (bg-kumo-base shadow-xs) to layered
+  // (flex flex-col bg-kumo-elevated), reproducing golden's JS children-scan
+  // branch. The marker is a non-semantic data attribute (Tier A ignores it;
+  // Tier B compares computed style) so it is invisible to the gate.
   'layer-card': Object.freeze({
-    Secondary: Object.freeze({tag:'div', className:'-my-2 flex items-center gap-2 bg-kumo-elevated p-4 text-base font-medium text-kumo-subtle'}),
-    Primary: Object.freeze({tag:'div', className:'relative flex flex-col gap-2 overflow-hidden rounded-lg bg-kumo-base p-4 pr-3 text-inherit no-underline ring ring-kumo-fill'}),
+    Secondary: Object.freeze({tag:'div', className:'-my-2 flex items-center gap-2 bg-kumo-elevated p-4 text-base font-medium text-kumo-subtle', dataAttr:'data-kumo-layer-part'}),
+    Primary: Object.freeze({tag:'div', className:'relative flex flex-col gap-2 overflow-hidden rounded-lg bg-kumo-base p-4 pr-3 text-inherit no-underline ring ring-kumo-fill', dataAttr:'data-kumo-layer-part'}),
   }),
   // Table is a REAL semantic HTML table (verified against @cloudflare/kumo
   // 2.6.0's own type declarations: Header=HTMLTableSectionElement/<thead>,
