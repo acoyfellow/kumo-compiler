@@ -320,7 +320,7 @@ function component(model,capabilities){
   // from the already-fixed Vue emitter (11b295bb). No data-state attribute exists on
   // either; it was an emitter invention the route-cascade's real-DOM comparison caught.
   const toggleData=toggle?` data-checked={currentChecked ? "" : undefined} data-unchecked={currentChecked ? undefined : ""} data-indeterminate={(${indeterminateValue}) ? "" : undefined}`:'';
- const tooltipFallback=tooltip?`{#if asChild}{#if children}{@render children()}{/if}{:else}<button class="inline-flex items-center bg-transparent border-none shadow-none p-0 m-0 h-auto min-h-0 leading-[0] cursor-default" type="button" data-base-ui-tooltip-trigger="">{#if children}{@render children()}{/if}</button>{/if}{#if browser && tooltipOpen}<div use:tooltipPortal data-base-ui-portal data-base-ui-inert><div data-open="" data-side="top" data-align="center" role="presentation" class=${q(KUMO_TOOLTIP_POSITIONER_CLASS)} style="position:absolute;left:0;top:0;transform:translate(0px,-10px)"><div data-open="" data-side="top" data-align="center" tabindex="-1" data-base-ui-focusable="" class=${q(KUMO_TOOLTIP_POPUP_CLASS)}><div data-open="" data-side="top" data-align="center" aria-hidden="true" class=${q(KUMO_TOOLTIP_ARROW_CLASS)} style="position:absolute;left:12px">${KUMO_TOOLTIP_ARROW_SVG}</div>{tooltipContent}</div></div></div>{/if}`:null;
+ const tooltipFallback=tooltip?`<div style="display:contents" bind:this={tooltipAnchor}>{#if asChild}{#if children}{@render children()}{/if}{:else}<button class="inline-flex items-center bg-transparent border-none shadow-none p-0 m-0 h-auto min-h-0 leading-[0] cursor-default" type="button" data-base-ui-tooltip-trigger="">{#if children}{@render children()}{/if}</button>{/if}</div>{#if browser && tooltipOpen}<div use:tooltipPortal data-base-ui-portal data-base-ui-inert><div data-open="" data-side="top" data-align="center" role="presentation" class=${q(KUMO_TOOLTIP_POSITIONER_CLASS)} style="position:absolute;left:0;top:0;transform:translate(0px,-10px)"><div data-open="" data-side="top" data-align="center" tabindex="-1" data-base-ui-focusable="" class=${q(KUMO_TOOLTIP_POPUP_CLASS)}><div data-open="" data-side="top" data-align="center" aria-hidden="true" class=${q(KUMO_TOOLTIP_ARROW_CLASS)} style="position:absolute;left:12px">${KUMO_TOOLTIP_ARROW_SVG}</div>{tooltipContent}</div></div></div>{/if}`:null;
  const visualSimpleFallback=visualSimple?(model.component==='badge'?`<${visualSimple.root.tag} {...rest} class={${badgeVariantExpression('variant')}}>{#if children}{@render children()}{/if}</${visualSimple.root.tag}>`:model.component==='text'?`<p {...rest} class={cx("text-kumo-default", ({xs:"text-xs",sm:"text-sm",base:"text-base",lg:"text-lg"} as Record<string,string>)[(size as string | undefined) ?? "base"] ?? "text-base", bold ? "font-medium" : "")}>{#if children}{@render children()}{/if}</p>`:`<${visualSimple.root.tag} {...rest} class=${q(visualSimple.root.className)}>{#if children}{@render children()}{/if}</${visualSimple.root.tag}>`):null;
  const tocFallback=tableOfContents?`<nav aria-label={String(tocFixture?.props?.['aria-label'] ?? 'Table of contents')}>{#if tocTitle}<p>{tocTitle}</p>{/if}{#if tocItems.length}<ul>{#each tocItems as item (item.href)}{#if item.group}<a href={item.href} aria-current={item.active ? 'location' : undefined}>{item.label}</a>{:else}<li><a href={item.href} aria-current={item.active ? 'location' : undefined}>{item.label}</a></li>{/if}{/each}</ul>{/if}</nav>`:null;
   const isCheckbox=toggle&&toggle.native.root==='span';
@@ -648,7 +648,27 @@ function component(model,capabilities){
   void popoverContent;
 `:''}${tooltip?`  const tooltipOpen = $derived(open !== undefined ? Boolean(open) : Boolean(defaultOpen));
   const tooltipContent = $derived(typeof content === 'string' || typeof content === 'number' ? String(content) : fixtureText(content));
-  function tooltipPortal(node: HTMLElement) { document.body.appendChild(node); return { destroy() { node.remove(); } }; }
+  let tooltipAnchor: HTMLElement | undefined = $state();
+  function tooltipPortal(node: HTMLElement) {
+    document.body.appendChild(node);
+    // Position the portaled popup at the trigger (top/center) the way golden's
+    // floating-ui does: read the trigger rect and set the positioner transform +
+    // the floating-ui CSS vars golden exposes, instead of a hardcoded offset.
+    const position = () => {
+      const trigger = (tooltipAnchor?.matches('[data-base-ui-tooltip-trigger]') ? tooltipAnchor : tooltipAnchor?.querySelector('[data-base-ui-tooltip-trigger]')) as HTMLElement | null;
+      const positioner = node.querySelector('[role="presentation"]') as HTMLElement | null;
+      const popup = node.querySelector('[data-base-ui-focusable]') as HTMLElement | null;
+      if (!trigger || !positioner || !popup) return;
+      const t = trigger.getBoundingClientRect(); const pop = popup.getBoundingClientRect();
+      const left = Math.round((t.left + t.width / 2 - pop.width / 2) * 100) / 100;
+      const top = Math.round((t.top - pop.height - 10) * 100) / 100;
+      positioner.style.transform = 'translate(' + left + 'px,' + top + 'px)';
+      positioner.style.setProperty('--available-width', (document.documentElement.clientWidth - 10) + 'px');
+      positioner.style.setProperty('--available-height', (document.documentElement.clientHeight - 11) + 'px');
+    };
+    requestAnimationFrame(position);
+    return { destroy() { node.remove(); } };
+  }
 `:''}${dropdown?`  function portal(node: HTMLElement) { document.body.appendChild(node); return { destroy() { node.remove(); } }; }
   type DropdownFixtureNode = { export?: string; text?: string; props?: Record<string, unknown>; children?: DropdownFixtureNode[] };
   type DropdownItem = { label: string; disabled: boolean; submenu?: DropdownItem[] };
