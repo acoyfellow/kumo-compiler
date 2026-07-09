@@ -573,7 +573,21 @@ const compoundFixtureText = (value: unknown, exported: string): string => {
     // Solid invokes refs while constructing a Show branch, before the branch is
     // inserted at its marker. Relocating synchronously lets that insertion move
     // the node back inline, so defer until the branch's DOM insertion completes.
-    queueMicrotask(() => { if (!disposed && typeof document !== "undefined") document.body.appendChild(node); });
+    queueMicrotask(() => {
+      if (disposed || typeof document === "undefined") return;
+      document.body.appendChild(node);
+      // Anchor the portaled menu to its trigger the way golden's floating-ui does
+      // (side=bottom, align=center, 8px gap), replacing the hardcoded translate
+      // offset that otherwise pins the menu to the top-left corner.
+      requestAnimationFrame(() => {
+        const positioner = node.querySelector('[role="presentation"]') as HTMLElement | null;
+        if (!dropdownTrigger || !positioner || !dropdownMenu) return;
+        const t = dropdownTrigger.getBoundingClientRect(); const m = dropdownMenu.getBoundingClientRect();
+        const left = Math.round((t.left + t.width / 2 - m.width / 2) * 100) / 100;
+        const top = Math.round((t.bottom + 8) * 100) / 100;
+        positioner.style.transform = "translate(" + left + "px," + top + "px)";
+      });
+    });
     onCleanup(() => { disposed = true; node.remove(); });
   };
   const setDropdownOpen = (next: boolean) => { if (!controlled) setUncontrolledOpen(next); (props.onOpenChange as ((open: boolean) => void) | undefined)?.(next); };

@@ -669,7 +669,25 @@ function component(model,capabilities){
     requestAnimationFrame(position);
     return { destroy() { node.remove(); } };
   }
-`:''}${dropdown?`  function portal(node: HTMLElement) { document.body.appendChild(node); return { destroy() { node.remove(); } }; }
+`:''}${dropdown?`  function portal(node: HTMLElement) {
+    document.body.appendChild(node);
+    // Anchor the portaled menu to its trigger the way golden's floating-ui does
+    // (side=bottom, align=center, 8px gap): read the trigger rect and the menu
+    // popup size, then set the positioner transform, replacing the hardcoded
+    // translate offset. Without this the menu renders at the top-left corner.
+    const position = () => {
+      const trigger = dropdownTrigger;
+      const positioner = node.querySelector('[role="presentation"]') as HTMLElement | null;
+      const menu = node.querySelector('[role="menu"]') as HTMLElement | null;
+      if (!trigger || !positioner || !menu) return;
+      const t = trigger.getBoundingClientRect(); const m = menu.getBoundingClientRect();
+      const left = Math.round((t.left + t.width / 2 - m.width / 2) * 100) / 100;
+      const top = Math.round((t.bottom + 8) * 100) / 100;
+      positioner.style.transform = 'translate(' + left + 'px,' + top + 'px)';
+    };
+    requestAnimationFrame(position);
+    return { destroy() { node.remove(); } };
+  }
   type DropdownFixtureNode = { export?: string; text?: string; props?: Record<string, unknown>; children?: DropdownFixtureNode[] };
   type DropdownItem = { label: string; disabled: boolean; submenu?: DropdownItem[] };
   function dropdownText(node: DropdownFixtureNode | undefined): string { return node ? String(node.text ?? '') + (node.children ?? []).map(dropdownText).join('') : ''; }
